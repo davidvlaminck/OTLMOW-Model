@@ -1,4 +1,4 @@
-from otlmow_model.Exceptions.WrongGeometryError import WrongGeometryError
+from otlmow_model.Exceptions.WrongGeometryWarning import WrongGeometryWarning
 from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.WKTValidator import WKTValidator
 
@@ -28,7 +28,7 @@ class WKTField(OTLField):
                 expected_types = ' and '.join(attribuut.owner._geometry_types)
                 verkorte_uri = attribuut.owner.typeURI.split('#')[1]
                 error_msg = f"Asset type {verkorte_uri} can't be assigned a {geo_type} as geometry, valid types are {expected_types}"
-                raise WrongGeometryError(error_msg)
+                raise WrongGeometryWarning(error_msg)
         return True
 
     def __str__(self):
