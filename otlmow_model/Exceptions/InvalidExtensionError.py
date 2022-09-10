@@ -1,2 +1,0 @@
-class InvalidExtensionError(ValueError):
-    pass
