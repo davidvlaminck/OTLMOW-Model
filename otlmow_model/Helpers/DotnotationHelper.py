@@ -5,6 +5,12 @@
     waarde_shortcut_applicable = False
 
     @staticmethod
+    def set_class_vars_to_parameters(cardinality_indicator, separator, waarde_shortcut_applicable):
+        DotnotationHelper.separator = separator
+        DotnotationHelper.cardinality_indicator = cardinality_indicator
+        DotnotationHelper.waarde_shortcut_applicable = waarde_shortcut_applicable
+
+    @staticmethod
     def set_parameters_to_class_vars(cardinality_indicator, separator, waarde_shortcut_applicable):
         if separator == '':
             separator = DotnotationHelper.separator

@@ -1,7 +1,5 @@
 ﻿from unittest import TestCase
 
-from otlmow_model.Facility.SettingsManager import SettingsManager
-
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 
 
@@ -64,56 +62,3 @@ class DotnotationOnAttributeTests(TestCase):
             self.assertEqual('testUnionTypeMetKard[].unionKwantWrd', instance.testUnionTypeMetKard[0]._unionKwantWrd.dotnotation)
             self.assertEqual('testUnionTypeMetKard[].unionKwantWrd.waarde',
                              instance.testUnionTypeMetKard[0].unionKwantWrd._waarde.dotnotation)
-
-    def test_use_settingsmanager_to_change_dotnotation(self):
-        settingsmanager = SettingsManager(settings_path='')
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': ',',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '()',
-                 'waarde_shortcut_applicable': False}
-             }]
-        settingsmanager.load_settings_in_app()
-
-        instance = AllCasesTestClass()
-        self.assertEqual('testKwantWrdMetKard(),waarde', instance.testKwantWrdMetKard[0]._waarde.dotnotation)
-
-        # restore original settings
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': False}
-             }]
-        settingsmanager.load_settings_in_app()
-
-    def test_dotnotation_using_waarde_shortcut(self):
-        settingsmanager = SettingsManager(settings_path='')
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': True}
-             }]
-        settingsmanager.load_settings_in_app()
-
-        instance = AllCasesTestClass()
-        self.assertEqual('testKwantWrdMetKard[]', instance.testKwantWrdMetKard[0]._waarde.dotnotation)
-
-        # restore original settings
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': False}
-             }]
-        settingsmanager.load_settings_in_app()
-
