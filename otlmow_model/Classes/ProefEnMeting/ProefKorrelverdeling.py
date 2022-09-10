@@ -1,0 +1,40 @@
+# coding=utf-8
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.Classes.Abstracten.Proef import Proef
+from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+
+
+# Generated with OTLClassCreator. To modify: extend, do not edit
+class ProefKorrelverdeling(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
+    """Bepaling van de doorval door een reeks zeven van een granulaatmengsel volgens NBN EN 933-1."""
+
+    typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefKorrelverdeling'
+    """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
+
+    def __init__(self):
+        Proef.__init__(self)
+        LijnGeometrie.__init__(self)
+        PuntGeometrie.__init__(self)
+        VlakGeometrie.__init__(self)
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BitumineuzeLaag')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DunneOverlaging')
+
+        self._korrelverdeling = OTLAttribuut(field=DtcDocument,
+                                             naam='korrelverdeling',
+                                             label='korrelverdeling',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefKorrelverdeling.korrelverdeling',
+                                             definition='Het resultaat van de test van de gemeten korrelverdeling in de BV laag.',
+                                             owner=self)
+
+    @property
+    def korrelverdeling(self):
+        """Het resultaat van de test van de gemeten korrelverdeling in de BV laag."""
+        return self._korrelverdeling.get_waarde()
+
+    @korrelverdeling.setter
+    def korrelverdeling(self, value):
+        self._korrelverdeling.set_waarde(value, owner=self)
