@@ -91,44 +91,28 @@ class DotnotationHelperTests(TestCase):
             self.assertEqual(expected_attribute, result_attribute)
 
     def test_get_attributes_by_dotnotation_waarde_shortcut(self):
-        settingsmanager = SettingsManager(settings_path='')
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': True}
-             }]
-        settingsmanager.load_settings_in_app()
+        DotnotationHelper.set_parameters_to_class_vars(cardinality_indicator='[]', separator='.',
+                                                       waarde_shortcut_applicable=True)
 
         instance = AllCasesTestClass()
         with self.subTest("attribute 2 levels deep with waarde shortcut enabled"):
             result_attribute = DotnotationHelper.get_attributes_by_dotnotation(instance, 'testKwantWrd')
             expected_attribute = instance.testKwantWrd._waarde
-            self.assertEqual(expected_attribute, result_attribute)
+            self.assertEqual(expected_attribute.objectUri, result_attribute.objectUri)
 
         with self.subTest("attribute 2 levels deep with waarde shortcut enabled and cardinality > 1"):
             result_attribute = DotnotationHelper.get_attributes_by_dotnotation(instance, 'testKwantWrdMetKard[]')
-            expected_attribute = [instance.testKwantWrdMetKard[0]._waarde]
-            self.assertEqual(expected_attribute, result_attribute)
+            expected_attribute = instance.testKwantWrdMetKard[0]._waarde
+            self.assertEqual(expected_attribute.objectUri, result_attribute.objectUri)
 
         with self.subTest("attribute 4 levels deep with waarde shortcut disabled"):
             result_attribute = DotnotationHelper.get_attributes_by_dotnotation(instance,
                                                                              'testComplexType.testComplexType2.testKwantWrd')
             expected_attribute = instance.testComplexType.testComplexType2.testKwantWrd._waarde
-            self.assertEqual(expected_attribute, result_attribute)
+            self.assertEqual(expected_attribute.objectUri, result_attribute.objectUri)
 
-        # restore original settings
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': False}
-             }]
-        settingsmanager.load_settings_in_app()
+        DotnotationHelper.set_parameters_to_class_vars(cardinality_indicator='[]', separator='.',
+                                                       waarde_shortcut_applicable=False)
 
     def test_set_attribute_by_dotnotation_decimal_value_convert_scenarios(self):
         instance = AllCasesTestClass()
@@ -172,17 +156,9 @@ class DotnotationHelperTests(TestCase):
             self.assertEqual(6.0, instance.testDecimalFieldMetKard[0])
 
     def test_set_attributes_by_dotnotation_default_values(self):
+        DotnotationHelper.set_parameters_to_class_vars(cardinality_indicator='[]', separator='.',
+                                                       waarde_shortcut_applicable=False)
         instance = AllCasesTestClass()
-        settingsmanager = SettingsManager(settings_path='')
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': False}
-             }]
-        settingsmanager.load_settings_in_app()
 
         with self.subTest("attribute 1 level deep"):
             DotnotationHelper.set_attribute_by_dotnotation(instance, 'testDecimalField', 6.0)
@@ -227,16 +203,8 @@ class DotnotationHelperTests(TestCase):
             self.assertEqual(4.0, instance.testComplexType.testComplexType2.testKwantWrd.waarde)
 
     def test_set_attribute_by_dotnotation_using_settings(self):
-        settingsmanager = SettingsManager(settings_path='')
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '*',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '()',
-                 'waarde_shortcut_applicable': False}
-             }]
-        settingsmanager.load_settings_in_app()
+        DotnotationHelper.set_parameters_to_class_vars(cardinality_indicator='()', separator='*',
+                                                       waarde_shortcut_applicable=False)
 
         instance = AllCasesTestClass()
 
@@ -253,27 +221,12 @@ class DotnotationHelperTests(TestCase):
                                                          [['1.1', '1.2'], ['2.1', '2.2']])
             self.assertEqual('2.2', instance.testComplexTypeMetKard[1].testStringFieldMetKard[1])
 
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': False}
-             }]
-        settingsmanager.load_settings_in_app()
+        DotnotationHelper.set_parameters_to_class_vars(cardinality_indicator='[]', separator='.',
+                                                       waarde_shortcut_applicable=False)
 
     def test_set_attribute_by_dotnotation_waarde_shortcut(self):
-        settingsmanager = SettingsManager(settings_path='')
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': True}
-             }]
-        settingsmanager.load_settings_in_app()
+        DotnotationHelper.set_parameters_to_class_vars(cardinality_indicator='[]', separator='.',
+                                                       waarde_shortcut_applicable=True)
 
         instance = AllCasesTestClass()
 
@@ -297,12 +250,5 @@ class DotnotationHelperTests(TestCase):
             DotnotationHelper.set_attribute_by_dotnotation(instance, 'testComplexType.testComplexType2.testKwantWrd', 4.0)
             self.assertEqual(4.0, instance.testComplexType.testComplexType2.testKwantWrd.waarde)
 
-        settingsmanager.settings['file_formats'] = [
-            {'name': 'OTLMOW',
-             'dotnotation': {
-                 'separator': '.',
-                 'cardinality separator': '|',
-                 'cardinality indicator': '[]',
-                 'waarde_shortcut_applicable': False}
-             }]
-        settingsmanager.load_settings_in_app()
+        DotnotationHelper.set_parameters_to_class_vars(cardinality_indicator='[]', separator='.',
+                                                       waarde_shortcut_applicable=False)

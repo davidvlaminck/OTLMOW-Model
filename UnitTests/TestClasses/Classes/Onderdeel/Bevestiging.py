@@ -1,8 +1,10 @@
 # coding=utf-8
-from OTLMOW.OTLModel.Classes.ImplementatieElement.NietDirectioneleRelatie import NietDirectioneleRelatie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
+from UnitTests.TestClasses.Classes.ImplementatieElement.NietDirectioneleRelatie import NietDirectioneleRelatie
+
+
 class Bevestiging(NietDirectioneleRelatie):
     """Deze relatie geeft aan dat twee onderdelen direct fysiek op elkaar bevestigd zijn. Dit kan zowel aan de buitenkant als aan de binnenkant zijn zoals bv. een camera aan een paal of een laagspanningsbord in een kast. Deze relatie heeft geen richting."""
 

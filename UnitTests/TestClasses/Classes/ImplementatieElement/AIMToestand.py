@@ -1,10 +1,12 @@
 # coding=utf-8
-from OTLMOW.OTLModel.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod, ABC
 from UnitTests.TestClasses.Datatypes.KlAIMToestand import KlAIMToestand
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+
+
 class AIMToestand(ABC):
     """Voegt een attribuut toe aan de subklasse dat de huidige stand in de levenscyclus van het object aangeeft."""
 

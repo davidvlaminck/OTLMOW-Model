@@ -1,10 +1,12 @@
 # coding=utf-8
-from OTLMOW.OTLModel.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod, ABC
-from OTLMOW.OTLModel.Datatypes.BooleanField import BooleanField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
+from otlmow_model.BaseClasses.BooleanField import BooleanField
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+
+
 class AIMDBStatus(ABC):
     """Voegt een attribuut toe aan de subklasse dat aangeeft of de asset zichtbaar is in de databank of (zacht) verwijderd is."""
 

@@ -1,12 +1,14 @@
 # coding=utf-8
-from OTLMOW.OTLModel.BaseClasses.AttributeInfo import AttributeInfo
-from OTLMOW.OTLModel.BaseClasses.OTLAttribuut import OTLAttribuut
-from OTLMOW.OTLModel.BaseClasses.OTLField import OTLField
-from OTLMOW.OTLModel.Datatypes.NonNegIntegerField import NonNegIntegerField
-from OTLMOW.OTLModel.Datatypes.StringField import StringField
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
+from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
+from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLField import OTLField
+from otlmow_model.BaseClasses.StringField import StringField
+
+
 class KwantWrdInMaandWaarden(AttributeInfo):
     def __init__(self, parent=None):
         AttributeInfo.__init__(self, parent)

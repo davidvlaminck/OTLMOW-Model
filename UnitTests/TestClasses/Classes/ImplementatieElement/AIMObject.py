@@ -1,15 +1,15 @@
 # coding=utf-8
-from OTLMOW.OTLModel.BaseClasses.OTLAttribuut import OTLAttribuut
+from UnitTests.TestClasses.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
+from UnitTests.TestClasses.Classes.ImplementatieElement.AIMToestand import AIMToestand
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
-from OTLMOW.OTLModel.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
-from OTLMOW.OTLModel.Classes.ImplementatieElement.AIMToestand import AIMToestand
-from OTLMOW.OTLModel.BaseClasses.AttributeInfo import AttributeInfo
-from OTLMOW.OTLModel.BaseClasses.OTLAsset import OTLAsset
-from OTLMOW.OTLModel.BaseClasses.RelatieInteractor import RelatieInteractor
-from OTLMOW.OTLModel.Datatypes.DateField import DateField
+from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
+from otlmow_model.BaseClasses.OTLAsset import OTLAsset
+from otlmow_model.BaseClasses.RelatieInteractor import RelatieInteractor
+from otlmow_model.BaseClasses.DateField import DateField
 from UnitTests.TestClasses.Datatypes.DtcIdentificator import DtcIdentificator
 from UnitTests.TestClasses.Datatypes.KwantWrdInMaand import KwantWrdInMaand
-from OTLMOW.OTLModel.Datatypes.StringField import StringField
+from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

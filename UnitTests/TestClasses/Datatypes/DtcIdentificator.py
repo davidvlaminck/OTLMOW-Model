@@ -1,11 +1,13 @@
 # coding=utf-8
-from OTLMOW.OTLModel.BaseClasses.AttributeInfo import AttributeInfo
-from OTLMOW.OTLModel.BaseClasses.OTLAttribuut import OTLAttribuut
-from OTLMOW.OTLModel.Datatypes.ComplexField import ComplexField
-from OTLMOW.OTLModel.Datatypes.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
+from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
+from otlmow_model.BaseClasses.ComplexField import ComplexField
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.StringField import StringField
+
+
 class DtcIdentificatorWaarden(AttributeInfo):
     def __init__(self, parent=None):
         AttributeInfo.__init__(self, parent)

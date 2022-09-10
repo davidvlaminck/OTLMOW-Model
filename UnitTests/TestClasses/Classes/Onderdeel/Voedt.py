@@ -1,8 +1,10 @@
 # coding=utf-8
-from OTLMOW.OTLModel.Classes.ImplementatieElement.DirectioneleRelatie import DirectioneleRelatie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
+from UnitTests.TestClasses.Classes.ImplementatieElement.DirectioneleRelatie import DirectioneleRelatie
+
+
 class Voedt(DirectioneleRelatie):
     """Deze relatie wordt enkel gelegd naar onderdelen die permanent onder spanning staan in normaal bedrijf. Aan deze relatie wordt steeds een richting toegekend van de voedinggever naar de ontvanger."""
 
