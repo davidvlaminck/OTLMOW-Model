@@ -3,8 +3,8 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "otlmow-model"
-version = "2.4"
+name = "otlmow_model"
+version = "2.4.4"
 authors = [{name = "David Vlaminck", email = "david.vlaminck@mow.vlaanderen.be"}]
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -15,8 +15,8 @@ classifiers = [
 requires-python = ">=3.8"
 dependencies = []
 
-[tool.setuptools]
-py-modules = ['otlmow_model']
+[tool.setuptools.packages.find]
+include = ["otlmow_model*"]
 
 [project.urls]
 "Homepage" = "https://github.com/davidvlaminck/OTLMOW-Model"
