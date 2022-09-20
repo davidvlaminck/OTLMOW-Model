@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.DtcRechtspersoon import DtcRechtspersoon
 from otlmow_model.Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAmpere
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.GeenGeometrie import GeenGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

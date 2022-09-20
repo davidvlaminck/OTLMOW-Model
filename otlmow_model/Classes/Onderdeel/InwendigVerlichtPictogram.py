@@ -5,7 +5,7 @@ from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
 from otlmow_model.Datatypes.KlBinnenverlichtingstoestelSoortLamp import KlBinnenverlichtingstoestelSoortLamp
 from otlmow_model.Datatypes.KlPictogramSymbool import KlPictogramSymbool
 from otlmow_model.Datatypes.KwantWrdInMinuut import KwantWrdInMinuut
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlPTRegelaarModuleMerk import KlPTRegelaarModuleMerk
 from otlmow_model.Datatypes.KlPTRegelaarModuleModelnaam import KlPTRegelaarModuleModelnaam
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlGekleurdWVCode import KlGekleurdWVCode
 from otlmow_model.Datatypes.KlGekleurdWVSoort import KlGekleurdWVSoort
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.AfschermendeConstructie import Afschermende
 from otlmow_model.Classes.Abstracten.SchokindexVoertuigkering import SchokindexVoertuigkering
 from otlmow_model.Datatypes.KlLEACObstakelbeveiligerType import KlLEACObstakelbeveiligerType
 from otlmow_model.Datatypes.KlLEACPerformantieniveau import KlLEACPerformantieniveau
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

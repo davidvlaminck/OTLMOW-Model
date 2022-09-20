@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.AndereLaag import AndereLaag
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlGeotextielType import KlGeotextielType
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

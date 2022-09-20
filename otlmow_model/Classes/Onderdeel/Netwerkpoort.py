@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlNetwerkpoortConfig import KlNetwerkpoortConfig
 from otlmow_model.Datatypes.KlNetwerkpoortGolflengte import KlNetwerkpoortGolflengte
 from otlmow_model.Datatypes.KlNetwerkpoortType import KlNetwerkpoortType
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

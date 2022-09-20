@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.AndereLaag import AndereLaag
 from otlmow_model.Datatypes.KlBestrijkingKaliber import KlBestrijkingKaliber
 from otlmow_model.Datatypes.KlBestrijkingProductfamilie import KlBestrijkingProductfamilie
 from otlmow_model.Datatypes.KlBestrijkingsoort import KlBestrijkingsoort
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

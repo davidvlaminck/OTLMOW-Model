@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlWeergegevenVervoersmodiOpKaart import KlWeergegevenVervoersmodiOpKaart
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

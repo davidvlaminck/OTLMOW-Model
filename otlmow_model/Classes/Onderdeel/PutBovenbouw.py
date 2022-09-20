@@ -11,8 +11,8 @@ from otlmow_model.Datatypes.KlDekselVergrendeling import KlDekselVergrendeling
 from otlmow_model.Datatypes.KlRioleringVorm import KlRioleringVorm
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
 from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

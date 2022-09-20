@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlLEMarkeringCode import KlLEMarkeringCode
 from otlmow_model.Datatypes.KlLEMarkeringSoort import KlLEMarkeringSoort
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

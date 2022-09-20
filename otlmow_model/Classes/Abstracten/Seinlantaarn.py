@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlLantaarnVormgeving import KlLantaarnVormgeving
 from otlmow_model.Datatypes.KlSeinlantaarnDiameter import KlSeinlantaarnDiameter
 from otlmow_model.Datatypes.KlSeinlantaarnMerk import KlSeinlantaarnMerk
 from otlmow_model.Datatypes.KlSeinlantaarnModelnaam import KlSeinlantaarnModelnaam
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

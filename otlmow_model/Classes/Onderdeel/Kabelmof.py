@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 from otlmow_model.Datatypes.KlKabelmofType import KlKabelmofType
 from otlmow_model.Datatypes.KlKabelmofVerbinding import KlKabelmofVerbinding
 from otlmow_model.Datatypes.KlNetwerkType import KlNetwerkType
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

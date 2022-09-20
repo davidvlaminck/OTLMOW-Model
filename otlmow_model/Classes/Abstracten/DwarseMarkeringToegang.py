@@ -2,7 +2,7 @@
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.AOWSType import AOWSType
 from otlmow_model.Classes.Abstracten.Markering import Markering
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -5,7 +5,7 @@ from otlmow_model.BaseClasses.IntegerField import IntegerField
 from otlmow_model.Datatypes.KlHardwareMerk import KlHardwareMerk
 from otlmow_model.Datatypes.KlHardwareModelnaam import KlHardwareModelnaam
 from otlmow_model.Datatypes.KlHardwareVormfactor import KlHardwareVormfactor
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

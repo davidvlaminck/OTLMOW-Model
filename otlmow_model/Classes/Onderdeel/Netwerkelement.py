@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlNetwerkMerk import KlNetwerkMerk
 from otlmow_model.Datatypes.KlNetwerkelemGebruik import KlNetwerkelemGebruik
 from otlmow_model.Datatypes.KlNetwerkelemModelnaam import KlNetwerkelemModelnaam
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

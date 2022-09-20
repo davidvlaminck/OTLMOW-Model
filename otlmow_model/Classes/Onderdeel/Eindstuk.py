@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AfschermendeConstructie import AfschermendeConstructie
 from otlmow_model.Datatypes.KlLEACTypeEindstuk import KlLEACTypeEindstuk
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

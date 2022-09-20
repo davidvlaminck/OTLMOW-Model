@@ -5,7 +5,7 @@ from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlCodeklavierMerk import KlCodeklavierMerk
 from otlmow_model.Datatypes.KlCodeklavierModelnaam import KlCodeklavierModelnaam
 from otlmow_model.Datatypes.KlCodeklavierWerking import KlCodeklavierWerking
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

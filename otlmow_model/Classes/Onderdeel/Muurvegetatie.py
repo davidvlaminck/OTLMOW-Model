@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.Classes.Abstracten.VegetatieElement import VegetatieElement
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

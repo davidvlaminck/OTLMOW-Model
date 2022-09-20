@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlVerwarmingselementMerk import KlVerwarmingselementMerk
 from otlmow_model.Datatypes.KlVerwarmingselementModelnaam import KlVerwarmingselementModelnaam
 from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

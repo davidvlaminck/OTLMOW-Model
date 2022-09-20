@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.AndereLaag import AndereLaag
 from otlmow_model.Datatypes.KlKleurSupp import KlKleurSupp
 from otlmow_model.Datatypes.KlSlemProductfamilie import KlSlemProductfamilie
 from otlmow_model.Datatypes.KlSlemlaagsoort import KlSlemlaagsoort
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

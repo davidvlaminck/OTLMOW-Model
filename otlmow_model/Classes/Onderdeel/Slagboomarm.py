@@ -5,7 +5,7 @@ from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlSlagboomarmMerk import KlSlagboomarmMerk
 from otlmow_model.Datatypes.KlSlagboomarmModelnaam import KlSlagboomarmModelnaam
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

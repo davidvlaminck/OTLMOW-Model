@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAm
 from otlmow_model.Datatypes.KwantWrdInProcent import KwantWrdInProcent
 from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

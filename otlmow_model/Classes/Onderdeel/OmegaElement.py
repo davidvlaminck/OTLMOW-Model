@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Straatmeubilair import Straatmeubilair
 from otlmow_model.Datatypes.KlOmegaElementMateriaal import KlOmegaElementMateriaal
 from otlmow_model.Datatypes.KlPlaatsingswijze import KlPlaatsingswijze
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

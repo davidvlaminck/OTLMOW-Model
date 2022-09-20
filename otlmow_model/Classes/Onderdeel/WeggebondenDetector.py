@@ -5,7 +5,7 @@ from otlmow_model.Classes.Abstracten.FirmwareObject import FirmwareObject
 from otlmow_model.Datatypes.KlWeggebondendetectorDetectieprincipe import KlWeggebondendetectorDetectieprincipe
 from otlmow_model.Datatypes.KlWeggebondendetectorMerk import KlWeggebondendetectorMerk
 from otlmow_model.Datatypes.KlWeggebondendetectorModelnaam import KlWeggebondendetectorModelnaam
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

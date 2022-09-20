@@ -10,7 +10,7 @@ from otlmow_model.Datatypes.KlVerkeersregelaarMerk import KlVerkeersregelaarMerk
 from otlmow_model.Datatypes.KlVerkeersregelaarModelnaam import KlVerkeersregelaarModelnaam
 from otlmow_model.Datatypes.KlVerkeersregelaarVoltage import KlVerkeersregelaarVoltage
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

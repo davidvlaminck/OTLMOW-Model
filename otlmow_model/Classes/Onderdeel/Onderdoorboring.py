@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

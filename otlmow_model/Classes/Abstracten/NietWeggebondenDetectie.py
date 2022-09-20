@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Detectie import Detectie
 from otlmow_model.Classes.Abstracten.FirmwareObject import FirmwareObject
 from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

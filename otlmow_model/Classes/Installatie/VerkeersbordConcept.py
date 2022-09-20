@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlVerkeersbordCategorie import KlVerkeersbordCategor
 from otlmow_model.Datatypes.KlVerkeersbordCode import KlVerkeersbordCode
 from otlmow_model.Datatypes.KlVerkeersbordconceptStatus import KlVerkeersbordconceptStatus
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.GeenGeometrie import GeenGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -5,7 +5,7 @@ from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlAlgRijrichting import KlAlgRijrichting
 from otlmow_model.Datatypes.KlAlgSnelheidsregime import KlAlgSnelheidsregime
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

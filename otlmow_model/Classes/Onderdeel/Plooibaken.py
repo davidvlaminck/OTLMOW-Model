@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Straatmeubilair import Straatmeubilair
 from otlmow_model.Datatypes.KlKleurPlooibaken import KlKleurPlooibaken
 from otlmow_model.Datatypes.KlPlooibakenType import KlPlooibakenType
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

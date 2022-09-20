@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.BetonnenConstructieElement import BetonnenC
 from otlmow_model.Classes.Abstracten.ConstructieElement import ConstructieElement
 from otlmow_model.Classes.Abstracten.ConstructieElementenGC import ConstructieElementenGC
 from otlmow_model.Datatypes.DtcAfmetingBxlxhInCm import DtcAfmetingBxlxhInCm
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

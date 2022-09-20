@@ -10,7 +10,7 @@ from otlmow_model.Datatypes.KlLichtmastLeverancier import KlLichtmastLeverancier
 from otlmow_model.Datatypes.KlMasttypePunctueleVerlichting import KlMasttypePunctueleVerlichting
 from otlmow_model.Datatypes.KlWvLichtmastAantArmen import KlWvLichtmastAantArmen
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.Classes.Abstracten.HoutigeVegetatie import HoutigeVegetatie
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

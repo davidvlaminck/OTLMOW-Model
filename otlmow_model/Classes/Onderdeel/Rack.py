@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlRackMerk import KlRackMerk
 from otlmow_model.Datatypes.KlRackModelnaam import KlRackModelnaam
 from otlmow_model.Datatypes.KlRackType import KlRackType
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

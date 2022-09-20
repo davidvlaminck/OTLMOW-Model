@@ -5,7 +5,7 @@ from otlmow_model.BaseClasses.IntegerField import IntegerField
 from otlmow_model.Datatypes.KlKabelnettoegangNetwerksoort import KlKabelnettoegangNetwerksoort
 from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 from otlmow_model.BaseClasses.URIField import URIField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

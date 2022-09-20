@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlLEDDriverModelnaam import KlLEDDriverModelnaam
 from otlmow_model.Datatypes.KlLEDDriverProtocol import KlLEDDriverProtocol
 from otlmow_model.Datatypes.KwantWrdInMilliAmpere import KwantWrdInMilliAmpere
 from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

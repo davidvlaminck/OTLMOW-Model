@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlWeegsensorMerk import KlWeegsensorMerk
 from otlmow_model.Datatypes.KlWeegsensorModelnaam import KlWeegsensorModelnaam
 from otlmow_model.Datatypes.KlWeegsensorType import KlWeegsensorType
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

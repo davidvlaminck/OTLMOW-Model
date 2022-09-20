@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlFiguratieSoortVerschuind import KlFiguratieSoortVe
 from otlmow_model.Datatypes.KlFiguratieTypeVerschuind import KlFiguratieTypeVerschuind
 from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden
 from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

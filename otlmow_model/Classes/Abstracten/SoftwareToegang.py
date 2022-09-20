@@ -1,7 +1,7 @@
 # coding=utf-8
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.GeometrieArtefact.GeenGeometrie import GeenGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

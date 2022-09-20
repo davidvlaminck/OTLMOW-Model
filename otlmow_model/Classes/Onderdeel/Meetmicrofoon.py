@@ -5,7 +5,7 @@ from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlAudioTransportType import KlAudioTransportType
 from otlmow_model.Datatypes.KlMeetmicrofoonMerk import KlMeetmicrofoonMerk
 from otlmow_model.Datatypes.KlMeetmicrofoonModelnaam import KlMeetmicrofoonModelnaam
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

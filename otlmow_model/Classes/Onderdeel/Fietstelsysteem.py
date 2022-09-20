@@ -5,7 +5,7 @@ from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlFietstelsysteemMerk import KlFietstelsysteemMerk
 from otlmow_model.Datatypes.KlFietstelsysteemModelnaam import KlFietstelsysteemModelnaam
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

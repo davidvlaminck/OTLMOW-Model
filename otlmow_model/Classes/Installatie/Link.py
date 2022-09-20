@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.NaampadObject import NaampadObjec
 from otlmow_model.BaseClasses.IntegerField import IntegerField
 from otlmow_model.Datatypes.KlNetwerklinkMediumtype import KlNetwerklinkMediumtype
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.GeenGeometrie import GeenGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,7 +1,7 @@
 # coding=utf-8
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.AfschermendeConstructie import AfschermendeConstructie
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

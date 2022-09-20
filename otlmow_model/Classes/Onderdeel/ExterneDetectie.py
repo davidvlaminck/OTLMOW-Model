@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.DtcNatuurlijkPersoon import DtcNatuurlijkPersoon
 from otlmow_model.Datatypes.DtcRechtspersoon import DtcRechtspersoon
 from otlmow_model.Datatypes.KlExternedetectieAangeslotentoestel import KlExternedetectieAangeslotentoestel
 from otlmow_model.Datatypes.KlExternedetectieCommunicatiewijze import KlExternedetectieCommunicatiewijze
-from otlmow_model.GeometrieArtefact.GeenGeometrie import GeenGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlOmvormerMerk import KlOmvormerMerk
 from otlmow_model.Datatypes.KlOmvormerModelnaam import KlOmvormerModelnaam
 from otlmow_model.Datatypes.KlOmvormerType import KlOmvormerType
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

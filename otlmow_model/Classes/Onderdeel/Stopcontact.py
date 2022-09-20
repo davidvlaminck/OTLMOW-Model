@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlStopcontactAantalPolen import KlStopcontactAantalPolen
 from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere
 from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

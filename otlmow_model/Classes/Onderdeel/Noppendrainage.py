@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.Classes.Abstracten.AndereLaag import AndereLaag
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -5,7 +5,7 @@ from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlEcoPaalmateriaal import KlEcoPaalmateriaal
 from otlmow_model.Datatypes.KlRasterMazen import KlRasterMazen
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

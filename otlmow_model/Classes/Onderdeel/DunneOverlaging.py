@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.AndereLaag import AndereLaag
 from otlmow_model.Datatypes.KlDunneOverlagingType import KlDunneOverlagingType
 from otlmow_model.Datatypes.KlKleurSupp import KlKleurSupp
 from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

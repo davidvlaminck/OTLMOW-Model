@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Buis import Buis
 from otlmow_model.Datatypes.KlPersleidingMateriaal import KlPersleidingMateriaal
 from otlmow_model.Datatypes.KlSDRKlasse import KlSDRKlasse
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

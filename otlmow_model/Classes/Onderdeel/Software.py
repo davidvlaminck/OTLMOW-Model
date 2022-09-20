@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.DtcSoftwarePoortconfiguratie import DtcSoftwarePoort
 from otlmow_model.Datatypes.KlSoftwareLicentie import KlSoftwareLicentie
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.BaseClasses.URIField import URIField
-from otlmow_model.GeometrieArtefact.GeenGeometrie import GeenGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

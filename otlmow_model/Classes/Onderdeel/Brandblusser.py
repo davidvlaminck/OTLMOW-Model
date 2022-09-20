@@ -5,7 +5,7 @@ from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.KlBrandblusserBlusmiddel import KlBrandblusserBlusmiddel
 from otlmow_model.Datatypes.KlBrandblusserGewicht import KlBrandblusserGewicht
 from otlmow_model.Datatypes.KlBrandblusserType import KlBrandblusserType
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

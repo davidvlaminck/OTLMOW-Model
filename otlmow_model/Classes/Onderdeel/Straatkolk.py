@@ -10,7 +10,7 @@ from otlmow_model.Datatypes.KlRoosterOpeningswijze import KlRoosterOpeningswijze
 from otlmow_model.Datatypes.KlStraatkolkBakType import KlStraatkolkBakType
 from otlmow_model.Datatypes.KlStraatkolkType import KlStraatkolkType
 from otlmow_model.Datatypes.KlStraatkolkTypeUitlaat import KlStraatkolkTypeUitlaat
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

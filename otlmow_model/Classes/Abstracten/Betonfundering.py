@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Fundering import Fundering
 from otlmow_model.Datatypes.DtcAfmetingBxlInM import DtcAfmetingBxlInM
 from otlmow_model.Datatypes.KlFunderingBetonkwaliteit import KlFunderingBetonkwaliteit
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

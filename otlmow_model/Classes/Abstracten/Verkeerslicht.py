@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlVerkeerslichtMasker import KlVerkeerslichtMasker
 from otlmow_model.Datatypes.KlVerkeerslichtMerk import KlVerkeerslichtMerk
 from otlmow_model.Datatypes.KlVerkeerslichtModelnaam import KlVerkeerslichtModelnaam
 from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 from otlmow_model.Datatypes.KlAfmetingsensorMerk import KlAfmetingsensorMerk
 from otlmow_model.Datatypes.KlAfmetingsensorModelnaam import KlAfmetingsensorModelnaam
 from otlmow_model.Datatypes.KlAfmetingsensorType import KlAfmetingsensorType
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

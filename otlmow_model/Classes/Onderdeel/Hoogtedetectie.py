@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 from otlmow_model.Datatypes.KlHoogtedetectieMerk import KlHoogtedetectieMerk
 from otlmow_model.Datatypes.KlHoogtedetectieModelnaam import KlHoogtedetectieModelnaam
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

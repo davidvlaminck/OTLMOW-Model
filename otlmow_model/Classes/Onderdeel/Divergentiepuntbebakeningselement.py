@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.Signalisatie import Signalisatie
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlDivergentiepuntbebakeningselementType import KlDivergentiepuntbebakeningselementType
 from otlmow_model.Datatypes.KlFolieType import KlFolieType
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

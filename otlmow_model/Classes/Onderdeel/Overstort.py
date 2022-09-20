@@ -5,7 +5,7 @@ from otlmow_model.Datatypes.KlOverstortMateriaalDrempel import KlOverstortMateri
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

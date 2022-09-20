@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlOperationeleStatus import KlOperationeleStatus
 from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

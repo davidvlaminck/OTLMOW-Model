@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlMIVLusUitslijprichting import KlMIVLusUitslijprichting
 from otlmow_model.Datatypes.KlMIVLusZichtbaarheid import KlMIVLusZichtbaarheid
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

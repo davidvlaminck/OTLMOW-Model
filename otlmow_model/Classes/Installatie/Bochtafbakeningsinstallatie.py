@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.EMAfbakening import EMAfbakening
 from otlmow_model.Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

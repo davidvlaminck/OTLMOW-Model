@@ -5,7 +5,7 @@ from otlmow_model.Classes.Abstracten.OmhullendeInrichting import OmhullendeInric
 from otlmow_model.Datatypes.KlAansluitstukMateriaal import KlAansluitstukMateriaal
 from otlmow_model.Datatypes.KlHulpstukType import KlHulpstukType
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

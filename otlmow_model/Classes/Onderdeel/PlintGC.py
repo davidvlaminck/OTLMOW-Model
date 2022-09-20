@@ -6,7 +6,7 @@ from otlmow_model.Classes.Abstracten.ConstructieElementenGC import ConstructieEl
 from otlmow_model.Datatypes.DtcAfmetingBxlxhInM import DtcAfmetingBxlxhInM
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlPlaatsingswijzePlint import KlPlaatsingswijzePlint
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

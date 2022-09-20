@@ -5,7 +5,7 @@ from otlmow_model.Classes.Abstracten.LijnvormigElement import LijnvormigElement
 from otlmow_model.Datatypes.DtcGCMateriaalKarakteristiek import DtcGCMateriaalKarakteristiek
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
 from otlmow_model.Datatypes.KwantWrdInKiloNewtonPerVierkanteMeter import KwantWrdInKiloNewtonPerVierkanteMeter
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

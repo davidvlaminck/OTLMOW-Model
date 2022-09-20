@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.Proef import Proef
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KwantWrdInJaar import KwantWrdInJaar
-from otlmow_model.GeometrieArtefact.GeenGeometrie import GeenGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

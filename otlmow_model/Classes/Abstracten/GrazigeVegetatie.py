@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.BegroeidVoorkomen import BegroeidVoorkomen
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlGrazigeVegetatieAanleg import KlGrazigeVegetatieAanleg
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

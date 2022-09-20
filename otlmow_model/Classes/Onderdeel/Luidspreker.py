@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KLLuidsprekerVormgeving import KLLuidsprekerVormgevi
 from otlmow_model.Datatypes.KlAudioTransportType import KlAudioTransportType
 from otlmow_model.Datatypes.KlLuidsprekerMerk import KlLuidsprekerMerk
 from otlmow_model.Datatypes.KlLuidsprekerModelnaam import KlLuidsprekerModelnaam
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

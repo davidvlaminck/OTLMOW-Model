@@ -14,9 +14,9 @@ from otlmow_model.Datatypes.KlBoomStandplaatswaarde import KlBoomStandplaatswaar
 from otlmow_model.Datatypes.KlBoomtoestandMeerwaardefactor import KlBoomtoestandMeerwaardefactor
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
 from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

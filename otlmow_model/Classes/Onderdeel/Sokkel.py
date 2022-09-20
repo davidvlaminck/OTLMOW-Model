@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.DtcAfmetingDiameterInCm import DtcAfmetingDiameterIn
 from otlmow_model.Datatypes.DtuAfmetingGrondvlak import DtuAfmetingGrondvlak
 from otlmow_model.Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

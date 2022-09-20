@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
 from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
 from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlPutMateriaal import KlPutMateriaal
 from otlmow_model.Datatypes.KlRioleringVorm import KlRioleringVorm
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

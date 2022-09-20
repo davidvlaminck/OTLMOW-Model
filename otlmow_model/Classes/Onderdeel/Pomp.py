@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlPompSoort import KlPompSoort
 from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
 from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

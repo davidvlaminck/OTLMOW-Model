@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlAudioTransportType import KlAudioTransportType
 from otlmow_model.Datatypes.KlIntercomMerk import KlIntercomMerk
 from otlmow_model.Datatypes.KlIntercomModelnaam import KlIntercomModelnaam
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

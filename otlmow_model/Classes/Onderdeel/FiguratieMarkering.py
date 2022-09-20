@@ -5,7 +5,7 @@ from otlmow_model.Datatypes.KlFiguratieCode import KlFiguratieCode
 from otlmow_model.Datatypes.KlFiguratieSoort import KlFiguratieSoort
 from otlmow_model.Datatypes.KlFiguratieType import KlFiguratieType
 from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

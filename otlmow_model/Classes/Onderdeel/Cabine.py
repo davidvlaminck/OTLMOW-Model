@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.Inloopbehuizing import Inloopbehuizing
 from otlmow_model.Datatypes.KlCabineAardingsstelsel import KlCabineAardingsstelsel
 from otlmow_model.Datatypes.KlCabineStandaardtype import KlCabineStandaardtype
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

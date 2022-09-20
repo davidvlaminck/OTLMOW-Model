@@ -1,8 +1,8 @@
 import unittest
 
 from otlmow_model.Exceptions.WrongGeometryWarning import WrongGeometryWarning
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
 from otlmow_model.Classes.Onderdeel.Wegkantkast import Wegkantkast
 

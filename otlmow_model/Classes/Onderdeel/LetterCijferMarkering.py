@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.FiguratieMarkeringToegang import FiguratieM
 from otlmow_model.Datatypes.KlLetterCijfer import KlLetterCijfer
 from otlmow_model.Datatypes.KlLetterCijferType import KlLetterCijferType
 from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

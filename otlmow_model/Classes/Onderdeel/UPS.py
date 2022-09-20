@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlUPSModelnaam import KlUPSModelnaam
 from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
 from otlmow_model.Datatypes.KwantWrdInkWh import KwantWrdInkWh
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

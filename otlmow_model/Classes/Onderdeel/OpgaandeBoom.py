@@ -10,7 +10,7 @@ from otlmow_model.Datatypes.KlKlassePlantjaar import KlKlassePlantjaar
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
 from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

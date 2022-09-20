@@ -10,7 +10,7 @@ from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
 from otlmow_model.Datatypes.KwantWrdInPromille import KwantWrdInPromille
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

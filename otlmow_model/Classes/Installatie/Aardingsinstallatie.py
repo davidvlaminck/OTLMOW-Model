@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 from otlmow_model.Datatypes.DtcAardingsstelsel import DtcAardingsstelsel
 from otlmow_model.Datatypes.KlAardingAardingsnet import KlAardingAardingsnet
 from otlmow_model.Datatypes.KwantWrdInOhm import KwantWrdInOhm
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

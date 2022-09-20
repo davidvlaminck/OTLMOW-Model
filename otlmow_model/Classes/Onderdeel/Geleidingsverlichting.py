@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

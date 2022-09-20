@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.HardwareToegang import HardwareToegang
 from otlmow_model.Datatypes.KlVirtueleServerMerk import KlVirtueleServerMerk
 from otlmow_model.Datatypes.KlVirtueleServerModelnaam import KlVirtueleServerModelnaam
-from otlmow_model.GeometrieArtefact.GeenGeometrie import GeenGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

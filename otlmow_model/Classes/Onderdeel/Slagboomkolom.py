@@ -6,8 +6,8 @@ from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlSlagboomkolomMerk import KlSlagboomkolomMerk
 from otlmow_model.Datatypes.KlSlagboomkolomModelnaam import KlSlagboomkolomModelnaam
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -7,8 +7,8 @@ from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.Datatypes.KlSeinbrugRijrichting import KlSeinbrugRijrichting
 from otlmow_model.Datatypes.KlSeinbrugType import KlSeinbrugType
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.GeometrieArtefact.LijnGeometrie import LijnGeometrie
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

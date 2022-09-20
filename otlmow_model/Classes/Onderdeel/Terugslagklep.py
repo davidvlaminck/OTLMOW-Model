@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlTsklepAfsluiterMateriaal import KlTsklepAfsluiterM
 from otlmow_model.Datatypes.KlVormTerugslagklep import KlVormTerugslagklep
 from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

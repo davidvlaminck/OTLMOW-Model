@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from otlmow_model.Datatypes.KlCabineMerk import KlCabineMerk
 from otlmow_model.Datatypes.KlCabineModelnaam import KlCabineModelnaam
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

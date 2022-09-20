@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlStortsteenKaliber import KlStortsteenKaliber
 from otlmow_model.Datatypes.KlStortsteenPlaatsingswijze import KlStortsteenPlaatsingswijze
 from otlmow_model.Datatypes.KlStortsteenType import KlStortsteenType
 from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon
-from otlmow_model.GeometrieArtefact.VlakGeometrie import VlakGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

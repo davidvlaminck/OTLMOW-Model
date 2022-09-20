@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.Straatmeubilair import Straatmeubilair
 from otlmow_model.Datatypes.AntiParkeerpaalType import AntiParkeerpaalType
 from otlmow_model.Datatypes.KlAntiparkeerpaalMateriaal import KlAntiparkeerpaalMateriaal
 from otlmow_model.Datatypes.KlPlaatsingswijze import KlPlaatsingswijze
-from otlmow_model.GeometrieArtefact.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
