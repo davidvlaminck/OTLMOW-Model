@@ -1,12 +1,10 @@
 # coding=utf-8
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from UnitTests.TestClasses.Classes.ImplementatieElement.AIMObject import AIMObject
 from UnitTests.TestClasses.Datatypes.DtcTestComplexType import DtcTestComplexType
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
-
-
 class AnotherTestClass(AIMObject):
     """Just another TestClass to test relations"""
 

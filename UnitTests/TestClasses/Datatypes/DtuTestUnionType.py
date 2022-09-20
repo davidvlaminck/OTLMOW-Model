@@ -1,15 +1,13 @@
 # coding=utf-8
-from UnitTests.TestClasses.Datatypes.KwantWrdTest import KwantWrdTest
-
-
-# Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
 from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from UnitTests.TestClasses.Datatypes.KwantWrdTest import KwantWrdTest
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
 
+# Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
 class DtuTestUnionTypeWaarden(AttributeInfo, UnionWaarden):
     def __init__(self, parent=None):
         AttributeInfo.__init__(self, parent)

@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
-from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
+from UnitTests.TestClasses.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField

@@ -1,14 +1,12 @@
 # coding=utf-8
 from abc import abstractmethod
-
-
-# Generated with OTLClassCreator. To modify: extend, do not edit
 from UnitTests.TestClasses.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.DavieRelatieAttributes import DavieRelatieAttributes
 from otlmow_model.BaseClasses.OTLObject import OTLObject
 
 
+# Generated with OTLClassCreator. To modify: extend, do not edit
 class RelatieObject(AIMDBStatus, AttributeInfo, DavieRelatieAttributes, OTLObject):
     """Abstracte die de relaties voorziet van gemeenschappelijk eigenschappen."""
 

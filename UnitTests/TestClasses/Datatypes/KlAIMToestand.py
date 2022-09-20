@@ -1,12 +1,10 @@
 # coding=utf-8
 import random
-
-
-# Generated with OTLEnumerationCreator. To modify: extend, do not edit
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
 from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
+# Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlAIMToestand(KeuzelijstField):
     """Keuzelijst met fasen uit de levenscyclus van een object om de toestand op een moment mee vast te leggen."""
     naam = 'KlAIMToestand'

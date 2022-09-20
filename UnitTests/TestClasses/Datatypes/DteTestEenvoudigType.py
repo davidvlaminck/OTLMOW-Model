@@ -1,13 +1,11 @@
 # coding=utf-8
-
-
-# Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
 from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.StringField import StringField
 
 
+# Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
 class DteTestEenvoudigTypeWaarden(AttributeInfo):
     def __init__(self, parent=None):
         AttributeInfo.__init__(self, parent)

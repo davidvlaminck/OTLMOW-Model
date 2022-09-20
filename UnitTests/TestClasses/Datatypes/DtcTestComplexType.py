@@ -1,16 +1,14 @@
 # coding=utf-8
-from UnitTests.TestClasses.Datatypes.DtcTestComplexType2 import DtcTestComplexType2
-from UnitTests.TestClasses.Datatypes.KwantWrdTest import KwantWrdTest
-
-
-# Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
 from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from UnitTests.TestClasses.Datatypes.DtcTestComplexType2 import DtcTestComplexType2
+from UnitTests.TestClasses.Datatypes.KwantWrdTest import KwantWrdTest
 from otlmow_model.BaseClasses.StringField import StringField
 
 
+# Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
 class DtcTestComplexTypeWaarden(AttributeInfo):
     def __init__(self, parent=None):
         AttributeInfo.__init__(self, parent)

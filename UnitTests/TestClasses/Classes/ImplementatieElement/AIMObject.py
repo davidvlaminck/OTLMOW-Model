@@ -1,8 +1,8 @@
 # coding=utf-8
-from UnitTests.TestClasses.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
-from UnitTests.TestClasses.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
+from UnitTests.TestClasses.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
+from UnitTests.TestClasses.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
 from otlmow_model.BaseClasses.RelatieInteractor import RelatieInteractor
