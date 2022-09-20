@@ -1,13 +1,15 @@
 ﻿import logging
 import warnings
 
+from typing import Dict
+
 from otlmow_model.Exceptions.RemovedOptionError import RemovedOptionError
 from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 class KeuzelijstField(OTLField):
-    options: dict[str, KeuzelijstWaarde] = {}
+    options: Dict[str, KeuzelijstWaarde] = {}
     codelist = ''
 
     @staticmethod

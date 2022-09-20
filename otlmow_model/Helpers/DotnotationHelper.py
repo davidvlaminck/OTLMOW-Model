@@ -1,4 +1,7 @@
-﻿class DotnotationHelper:
+﻿from typing import Union
+
+
+class DotnotationHelper:
     separator = '.'
     cardinality_separator = '|'
     cardinality_indicator = '[]'
@@ -24,7 +27,7 @@
     def get_dotnotation(attribute,
                         separator: str = '',
                         cardinality_indicator: str = '',
-                        waarde_shortcut_applicable: bool | None = None):
+                        waarde_shortcut_applicable: Union[bool, None] = None):
 
         cardinality_indicator, separator, waarde_shortcut_applicable = DotnotationHelper.set_parameters_to_class_vars(
             cardinality_indicator, separator, waarde_shortcut_applicable)
@@ -47,7 +50,7 @@
                                       dotnotation: str,
                                       separator: str = '',
                                       cardinality_indicator: str = '',
-                                      waarde_shortcut_applicable: bool | None = None):
+                                      waarde_shortcut_applicable: Union[bool, None] = None):
         """Returns the attribute matching the dotnotation starting from a given class instance name or attribute
         :param instance_or_attribute: class or attribute to start the dotnotation from
         :param dotnotation: a string representing a hierarchical structure of attributes
@@ -92,7 +95,7 @@
     @staticmethod
     def set_attribute_by_dotnotation(instanceOrAttribute, dotnotation, value, convert=True, convert_warnings: bool = True,
                                      separator: str = '', cardinality_indicator: str = '',
-                                     waarde_shortcut_applicable: bool | None = None) -> None:
+                                     waarde_shortcut_applicable: Union[bool, None] = None) -> None:
 
         cardinality_indicator, separator, waarde_shortcut_applicable = DotnotationHelper.set_parameters_to_class_vars(
             cardinality_indicator, separator, waarde_shortcut_applicable)

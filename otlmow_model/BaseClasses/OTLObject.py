@@ -1,6 +1,6 @@
 ﻿import warnings
 from datetime import date, time, datetime
-from typing import Generator, Iterable
+from typing import Generator, Iterable, Union, Tuple
 
 from otlmow_model.Helpers.DotnotationHelper import DotnotationHelper
 from otlmow_model.BaseClasses.DateField import DateField
@@ -61,7 +61,7 @@ class OTLObjectHelper:
             return d
 
     @classmethod
-    def clean_dict(cls, d) -> dict | None:
+    def clean_dict(cls, d) -> Union[dict, None]:
         """Recursively remove None values and empty dicts from input dict"""
         if d is None:
             return None
@@ -97,7 +97,7 @@ class OTLObjectHelper:
     @classmethod
     def list_attributes_and_values_by_dotnotation(cls, asset=None, waarde_shortcut: bool = False,
                                                   separator: str = '.',
-                                                  cardinality_indicator: str = '[]') -> Iterable[tuple[str, object]]:
+                                                  cardinality_indicator: str = '[]') -> Iterable[Tuple[str, object]]:
         sorted_attributes = sorted(list(vars(asset).items()), key=lambda i: i[0])
 
         for k, v in sorted_attributes:
@@ -155,7 +155,7 @@ class OTLObject:
 
     def list_attributes_and_values_by_dotnotation(self, waarde_shortcut: bool = False,
                                                   separator: str = '.',
-                                                  cardinality_indicator: str = '[]') -> Iterable[tuple[str, object]]:
+                                                  cardinality_indicator: str = '[]') -> Iterable[Tuple[str, object]]:
         for k, v in OTLObjectHelper.list_attributes_and_values_by_dotnotation(asset=self, waarde_shortcut=waarde_shortcut,
                                                                               separator=separator,
                                                                               cardinality_indicator=cardinality_indicator):
