@@ -4,7 +4,7 @@ This project aims to implement the Flemish data standard OTL (https://wegenenver
 It is split into different packages to reduce compatibility issues
 - otlmow_model (you are currently looking at this package)
 - otlmow_modelbuilder
-- otlmow_transformer
+- otlmow_converter
 
 ## Installation and requirements
 OTLMOW-Model has no dependencies other than de standard Python libraries. Currently, you need at least Python version 3.8 to use this library.
