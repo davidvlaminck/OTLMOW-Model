@@ -7,7 +7,8 @@ It is split into different packages to reduce compatibility issues
 - otlmow_transformer
 
 ## Installation and requirements
-To install the OTL MOW project into your python project, use pip to install it:
+OTLMOW-Model has no dependencies other than de standard Python libraries. Currently, you need at least Python version 3.8 to use this library.
+To install the OTL MOW project into your Python project, use pip to install it:
 ``` 
 pip install otlmow_model
 ```

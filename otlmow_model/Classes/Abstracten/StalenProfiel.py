@@ -44,7 +44,7 @@ class StalenProfiel(ConstructieElement, ConstructieElementenGC, StalenConstructi
                                     naam='lengte',
                                     label='lengte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#StalenProfiel.lengte',
-                                    definition='De lengte van het profiel uitgedrukt in in meter.',
+                                    definition='De lengte van het profiel uitgedrukt in lopende meter.',
                                     owner=self)
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
@@ -65,7 +65,7 @@ class StalenProfiel(ConstructieElement, ConstructieElementenGC, StalenConstructi
 
     @property
     def lengte(self):
-        """De lengte van het profiel uitgedrukt in in meter."""
+        """De lengte van het profiel uitgedrukt in lopende meter."""
         return self._lengte.get_waarde()
 
     @lengte.setter

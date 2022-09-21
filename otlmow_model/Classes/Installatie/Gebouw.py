@@ -7,7 +7,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Gebouw(Behuizing, VlakGeometrie):
-    """Elk bouwwerk, dat een voor mensen toegankelijke overdekte, geheel of gedeeltelijk met wanden omsloten ruimte vormt."""
+    """Elk bouwwerk,dat een voor mensen toegankelijke overdekte,geheel of gedeeltelijk met wanden omsloten ruimte vormt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -19,6 +19,8 @@ class Gebouw(Behuizing, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LEDBord')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Brandblusser')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aswegersite')
 
         self._grondplan = OTLAttribuut(field=DtcDocument,
                                        naam='grondplan',

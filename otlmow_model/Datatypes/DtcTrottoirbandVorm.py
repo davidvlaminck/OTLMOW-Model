@@ -21,7 +21,7 @@ class DtcTrottoirbandVormWaarden(AttributeInfo):
                                    naam='dikte',
                                    label='dikte',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcTrottoirbandVorm.dikte',
-                                   definition='De dikte van de trottoirband.',
+                                   definition='De dikte, ook aanzien als hoogte, van de trottoirband.',
                                    owner=self)
 
         self._vorm = OTLAttribuut(field=KlLETrottoirbandVorm,
@@ -42,7 +42,7 @@ class DtcTrottoirbandVormWaarden(AttributeInfo):
 
     @property
     def dikte(self):
-        """De dikte van de trottoirband."""
+        """De dikte, ook aanzien als hoogte, van de trottoirband."""
         return self._dikte.get_waarde()
 
     @dikte.setter

@@ -23,7 +23,12 @@ class KlIVRIMerkRIS(KeuzelijstField):
                                    label='Swarco',
                                    status='ingebruik',
                                    definitie='Swarco',
-                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkRIS/swarco')
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkRIS/swarco'),
+        'swarco-nederland': KeuzelijstWaarde(invulwaarde='swarco-nederland',
+                                             label='Swarco Nederland',
+                                             status='ingebruik',
+                                             definitie='Swarco Nederland',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkRIS/swarco-nederland')
     }
 
     @classmethod

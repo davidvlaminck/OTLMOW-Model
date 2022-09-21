@@ -3,6 +3,7 @@ from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
+from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlDuurzaamheidsklasseHout import KlDuurzaamheidsklasseHout
 from otlmow_model.Datatypes.KlKwaliteitsklasseHout import KlKwaliteitsklasseHout
 from otlmow_model.Datatypes.KlSterkteklasseHout import KlSterkteklasseHout
@@ -12,6 +13,13 @@ from otlmow_model.Datatypes.KlSterkteklasseHout import KlSterkteklasseHout
 class DtcHoutspecificatiesWaarden(AttributeInfo):
     def __init__(self, parent=None):
         AttributeInfo.__init__(self, parent)
+        self._fscCertificaat = OTLAttribuut(field=DtcDocument,
+                                            naam='fscCertificaat',
+                                            label='FSC-certificaat',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcHoutspecificaties.fscCertificaat',
+                                            definition='Een attest of een bewijs dat voor elke boom die gebruikt wordt er een andere in de plaats is geplant.',
+                                            owner=self)
+
         self._houtduurzaamheidsklasse = OTLAttribuut(field=KlDuurzaamheidsklasseHout,
                                                      naam='houtduurzaamheidsklasse',
                                                      label='houtduurzaamheidsklasse',
@@ -39,6 +47,15 @@ class DtcHoutspecificatiesWaarden(AttributeInfo):
                                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcHoutspecificaties.isResistentTegenMarieneBoorders',
                                                              definition='Geeft aan of het hout resistent is bij toepassingen in contact met zout of brak water.',
                                                              owner=self)
+
+    @property
+    def fscCertificaat(self):
+        """Een attest of een bewijs dat voor elke boom die gebruikt wordt er een andere in de plaats is geplant."""
+        return self._fscCertificaat.get_waarde()
+
+    @fscCertificaat.setter
+    def fscCertificaat(self, value):
+        self._fscCertificaat.set_waarde(value, owner=self._parent)
 
     @property
     def houtduurzaamheidsklasse(self):

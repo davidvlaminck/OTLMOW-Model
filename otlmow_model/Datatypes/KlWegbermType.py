@@ -27,7 +27,7 @@ class KlWegbermType(KeuzelijstField):
         'tussenberm': KeuzelijstWaarde(invulwaarde='tussenberm',
                                        label='tussenberm',
                                        status='ingebruik',
-                                       definitie='Wegberm tussen twee rijbanen van een weg met meer dan één rijbaan, de middenberm uitgezonderd.',
+                                       definitie='Wegberm tussen twee rijbanen van een weg met meer dan één rijbaan, de middenberm uitgezonderd. ',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegbermType/tussenberm')
     }
 

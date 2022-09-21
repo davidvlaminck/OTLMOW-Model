@@ -177,7 +177,7 @@ class KlNSB(KeuzelijstField):
         'rbbkam': KeuzelijstWaarde(invulwaarde='rbbkam',
                                    label='rbbkam',
                                    status='ingebruik',
-                                   definitie='kamgras en/of veldgerst abundant én aantal soorten >;15',
+                                   definitie='kamgras en/of veldgerst abundant én aantal soorten >;15.',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNSB/rbbkam'),
         'rbbmr': KeuzelijstWaarde(invulwaarde='rbbmr',
                                   label='rbbmr',

@@ -11,7 +11,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Netwerkelement(AIMNaamObject, PuntGeometrie):
-    """Toestel, onderdeel van het netwerk zoals een backbone of IP-netwerk, waarop netwerkverbindingen kunnen aangelegd worden."""
+    """Toestel,onderdeel van het netwerk zoals een backbone of IP-netwerk,waarop netwerkverbindingen kunnen aangelegd worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -100,6 +100,14 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
                                             label='software versie',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement.softwareVersie',
                                             definition='Identificatie van de softwareversie die op dit apparaat of onderdeel geladen is. Dit kan ook de firmwareversie zijn.',
+                                            owner=self)
+
+        self._telefoonnummer = OTLAttribuut(field=StringField,
+                                            naam='telefoonnummer',
+                                            label='telefoonnummer',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement.telefoonnummer',
+                                            usagenote='Dit attribuut is alleen verplicht voor netwerkelementen met een eigen telefoonnummer, bv.in DSL gerelateerde installaties.',
+                                            definition='Het telefoonnumer van het netwerkelement.',
                                             owner=self)
 
     @property
@@ -191,3 +199,12 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
     @softwareVersie.setter
     def softwareVersie(self, value):
         self._softwareVersie.set_waarde(value, owner=self)
+
+    @property
+    def telefoonnummer(self):
+        """Het telefoonnumer van het netwerkelement."""
+        return self._telefoonnummer.get_waarde()
+
+    @telefoonnummer.setter
+    def telefoonnummer(self, value):
+        self._telefoonnummer.set_waarde(value, owner=self)

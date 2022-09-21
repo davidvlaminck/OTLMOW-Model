@@ -32,6 +32,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         VerlichtingstoestelConnector.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#EMDraagconstructie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver')
 
@@ -64,6 +65,13 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.isFaunavriendelijk',
                                                 definition='Geeft aan of de lichtkleur van de verlichting is aangepast (gebruik van oranje/rode/amberkleur ipv wit licht) zodat deze als minder storend wordt ervaren door fauna zoals bijvoorbeeld vleermuizen.',
                                                 owner=self)
+
+        self._isLijnvormig = OTLAttribuut(field=BooleanField,
+                                          naam='isLijnvormig',
+                                          label='is lijnvormig',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.isLijnvormig',
+                                          definition='Is de led verlichting lijnvormig, bv. een led-strip?',
+                                          owner=self)
 
         self._kleurArmatuur = OTLAttribuut(field=KlArmatuurkleur,
                                            naam='kleurArmatuur',
@@ -166,6 +174,15 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
     @isFaunavriendelijk.setter
     def isFaunavriendelijk(self, value):
         self._isFaunavriendelijk.set_waarde(value, owner=self)
+
+    @property
+    def isLijnvormig(self):
+        """Is de led verlichting lijnvormig, bv. een led-strip?"""
+        return self._isLijnvormig.get_waarde()
+
+    @isLijnvormig.setter
+    def isLijnvormig(self, value):
+        self._isLijnvormig.set_waarde(value, owner=self)
 
     @property
     def kleurArmatuur(self):

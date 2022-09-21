@@ -1,16 +1,16 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.Classes.Abstracten.Sensoropstelling import Sensoropstelling
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
 from otlmow_model.Datatypes.KlNeerslagsensorMerk import KlNeerslagsensorMerk
 from otlmow_model.Datatypes.KlNeerslagsensorModelnaam import KlNeerslagsensorModelnaam
 from otlmow_model.Datatypes.KlNeerslagsensorType import KlNeerslagsensorType
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Neerslagsensor(AIMNaamObject, PuntGeometrie):
+class Neerslagsensor(Sensoropstelling, AIMNaamObject):
     """Detectie van neerslag(hoeveelheid/intensiteit)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Neerslagsensor'
@@ -18,10 +18,10 @@ class Neerslagsensor(AIMNaamObject, PuntGeometrie):
 
     def __init__(self):
         AIMNaamObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        Sensoropstelling.__init__(self)
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort')
 
         self._dnsNaam = OTLAttribuut(field=StringField,
                                      naam='dnsNaam',

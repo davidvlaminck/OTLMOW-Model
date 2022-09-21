@@ -26,12 +26,12 @@ class KlUitvoeringsmethode(KeuzelijstField):
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUitvoeringsmethode/ter-plaatse-gestort'),
         'ter-plaatse-gestort-met-bekisting': KeuzelijstWaarde(invulwaarde='ter-plaatse-gestort-met-bekisting',
                                                               label='Ter plaatse gestort met bekisting',
-                                                              status='uitgebruik',
+                                                              status='ingebruik',
                                                               definitie='Het beton wordt ter plaatste gestort met bekisting.',
                                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUitvoeringsmethode/ter-plaatse-gestort-met-bekisting'),
         'ter-plaatse-gestort-zonder-bekisting': KeuzelijstWaarde(invulwaarde='ter-plaatse-gestort-zonder-bekisting',
                                                                  label='Ter plaatse gestort zonder bekisting',
-                                                                 status='uitgebruik',
+                                                                 status='ingebruik',
                                                                  definitie='Het beton wordt ter plaatste gestort zonder bekisting.',
                                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUitvoeringsmethode/ter-plaatse-gestort-zonder-bekisting')
     }

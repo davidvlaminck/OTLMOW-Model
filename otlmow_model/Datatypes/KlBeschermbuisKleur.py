@@ -5,11 +5,11 @@ from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlBeschermbuisKleur(KeuzelijstField):
-    """TODO"""
+    """De kleur van de beschermbuis."""
     naam = 'KlBeschermbuisKleur'
     label = 'Beschermbuiskleur'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBeschermbuisKleur'
-    definition = 'TODO'
+    definition = 'De kleur van de beschermbuis.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeschermbuisKleur'
     options = {

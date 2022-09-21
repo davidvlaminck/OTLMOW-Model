@@ -8,7 +8,7 @@ from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 class KlFiguratieTypeVerschuind(KeuzelijstField):
     """Types van verschuinde figuratiemarkering."""
     naam = 'KlFiguratieTypeVerschuind'
-    label = 'Figuratie type'
+    label = 'Figuratie type verschuind'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlFiguratieTypeVerschuind'
     definition = 'Types van verschuinde figuratiemarkering.'
     status = 'ingebruik'

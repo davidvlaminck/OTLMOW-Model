@@ -54,7 +54,7 @@ class AIMObject(AIMDBStatus, AIMToestand, AttributeInfo, OTLAsset, RelatieIntera
                                                    naam='datumOprichtingObject',
                                                    label='datum oprichting object',
                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.datumOprichtingObject',
-                                                   definition='Datum van de oprichting van het object.',
+                                                   definition='De datum waarop het object op het terrein is beginnen bestaan, bv. de datum van aanleg.',
                                                    owner=self)
 
         self._notitie = OTLAttribuut(field=StringField,
@@ -99,7 +99,7 @@ class AIMObject(AIMDBStatus, AIMToestand, AttributeInfo, OTLAsset, RelatieIntera
 
     @property
     def datumOprichtingObject(self):
-        """Datum van de oprichting van het object."""
+        """De datum waarop het object op het terrein is beginnen bestaan, bv. de datum van aanleg."""
         return self._datumOprichtingObject.get_waarde()
 
     @datumOprichtingObject.setter

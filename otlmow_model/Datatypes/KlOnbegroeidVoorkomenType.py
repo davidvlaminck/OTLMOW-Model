@@ -17,7 +17,7 @@ class KlOnbegroeidVoorkomenType(KeuzelijstField):
         'gesloten-kunststofverharding': KeuzelijstWaarde(invulwaarde='gesloten-kunststofverharding',
                                                          label='gesloten kunststofverharding',
                                                          status='ingebruik',
-                                                         definitie='Kunststofverharding die over de totale oppervlakte in één continue laag werd aangebracht.',
+                                                         definitie='Kunststofverharding die over de totale oppervlakte in één continue laag werd aangebracht. ',
                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOnbegroeidVoorkomenType/gesloten-kunststofverharding'),
         'gravel': KeuzelijstWaarde(invulwaarde='gravel',
                                    label='gravel',

@@ -2,6 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BevestigingGC import BevestigingGC
 from otlmow_model.Classes.Abstracten.Voedingspunt import Voedingspunt
+from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlZonnepaneelMerk import KlZonnepaneelMerk
 from otlmow_model.Datatypes.KlZonnepaneelModelnaam import KlZonnepaneelModelnaam
 from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
@@ -18,6 +19,7 @@ class Zonnepaneel(BevestigingGC, Voedingspunt):
         BevestigingGC.__init__(self)
         Voedingspunt.__init__(self)
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#StalenProfiel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnalogeHoppinzuil')
@@ -38,6 +40,14 @@ class Zonnepaneel(BevestigingGC, Voedingspunt):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Zonnepaneel.modelnaam',
                                        definition='De modelnaam van het zonnepaneel.',
                                        owner=self)
+
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Zonnepaneel.technischeFiche',
+                                             kardinaliteit_max='*',
+                                             definition='De technsiche fiche als bijlage van het zonnepaneel.',
+                                             owner=self)
 
         self._vermogen = OTLAttribuut(field=KwantWrdInWatt,
                                       naam='vermogen',
@@ -63,6 +73,15 @@ class Zonnepaneel(BevestigingGC, Voedingspunt):
     @modelnaam.setter
     def modelnaam(self, value):
         self._modelnaam.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self):
+        """De technsiche fiche als bijlage van het zonnepaneel."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def vermogen(self):

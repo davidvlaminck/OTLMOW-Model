@@ -17,7 +17,7 @@ class KlCBVLaagtype(KeuzelijstField):
         'eenlaagse-betonverharding': KeuzelijstWaarde(invulwaarde='eenlaagse-betonverharding',
                                                       label='eenlaagse betonverharding',
                                                       status='ingebruik',
-                                                      definitie='Betonverharding die in één laag aangelegd wordt. ',
+                                                      definitie='Betonverharding die in één laag aangelegd wordt.',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCBVLaagtype/eenlaagse-betonverharding'),
         'tweelaagse-betonverharding': KeuzelijstWaarde(invulwaarde='tweelaagse-betonverharding',
                                                        label='tweelaagse betonverharding',

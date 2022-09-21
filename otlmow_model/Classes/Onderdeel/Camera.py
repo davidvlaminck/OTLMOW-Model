@@ -8,6 +8,7 @@ from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
 from otlmow_model.Datatypes.KlCameraMerk import KlCameraMerk
 from otlmow_model.Datatypes.KlCameraModelnaam import KlCameraModelnaam
 from otlmow_model.Datatypes.KlServicePrioriteit import KlServicePrioriteit
+from otlmow_model.Datatypes.KlSpectrum import KlSpectrum
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
@@ -27,6 +28,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AIDModule')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort')
@@ -117,6 +119,13 @@ class Camera(AIMNaamObject, PuntGeometrie):
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.servicePrioriteit',
                                                definition='Het prioriteitsniveau dat aangeeft hoe dringend iets moet onderhouden/gerepareerd worden',
                                                owner=self)
+
+        self._spectrum = OTLAttribuut(field=KlSpectrum,
+                                      naam='spectrum',
+                                      label='spectrum',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.spectrum',
+                                      definition='De golflengte van de invallende straling.',
+                                      owner=self)
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
                                              naam='technischeFiche',
@@ -224,6 +233,15 @@ class Camera(AIMNaamObject, PuntGeometrie):
     @servicePrioriteit.setter
     def servicePrioriteit(self, value):
         self._servicePrioriteit.set_waarde(value, owner=self)
+
+    @property
+    def spectrum(self):
+        """De golflengte van de invallende straling."""
+        return self._spectrum.get_waarde()
+
+    @spectrum.setter
+    def spectrum(self, value):
+        self._spectrum.set_waarde(value, owner=self)
 
     @property
     def technischeFiche(self):

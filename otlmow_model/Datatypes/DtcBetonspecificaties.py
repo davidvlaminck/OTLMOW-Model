@@ -8,6 +8,7 @@ from otlmow_model.Datatypes.KlBetonmilieuklasse import KlBetonmilieuklasse
 from otlmow_model.Datatypes.KlBetonomgevingsklasse import KlBetonomgevingsklasse
 from otlmow_model.Datatypes.KlBetonsterkteklasse import KlBetonsterkteklasse
 from otlmow_model.Datatypes.KlGebruiksdomein import KlGebruiksdomein
+from otlmow_model.Datatypes.KlToeslagmiddelBeton import KlToeslagmiddelBeton
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
 
 
@@ -98,7 +99,24 @@ class DtcBetonspecificatiesWaarden(AttributeInfo):
                                              naam='technischeFiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcBetonspecificaties.technischeFiche',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.5.0 ',
+                                             deprecated_version='2.5.0',
                                              definition='De technische fiche van het beton. Deze moet volgende eigenschappen bevatten: de norm waaraan het beton voldoet, de sterkteklasse, de duurzaamheid (bestaande uit het gebruiksdomein en de omgevingsklasse(n)), de consistentieklasse, de nominale grootste korrelafmeting,...',
+                                             owner=self)
+
+        self._technischeFicheSpecificatiesBeton = OTLAttribuut(field=DtcDocument,
+                                                               naam='technischeFicheSpecificatiesBeton',
+                                                               label='technische fiche specificaties beton',
+                                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcBetonspecificaties.technischeFicheSpecificatiesBeton',
+                                                               definition='De technische fiche van de specificaties van het beton. Deze moet volgende eigenschappen bevatten: de norm waaraan het beton voldoet, de sterkteklasse, de duurzaamheid (bestaande uit het gebruiksdomein en de omgevingsklasse(n)), de consistentieklasse, de nominale grootste korrelafmeting,...',
+                                                               owner=self)
+
+        self._toeslagmiddelen = OTLAttribuut(field=KlToeslagmiddelBeton,
+                                             naam='toeslagmiddelen',
+                                             label='toeslagmiddelen',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcBetonspecificaties.toeslagmiddelen',
+                                             kardinaliteit_max='*',
+                                             definition='Materialen die aan het beton worden toegevoegd om vb.: een beter geheel te maken, holle ruimten te vullen waardoor de sterkte toeneemt, ruimten met minder massa te creëren,... Dit kunnen er meerdere zijn.',
                                              owner=self)
 
     @property
@@ -209,14 +227,32 @@ class DtcBetonspecificatiesWaarden(AttributeInfo):
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self._parent)
 
+    @property
+    def technischeFicheSpecificatiesBeton(self):
+        """De technische fiche van de specificaties van het beton. Deze moet volgende eigenschappen bevatten: de norm waaraan het beton voldoet, de sterkteklasse, de duurzaamheid (bestaande uit het gebruiksdomein en de omgevingsklasse(n)), de consistentieklasse, de nominale grootste korrelafmeting,..."""
+        return self._technischeFicheSpecificatiesBeton.get_waarde()
+
+    @technischeFicheSpecificatiesBeton.setter
+    def technischeFicheSpecificatiesBeton(self, value):
+        self._technischeFicheSpecificatiesBeton.set_waarde(value, owner=self._parent)
+
+    @property
+    def toeslagmiddelen(self):
+        """Materialen die aan het beton worden toegevoegd om vb.: een beter geheel te maken, holle ruimten te vullen waardoor de sterkte toeneemt, ruimten met minder massa te creëren,... Dit kunnen er meerdere zijn."""
+        return self._toeslagmiddelen.get_waarde()
+
+    @toeslagmiddelen.setter
+    def toeslagmiddelen(self, value):
+        self._toeslagmiddelen.set_waarde(value, owner=self._parent)
+
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
 class DtcBetonspecificaties(ComplexField, AttributeInfo):
-    """Complex datatype om de eigenschappen van beton te bundelen."""
+    """Complex datatype om de eigenschappen van beton te bundelen. Deze omvat onder andere de verschillende betonklassen,hoe het beton gebruikt wordt,eigenschappen van het cement,een technische fiche van het beton,..."""
     naam = 'DtcBetonspecificaties'
     label = 'Betonspecificaties'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcBetonspecificaties'
-    definition = 'Complex datatype om de eigenschappen van beton te bundelen.'
+    definition = 'Complex datatype om de eigenschappen van beton te bundelen. Deze omvat onder andere de verschillende betonklassen,hoe het beton gebruikt wordt,eigenschappen van het cement,een technische fiche van het beton,...'
     waardeObject = DtcBetonspecificatiesWaarden
 
     def __str__(self):

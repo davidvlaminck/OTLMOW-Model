@@ -12,7 +12,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
-    """Een draagconstructie voor verkeersborden of pictogrammen. Dit kan een ronde paal of een vakwerksteun zijn."""
+    """Een draagconstructie voor verkeersborden. Dit kan een ronde paal of een vakwerksteun zijn."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersbordsteun'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -32,9 +32,8 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
                                      naam='breedte',
                                      label='breedte',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersbordsteun.breedte',
-                                     usagenote='Attribuut uit gebruik sinds versie 2.1.0 ',
-                                     deprecated_version='2.1.0',
-                                     definition='De breedte van een verkeersbordpaal in millimeter.',
+                                     usagenote='De breedte van een verkeersbordsteun wordt vooral gebruikt wanneer de verkeersbordsteun van het type vakwerksteun is.',
+                                     definition='De breedte van een verkeersbordsteun in millimeter.',
                                      owner=self)
 
         self._diameter = OTLAttribuut(field=KwantWrdInMillimeter,
@@ -97,7 +96,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
 
     @property
     def breedte(self):
-        """De breedte van een verkeersbordpaal in millimeter."""
+        """De breedte van een verkeersbordsteun in millimeter."""
         return self._breedte.get_waarde()
 
     @breedte.setter
