@@ -72,4 +72,4 @@ deprecated_version: {self.deprecated_version}"""
                 else:
                     attribute.set_waarde(attribute.field.create_dummy_data())
             return new_value_object
-        return None
+        raise NotImplementedError()
