@@ -63,5 +63,6 @@ class WKTPlusGeoTypeTests(unittest.TestCase):
         w = Wegkantkast()
         with self.assertRaises(WrongGeometryWarning) as wrong_geometry_exception:
             w.geometry = 'LINESTRING Z (100000 200000 10, 300000 400000 20)'
-        error_msg = "Asset type Wegkantkast can't be assigned a LINESTRING Z as geometry, valid types are POINT Z and POLYGON Z"
-        self.assertEqual(error_msg, str(wrong_geometry_exception.exception))
+        expected_msg = "Asset type Wegkantkast shouldn't be assigned a LINESTRING Z as geometry, " \
+                       "valid types are POINT Z and POLYGON Z"
+        self.assertEqual(expected_msg, str(wrong_geometry_exception.exception))

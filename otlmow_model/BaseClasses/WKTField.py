@@ -27,7 +27,7 @@ class WKTField(OTLField):
             if geo_type not in attribuut.owner._geometry_types:
                 expected_types = ' and '.join(attribuut.owner._geometry_types)
                 verkorte_uri = attribuut.owner.typeURI.split('#')[1]
-                error_msg = f"Asset type {verkorte_uri} can't be assigned a {geo_type} as geometry, valid types are {expected_types}"
+                error_msg = f"Asset type {verkorte_uri} shouldn't be assigned a {geo_type} as geometry, valid types are {expected_types}"
                 raise WrongGeometryWarning(error_msg)
         return True
 
