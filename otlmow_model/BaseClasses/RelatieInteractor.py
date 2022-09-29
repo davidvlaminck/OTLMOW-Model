@@ -1,7 +1,7 @@
 from abc import abstractmethod
 
 
-# TODO rename (and validator)
+# TODO rename (and add validator)
 class RelatieInteractor:
     typeURI = ''
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
