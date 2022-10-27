@@ -143,6 +143,8 @@ class OTLObjectHelper:
 
 
 class OTLObject:
+    typeURI = ''
+
     def __init__(self):
         if hasattr(self, 'deprecated_version'):
             if self.deprecated_version is not None:
