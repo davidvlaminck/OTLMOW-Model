@@ -2,13 +2,11 @@
 import warnings
 from datetime import datetime
 
-from otlmow_model.Helpers.DotnotationHelper import DotnotationHelper
-from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
 from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
-from otlmow_model.BaseClasses.CachedProperty import cached_property
 from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
+from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
 
 
 class OTLAttribuut(AttributeInfo):
@@ -203,12 +201,6 @@ class OTLAttribuut(AttributeInfo):
              f'kardinaliteit_max: {self.kardinaliteit_max}\n'
              f'deprecated_version: {self.deprecated_version}\n')
         return s
-
-    @cached_property
-    def dotnotation(self):
-        if self._dotnotation == '':
-            self._dotnotation = DotnotationHelper.get_dotnotation(self)
-        return self._dotnotation
 
     def fill_with_dummy_data(self):
         if not self.readonly:
