@@ -1,8 +1,8 @@
 import warnings
 
-from otlmow-model.Exceptions.WrongGeometryWarning import WrongGeometryWarning
-from otlmow-model.BaseClasses.OTLField import OTLField
-from otlmow-model.BaseClasses.WKTValidator import WKTValidator
+from otlmow_model.BaseClasses.OTLField import OTLField
+from otlmow_model.BaseClasses.WKTValidator import WKTValidator
+from otlmow_model.Exceptions.WrongGeometryWarning import WrongGeometryWarning
 
 
 class WKTField(OTLField):
@@ -29,8 +29,9 @@ class WKTField(OTLField):
             if geo_type not in attribuut.owner._geometry_types:
                 expected_types = ' and '.join(attribuut.owner._geometry_types)
                 verkorte_uri = attribuut.owner.typeURI.split('#')[1]
-                error_msg = f"Asset type {verkorte_uri} shouldn't be assigned a {geo_type} as geometry, valid types are {expected_types}"
-                warnings.warn(error_msg, WrongGeometryWarning)
+                error_msg = f"Asset type {verkorte_uri} shouldn't be assigned a {geo_type} as geometry, " \
+                            f"valid types are {expected_types}"
+                warnings.warn(message=error_msg, category=WrongGeometryWarning)
         return True
 
     def __str__(self):

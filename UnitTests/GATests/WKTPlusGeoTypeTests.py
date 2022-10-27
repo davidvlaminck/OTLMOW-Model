@@ -31,7 +31,7 @@ class WKTPlusGeoTypeTests(unittest.TestCase):
             self.assertIsNotNone(puntclass.geometry)
 
         with self.subTest('invalid points'):
-            with self.assertRaises(WrongGeometryWarning):
+            with self.assertWarns(WrongGeometryWarning):
                 puntclass.geometry = 'POINT (1 2)'
             with self.assertRaises(ValueError):
                 puntclass.geometry = 'POINT Z (1 2,0 3)'
@@ -48,21 +48,21 @@ class WKTPlusGeoTypeTests(unittest.TestCase):
             self.assertIsNotNone(puntvlakclass.geometry)
 
         with self.subTest('invalid points'):
-            with self.assertRaises(WrongGeometryWarning):
+            with self.assertWarns(WrongGeometryWarning):
                 puntvlakclass.geometry = 'POINT (1 2)'
             with self.assertRaises(ValueError):
                 puntvlakclass.geometry = 'POINT Z (1 2,0 3)'
 
         with self.subTest('invalid polygons'):
-            with self.assertRaises(WrongGeometryWarning):
+            with self.assertWarns(WrongGeometryWarning):
                 puntvlakclass.geometry = 'POLYGON ((10 20, 30 40, 50 60))'
             with self.assertRaises(ValueError):
                 puntvlakclass.geometry = 'POLYGON Z ((10.0 20.0, 30.0 40.0 2, 50.0 60.0))'
 
     def test_invalid_geometry_based_on_geometry_artefact(self):
         w = Wegkantkast()
-        with self.assertRaises(WrongGeometryWarning) as wrong_geometry_exception:
+        with self.assertWarns(WrongGeometryWarning) as wrong_geometry_warning:
             w.geometry = 'LINESTRING Z (100000 200000 10, 300000 400000 20)'
         expected_msg = "Asset type Wegkantkast shouldn't be assigned a LINESTRING Z as geometry, " \
                        "valid types are POINT Z and POLYGON Z"
-        self.assertEqual(expected_msg, str(wrong_geometry_exception.exception))
+        self.assertEqual(expected_msg, str(wrong_geometry_warning.warning))
