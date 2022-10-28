@@ -8,25 +8,23 @@ from otlmow_model.BaseClasses.DateTimeField import DateTimeField
 from otlmow_model.BaseClasses.TimeField import TimeField
 
 
-class OTLObjectHelper:
-    @classmethod
-    def create_dict_from_asset(cls, asset, waarde_shortcut=False) -> dict:
-        d = cls.recursive_create_dict_from_asset(asset, waarde_shortcut=waarde_shortcut)
-        if d is None:
-            return {}
-        return d
+def create_dict_from_asset(asset, waarde_shortcut=False) -> dict:
+    d = recursive_create_dict_from_asset(asset, waarde_shortcut=waarde_shortcut)
+    if d is None:
+        return {}
+    return d
 
-    @classmethod
-    def recursive_create_dict_from_asset(cls, asset=None, waarde_shortcut=False):
-        if isinstance(asset, list) and not isinstance(asset, dict):
-            l = []
-            for item in asset:
-                dict_item = cls.recursive_create_dict_from_asset(asset=item, waarde_shortcut=waarde_shortcut)
-                if dict_item is not None:
-                    l.append(dict_item)
-            if len(l) > 0:
-                return l
-            return
+
+def recursive_create_dict_from_asset(asset=None, waarde_shortcut=False) -> Union[Dict, List[Dict]]:
+    if isinstance(asset, list) and not isinstance(asset, dict):
+        l = []
+        for item in asset:
+            dict_item = recursive_create_dict_from_asset(asset=item, waarde_shortcut=waarde_shortcut)
+            if dict_item is not None:
+                l.append(dict_item)
+        if len(l) > 0:
+            return l
+    else:
         d = {}
         for k, v in vars(asset).items():
             if k in ['_parent', '_geometry_types', '_valid_relations']:
@@ -34,7 +32,7 @@ class OTLObjectHelper:
             if v.waarde is None or v.waarde == []:
                 continue
 
-            if v.field.waardeObject is not None: # complex
+            if v.field.waardeObject is not None:  # complex
                 if waarde_shortcut and v.field.waarde_shortcut_applicable:
                     if isinstance(v.waarde, list):
                         dict_item = []
@@ -47,7 +45,7 @@ class OTLObjectHelper:
                         if dict_item is not None:
                             d[k[1:]] = dict_item
                 else:
-                    dict_item = cls.recursive_create_dict_from_asset(asset=v.waarde, waarde_shortcut=waarde_shortcut)
+                    dict_item = recursive_create_dict_from_asset(asset=v.waarde, waarde_shortcut=waarde_shortcut)
                     if dict_item is not None:
                         d[k[1:]] = dict_item
             else:
@@ -63,20 +61,20 @@ class OTLObjectHelper:
         if len(d.items()) > 0:
             return d
 
-    @classmethod
-    def clean_dict(cls, d) -> Union[dict, None]:
-        """Recursively remove None values and empty dicts from input dict"""
-        if d is None:
-            return None
-        for k in list(d):
-            v = d[k]
-            if isinstance(v, dict):
-                cls.clean_dict(v)
-                if len(v.items()) == 0:
-                    del d[k]
-            if v is None:
+
+def clean_dict(d) -> Union[Dict, None]:
+    """Recursively remove None values and empty dicts from input dict"""
+    if d is None:
+        return None
+    for k in list(d):
+        v = d[k]
+        if isinstance(v, dict):
+            clean_dict(v)
+            if len(v.items()) == 0:
                 del d[k]
-        return d
+        if v is None:
+            del d[k]
+    return d
 
 
 def build_string_version(asset, indent: int = 4) -> str:
