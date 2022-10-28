@@ -21,6 +21,7 @@ class KlRechteSteunType(KeuzelijstField):
         'a-paal': KeuzelijstWaarde(invulwaarde='a-paal',
                                    label='a-paal',
                                    status='ingebruik',
+                                   definitie='a-paal',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRechteSteunType/a-paal'),
         'bi-flash': KeuzelijstWaarde(invulwaarde='bi-flash',
                                      label='bi-flash',
@@ -29,11 +30,17 @@ class KlRechteSteunType(KeuzelijstField):
         'd-paal': KeuzelijstWaarde(invulwaarde='d-paal',
                                    label='d-paal',
                                    status='ingebruik',
+                                   definitie='d-paal',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRechteSteunType/d-paal'),
         'variabele-Z30': KeuzelijstWaarde(invulwaarde='variabele-Z30',
                                           label='variabele Z30',
                                           status='ingebruik',
-                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRechteSteunType/variabele-Z30')
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRechteSteunType/variabele-Z30'),
+        'vri-met-zwanehals': KeuzelijstWaarde(invulwaarde='vri-met-zwanehals',
+                                              label='VRI met zwanehals',
+                                              status='ingebruik',
+                                              definitie='VRI met zwanehals',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRechteSteunType/vri-met-zwanehals')
     }
 
     @classmethod

@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.KlCompacteBatterijMerk import KlCompacteBatterijMerk
@@ -10,9 +10,9 @@ from otlmow_model.Datatypes.KwantWrdInmAh import KwantWrdInmAh
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcCompacteBatterijWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcCompacteBatterijWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._capaciteit = OTLAttribuut(field=KwantWrdInmAh,
                                         naam='capaciteit',
                                         label='capaciteit',
@@ -95,7 +95,7 @@ class DtcCompacteBatterijWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcCompacteBatterij(ComplexField, AttributeInfo):
+class DtcCompacteBatterij(ComplexField):
     """Complex datatype waarmee de informatie, zoals merk, modelnaam, spanning, enz..., van de compacte batterij wordt verzameld."""
     naam = 'DtcCompacteBatterij'
     label = 'Compacte batterij'

@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcAdres import DtcAdres
 from otlmow_model.Datatypes.DtcOpeningsurenSpecificatie import DtcOpeningsurenSpecificatie
@@ -8,9 +8,9 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcContactinfoWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcContactinfoWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._adres = OTLAttribuut(field=DtcAdres,
                                    naam='adres',
                                    label='adres',
@@ -150,7 +150,7 @@ class DtcContactinfoWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcContactinfo(ComplexField, AttributeInfo):
+class DtcContactinfo(ComplexField):
     """Complex datatype voor de informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren."""
     naam = 'DtcContactinfo'
     label = 'Contactinfo'

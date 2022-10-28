@@ -3,7 +3,6 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.Classes.ImplementatieElement.AIMToestand import AIMToestand
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
 from otlmow_model.BaseClasses.RelatieInteractor import RelatieInteractor
 from otlmow_model.BaseClasses.DateField import DateField
@@ -13,7 +12,7 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AIMObject(AIMDBStatus, AIMToestand, AttributeInfo, OTLAsset, RelatieInteractor):
+class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelatieInteractor):
     """Abstracte als de basisklasse voor alle uniek geïdentificeerde OTL objecten met de basiseigenschappen die elk OTL object minstens heeft."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject'
@@ -23,7 +22,6 @@ class AIMObject(AIMDBStatus, AIMToestand, AttributeInfo, OTLAsset, RelatieIntera
     def __init__(self):
         AIMDBStatus.__init__(self)
         AIMToestand.__init__(self)
-        AttributeInfo.__init__(self)
         OTLAsset.__init__(self)
         RelatieInteractor.__init__(self)
 

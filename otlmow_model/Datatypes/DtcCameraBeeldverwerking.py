@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlCameraBeeldverwerkingstype import KlCameraBeeldverwerkingstype
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcCameraBeeldverwerkingWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcCameraBeeldverwerkingWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._configBestand = OTLAttribuut(field=DtcDocument,
                                            naam='configBestand',
                                            label='configuratiebestand beeldverwerking',
@@ -45,7 +45,7 @@ class DtcCameraBeeldverwerkingWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcCameraBeeldverwerking(ComplexField, AttributeInfo):
+class DtcCameraBeeldverwerking(ComplexField):
     """Complex datatype waarmee een type beeldverwerking van een camera en het relevant configuratiebestand, bijgehouden worden."""
     naam = 'DtcCameraBeeldverwerking'
     label = 'Camera beeldverwerkingsinstellingen'

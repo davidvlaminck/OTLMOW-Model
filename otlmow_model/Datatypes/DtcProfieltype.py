@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlProfielhoogtemaat import KlProfielhoogtemaat
 from otlmow_model.Datatypes.KlProfielsoort import KlProfielsoort
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcProfieltypeWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcProfieltypeWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._profielhoogtemaat = OTLAttribuut(field=KlProfielhoogtemaat,
                                                naam='profielhoogtemaat',
                                                label='profielhoogtemaat',
@@ -44,7 +44,7 @@ class DtcProfieltypeWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcProfieltype(ComplexField, AttributeInfo):
+class DtcProfieltype(ComplexField):
     """Complex datatype om de hoogtemaat en de soort van het profiel in te geven."""
     naam = 'DtcProfieltype'
     label = 'Profieltype'

@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcAdres import DtcAdres
@@ -8,9 +8,9 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcNatuurlijkPersoonWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcNatuurlijkPersoonWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._achternaam = OTLAttribuut(field=StringField,
                                         naam='achternaam',
                                         label='achternaam',
@@ -145,7 +145,7 @@ class DtcNatuurlijkPersoonWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcNatuurlijkPersoon(ComplexField, AttributeInfo):
+class DtcNatuurlijkPersoon(ComplexField):
     """Complex datatype dat een natuurlijk persoon beschrijft."""
     naam = 'DtcNatuurlijkPersoon'
     label = 'Natuurlijk persoon'

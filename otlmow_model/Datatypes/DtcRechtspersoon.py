@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcAdres import DtcAdres
 from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcRechtspersoonWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcRechtspersoonWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._adres = OTLAttribuut(field=DtcAdres,
                                    naam='adres',
                                    label='adres',
@@ -76,7 +76,7 @@ class DtcRechtspersoonWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcRechtspersoon(ComplexField, AttributeInfo):
+class DtcRechtspersoon(ComplexField):
     """Complex datatype voor een rechtspersoon."""
     naam = 'DtcRechtspersoon'
     label = 'Rechtspersoon'

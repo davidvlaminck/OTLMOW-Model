@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
@@ -13,9 +13,9 @@ from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcBetonspecificatiesWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcBetonspecificatiesWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._betondekking = OTLAttribuut(field=KwantWrdInMillimeter,
                                           naam='betondekking',
                                           label='betondekking',
@@ -247,7 +247,7 @@ class DtcBetonspecificatiesWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcBetonspecificaties(ComplexField, AttributeInfo):
+class DtcBetonspecificaties(ComplexField):
     """Complex datatype om de eigenschappen van beton te bundelen. Deze omvat onder andere de verschillende betonklassen,hoe het beton gebruikt wordt,eigenschappen van het cement,een technische fiche van het beton,..."""
     naam = 'DtcBetonspecificaties'
     label = 'Betonspecificaties'

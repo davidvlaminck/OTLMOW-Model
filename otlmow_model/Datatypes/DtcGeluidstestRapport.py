@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.BaseClasses.IntegerField import IntegerField
@@ -10,9 +10,9 @@ from otlmow_model.Datatypes.KlLEGCTestType import KlLEGCTestType
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcGeluidstestRapportWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcGeluidstestRapportWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._geluidsabsorptieReflectie = OTLAttribuut(field=IntegerField,
                                                        naam='geluidsabsorptieReflectie',
                                                        label='geluidsabsorptie reflectie',
@@ -129,7 +129,7 @@ class DtcGeluidstestRapportWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcGeluidstestRapport(ComplexField, AttributeInfo):
+class DtcGeluidstestRapport(ComplexField):
     """Complex datatype voor een verslag dat de resultaten van de geluidsmetingen weergeeft."""
     naam = 'DtcGeluidstestRapport'
     label = 'Geluidstest rapport'

@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlAlgWeekdagen import KlAlgWeekdagen
 from otlmow_model.BaseClasses.TimeField import TimeField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcOpeningsurenSpecificatieWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcOpeningsurenSpecificatieWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._openingstijd = OTLAttribuut(field=TimeField,
                                           naam='openingstijd',
                                           label='openingstijd',
@@ -60,7 +60,7 @@ class DtcOpeningsurenSpecificatieWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcOpeningsurenSpecificatie(ComplexField, AttributeInfo):
+class DtcOpeningsurenSpecificatie(ComplexField):
     """Complex datatype dat de openingsuren volgens https://schema.org/OpeningHoursSpecification specifieert."""
     naam = 'DtcOpeningsurenSpecificatie'
     label = 'Openingsurenspecificatie'

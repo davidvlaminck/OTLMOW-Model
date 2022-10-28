@@ -1,6 +1,5 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLObject import OTLObject
 from otlmow_model.BaseClasses.RelatieInteractor import RelatieInteractor
 from otlmow_model.Datatypes.DtcContactinfo import DtcContactinfo
@@ -9,14 +8,13 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Agent(AttributeInfo, OTLObject, RelatieInteractor):
+class Agent(OTLObject, RelatieInteractor):
     """Iemand die of iets dat kan handelen of een effect kan teweeg brengen."""
 
     typeURI = 'http://purl.org/dc/terms/Agent'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AttributeInfo.__init__(self)
         OTLObject.__init__(self)
         RelatieInteractor.__init__(self)
 

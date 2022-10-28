@@ -1,5 +1,4 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Datatypes.KlLichtmastMasthoogte import KlLichtmastMasthoogte
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
@@ -8,9 +7,8 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuLichtmastMasthoogteWaarden(AttributeInfo, UnionWaarden):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtuLichtmastMasthoogteWaarden(UnionWaarden):
+    def __init__(self):
         UnionWaarden.__init__(self)
         self._afwijkendeHoogte = OTLAttribuut(field=KwantWrdInMeter,
                                               naam='afwijkendeHoogte',
@@ -52,7 +50,7 @@ class DtuLichtmastMasthoogteWaarden(AttributeInfo, UnionWaarden):
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuLichtmastMasthoogte(UnionTypeField, AttributeInfo):
+class DtuLichtmastMasthoogte(UnionTypeField):
     """Union datatype om een standaard of afwijkende masthoogte te bepalen."""
     naam = 'DtuLichtmastMasthoogte'
     label = 'Masthoogte'

@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcBeschermingVraatschade import DtcBeschermingVraatschade
@@ -17,9 +17,9 @@ from otlmow_model.Datatypes.KlVormAanleveringHoutigeVegetatie import KlVormAanle
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcAanlegBoomvormWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcAanlegBoomvormWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._beschermingVraatschade = OTLAttribuut(field=DtcBeschermingVraatschade,
                                                     naam='beschermingVraatschade',
                                                     label='bescherming vraatschade',
@@ -232,7 +232,7 @@ class DtcAanlegBoomvormWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcAanlegBoomvorm(ComplexField, AttributeInfo):
+class DtcAanlegBoomvorm(ComplexField):
     """Complex datatype om alle eigenschappen van de aanleg van een opgaande boom onder 1 noemer te houden."""
     naam = 'DtcAanlegBoomvorm'
     label = 'aanleg boomvorm'

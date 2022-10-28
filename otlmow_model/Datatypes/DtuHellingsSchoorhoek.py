@@ -1,5 +1,4 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Datatypes.KlSchoorhoek import KlSchoorhoek
 from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden
@@ -8,9 +7,8 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuHellingsSchoorhoekWaarden(AttributeInfo, UnionWaarden):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtuHellingsSchoorhoekWaarden(UnionWaarden):
+    def __init__(self):
         UnionWaarden.__init__(self)
         self._hellingshoek = OTLAttribuut(field=KwantWrdInDecimaleGraden,
                                           naam='hellingshoek',
@@ -52,7 +50,7 @@ class DtuHellingsSchoorhoekWaarden(AttributeInfo, UnionWaarden):
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuHellingsSchoorhoek(UnionTypeField, AttributeInfo):
+class DtuHellingsSchoorhoek(UnionTypeField):
     """Union datatype voor de hellings- of de schoorhoek."""
     naam = 'DtuHellingsSchoorhoek'
     label = 'Hellings- of schoorhoek'

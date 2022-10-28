@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlMarkeringWaarborgperiode import KlMarkeringWaarborgperiode
 from otlmow_model.Datatypes.KlSignalisatieMarkeringOpvatting import KlSignalisatieMarkeringOpvatting
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcMarkeringOpvattingWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcMarkeringOpvattingWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._opvatting = OTLAttribuut(field=KlSignalisatieMarkeringOpvatting,
                                        naam='opvatting',
                                        label='opvatting',
@@ -44,7 +44,7 @@ class DtcMarkeringOpvattingWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcMarkeringOpvatting(ComplexField, AttributeInfo):
+class DtcMarkeringOpvatting(ComplexField):
     """Complex datatype voor de opvatting van een markering."""
     naam = 'DtcMarkeringOpvatting'
     label = 'Markering opvatting'

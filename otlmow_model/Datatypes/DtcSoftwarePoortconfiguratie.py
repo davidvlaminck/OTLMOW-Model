@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.BaseClasses.IntegerField import IntegerField
 from otlmow_model.Datatypes.KlPoortconfiguratieRichting import KlPoortconfiguratieRichting
@@ -8,9 +8,9 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcSoftwarePoortconfiguratieWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcSoftwarePoortconfiguratieWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._poortnummer = OTLAttribuut(field=IntegerField,
                                          naam='poortnummer',
                                          label='poortnummer',
@@ -61,7 +61,7 @@ class DtcSoftwarePoortconfiguratieWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcSoftwarePoortconfiguratie(ComplexField, AttributeInfo):
+class DtcSoftwarePoortconfiguratie(ComplexField):
     """Complex datatype dat beschrijft welke poort voor welke service gebruikt wordt."""
     naam = 'DtcSoftwarePoortconfiguratie'
     label = 'Software poortconfiguratie'

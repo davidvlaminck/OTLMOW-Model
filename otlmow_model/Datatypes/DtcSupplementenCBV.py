@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlKleurSupp import KlKleurSupp
 from otlmow_model.Datatypes.KlTypeSuppCBV import KlTypeSuppCBV
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcSupplementenCBVWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcSupplementenCBVWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._kleur = OTLAttribuut(field=KlKleurSupp,
                                    naam='kleur',
                                    label='kleur',
@@ -44,7 +44,7 @@ class DtcSupplementenCBVWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcSupplementenCBV(ComplexField, AttributeInfo):
+class DtcSupplementenCBV(ComplexField):
     """Complex datatype voor de supplementen van de CBV."""
     naam = 'DtcSupplementenCBV'
     label = 'Supplementen CBV'

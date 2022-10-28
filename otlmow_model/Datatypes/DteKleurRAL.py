@@ -1,14 +1,14 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.OTLField import OTLField
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
-class DteKleurRALWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DteKleurRALWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._waarde = OTLAttribuut(field=StringField,
                                     naam='waarde',
                                     label='waarde',
@@ -28,7 +28,7 @@ class DteKleurRALWaarden(AttributeInfo):
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
-class DteKleurRAL(OTLField, AttributeInfo):
+class DteKleurRAL(OTLField):
     """Beschrijft een kleur volgens het RAL classificatiesysteem. De waarde is een natuurlijk getal tussen 1000 en 9999."""
     naam = 'DteKleurRAL'
     label = 'RAL-kleur'

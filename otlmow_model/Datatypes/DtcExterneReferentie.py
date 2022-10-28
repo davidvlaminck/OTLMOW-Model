@@ -1,14 +1,14 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcExterneReferentieWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcExterneReferentieWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._externReferentienummer = OTLAttribuut(field=StringField,
                                                     naam='externReferentienummer',
                                                     label='extern referentienummer',
@@ -43,7 +43,7 @@ class DtcExterneReferentieWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcExterneReferentie(ComplexField, AttributeInfo):
+class DtcExterneReferentie(ComplexField):
     """Complex datatype waarmee een referentienummer zoals gekend bij de externe partij bv. aannemer, VLCC, ... kan toegevoegd worden aan object."""
     naam = 'DtcExterneReferentie'
     label = 'Externe referentie'

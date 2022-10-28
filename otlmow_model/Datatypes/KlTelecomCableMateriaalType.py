@@ -18,6 +18,11 @@ class KlTelecomCableMateriaalType(KeuzelijstField):
                                     label='coaxial',
                                     status='ingebruik',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/coaxial'),
+        'ftp': KeuzelijstWaarde(invulwaarde='ftp',
+                                label='FTP',
+                                status='ingebruik',
+                                definitie='FTP',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/ftp'),
         'opticalfiber': KeuzelijstWaarde(invulwaarde='opticalfiber',
                                          label='opticalFiber',
                                          status='ingebruik',
@@ -26,10 +31,25 @@ class KlTelecomCableMateriaalType(KeuzelijstField):
                                   label='other',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/other'),
+        'sty-sy': KeuzelijstWaarde(invulwaarde='sty-sy',
+                                   label='STY SY',
+                                   status='ingebruik',
+                                   definitie='STY SY',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/sty-sy'),
+        'tvavb': KeuzelijstWaarde(invulwaarde='tvavb',
+                                  label='TVAVB',
+                                  status='ingebruik',
+                                  definitie='TVAVB',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/tvavb'),
         'twistedpair': KeuzelijstWaarde(invulwaarde='twistedpair',
                                         label='twistedPair',
                                         status='ingebruik',
-                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/twistedpair')
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/twistedpair'),
+        'vvt': KeuzelijstWaarde(invulwaarde='vvt',
+                                label='VVT',
+                                status='ingebruik',
+                                definitie='VVT',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/vvt')
     }
 
     @classmethod

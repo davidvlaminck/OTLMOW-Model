@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.KlAardingAardingsstelsel import KlAardingAardingsstelsel
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcAardingsstelselWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcAardingsstelselWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._attestDNB = OTLAttribuut(field=DtcDocument,
                                        naam='attestDNB',
                                        label='attest distributienetbeheerder',
@@ -45,7 +45,7 @@ class DtcAardingsstelselWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcAardingsstelsel(ComplexField, AttributeInfo):
+class DtcAardingsstelsel(ComplexField):
     """Complex datatype dat het mogelijk maakt om het attest van de distributienetbeheerder toe te voegen in het geval van een globaal aardingsstelsel."""
     naam = 'DtcAardingsstelsel'
     label = 'Aardingsstelsel details.'

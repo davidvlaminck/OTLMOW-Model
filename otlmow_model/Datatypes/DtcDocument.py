@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DteTekstblok import DteTekstblok
 from otlmow_model.Datatypes.KlAlgMimeType import KlAlgMimeType
@@ -9,9 +9,9 @@ from otlmow_model.BaseClasses.URIField import URIField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcDocumentWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcDocumentWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._bestandsnaam = OTLAttribuut(field=StringField,
                                           naam='bestandsnaam',
                                           label='bestandsnaam',
@@ -78,7 +78,7 @@ class DtcDocumentWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcDocument(ComplexField, AttributeInfo):
+class DtcDocument(ComplexField):
     """Complex datatype voor alle bestandsbijlages."""
     naam = 'DtcDocument'
     label = 'Bestandsbijlage'

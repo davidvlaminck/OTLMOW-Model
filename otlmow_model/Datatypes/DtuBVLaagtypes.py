@@ -1,5 +1,4 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Datatypes.DtcProfileerlaag import DtcProfileerlaag
 from otlmow_model.Datatypes.KlBVLaagtype import KlBVLaagtype
@@ -8,9 +7,8 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuBVLaagtypesWaarden(AttributeInfo, UnionWaarden):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtuBVLaagtypesWaarden(UnionWaarden):
+    def __init__(self):
         UnionWaarden.__init__(self)
         self._laagtype = OTLAttribuut(field=KlBVLaagtype,
                                       naam='laagtype',
@@ -52,7 +50,7 @@ class DtuBVLaagtypesWaarden(AttributeInfo, UnionWaarden):
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuBVLaagtypes(UnionTypeField, AttributeInfo):
+class DtuBVLaagtypes(UnionTypeField):
     """Union datatype voor een laagtype anders dan de profileerlaag. Bij een profileerlaag kan men het gewicht toelichten."""
     naam = 'DtuBVLaagtypes'
     label = 'Laagtype van de bitumineuze verharding'

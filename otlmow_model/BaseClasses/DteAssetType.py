@@ -1,13 +1,13 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.StringField import StringField
 
 
-class DteAssetTypeWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DteAssetTypeWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._typeURI = OTLAttribuut(field=StringField,
                                      naam='typeURI',
                                      label='typeURI',
@@ -25,7 +25,7 @@ class DteAssetTypeWaarden(AttributeInfo):
         self._typeURI.set_waarde(value, owner=self._parent)
 
 
-class DteAssetType(ComplexField, AttributeInfo):
+class DteAssetType(ComplexField):
     """Complex datatype om het assettype te benoemen"""
     naam = 'DteAssetType'
     label = 'AssetType'

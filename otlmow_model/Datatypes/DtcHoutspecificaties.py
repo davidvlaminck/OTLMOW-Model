@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
@@ -10,9 +10,9 @@ from otlmow_model.Datatypes.KlSterkteklasseHout import KlSterkteklasseHout
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcHoutspecificatiesWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcHoutspecificatiesWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._fscCertificaat = OTLAttribuut(field=DtcDocument,
                                             naam='fscCertificaat',
                                             label='FSC-certificaat',
@@ -95,7 +95,7 @@ class DtcHoutspecificatiesWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcHoutspecificaties(ComplexField, AttributeInfo):
+class DtcHoutspecificaties(ComplexField):
     """Complex datatype om de eigenschappen van hout te bundelen."""
     naam = 'DtcHoutspecificaties'
     label = 'Houtspecificaties'

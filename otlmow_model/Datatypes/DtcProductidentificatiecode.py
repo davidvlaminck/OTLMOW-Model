@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.BaseClasses.StringField import StringField
@@ -8,9 +8,9 @@ from otlmow_model.BaseClasses.URIField import URIField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcProductidentificatiecodeWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcProductidentificatiecodeWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._keuringsverslag = OTLAttribuut(field=DtcDocument,
                                              naam='keuringsverslag',
                                              label='keuringsverslag',
@@ -77,7 +77,7 @@ class DtcProductidentificatiecodeWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcProductidentificatiecode(ComplexField, AttributeInfo):
+class DtcProductidentificatiecode(ComplexField):
     """Complex datatype dat alle nodige informatie van het product capteert."""
     naam = 'DtcProductidentificatiecode'
     label = 'Productidentificatiecode'

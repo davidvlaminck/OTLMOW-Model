@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlBSSRandafwerking import KlBSSRandafwerking
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcBSSRandafwerkingWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcBSSRandafwerkingWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._lengteRandafwerking = OTLAttribuut(field=KwantWrdInMeter,
                                                  naam='lengteRandafwerking',
                                                  label='lengte randafwerking',
@@ -44,7 +44,7 @@ class DtcBSSRandafwerkingWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcBSSRandafwerking(ComplexField, AttributeInfo):
+class DtcBSSRandafwerking(ComplexField):
     """Complex datatype voor de afwerking van de rand van een betonstraatsteenverharding."""
     naam = 'DtcBSSRandafwerking'
     label = 'Betonstraatsteenafwerking'

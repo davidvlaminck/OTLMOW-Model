@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlLETrottoirbandVorm import KlLETrottoirbandVorm
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcTrottoirbandVormWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcTrottoirbandVormWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._breedte = OTLAttribuut(field=KwantWrdInCentimeter,
                                      naam='breedte',
                                      label='breedte',
@@ -60,7 +60,7 @@ class DtcTrottoirbandVormWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcTrottoirbandVorm(ComplexField, AttributeInfo):
+class DtcTrottoirbandVorm(ComplexField):
     """Complex datatype voor de vorm van een trotoirband."""
     naam = 'DtcTrottoirbandVorm'
     label = 'Trottoirband vorm'

@@ -1,5 +1,4 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
 from otlmow_model.Datatypes.DtcAfmetingDiameterInMm import DtcAfmetingDiameterInMm
@@ -8,9 +7,8 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuDwarsafmetingenWaarden(AttributeInfo, UnionWaarden):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtuDwarsafmetingenWaarden(UnionWaarden):
+    def __init__(self):
         UnionWaarden.__init__(self)
         self._rechthoekig = OTLAttribuut(field=DtcAfmetingBxlxhInMm,
                                          naam='rechthoekig',
@@ -52,7 +50,7 @@ class DtuDwarsafmetingenWaarden(AttributeInfo, UnionWaarden):
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuDwarsafmetingen(UnionTypeField, AttributeInfo):
+class DtuDwarsafmetingen(UnionTypeField):
     """Union datatype voor de dwarsafmetingen van een object volgens zijn vorm."""
     naam = 'DtuDwarsafmetingen'
     label = 'Dwarsafmetingen'

@@ -1,14 +1,14 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcKrimpvoegWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcKrimpvoegWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._krimpvoegFrequentie = OTLAttribuut(field=KwantWrdInMeter,
                                                  naam='krimpvoegFrequentie',
                                                  label='krimpvoeg frequentie',
@@ -43,7 +43,7 @@ class DtcKrimpvoegWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcKrimpvoeg(ComplexField, AttributeInfo):
+class DtcKrimpvoeg(ComplexField):
     """Complex datatype voor de informatie van de krimpvoegen."""
     naam = 'DtcKrimpvoeg'
     label = 'Krimpvoeg'

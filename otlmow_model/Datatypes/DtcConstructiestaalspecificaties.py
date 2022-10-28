@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlConstructiestaalsoort import KlConstructiestaalsoort
 from otlmow_model.Datatypes.KlWalsmethode import KlWalsmethode
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcConstructiestaalspecificatiesWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcConstructiestaalspecificatiesWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._staalsoort = OTLAttribuut(field=KlConstructiestaalsoort,
                                         naam='staalsoort',
                                         label='staalsoort',
@@ -44,7 +44,7 @@ class DtcConstructiestaalspecificatiesWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcConstructiestaalspecificaties(ComplexField, AttributeInfo):
+class DtcConstructiestaalspecificaties(ComplexField):
     """Complex datatype om de eigenschappen van constructiestaal te bundelen."""
     naam = 'DtcConstructiestaalspecificaties'
     label = 'Constructiestaalspecificaties'

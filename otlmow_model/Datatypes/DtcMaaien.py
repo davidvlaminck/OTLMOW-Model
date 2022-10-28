@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlMaaiFrequentie import KlMaaiFrequentie
@@ -8,9 +8,9 @@ from otlmow_model.Datatypes.KlMaaiPeriode import KlMaaiPeriode
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcMaaienWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcMaaienWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._frequentie = OTLAttribuut(field=KlMaaiFrequentie,
                                         naam='frequentie',
                                         label='frequentie',
@@ -127,7 +127,7 @@ class DtcMaaienWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcMaaien(ComplexField, AttributeInfo):
+class DtcMaaien(ComplexField):
     """Complex datatype voor de eigenschappen van maaien."""
     naam = 'DtcMaaien'
     label = 'Maaien'

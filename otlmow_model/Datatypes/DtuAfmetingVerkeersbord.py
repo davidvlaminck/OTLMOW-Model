@@ -1,5 +1,4 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Datatypes.DtcAfmetingBxhInMm import DtcAfmetingBxhInMm
 from otlmow_model.Datatypes.DtcAfmetingDiameterInMm import DtcAfmetingDiameterInMm
@@ -9,9 +8,8 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuAfmetingVerkeersbordWaarden(AttributeInfo, UnionWaarden):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtuAfmetingVerkeersbordWaarden(UnionWaarden):
+    def __init__(self):
         UnionWaarden.__init__(self)
         self._achthoekig = OTLAttribuut(field=DtcAfmetingZijdeInMm,
                                         naam='achthoekig',
@@ -110,7 +108,7 @@ class DtuAfmetingVerkeersbordWaarden(AttributeInfo, UnionWaarden):
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuAfmetingVerkeersbord(UnionTypeField, AttributeInfo):
+class DtuAfmetingVerkeersbord(UnionTypeField):
     """Union datatype voor de afmeting van het verkeersbord."""
     naam = 'DtuAfmetingVerkeersbord'
     label = 'Afmeting verkeersbord'

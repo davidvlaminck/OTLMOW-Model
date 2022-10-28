@@ -1,14 +1,14 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KwantWrdInKilogram import KwantWrdInKilogram
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcBereikInKgWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcBereikInKgWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._maximum = OTLAttribuut(field=KwantWrdInKilogram,
                                      naam='maximum',
                                      label='maximum',
@@ -43,7 +43,7 @@ class DtcBereikInKgWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcBereikInKg(ComplexField, AttributeInfo):
+class DtcBereikInKg(ComplexField):
     """Complex datatype om een bereik uit te drukken met een minimium en maximum in kilogram."""
     naam = 'DtcBereikInKg'
     label = 'Bereik in kg'

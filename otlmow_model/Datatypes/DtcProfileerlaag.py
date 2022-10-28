@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlBVLaagtype import KlBVLaagtype
 from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcProfileerlaagWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcProfileerlaagWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._gewicht = OTLAttribuut(field=KwantWrdInTon,
                                      naam='gewicht',
                                      label='gewicht',
@@ -44,7 +44,7 @@ class DtcProfileerlaagWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcProfileerlaag(ComplexField, AttributeInfo):
+class DtcProfileerlaag(ComplexField):
     """Complex datatype om extra informatie te capteren van de profilerende laag."""
     naam = 'DtcProfileerlaag'
     label = 'Profileerlaag'

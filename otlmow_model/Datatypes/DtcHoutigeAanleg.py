@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.DtcBeschermingVraatschade import DtcBeschermingVraatschade
@@ -15,9 +15,9 @@ from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcHoutigeAanlegWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcHoutigeAanlegWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._beschermingVraatschade = OTLAttribuut(field=DtcBeschermingVraatschade,
                                                     naam='beschermingVraatschade',
                                                     label='bescherming vraatschade',
@@ -230,7 +230,7 @@ class DtcHoutigeAanlegWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcHoutigeAanleg(ComplexField, AttributeInfo):
+class DtcHoutigeAanleg(ComplexField):
     """Complex datatype dat de aanleg van houtige vegetatie beschrijft."""
     naam = 'DtcHoutigeAanleg'
     label = 'Houtige aanleg'

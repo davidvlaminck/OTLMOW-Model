@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KwantWrdInMinuut import KwantWrdInMinuut
 from otlmow_model.Datatypes.KwantWrdInSeconde import KwantWrdInSeconde
@@ -8,9 +8,9 @@ from otlmow_model.Datatypes.KwantWrdInUur import KwantWrdInUur
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcTijdsduurWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcTijdsduurWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._minuten = OTLAttribuut(field=KwantWrdInMinuut,
                                      naam='minuten',
                                      label='minuten',
@@ -61,7 +61,7 @@ class DtcTijdsduurWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcTijdsduur(ComplexField, AttributeInfo):
+class DtcTijdsduur(ComplexField):
     """Complex datatype voor de instelling van een tijdsbepaling."""
     naam = 'DtcTijdsduur'
     label = 'Tijdsduur'

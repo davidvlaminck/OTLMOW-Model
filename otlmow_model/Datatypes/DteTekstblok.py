@@ -1,14 +1,14 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.OTLField import OTLField
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
-class DteTekstblokWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DteTekstblokWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._waarde = OTLAttribuut(field=StringField,
                                     naam='waarde',
                                     label='waarde',
@@ -27,7 +27,7 @@ class DteTekstblokWaarden(AttributeInfo):
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
-class DteTekstblok(OTLField, AttributeInfo):
+class DteTekstblok(OTLField):
     """Een tekst welke uit meerdere zinnen bestaat, en ook regeleindes kan bevatten. Een tekstblok bevat maximaal 65.000 karakters."""
     naam = 'DteTekstblok'
     label = 'Tekstblok'

@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlAanplantingswijzeSierbeplanting import KlAanplantingswijzeSierbeplanting
 from otlmow_model.Datatypes.KlSierbeplContainer import KlSierbeplContainer
@@ -10,9 +10,9 @@ from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcSierbeplAanlegWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcSierbeplAanlegWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._aanplantingswijze = OTLAttribuut(field=KlAanplantingswijzeSierbeplanting,
                                                naam='aanplantingswijze',
                                                label='aanplantingswijze',
@@ -95,7 +95,7 @@ class DtcSierbeplAanlegWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcSierbeplAanleg(ComplexField, AttributeInfo):
+class DtcSierbeplAanleg(ComplexField):
     """Complex datatype voor dat de aanleg van sierbeplanting beschrijft."""
     naam = 'DtcSierbeplAanleg'
     label = 'Sierbeplanting aanleg'

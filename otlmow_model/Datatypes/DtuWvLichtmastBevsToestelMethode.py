@@ -1,5 +1,4 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Datatypes.KlWvLichtmastBevsToestel import KlWvLichtmastBevsToestel
 from otlmow_model.BaseClasses.StringField import StringField
@@ -8,9 +7,8 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuWvLichtmastBevsToestelMethodeWaarden(AttributeInfo, UnionWaarden):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtuWvLichtmastBevsToestelMethodeWaarden(UnionWaarden):
+    def __init__(self):
         UnionWaarden.__init__(self)
         self._afwijkendeMethode = OTLAttribuut(field=StringField,
                                                naam='afwijkendeMethode',
@@ -52,7 +50,7 @@ class DtuWvLichtmastBevsToestelMethodeWaarden(AttributeInfo, UnionWaarden):
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit
-class DtuWvLichtmastBevsToestelMethode(UnionTypeField, AttributeInfo):
+class DtuWvLichtmastBevsToestelMethode(UnionTypeField):
     """Union datatype voor de wijze waarop verlichtingstoestellen bevestigd zijn op een lichtmast, indien dit een standaard methode is dan kan deze geselecteerd worden uit een keuzelijst. Bij afwijkende methode kan de methode toegelicht worden."""
     naam = 'DtuWvLichtmastBevsToestelMethode'
     label = 'Bevestiging wegverlichtingstoestel'

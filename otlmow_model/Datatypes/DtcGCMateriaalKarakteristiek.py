@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlLEGCGeluidskarakteristiek import KlLEGCGeluidskarakteristiek
 from otlmow_model.Datatypes.KlLEGCMateriaal import KlLEGCMateriaal
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcGCMateriaalKarakteristiekWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcGCMateriaalKarakteristiekWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._geluidskarakteristiek = OTLAttribuut(field=KlLEGCGeluidskarakteristiek,
                                                    naam='geluidskarakteristiek',
                                                    label='geluidskarakteristiek',
@@ -44,7 +44,7 @@ class DtcGCMateriaalKarakteristiekWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcGCMateriaalKarakteristiek(ComplexField, AttributeInfo):
+class DtcGCMateriaalKarakteristiek(ComplexField):
     """Complex datatype voor het materiaal en zijn geluidskarakteristiek van de geluidswerende constructie."""
     naam = 'DtcGCMateriaalKarakteristiek'
     label = 'Materiaal karakteristiek'

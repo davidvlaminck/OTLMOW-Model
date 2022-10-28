@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.OTLField import OTLField
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
-class KwantWrdInKiloVoltAmpereWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class KwantWrdInKiloVoltAmpereWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._standaardEenheid = OTLAttribuut(field=StringField,
                                               naam='standaardEenheid',
                                               label='standaard eenheid',
@@ -43,7 +43,7 @@ class KwantWrdInKiloVoltAmpereWaarden(AttributeInfo):
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
-class KwantWrdInKiloVoltAmpere(OTLField, AttributeInfo):
+class KwantWrdInKiloVoltAmpere(OTLField):
     """Een kwantitatieve waarde die een getal in kilovoltampère uitdrukt."""
     naam = 'KwantWrdInKiloVoltAmpere'
     label = 'Kwantitatieve waarde in kilovoltampère'

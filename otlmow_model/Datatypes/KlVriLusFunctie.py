@@ -37,7 +37,12 @@ class KlVriLusFunctie(KeuzelijstField):
         'stopstreeplus': KeuzelijstWaarde(invulwaarde='stopstreeplus',
                                           label='stopstreeplus',
                                           status='ingebruik',
-                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVriLusFunctie/stopstreeplus')
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVriLusFunctie/stopstreeplus'),
+        'tellus': KeuzelijstWaarde(invulwaarde='tellus',
+                                   label='tellus',
+                                   status='ingebruik',
+                                   definitie='tellus',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVriLusFunctie/tellus')
     }
 
     @classmethod

@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
@@ -8,9 +8,9 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcKwaliteitscertifcaatWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcKwaliteitscertifcaatWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._datumOndertekening = OTLAttribuut(field=DateField,
                                                 naam='datumOndertekening',
                                                 label='datum ondertekening',
@@ -61,7 +61,7 @@ class DtcKwaliteitscertifcaatWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcKwaliteitscertifcaat(ComplexField, AttributeInfo):
+class DtcKwaliteitscertifcaat(ComplexField):
     """Complex datatype voor een rapport waarin vastgelegd wordt dat een apparaat of installatie voldoet aan vooropgestelde kwaliteitseisen. Kan vereist zijn voor de tegenstelbaarheid van het gebruik van het toestel of de installatie in kwestie"""
     naam = 'DtcKwaliteitscertifcaat'
     label = 'kwaliteitscertificaat'

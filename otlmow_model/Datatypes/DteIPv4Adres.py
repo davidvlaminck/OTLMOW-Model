@@ -1,14 +1,14 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.OTLField import OTLField
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
-class DteIPv4AdresWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DteIPv4AdresWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._waarde = OTLAttribuut(field=StringField,
                                     naam='waarde',
                                     label='waarde',
@@ -28,7 +28,7 @@ class DteIPv4AdresWaarden(AttributeInfo):
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
-class DteIPv4Adres(OTLField, AttributeInfo):
+class DteIPv4Adres(OTLField):
     """Beschrijft een ip-adres volgens de ipv4 specificatie."""
     naam = 'DteIPv4Adres'
     label = 'IPv4-adres'

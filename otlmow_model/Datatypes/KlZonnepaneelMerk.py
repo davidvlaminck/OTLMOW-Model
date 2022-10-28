@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,11 @@ class KlZonnepaneelMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZonnepaneelMerk'
     options = {
+        'solartronics': KeuzelijstWaarde(invulwaarde='solartronics',
+                                         label='solartronics',
+                                         status='ingebruik',
+                                         definitie='solartronics ',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlZonnepaneelMerk/solartronics')
     }
 
     @classmethod

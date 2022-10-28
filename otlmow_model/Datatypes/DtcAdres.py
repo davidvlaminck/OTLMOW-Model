@@ -1,6 +1,6 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlAlgGemeente import KlAlgGemeente
 from otlmow_model.Datatypes.KlAlgProvincie import KlAlgProvincie
@@ -8,9 +8,9 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcAdresWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcAdresWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._bus = OTLAttribuut(field=StringField,
                                  naam='bus',
                                  label='bus',
@@ -109,7 +109,7 @@ class DtcAdresWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcAdres(ComplexField, AttributeInfo):
+class DtcAdres(ComplexField):
     """Complex datatype voor de aanduiding van een bepaalde locatie, doorgaans van een huis, woning, gebouw of faciliteit, op de aarde."""
     naam = 'DtcAdres'
     label = 'Adres'

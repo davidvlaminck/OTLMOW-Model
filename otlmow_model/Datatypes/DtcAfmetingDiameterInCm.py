@@ -1,14 +1,14 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcAfmetingDiameterInCmWaarden(AttributeInfo):
-    def __init__(self, parent=None):
-        AttributeInfo.__init__(self, parent)
+class DtcAfmetingDiameterInCmWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
         self._diameter = OTLAttribuut(field=KwantWrdInCentimeter,
                                       naam='diameter',
                                       label='diameter',
@@ -27,7 +27,7 @@ class DtcAfmetingDiameterInCmWaarden(AttributeInfo):
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
-class DtcAfmetingDiameterInCm(ComplexField, AttributeInfo):
+class DtcAfmetingDiameterInCm(ComplexField):
     """Complex datatype voor de afmeting van een diameter in centimeter."""
     naam = 'DtcAfmetingDiameterInCm'
     label = 'Afmeting diameter in centimeter'
