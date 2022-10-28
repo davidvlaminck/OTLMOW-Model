@@ -33,7 +33,7 @@ class OTLAttribuut:
                 prev_value = self.waarde
                 if kardinaliteit_max == '1':
                     if prev_value is None:
-                        new_value_object = self.field.waardeObject(parent=self)
+                        new_value_object = self.field.waardeObject()
                         new_value_object._parent = self
                         self.set_waarde(new_value_object)
                     else:
@@ -42,7 +42,7 @@ class OTLAttribuut:
                 else:
                     if prev_value is None:
                         prev_value = []
-                    new_value_object = self.field.waardeObject(parent=self)
+                    new_value_object = self.field.waardeObject()
                     new_value_object._parent = self
                     prev_value.append(new_value_object)
                     self.set_waarde(prev_value)

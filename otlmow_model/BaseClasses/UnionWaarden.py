@@ -1,4 +1,10 @@
-﻿class UnionWaarden:
+﻿from otlmow_model.BaseClasses.WaardenObject import WaardenObject
+
+
+class UnionWaarden(WaardenObject):
+    def __init__(self):
+        WaardenObject.__init__(self)
+
     def clear_other_props(self, prop_name):
         other_prop_keys = list(filter(lambda x: x != prop_name, vars(self).keys()))
         for key in other_prop_keys:
