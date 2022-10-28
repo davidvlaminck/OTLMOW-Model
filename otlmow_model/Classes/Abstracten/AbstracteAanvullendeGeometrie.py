@@ -4,14 +4,14 @@ from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
-from otlmow_model.BaseClasses.RelatieInteractor import RelatieInteractor
+from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator
 from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, RelatieInteractor):
+class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor):
     """Abstracte om de eigenschappen en relaties van AanvullendeGeometrie te bundelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie'
@@ -22,7 +22,7 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, RelatieI
         AIMDBStatus.__init__(self)
         AIMToestand.__init__(self)
         OTLAsset.__init__(self)
-        RelatieInteractor.__init__(self)
+        RelationInteractor.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='http://purl.org/dc/terms/Agent')
 

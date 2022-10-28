@@ -1,14 +1,14 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.OTLObject import OTLObject
-from otlmow_model.BaseClasses.RelatieInteractor import RelatieInteractor
+from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Datatypes.DtcContactinfo import DtcContactinfo
 from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator
 from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Agent(OTLObject, RelatieInteractor):
+class Agent(OTLObject, RelationInteractor):
     """Iemand die of iets dat kan handelen of een effect kan teweeg brengen."""
 
     typeURI = 'http://purl.org/dc/terms/Agent'
@@ -16,7 +16,7 @@ class Agent(OTLObject, RelatieInteractor):
 
     def __init__(self):
         OTLObject.__init__(self)
-        RelatieInteractor.__init__(self)
+        RelationInteractor.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='http://purl.org/dc/terms/Agent')
 

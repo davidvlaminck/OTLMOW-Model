@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
-from otlmow_model.BaseClasses.RelatieInteractor import RelatieInteractor
+from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator
 from otlmow_model.Datatypes.KwantWrdInMaand import KwantWrdInMaand
@@ -12,7 +12,7 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelatieInteractor):
+class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor):
     """Abstracte als de basisklasse voor alle uniek geïdentificeerde OTL objecten met de basiseigenschappen die elk OTL object minstens heeft."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject'
@@ -23,7 +23,7 @@ class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelatieInteractor):
         AIMDBStatus.__init__(self)
         AIMToestand.__init__(self)
         OTLAsset.__init__(self)
-        RelatieInteractor.__init__(self)
+        RelationInteractor.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AanvullendeGeometrie')

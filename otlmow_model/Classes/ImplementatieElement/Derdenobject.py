@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
-from otlmow_model.BaseClasses.RelatieInteractor import RelatieInteractor
+from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument
 from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator
@@ -14,7 +14,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Derdenobject(AIMDBStatus, AIMToestand, OTLAsset, RelatieInteractor, PuntGeometrie, LijnGeometrie, VlakGeometrie):
+class Derdenobject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor, PuntGeometrie, LijnGeometrie, VlakGeometrie):
     """Object niet in eigendom van de assetbeheerder dat zonder verdere typering bewaard wordt om relaties met getypeerde assets te kunnen beheren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject'
@@ -24,7 +24,7 @@ class Derdenobject(AIMDBStatus, AIMToestand, OTLAsset, RelatieInteractor, PuntGe
         AIMDBStatus.__init__(self)
         AIMToestand.__init__(self)
         OTLAsset.__init__(self)
-        RelatieInteractor.__init__(self)
+        RelationInteractor.__init__(self)
         LijnGeometrie.__init__(self)
         PuntGeometrie.__init__(self)
         VlakGeometrie.__init__(self)
