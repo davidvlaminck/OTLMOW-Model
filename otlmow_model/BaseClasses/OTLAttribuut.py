@@ -2,14 +2,13 @@
 import warnings
 from datetime import datetime
 
-from otlmow_model.BaseClasses.AttributeInfo import AttributeInfo
 from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
 
 
-class OTLAttribuut(AttributeInfo):
+class OTLAttribuut:
     def __init__(self, naam='', label='', objectUri='', definition='', constraints='', usagenote='', deprecated_version='',
                  kardinaliteit_min='1', kardinaliteit_max='1', field=OTLField, readonly=False, readonlyValue=None, owner=None):
         super().__init__()
