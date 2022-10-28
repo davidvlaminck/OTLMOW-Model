@@ -2,57 +2,117 @@
 from unittest import TestCase
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from otlmow_model.BaseClasses.OTLObject import OTLObjectHelper
-from otlmow_model.Classes.Onderdeel.Aftakking import Aftakking
-from otlmow_model.Classes.Onderdeel.Verkeersregelaar import Verkeersregelaar
 
 
 class OTLObjectsTests(TestCase):
-    def test_build_string_version_dotnotation_empty_class(self):
-        infoString = Aftakking().__str__(use_dotnotation=True)
-        expected = '^information about Aftakking \d{10,13}:\n$'
-        self.assertRegex(infoString, expected)
+    def test_build_string_version_empty_class(self):
+        info_string = str(AllCasesTestClass())
+        expected = '<AllCasesTestClass> object\n' \
+                   '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'
+        self.assertEqual(expected, info_string)
 
-    def test_build_string_version_dotnotation_empty_class2(self):
-        infoString = Verkeersregelaar().__str__(use_dotnotation=True)
-        expected = '^information about Verkeersregelaar \d{10,13}:\n$'
-        self.assertRegex(infoString, expected)
+    def test_make_string_version_StringField(self):
+        instance = AllCasesTestClass()
+        instance.isActief = True
+        info_string = str(instance)
+        expected = '<AllCasesTestClass> object\n' \
+                   '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+                   '    isActief : True'
 
-    def test_make_string_version_dotnotation_empty_class(self):
-        v = Verkeersregelaar()
-        string_version = OTLObjectHelper().build_string_version(v, indent=4)
-        expected = ''
-        self.assertEqual(string_version, expected)
+        self.assertEqual(expected, info_string)
 
-    def test_make_string_version_dotnotation_StringField(self):
-        v = Verkeersregelaar()
-        v.naam = 'VR'
-        string_version = OTLObjectHelper().build_string_version(v, indent=4)
-        expected = 'naam : VR'
-        self.assertEqual(string_version, expected)
+    def test_make_string_version_DtcIdentificator(self):
+        instance = AllCasesTestClass()
+        instance.assetId.identificator = 'eigen_id'
+        instance.assetId.toegekendDoor = 'AWV'
+        info_string = str(instance)
+        expected = '<AllCasesTestClass> object\n' \
+                   '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+                   '    assetId :\n' \
+                   '        identificator : eigen_id\n' \
+                   '        toegekendDoor : AWV'
 
-    def test_make_string_version_dotnotation_DtcIdentificator(self):
-        v = Verkeersregelaar()
-        v._assetId.add_empty_value()
-        v.assetId.identificator = 'eigen_id'
-        v.assetId.toegekendDoor = 'AWV'
-        string_version = OTLObjectHelper().build_string_version(v, indent=4)
-        expected = 'assetId.identificator : eigen_id\nassetId.toegekendDoor : AWV'
-        self.assertEqual(string_version, expected)
+        self.assertEqual(expected, info_string)
 
-    def test_make_string_version_dotnotation_complex_kardinaliteit(self):
-        v = Verkeersregelaar()
-        v._externeReferentie.add_empty_value()
-        v.externeReferentie[0].externReferentienummer = "externe referentie 2"
-        v.externeReferentie[0].externePartij = "bij externe partij 2"
+    def test_make_string_version_kardinaliteit(self):
+        instance = AllCasesTestClass()
+        instance.testIntegerFieldMetKard = [1, 2, 3]
 
-        v._externeReferentie.add_empty_value()
-        v.externeReferentie[1].externReferentienummer = "externe referentie 1"
-        v.externeReferentie[1].externePartij = "bij externe partij 1"
-        string_version = OTLObjectHelper().build_string_version(v, indent=4)
-        expected = "externeReferentie[].externReferentienummer : ['externe referentie 2', 'externe referentie 1']\n" \
-                   "externeReferentie[].externePartij : ['bij externe partij 2', 'bij externe partij 1']"
-        self.assertEqual(string_version, expected)
+        info_string = str(instance)
+        expected = '<AllCasesTestClass> object\n' \
+                   '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+                   '    testIntegerFieldMetKard :\n' \
+                   '    [0] 1\n' \
+                   '    [1] 2\n' \
+                   '    [2] 3'
+
+        self.assertEqual(expected, info_string)
+
+    def test_make_string_version_kardinaliteit_one_too_many(self):
+        instance = AllCasesTestClass()
+        instance.testIntegerFieldMetKard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+        info_string = str(instance)
+        expected = '<AllCasesTestClass> object\n' \
+                   '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+                   '    testIntegerFieldMetKard :\n' \
+                   '    [0] 1\n' \
+                   '    [1] 2\n' \
+                   '    [2] 3\n'\
+                   '    [3] 4\n' \
+                   '    [4] 5\n' \
+                   '    [5] 6\n' \
+                   '    [6] 7\n' \
+                   '    [7] 8\n' \
+                   '    [8] 9\n' \
+                   '    [9] 10\n'\
+                   '    ...(1 more item)'
+
+        self.assertEqual(expected, info_string)
+
+    def test_make_string_version_kardinaliteit_two_too_many(self):
+        instance = AllCasesTestClass()
+        instance.testIntegerFieldMetKard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+        info_string = str(instance)
+        expected = '<AllCasesTestClass> object\n' \
+                   '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+                   '    testIntegerFieldMetKard :\n' \
+                   '    [0] 1\n' \
+                   '    [1] 2\n' \
+                   '    [2] 3\n'\
+                   '    [3] 4\n' \
+                   '    [4] 5\n' \
+                   '    [5] 6\n' \
+                   '    [6] 7\n' \
+                   '    [7] 8\n' \
+                   '    [8] 9\n' \
+                   '    [9] 10\n'\
+                   '    ...(2 more items)'
+
+        self.assertEqual(expected, info_string)
+
+    def test_make_string_version_complex_kardinaliteit(self):
+        instance = AllCasesTestClass()
+        instance._testComplexTypeMetKard.add_empty_value()
+        instance.testComplexTypeMetKard[0].testBooleanField = True
+        instance.testComplexTypeMetKard[0].testKwantWrd.waarde = 10.0
+        instance._testComplexTypeMetKard.add_empty_value()
+        instance.testComplexTypeMetKard[1].testBooleanField = False
+        instance.testComplexTypeMetKard[1].testKwantWrd.waarde = 5.0
+
+        info_string = str(instance)
+        expected = '<AllCasesTestClass> object\n' \
+                   '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+                   '    testComplexTypeMetKard :\n' \
+                   '    [0] testBooleanField : True\n' \
+                   '    [0] testKwantWrd :\n' \
+                   '    [0]     waarde : 10.0\n' \
+                   '    [1] testBooleanField : False\n' \
+                   '    [1] testKwantWrd :\n' \
+                   '    [1]     waarde : 5.0'
+
+        self.assertEqual(expected, info_string)
 
     def test_create_dict_from_asset_testclass(self):
         with self.subTest('Complex datatype: Dtc'):

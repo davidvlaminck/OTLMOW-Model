@@ -1,8 +1,7 @@
 ﻿import warnings
 from datetime import date, time, datetime
-from typing import Generator, Iterable, Union, Tuple
+from typing import Union, Dict, List
 
-from otlmow_model.Helpers.DotnotationHelper import DotnotationHelper
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField
 from otlmow_model.BaseClasses.TimeField import TimeField
@@ -81,34 +80,43 @@ def build_string_version(asset, indent: int = 4) -> str:
     if indent < 4:
         indent = 4
     d = create_dict_from_asset(asset)
-    string_version = '\n'.join(_make_string_version_from_dict(d, level=1, indent=indent))
+    string_version = '\n'.join(_make_string_version_from_dict(d, level=1, indent=indent, prefix='    '))
     if string_version != '':
         string_version = '\n' + string_version
     return f'<{asset.__class__.__name__}> object\n{(" " * indent)}typeURI : {asset.typeURI}' + string_version
 
 
-def _make_string_version_from_dict(d, level:int=0, indent:int=4) -> List:
+def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_index: int = -1, prefix: str = '') -> List:
     lines = []
+
+    if list_index != -1:
+        index_string = f'[{list_index}]'
+        index_string += ' ' * (indent - len(index_string))
+        prefix += index_string
+
     for key in sorted(d):
         value = d[key]
         if isinstance(value, dict):
-            lines.append(' ' * indent * level + f'{key} :')
-            lines.extend(_make_string_version_from_dict(value, level=level + 1, indent=indent))
+            lines.append(prefix + f'{key} :')
+            prefix += ' ' * indent * level
+            lines.extend(_make_string_version_from_dict(value, level=level + 1, indent=indent, prefix=prefix))
         elif isinstance(value, list):
-            lines.append(' ' * indent * level + f'{key} :')
+            lines.append(prefix + f'{key} :')
             for index, item in enumerate(value):
                 if index == 10:
                     if len(value) == 11:
-                        lines.append(' ' * indent * level + '...(1 more item)')
+                        lines.append(prefix + '...(1 more item)')
                     else:
-                        lines.append(' ' * indent * level + f'...({len(value) - 10} more items)')
+                        lines.append(prefix + f'...({len(value) - 10} more items)')
                     break
-                index_string = f'[{index}]'
-                index_string += ' ' * (indent - len(index_string))
-                lines.append(' ' * indent * level + index_string + f'{item}')
-
+                if isinstance(item, dict):
+                    lines.extend(_make_string_version_from_dict(item, level=level, indent=indent, list_index=index, prefix=prefix))
+                else:
+                    index_string = f'[{index}]'
+                    index_string += ' ' * (indent - len(index_string))
+                    lines.append(prefix + index_string + f'{item}')
         else:
-            lines.append(' ' * indent * level + f'{key} : {value}')
+            lines.append(prefix + f'{key} : {value}')
     return lines
 
 
@@ -126,17 +134,8 @@ class OTLObject:
                         message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
                         category=DeprecationWarning)
 
-    def create_dict_from_asset(self, waarde_shortcut=False) -> dict:
-        return OTLObjectHelper.create_dict_from_asset(asset=self, waarde_shortcut=waarde_shortcut)
+    def create_dict_from_asset(self, waarde_shortcut=False) -> Dict:
+        return create_dict_from_asset(asset=self, waarde_shortcut=waarde_shortcut)
 
-    def list_attributes_and_values_by_dotnotation(self, waarde_shortcut: bool = False,
-                                                  separator: str = '.',
-                                                  cardinality_indicator: str = '[]') -> Iterable[Tuple[str, object]]:
-        for k, v in OTLObjectHelper.list_attributes_and_values_by_dotnotation(asset=self, waarde_shortcut=waarde_shortcut,
-                                                                              separator=separator,
-                                                                              cardinality_indicator=cardinality_indicator):
-            yield k, v
-
-    def __str__(self, use_dotnotation=False):
-        return f'information about {self.__class__.__name__} {self.__hash__()}:\n' + \
-               OTLObjectHelper.build_string_version(asset=self, indent=4, use_dotnotation=use_dotnotation)
+    def __repr__(self):
+        return build_string_version(asset=self)
