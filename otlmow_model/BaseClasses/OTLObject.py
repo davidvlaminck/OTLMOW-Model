@@ -78,24 +78,40 @@ class OTLObjectHelper:
                 del d[k]
         return d
 
-    @classmethod
-    def build_string_version(cls, asset, indent=4, use_dotnotation=False) -> str:
-        lines = []
-        for dotnotation, waarde in cls.list_attributes_and_values_by_dotnotation(asset):
-            lines.append(f'{dotnotation} : {waarde}')
-        return '\n'.join(lines)
 
-    @classmethod
-    def make_string_version_from_dict(cls, d, level=0, indent=4) -> []:
-        lines = []
-        for key in sorted(d.keys()):
-            value = d[key]
-            if isinstance(value, dict):
-                lines.append(' ' * indent * level + f'{key} :')
-                lines.extend(cls.make_string_version_from_dict(value, level=level + 1, indent=indent))
-            else:
-                lines.append(' ' * indent * level + f'{key} : {value}')
-        return lines
+def build_string_version(asset, indent: int = 4) -> str:
+    if indent < 4:
+        indent = 4
+    d = create_dict_from_asset(asset)
+    string_version = '\n'.join(_make_string_version_from_dict(d, level=1, indent=indent))
+    if string_version != '':
+        string_version = '\n' + string_version
+    return f'<{asset.__class__.__name__}> object\n{(" " * indent)}typeURI : {asset.typeURI}' + string_version
+
+
+def _make_string_version_from_dict(d, level:int=0, indent:int=4) -> List:
+    lines = []
+    for key in sorted(d):
+        value = d[key]
+        if isinstance(value, dict):
+            lines.append(' ' * indent * level + f'{key} :')
+            lines.extend(_make_string_version_from_dict(value, level=level + 1, indent=indent))
+        elif isinstance(value, list):
+            lines.append(' ' * indent * level + f'{key} :')
+            for index, item in enumerate(value):
+                if index == 10:
+                    if len(value) == 11:
+                        lines.append(' ' * indent * level + '...(1 more item)')
+                    else:
+                        lines.append(' ' * indent * level + f'...({len(value) - 10} more items)')
+                    break
+                index_string = f'[{index}]'
+                index_string += ' ' * (indent - len(index_string))
+                lines.append(' ' * indent * level + index_string + f'{item}')
+
+        else:
+            lines.append(' ' * indent * level + f'{key} : {value}')
+    return lines
 
 
 class OTLObject:
