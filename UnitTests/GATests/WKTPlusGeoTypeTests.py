@@ -4,7 +4,6 @@ from otlmow_model.Exceptions.WrongGeometryWarning import WrongGeometryWarning
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
-from otlmow_model.Classes.Onderdeel.Wegkantkast import Wegkantkast
 
 
 class PointTestClass(PuntGeometrie, OTLAsset):
@@ -60,9 +59,9 @@ class WKTPlusGeoTypeTests(unittest.TestCase):
                 puntvlakclass.geometry = 'POLYGON Z ((10.0 20.0, 30.0 40.0 2, 50.0 60.0))'
 
     def test_invalid_geometry_based_on_geometry_artefact(self):
-        w = Wegkantkast()
+        instance = PointPolygonTestClass()
         with self.assertWarns(WrongGeometryWarning) as wrong_geometry_warning:
-            w.geometry = 'LINESTRING Z (100000 200000 10, 300000 400000 20)'
-        expected_msg = "Asset type Wegkantkast shouldn't be assigned a LINESTRING Z as geometry, " \
+            instance.geometry = 'LINESTRING Z (100000 200000 10, 300000 400000 20)'
+        expected_msg = "Asset type PointPolygonTestClass shouldn't be assigned a LINESTRING Z as geometry, " \
                        "valid types are POINT Z and POLYGON Z"
         self.assertEqual(expected_msg, str(wrong_geometry_warning.warning))
