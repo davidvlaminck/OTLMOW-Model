@@ -118,12 +118,13 @@ class OTLObject:
     def __init__(self):
         if hasattr(self, 'deprecated_version'):
             if self.deprecated_version is not None:
-                if hasattr(self, 'typeURI'):
+                try:
                     warnings.warn(message=f'{self.typeURI} is deprecated since version {self.deprecated_version}',
                                   category=DeprecationWarning)
-                else:
-                    warnings.warn(message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
-                                  category=DeprecationWarning)
+                except KeyError:
+                    warnings.warn(
+                        message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
+                        category=DeprecationWarning)
 
     def create_dict_from_asset(self, waarde_shortcut=False) -> dict:
         return OTLObjectHelper.create_dict_from_asset(asset=self, waarde_shortcut=waarde_shortcut)
