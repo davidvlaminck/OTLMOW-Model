@@ -1,22 +1,22 @@
 ﻿import warnings
 from unittest import TestCase
 
-from otlmow_model.Classes.Onderdeel.Aftakking import Aftakking
-from otlmow_model.Classes.Onderdeel.Exoten import Exoten
-from otlmow_model.Classes.Onderdeel.Voedt import Voedt
+from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
+from UnitTests.TestClasses.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
+from UnitTests.TestClasses.Classes.Onderdeel.Voedt import Voedt
 
 
 class DeprecatedTests(TestCase):
     def test_use_regular_class(self):
-        a = Aftakking() # TODO change to AllCasesTestClass
-        if hasattr(a, 'deprecated_version'):
-            self.assertIsNone(a.deprecated_version)
+        instance = AnotherTestClass()
+        if hasattr(instance, 'deprecated_version'):
+            self.assertIsNone(instance.deprecated_version)
         else:
             self.assertTrue(True)
 
     def test_use_deprecated_class(self):
         with self.assertWarns(DeprecationWarning):
-            e = Exoten()
+            instance = DeprecatedTestClass()
 
     def test_use_regular_attribute(self):
         with warnings.catch_warnings(record=True) as warns:
