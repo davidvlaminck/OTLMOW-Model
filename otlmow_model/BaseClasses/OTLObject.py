@@ -1,9 +1,10 @@
 ﻿import warnings
 from datetime import date, time, datetime
-from typing import Union, Dict, List
+from typing import Union, Dict, List, Generator
 
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField
+from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.TimeField import TimeField
 
 
@@ -137,5 +138,17 @@ class OTLObject:
     def create_dict_from_asset(self, waarde_shortcut=False) -> Dict:
         return create_dict_from_asset(asset=self, waarde_shortcut=waarde_shortcut)
 
+    def fill_with_dummy_data(self):
+        gen = self._generator_for_attributes()
+        for attr in gen:
+            if attr is not None:
+                attr.fill_with_dummy_data()
+
     def __repr__(self):
         return build_string_version(asset=self)
+
+    def _generator_for_attributes(self) -> Generator[OTLAttribuut, None, None]:
+        for k, v in vars(self).items():
+            if k in ['_parent', '_geometry_types', '_valid_relations']:
+                continue
+            yield v

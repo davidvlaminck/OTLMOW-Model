@@ -5,6 +5,14 @@ from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTe
 
 
 class OTLObjectsTests(TestCase):
+    def test_fill_with_dummy_data(self):
+        instance = AllCasesTestClass()
+        instance.fill_with_dummy_data()
+        self.assertIsNotNone(instance.assetId)
+        self.assertIsNotNone(instance.assetId.identificator)
+        self.assertIsNotNone(instance.testKeuzelijst)
+        self.assertIsNotNone(instance.testComplexTypeMetKard[0].testStringField)
+
     def test_build_string_version_empty_class(self):
         info_string = str(AllCasesTestClass())
         expected = '<AllCasesTestClass> object\n' \
