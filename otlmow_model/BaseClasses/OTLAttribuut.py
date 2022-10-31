@@ -1,4 +1,5 @@
 ﻿import math
+import random
 import warnings
 from datetime import datetime
 
@@ -202,9 +203,35 @@ class OTLAttribuut:
         return s
 
     def fill_with_dummy_data(self):
-        if not self.readonly:
+        if self.readonly:
+            return
+
+        if self.field.waardeObject is None:
             data = self.field.create_dummy_data()
             if self.kardinaliteit_max != '1':
                 self.set_waarde([data])
             else:
                 self.set_waarde(data)
+            return
+
+        new_value_object = self.field.waardeObject()
+        new_value_object._parent = self
+
+        if isinstance(new_value_object, UnionWaarden):
+            valid_attrs = []
+            for k, a in vars(new_value_object).items():
+                if k in ['_parent', '_geometry_types', '_valid_relations']:
+                    continue
+                valid_attrs.append(a)
+            selected_attr = random.choice(valid_attrs)
+            selected_attr.fill_with_dummy_data()
+        else:
+            for k, a in vars(new_value_object).items():
+                if k in ['_parent', '_geometry_types', '_valid_relations']:
+                    continue
+                a.fill_with_dummy_data()
+
+        if self.kardinaliteit_max != '1':
+            self.set_waarde([new_value_object])
+        else:
+            self.set_waarde(new_value_object)

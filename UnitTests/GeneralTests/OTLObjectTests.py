@@ -13,6 +13,61 @@ class OTLObjectsTests(TestCase):
         self.assertIsNotNone(instance.testKeuzelijst)
         self.assertIsNotNone(instance.testComplexTypeMetKard[0].testStringField)
 
+    def test_fill_with_dummy_data_through_attributes(self):
+        instance = AllCasesTestClass()
+
+        with self.subTest("attribute 1 level deep"):
+            instance._testDecimalField.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testDecimalField)
+
+        with self.subTest("attribute 1 level deep with cardinality > 1"):
+            instance._testStringFieldMetKard.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testStringFieldMetKard)
+
+        with self.subTest("union attribute 1 level deep"):
+            instance._testUnionType.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testUnionType)
+            first = instance.testUnionType.unionKwantWrd.waarde is not None
+            second = instance.testUnionType.unionString is not None
+            self.assertTrue(first != second)  # either first or second is True, but not both
+            self.assertIsNotNone(instance._testUnionType)
+
+        with self.subTest("attribute 2 levels deep with waarde shortcut disabled top level"):
+            instance._testKwantWrd.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testKwantWrd.waarde)
+
+        with self.subTest("attribute 2 levels deep with waarde shortcut disabled bottom level"):
+            instance.testKwantWrd._waarde.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testKwantWrd.waarde)
+
+        with self.subTest("attribute 2 levels deep top level"):
+            instance._testComplexType.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testComplexType.testStringField)
+
+        with self.subTest("attribute 2 levels deep bottom level"):
+            instance.testComplexType._testStringField.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testComplexType.testStringField)
+
+        with self.subTest("attribute 2 levels deep with cardinality > 1 top level"):
+            instance._testComplexTypeMetKard.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testComplexTypeMetKard[0].testStringFieldMetKard[0])
+
+        with self.subTest("attribute 2 levels deep with cardinality > 1 bottom level"):
+            instance.testComplexTypeMetKard[0]._testStringFieldMetKard.fill_with_dummy_data()
+            self.assertIsNotNone(instance.testComplexTypeMetKard[0].testStringFieldMetKard[0])
+
+        # with self.subTest("attribute 3 levels deep"):
+        #     dotnotation = DotnotationHelper().get_dotnotation(instance.testComplexType.testComplexType2._testStringField)
+        #     self.assertEqual('testComplexType.testComplexType2.testStringField', dotnotation)
+        #
+        # with self.subTest("attribute 3 levels deep with cardinality > 1"):
+        #     dotnotation = DotnotationHelper().get_dotnotation(instance.testComplexTypeMetKard[0].testComplexType2MetKard[0]._testStringFieldMetKard)
+        #     self.assertEqual('testComplexTypeMetKard[].testComplexType2MetKard[].testStringFieldMetKard[]', dotnotation)
+        #
+        # with self.subTest("attribute 4 levels deep with waarde shortcut disabled"):
+        #     dotnotation = DotnotationHelper().get_dotnotation(instance.testComplexType.testComplexType2.testKwantWrd._waarde)
+        #     self.assertEqual('testComplexType.testComplexType2.testKwantWrd.waarde', dotnotation)
+
     def test_build_string_version_empty_class(self):
         info_string = str(AllCasesTestClass())
         expected = '<AllCasesTestClass> object\n' \

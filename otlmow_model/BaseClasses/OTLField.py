@@ -60,15 +60,4 @@ deprecated_version: {self.deprecated_version}"""
 
     @classmethod
     def create_dummy_data(cls):
-        if cls.waardeObject is not None:
-            new_value_object = cls.waardeObject()
-            for attr in dir(new_value_object):
-                if attr.startswith('__') or not attr.startswith('_') or attr == '_parent':
-                    continue
-                attribute = getattr(new_value_object, attr)
-                if attribute.kardinaliteit_max != '1':
-                    attribute.set_waarde([attribute.field.create_dummy_data()])
-                else:
-                    attribute.set_waarde(attribute.field.create_dummy_data())
-            return new_value_object
         raise NotImplementedError()
