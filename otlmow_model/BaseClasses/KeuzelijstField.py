@@ -17,7 +17,7 @@ class KeuzelijstField(OTLField):
         if value is not None:
             if not isinstance(value, str):
                 raise TypeError(f'{value} is not the correct type. Expecting a string')
-            if not value in attribuut.field.options.keys():
+            if value not in attribuut.field.options.keys():
                 raise ValueError(
                     f'{value} is not a valid option for {attribuut.naam}, find the valid options using .attr_type_info("{attribuut.naam}")')
 
