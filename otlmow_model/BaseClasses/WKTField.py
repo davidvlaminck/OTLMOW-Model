@@ -6,7 +6,7 @@ from otlmow_model.Exceptions.WrongGeometryWarning import WrongGeometryWarning
 
 
 class WKTField(OTLField):
-    """Een tekstwaarde in WKT string vorm."""
+    """Een geometrie waarde in WKT-string vorm."""
     naam = 'WKT'
     objectUri = ''
     definition = ''
