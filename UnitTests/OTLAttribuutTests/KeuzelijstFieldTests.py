@@ -1,4 +1,5 @@
 import logging
+import unittest
 from unittest import TestCase
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
@@ -27,6 +28,12 @@ class KeuzelijstFieldTests(TestCase):
         with self.subTest('verwijderd value'):
             with self.assertRaises(RemovedOptionError):
                 instance.testKeuzelijst = 'waarde-6'
+
+    @unittest.skip
+    def test_using_full_uri(self):
+        instance = AllCasesTestClass()
+        instance.testKeuzelijst = 'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-1'
+        self.assertEqual('waarde-1', instance.testKeuzelijst)
 
     def test_full_test_on_testclass_kard_1(self):
         instance = AllCasesTestClass()
