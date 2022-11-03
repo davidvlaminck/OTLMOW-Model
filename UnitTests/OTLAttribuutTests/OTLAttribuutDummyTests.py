@@ -111,7 +111,7 @@ class OTLAttribuutDummyTests(TestCase):
         self.assertIsNotNone(generated_dummy_waarde.testStringFieldMetKard)
         self.assertIsNotNone(generated_dummy_waarde.testBooleanField)
         self.assertIsNotNone(generated_dummy_waarde.testComplexType2)
-        self.assertIsNotNone(generated_dummy_waarde.testComplexType2.testKwantWrdMetKard[0].waarde)
+        self.assertIsNotNone(generated_dummy_waarde.testComplexType2MetKard[0].testKwantWrd.waarde)
 
     def test_dummy_UnionField(self):
         attr = OTLAttribuut(field=DtuTestUnionType)

@@ -102,7 +102,5 @@ class ComplexDataTypeFieldTests(unittest.TestCase):
             self.assertEqual(False, instance.testComplexTypeMetKard[1].testBooleanField)
 
         with self.subTest('assign value to ComplexType within ComplexType with kard *'):
-            instance.testComplexTypeMetKard[0].testComplexType2MetKard[0]._testStringFieldMetKard.add_value('1.1')
-            instance.testComplexTypeMetKard[0].testComplexType2MetKard[0]._testStringFieldMetKard.add_value('1.2')
-            self.assertEqual('1.1', instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringFieldMetKard[0])
-            self.assertEqual('1.2', instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringFieldMetKard[1])
+            instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField = '1.1'
+            self.assertEqual('1.1', instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField)

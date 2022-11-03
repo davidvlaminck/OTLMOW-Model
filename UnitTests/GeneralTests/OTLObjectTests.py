@@ -244,16 +244,16 @@ class OTLObjectsTests(TestCase):
             instance.testComplexType.testBooleanField = True
             instance.testComplexType.testKwantWrd.waarde = 1.5
             instance.testComplexType.testComplexType2.testStringField = 'string in complex'
-            instance.testComplexType.testComplexType2._testStringFieldMetKard.add_value('string in complex')
-            instance.testComplexType.testComplexType2._testStringFieldMetKard.add_value('string 2 in complex')
+            instance.testComplexType._testStringFieldMetKard.add_value('string in complex')
+            instance.testComplexType._testStringFieldMetKard.add_value('string 2 in complex')
 
             d = instance.create_dict_from_asset(waarde_shortcut=True)
             expected = {
                 'testComplexType': {'testBooleanField': True,
                                     'testStringField': 'string',
                                     'testKwantWrd': 1.5,
-                                    'testComplexType2': {'testStringField': 'string in complex',
-                                                         'testStringFieldMetKard': ['string in complex', 'string 2 in complex']}}}
+                                    'testStringFieldMetKard': ['string in complex', 'string 2 in complex'],
+                                    'testComplexType2': {'testStringField': 'string in complex' }}}
             self.assertDictEqual(expected, d)
 
         with self.subTest('complex attributes with cardinality'):

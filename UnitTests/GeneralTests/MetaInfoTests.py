@@ -59,13 +59,16 @@ class MetaInfoTests(TestCase):
     def test_meta_info_on_otl_attribute_Dtc_by_dotnotation(self):
         instance = AllCasesTestClass()
 
-        result = meta_info(instance, attribute='testComplexType.testComplexType2')
-        expected = 'Showing metadata of testComplexType2:\n' \
-                   'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2\n' \
-                   'definition: Test attribuut voor complexe waarde in een complex datatype.\n' \
-                   'attributes:\n' \
-                   '    testKwantWrd (type: KwantWrdTest)\n' \
-                   '    testKwantWrdMetKard (type: KwantWrdTest, cardinality: 1-*)\n' \
-                   '    testStringField (type: String)\n' \
-                   '    testStringFieldMetKard (type: String, cardinality: 1-*)'
+        result = meta_info(instance, attribute='testComplexType')
+        expected = """Showing metadata of testComplexType:
+typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexType
+definition: Test attribuut voor een complexe waarde
+attributes:
+    testBooleanField (type: Boolean)
+    testComplexType2 (type: DtcTestComplexType2)
+    testComplexType2MetKard (type: DtcTestComplexType2, cardinality: 1-*)
+    testKwantWrd (type: KwantWrdTest)
+    testKwantWrdMetKard (type: KwantWrdTest, cardinality: 1-*)
+    testStringField (type: String)
+    testStringFieldMetKard (type: String, cardinality: 1-*)"""
         self.assertEqual(expected, result)
