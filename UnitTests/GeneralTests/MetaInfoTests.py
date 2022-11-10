@@ -2,11 +2,29 @@
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
+from UnitTests.TestClasses.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
 from otlmow_model.BaseClasses.MetaInfo import meta_info
 
 
 class MetaInfoTests(TestCase):
-    # TODO: test for deprecated class
+    def test_meta_info_on_deprecated_class(self):
+        instance = DeprecatedTestClass()
+        result = meta_info(instance)
+        expected = 'Showing metadata of DeprecatedTestClass:\n' \
+                   'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DeprecatedTestClass\n' \
+                   'definition: Deprecated TestClass\n' \
+                   'deprecated since 2.0.0\n' \
+                   'attributes:\n' \
+                   '    assetId (type: DtcIdentificator)\n' \
+                   '    bestekPostNummer (type: String)\n' \
+                   '    datumOprichtingObject (type: Date)\n' \
+                   '    isActief (type: Boolean)\n' \
+                   '    notitie (type: String)\n' \
+                   '    standaardBestekPostNummer (type: String)\n' \
+                   '    theoretischeLevensduur (type: KwantWrdInMaand)\n' \
+                   '    toestand (type: KlAIMToestand)'
+        self.assertEqual(expected, result)
+
     def test_meta_info_on_otl_object(self):
         instance = AnotherTestClass()
         result = meta_info(instance)
@@ -37,7 +55,16 @@ class MetaInfoTests(TestCase):
         result = meta_info(instance, attribute='toestand')
         expected = 'Showing metadata of toestand:\n' \
                    'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand\n' \
-                   'definition: Geeft de actuele stand in de levenscyclus van het object.'
+                   'definition: Geeft de actuele stand in de levenscyclus van het object.\n' \
+                   'valid values:\n' \
+                   '    geannuleerd\n' \
+                   '    gepland\n' \
+                   '    in-gebruik\n' \
+                   '    in-ontwerp\n' \
+                   '    in-opbouw\n' \
+                   '    overgedragen\n' \
+                   '    uit-gebruik\n' \
+                   '    verwijderd'
 
         self.assertEqual(expected, result)
 

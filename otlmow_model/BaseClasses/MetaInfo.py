@@ -61,7 +61,7 @@ def _meta_info_attribute(attribute: OTLAttribuut):
                     f'definition: {attribute.definition}\n'
 
     if hasattr(attribute, 'deprecated_version'):
-        if attribute.deprecated_version is not None:
+        if attribute.deprecated_version != '':
             object_string += f'deprecated since {attribute.deprecated_version}\n'
 
     if isinstance(attribute.field(), KeuzelijstField):
