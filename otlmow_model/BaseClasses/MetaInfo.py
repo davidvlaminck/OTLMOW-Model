@@ -1,5 +1,6 @@
 ﻿from typing import Union, Generator
 
+from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.OTLObject import OTLObject
 
@@ -53,6 +54,14 @@ def _meta_info_attribute(attribute: OTLAttribuut):
     object_string = f'Showing metadata of {attribute.naam}:\n' \
                     f'typeURI: {attribute.objectUri}\n' \
                     f'definition: {attribute.definition}\n'
+
+    if isinstance(attribute.field(), KeuzelijstField):
+        object_string += f'valid values:\n'
+        for i, k in enumerate(attribute.field.options.keys()):
+            object_string += '    ' + k + '\n'
+            if i >= 9:
+                object_string += f'    ...\nFor the full list, review the class {attribute.field.naam} or go to {attribute.field.codelist}\n'
+                break
 
     if attribute.field.waardeObject is not None:
         object_string += f'attributes:\n'

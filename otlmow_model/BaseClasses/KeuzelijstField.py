@@ -19,7 +19,7 @@ class KeuzelijstField(OTLField):
                 raise TypeError(f'{value} is not the correct type. Expecting a string')
             if value not in attribuut.field.options.keys():
                 raise ValueError(
-                    f'{value} is not a valid option for {attribuut.naam}, find the valid options using .attr_type_info("{attribuut.naam}")')
+                    f'{value} is not a valid option for {attribuut.naam}, find the valid options using print(meta_info("<object>._{attribuut.naam}"))')
 
             option_value = attribuut.field.options[value]
             if option_value.status == 'uitgebruik':
