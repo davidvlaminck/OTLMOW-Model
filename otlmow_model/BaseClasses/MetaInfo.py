@@ -31,8 +31,13 @@ def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = ''):
 def _meta_info_otl_object(otl_object: OTLObject):
     object_string = f'Showing metadata of {otl_object.__class__.__name__}:\n' \
                     f'typeURI: {otl_object.typeURI}\n' \
-                    f'definition: {otl_object.__doc__}\n' \
-                    f'attributes:\n'
+                    f'definition: {otl_object.__doc__}\n'
+
+    if hasattr(otl_object, 'deprecated_version'):
+        if otl_object.deprecated_version is not None:
+            object_string += f'deprecated since {otl_object.deprecated_version}\n'
+
+    object_string += 'attributes:\n'
 
     for attr in _get_attributes(otl_object):
         attr_line = f'    {attr.naam} (type: {attr.field.naam})'
@@ -54,6 +59,10 @@ def _meta_info_attribute(attribute: OTLAttribuut):
     object_string = f'Showing metadata of {attribute.naam}:\n' \
                     f'typeURI: {attribute.objectUri}\n' \
                     f'definition: {attribute.definition}\n'
+
+    if hasattr(attribute, 'deprecated_version'):
+        if attribute.deprecated_version is not None:
+            object_string += f'deprecated since {attribute.deprecated_version}\n'
 
     if isinstance(attribute.field(), KeuzelijstField):
         object_string += f'valid values:\n'
