@@ -3,6 +3,7 @@ import warnings
 
 from typing import Dict
 
+from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from otlmow_model.Exceptions.RemovedOptionError import RemovedOptionError
 from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
@@ -24,8 +25,7 @@ class KeuzelijstField(OTLField):
             option_value = attribuut.field.options[value]
             if option_value.status == 'uitgebruik':
                 warnings.warn(message=f'{value} is a deprecated value for {attribuut.naam}, please refrain from using this value.',
-                              category=DeprecationWarning)
-                logging.warning(f'{value} is a deprecated value for {attribuut.naam}, please refrain from using this value.')
+                              category=AttributeDeprecationWarning)
             elif option_value.status == 'verwijderd':
                 logging.error(f'{value} is no longer a valid value for {attribuut.naam}.')
                 raise RemovedOptionError(f'{value} is no longer a valid value for {attribuut.naam}.')

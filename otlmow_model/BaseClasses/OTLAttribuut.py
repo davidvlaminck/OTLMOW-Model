@@ -6,6 +6,8 @@ from datetime import datetime
 from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
+from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
+from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
 
 
@@ -134,7 +136,7 @@ class OTLAttribuut:
             raise ValueError(f'expecting at most {kardinaliteit_max} element(s) in {owner.__class__.__name__}.{self.naam}')
 
     def set_waarde(self, value, owner=None):
-        self._perform_deprecation_check(owner)
+        self._perform_deprecation_check(self)
 
         if value is None:
             self.waarde = None
@@ -179,14 +181,20 @@ class OTLAttribuut:
     @staticmethod
     def _perform_deprecation_check(owner):
         if owner is not None:
+            if owner.naam == 'waarde':
+                owner = owner.owner._parent
+
             if hasattr(owner, 'deprecated_version'):
                 if owner.deprecated_version != '':
-                    if hasattr(owner, 'typeURI'):
+                    if hasattr(owner, 'objectUri'):
+                        warnings.warn(message=f'{owner.objectUri} is deprecated since version {owner.deprecated_version}',
+                                      category=AttributeDeprecationWarning)
+                    elif hasattr(owner, 'typeURI'):
                         warnings.warn(message=f'{owner.typeURI} is deprecated since version {owner.deprecated_version}',
-                                      category=DeprecationWarning)
+                                      category=AttributeDeprecationWarning)
                     else:
                         warnings.warn(message=f'used a class that is deprecated since version {owner.deprecated_version}',
-                                      category=DeprecationWarning)
+                                      category=AttributeDeprecationWarning)
 
     def __str__(self):
         s = (f'information about {self.naam}:\n'

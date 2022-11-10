@@ -4,6 +4,8 @@ from unittest import TestCase
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Voedt import Voedt
+from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
+from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 
 
 class DeprecatedTests(TestCase):
@@ -15,7 +17,7 @@ class DeprecatedTests(TestCase):
             self.assertTrue(True)
 
     def test_use_deprecated_class(self):
-        with self.assertWarns(DeprecationWarning):
+        with self.assertWarns(ClassDeprecationWarning):
             instance = DeprecatedTestClass()
 
     def test_use_regular_attribute(self):
@@ -26,6 +28,6 @@ class DeprecatedTests(TestCase):
         self.assertEqual(0, len(deprecated))
 
     def test_use_deprecated_attribute(self):
-        with self.assertWarns(DeprecationWarning):
+        with self.assertWarns(AttributeDeprecationWarning):
             v = Voedt()
             v.aansluitvermogen.waarde = 20

@@ -6,6 +6,7 @@ from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.TimeField import TimeField
+from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 
 
 def create_dict_from_asset(asset, waarde_shortcut=False) -> dict:
@@ -129,11 +130,11 @@ class OTLObject:
             if self.deprecated_version is not None:
                 try:
                     warnings.warn(message=f'{self.typeURI} is deprecated since version {self.deprecated_version}',
-                                  category=DeprecationWarning)
+                                  category=ClassDeprecationWarning)
                 except KeyError:
                     warnings.warn(
                         message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
-                        category=DeprecationWarning)
+                        category=ClassDeprecationWarning)
 
     def create_dict_from_asset(self, waarde_shortcut=False) -> Dict:
         return create_dict_from_asset(asset=self, waarde_shortcut=waarde_shortcut)
