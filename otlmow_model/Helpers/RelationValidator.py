@@ -4,6 +4,7 @@ from typing import Type
 
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObject
+from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
 
 
 class RelationValidator:
@@ -18,13 +19,15 @@ class RelationValidator:
         if 'lgc.' in source.typeURI or 'lgc.' in target.typeURI:
             return True
 
+        if relation.typeURI not in source._valid_relations:
+            return False
         targets = source._valid_relations[relation.typeURI].keys()
         if target.typeURI in targets:
             deprecated_value = source._valid_relations[relation.typeURI][target.typeURI]
             if deprecated_value != '':
                 warnings.warn(
                     message=f'the relation of type {relation.typeURI} between assets of types {source.typeURI} and {target.typeURI} is deprecated since version {deprecated_value}',
-                    category=DeprecationWarning)
+                    category=RelationDeprecationWarning)
             return True
 
         bases = inspect.getmro(type(target))
@@ -35,7 +38,7 @@ class RelationValidator:
                 if deprecated_value != '':
                     warnings.warn(
                         message=f'the relation of type {relation.typeURI} between assets of types {source.typeURI} and {target.typeURI} is deprecated since version {deprecated_value}',
-                        category=DeprecationWarning)
+                        category=RelationDeprecationWarning)
                 return True
 
         # print(bases)
