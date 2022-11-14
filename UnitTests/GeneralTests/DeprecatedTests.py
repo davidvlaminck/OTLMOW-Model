@@ -18,7 +18,7 @@ class DeprecatedTests(TestCase):
 
     def test_use_deprecated_class(self):
         with self.assertWarns(ClassDeprecationWarning):
-            instance = DeprecatedTestClass()
+            DeprecatedTestClass()
 
     def test_use_regular_attribute(self):
         with warnings.catch_warnings(record=True) as warns:
