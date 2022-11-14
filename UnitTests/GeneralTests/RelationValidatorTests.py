@@ -2,10 +2,8 @@ import unittest
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
-from UnitTests.TestClasses.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
-from otlmow_model.Classes.Onderdeel.Voedt import Voedt
 from otlmow_model.Classes.Onderdeel.Bevestiging import Bevestiging
-from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
+from otlmow_model.Classes.Onderdeel.Voedt import Voedt
 from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
 from otlmow_model.Helpers.RelationValidator import RelationValidator
 
