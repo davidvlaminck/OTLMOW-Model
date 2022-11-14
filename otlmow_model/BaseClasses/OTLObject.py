@@ -124,6 +124,7 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
 
 class OTLObject:
     typeURI = ''
+    """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
         if hasattr(self, 'deprecated_version'):
