@@ -2,6 +2,7 @@
 from unittest import TestCase
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 
 
 class OTLObjectsTests(TestCase):
@@ -174,6 +175,24 @@ class OTLObjectsTests(TestCase):
                    '    [1] testBooleanField : False\n' \
                    '    [1] testKwantWrd :\n' \
                    '    [1]     waarde : 5.0'
+
+        self.assertEqual(expected, info_string)
+
+    def test_make_string_version_multiple_complex_(self):
+        instance = Bevestiging()
+        instance.assetId.identificator = 'camera0001_-_paal12345'
+        instance.bronAssetId.identificator = 'camera0001'
+        instance.doelAssetId.identificator = 'paal12345'
+
+        info_string = str(instance)
+        expected = """<Bevestiging> object
+    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging
+    assetId :
+        identificator : camera0001_-_paal12345
+    bronAssetId :
+        identificator : camera0001
+    doelAssetId :
+        identificator : paal12345"""
 
         self.assertEqual(expected, info_string)
 
