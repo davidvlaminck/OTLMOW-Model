@@ -17,6 +17,5 @@ class KlOntvangerMerk(KeuzelijstField):
 
     @classmethod
     def create_dummy_data(cls):
-        return random.choice(list(map(lambda x: x.invulwaarde,
-                                      filter(lambda option: option.status == 'ingebruik', cls.options.values()))))
+        return cls.create_dummy_data_keuzelijst(cls.options)
 
