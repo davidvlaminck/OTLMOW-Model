@@ -1,7 +1,7 @@
-from otlmow_model.BaseClasses.OTLField import OTLField
+from otlmow_model.BaseClasses.StringField import StringField
 
 
-class URIField(OTLField):
+class URIField(StringField):
     """Een tekstwaarde die een verwijzing naar meer informatie van het element bevat volgens http://www.w3.org/2001/XMLSchema#anyURI ."""
     naam = 'AnyURI'
     objectUri = 'http://www.w3.org/2001/XMLSchema#anyURI'
@@ -11,12 +11,9 @@ class URIField(OTLField):
 
     @staticmethod
     def validate(value, attribuut):
-        if value is not None:
-            if not isinstance(value, str):
-                raise TypeError(f'expecting string in {attribuut.naam}')
-            # TODO add URI validation
-        return True
+        return StringField.validate(value, attribuut)
+        # TODO add URI validation
 
     def __str__(self):
-        return OTLField.__str__(self)
+        return StringField.__str__(self)
 
