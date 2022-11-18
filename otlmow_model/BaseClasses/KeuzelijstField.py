@@ -1,5 +1,6 @@
 ﻿import logging
 import warnings
+import random
 
 from typing import Dict
 
@@ -12,6 +13,13 @@ from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 class KeuzelijstField(OTLField):
     options: Dict[str, KeuzelijstWaarde] = {}
     codelist = ''
+
+    @classmethod
+    def create_dummy_data_keuzelijst(cls, options):
+        in_gebruik_values = list(filter(lambda option: option.status == 'ingebruik', options.values()))
+        if len(in_gebruik_values) == 0:
+            return None
+        return random.choice(list(map(lambda x: x.invulwaarde, in_gebruik_values)))
 
     @staticmethod
     def validate(value, attribuut):
