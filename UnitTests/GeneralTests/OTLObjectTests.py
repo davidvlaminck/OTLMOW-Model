@@ -14,6 +14,18 @@ class OTLObjectsTests(TestCase):
         self.assertIsNotNone(instance.testKeuzelijst)
         self.assertIsNotNone(instance.testComplexTypeMetKard[0].testStringField)
 
+    def test_fill_with_dummy_data_keuzelijsten(self):
+        instance = AllCasesTestClass()
+
+        with self.subTest("valid keuzelijst"):
+            instance._testKeuzelijst.fill_with_dummy_data()
+            self.assertTrue(instance.testKeuzelijst in instance._testKeuzelijst.field.options.keys())
+
+        with self.subTest("empty keuzelijst"):
+            instance._testKeuzelijst.field.options = {}
+            instance._testKeuzelijst.fill_with_dummy_data()
+            self.assertEqual(None, instance.testKeuzelijst)
+
     def test_fill_with_dummy_data_through_attributes(self):
         instance = AllCasesTestClass()
 
