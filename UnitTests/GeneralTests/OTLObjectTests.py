@@ -22,9 +22,11 @@ class OTLObjectsTests(TestCase):
             self.assertTrue(instance.testKeuzelijst in instance._testKeuzelijst.field.options.keys())
 
         with self.subTest("empty keuzelijst"):
+            previous_options = instance._testKeuzelijst.field.options
             instance._testKeuzelijst.field.options = {}
             instance._testKeuzelijst.fill_with_dummy_data()
             self.assertEqual(None, instance.testKeuzelijst)
+            instance._testKeuzelijst.field.options = previous_options
 
     def test_fill_with_dummy_data_through_attributes(self):
         instance = AllCasesTestClass()
