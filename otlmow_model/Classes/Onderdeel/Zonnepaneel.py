@@ -1,11 +1,12 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BevestigingGC import BevestigingGC
 from otlmow_model.Classes.Abstracten.Voedingspunt import Voedingspunt
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlZonnepaneelMerk import KlZonnepaneelMerk
 from otlmow_model.Datatypes.KlZonnepaneelModelnaam import KlZonnepaneelModelnaam
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -57,7 +58,7 @@ class Zonnepaneel(BevestigingGC, Voedingspunt):
                                       owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van het zonnepaneel."""
         return self._merk.get_waarde()
 
@@ -66,7 +67,7 @@ class Zonnepaneel(BevestigingGC, Voedingspunt):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van het zonnepaneel."""
         return self._modelnaam.get_waarde()
 
@@ -75,7 +76,7 @@ class Zonnepaneel(BevestigingGC, Voedingspunt):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technsiche fiche als bijlage van het zonnepaneel."""
         return self._technischeFiche.get_waarde()
 
@@ -84,7 +85,7 @@ class Zonnepaneel(BevestigingGC, Voedingspunt):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def vermogen(self):
+    def vermogen(self) -> KwantWrdInWattWaarden:
         """Het vermogen van het zonnepaneel."""
         return self._vermogen.get_waarde()
 

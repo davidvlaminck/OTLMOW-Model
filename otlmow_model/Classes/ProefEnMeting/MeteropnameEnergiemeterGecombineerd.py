@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ProefEnMeting.MeteropnameEnergiemeter import MeteropnameEnergiemeter
-from otlmow_model.Datatypes.KwantWrdInKiloWatt import KwantWrdInKiloWatt
-from otlmow_model.Datatypes.KwantWrdInkVARh import KwantWrdInkVARh
+from otlmow_model.Datatypes.KwantWrdInKiloWatt import KwantWrdInKiloWatt, KwantWrdInKiloWattWaarden
+from otlmow_model.Datatypes.KwantWrdInkVARh import KwantWrdInkVARh, KwantWrdInkVARhWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -37,7 +37,7 @@ class MeteropnameEnergiemeterGecombineerd(MeteropnameEnergiemeter):
                                                              owner=self)
 
     @property
-    def meterstandPiek(self):
+    def meterstandPiek(self) -> KwantWrdInKiloWattWaarden:
         """De stand van de energiemeter waarmee het piekvermogen gemeten wordt."""
         return self._meterstandPiek.get_waarde()
 
@@ -46,7 +46,7 @@ class MeteropnameEnergiemeterGecombineerd(MeteropnameEnergiemeter):
         self._meterstandPiek.set_waarde(value, owner=self)
 
     @property
-    def meterstandReactiefVermogenDag(self):
+    def meterstandReactiefVermogenDag(self) -> KwantWrdInkVARhWaarden:
         """De stand van de dag-energiemeter waarmee het reactief vermogen gemeten wordt."""
         return self._meterstandReactiefVermogenDag.get_waarde()
 
@@ -55,7 +55,7 @@ class MeteropnameEnergiemeterGecombineerd(MeteropnameEnergiemeter):
         self._meterstandReactiefVermogenDag.set_waarde(value, owner=self)
 
     @property
-    def meterstandReactiefVermogenNacht(self):
+    def meterstandReactiefVermogenNacht(self) -> KwantWrdInkVARhWaarden:
         """De stand van de nacht-energiemeter waarmee het reactief vermogen gemeten wordt."""
         return self._meterstandReactiefVermogenNacht.get_waarde()
 

@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Verlichtingstoestel import Verlichtingstoestel
 from otlmow_model.Classes.Abstracten.VerlichtingstoestelConnector import VerlichtingstoestelConnector
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL
+from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from otlmow_model.Datatypes.KlArmatuurkleur import KlArmatuurkleur
 from otlmow_model.Datatypes.KlWvLedAantalTeVerlichtenRijstroken import KlWvLedAantalTeVerlichtenRijstroken
 from otlmow_model.Datatypes.KlWvLedKleurTemp import KlWvLedKleurTemp
@@ -13,7 +13,7 @@ from otlmow_model.Datatypes.KlWvLedOverhang import KlWvLedOverhang
 from otlmow_model.Datatypes.KlWvLedProtector import KlWvLedProtector
 from otlmow_model.Datatypes.KlWvLedTussenafstand import KlWvLedTussenafstand
 from otlmow_model.Datatypes.KlWvLedVerlNiveau import KlWvLedVerlNiveau
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -140,7 +140,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
                                                 owner=self)
 
     @property
-    def aantalTeVerlichtenRijstroken(self):
+    def aantalTeVerlichtenRijstroken(self) -> str:
         """Het aantal rijstroken dat verlicht wordt door het LED verlichtingstoestel."""
         return self._aantalTeVerlichtenRijstroken.get_waarde()
 
@@ -149,7 +149,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._aantalTeVerlichtenRijstroken.set_waarde(value, owner=self)
 
     @property
-    def armatuurkleur(self):
+    def armatuurkleur(self) -> DteKleurRALWaarden:
         """De kleur van de zichtbare buitenkant van het verlichtingstoestel."""
         return self._armatuurkleur.get_waarde()
 
@@ -158,7 +158,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._armatuurkleur.set_waarde(value, owner=self)
 
     @property
-    def heeftAntiVandalisme(self):
+    def heeftAntiVandalisme(self) -> bool:
         """Is het een antivandalisme type verlichtingstoestel?"""
         return self._heeftAntiVandalisme.get_waarde()
 
@@ -167,7 +167,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._heeftAntiVandalisme.set_waarde(value, owner=self)
 
     @property
-    def isFaunavriendelijk(self):
+    def isFaunavriendelijk(self) -> bool:
         """Geeft aan of de lichtkleur van de verlichting is aangepast (gebruik van oranje/rode/amberkleur ipv wit licht) zodat deze als minder storend wordt ervaren door fauna zoals bijvoorbeeld vleermuizen."""
         return self._isFaunavriendelijk.get_waarde()
 
@@ -176,7 +176,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._isFaunavriendelijk.set_waarde(value, owner=self)
 
     @property
-    def isLijnvormig(self):
+    def isLijnvormig(self) -> bool:
         """Is de led verlichting lijnvormig, bv. een led-strip?"""
         return self._isLijnvormig.get_waarde()
 
@@ -185,7 +185,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._isLijnvormig.set_waarde(value, owner=self)
 
     @property
-    def kleurArmatuur(self):
+    def kleurArmatuur(self) -> str:
         """De kleur van de zichtbare buitenkant van het verlichtingstoestel."""
         return self._kleurArmatuur.get_waarde()
 
@@ -194,7 +194,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._kleurArmatuur.set_waarde(value, owner=self)
 
     @property
-    def kleurTemperatuur(self):
+    def kleurTemperatuur(self) -> str:
         """Kleurtemperatuur van de LED's."""
         return self._kleurTemperatuur.get_waarde()
 
@@ -203,7 +203,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._kleurTemperatuur.set_waarde(value, owner=self)
 
     @property
-    def lichtkleur(self):
+    def lichtkleur(self) -> str:
         """Beschrijving van de kleur van het licht adhv de naam van de kleur."""
         return self._lichtkleur.get_waarde()
 
@@ -212,7 +212,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._lichtkleur.set_waarde(value, owner=self)
 
     @property
-    def lichtpuntHoogte(self):
+    def lichtpuntHoogte(self) -> str:
         """Hoogte van het lichtpunt ten opzichte van de rijweg."""
         return self._lichtpuntHoogte.get_waarde()
 
@@ -221,7 +221,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._lichtpuntHoogte.set_waarde(value, owner=self)
 
     @property
-    def overhang(self):
+    def overhang(self) -> str:
         """Afstand tot de rand van de rijbaan van de verticale projectie van het verlichtingstoestel op de rijbaan in meter. Als de afstand tot de rijbaan gelijk is aan 0, dan valt de verticale projectie samen met de rand van de rijbaan, bij negatieve waardes ligt de verticale projectie in de berm en bij positieve waardes ligt de verticale projectie op de rijbaan"""
         return self._overhang.get_waarde()
 
@@ -230,7 +230,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._overhang.set_waarde(value, owner=self)
 
     @property
-    def protector(self):
+    def protector(self) -> str:
         """Type doorschijnende kap ter bescherming van de LED's (vlak glas, polycarbonaat,...)."""
         return self._protector.get_waarde()
 
@@ -239,7 +239,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._protector.set_waarde(value, owner=self)
 
     @property
-    def tussenAfstand(self):
+    def tussenAfstand(self) -> str:
         """Afstand tussen de verschillende LED verlichtingstoestellen."""
         return self._tussenAfstand.get_waarde()
 
@@ -248,7 +248,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._tussenAfstand.set_waarde(value, owner=self)
 
     @property
-    def tussenafstandLED(self):
+    def tussenafstandLED(self) -> KwantWrdInMeterWaarden:
         """Afstand, uitgedrukt in meter, tussen de verschillende LED verlichtingstoestellen."""
         return self._tussenafstandLED.get_waarde()
 
@@ -257,7 +257,7 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
         self._tussenafstandLED.set_waarde(value, owner=self)
 
     @property
-    def verlichtingsNiveau(self):
+    def verlichtingsNiveau(self) -> str:
         """Een set van verlichtingstechnische eisen zoals gemiddelde luminantie, verlichtingssterkte, uniformiteiten."""
         return self._verlichtingsNiveau.get_waarde()
 

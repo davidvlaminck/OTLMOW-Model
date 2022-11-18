@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.ComplexeGeleiding import ComplexeGeleiding
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlEcoPaalmateriaal import KlEcoPaalmateriaal
 from otlmow_model.Datatypes.KlRasterMazen import KlRasterMazen
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -64,7 +64,7 @@ class Ecoraster(ComplexeGeleiding, LijnGeometrie):
                                        owner=self)
 
     @property
-    def heeftPrikkeldraad(self):
+    def heeftPrikkeldraad(self) -> bool:
         """Aanduiding of het ecoraster is voorzien van prikkeldraad."""
         return self._heeftPrikkeldraad.get_waarde()
 
@@ -73,7 +73,7 @@ class Ecoraster(ComplexeGeleiding, LijnGeometrie):
         self._heeftPrikkeldraad.set_waarde(value, owner=self)
 
     @property
-    def heeftSpandraden(self):
+    def heeftSpandraden(self) -> bool:
         """Aanduiding of het ecoraster is voorzien van spandraden."""
         return self._heeftSpandraden.get_waarde()
 
@@ -82,7 +82,7 @@ class Ecoraster(ComplexeGeleiding, LijnGeometrie):
         self._heeftSpandraden.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van het ecoraster in meter."""
         return self._lengte.get_waarde()
 
@@ -91,7 +91,7 @@ class Ecoraster(ComplexeGeleiding, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def paalMateriaal(self):
+    def paalMateriaal(self) -> str:
         """Het materiaal van de paal in het ecoraster."""
         return self._paalMateriaal.get_waarde()
 
@@ -100,7 +100,7 @@ class Ecoraster(ComplexeGeleiding, LijnGeometrie):
         self._paalMateriaal.set_waarde(value, owner=self)
 
     @property
-    def paalhoogte(self):
+    def paalhoogte(self) -> KwantWrdInMeterWaarden:
         """De hoogte van de paal in het ecoraster in meter."""
         return self._paalhoogte.get_waarde()
 
@@ -109,7 +109,7 @@ class Ecoraster(ComplexeGeleiding, LijnGeometrie):
         self._paalhoogte.set_waarde(value, owner=self)
 
     @property
-    def typeMazen(self):
+    def typeMazen(self) -> str:
         """Het type van de mazen in het ecoraster."""
         return self._typeMazen.get_waarde()
 

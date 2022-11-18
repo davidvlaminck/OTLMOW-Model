@@ -1,7 +1,8 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Onderdeel.Lichtmast import Lichtmast
-from otlmow_model.Datatypes.DtuWvLichtmastBevsToestelMethode import DtuWvLichtmastBevsToestelMethode
+from otlmow_model.Datatypes.DtuWvLichtmastBevsToestelMethode import DtuWvLichtmastBevsToestelMethode, DtuWvLichtmastBevsToestelMethodeWaarden
 from otlmow_model.Datatypes.KlWvLichtmastAantArmen import KlWvLichtmastAantArmen
 from otlmow_model.Datatypes.KlWvLichtmastArmlengte import KlWvLichtmastArmlengte
 
@@ -44,7 +45,7 @@ class WVLichtmast(Lichtmast):
                                                    owner=self)
 
     @property
-    def aantalArmen(self):
+    def aantalArmen(self) -> str:
         """Aantal armen van de lichtmast."""
         return self._aantalArmen.get_waarde()
 
@@ -53,7 +54,7 @@ class WVLichtmast(Lichtmast):
         self._aantalArmen.set_waarde(value, owner=self)
 
     @property
-    def armlengte(self):
+    def armlengte(self) -> str:
         """Lengte van de arm van de lichtmast in meter."""
         return self._armlengte.get_waarde()
 
@@ -62,7 +63,7 @@ class WVLichtmast(Lichtmast):
         self._armlengte.set_waarde(value, owner=self)
 
     @property
-    def bevestigingToestellen(self):
+    def bevestigingToestellen(self) -> List[DtuWvLichtmastBevsToestelMethodeWaarden]:
         """Geeft de wijze aan waarop elk verlichtingstoestel bevestigd is op de lichtmast als keuze uit een lijst voor standaardmethodes of verder toegelicht wanneer een afwijkende methode gebruikt wordt."""
         return self._bevestigingToestellen.get_waarde()
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Hoppinzuil import Hoppinzuil
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlHoppinzuilType import KlHoppinzuilType
 
 
@@ -39,7 +39,7 @@ class AnalogeHoppinzuil(Hoppinzuil):
                                   owner=self)
 
     @property
-    def macrokaart(self):
+    def macrokaart(self) -> DtcDocumentWaarden:
         """Cartografische weergave van het hoppinpunt en de omliggende hoppinpunten met daarop aangeduid de attractiepolen in de omgeving."""
         return self._macrokaart.get_waarde()
 
@@ -48,7 +48,7 @@ class AnalogeHoppinzuil(Hoppinzuil):
         self._macrokaart.set_waarde(value, owner=self)
 
     @property
-    def microkaart(self):
+    def microkaart(self) -> DtcDocumentWaarden:
         """Cartografische weergave van het hoppinpunt en de omliggende straten met daarop de hoppinzuil, de verschillende beschikbare vervoersmodi en diensten aangeduid."""
         return self._microkaart.get_waarde()
 
@@ -57,7 +57,7 @@ class AnalogeHoppinzuil(Hoppinzuil):
         self._microkaart.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De mogelijke types van een analoge hoppinzuil."""
         return self._type.get_waarde()
 

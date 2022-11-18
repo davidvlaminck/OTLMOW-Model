@@ -2,11 +2,11 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.VRIDraagconstructie import VRIDraagconstructie
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.Datatypes.KlSeinbrugRijrichting import KlSeinbrugRijrichting
 from otlmow_model.Datatypes.KlSeinbrugType import KlSeinbrugType
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -106,7 +106,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
                                          owner=self)
 
     @property
-    def aantalLadders(self):
+    def aantalLadders(self) -> float:
         """Het aantal ladders waarmee de seinbrug toegankelijk is."""
         return self._aantalLadders.get_waarde()
 
@@ -115,7 +115,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._aantalLadders.set_waarde(value, owner=self)
 
     @property
-    def aantalSteunen(self):
+    def aantalSteunen(self) -> float:
         """Het aantal steunen waarmee de seinbrug gedragen wordt. """
         return self._aantalSteunen.get_waarde()
 
@@ -124,7 +124,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._aantalSteunen.set_waarde(value, owner=self)
 
     @property
-    def berekeningsnota(self):
+    def berekeningsnota(self) -> DtcDocumentWaarden:
         """Een bijlage met de berekeningsnota voor de seinbrug."""
         return self._berekeningsnota.get_waarde()
 
@@ -133,7 +133,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._berekeningsnota.set_waarde(value, owner=self)
 
     @property
-    def controlemetingEBS(self):
+    def controlemetingEBS(self) -> DtcDocumentWaarden:
         """Een bijlage met het verslag van de controlemeting uitgevoerd door het Expertisecentrum Beton en Staal."""
         return self._controlemetingEBS.get_waarde()
 
@@ -142,7 +142,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._controlemetingEBS.set_waarde(value, owner=self)
 
     @property
-    def heeftLooproosters(self):
+    def heeftLooproosters(self) -> bool:
         """Geeft aan of de seinbrug is uitgerust met looproosters."""
         return self._heeftLooproosters.get_waarde()
 
@@ -151,7 +151,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._heeftLooproosters.set_waarde(value, owner=self)
 
     @property
-    def hoogteVerticaleSteun(self):
+    def hoogteVerticaleSteun(self) -> KwantWrdInMeterWaarden:
         """Verticale afstand (in meter) tussen de bovenkant van het wegdek en de bovenkant van het hoogste constructiedeel van de seinbrug."""
         return self._hoogteVerticaleSteun.get_waarde()
 
@@ -160,7 +160,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._hoogteVerticaleSteun.set_waarde(value, owner=self)
 
     @property
-    def overspanning(self):
+    def overspanning(self) -> KwantWrdInMeterWaarden:
         """De afstand tussen de twee steunpunten van de seinbrug."""
         return self._overspanning.get_waarde()
 
@@ -169,7 +169,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._overspanning.set_waarde(value, owner=self)
 
     @property
-    def rijrichting(self):
+    def rijrichting(self) -> str:
         """Geeft aan of de seinbrug één of beide rijrichtingen overspant."""
         return self._rijrichting.get_waarde()
 
@@ -178,7 +178,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._rijrichting.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Een bijlage waarin de detailtekeningen van de seinbrug."""
         return self._technischeFiche.get_waarde()
 
@@ -187,7 +187,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de seinbrug volgens de aard van de constructie."""
         return self._type.get_waarde()
 
@@ -196,7 +196,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def vrijeHoogte(self):
+    def vrijeHoogte(self) -> KwantWrdInMeterWaarden:
         """De verticale afstand (in meter) tussen de bovenkant van het wegdek en de onderkant van het laagste, daarboven gelegen constructiedeel van de seinbrug."""
         return self._vrijeHoogte.get_waarde()
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Bestrating import Bestrating
-from otlmow_model.Datatypes.DtcBSSRandafwerking import DtcBSSRandafwerking
+from otlmow_model.Datatypes.DtcBSSRandafwerking import DtcBSSRandafwerking, DtcBSSRandafwerkingWaarden
 from otlmow_model.Datatypes.KlBSSType import KlBSSType
 from otlmow_model.Datatypes.KlBestratingAfwerking import KlBestratingAfwerking
 from otlmow_model.Datatypes.KlBestratingselementAfmetingLxB import KlBestratingselementAfmetingLxB
@@ -51,7 +51,7 @@ class BestratingVanBetonstraatsteen(Bestrating):
                                   owner=self)
 
     @property
-    def afmetingVanBestratingselementLxB(self):
+    def afmetingVanBestratingselementLxB(self) -> str:
         """De lengte en breedte van het bestratingselement in millimeter."""
         return self._afmetingVanBestratingselementLxB.get_waarde()
 
@@ -60,7 +60,7 @@ class BestratingVanBetonstraatsteen(Bestrating):
         self._afmetingVanBestratingselementLxB.set_waarde(value, owner=self)
 
     @property
-    def afwerking(self):
+    def afwerking(self) -> str:
         """Bepaling van afwerking van de betonstraatstenen."""
         return self._afwerking.get_waarde()
 
@@ -69,7 +69,7 @@ class BestratingVanBetonstraatsteen(Bestrating):
         self._afwerking.set_waarde(value, owner=self)
 
     @property
-    def randafwerking(self):
+    def randafwerking(self) -> DtcBSSRandafwerkingWaarden:
         """De wijze waarop de rand van de betonstraatsteenverharding is afgewerkt."""
         return self._randafwerking.get_waarde()
 
@@ -78,7 +78,7 @@ class BestratingVanBetonstraatsteen(Bestrating):
         self._randafwerking.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type betonstraatsteen."""
         return self._type.get_waarde()
 

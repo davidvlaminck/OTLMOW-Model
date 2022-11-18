@@ -5,9 +5,9 @@ from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlPompMerk import KlPompMerk
 from otlmow_model.Datatypes.KlPompModelnaam import KlPompModelnaam
 from otlmow_model.Datatypes.KlPompSoort import KlPompSoort
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -96,7 +96,7 @@ class Pomp(LinkendElement, PuntGeometrie):
                                       owner=self)
 
     @property
-    def binnenDiameter(self):
+    def binnenDiameter(self) -> KwantWrdInMillimeterWaarden:
         """Afmeting van de binnenkant van de opening waardoor het opgepompte water loopt."""
         return self._binnenDiameter.get_waarde()
 
@@ -105,7 +105,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._binnenDiameter.set_waarde(value, owner=self)
 
     @property
-    def buitenDiameter(self):
+    def buitenDiameter(self) -> KwantWrdInMillimeterWaarden:
         """Afmeting van de buitenkant van de opening waarlangs het opgepomte water loopt in functie van een aansluiting van een afvoer."""
         return self._buitenDiameter.get_waarde()
 
@@ -114,7 +114,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._buitenDiameter.set_waarde(value, owner=self)
 
     @property
-    def maximaalDebiet(self):
+    def maximaalDebiet(self) -> KwantWrdInKubiekeMeterWaarden:
         """Het debiet dat de pomp kan verplaatsen wanneer ze op volle capaciteit werkt volgens de specificaties van de fabrikant."""
         return self._maximaalDebiet.get_waarde()
 
@@ -123,7 +123,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._maximaalDebiet.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """De naam van het merk volgens de fabrikant."""
         return self._merk.get_waarde()
 
@@ -132,7 +132,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def metSoftstarter(self):
+    def metSoftstarter(self) -> bool:
         """Geeft aan of het toestel voorzien is van een eigen softstarter."""
         return self._metSoftstarter.get_waarde()
 
@@ -141,7 +141,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._metSoftstarter.set_waarde(value, owner=self)
 
     @property
-    def metTempSensor(self):
+    def metTempSensor(self) -> bool:
         """Geeft aan of het toestel uitgerust is met een temperatuur sensor in functie van de bewaking van de correcte werking."""
         return self._metTempSensor.get_waarde()
 
@@ -150,7 +150,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._metTempSensor.set_waarde(value, owner=self)
 
     @property
-    def metVochtsensor(self):
+    def metVochtsensor(self) -> bool:
         """Geeft aan of het toestel uitgerust is met een vocht sensor in functie van de bewaking van de correcte werking."""
         return self._metVochtsensor.get_waarde()
 
@@ -159,7 +159,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._metVochtsensor.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Naam van het model van het toestel volgens de fabrikant."""
         return self._modelnaam.get_waarde()
 
@@ -168,7 +168,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def soort(self):
+    def soort(self) -> str:
         """Bepaalt de aard van de pomp volgens haar werkingsprincipe."""
         return self._soort.get_waarde()
 
@@ -177,7 +177,7 @@ class Pomp(LinkendElement, PuntGeometrie):
         self._soort.set_waarde(value, owner=self)
 
     @property
-    def vermogen(self):
+    def vermogen(self) -> KwantWrdInWattWaarden:
         """Elektrisch vermogen van het toestels volgens de specificaties van de fabrikant."""
         return self._vermogen.get_waarde()
 

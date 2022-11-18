@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Put import Put
 from otlmow_model.Classes.Abstracten.PutRelatie import PutRelatie
-from otlmow_model.Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm
+from otlmow_model.Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm, DtcAfmetingBxlInCmWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -30,7 +30,7 @@ class Aswegerput(Put, PutRelatie, VlakGeometrie):
                                                owner=self)
 
     @property
-    def afmetingGrondvlak(self):
+    def afmetingGrondvlak(self) -> DtcAfmetingBxlInCmWaarden:
         """De binnenafmeting, breedte en lengte in cm van de aswegerput ter hoogte van het maaiveld."""
         return self._afmetingGrondvlak.get_waarde()
 

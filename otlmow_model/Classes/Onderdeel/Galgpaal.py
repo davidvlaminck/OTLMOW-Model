@@ -1,10 +1,10 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.VRIDraagconstructie import VRIDraagconstructie
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.Datatypes.KlDraagconstructieDwarsdoorsnede import KlDraagconstructieDwarsdoorsnede
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -52,7 +52,7 @@ class Galgpaal(VRIDraagconstructie, PuntGeometrie):
                                             owner=self)
 
     @property
-    def aantalLiggers(self):
+    def aantalLiggers(self) -> float:
         """Het aantal liggers waarmee de arm van de galgpaal is uitgevoerd."""
         return self._aantalLiggers.get_waarde()
 
@@ -61,7 +61,7 @@ class Galgpaal(VRIDraagconstructie, PuntGeometrie):
         self._aantalLiggers.set_waarde(value, owner=self)
 
     @property
-    def armlengte(self):
+    def armlengte(self) -> KwantWrdInMeterWaarden:
         """Lengte van de arm van een galgpaal in meter."""
         return self._armlengte.get_waarde()
 
@@ -70,7 +70,7 @@ class Galgpaal(VRIDraagconstructie, PuntGeometrie):
         self._armlengte.set_waarde(value, owner=self)
 
     @property
-    def berekeningsnota(self):
+    def berekeningsnota(self) -> DtcDocumentWaarden:
         """Een bijlage met daarin de berekeningsnota voor de galgpaal."""
         return self._berekeningsnota.get_waarde()
 
@@ -79,7 +79,7 @@ class Galgpaal(VRIDraagconstructie, PuntGeometrie):
         self._berekeningsnota.set_waarde(value, owner=self)
 
     @property
-    def dwarsdoorsnede(self):
+    def dwarsdoorsnede(self) -> str:
         """De vorm van de dwarsdoorsnede van het opstaande deel van de galgpaal."""
         return self._dwarsdoorsnede.get_waarde()
 

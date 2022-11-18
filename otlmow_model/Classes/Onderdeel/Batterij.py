@@ -43,7 +43,7 @@ class Batterij(Voedingspunt, PuntGeometrie):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk van de batterij."""
         return self._merk.get_waarde()
 
@@ -52,7 +52,7 @@ class Batterij(Voedingspunt, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van de batterij."""
         return self._modelnaam.get_waarde()
 

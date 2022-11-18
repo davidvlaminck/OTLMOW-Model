@@ -1,12 +1,13 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
@@ -74,7 +75,7 @@ class Derdenobject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor, PuntG
                                           owner=self)
 
     @property
-    def assetId(self):
+    def assetId(self) -> DtcIdentificatorWaarden:
         """Unieke identificatie van de asset zoals toegekend door de assetbeheerder of n.a.v. eerste aanlevering door de leverancier."""
         return self._assetId.get_waarde()
 
@@ -83,7 +84,7 @@ class Derdenobject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor, PuntG
         self._assetId.set_waarde(value, owner=self)
 
     @property
-    def contactgegevens(self):
+    def contactgegevens(self) -> str:
         """Naam, voornaam, telefoonnummer en/of e-mailadres van de contactpersoon."""
         return self._contactgegevens.get_waarde()
 
@@ -92,7 +93,7 @@ class Derdenobject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor, PuntG
         self._contactgegevens.set_waarde(value, owner=self)
 
     @property
-    def foto(self):
+    def foto(self) -> List[DtcDocumentWaarden]:
         """Een foto van het derdenobject die eventuele detailinformatie weergeeft."""
         return self._foto.get_waarde()
 
@@ -101,7 +102,7 @@ class Derdenobject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor, PuntG
         self._foto.set_waarde(value, owner=self)
 
     @property
-    def heeftAansluitkastGeintegreerd(self):
+    def heeftAansluitkastGeintegreerd(self) -> bool:
         """Aanduiding of de aansluitkast geïntegreerd is."""
         return self._heeftAansluitkastGeintegreerd.get_waarde()
 
@@ -110,7 +111,7 @@ class Derdenobject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor, PuntG
         self._heeftAansluitkastGeintegreerd.set_waarde(value, owner=self)
 
     @property
-    def omschrijving(self):
+    def omschrijving(self) -> str:
         """Omschrijving van het derdenobject."""
         return self._omschrijving.get_waarde()
 

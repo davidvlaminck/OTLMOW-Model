@@ -32,7 +32,7 @@ class Bochtafbakeningsinstallatie(EMAfbakening, LijnGeometrie):
                                                 owner=self)
 
     @property
-    def aantalBorden(self):
+    def aantalBorden(self) -> int:
         """Het aantal borden in de bochtafbakening voor het aanduiden van een bocht in een rijrichting."""
         return self._aantalBorden.get_waarde()
 
@@ -41,7 +41,7 @@ class Bochtafbakeningsinstallatie(EMAfbakening, LijnGeometrie):
         self._aantalBorden.set_waarde(value, owner=self)
 
     @property
-    def materiaalBehuizing(self):
+    def materiaalBehuizing(self) -> str:
         """Het materiaal waaruit de behuizing gemaakt is."""
         return self._materiaalBehuizing.get_waarde()
 

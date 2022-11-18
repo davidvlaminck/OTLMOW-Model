@@ -27,7 +27,7 @@ class DtuWvLichtmastBevsToestelMethodeWaarden(UnionWaarden):
                                               owner=self)
 
     @property
-    def afwijkendeMethode(self):
+    def afwijkendeMethode(self) -> str:
         """Tekstveld waarin de afwijkende methode van bevestiging van verlichtingstoestel aan lichtmast kan beschreven worden."""
         return self._afwijkendeMethode.get_waarde()
 
@@ -38,7 +38,7 @@ class DtuWvLichtmastBevsToestelMethodeWaarden(UnionWaarden):
             self.clear_other_props('_afwijkendeMethode')
 
     @property
-    def standaardMethode(self):
+    def standaardMethode(self) -> str:
         """Bepaling van de standaardbevestigingen van verlichtingstoestellen aan lichtmasten."""
         return self._standaardMethode.get_waarde()
 

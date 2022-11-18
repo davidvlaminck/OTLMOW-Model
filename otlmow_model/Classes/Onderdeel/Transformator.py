@@ -3,10 +3,10 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlTransformatorIsolatiemedium import KlTransformatorIsolatiemedium
 from otlmow_model.Datatypes.KlTransformatorTrafobeveiliging import KlTransformatorTrafobeveiliging
-from otlmow_model.Datatypes.KwantWrdInKiloVolt import KwantWrdInKiloVolt
-from otlmow_model.Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAmpere
-from otlmow_model.Datatypes.KwantWrdInProcent import KwantWrdInProcent
-from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
+from otlmow_model.Datatypes.KwantWrdInKiloVolt import KwantWrdInKiloVolt, KwantWrdInKiloVoltWaarden
+from otlmow_model.Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAmpere, KwantWrdInKiloVoltAmpereWaarden
+from otlmow_model.Datatypes.KwantWrdInProcent import KwantWrdInProcent, KwantWrdInProcentWaarden
+from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -79,7 +79,7 @@ class Transformator(AIMNaamObject, PuntGeometrie):
                                              owner=self)
 
     @property
-    def isolatiemedium(self):
+    def isolatiemedium(self) -> str:
         """Wijze van onderdompeling van de magnetische kring en van de wikkelingen van de transformator."""
         return self._isolatiemedium.get_waarde()
 
@@ -88,7 +88,7 @@ class Transformator(AIMNaamObject, PuntGeometrie):
         self._isolatiemedium.set_waarde(value, owner=self)
 
     @property
-    def kortsluitspanning(self):
+    def kortsluitspanning(self) -> KwantWrdInProcentWaarden:
         """Kortsluitspanning van de transformator (in %)."""
         return self._kortsluitspanning.get_waarde()
 
@@ -97,7 +97,7 @@ class Transformator(AIMNaamObject, PuntGeometrie):
         self._kortsluitspanning.set_waarde(value, owner=self)
 
     @property
-    def nominaalVermogen(self):
+    def nominaalVermogen(self) -> KwantWrdInKiloVoltAmpereWaarden:
         """nominale vermogen van de transformator."""
         return self._nominaalVermogen.get_waarde()
 
@@ -106,7 +106,7 @@ class Transformator(AIMNaamObject, PuntGeometrie):
         self._nominaalVermogen.set_waarde(value, owner=self)
 
     @property
-    def nominalePrimaireSpanning(self):
+    def nominalePrimaireSpanning(self) -> KwantWrdInKiloVoltWaarden:
         """Nominale spanning van de primaire wikkeling in kV."""
         return self._nominalePrimaireSpanning.get_waarde()
 
@@ -115,7 +115,7 @@ class Transformator(AIMNaamObject, PuntGeometrie):
         self._nominalePrimaireSpanning.set_waarde(value, owner=self)
 
     @property
-    def nominaleSecundaireSpanning(self):
+    def nominaleSecundaireSpanning(self) -> KwantWrdInVoltWaarden:
         """Nominale spanning van de secundaire wikkeling in V."""
         return self._nominaleSecundaireSpanning.get_waarde()
 
@@ -124,7 +124,7 @@ class Transformator(AIMNaamObject, PuntGeometrie):
         self._nominaleSecundaireSpanning.set_waarde(value, owner=self)
 
     @property
-    def schakelgroep(self):
+    def schakelgroep(self) -> str:
         """Verzameling van 3 schakelcombinaties waarbij de hoofdletter de schakelwijze van de primaire weergeeft, de kleine letter(s) de schakelwijze van de secundaire weergeeft (en eventueel het feit dat het sterpunt naar buiten werd gebracht) en het getal geeft het klokgetal (of het aantal keer dat er 30° faseverschuiving tussen HS- en LS-spanning is) vb Dyn11"""
         return self._schakelgroep.get_waarde()
 
@@ -133,7 +133,7 @@ class Transformator(AIMNaamObject, PuntGeometrie):
         self._schakelgroep.set_waarde(value, owner=self)
 
     @property
-    def typeBeveiliging(self):
+    def typeBeveiliging(self) -> str:
         """Type transformatorbeveiliging."""
         return self._typeBeveiliging.get_waarde()
 

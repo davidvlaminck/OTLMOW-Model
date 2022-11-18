@@ -2,14 +2,14 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.VegetatieElement import VegetatieElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcAanlegBoomvorm import DtcAanlegBoomvorm
+from otlmow_model.Datatypes.DtcAanlegBoomvorm import DtcAanlegBoomvorm, DtcAanlegBoomvormWaarden
 from otlmow_model.Datatypes.KlBoomGroeifase import KlBoomGroeifase
 from otlmow_model.Datatypes.KlBoomspiegelInvulling import KlBoomspiegelInvulling
 from otlmow_model.Datatypes.KlEindbeeldOpgaandeBoom import KlEindbeeldOpgaandeBoom
 from otlmow_model.Datatypes.KlKlassePlantjaar import KlKlassePlantjaar
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -156,7 +156,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                                 owner=self)
 
     @property
-    def aanleg(self):
+    def aanleg(self) -> DtcAanlegBoomvormWaarden:
         """De manier van aanplanten van individuele bomen."""
         return self._aanleg.get_waarde()
 
@@ -165,7 +165,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._aanleg.set_waarde(value, owner=self)
 
     @property
-    def boomspiegel(self):
+    def boomspiegel(self) -> str:
         """Het stuk grond rondom de stam van een boom. Dit is in de ideale situatie minstens zo groot is als de kruin van de boom."""
         return self._boomspiegel.get_waarde()
 
@@ -174,7 +174,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._boomspiegel.set_waarde(value, owner=self)
 
     @property
-    def boomverankeringszone(self):
+    def boomverankeringszone(self) -> KwantWrdInMeterWaarden:
         """De straal van de cirkelvormige ruimte waarbinnen de wortels zich bevinden die instaan voor de stabiliteit van de boom uitgedrukt in meter."""
         return self._boomverankeringszone.get_waarde()
 
@@ -183,7 +183,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._boomverankeringszone.set_waarde(value, owner=self)
 
     @property
-    def doorwortelbaarVolume(self):
+    def doorwortelbaarVolume(self) -> KwantWrdInKubiekeMeterWaarden:
         """Het bodemvolume met voldoende mineralen, water en zuurstof die bereikbaar zijn voor een boom om erin te wortelen."""
         return self._doorwortelbaarVolume.get_waarde()
 
@@ -192,7 +192,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._doorwortelbaarVolume.set_waarde(value, owner=self)
 
     @property
-    def eindbeeld(self):
+    def eindbeeld(self) -> str:
         """Het nagestreefde beeld van de volgroeide boom of struik op deze specifieke standplaats."""
         return self._eindbeeld.get_waarde()
 
@@ -201,7 +201,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._eindbeeld.set_waarde(value, owner=self)
 
     @property
-    def geschatteKlassePlantjaar(self):
+    def geschatteKlassePlantjaar(self) -> str:
         """Dit attribuut geeft een interval weer van 20 jaar waarin de boom geplant werd."""
         return self._geschatteKlassePlantjaar.get_waarde()
 
@@ -210,7 +210,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._geschatteKlassePlantjaar.set_waarde(value, owner=self)
 
     @property
-    def groeifase(self):
+    def groeifase(self) -> str:
         """Fase van beheer volgens de verschillende levensfases van de boom."""
         return self._groeifase.get_waarde()
 
@@ -219,7 +219,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._groeifase.set_waarde(value, owner=self)
 
     @property
-    def heeftBoomrooster(self):
+    def heeftBoomrooster(self) -> bool:
         """Duidt aan of een horizontale structuur aanwezig is die zorgt voor een adequate bescherming van bomen tegen betreding van de boomspiegel door voetgangers of verkeer."""
         return self._heeftBoomrooster.get_waarde()
 
@@ -228,7 +228,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._heeftBoomrooster.set_waarde(value, owner=self)
 
     @property
-    def heeftLuchtleiding(self):
+    def heeftLuchtleiding(self) -> bool:
         """Bepaling of een bovengrondse nutsleiding aanwezig is die in conflict kan komen met de boom."""
         return self._heeftLuchtleiding.get_waarde()
 
@@ -237,7 +237,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._heeftLuchtleiding.set_waarde(value, owner=self)
 
     @property
-    def isVerplant(self):
+    def isVerplant(self) -> bool:
         """Aanduiding of de opgaande boom al dan niet van locatie veranderd is na een eerste aanplant binnen het openbaar domein."""
         return self._isVerplant.get_waarde()
 
@@ -246,7 +246,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._isVerplant.set_waarde(value, owner=self)
 
     @property
-    def kroonDiameter(self):
+    def kroonDiameter(self) -> KwantWrdInMeterWaarden:
         """Diameter van de kroonprojectie in meter."""
         return self._kroonDiameter.get_waarde()
 
@@ -255,7 +255,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._kroonDiameter.set_waarde(value, owner=self)
 
     @property
-    def takvrijeStamlengte(self):
+    def takvrijeStamlengte(self) -> KwantWrdInMeterWaarden:
         """Tot aan de hoogte van de gewenste takvrije stamlengte wordt de boom zodanig gesnoeid dat er één doorgaande stam is."""
         return self._takvrijeStamlengte.get_waarde()
 
@@ -264,7 +264,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._takvrijeStamlengte.set_waarde(value, owner=self)
 
     @property
-    def totaleBoombeschermingszone(self):
+    def totaleBoombeschermingszone(self) -> KwantWrdInCentimeterWaarden:
         """De straal van de cirkelvormige ruimte rond de boom waar maatregelen genomen worden om de boom te beschermen tijdens projecten of manifestaties uitgedrukt in centimeters."""
         return self._totaleBoombeschermingszone.get_waarde()
 
@@ -273,7 +273,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
         self._totaleBoombeschermingszone.set_waarde(value, owner=self)
 
     @property
-    def vrijeDoorrijhoogte(self):
+    def vrijeDoorrijhoogte(self) -> KwantWrdInMeterWaarden:
         """Vrij te houden hoogte in meter, voor het doorrijden van verkeer toe te laten."""
         return self._vrijeDoorrijhoogte.get_waarde()
 

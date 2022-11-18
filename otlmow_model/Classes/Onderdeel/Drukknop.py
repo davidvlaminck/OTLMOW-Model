@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.NietWeggebondenDetectie import NietWeggebondenDetectie
-from otlmow_model.Datatypes.DtcTijdsduur import DtcTijdsduur
+from otlmow_model.Datatypes.DtcTijdsduur import DtcTijdsduur, DtcTijdsduurWaarden
 from otlmow_model.Datatypes.KlDrukknopMerk import KlDrukknopMerk
 from otlmow_model.Datatypes.KlDrukknopModelnaam import KlDrukknopModelnaam
 from otlmow_model.Datatypes.KlDrukknopSoort import KlDrukknopSoort
@@ -48,7 +48,7 @@ class Drukknop(NietWeggebondenDetectie):
                                            owner=self)
 
     @property
-    def bewakingstijd(self):
+    def bewakingstijd(self) -> DtcTijdsduurWaarden:
         """Wachttijd (in uren) waarna een alarm pas mag optreden."""
         return self._bewakingstijd.get_waarde()
 
@@ -57,7 +57,7 @@ class Drukknop(NietWeggebondenDetectie):
         self._bewakingstijd.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """De naam van het merk van de drukknop."""
         return self._merk.get_waarde()
 
@@ -66,7 +66,7 @@ class Drukknop(NietWeggebondenDetectie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de drukknop."""
         return self._modelnaam.get_waarde()
 
@@ -75,7 +75,7 @@ class Drukknop(NietWeggebondenDetectie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def soortDrukknop(self):
+    def soortDrukknop(self) -> str:
         """Doelgroep van de drukknop (voetganger, fietser, ruiter,...)."""
         return self._soortDrukknop.get_waarde()
 

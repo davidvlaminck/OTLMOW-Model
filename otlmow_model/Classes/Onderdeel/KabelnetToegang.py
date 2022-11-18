@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.IntegerField import IntegerField
@@ -50,7 +51,7 @@ class KabelnetToegang(AIMNaamObject, PuntGeometrie):
                                           owner=self)
 
     @property
-    def geschatRUGebruik(self):
+    def geschatRUGebruik(self) -> int:
         """Het aantal gebruikte rack units dat voor de betrokken toegang in gebruik is op basis van een berekening in Kabelnet."""
         return self._geschatRUGebruik.get_waarde()
 
@@ -59,7 +60,7 @@ class KabelnetToegang(AIMNaamObject, PuntGeometrie):
         self._geschatRUGebruik.set_waarde(value, owner=self)
 
     @property
-    def kabelnetToegangId(self):
+    def kabelnetToegangId(self) -> int:
         """Uniek nummer uit de Kabelnet toepassing dat deze toegang identificeert."""
         return self._kabelnetToegangId.get_waarde()
 
@@ -68,7 +69,7 @@ class KabelnetToegang(AIMNaamObject, PuntGeometrie):
         self._kabelnetToegangId.set_waarde(value, owner=self)
 
     @property
-    def kabelnetURL(self):
+    def kabelnetURL(self) -> str:
         """Knooppunt van Kabelnet dat toegang geeft tot de informatie die in Kabelnet bewaard wordt."""
         return self._kabelnetURL.get_waarde()
 
@@ -77,7 +78,7 @@ class KabelnetToegang(AIMNaamObject, PuntGeometrie):
         self._kabelnetURL.set_waarde(value, owner=self)
 
     @property
-    def netwerkSoort(self):
+    def netwerkSoort(self) -> List[str]:
         """Type netwerk dat bereikbaar is via het toegangspunt."""
         return self._netwerkSoort.get_waarde()
 

@@ -33,7 +33,7 @@ class TLCfiPoort(IVRIComponent):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """De merknaam van de TLC-fi poort; duidt op de leverancier of producent van de iVRI component."""
         return self._merk.get_waarde()
 
@@ -42,7 +42,7 @@ class TLCfiPoort(IVRIComponent):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van de TLC-fi poort."""
         return self._modelnaam.get_waarde()
 

@@ -1,12 +1,13 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.Datatypes.KlHardwareCdDvdTape import KlHardwareCdDvdTape
 from otlmow_model.Datatypes.KlHardwareDomein import KlHardwareDomein
 from otlmow_model.Datatypes.KlHardwareOS import KlHardwareOS
-from otlmow_model.Datatypes.KwantWrdInGigabyte import KwantWrdInGigabyte
+from otlmow_model.Datatypes.KwantWrdInGigabyte import KwantWrdInGigabyte, KwantWrdInGigabyteWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -90,7 +91,7 @@ class HardwareToegang(AIMNaamObject):
                                  owner=self)
 
     @property
-    def CPU(self):
+    def CPU(self) -> str:
         """Centrale verwerkingseenheid."""
         return self._CPU.get_waarde()
 
@@ -99,7 +100,7 @@ class HardwareToegang(AIMNaamObject):
         self._CPU.set_waarde(value, owner=self)
 
     @property
-    def cdDvdTape(self):
+    def cdDvdTape(self) -> str:
         """De hardware uitgerust met CD/DVD/Tape."""
         return self._cdDvdTape.get_waarde()
 
@@ -108,7 +109,7 @@ class HardwareToegang(AIMNaamObject):
         self._cdDvdTape.set_waarde(value, owner=self)
 
     @property
-    def disk(self):
+    def disk(self) -> KwantWrdInGigabyteWaarden:
         """De disk config van de hardware, HD, RAID, ..."""
         return self._disk.get_waarde()
 
@@ -117,7 +118,7 @@ class HardwareToegang(AIMNaamObject):
         self._disk.set_waarde(value, owner=self)
 
     @property
-    def dnsNaam(self):
+    def dnsNaam(self) -> str:
         """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
@@ -126,7 +127,7 @@ class HardwareToegang(AIMNaamObject):
         self._dnsNaam.set_waarde(value, owner=self)
 
     @property
-    def domein(self):
+    def domein(self) -> str:
         """Administratieve groepering van meerdere particuliere computernetwerken of hosts binnen dezelfde infrastructuur."""
         return self._domein.get_waarde()
 
@@ -135,7 +136,7 @@ class HardwareToegang(AIMNaamObject):
         self._domein.set_waarde(value, owner=self)
 
     @property
-    def ipAdres(self):
+    def ipAdres(self) -> List[DteIPv4AdresWaarden]:
         """Het IP-adres van de hardware."""
         return self._ipAdres.get_waarde()
 
@@ -144,7 +145,7 @@ class HardwareToegang(AIMNaamObject):
         self._ipAdres.set_waarde(value, owner=self)
 
     @property
-    def licentie(self):
+    def licentie(self) -> str:
         """De licentie van het OS of de licentie van de hardware voor support/garantie op componenten."""
         return self._licentie.get_waarde()
 
@@ -153,7 +154,7 @@ class HardwareToegang(AIMNaamObject):
         self._licentie.set_waarde(value, owner=self)
 
     @property
-    def os(self):
+    def os(self) -> str:
         """Het besturingssysteem dat op de hardware draait."""
         return self._os.get_waarde()
 
@@ -162,7 +163,7 @@ class HardwareToegang(AIMNaamObject):
         self._os.set_waarde(value, owner=self)
 
     @property
-    def ram(self):
+    def ram(self) -> KwantWrdInGigabyteWaarden:
         """De grootte van het werkgeheugen."""
         return self._ram.get_waarde()
 

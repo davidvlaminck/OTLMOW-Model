@@ -1,7 +1,8 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod, ABC
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -30,7 +31,7 @@ class BijlageVoertuigkering(ABC):
                                                  owner=self)
 
     @property
-    def testrapportVoertuigkering(self):
+    def testrapportVoertuigkering(self) -> List[DtcDocumentWaarden]:
         """De testresultaten van de crashtesten die op de voertuigkerende constructie uitgevoerd zijn."""
         return self._testrapportVoertuigkering.get_waarde()
 
@@ -39,7 +40,7 @@ class BijlageVoertuigkering(ABC):
         self._testrapportVoertuigkering.set_waarde(value, owner=self)
 
     @property
-    def videoVoertuigkering(self):
+    def videoVoertuigkering(self) -> List[DtcDocumentWaarden]:
         """Video-opname van de crashtesten op de voertuigkerende constructie."""
         return self._videoVoertuigkering.get_waarde()
 

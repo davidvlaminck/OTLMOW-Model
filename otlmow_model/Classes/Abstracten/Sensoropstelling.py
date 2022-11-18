@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Sensor import Sensor
 from otlmow_model.Datatypes.KlSensorOpstelwijze import KlSensorOpstelwijze
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -34,7 +34,7 @@ class Sensoropstelling(Sensor):
                                          owner=self)
 
     @property
-    def opstelhoogte(self):
+    def opstelhoogte(self) -> KwantWrdInMeterWaarden:
         """De hoogte van de bevestiging van de sensor aan de draaconstructie."""
         return self._opstelhoogte.get_waarde()
 
@@ -43,7 +43,7 @@ class Sensoropstelling(Sensor):
         self._opstelhoogte.set_waarde(value, owner=self)
 
     @property
-    def opstelwijze(self):
+    def opstelwijze(self) -> str:
         """De manier waarop de meteosensor is opgesteld, bv. via dwarsligger,..."""
         return self._opstelwijze.get_waarde()
 

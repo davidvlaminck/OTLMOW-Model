@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Inloopbehuizing import Inloopbehuizing
 from otlmow_model.Datatypes.KlCabineAardingsstelsel import KlCabineAardingsstelsel
 from otlmow_model.Datatypes.KlCabineStandaardtype import KlCabineStandaardtype
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -44,7 +44,7 @@ class Cabine(Inloopbehuizing, VlakGeometrie):
                                            owner=self)
 
     @property
-    def aardingsstelsel(self):
+    def aardingsstelsel(self) -> str:
         """Keuze tussen verschillende types voor het gebruikte aardingsstelsel."""
         return self._aardingsstelsel.get_waarde()
 
@@ -53,7 +53,7 @@ class Cabine(Inloopbehuizing, VlakGeometrie):
         self._aardingsstelsel.set_waarde(value, owner=self)
 
     @property
-    def kelderdiepte(self):
+    def kelderdiepte(self) -> KwantWrdInMeterWaarden:
         """Binnenhoogte in meter van de kabelkelder onder de cabine."""
         return self._kelderdiepte.get_waarde()
 
@@ -62,7 +62,7 @@ class Cabine(Inloopbehuizing, VlakGeometrie):
         self._kelderdiepte.set_waarde(value, owner=self)
 
     @property
-    def standaardtype(self):
+    def standaardtype(self) -> str:
         """Het type van de cabine volgens de gangbare standaarden."""
         return self._standaardtype.get_waarde()
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie
+from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -31,7 +31,7 @@ class Flitspaal(AIMNaamObject, PuntGeometrie):
                                                owner=self)
 
     @property
-    def externeReferentie(self):
+    def externeReferentie(self) -> DtcExterneReferentieWaarden:
         """Referentie zoals gekend bij een externe partij bv. aannemer, VLCC, ..."""
         return self._externeReferentie.get_waarde()
 

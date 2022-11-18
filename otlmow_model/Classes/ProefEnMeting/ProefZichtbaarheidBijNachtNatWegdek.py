@@ -31,7 +31,7 @@ class ProefZichtbaarheidBijNachtNatWegdek(Proef, PuntGeometrie, LijnGeometrie, V
                                                         owner=self)
 
     @property
-    def retrotreflectiecoëfficiënt(self):
+    def retrotreflectiecoëfficiënt(self) -> float:
         """De maat voor het retroreflecterend vermogen van een markering bij nacht bij nat wegdek."""
         return self._retrotreflectiecoëfficiënt.get_waarde()
 

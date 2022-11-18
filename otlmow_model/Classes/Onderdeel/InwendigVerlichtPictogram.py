@@ -1,10 +1,10 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
 from otlmow_model.Datatypes.KlBinnenverlichtingstoestelSoortLamp import KlBinnenverlichtingstoestelSoortLamp
 from otlmow_model.Datatypes.KlPictogramSymbool import KlPictogramSymbool
-from otlmow_model.Datatypes.KwantWrdInMinuut import KwantWrdInMinuut
+from otlmow_model.Datatypes.KwantWrdInMinuut import KwantWrdInMinuut, KwantWrdInMinuutWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -51,7 +51,7 @@ class InwendigVerlichtPictogram(AIMObject, PuntGeometrie):
                                       owner=self)
 
     @property
-    def afmeting(self):
+    def afmeting(self) -> DtcAfmetingBxlxhInMmWaarden:
         """Geeft de buitenafmeting van het toestel mee."""
         return self._afmeting.get_waarde()
 
@@ -60,7 +60,7 @@ class InwendigVerlichtPictogram(AIMObject, PuntGeometrie):
         self._afmeting.set_waarde(value, owner=self)
 
     @property
-    def nalichtingstijd(self):
+    def nalichtingstijd(self) -> KwantWrdInMinuutWaarden:
         """De tijd tussen het uitschakelen van de interne lichtbron en het volledig duister worden van het toestel."""
         return self._nalichtingstijd.get_waarde()
 
@@ -69,7 +69,7 @@ class InwendigVerlichtPictogram(AIMObject, PuntGeometrie):
         self._nalichtingstijd.set_waarde(value, owner=self)
 
     @property
-    def symbool(self):
+    def symbool(self) -> str:
         """Het symbool afgebeeld op het toestel."""
         return self._symbool.get_waarde()
 
@@ -78,7 +78,7 @@ class InwendigVerlichtPictogram(AIMObject, PuntGeometrie):
         self._symbool.set_waarde(value, owner=self)
 
     @property
-    def typeLamp(self):
+    def typeLamp(self) -> str:
         """Het soort lamp waarmee het toestel verlicht wordt."""
         return self._typeLamp.get_waarde()
 

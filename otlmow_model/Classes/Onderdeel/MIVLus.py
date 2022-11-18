@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlMIVLusUitslijprichting import KlMIVLusUitslijprichting
 from otlmow_model.Datatypes.KlMIVLusZichtbaarheid import KlMIVLusZichtbaarheid
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
@@ -45,7 +45,7 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
                                            owner=self)
 
     @property
-    def meetrapport(self):
+    def meetrapport(self) -> DtcDocumentWaarden:
         """De elektrische eigenschappen van de lus: R, L, C en de isolatieweerstand. Dit verzekert naast de afmetingen mee de voorziene nauwkeurigheid van de voertuigmetingen."""
         return self._meetrapport.get_waarde()
 
@@ -54,7 +54,7 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
         self._meetrapport.set_waarde(value, owner=self)
 
     @property
-    def uitslijprichting(self):
+    def uitslijprichting(self) -> str:
         """De uitlopers van de lus gaan naar links of naar rechts  bekeken ten opzichte van de rijrichting."""
         return self._uitslijprichting.get_waarde()
 
@@ -63,7 +63,7 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
         self._uitslijprichting.set_waarde(value, owner=self)
 
     @property
-    def zichtbaarheid(self):
+    def zichtbaarheid(self) -> str:
         """Is dus lus zichtbaar in het wegdek of bedekt door een toplaag."""
         return self._zichtbaarheid.get_waarde()
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlAudioTransportType import KlAudioTransportType
 from otlmow_model.Datatypes.KlMeetmicrofoonMerk import KlMeetmicrofoonMerk
 from otlmow_model.Datatypes.KlMeetmicrofoonModelnaam import KlMeetmicrofoonModelnaam
@@ -55,7 +55,7 @@ Een meetmicrofoon registreert de geluidsdruk, is gevoelig voor geluid uit alle r
                                            owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de meetmicrofoon."""
         return self._merk.get_waarde()
 
@@ -64,7 +64,7 @@ Een meetmicrofoon registreert de geluidsdruk, is gevoelig voor geluid uit alle r
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de meetmicrofoon."""
         return self._modelnaam.get_waarde()
 
@@ -73,7 +73,7 @@ Een meetmicrofoon registreert de geluidsdruk, is gevoelig voor geluid uit alle r
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van de meetmicrofoon."""
         return self._technischeFiche.get_waarde()
 
@@ -82,7 +82,7 @@ Een meetmicrofoon registreert de geluidsdruk, is gevoelig voor geluid uit alle r
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def transportType(self):
+    def transportType(self) -> str:
         """Geeft aan op welke manier het audiosignaal wordt getransporteerd door het toestel."""
         return self._transportType.get_waarde()
 

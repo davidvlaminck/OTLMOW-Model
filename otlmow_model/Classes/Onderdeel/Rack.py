@@ -1,12 +1,12 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.BaseClasses.IntegerField import IntegerField
 from otlmow_model.Datatypes.KlRackMerk import KlRackMerk
 from otlmow_model.Datatypes.KlRackModelnaam import KlRackModelnaam
 from otlmow_model.Datatypes.KlRackType import KlRackType
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -84,7 +84,7 @@ class Rack(AIMNaamObject, PuntGeometrie):
                                       owner=self)
 
     @property
-    def diepte(self):
+    def diepte(self) -> KwantWrdInCentimeterWaarden:
         """De diepte van het rack tussen de voorste en achterste rails."""
         return self._diepte.get_waarde()
 
@@ -93,7 +93,7 @@ class Rack(AIMNaamObject, PuntGeometrie):
         self._diepte.set_waarde(value, owner=self)
 
     @property
-    def hoogteInRU(self):
+    def hoogteInRU(self) -> int:
         """Bruikbare ruimte om toestellen te monteren, uitgedrukt in RU (rack units)."""
         return self._hoogteInRU.get_waarde()
 
@@ -102,7 +102,7 @@ class Rack(AIMNaamObject, PuntGeometrie):
         self._hoogteInRU.set_waarde(value, owner=self)
 
     @property
-    def huidigBeeld(self):
+    def huidigBeeld(self) -> DtcDocumentWaarden:
         """Foto of schematische voorstelling van de huidige samenstelling van de samenstelling in het rack."""
         return self._huidigBeeld.get_waarde()
 
@@ -111,7 +111,7 @@ class Rack(AIMNaamObject, PuntGeometrie):
         self._huidigBeeld.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk waarmee de fabrikant dit type rack identificeert."""
         return self._merk.get_waarde()
 
@@ -120,7 +120,7 @@ class Rack(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam waarmee de fabrikant dit type toestel identificeert."""
         return self._modelnaam.get_waarde()
 
@@ -129,7 +129,7 @@ class Rack(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def rackType(self):
+    def rackType(self) -> str:
         """Geeft het type aan voor een rack volgens een keuzelijst van beschikbare types."""
         return self._rackType.get_waarde()
 

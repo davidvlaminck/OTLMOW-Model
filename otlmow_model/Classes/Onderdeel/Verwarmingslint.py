@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -27,7 +27,7 @@ class Verwarmingslint(AIMObject, LijnGeometrie):
                                       owner=self)
 
     @property
-    def vermogen(self):
+    def vermogen(self) -> KwantWrdInWattWaarden:
         """Het vereiste vermogen in watt voor de correcte werking van het verwarmingslint."""
         return self._vermogen.get_waarde()
 

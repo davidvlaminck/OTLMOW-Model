@@ -29,7 +29,7 @@ class EigenschappenVoertuigkering(ABC):
                                                  owner=self)
 
     @property
-    def kerendVermogen(self):
+    def kerendVermogen(self) -> str:
         """Het vermogen van een voertuigkering om een doorbraak bij een bepaald type crash te voorkomen."""
         return self._kerendVermogen.get_waarde()
 
@@ -38,7 +38,7 @@ class EigenschappenVoertuigkering(ABC):
         self._kerendVermogen.set_waarde(value, owner=self)
 
     @property
-    def voertuigOverhelling(self):
+    def voertuigOverhelling(self) -> str:
         """Naast het horizontaal verplaatsen van de veiligheidsafbakening bij een impact, kan een voertuig bij impact ook over de afbakening hellen.  De maximale overhelling wordt op basis van foto's en video-opnames van de test bepaald."""
         return self._voertuigOverhelling.get_waarde()
 

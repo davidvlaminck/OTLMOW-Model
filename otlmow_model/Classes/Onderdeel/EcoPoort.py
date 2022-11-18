@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.ComplexeGeleiding import ComplexeGeleiding
 from otlmow_model.Datatypes.KlEcoPoorttype import KlEcoPoorttype
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -32,7 +32,7 @@ class EcoPoort(ComplexeGeleiding, PuntGeometrie):
                                        owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMeterWaarden:
         """De breedte van de poort in meter."""
         return self._breedte.get_waarde()
 
@@ -41,7 +41,7 @@ class EcoPoort(ComplexeGeleiding, PuntGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def poortType(self):
+    def poortType(self) -> str:
         """Bepaling van het type van poort."""
         return self._poortType.get_waarde()
 

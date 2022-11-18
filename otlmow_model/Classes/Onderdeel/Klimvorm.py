@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.VegetatieElement import VegetatieElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -53,7 +53,7 @@ class Klimvorm(VegetatieElement, PuntGeometrie):
                                             owner=self)
 
     @property
-    def begroeidOppervlak(self):
+    def begroeidOppervlak(self) -> KwantWrdInVierkanteMeterWaarden:
         """Verticale oppervlakte dat begroeid is in vierkante meter."""
         return self._begroeidOppervlak.get_waarde()
 
@@ -62,7 +62,7 @@ class Klimvorm(VegetatieElement, PuntGeometrie):
         self._begroeidOppervlak.set_waarde(value, owner=self)
 
     @property
-    def heeftBeheerScheren(self):
+    def heeftBeheerScheren(self) -> bool:
         """Duidt aan of de klimvorm al dan niet geschoren wordt."""
         return self._heeftBeheerScheren.get_waarde()
 
@@ -71,7 +71,7 @@ class Klimvorm(VegetatieElement, PuntGeometrie):
         self._heeftBeheerScheren.set_waarde(value, owner=self)
 
     @property
-    def heeftBevestigingconstructie(self):
+    def heeftBevestigingconstructie(self) -> bool:
         """Aanduiding of de klimvorm een bevestigingsconstructie heeft om aan bv een geluidswerende constructie vastgemaakt te worden."""
         return self._heeftBevestigingconstructie.get_waarde()
 
@@ -80,7 +80,7 @@ class Klimvorm(VegetatieElement, PuntGeometrie):
         self._heeftBevestigingconstructie.set_waarde(value, owner=self)
 
     @property
-    def isGrondgebonden(self):
+    def isGrondgebonden(self) -> bool:
         """Duidt aan of de klimvorm al dan niet in volle grond staat."""
         return self._isGrondgebonden.get_waarde()
 
@@ -89,7 +89,7 @@ class Klimvorm(VegetatieElement, PuntGeometrie):
         self._isGrondgebonden.set_waarde(value, owner=self)
 
     @property
-    def isZelfhechtend(self):
+    def isZelfhechtend(self) -> bool:
         """Geeft aan of de klimplant (zoals klimop of wingerd) rechtstreeks op de muur kan groeien zonder nood aan een draagstructuur."""
         return self._isZelfhechtend.get_waarde()
 

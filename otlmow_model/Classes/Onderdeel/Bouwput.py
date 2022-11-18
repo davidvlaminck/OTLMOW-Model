@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlBouwputType import KlBouwputType
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -38,7 +38,7 @@ class Bouwput(AIMObject, VlakGeometrie):
                                   owner=self)
 
     @property
-    def putdiepte(self):
+    def putdiepte(self) -> KwantWrdInMeterWaarden:
         """Diepte tussen het maaiveld en onderkant bouwput in meter."""
         return self._putdiepte.get_waarde()
 
@@ -47,7 +47,7 @@ class Bouwput(AIMObject, VlakGeometrie):
         self._putdiepte.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van bouwput."""
         return self._type.get_waarde()
 

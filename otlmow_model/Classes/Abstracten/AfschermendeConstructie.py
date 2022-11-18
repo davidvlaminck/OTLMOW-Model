@@ -1,11 +1,12 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.BijlageVoertuigkering import BijlageVoertuigkering
 from otlmow_model.Classes.Abstracten.LijnvormigElement import LijnvormigElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcProductidentificatiecode import DtcProductidentificatiecode
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcProductidentificatiecode import DtcProductidentificatiecode, DtcProductidentificatiecodeWaarden
 from otlmow_model.Datatypes.KlLEACMateriaal import KlLEACMateriaal
 from otlmow_model.BaseClasses.StringField import StringField
 
@@ -101,7 +102,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
                                    owner=self)
 
     @property
-    def certificaathouder(self):
+    def certificaathouder(self) -> str:
         """De houder van het uitvoeringscertificaat."""
         return self._certificaathouder.get_waarde()
 
@@ -110,7 +111,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
         self._certificaathouder.set_waarde(value, owner=self)
 
     @property
-    def isPermanent(self):
+    def isPermanent(self) -> bool:
         """Vermelding of de afschermende constructie al dan niet van permanente aard is."""
         return self._isPermanent.get_waarde()
 
@@ -119,7 +120,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
         self._isPermanent.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het gebruikte materiaal voor de afschermende constructie."""
         return self._materiaal.get_waarde()
 
@@ -128,7 +129,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def metTandGroef(self):
+    def metTandGroef(self) -> bool:
         """Geeft aan of de afschermende constructie bevestigd is aan de onderliggende laag door middel van een tand-groef aansluiting."""
         return self._metTandGroef.get_waarde()
 
@@ -137,7 +138,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
         self._metTandGroef.set_waarde(value, owner=self)
 
     @property
-    def productidentificatiecode(self):
+    def productidentificatiecode(self) -> DtcProductidentificatiecodeWaarden:
         """De productidentificatiecode voor het bepalen van de code van het gebruikte product (bv. COPRO/BENOR)."""
         return self._productidentificatiecode.get_waarde()
 
@@ -146,7 +147,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
         self._productidentificatiecode.set_waarde(value, owner=self)
 
     @property
-    def productnaam(self):
+    def productnaam(self) -> str:
         """Dit is de commerciële naam van de afschermende constructie."""
         return self._productnaam.get_waarde()
 
@@ -155,7 +156,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
         self._productnaam.set_waarde(value, owner=self)
 
     @property
-    def testrapport(self):
+    def testrapport(self) -> List[DtcDocumentWaarden]:
         """De testresultaten van een afschermende constructie."""
         return self._testrapport.get_waarde()
 
@@ -164,7 +165,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
         self._testrapport.set_waarde(value, owner=self)
 
     @property
-    def uitvoeringscertificatie(self):
+    def uitvoeringscertificatie(self) -> DtcDocumentWaarden:
         """Documentatie van het certificaat."""
         return self._uitvoeringscertificatie.get_waarde()
 
@@ -173,7 +174,7 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
         self._uitvoeringscertificatie.set_waarde(value, owner=self)
 
     @property
-    def video(self):
+    def video(self) -> List[DtcDocumentWaarden]:
         """Video van de testen op afschermende constructies."""
         return self._video.get_waarde()
 

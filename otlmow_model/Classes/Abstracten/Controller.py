@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -57,7 +57,7 @@ class Controller(AIMNaamObject, PuntGeometrie):
                                          owner=self)
 
     @property
-    def batchnummer(self):
+    def batchnummer(self) -> str:
         """Nummer van de batch."""
         return self._batchnummer.get_waarde()
 
@@ -66,7 +66,7 @@ class Controller(AIMNaamObject, PuntGeometrie):
         self._batchnummer.set_waarde(value, owner=self)
 
     @property
-    def dNSNaam(self):
+    def dNSNaam(self) -> str:
         """DNS-naam van de controller."""
         return self._dNSNaam.get_waarde()
 
@@ -75,7 +75,7 @@ class Controller(AIMNaamObject, PuntGeometrie):
         self._dNSNaam.set_waarde(value, owner=self)
 
     @property
-    def firmwareversie(self):
+    def firmwareversie(self) -> str:
         """Firmwareversie van de controller."""
         return self._firmwareversie.get_waarde()
 
@@ -84,7 +84,7 @@ class Controller(AIMNaamObject, PuntGeometrie):
         self._firmwareversie.set_waarde(value, owner=self)
 
     @property
-    def iPAdres(self):
+    def iPAdres(self) -> DteIPv4AdresWaarden:
         """IP-adres van de controller."""
         return self._iPAdres.get_waarde()
 
@@ -93,7 +93,7 @@ class Controller(AIMNaamObject, PuntGeometrie):
         self._iPAdres.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Het unieke nummer waarmee het toestel door de fabrikant geïdentificeerd is."""
         return self._serienummer.get_waarde()
 

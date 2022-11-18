@@ -1,12 +1,13 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.PutRelatie import PutRelatie
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlKamerKlasse import KlKamerKlasse
 from otlmow_model.Datatypes.KlPutMateriaal import KlPutMateriaal
 from otlmow_model.Datatypes.KlRioleringVorm import KlRioleringVorm
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -79,7 +80,7 @@ class Kamer(PutRelatie, VlakGeometrie):
                                   owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMillimeterWaarden:
         """De afmeting 1 (breedte) van het grondplan van de putkamer in millimeter."""
         return self._breedte.get_waarde()
 
@@ -88,7 +89,7 @@ class Kamer(PutRelatie, VlakGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def diepte(self):
+    def diepte(self) -> KwantWrdInMeterWaarden:
         """De diepte van de putkamer in meter."""
         return self._diepte.get_waarde()
 
@@ -97,7 +98,7 @@ class Kamer(PutRelatie, VlakGeometrie):
         self._diepte.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMillimeterWaarden:
         """De afmeting 2 (hoogte) van het grondplan van de putkamer in millimeter."""
         return self._hoogte.get_waarde()
 
@@ -106,7 +107,7 @@ class Kamer(PutRelatie, VlakGeometrie):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def klasse(self):
+    def klasse(self) -> str:
         """De stabiliteitsklasse van de kamer."""
         return self._klasse.get_waarde()
 
@@ -115,7 +116,7 @@ class Kamer(PutRelatie, VlakGeometrie):
         self._klasse.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit de kamer opgebouwd is."""
         return self._materiaal.get_waarde()
 
@@ -124,7 +125,7 @@ class Kamer(PutRelatie, VlakGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van de kamer."""
         return self._technischeFiche.get_waarde()
 
@@ -133,7 +134,7 @@ class Kamer(PutRelatie, VlakGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> str:
         """De vorm van de kamer."""
         return self._vorm.get_waarde()
 

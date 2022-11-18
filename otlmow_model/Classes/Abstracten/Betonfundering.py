@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Fundering import Fundering
-from otlmow_model.Datatypes.DtcAfmetingBxlInM import DtcAfmetingBxlInM
+from otlmow_model.Datatypes.DtcAfmetingBxlInM import DtcAfmetingBxlInM, DtcAfmetingBxlInMWaarden
 from otlmow_model.Datatypes.KlFunderingBetonkwaliteit import KlFunderingBetonkwaliteit
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -48,7 +48,7 @@ class Betonfundering(Fundering, VlakGeometrie):
                                             owner=self)
 
     @property
-    def afmetingGrondvlak(self):
+    def afmetingGrondvlak(self) -> DtcAfmetingBxlInMWaarden:
         """De maximale lengte en breedte van bovenkant van de fundering."""
         return self._afmetingGrondvlak.get_waarde()
 
@@ -57,7 +57,7 @@ class Betonfundering(Fundering, VlakGeometrie):
         self._afmetingGrondvlak.set_waarde(value, owner=self)
 
     @property
-    def betonkwaliteit(self):
+    def betonkwaliteit(self) -> str:
         """Kwaliteit van het beton gebruikt voor de fundering volgens een vaste lijst van mogelijke waarden."""
         return self._betonkwaliteit.get_waarde()
 

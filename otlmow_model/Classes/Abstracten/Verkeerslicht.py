@@ -5,7 +5,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 from otlmow_model.Datatypes.KlVerkeerslichtMasker import KlVerkeerslichtMasker
 from otlmow_model.Datatypes.KlVerkeerslichtMerk import KlVerkeerslichtMerk
 from otlmow_model.Datatypes.KlVerkeerslichtModelnaam import KlVerkeerslichtModelnaam
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -52,7 +52,7 @@ class Verkeerslicht(AIMNaamObject, PuntGeometrie):
                                       owner=self)
 
     @property
-    def masker(self):
+    def masker(self) -> str:
         """Type masker dat is aangebracht op het verkeerslicht."""
         return self._masker.get_waarde()
 
@@ -61,7 +61,7 @@ class Verkeerslicht(AIMNaamObject, PuntGeometrie):
         self._masker.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van het verkeerslicht."""
         return self._merk.get_waarde()
 
@@ -70,7 +70,7 @@ class Verkeerslicht(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van het verkeerslicht."""
         return self._modelnaam.get_waarde()
 
@@ -79,7 +79,7 @@ class Verkeerslicht(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def vermogen(self):
+    def vermogen(self) -> KwantWrdInWattWaarden:
         """Vermogen (Watt) van het verkeerslicht."""
         return self._vermogen.get_waarde()
 

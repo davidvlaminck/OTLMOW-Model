@@ -35,7 +35,7 @@ class Wegberm(TerreinDeel, AIMObject):
                                   owner=self)
 
     @property
-    def bijzonderIngerichteOnderdelen(self):
+    def bijzonderIngerichteOnderdelen(self) -> str:
         """De bijzonder ingerichte onderdelen van de wegberm."""
         return self._bijzonderIngerichteOnderdelen.get_waarde()
 
@@ -44,7 +44,7 @@ class Wegberm(TerreinDeel, AIMObject):
         self._bijzonderIngerichteOnderdelen.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van wegberm."""
         return self._type.get_waarde()
 

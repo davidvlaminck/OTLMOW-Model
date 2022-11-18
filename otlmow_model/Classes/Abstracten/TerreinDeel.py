@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -49,7 +49,7 @@ class TerreinDeel(VlakGeometrie):
                                          owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMeterWaarden:
         """De breedte van het object in meter. In geval van een ongelijkmatige breedte wordt de gemiddelde breedte opgenomen."""
         return self._breedte.get_waarde()
 
@@ -58,7 +58,7 @@ class TerreinDeel(VlakGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van het object in meter. In geval van een ongelijkmatige lengte wordt de gemiddelde lengte opgenomen."""
         return self._lengte.get_waarde()
 
@@ -67,7 +67,7 @@ class TerreinDeel(VlakGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def niveau(self):
+    def niveau(self) -> float:
         """Het niveau waarop het object zich bevindt, relatief ten opzichte van andere objecten. Negatieve waarden worden geassocieerd met ondergronds en positieve waarden met bovengronds. Nul wordt beschouwd als een absolute waarde om het maaiveld aan te duiden."""
         return self._niveau.get_waarde()
 
@@ -76,7 +76,7 @@ class TerreinDeel(VlakGeometrie):
         self._niveau.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte in vierkante meter."""
         return self._oppervlakte.get_waarde()
 

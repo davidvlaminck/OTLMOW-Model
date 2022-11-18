@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Brandvoorziening import Brandvoorziening
-from otlmow_model.Datatypes.KwantWrdInBar import KwantWrdInBar
-from otlmow_model.Datatypes.KwantWrdInKiloWatt import KwantWrdInKiloWatt
+from otlmow_model.Datatypes.KwantWrdInBar import KwantWrdInBar, KwantWrdInBarWaarden
+from otlmow_model.Datatypes.KwantWrdInKiloWatt import KwantWrdInKiloWatt, KwantWrdInKiloWattWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -37,7 +37,7 @@ class Drukverhogingsgroep(Brandvoorziening):
                                       owner=self)
 
     @property
-    def inkomendeDruk(self):
+    def inkomendeDruk(self) -> KwantWrdInBarWaarden:
         """Verwachte inkomende druk van het water bij de groep."""
         return self._inkomendeDruk.get_waarde()
 
@@ -46,7 +46,7 @@ class Drukverhogingsgroep(Brandvoorziening):
         self._inkomendeDruk.set_waarde(value, owner=self)
 
     @property
-    def uitgaandeDruk(self):
+    def uitgaandeDruk(self) -> KwantWrdInBarWaarden:
         """Verwachte uitgaande druk van het water na regeling door de groep."""
         return self._uitgaandeDruk.get_waarde()
 
@@ -55,7 +55,7 @@ class Drukverhogingsgroep(Brandvoorziening):
         self._uitgaandeDruk.set_waarde(value, owner=self)
 
     @property
-    def vermogen(self):
+    def vermogen(self) -> KwantWrdInKiloWattWaarden:
         """Elektrische vermogen vereist voor de goede werking van de groep."""
         return self._vermogen.get_waarde()
 

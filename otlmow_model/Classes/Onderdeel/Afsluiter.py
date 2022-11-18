@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LinkendElement import LinkendElement
 from otlmow_model.Datatypes.KlAfsluiterType import KlAfsluiterType
 from otlmow_model.Datatypes.KlTsklepAfsluiterMateriaal import KlTsklepAfsluiterMateriaal
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -64,7 +64,7 @@ class Afsluiter(LinkendElement, PuntGeometrie):
                                   owner=self)
 
     @property
-    def actueleHoogte(self):
+    def actueleHoogte(self) -> KwantWrdInMillimeterWaarden:
         """De afstand tussen het vloeipeil van de opening en de laagste positie van de schuif."""
         return self._actueleHoogte.get_waarde()
 
@@ -73,7 +73,7 @@ class Afsluiter(LinkendElement, PuntGeometrie):
         self._actueleHoogte.set_waarde(value, owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMillimeterWaarden:
         """De afstand tussen de uiterste zijden van de afsluiter in millimeter."""
         return self._breedte.get_waarde()
 
@@ -82,7 +82,7 @@ class Afsluiter(LinkendElement, PuntGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMillimeterWaarden:
         """De afstand tussen het hoogste en laagste punt van de afsluiter met uitzondering van de spindel in millimeter."""
         return self._hoogte.get_waarde()
 
@@ -91,7 +91,7 @@ class Afsluiter(LinkendElement, PuntGeometrie):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Materiaal waaruit de afsluiter is vervaardigd."""
         return self._materiaal.get_waarde()
 
@@ -100,7 +100,7 @@ class Afsluiter(LinkendElement, PuntGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def peil(self):
+    def peil(self) -> KwantWrdInMeterTAWWaarden:
         """BOK-peil in meter-TAW van de onderkant van de doorlaat van de afsluiter."""
         return self._peil.get_waarde()
 
@@ -109,7 +109,7 @@ class Afsluiter(LinkendElement, PuntGeometrie):
         self._peil.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Bepaalt het type van de afsluiter."""
         return self._type.get_waarde()
 

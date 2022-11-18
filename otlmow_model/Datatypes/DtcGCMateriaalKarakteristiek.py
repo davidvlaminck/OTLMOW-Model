@@ -25,7 +25,7 @@ class DtcGCMateriaalKarakteristiekWaarden(WaardenObject):
                                        owner=self)
 
     @property
-    def geluidskarakteristiek(self):
+    def geluidskarakteristiek(self) -> str:
         """Het kenmerkend gedrag inzake geluid van de geluidswerende constructie."""
         return self._geluidskarakteristiek.get_waarde()
 
@@ -34,7 +34,7 @@ class DtcGCMateriaalKarakteristiekWaarden(WaardenObject):
         self._geluidskarakteristiek.set_waarde(value, owner=self._parent)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal van de geluidswerende constructie."""
         return self._materiaal.get_waarde()
 

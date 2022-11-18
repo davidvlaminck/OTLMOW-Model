@@ -24,7 +24,7 @@ class Terugkeer(ComplexeGeleiding, LijnGeometrie):
                                             owner=self)
 
     @property
-    def typeUitvoering(self):
+    def typeUitvoering(self) -> str:
         """Het type van terugkeer."""
         return self._typeUitvoering.get_waarde()
 

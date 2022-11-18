@@ -51,7 +51,7 @@ class WaterdoorlatendeBestrating(Bestrating):
                                   owner=self)
 
     @property
-    def aard(self):
+    def aard(self) -> str:
         """Het kenmerk of de vorm van de waterdoorlatende betonstraatsteen waardoor infiltratie van hemelwater in de bodem mogelijk is."""
         return self._aard.get_waarde()
 
@@ -60,7 +60,7 @@ class WaterdoorlatendeBestrating(Bestrating):
         self._aard.set_waarde(value, owner=self)
 
     @property
-    def afmetingVanBestratingselementLxB(self):
+    def afmetingVanBestratingselementLxB(self) -> str:
         """De lengte en breedte van het bestratingselement in millimeter."""
         return self._afmetingVanBestratingselementLxB.get_waarde()
 
@@ -69,7 +69,7 @@ class WaterdoorlatendeBestrating(Bestrating):
         self._afmetingVanBestratingselementLxB.set_waarde(value, owner=self)
 
     @property
-    def afwerking(self):
+    def afwerking(self) -> str:
         """Bepaling van de afwerking van de waterdoorlatende betonstraatstenen of betontegels."""
         return self._afwerking.get_waarde()
 
@@ -78,7 +78,7 @@ class WaterdoorlatendeBestrating(Bestrating):
         self._afwerking.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van waterdoorlatende betonstraatstenen of betontegels."""
         return self._type.get_waarde()
 

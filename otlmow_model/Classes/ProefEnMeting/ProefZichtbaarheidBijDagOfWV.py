@@ -31,7 +31,7 @@ class ProefZichtbaarheidBijDagOfWV(Proef, PuntGeometrie, LijnGeometrie, VlakGeom
                                                    owner=self)
 
     @property
-    def luminantiecoëfficiënt(self):
+    def luminantiecoëfficiënt(self) -> float:
         """De verhouding van de luminantie van het oppervlak in een gegeven richting en de verlichtingssterkte op het oppervlak."""
         return self._luminantiecoëfficiënt.get_waarde()
 

@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.KwantWrdInKilogram import KwantWrdInKilogram
+from otlmow_model.Datatypes.KwantWrdInKilogram import KwantWrdInKilogram, KwantWrdInKilogramWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -24,7 +24,7 @@ class DtcBereikInKgWaarden(WaardenObject):
                                       owner=self)
 
     @property
-    def maximum(self):
+    def maximum(self) -> KwantWrdInKilogramWaarden:
         """Bovengrens van het bereik uitgedrukt in kilogram."""
         return self._maximum.get_waarde()
 
@@ -33,7 +33,7 @@ class DtcBereikInKgWaarden(WaardenObject):
         self._maximum.set_waarde(value, owner=self._parent)
 
     @property
-    def minimium(self):
+    def minimium(self) -> KwantWrdInKilogramWaarden:
         """Ondergrens van het bereik uitgedrukt in kilogram."""
         return self._minimium.get_waarde()
 

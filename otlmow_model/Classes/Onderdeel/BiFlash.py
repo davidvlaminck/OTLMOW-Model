@@ -31,7 +31,7 @@ class BiFlash(AIMNaamObject, PuntGeometrie):
                                       owner=self)
 
     @property
-    def lamptype(self):
+    def lamptype(self) -> str:
         """Het type lamp van de bi-flash."""
         return self._lamptype.get_waarde()
 

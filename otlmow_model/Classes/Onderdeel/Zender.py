@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.ZenderOntvangerToegang import ZenderOntvangerToegang
-from otlmow_model.Datatypes.DteTekstblok import DteTekstblok
+from otlmow_model.Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from otlmow_model.Datatypes.KlZenderMerk import KlZenderMerk
 from otlmow_model.Datatypes.KlZenderModelnaam import KlZenderModelnaam
 
@@ -41,7 +41,7 @@ class Zender(ZenderOntvangerToegang):
                                         owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van een zender."""
         return self._merk.get_waarde()
 
@@ -50,7 +50,7 @@ class Zender(ZenderOntvangerToegang):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van een zender."""
         return self._modelnaam.get_waarde()
 
@@ -59,7 +59,7 @@ class Zender(ZenderOntvangerToegang):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def toepassing(self):
+    def toepassing(self) -> DteTekstblokWaarden:
         """De techniek of standaard waarmee signalen over het netwerk verstuurd worden. Mogelijke waarden zijn onder andere: KAR,  wifi, GPRS of GSM.."""
         return self._toepassing.get_waarde()
 

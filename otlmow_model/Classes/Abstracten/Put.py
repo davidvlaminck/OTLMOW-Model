@@ -1,11 +1,12 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod, ABC
-from otlmow_model.Datatypes.DtcAdres import DtcAdres
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DteTekstblok import DteTekstblok
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
+from otlmow_model.Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -54,7 +55,7 @@ class Put(ABC):
                                          owner=self)
 
     @property
-    def adres(self):
+    def adres(self) -> DtcAdresWaarden:
         """Dichtstbijgelegen adres voor de put, het adres bestaat enkel uit de straatnaam indien het dichtstbijzijnde adres > 100m verwijderd is."""
         return self._adres.get_waarde()
 
@@ -63,7 +64,7 @@ class Put(ABC):
         self._adres.set_waarde(value, owner=self)
 
     @property
-    def diepte(self):
+    def diepte(self) -> KwantWrdInMeterWaarden:
         """Het verschil tussen het maaiveldpeil en het laagste punt van de binnenkant van de put in meter."""
         return self._diepte.get_waarde()
 
@@ -72,7 +73,7 @@ class Put(ABC):
         self._diepte.set_waarde(value, owner=self)
 
     @property
-    def maaiveldpeil(self):
+    def maaiveldpeil(self) -> KwantWrdInMeterTAWWaarden:
         """De hoogte van het grondoppervlak in meter-TAW in het midden van het deksel van de put."""
         return self._maaiveldpeil.get_waarde()
 
@@ -81,7 +82,7 @@ class Put(ABC):
         self._maaiveldpeil.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van de put."""
         return self._technischeFiche.get_waarde()
 
@@ -90,7 +91,7 @@ class Put(ABC):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def toestandPut(self):
+    def toestandPut(self) -> DteTekstblokWaarden:
         """Opmerkingen van de toestand en staat van de (verbindings-)put."""
         return self._toestandPut.get_waarde()
 

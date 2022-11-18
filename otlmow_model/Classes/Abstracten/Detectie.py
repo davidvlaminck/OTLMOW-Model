@@ -26,7 +26,7 @@ class Detectie(AIMNaamObject):
                                            owner=self)
 
     @property
-    def soortBewaking(self):
+    def soortBewaking(self) -> str:
         """Type bewaking van de detectie."""
         return self._soortBewaking.get_waarde()
 

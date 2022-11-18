@@ -25,7 +25,7 @@ class DtcSupplementenCBVWaarden(WaardenObject):
                                   owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> str:
         """De kleur van de supplementen toegevoegd aan de verharding."""
         return self._kleur.get_waarde()
 
@@ -34,7 +34,7 @@ class DtcSupplementenCBVWaarden(WaardenObject):
         self._kleur.set_waarde(value, owner=self._parent)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de supplementen toegevoegd aan de verharding."""
         return self._type.get_waarde()
 

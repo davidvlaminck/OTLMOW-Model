@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Datatypes.KlSchoorhoek import KlSchoorhoek
-from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden
+from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
@@ -27,7 +27,7 @@ class DtuHellingsSchoorhoekWaarden(UnionWaarden):
                                         owner=self)
 
     @property
-    def hellingshoek(self):
+    def hellingshoek(self) -> KwantWrdInDecimaleGradenWaarden:
         """Hoek die het object maakt ten opzichte van de verticale, uitgedrukt in decimale graden."""
         return self._hellingshoek.get_waarde()
 
@@ -38,7 +38,7 @@ class DtuHellingsSchoorhoekWaarden(UnionWaarden):
             self.clear_other_props('_hellingshoek')
 
     @property
-    def schoorhoek(self):
+    def schoorhoek(self) -> str:
         """Hoek die het object maakt ten opzichte van de verticale, uitgedrukt in 1 op x (vb.: 1/4)."""
         return self._schoorhoek.get_waarde()
 

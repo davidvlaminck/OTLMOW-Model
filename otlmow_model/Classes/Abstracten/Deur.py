@@ -2,13 +2,13 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod, ABC
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcAfmetingBxhInM import DtcAfmetingBxhInM
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcAfmetingBxhInM import DtcAfmetingBxhInM, DtcAfmetingBxhInMWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlDeurFabrikant import KlDeurFabrikant
 from otlmow_model.Datatypes.KlDeurHandgreeptype import KlDeurHandgreeptype
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
-from otlmow_model.Datatypes.KwantWrdInSeconde import KwantWrdInSeconde
-from otlmow_model.Datatypes.KwantWrdInUur import KwantWrdInUur
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInSeconde import KwantWrdInSeconde, KwantWrdInSecondeWaarden
+from otlmow_model.Datatypes.KwantWrdInUur import KwantWrdInUur, KwantWrdInUurWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -98,7 +98,7 @@ class Deur(ABC):
                                            owner=self)
 
     @property
-    def afmetingDeuropening(self):
+    def afmetingDeuropening(self) -> DtcAfmetingBxhInMWaarden:
         """Afmeting van de vrije ruimte die ontstaat wanneer de deur volledig geopend is."""
         return self._afmetingDeuropening.get_waarde()
 
@@ -107,7 +107,7 @@ class Deur(ABC):
         self._afmetingDeuropening.set_waarde(value, owner=self)
 
     @property
-    def brandweerstand(self):
+    def brandweerstand(self) -> KwantWrdInUurWaarden:
         """Brandwerendheid is een maat voor de tijd die een constructie heeft voor dat deze bezwijkt onder invloed van een brand."""
         return self._brandweerstand.get_waarde()
 
@@ -116,7 +116,7 @@ class Deur(ABC):
         self._brandweerstand.set_waarde(value, owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMillimeterWaarden:
         """De afmeting van de rechtopstaande deur gemeten van de ene zijkant naar de andere."""
         return self._breedte.get_waarde()
 
@@ -125,7 +125,7 @@ class Deur(ABC):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def dikte(self):
+    def dikte(self) -> KwantWrdInMillimeterWaarden:
         """De dikte van de deur gemeten van de ene buitenzijde van de deur tot de andere."""
         return self._dikte.get_waarde()
 
@@ -134,7 +134,7 @@ class Deur(ABC):
         self._dikte.set_waarde(value, owner=self)
 
     @property
-    def fabrikant(self):
+    def fabrikant(self) -> str:
         """Naam van de producent van de deur."""
         return self._fabrikant.get_waarde()
 
@@ -143,7 +143,7 @@ class Deur(ABC):
         self._fabrikant.set_waarde(value, owner=self)
 
     @property
-    def handgreeptype(self):
+    def handgreeptype(self) -> str:
         """Soort greep aan waarmee de deur geopend wordt."""
         return self._handgreeptype.get_waarde()
 
@@ -152,7 +152,7 @@ class Deur(ABC):
         self._handgreeptype.set_waarde(value, owner=self)
 
     @property
-    def heeftDeurcontact(self):
+    def heeftDeurcontact(self) -> bool:
         """Geeft aan of de deur voorzien is van een contact dat bewaakt of de deur open of dicht is."""
         return self._heeftDeurcontact.get_waarde()
 
@@ -161,7 +161,7 @@ class Deur(ABC):
         self._heeftDeurcontact.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMillimeterWaarden:
         """De afmeting van de rechtopstaande deur gemeten van de onderkant tot de bovenkant."""
         return self._hoogte.get_waarde()
 
@@ -170,7 +170,7 @@ class Deur(ABC):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def isZelfsluitend(self):
+    def isZelfsluitend(self) -> bool:
         """Geeft aan of de deur voorzien is van een mechanisme dat er voor zorgt dat de deur sluit zonder tussenkomst van een gebruiker."""
         return self._isZelfsluitend.get_waarde()
 
@@ -179,7 +179,7 @@ class Deur(ABC):
         self._isZelfsluitend.set_waarde(value, owner=self)
 
     @property
-    def ophangconstructie(self):
+    def ophangconstructie(self) -> DtcDocumentWaarden:
         """Documentatie met betrekking tot de manier waarop de deur met het kozijn bevestigd is aan de ruimte waartoe ze toegang biedt."""
         return self._ophangconstructie.get_waarde()
 
@@ -188,7 +188,7 @@ class Deur(ABC):
         self._ophangconstructie.set_waarde(value, owner=self)
 
     @property
-    def sluitingstijd(self):
+    def sluitingstijd(self) -> KwantWrdInSecondeWaarden:
         """Duurtijd voor het automatische sluiten van een zelfsluitende deur die volledig open staat."""
         return self._sluitingstijd.get_waarde()
 

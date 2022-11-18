@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.IntegerField import IntegerField
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -41,7 +41,7 @@ class Verankeringslandhoofd(AIMObject, VlakGeometrie):
                                     owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMeterWaarden:
         """De breedte van het verankeringslandhoofd in meter."""
         return self._breedte.get_waarde()
 
@@ -50,7 +50,7 @@ class Verankeringslandhoofd(AIMObject, VlakGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van het verankeringslandhoofd in meter."""
         return self._lengte.get_waarde()
 
@@ -59,7 +59,7 @@ class Verankeringslandhoofd(AIMObject, VlakGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def ribben(self):
+    def ribben(self) -> int:
         """Het aantal ribben van het verankeringslandhoofd."""
         return self._ribben.get_waarde()
 

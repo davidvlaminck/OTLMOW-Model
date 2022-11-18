@@ -29,7 +29,7 @@ class VoedingDerdenLaagspanning(Voedingspunt, PuntGeometrie):
                                               owner=self)
 
     @property
-    def aansluitvermogen(self):
+    def aansluitvermogen(self) -> str:
         """Vermogen van de aansluiting."""
         return self._aansluitvermogen.get_waarde()
 

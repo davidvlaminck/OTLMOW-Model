@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -30,7 +30,7 @@ class ProefGrondkarakteristieken(Proef, PuntGeometrie, LijnGeometrie, VlakGeomet
                                                            owner=self)
 
     @property
-    def bepalingGrondkarakteristieken(self):
+    def bepalingGrondkarakteristieken(self) -> DtcDocumentWaarden:
         """Proef met de resultaten van de grondkarakteristieken."""
         return self._bepalingGrondkarakteristieken.get_waarde()
 

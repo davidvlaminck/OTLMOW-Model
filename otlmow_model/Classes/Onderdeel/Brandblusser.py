@@ -1,4 +1,5 @@
 # coding=utf-8
+from datetime import date, date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.DateField import DateField
@@ -61,7 +62,7 @@ class Brandblusser(AIMObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def aankoopdatum(self):
+    def aankoopdatum(self) -> date:
         """Datum wordt het toestel is aangekocht."""
         return self._aankoopdatum.get_waarde()
 
@@ -70,7 +71,7 @@ class Brandblusser(AIMObject, PuntGeometrie):
         self._aankoopdatum.set_waarde(value, owner=self)
 
     @property
-    def blusmiddel(self):
+    def blusmiddel(self) -> str:
         """Substantie waarmee het toestel gevuld is in functie van het blussen van vuur."""
         return self._blusmiddel.get_waarde()
 
@@ -79,7 +80,7 @@ class Brandblusser(AIMObject, PuntGeometrie):
         self._blusmiddel.set_waarde(value, owner=self)
 
     @property
-    def gewicht(self):
+    def gewicht(self) -> str:
         """Totaal gewicht van het gevulde toestel."""
         return self._gewicht.get_waarde()
 
@@ -88,7 +89,7 @@ class Brandblusser(AIMObject, PuntGeometrie):
         self._gewicht.set_waarde(value, owner=self)
 
     @property
-    def keuringsdatum(self):
+    def keuringsdatum(self) -> date:
         """Datum waarop het toestel laatst is gekeurd."""
         return self._keuringsdatum.get_waarde()
 
@@ -97,7 +98,7 @@ class Brandblusser(AIMObject, PuntGeometrie):
         self._keuringsdatum.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de brandblusser."""
         return self._type.get_waarde()
 

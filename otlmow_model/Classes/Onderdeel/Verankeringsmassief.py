@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Betonfundering import Betonfundering
 from otlmow_model.Classes.Abstracten.KlassiekeFundering import KlassiekeFundering
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -41,7 +41,7 @@ class Verankeringsmassief(Betonfundering, KlassiekeFundering):
                                     owner=self)
 
     @property
-    def isAfgedektMetBitumen(self):
+    def isAfgedektMetBitumen(self) -> bool:
         """Geeft aan of de fundering afgedekt is met een waterbestendige laag die regenwater en vuil wegvoert van de fundering."""
         return self._isAfgedektMetBitumen.get_waarde()
 
@@ -50,7 +50,7 @@ class Verankeringsmassief(Betonfundering, KlassiekeFundering):
         self._isAfgedektMetBitumen.set_waarde(value, owner=self)
 
     @property
-    def volume(self):
+    def volume(self) -> KwantWrdInKubiekeMeterWaarden:
         """Het volume in kubieke meter van het verankeringsmassief."""
         return self._volume.get_waarde()
 

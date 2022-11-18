@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -31,7 +31,7 @@ class Bel(AIMNaamObject, PuntGeometrie):
                                              owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van een bel."""
         return self._technischeFiche.get_waarde()
 

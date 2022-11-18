@@ -24,7 +24,7 @@ class Lichtnagel(EMAfbakening, PuntGeometrie):
                                    owner=self)
 
     @property
-    def isLED(self):
+    def isLED(self) -> bool:
         """Geeft aan of de lichtnagel opgelicht wordt door middel van geïntegreerde LEDs."""
         return self._isLED.get_waarde()
 

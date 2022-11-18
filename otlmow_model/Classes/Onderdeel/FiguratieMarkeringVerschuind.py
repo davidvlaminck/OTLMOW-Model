@@ -4,8 +4,8 @@ from otlmow_model.Classes.Abstracten.FiguratieMarkeringToegang import FiguratieM
 from otlmow_model.Datatypes.KlFiguratieCodeVerschuind import KlFiguratieCodeVerschuind
 from otlmow_model.Datatypes.KlFiguratieSoortVerschuind import KlFiguratieSoortVerschuind
 from otlmow_model.Datatypes.KlFiguratieTypeVerschuind import KlFiguratieTypeVerschuind
-from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -63,7 +63,7 @@ class FiguratieMarkeringVerschuind(FiguratieMarkeringToegang, VlakGeometrie):
                                   owner=self)
 
     @property
-    def basisOppervlakte(self):
+    def basisOppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De (basis) oppervlakte van de markering zoals beschreven in de algemene omzendbrief."""
         return self._basisOppervlakte.get_waarde()
 
@@ -72,7 +72,7 @@ class FiguratieMarkeringVerschuind(FiguratieMarkeringToegang, VlakGeometrie):
         self._basisOppervlakte.set_waarde(value, owner=self)
 
     @property
-    def code(self):
+    def code(self) -> str:
         """De code van de verschuinde figuratie markering."""
         return self._code.get_waarde()
 
@@ -81,7 +81,7 @@ class FiguratieMarkeringVerschuind(FiguratieMarkeringToegang, VlakGeometrie):
         self._code.set_waarde(value, owner=self)
 
     @property
-    def hoek(self):
+    def hoek(self) -> KwantWrdInDecimaleGradenWaarden:
         """De hoek van de verschuinde figuratiemarkering in decimale graden."""
         return self._hoek.get_waarde()
 
@@ -90,7 +90,7 @@ class FiguratieMarkeringVerschuind(FiguratieMarkeringToegang, VlakGeometrie):
         self._hoek.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van de figuratie markering na verschuining."""
         return self._oppervlakte.get_waarde()
 
@@ -99,7 +99,7 @@ class FiguratieMarkeringVerschuind(FiguratieMarkeringToegang, VlakGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def soortOmschrijving(self):
+    def soortOmschrijving(self) -> str:
         """De soort en tevens de omschrijving van de verschuinde figuratie markering."""
         return self._soortOmschrijving.get_waarde()
 
@@ -108,7 +108,7 @@ class FiguratieMarkeringVerschuind(FiguratieMarkeringToegang, VlakGeometrie):
         self._soortOmschrijving.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de verschuinde figuratie markering."""
         return self._type.get_waarde()
 

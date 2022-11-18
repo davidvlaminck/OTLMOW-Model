@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -24,7 +24,7 @@ class DtcAfmetingBxlInCmWaarden(WaardenObject):
                                     owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInCentimeterWaarden:
         """De breedte in centimeter."""
         return self._breedte.get_waarde()
 
@@ -33,7 +33,7 @@ class DtcAfmetingBxlInCmWaarden(WaardenObject):
         self._breedte.set_waarde(value, owner=self._parent)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInCentimeterWaarden:
         """De lengte in centimeter."""
         return self._lengte.get_waarde()
 

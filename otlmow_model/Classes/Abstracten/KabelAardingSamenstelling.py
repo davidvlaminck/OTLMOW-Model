@@ -21,7 +21,7 @@ class KabelAardingSamenstelling(ABC):
                                     owner=self)
 
     @property
-    def sectie(self):
+    def sectie(self) -> str:
         """Geeft de dikte van een kabel of pen voor aarding weer als oppervlakte van een doorsnede, uitgedrukt in mm²."""
         return self._sectie.get_waarde()
 

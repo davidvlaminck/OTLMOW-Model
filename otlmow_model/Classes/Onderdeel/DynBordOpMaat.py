@@ -34,7 +34,7 @@ class DynBordOpMaat(LEDBord):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van het dynamisch bord op maat."""
         return self._merk.get_waarde()
 
@@ -43,7 +43,7 @@ class DynBordOpMaat(LEDBord):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van het dynamisch bord op maat."""
         return self._modelnaam.get_waarde()
 

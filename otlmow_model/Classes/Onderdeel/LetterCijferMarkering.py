@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.FiguratieMarkeringToegang import FiguratieMarkeringToegang
 from otlmow_model.Datatypes.KlLetterCijfer import KlLetterCijfer
 from otlmow_model.Datatypes.KlLetterCijferType import KlLetterCijferType
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -40,7 +40,7 @@ class LetterCijferMarkering(FiguratieMarkeringToegang, PuntGeometrie):
                                   owner=self)
 
     @property
-    def letterCijfer(self):
+    def letterCijfer(self) -> str:
         """De individuele letter of cijfer gebruikt bij de wegmarkering."""
         return self._letterCijfer.get_waarde()
 
@@ -49,7 +49,7 @@ class LetterCijferMarkering(FiguratieMarkeringToegang, PuntGeometrie):
         self._letterCijfer.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van de individuele letter- of cijfermarkering zoals beschreven in de algemene omzendbrief."""
         return self._oppervlakte.get_waarde()
 
@@ -58,7 +58,7 @@ class LetterCijferMarkering(FiguratieMarkeringToegang, PuntGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de individuele letter- of cijfermarkering."""
         return self._type.get_waarde()
 

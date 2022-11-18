@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -24,7 +24,7 @@ class LaagDikte(VlakGeometrie):
                                    owner=self)
 
     @property
-    def dikte(self):
+    def dikte(self) -> KwantWrdInCentimeterWaarden:
         """De gemiddelde dikte van een laag in centimeter."""
         return self._dikte.get_waarde()
 

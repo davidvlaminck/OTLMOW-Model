@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -26,7 +26,7 @@ class GroepMarkering(AIMObject, PuntGeometrie):
                                                     owner=self)
 
     @property
-    def totaleGroepOppervlakte(self):
+    def totaleGroepOppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De totale oppervlakte van de totale markering groepering."""
         return self._totaleGroepOppervlakte.get_waarde()
 

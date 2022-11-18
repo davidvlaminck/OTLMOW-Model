@@ -30,7 +30,7 @@ class ProefLuminantie(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                               owner=self)
 
     @property
-    def luminantiefactor(self):
+    def luminantiefactor(self) -> float:
         """Waarde om het contrast met het wegdek en bijgevolg de dagzichtbaarheid te bepalen."""
         return self._luminantiefactor.get_waarde()
 

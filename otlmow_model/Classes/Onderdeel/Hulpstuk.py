@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.LinkendElement import LinkendElement
 from otlmow_model.Classes.Abstracten.OmhullendeInrichting import OmhullendeInrichting
 from otlmow_model.Datatypes.KlAansluitstukMateriaal import KlAansluitstukMateriaal
 from otlmow_model.Datatypes.KlHulpstukType import KlHulpstukType
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -51,7 +51,7 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
                                                 owner=self)
 
     @property
-    def inwendigeDiameter(self):
+    def inwendigeDiameter(self) -> KwantWrdInMillimeterWaarden:
         """De diameter van de binnenzijde van het hulpstuk in millimeter."""
         return self._inwendigeDiameter.get_waarde()
 
@@ -60,7 +60,7 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
         self._inwendigeDiameter.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit het hulpstuk vervaardigd is."""
         return self._materiaal.get_waarde()
 
@@ -69,7 +69,7 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van het hulpstuk."""
         return self._type.get_waarde()
 
@@ -78,7 +78,7 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def uitwendigeDiameter(self):
+    def uitwendigeDiameter(self) -> KwantWrdInMillimeterWaarden:
         """De diameter van de buitenzijde van het hulpstuk in millimeter."""
         return self._uitwendigeDiameter.get_waarde()
 

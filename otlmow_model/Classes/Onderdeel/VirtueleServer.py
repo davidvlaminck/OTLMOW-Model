@@ -35,7 +35,7 @@ class VirtueleServer(HardwareToegang, GeenGeometrie):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de virtuele server."""
         return self._merk.get_waarde()
 
@@ -44,7 +44,7 @@ class VirtueleServer(HardwareToegang, GeenGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de virtuele server."""
         return self._modelnaam.get_waarde()
 

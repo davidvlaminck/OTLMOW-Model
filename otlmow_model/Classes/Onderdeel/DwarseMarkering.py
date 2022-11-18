@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.DwarseMarkeringToegang import DwarseMarkeringToegang
 from otlmow_model.Datatypes.KlDwarseMarkeringCode import KlDwarseMarkeringCode
 from otlmow_model.Datatypes.KlDwarseMarkeringSoort import KlDwarseMarkeringSoort
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -38,7 +38,7 @@ class DwarseMarkering(DwarseMarkeringToegang):
                                                owner=self)
 
     @property
-    def code(self):
+    def code(self) -> str:
         """De (COPRO/BENOR)  code van dwarse markering."""
         return self._code.get_waarde()
 
@@ -47,7 +47,7 @@ class DwarseMarkering(DwarseMarkeringToegang):
         self._code.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van de dwarse markering in vierkante meter."""
         return self._oppervlakte.get_waarde()
 
@@ -56,7 +56,7 @@ class DwarseMarkering(DwarseMarkeringToegang):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def soortOmschrijving(self):
+    def soortOmschrijving(self) -> str:
         """De soort en tevens de omschrijving van dwarse markering."""
         return self._soortOmschrijving.get_waarde()
 

@@ -33,7 +33,7 @@ class Rioleringsstelsel(AIMObject, VlakGeometrie):
                                          owner=self)
 
     @property
-    def rioleringsstelsel(self):
+    def rioleringsstelsel(self) -> str:
         """Geeft aan wat voor afvoerwater er door de riolering afgevoerd wordt."""
         return self._rioleringsstelsel.get_waarde()
 
@@ -42,7 +42,7 @@ class Rioleringsstelsel(AIMObject, VlakGeometrie):
         self._rioleringsstelsel.set_waarde(value, owner=self)
 
     @property
-    def systeemtype(self):
+    def systeemtype(self) -> str:
         """Geeft aan wat voor afvoerwater er door de riolering afgevoerd wordt."""
         return self._systeemtype.get_waarde()
 

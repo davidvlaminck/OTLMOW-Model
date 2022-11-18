@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.BaseClasses.IntegerField import IntegerField
 from otlmow_model.Datatypes.KlGCMeetMethode import KlGCMeetMethode
 from otlmow_model.Datatypes.KlLEGCNorm import KlLEGCNorm
@@ -65,7 +66,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
                                   owner=self)
 
     @property
-    def geluidsabsorptieReflectie(self):
+    def geluidsabsorptieReflectie(self) -> int:
         """De absorptie- of reflectiewaarde van het geluidsscherm als geheel getal."""
         return self._geluidsabsorptieReflectie.get_waarde()
 
@@ -74,7 +75,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
         self._geluidsabsorptieReflectie.set_waarde(value, owner=self._parent)
 
     @property
-    def gemetenWaarde(self):
+    def gemetenWaarde(self) -> int:
         """De sterkte van het geluid in dB."""
         return self._gemetenWaarde.get_waarde()
 
@@ -83,7 +84,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
         self._gemetenWaarde.set_waarde(value, owner=self._parent)
 
     @property
-    def locatieInSitulabo(self):
+    def locatieInSitulabo(self) -> str:
         """Locatie waar de geluidstest is uitgevoerd (terrein of labo)."""
         return self._locatieInSitulabo.get_waarde()
 
@@ -92,7 +93,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
         self._locatieInSitulabo.set_waarde(value, owner=self._parent)
 
     @property
-    def luchtgeluidsisolatie(self):
+    def luchtgeluidsisolatie(self) -> int:
         """De gemeten waarde van het  luchtgeluidsisiolatie van het geluidsscherm."""
         return self._luchtgeluidsisolatie.get_waarde()
 
@@ -101,7 +102,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
         self._luchtgeluidsisolatie.set_waarde(value, owner=self._parent)
 
     @property
-    def norm(self):
+    def norm(self) -> str:
         """De proef volgens de beschreven standaard."""
         return self._norm.get_waarde()
 
@@ -110,7 +111,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
         self._norm.set_waarde(value, owner=self._parent)
 
     @property
-    def testrapport(self):
+    def testrapport(self) -> List[DtcDocumentWaarden]:
         """Documentbijlage met de resultaten van de test."""
         return self._testrapport.get_waarde()
 
@@ -119,7 +120,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
         self._testrapport.set_waarde(value, owner=self._parent)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de test."""
         return self._type.get_waarde()
 

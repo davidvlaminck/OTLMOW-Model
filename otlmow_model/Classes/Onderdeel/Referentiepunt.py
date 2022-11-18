@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BevestigingGC import BevestigingGC
 from otlmow_model.Classes.Abstracten.Signalisatie import Signalisatie
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DteTekstblok import DteTekstblok
+from otlmow_model.Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from otlmow_model.Datatypes.KlSignalisatieReferentiepuntType import KlSignalisatieReferentiepuntType
 
 
@@ -40,7 +40,7 @@ class Referentiepunt(BevestigingGC, Signalisatie, AIMObject):
                                   owner=self)
 
     @property
-    def opschrift(self):
+    def opschrift(self) -> DteTekstblokWaarden:
         """De notatie van het referentiepunt."""
         return self._opschrift.get_waarde()
 
@@ -49,7 +49,7 @@ class Referentiepunt(BevestigingGC, Signalisatie, AIMObject):
         self._opschrift.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van referentiepunt."""
         return self._type.get_waarde()
 

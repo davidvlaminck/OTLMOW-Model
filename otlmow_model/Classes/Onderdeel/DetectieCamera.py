@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.NietWeggebondenDetectie import NietWeggebondenDetectie
 from otlmow_model.Classes.Abstracten.TypeWeggebruiker import TypeWeggebruiker
@@ -44,7 +45,7 @@ class DetectieCamera(NietWeggebondenDetectie, TypeWeggebruiker):
                                        owner=self)
 
     @property
-    def detectieprincipe(self):
+    def detectieprincipe(self) -> List[str]:
         """Geeft aan of de camera optisch en/of thermografisch werkt."""
         return self._detectieprincipe.get_waarde()
 
@@ -53,7 +54,7 @@ class DetectieCamera(NietWeggebondenDetectie, TypeWeggebruiker):
         self._detectieprincipe.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van de detectiecamera."""
         return self._merk.get_waarde()
 
@@ -62,7 +63,7 @@ class DetectieCamera(NietWeggebondenDetectie, TypeWeggebruiker):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de detectiecamera."""
         return self._modelnaam.get_waarde()
 

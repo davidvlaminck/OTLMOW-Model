@@ -4,8 +4,8 @@ from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Verkeersbord import Verkeersbord
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.BaseClasses.IntegerField import IntegerField
 from otlmow_model.BaseClasses.StringField import StringField
 
@@ -92,7 +92,7 @@ class LEDBord(Verkeersbord, AIMNaamObject):
                                     owner=self)
 
     @property
-    def aantalLichtsensoren(self):
+    def aantalLichtsensoren(self) -> int:
         """Het aantal lichtsensoren waar het bord over beschikt die continu de intensiteit van het invallend licht meten."""
         return self._aantalLichtsensoren.get_waarde()
 
@@ -101,7 +101,7 @@ class LEDBord(Verkeersbord, AIMNaamObject):
         self._aantalLichtsensoren.set_waarde(value, owner=self)
 
     @property
-    def dnsNaam(self):
+    def dnsNaam(self) -> str:
         """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
@@ -110,7 +110,7 @@ class LEDBord(Verkeersbord, AIMNaamObject):
         self._dnsNaam.set_waarde(value, owner=self)
 
     @property
-    def heeftDeurcontact(self):
+    def heeftDeurcontact(self) -> bool:
         """Het LEDBord is beveiligd met een deurcontact dat waarschuwt voor ongeoorloofd openen van het bord door middel van een software-matig alarm."""
         return self._heeftDeurcontact.get_waarde()
 
@@ -119,7 +119,7 @@ class LEDBord(Verkeersbord, AIMNaamObject):
         self._heeftDeurcontact.set_waarde(value, owner=self)
 
     @property
-    def ipAdres(self):
+    def ipAdres(self) -> DteIPv4AdresWaarden:
         """Het IP netwerkadres van het LEDBord."""
         return self._ipAdres.get_waarde()
 
@@ -128,7 +128,7 @@ class LEDBord(Verkeersbord, AIMNaamObject):
         self._ipAdres.set_waarde(value, owner=self)
 
     @property
-    def logischeGroepVerkeerscentrum(self):
+    def logischeGroepVerkeerscentrum(self) -> str:
         """Identificator van de logische groep toegekend door het Verkeerscentrum."""
         return self._logischeGroepVerkeerscentrum.get_waarde()
 
@@ -137,7 +137,7 @@ class LEDBord(Verkeersbord, AIMNaamObject):
         self._logischeGroepVerkeerscentrum.set_waarde(value, owner=self)
 
     @property
-    def protocol(self):
+    def protocol(self) -> str:
         """Communicatieprotocol waarmee het LEDBord wordt aangestuurd."""
         return self._protocol.get_waarde()
 
@@ -146,7 +146,7 @@ class LEDBord(Verkeersbord, AIMNaamObject):
         self._protocol.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Document met technische informatie over het LEDBord."""
         return self._technischeFiche.get_waarde()
 
@@ -155,7 +155,7 @@ class LEDBord(Verkeersbord, AIMNaamObject):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def versie(self):
+    def versie(self) -> str:
         """Versie van het LEDBord."""
         return self._versie.get_waarde()
 

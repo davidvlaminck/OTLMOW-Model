@@ -27,7 +27,7 @@ class Cluster(AIMNaamObject, PuntGeometrie):
                                          owner=self)
 
     @property
-    def clusterdoel(self):
+    def clusterdoel(self) -> str:
         """De reden waarom de custer is opgezet, bv. resources groeperen of redundantie."""
         return self._clusterdoel.get_waarde()
 

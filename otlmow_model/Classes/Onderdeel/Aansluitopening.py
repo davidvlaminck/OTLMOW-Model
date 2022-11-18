@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LinkendElement import LinkendElement
 from otlmow_model.Datatypes.KlRioleringVorm import KlRioleringVorm
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -47,7 +47,7 @@ class Aansluitopening(LinkendElement, PuntGeometrie):
                                   owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMillimeterWaarden:
         """De afstand tussen de uiterste zijden van de aansluitopening in millimeter."""
         return self._breedte.get_waarde()
 
@@ -56,7 +56,7 @@ class Aansluitopening(LinkendElement, PuntGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMillimeterWaarden:
         """De afstand tussen het hoogste en laagste punt van de aansluitopening in millimeter."""
         return self._hoogte.get_waarde()
 
@@ -65,7 +65,7 @@ class Aansluitopening(LinkendElement, PuntGeometrie):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def peil(self):
+    def peil(self) -> KwantWrdInMeterTAWWaarden:
         """BOK peil in meter-TAW van de knijpopening."""
         return self._peil.get_waarde()
 
@@ -74,7 +74,7 @@ class Aansluitopening(LinkendElement, PuntGeometrie):
         self._peil.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> str:
         """De vorm van de aansluitopening."""
         return self._vorm.get_waarde()
 

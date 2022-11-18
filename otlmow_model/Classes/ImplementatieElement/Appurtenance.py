@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -26,7 +26,7 @@ class Appurtenance(AIMObject, PuntGeometrie):
                                           owner=self)
 
     @property
-    def opstelhoogte(self):
+    def opstelhoogte(self) -> KwantWrdInMeterWaarden:
         """De hoogte waarop het functionele deel van de appurtenance zich bevindt."""
         return self._opstelhoogte.get_waarde()
 

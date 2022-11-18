@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from otlmow_model.Datatypes.KlVerkeersbordCategorie import KlVerkeersbordCategorie
 from otlmow_model.Datatypes.KlVerkeersbordCode import KlVerkeersbordCode
 from otlmow_model.Datatypes.KlVerkeersbordconceptStatus import KlVerkeersbordconceptStatus
@@ -67,7 +68,7 @@ class VerkeersbordConcept(AIMObject, GeenGeometrie):
                                               owner=self)
 
     @property
-    def afbeelding(self):
+    def afbeelding(self) -> List[DtcDocumentWaarden]:
         """De afbeelding van het verkeersbordconcept."""
         return self._afbeelding.get_waarde()
 
@@ -76,7 +77,7 @@ class VerkeersbordConcept(AIMObject, GeenGeometrie):
         self._afbeelding.set_waarde(value, owner=self)
 
     @property
-    def betekenis(self):
+    def betekenis(self) -> str:
         """Betekenis die gegeven wordt aan dit soort verkeersbord volgens de wegcode."""
         return self._betekenis.get_waarde()
 
@@ -85,7 +86,7 @@ class VerkeersbordConcept(AIMObject, GeenGeometrie):
         self._betekenis.set_waarde(value, owner=self)
 
     @property
-    def rechtsgrondOnderdeel(self):
+    def rechtsgrondOnderdeel(self) -> DtcExterneReferentieWaarden:
         """Verwijst naar een rechtsgrondonderdeel over dit verkeersbordconcept."""
         return self._rechtsgrondOnderdeel.get_waarde()
 
@@ -94,7 +95,7 @@ class VerkeersbordConcept(AIMObject, GeenGeometrie):
         self._rechtsgrondOnderdeel.set_waarde(value, owner=self)
 
     @property
-    def status(self):
+    def status(self) -> str:
         """Duidt of het verkeersbordconcept nog gebruikt wordt."""
         return self._status.get_waarde()
 
@@ -103,7 +104,7 @@ class VerkeersbordConcept(AIMObject, GeenGeometrie):
         self._status.set_waarde(value, owner=self)
 
     @property
-    def verkeersbordCategorie(self):
+    def verkeersbordCategorie(self) -> str:
         """Categorie van het verkeersbordconcept.	."""
         return self._verkeersbordCategorie.get_waarde()
 
@@ -112,7 +113,7 @@ class VerkeersbordConcept(AIMObject, GeenGeometrie):
         self._verkeersbordCategorie.set_waarde(value, owner=self)
 
     @property
-    def verkeersbordCode(self):
+    def verkeersbordCode(self) -> str:
         """Code die aan dit soort bord gegeven wordt binnen de wegcode."""
         return self._verkeersbordCode.get_waarde()
 

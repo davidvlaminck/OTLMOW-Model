@@ -5,8 +5,8 @@ from otlmow_model.Classes.Abstracten.ConstructieElement import ConstructieElemen
 from otlmow_model.Classes.Abstracten.ConstructieElementenGC import ConstructieElementenGC
 from otlmow_model.Classes.Abstracten.StalenConstructieElement import StalenConstructieElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -55,7 +55,7 @@ class StalenProfiel(ConstructieElement, ConstructieElementenGC, StalenConstructi
                                              owner=self)
 
     @property
-    def isVoorgebogen(self):
+    def isVoorgebogen(self) -> bool:
         """Bij het fabriceren wordt er bewust een ronding aangebracht in het profiel. Dit kan bijvoorbeeld dienen ter compensatie van doorbuiging of omwille van esthetische redenen,..."""
         return self._isVoorgebogen.get_waarde()
 
@@ -64,7 +64,7 @@ class StalenProfiel(ConstructieElement, ConstructieElementenGC, StalenConstructi
         self._isVoorgebogen.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van het profiel uitgedrukt in lopende meter."""
         return self._lengte.get_waarde()
 
@@ -73,7 +73,7 @@ class StalenProfiel(ConstructieElement, ConstructieElementenGC, StalenConstructi
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische gegevens van het stalen profiel (relevante normen, detail afmetingen, gewicht,...)."""
         return self._technischeFiche.get_waarde()
 

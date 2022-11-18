@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -31,7 +31,7 @@ class ProefWateropslorping(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                              owner=self)
 
     @property
-    def wateropslorping(self):
+    def wateropslorping(self) -> DtcDocumentWaarden:
         """Proef om de wateropslorping van de laag te bepalen."""
         return self._wateropslorping.get_waarde()
 

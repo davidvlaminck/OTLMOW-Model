@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcVegetatieSoortnaam import DtcVegetatieSoortnaam
+from otlmow_model.Datatypes.DtcVegetatieSoortnaam import DtcVegetatieSoortnaam, DtcVegetatieSoortnaamWaarden
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.Datatypes.KlVegetatieelementHoogte import KlVegetatieelementHoogte
 
@@ -82,7 +82,7 @@ class VegetatieElement(AIMObject):
                                        owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> str:
         """De hoogteklasse van het vegetatie-element."""
         return self._hoogte.get_waarde()
 
@@ -91,7 +91,7 @@ class VegetatieElement(AIMObject):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def niveau(self):
+    def niveau(self) -> float:
         """Het niveau waarop het object zich bevindt, relatief ten opzichte van andere objecten. Negatieve waarden worden geassocieerd met ondergronds en positieve waarden met bovengronds. Nul wordt beschouwd als een absolute waarde om het maaiveld aan te duiden."""
         return self._niveau.get_waarde()
 
@@ -100,7 +100,7 @@ class VegetatieElement(AIMObject):
         self._niveau.set_waarde(value, owner=self)
 
     @property
-    def soortnaam(self):
+    def soortnaam(self) -> DtcVegetatieSoortnaamWaarden:
         """Met deze eigenschap worden de Nederlandse soortnaam, wetenschappelijke soortnaam en de soortcode van de plantensoort weergegeven."""
         return self._soortnaam.get_waarde()
 

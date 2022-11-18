@@ -26,7 +26,7 @@ class Wildreflector(Bebakening, PuntGeometrie):
                                     owner=self)
 
     @property
-    def drager(self):
+    def drager(self) -> str:
         """De constructie waar de wildreflector is aan bevestigd."""
         return self._drager.get_waarde()
 

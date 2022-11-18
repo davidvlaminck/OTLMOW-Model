@@ -1,15 +1,16 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DteTekstblok import DteTekstblok
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from otlmow_model.Datatypes.KlRioleringVorm import KlRioleringVorm
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
-from otlmow_model.Datatypes.KwantWrdInPromille import KwantWrdInPromille
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInPromille import KwantWrdInPromille, KwantWrdInPromilleWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -184,7 +185,7 @@ class Buis(AIMObject, LijnGeometrie):
                                   owner=self)
 
     @property
-    def bokAfwaarts(self):
+    def bokAfwaarts(self) -> KwantWrdInMeterTAWWaarden:
         """Peil in meter-TAW van de vloei aan de afwaartse kant van de buis."""
         return self._bokAfwaarts.get_waarde()
 
@@ -193,7 +194,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._bokAfwaarts.set_waarde(value, owner=self)
 
     @property
-    def bokOpwaarts(self):
+    def bokOpwaarts(self) -> KwantWrdInMeterTAWWaarden:
         """Peil in meter-TAW van de vloei aan de opwaartse kant van de buis."""
         return self._bokOpwaarts.get_waarde()
 
@@ -202,7 +203,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._bokOpwaarts.set_waarde(value, owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMillimeterWaarden:
         """De breedte van de buis in millimeter."""
         return self._breedte.get_waarde()
 
@@ -211,7 +212,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def breedteBinnenzijde(self):
+    def breedteBinnenzijde(self) -> KwantWrdInMillimeterWaarden:
         """De breedte van de binnenzijde van de buis in millimeter. Bij cirkelvormige buizen is dit de binnendiameter."""
         return self._breedteBinnenzijde.get_waarde()
 
@@ -220,7 +221,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._breedteBinnenzijde.set_waarde(value, owner=self)
 
     @property
-    def breedteBuitenzijde(self):
+    def breedteBuitenzijde(self) -> KwantWrdInMillimeterWaarden:
         """De breedte van de buitenzijde van de buis in millimeter. Bij cirkelvormige buizen is dit de buitendiameter."""
         return self._breedteBuitenzijde.get_waarde()
 
@@ -229,7 +230,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._breedteBuitenzijde.set_waarde(value, owner=self)
 
     @property
-    def diepteAfwaarts(self):
+    def diepteAfwaarts(self) -> KwantWrdInMeterWaarden:
         """Diepte van de vloei aan de afwaartse kant van de buis t.o.v. de bovenkant van het deksel."""
         return self._diepteAfwaarts.get_waarde()
 
@@ -238,7 +239,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._diepteAfwaarts.set_waarde(value, owner=self)
 
     @property
-    def diepteOpwaarts(self):
+    def diepteOpwaarts(self) -> KwantWrdInMeterWaarden:
         """De diepte van de vloei aan de opwaartse kant van de buis t.o.v. de bovenkant van het deksel."""
         return self._diepteOpwaarts.get_waarde()
 
@@ -247,7 +248,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._diepteOpwaarts.set_waarde(value, owner=self)
 
     @property
-    def helling(self):
+    def helling(self) -> KwantWrdInPromilleWaarden:
         """De helling van de buis in de lengterichting, uitgedrukt in promille."""
         return self._helling.get_waarde()
 
@@ -256,7 +257,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._helling.set_waarde(value, owner=self)
 
     @property
-    def hoogteBinnenzijde(self):
+    def hoogteBinnenzijde(self) -> KwantWrdInMillimeterWaarden:
         """De hoogte van de binnenzijde van de buis in millimeter. Bij cirkelvormige buizen is dit de binnendiameter."""
         return self._hoogteBinnenzijde.get_waarde()
 
@@ -265,7 +266,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._hoogteBinnenzijde.set_waarde(value, owner=self)
 
     @property
-    def hoogteBuitenzijde(self):
+    def hoogteBuitenzijde(self) -> KwantWrdInMillimeterWaarden:
         """De hoogte van de buitenzijde van een buis in millimeter. Bij cirkelvormige buizen is dit de buitendiameter."""
         return self._hoogteBuitenzijde.get_waarde()
 
@@ -274,7 +275,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._hoogteBuitenzijde.set_waarde(value, owner=self)
 
     @property
-    def isManToegankelijk(self):
+    def isManToegankelijk(self) -> bool:
         """Bepaalt of de buis toegankelijk is voor een persoon."""
         return self._isManToegankelijk.get_waarde()
 
@@ -283,7 +284,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._isManToegankelijk.set_waarde(value, owner=self)
 
     @property
-    def isOpgevuld(self):
+    def isOpgevuld(self) -> bool:
         """Geeft aan of de buis gestabiliseerd/opgevuld is of niet."""
         return self._isOpgevuld.get_waarde()
 
@@ -292,7 +293,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._isOpgevuld.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte in meter van de buis tussen opwaartse en afwaartse put."""
         return self._lengte.get_waarde()
 
@@ -301,7 +302,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van de buis."""
         return self._technischeFiche.get_waarde()
 
@@ -310,7 +311,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def toestandBuis(self):
+    def toestandBuis(self) -> DteTekstblokWaarden:
         """Opmerkingen van de toestand en staat van de buis."""
         return self._toestandBuis.get_waarde()
 
@@ -319,7 +320,7 @@ class Buis(AIMObject, LijnGeometrie):
         self._toestandBuis.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> str:
         """Bepaalt de vorm van de buis."""
         return self._vorm.get_waarde()
 

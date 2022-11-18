@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.FiguratieMarkeringToegang import FiguratieM
 from otlmow_model.Datatypes.KlFiguratieCode import KlFiguratieCode
 from otlmow_model.Datatypes.KlFiguratieSoort import KlFiguratieSoort
 from otlmow_model.Datatypes.KlFiguratieType import KlFiguratieType
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -48,7 +48,7 @@ class FiguratieMarkering(FiguratieMarkeringToegang, PuntGeometrie):
                                   owner=self)
 
     @property
-    def code(self):
+    def code(self) -> str:
         """De code van de figuratie markering."""
         return self._code.get_waarde()
 
@@ -57,7 +57,7 @@ class FiguratieMarkering(FiguratieMarkeringToegang, PuntGeometrie):
         self._code.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van de markering zoals beschreven in de algemene omzendbrief."""
         return self._oppervlakte.get_waarde()
 
@@ -66,7 +66,7 @@ class FiguratieMarkering(FiguratieMarkeringToegang, PuntGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def soortOmschrijving(self):
+    def soortOmschrijving(self) -> str:
         """De soort en tevens de omschrijving van de figuratie markering."""
         return self._soortOmschrijving.get_waarde()
 
@@ -75,7 +75,7 @@ class FiguratieMarkering(FiguratieMarkeringToegang, PuntGeometrie):
         self._soortOmschrijving.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van figuratie markering."""
         return self._type.get_waarde()
 

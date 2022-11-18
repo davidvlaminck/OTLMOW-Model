@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BetonnenConstructieElement import BetonnenConstructieElement
 from otlmow_model.Classes.Abstracten.ConstructieElement import ConstructieElement
 from otlmow_model.Classes.Abstracten.ConstructieElementenGC import ConstructieElementenGC
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInCm import DtcAfmetingBxlxhInCm
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInCm import DtcAfmetingBxlxhInCm, DtcAfmetingBxlxhInCmWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -33,7 +33,7 @@ class ConstructieSokkel(BetonnenConstructieElement, ConstructieElement, Construc
                                         owner=self)
 
     @property
-    def afmetingen(self):
+    def afmetingen(self) -> DtcAfmetingBxlxhInCmWaarden:
         """De afmetingen van de constructiesokkel."""
         return self._afmetingen.get_waarde()
 

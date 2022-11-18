@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcBeschermingVraatschade import DtcBeschermingVraatschade
+from otlmow_model.Datatypes.DtcBeschermingVraatschade import DtcBeschermingVraatschade, DtcBeschermingVraatschadeWaarden
 from otlmow_model.Datatypes.KlAantalBoompalen import KlAantalBoompalen
 from otlmow_model.Datatypes.KlBeschermingMaaischade import KlBeschermingMaaischade
 from otlmow_model.Datatypes.KlBoomVerankering import KlBoomVerankering
@@ -114,7 +114,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
                                             owner=self)
 
     @property
-    def beschermingVraatschade(self):
+    def beschermingVraatschade(self) -> DtcBeschermingVraatschadeWaarden:
         """Bescherming van de stam tegen knaagdieren."""
         return self._beschermingVraatschade.get_waarde()
 
@@ -123,7 +123,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._beschermingVraatschade.set_waarde(value, owner=self._parent)
 
     @property
-    def boompaalconstructie(self):
+    def boompaalconstructie(self) -> str:
         """Een constructie om de wortels van de aangeplante boom vast te zetten of te fixeren met oa. palen."""
         return self._boompaalconstructie.get_waarde()
 
@@ -132,7 +132,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._boompaalconstructie.set_waarde(value, owner=self._parent)
 
     @property
-    def groeiplaatsverbetering(self):
+    def groeiplaatsverbetering(self) -> str:
         """De techniek waarmee de groeiplaats wordt verbeterd met als doel de levensverwachting en de conditie van de vegetatie te verbeteren."""
         return self._groeiplaatsverbetering.get_waarde()
 
@@ -141,7 +141,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._groeiplaatsverbetering.set_waarde(value, owner=self._parent)
 
     @property
-    def heeftBoomplaat(self):
+    def heeftBoomplaat(self) -> bool:
         """Boomplaten worden aangebracht rond de stam van bomen, bosgoed en heesters en eventueel vastgezet met piketten. Ze hebben een centrale opening en een rechte snede, zodat ze op eenvoudige wijze rond de planten kunnen aangebracht worden."""
         return self._heeftBoomplaat.get_waarde()
 
@@ -150,7 +150,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._heeftBoomplaat.set_waarde(value, owner=self._parent)
 
     @property
-    def heeftWortelgeleidingwortelwering(self):
+    def heeftWortelgeleidingwortelwering(self) -> bool:
         """Aanduiding of de boom wortelwering heeft. Wortelgeleiding en –wering moet voorkomen dat boomwortels het trottoir, de middenberm, het fietspad, de rijweg, andere wegverhardingen en leidingstelsels beschadigen."""
         return self._heeftWortelgeleidingwortelwering.get_waarde()
 
@@ -159,7 +159,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._heeftWortelgeleidingwortelwering.set_waarde(value, owner=self._parent)
 
     @property
-    def maaischadeBescherming(self):
+    def maaischadeBescherming(self) -> str:
         """Bescherming van de stam tegen maaimachines."""
         return self._maaischadeBescherming.get_waarde()
 
@@ -168,7 +168,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._maaischadeBescherming.set_waarde(value, owner=self._parent)
 
     @property
-    def plantmaatHoogte(self):
+    def plantmaatHoogte(self) -> str:
         """De hoogte in meter gemeten van de stamvoet tot de top met een minimum en maximum waarde."""
         return self._plantmaatHoogte.get_waarde()
 
@@ -177,7 +177,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._plantmaatHoogte.set_waarde(value, owner=self._parent)
 
     @property
-    def plantmaatOmtrek(self):
+    def plantmaatOmtrek(self) -> str:
         """De stamomtrek in centimeter  (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde."""
         return self._plantmaatOmtrek.get_waarde()
 
@@ -186,7 +186,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._plantmaatOmtrek.set_waarde(value, owner=self._parent)
 
     @property
-    def verankering(self):
+    def verankering(self) -> str:
         """Aanduiding of de boom onder- of bovengronds gefixeerd wordt."""
         return self._verankering.get_waarde()
 
@@ -195,7 +195,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._verankering.set_waarde(value, owner=self._parent)
 
     @property
-    def verankeringstype(self):
+    def verankeringstype(self) -> str:
         """Het materiaal van de fixering of verankering."""
         return self._verankeringstype.get_waarde()
 
@@ -204,7 +204,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._verankeringstype.set_waarde(value, owner=self._parent)
 
     @property
-    def vormAanlevering(self):
+    def vormAanlevering(self) -> str:
         """De wijze waarop het plantgoed wordt aangeleverd."""
         return self._vormAanlevering.get_waarde()
 
@@ -213,7 +213,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._vormAanlevering.set_waarde(value, owner=self._parent)
 
     @property
-    def vraatschadeBescherming(self):
+    def vraatschadeBescherming(self) -> str:
         """Bescherming van de stam tegen knaagdieren."""
         return self._vraatschadeBescherming.get_waarde()
 
@@ -222,7 +222,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._vraatschadeBescherming.set_waarde(value, owner=self._parent)
 
     @property
-    def wortelAanplant(self):
+    def wortelAanplant(self) -> str:
         """De manier van levering en aanplanting van het wortelgestel van de boom of plant."""
         return self._wortelAanplant.get_waarde()
 

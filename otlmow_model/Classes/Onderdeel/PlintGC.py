@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BetonnenConstructieElement import BetonnenConstructieElement
 from otlmow_model.Classes.Abstracten.ConstructieElement import ConstructieElement
 from otlmow_model.Classes.Abstracten.ConstructieElementenGC import ConstructieElementenGC
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInM import DtcAfmetingBxlxhInM
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInM import DtcAfmetingBxlxhInM, DtcAfmetingBxlxhInMWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlPlaatsingswijzePlint import KlPlaatsingswijzePlint
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
@@ -50,7 +50,7 @@ class PlintGC(BetonnenConstructieElement, ConstructieElement, ConstructieElement
                                              owner=self)
 
     @property
-    def afmetingen(self):
+    def afmetingen(self) -> DtcAfmetingBxlxhInMWaarden:
         """Met dit complex datatype worden de afmetingen van de plint weergegeven. Indien de plint afwijkt van een rechthoekige vorm wordt deze informatie in de technische fiche opgeslagen."""
         return self._afmetingen.get_waarde()
 
@@ -59,7 +59,7 @@ class PlintGC(BetonnenConstructieElement, ConstructieElement, ConstructieElement
         self._afmetingen.set_waarde(value, owner=self)
 
     @property
-    def plaatsingswijze(self):
+    def plaatsingswijze(self) -> str:
         """De manier waarop de plint geplaatst is ten opzichte van de profielen."""
         return self._plaatsingswijze.get_waarde()
 
@@ -68,7 +68,7 @@ class PlintGC(BetonnenConstructieElement, ConstructieElement, ConstructieElement
         self._plaatsingswijze.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Document met verdere specificaties van de plint die niet opgevangen worden met de aanwezige attributen."""
         return self._technischeFiche.get_waarde()
 

@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Behuizing import Behuizing
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInM import DtcAfmetingBxlxhInM
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInM import DtcAfmetingBxlxhInM, DtcAfmetingBxlxhInMWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from otlmow_model.Datatypes.KlCabineMerk import KlCabineMerk
 from otlmow_model.Datatypes.KlCabineModelnaam import KlCabineModelnaam
@@ -85,7 +85,7 @@ class Inloopbehuizing(Behuizing, VlakGeometrie):
                                        owner=self)
 
     @property
-    def afmeting(self):
+    def afmeting(self) -> DtcAfmetingBxlxhInMWaarden:
         """Buitenafmetingen van het bovengronds gedeelte van een behuizing waarin het in principe mogelijk is om rond te lopen omwille van de grootte en toegankelijkheid."""
         return self._afmeting.get_waarde()
 
@@ -94,7 +94,7 @@ class Inloopbehuizing(Behuizing, VlakGeometrie):
         self._afmeting.set_waarde(value, owner=self)
 
     @property
-    def beschrijvingBereikbaarheid(self):
+    def beschrijvingBereikbaarheid(self) -> str:
         """Een beschrijving van de omgeving van de behuizing in functie van de bereikbaarheid en toegankelijkheid voor werken en toezicht."""
         return self._beschrijvingBereikbaarheid.get_waarde()
 
@@ -103,7 +103,7 @@ class Inloopbehuizing(Behuizing, VlakGeometrie):
         self._beschrijvingBereikbaarheid.set_waarde(value, owner=self)
 
     @property
-    def grondplan(self):
+    def grondplan(self) -> DtcDocumentWaarden:
         """Plattegrond van de behuizing met aanduidingen van de verschillende aanwezige elementen zoals kelder, kasten met kastnummers, toegangscontrole en meer."""
         return self._grondplan.get_waarde()
 
@@ -112,7 +112,7 @@ class Inloopbehuizing(Behuizing, VlakGeometrie):
         self._grondplan.set_waarde(value, owner=self)
 
     @property
-    def inloopbehuizingMateriaal(self):
+    def inloopbehuizingMateriaal(self) -> str:
         """Materiaal waaruit de cabine vervaardigd is zonder buitenafwerking van dak of wanden."""
         return self._inloopbehuizingMateriaal.get_waarde()
 
@@ -121,7 +121,7 @@ class Inloopbehuizing(Behuizing, VlakGeometrie):
         self._inloopbehuizingMateriaal.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """De merknaam volgens de fabrikant van een behuizing waarin het in principe mogelijk is om rond te lopen omwille van de grootte en toegankelijkheid."""
         return self._merk.get_waarde()
 
@@ -130,7 +130,7 @@ class Inloopbehuizing(Behuizing, VlakGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Naam waarmee de fabrikant het model identificeert van een behuizing waarin het in principe mogelijk is om rond te lopen omwille van de grootte en toegankelijkheid."""
         return self._modelnaam.get_waarde()
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.KwantWrdInCelsius import KwantWrdInCelsius
+from otlmow_model.Datatypes.KwantWrdInCelsius import KwantWrdInCelsius, KwantWrdInCelsiusWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -31,7 +31,7 @@ class ProefTemperatuur(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                          owner=self)
 
     @property
-    def temperatuur(self):
+    def temperatuur(self) -> KwantWrdInCelsiusWaarden:
         """De temperatuur van de BV laag in graden Celsius."""
         return self._temperatuur.get_waarde()
 

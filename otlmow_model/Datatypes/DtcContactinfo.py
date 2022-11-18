@@ -1,9 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcAdres import DtcAdres
-from otlmow_model.Datatypes.DtcOpeningsurenSpecificatie import DtcOpeningsurenSpecificatie
+from otlmow_model.Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
+from otlmow_model.Datatypes.DtcOpeningsurenSpecificatie import DtcOpeningsurenSpecificatie, DtcOpeningsurenSpecificatieWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -77,7 +78,7 @@ class DtcContactinfoWaarden(WaardenObject):
                                      owner=self)
 
     @property
-    def adres(self):
+    def adres(self) -> DtcAdresWaarden:
         """Adres dat men kan aanschrijven of bezoeken."""
         return self._adres.get_waarde()
 
@@ -86,7 +87,7 @@ class DtcContactinfoWaarden(WaardenObject):
         self._adres.set_waarde(value, owner=self._parent)
 
     @property
-    def beschikbaarheid(self):
+    def beschikbaarheid(self) -> List[DtcOpeningsurenSpecificatieWaarden]:
         """Periode waarin contact kan worden opgenomen."""
         return self._beschikbaarheid.get_waarde()
 
@@ -95,7 +96,7 @@ class DtcContactinfoWaarden(WaardenObject):
         self._beschikbaarheid.set_waarde(value, owner=self._parent)
 
     @property
-    def contactnaam(self):
+    def contactnaam(self) -> str:
         """Naam van bv. de persoon die men kan contacteren."""
         return self._contactnaam.get_waarde()
 
@@ -104,7 +105,7 @@ class DtcContactinfoWaarden(WaardenObject):
         self._contactnaam.set_waarde(value, owner=self._parent)
 
     @property
-    def email(self):
+    def email(self) -> str:
         """Email-adres waarnaar men kan mailen."""
         return self._email.get_waarde()
 
@@ -113,7 +114,7 @@ class DtcContactinfoWaarden(WaardenObject):
         self._email.set_waarde(value, owner=self._parent)
 
     @property
-    def fax(self):
+    def fax(self) -> str:
         """Faxnummer waarnaar men kan faxen."""
         return self._fax.get_waarde()
 
@@ -122,7 +123,7 @@ class DtcContactinfoWaarden(WaardenObject):
         self._fax.set_waarde(value, owner=self._parent)
 
     @property
-    def opmerkingen(self):
+    def opmerkingen(self) -> str:
         """Bijkomende informatie met betrekking tot het gebruik van de contactgegevens."""
         return self._opmerkingen.get_waarde()
 
@@ -131,7 +132,7 @@ class DtcContactinfoWaarden(WaardenObject):
         self._opmerkingen.set_waarde(value, owner=self._parent)
 
     @property
-    def telefoon(self):
+    def telefoon(self) -> str:
         """Telefoonnummer waarop men kan bellen."""
         return self._telefoon.get_waarde()
 
@@ -140,7 +141,7 @@ class DtcContactinfoWaarden(WaardenObject):
         self._telefoon.set_waarde(value, owner=self._parent)
 
     @property
-    def website(self):
+    def website(self) -> str:
         """Website waarnaar men kan surfen."""
         return self._website.get_waarde()
 

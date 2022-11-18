@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlTaludgootType import KlTaludgootType
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -35,7 +35,7 @@ class Taludgoot(AIMObject, LijnGeometrie):
                                   owner=self)
 
     @property
-    def totaleLengte(self):
+    def totaleLengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte van de geprefabriceerde betonelementen in lopende meter vanaf het beginstuk (niet inbegrepen) tot aan het eindstuk (niet inbegrepen)."""
         return self._totaleLengte.get_waarde()
 
@@ -44,7 +44,7 @@ class Taludgoot(AIMObject, LijnGeometrie):
         self._totaleLengte.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van geprefabriceerd betonelement."""
         return self._type.get_waarde()
 

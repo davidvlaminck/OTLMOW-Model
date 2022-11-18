@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -37,7 +37,7 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
                                                     owner=self)
 
     @property
-    def lusConfig(self):
+    def lusConfig(self) -> DtcDocumentWaarden:
         """Een definierende tabel die relatie legt tussen meetpuntnummer lusvolgorde nummer en de GPS locatie."""
         return self._lusConfig.get_waarde()
 
@@ -46,7 +46,7 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
         self._lusConfig.set_waarde(value, owner=self)
 
     @property
-    def technischeDocumentatie(self):
+    def technischeDocumentatie(self) -> DtcDocumentWaarden:
         """Documentatie van de onderdelen: LVE / luskaart / communicatiekaart, configurator,  ..."""
         return self._technischeDocumentatie.get_waarde()
 

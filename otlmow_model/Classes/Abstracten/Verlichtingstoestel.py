@@ -6,7 +6,7 @@ from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlVerlichtingstoestelMerk import KlVerlichtingstoestelMerk
 from otlmow_model.Datatypes.KlVerlichtingstoestelModelnaam import KlVerlichtingstoestelModelnaam
 from otlmow_model.Datatypes.KlVerlichtingstoestelVerlichtGebied import KlVerlichtingstoestelVerlichtGebied
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -90,7 +90,7 @@ class Verlichtingstoestel(AIMNaamObject, PuntGeometrie):
                                             owner=self)
 
     @property
-    def heeftAansluitkastGeintegreerd(self):
+    def heeftAansluitkastGeintegreerd(self) -> bool:
         """Is de aansluitkast geïntegreerd?"""
         return self._heeftAansluitkastGeintegreerd.get_waarde()
 
@@ -99,7 +99,7 @@ class Verlichtingstoestel(AIMNaamObject, PuntGeometrie):
         self._heeftAansluitkastGeintegreerd.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van het verlichtingstoestel."""
         return self._merk.get_waarde()
 
@@ -108,7 +108,7 @@ class Verlichtingstoestel(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van het verlichtingstoestel."""
         return self._modelnaam.get_waarde()
 
@@ -117,7 +117,7 @@ class Verlichtingstoestel(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def stroomkringnummer(self):
+    def stroomkringnummer(self) -> str:
         """Nummer van de stroomkring waarop het verlichtingstoestel is aangesloten."""
         return self._stroomkringnummer.get_waarde()
 
@@ -126,7 +126,7 @@ class Verlichtingstoestel(AIMNaamObject, PuntGeometrie):
         self._stroomkringnummer.set_waarde(value, owner=self)
 
     @property
-    def systeemvermogen(self):
+    def systeemvermogen(self) -> KwantWrdInWattWaarden:
         """Systeemvermogen (Watt) van het verlichtingstoestel."""
         return self._systeemvermogen.get_waarde()
 
@@ -135,7 +135,7 @@ class Verlichtingstoestel(AIMNaamObject, PuntGeometrie):
         self._systeemvermogen.set_waarde(value, owner=self)
 
     @property
-    def verlichtGebied(self):
+    def verlichtGebied(self) -> str:
         """Het gebied op de wegbaan of het object dat verlicht wordt door het verlichtingstoestel."""
         return self._verlichtGebied.get_waarde()
 

@@ -1,10 +1,11 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Ventilatie import Ventilatie
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlVentilatorGebruik import KlVentilatorGebruik
 from otlmow_model.Datatypes.KlVentilatorRichting import KlVentilatorRichting
-from otlmow_model.Datatypes.KwantWrdInProcent import KwantWrdInProcent
+from otlmow_model.Datatypes.KwantWrdInProcent import KwantWrdInProcent, KwantWrdInProcentWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -61,7 +62,7 @@ class Ventilator(Ventilatie):
                                      owner=self)
 
     @property
-    def draairichting(self):
+    def draairichting(self) -> str:
         """Geeft aan of de bladen van de ventilator met de wijzers mee of tegen de wijzers in draaien."""
         return self._draairichting.get_waarde()
 
@@ -70,7 +71,7 @@ class Ventilator(Ventilatie):
         self._draairichting.set_waarde(value, owner=self)
 
     @property
-    def gebruik(self):
+    def gebruik(self) -> str:
         """Geeft aan op welke manier de ventilator ingezet wordt."""
         return self._gebruik.get_waarde()
 
@@ -79,7 +80,7 @@ class Ventilator(Ventilatie):
         self._gebruik.set_waarde(value, owner=self)
 
     @property
-    def heefDrukverschilmeting(self):
+    def heefDrukverschilmeting(self) -> bool:
         """Geeft aan of de ventilator uitgerust is met een drukverschilmeters."""
         return self._heefDrukverschilmeting.get_waarde()
 
@@ -88,7 +89,7 @@ class Ventilator(Ventilatie):
         self._heefDrukverschilmeting.set_waarde(value, owner=self)
 
     @property
-    def heeftTemperatuurmeting(self):
+    def heeftTemperatuurmeting(self) -> bool:
         """Geeft aan of de ventilator uitgerust is met temperatuurmeting."""
         return self._heeftTemperatuurmeting.get_waarde()
 
@@ -97,7 +98,7 @@ class Ventilator(Ventilatie):
         self._heeftTemperatuurmeting.set_waarde(value, owner=self)
 
     @property
-    def heeftTrillingsmeting(self):
+    def heeftTrillingsmeting(self) -> bool:
         """Geeft aan of de ventilator uitgerust is met trillingsmeting."""
         return self._heeftTrillingsmeting.get_waarde()
 
@@ -106,7 +107,7 @@ class Ventilator(Ventilatie):
         self._heeftTrillingsmeting.set_waarde(value, owner=self)
 
     @property
-    def standen(self):
+    def standen(self) -> List[KwantWrdInProcentWaarden]:
         """Met de standen van de ventilator kan de draaisnelheid en soms ook de draairichting van de de bladen van de ventilator bepaald worden."""
         return self._standen.get_waarde()
 

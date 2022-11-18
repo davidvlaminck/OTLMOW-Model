@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.EMAfbakening import EMAfbakening
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlKleurReflector import KlKleurReflector
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
@@ -63,7 +63,7 @@ class LEDWegdekreflectorBebakening(EMAfbakening, LijnGeometrie):
                                            owner=self)
 
     @property
-    def aantalActieveReflectoren(self):
+    def aantalActieveReflectoren(self) -> int:
         """Het aantal actieve reflectoren in de verzameling van reflectoren die hetzelfde obstakel of risico aangeven."""
         return self._aantalActieveReflectoren.get_waarde()
 
@@ -72,7 +72,7 @@ class LEDWegdekreflectorBebakening(EMAfbakening, LijnGeometrie):
         self._aantalActieveReflectoren.set_waarde(value, owner=self)
 
     @property
-    def heeftVoedingOpZonneEnergie(self):
+    def heeftVoedingOpZonneEnergie(self) -> bool:
         """Geeft aan dat de verzameling bestaat uit actieve reflectoren met geintegreerde zonnecellen en een batterij die zorgen voor de voeding van de verlichting in de relfector."""
         return self._heeftVoedingOpZonneEnergie.get_waarde()
 
@@ -81,7 +81,7 @@ class LEDWegdekreflectorBebakening(EMAfbakening, LijnGeometrie):
         self._heeftVoedingOpZonneEnergie.set_waarde(value, owner=self)
 
     @property
-    def kleurReflectorAflopend(self):
+    def kleurReflectorAflopend(self) -> str:
         """De kleur van het niet-actieve deel de reflector stroomafwaarts."""
         return self._kleurReflectorAflopend.get_waarde()
 
@@ -90,7 +90,7 @@ class LEDWegdekreflectorBebakening(EMAfbakening, LijnGeometrie):
         self._kleurReflectorAflopend.set_waarde(value, owner=self)
 
     @property
-    def kleurReflectorOplopend(self):
+    def kleurReflectorOplopend(self) -> str:
         """De kleur van het niet-actieve deel de reflector stroomopwaarts."""
         return self._kleurReflectorOplopend.get_waarde()
 
@@ -99,7 +99,7 @@ class LEDWegdekreflectorBebakening(EMAfbakening, LijnGeometrie):
         self._kleurReflectorOplopend.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De afstand tussen de eerste en de laatste actieve reflector in de verzameling gevoed door dezelfde stroomkring. """
         return self._lengte.get_waarde()
 
@@ -108,7 +108,7 @@ class LEDWegdekreflectorBebakening(EMAfbakening, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def tussenafstand(self):
+    def tussenafstand(self) -> KwantWrdInCentimeterWaarden:
         """De afstand van middelpunt tot middelpunt tussen twee reflectoren in de verzameling."""
         return self._tussenafstand.get_waarde()
 

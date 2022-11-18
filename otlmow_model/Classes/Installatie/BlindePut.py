@@ -26,7 +26,7 @@ class BlindePut(Put, AIMObject, VlakGeometrie):
                                        owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit de blinde put is vervaardigd."""
         return self._materiaal.get_waarde()
 

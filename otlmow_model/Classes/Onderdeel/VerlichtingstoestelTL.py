@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Verlichtingstoestel import Verlichtingstoestel
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -26,7 +26,7 @@ class VerlichtingstoestelTL(Verlichtingstoestel):
                                              owner=self)
 
     @property
-    def lichtpuntHoogte(self):
+    def lichtpuntHoogte(self) -> KwantWrdInMeterWaarden:
         """Hoogte van het lichtpunt ten opzichte van de rijweg."""
         return self._lichtpuntHoogte.get_waarde()
 

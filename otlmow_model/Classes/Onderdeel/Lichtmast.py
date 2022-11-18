@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.EMDraagconstructie import EMDraagconstructie
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL
-from otlmow_model.Datatypes.DtuLichtmastMasthoogte import DtuLichtmastMasthoogte
+from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
+from otlmow_model.Datatypes.DtuLichtmastMasthoogte import DtuLichtmastMasthoogte, DtuLichtmastMasthoogteWaarden
 from otlmow_model.Datatypes.KlDraagConstrBeschermlaag import KlDraagConstrBeschermlaag
 from otlmow_model.Datatypes.KlDraagconstructieDwarsdoorsnede import KlDraagconstructieDwarsdoorsnede
 from otlmow_model.Datatypes.KlLichtmastBotsNormering import KlLichtmastBotsNormering
@@ -95,7 +95,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
                                                       owner=self)
 
     @property
-    def beschermlaag(self):
+    def beschermlaag(self) -> str:
         """Beschermlaag van de lichtmast."""
         return self._beschermlaag.get_waarde()
 
@@ -104,7 +104,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self._beschermlaag.set_waarde(value, owner=self)
 
     @property
-    def dwarsdoorsnede(self):
+    def dwarsdoorsnede(self) -> str:
         """De vorm van de dwarsdoorsnede van de lichtmast."""
         return self._dwarsdoorsnede.get_waarde()
 
@@ -113,7 +113,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self._dwarsdoorsnede.set_waarde(value, owner=self)
 
     @property
-    def heeftStopcontact(self):
+    def heeftStopcontact(self) -> bool:
         """Geeft aan of er een stopcontact aanwezig is op de lichtmast."""
         return self._heeftStopcontact.get_waarde()
 
@@ -122,7 +122,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self._heeftStopcontact.set_waarde(value, owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> DteKleurRALWaarden:
         """RAL kleur van de lichtmast."""
         return self._kleur.get_waarde()
 
@@ -131,7 +131,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def leverancier(self):
+    def leverancier(self) -> str:
         """Leverancier van de lichtmast."""
         return self._leverancier.get_waarde()
 
@@ -140,7 +140,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self._leverancier.set_waarde(value, owner=self)
 
     @property
-    def masthoogte(self):
+    def masthoogte(self) -> DtuLichtmastMasthoogteWaarden:
         """Hoogte (in meter) van de lichtmast."""
         return self._masthoogte.get_waarde()
 
@@ -149,7 +149,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self._masthoogte.set_waarde(value, owner=self)
 
     @property
-    def masttype(self):
+    def masttype(self) -> str:
         """Type mast bv. rechte metalen paal, rechte metalen paal op voet, kreukelpaal met arm,..."""
         return self._masttype.get_waarde()
 
@@ -158,7 +158,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self._masttype.set_waarde(value, owner=self)
 
     @property
-    def normeringBotsvriendelijk(self):
+    def normeringBotsvriendelijk(self) -> str:
         """Categorie in normering botsvriendelijkheid."""
         return self._normeringBotsvriendelijk.get_waarde()
 
@@ -167,7 +167,7 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self._normeringBotsvriendelijk.set_waarde(value, owner=self)
 
     @property
-    def specialeUitvoeringswijze(self):
+    def specialeUitvoeringswijze(self) -> str:
         """Omschrijving van de speciale uitvoeringswijze van de lichtmast indien van toepassing."""
         return self._specialeUitvoeringswijze.get_waarde()
 

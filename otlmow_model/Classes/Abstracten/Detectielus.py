@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Detectie import Detectie
-from otlmow_model.Datatypes.DtcAfmetingBxlInM import DtcAfmetingBxlInM
-from otlmow_model.Datatypes.DtcTijdsduur import DtcTijdsduur
+from otlmow_model.Datatypes.DtcAfmetingBxlInM import DtcAfmetingBxlInM, DtcAfmetingBxlInMWaarden
+from otlmow_model.Datatypes.DtcTijdsduur import DtcTijdsduur, DtcTijdsduurWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -40,7 +40,7 @@ class Detectielus(Detectie):
                                            owner=self)
 
     @property
-    def afmetingenBL(self):
+    def afmetingenBL(self) -> DtcAfmetingBxlInMWaarden:
         """Afmetingen breedte x lengte van de lus."""
         return self._afmetingenBL.get_waarde()
 
@@ -49,7 +49,7 @@ class Detectielus(Detectie):
         self._afmetingenBL.set_waarde(value, owner=self)
 
     @property
-    def bewakingstijd(self):
+    def bewakingstijd(self) -> DtcTijdsduurWaarden:
         """Wachttijd (in uren) waarna een alarm pas mag optreden."""
         return self._bewakingstijd.get_waarde()
 

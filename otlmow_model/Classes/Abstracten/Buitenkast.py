@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Kast import Kast
 from otlmow_model.Datatypes.KlAlgIngressProtectionCode import KlAlgIngressProtectionCode
 from otlmow_model.Datatypes.KlBuitenkastVerfraaid import KlBuitenkastVerfraaid
-from otlmow_model.Datatypes.KwantWrdInJaar import KwantWrdInJaar
+from otlmow_model.Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -42,7 +42,7 @@ class Buitenkast(Kast):
                                        owner=self)
 
     @property
-    def ipKlasse(self):
+    def ipKlasse(self) -> str:
         """De IP-codering als een aanduiding voor de mate van beveiliging van de constructie van elektrische of elektronische apparatuur tegen eigen schade door gebruik in "vijandige omgevingen" en tegen eventueel gevaar voor de gebruiker volgens IEC 60529."""
         return self._ipKlasse.get_waarde()
 
@@ -51,7 +51,7 @@ class Buitenkast(Kast):
         self._ipKlasse.set_waarde(value, owner=self)
 
     @property
-    def keuringsfrequentie(self):
+    def keuringsfrequentie(self) -> KwantWrdInJaarWaarden:
         """Frequentie (in jaar) waarmee de kast moet onderworpen worden aan een periodieke keuring door een externe dienst voor technische controle."""
         return self._keuringsfrequentie.get_waarde()
 
@@ -60,7 +60,7 @@ class Buitenkast(Kast):
         self._keuringsfrequentie.set_waarde(value, owner=self)
 
     @property
-    def verfraaid(self):
+    def verfraaid(self) -> str:
         """Geeft aan of de wegkantkast voorzien van verfraaiing en of die al dan niet vergund is."""
         return self._verfraaid.get_waarde()
 

@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Behuizing import Behuizing
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -101,7 +101,7 @@ class Kast(Behuizing, PuntGeometrie, VlakGeometrie):
                                            owner=self)
 
     @property
-    def afmeting(self):
+    def afmeting(self) -> DtcAfmetingBxlxhInMmWaarden:
         """Buitenafmeting van de kast als maximale breedte, lengte en hoogte in millimeter."""
         return self._afmeting.get_waarde()
 
@@ -110,7 +110,7 @@ class Kast(Behuizing, PuntGeometrie, VlakGeometrie):
         self._afmeting.set_waarde(value, owner=self)
 
     @property
-    def heeftVerlichting(self):
+    def heeftVerlichting(self) -> bool:
         """Geeft aan of er verlichting aanwezig is binnen de kast."""
         return self._heeftVerlichting.get_waarde()
 
@@ -119,7 +119,7 @@ class Kast(Behuizing, PuntGeometrie, VlakGeometrie):
         self._heeftVerlichting.set_waarde(value, owner=self)
 
     @property
-    def indelingsplan(self):
+    def indelingsplan(self) -> DtcDocumentWaarden:
         """Schematisch overzicht van de indeling van de kast volgens de aanwezige technieken in vooraanzicht."""
         return self._indelingsplan.get_waarde()
 
@@ -128,7 +128,7 @@ class Kast(Behuizing, PuntGeometrie, VlakGeometrie):
         self._indelingsplan.set_waarde(value, owner=self)
 
     @property
-    def kastmateriaal(self):
+    def kastmateriaal(self) -> str:
         """Materiaal waaruit de kast is opgebouwd."""
         return self._kastmateriaal.get_waarde()
 

@@ -1,9 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlBeheerSierbeplanting import KlBeheerSierbeplanting
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -39,7 +40,7 @@ class BeheerSierbeplanting(AIMObject):
                                          owner=self)
 
     @property
-    def beheeroptie(self):
+    def beheeroptie(self) -> List[str]:
         """Aanduiding van welk beheer wordt toegepast op de sierbeplanting."""
         return self._beheeroptie.get_waarde()
 
@@ -48,7 +49,7 @@ class BeheerSierbeplanting(AIMObject):
         self._beheeroptie.set_waarde(value, owner=self)
 
     @property
-    def heeftBeheerplan(self):
+    def heeftBeheerplan(self) -> bool:
         """Aanduiding of er een beheerplan bestaat."""
         return self._heeftBeheerplan.get_waarde()
 
@@ -57,7 +58,7 @@ class BeheerSierbeplanting(AIMObject):
         self._heeftBeheerplan.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte in vierkante meter van de te behandelen sierbeplanting."""
         return self._oppervlakte.get_waarde()
 

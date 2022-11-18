@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Detectie import Detectie
 from otlmow_model.Classes.Abstracten.FirmwareObject import FirmwareObject
-from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
+from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -33,7 +33,7 @@ class NietWeggebondenDetectie(Detectie, FirmwareObject, PuntGeometrie):
                                               owner=self)
 
     @property
-    def voedingsspanning(self):
+    def voedingsspanning(self) -> KwantWrdInVoltWaarden:
         """Spanning waarmee de detectoren gevoed worden."""
         return self._voedingsspanning.get_waarde()
 

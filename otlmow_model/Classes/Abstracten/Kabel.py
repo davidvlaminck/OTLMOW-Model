@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlKabelFabrikant import KlKabelFabrikant
 from otlmow_model.Datatypes.KlKabelmantelKleur import KlKabelmantelKleur
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -46,7 +46,7 @@ class Kabel(AIMNaamObject, LijnGeometrie):
                                        owner=self)
 
     @property
-    def buitenmantelDiameter(self):
+    def buitenmantelDiameter(self) -> KwantWrdInMillimeterWaarden:
         """De buitenste afmeting van de kabel in millimeter."""
         return self._buitenmantelDiameter.get_waarde()
 
@@ -55,7 +55,7 @@ class Kabel(AIMNaamObject, LijnGeometrie):
         self._buitenmantelDiameter.set_waarde(value, owner=self)
 
     @property
-    def buitenmantelKleur(self):
+    def buitenmantelKleur(self) -> str:
         """De hoofdkleur(en) die voor een waarnemer onmiddellijk zichtbaar is (zijn) zonder de kabel te ontmantelen, de kleur van de markeringen op die buitenste mantel buiten beschouwing gelaten."""
         return self._buitenmantelKleur.get_waarde()
 
@@ -64,7 +64,7 @@ class Kabel(AIMNaamObject, LijnGeometrie):
         self._buitenmantelKleur.set_waarde(value, owner=self)
 
     @property
-    def fabrikant(self):
+    def fabrikant(self) -> str:
         """De naam van de producent van de kabel."""
         return self._fabrikant.get_waarde()
 

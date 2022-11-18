@@ -27,7 +27,7 @@ class GetesteBeginconstructie(Beginstuk, SchokindexVoertuigkering):
                                                 owner=self)
 
     @property
-    def performantieklasse(self):
+    def performantieklasse(self) -> str:
         """De aanduiding hoe (performantie) de beginconstructie is getest."""
         return self._performantieklasse.get_waarde()
 

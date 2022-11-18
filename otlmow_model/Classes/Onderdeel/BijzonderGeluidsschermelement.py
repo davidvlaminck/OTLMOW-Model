@@ -28,7 +28,7 @@ class BijzonderGeluidsschermelement(Geluidsschermelement):
                                                owner=self)
 
     @property
-    def schermelementtype(self):
+    def schermelementtype(self) -> str:
         """Het type bijzonder-schermelement."""
         return self._schermelementtype.get_waarde()
 

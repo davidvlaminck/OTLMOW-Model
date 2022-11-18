@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Communicatieapparatuur import Communicatieapparatuur
 from otlmow_model.Classes.Abstracten.FirmwareObject import FirmwareObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -62,7 +62,7 @@ class Armatuurcontroller(Communicatieapparatuur, FirmwareObject):
                                          owner=self)
 
     @property
-    def ipAdres(self):
+    def ipAdres(self) -> DteIPv4AdresWaarden:
         """Het IP-adres van de armatuurcontroller."""
         return self._ipAdres.get_waarde()
 
@@ -71,7 +71,7 @@ class Armatuurcontroller(Communicatieapparatuur, FirmwareObject):
         self._ipAdres.set_waarde(value, owner=self)
 
     @property
-    def isDummydot(self):
+    def isDummydot(self) -> bool:
         """Geeft aan of er in de toekomst een armatuurcontroller kan aangesloten worden op het verlichtingstoestel, maar dat het toestel voorlopig voorzien is van een kortsluitmodule (ook wel dummydot genoemd)."""
         return self._isDummydot.get_waarde()
 
@@ -80,7 +80,7 @@ class Armatuurcontroller(Communicatieapparatuur, FirmwareObject):
         self._isDummydot.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk van de armatuurcontroller."""
         return self._merk.get_waarde()
 
@@ -89,7 +89,7 @@ class Armatuurcontroller(Communicatieapparatuur, FirmwareObject):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van de armatuurcontroller."""
         return self._modelnaam.get_waarde()
 
@@ -98,7 +98,7 @@ class Armatuurcontroller(Communicatieapparatuur, FirmwareObject):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Het unieke nummer waarmee het toestel door de fabrikant geïdentificeerd is."""
         return self._serienummer.get_waarde()
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod, ABC
-from otlmow_model.Datatypes.DtcProductidentificatiecode import DtcProductidentificatiecode
+from otlmow_model.Datatypes.DtcProductidentificatiecode import DtcProductidentificatiecode, DtcProductidentificatiecodeWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -21,7 +21,7 @@ class LaagProductidentificatiecode(ABC):
                                                       owner=self)
 
     @property
-    def productidentificatiecode(self):
+    def productidentificatiecode(self) -> DtcProductidentificatiecodeWaarden:
         """De productidentificatiecode van het gebruikte product (bv. COPRO code of Benor code)."""
         return self._productidentificatiecode.get_waarde()
 

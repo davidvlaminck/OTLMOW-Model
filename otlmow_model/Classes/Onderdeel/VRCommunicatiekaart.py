@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.VRModuleMetFirmware import VRModuleMetFirmware
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.Datatypes.KlVrComKaartTypeOpslaggeheugen import KlVrComKaartTypeOpslaggeheugen
 from otlmow_model.BaseClasses.StringField import StringField
 
@@ -60,7 +60,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
                                         owner=self)
 
     @property
-    def dnsNaam(self):
+    def dnsNaam(self) -> str:
         """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
@@ -69,7 +69,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
         self._dnsNaam.set_waarde(value, owner=self)
 
     @property
-    def heeftSmartguard(self):
+    def heeftSmartguard(self) -> bool:
         """Smartguard aanwezig?"""
         return self._heeftSmartguard.get_waarde()
 
@@ -78,7 +78,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
         self._heeftSmartguard.set_waarde(value, owner=self)
 
     @property
-    def ipAdres(self):
+    def ipAdres(self) -> DteIPv4AdresWaarden:
         """IP-adres."""
         return self._ipAdres.get_waarde()
 
@@ -87,7 +87,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
         self._ipAdres.set_waarde(value, owner=self)
 
     @property
-    def telefoonnummer(self):
+    def telefoonnummer(self) -> str:
         """Telefoonnummer."""
         return self._telefoonnummer.get_waarde()
 
@@ -96,7 +96,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
         self._telefoonnummer.set_waarde(value, owner=self)
 
     @property
-    def typeGeheugen(self):
+    def typeGeheugen(self) -> str:
         """Type opslaggeheugen op de aanwezige SD-kaart."""
         return self._typeGeheugen.get_waarde()
 
@@ -105,7 +105,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
         self._typeGeheugen.set_waarde(value, owner=self)
 
     @property
-    def uitvoering(self):
+    def uitvoering(self) -> str:
         """Type van communicatiekaart."""
         return self._uitvoering.get_waarde()
 

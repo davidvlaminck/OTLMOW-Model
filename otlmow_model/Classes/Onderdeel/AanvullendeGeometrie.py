@@ -24,7 +24,7 @@ class AanvullendeGeometrie(AbstracteAanvullendeGeometrie, VlakGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van aanvullende geometrie."""
         return self._type.get_waarde()
 

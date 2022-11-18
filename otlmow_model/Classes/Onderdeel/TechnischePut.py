@@ -30,7 +30,7 @@ Kan uit verschillende materialen bestaan: polycarbonaat,beton,gemetst,of staal."
                                        owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit de technische put opgebouwd is."""
         return self._materiaal.get_waarde()
 

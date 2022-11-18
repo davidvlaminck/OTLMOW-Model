@@ -1,9 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcAdres import DtcAdres
+from otlmow_model.Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -72,7 +73,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
                                       owner=self)
 
     @property
-    def achternaam(self):
+    def achternaam(self) -> str:
         """De achternaam."""
         return self._achternaam.get_waarde()
 
@@ -81,7 +82,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._achternaam.set_waarde(value, owner=self._parent)
 
     @property
-    def adres(self):
+    def adres(self) -> List[DtcAdresWaarden]:
         """Het adres."""
         return self._adres.get_waarde()
 
@@ -90,7 +91,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._adres.set_waarde(value, owner=self._parent)
 
     @property
-    def emailadres(self):
+    def emailadres(self) -> List[str]:
         """Het emailadres."""
         return self._emailadres.get_waarde()
 
@@ -99,7 +100,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._emailadres.set_waarde(value, owner=self._parent)
 
     @property
-    def fax(self):
+    def fax(self) -> List[str]:
         """De faxnummer."""
         return self._fax.get_waarde()
 
@@ -108,7 +109,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._fax.set_waarde(value, owner=self._parent)
 
     @property
-    def heeftEmailVoorkeur(self):
+    def heeftEmailVoorkeur(self) -> bool:
         """Aanduiding of een persoon de voorkeur heeft om via email gecontacteerd te worden."""
         return self._heeftEmailVoorkeur.get_waarde()
 
@@ -117,7 +118,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._heeftEmailVoorkeur.set_waarde(value, owner=self._parent)
 
     @property
-    def heeftFaxVoorkeur(self):
+    def heeftFaxVoorkeur(self) -> bool:
         """Aanduiding of een persoon een voorkeur heeft om via fax gegevens te ontvangen."""
         return self._heeftFaxVoorkeur.get_waarde()
 
@@ -126,7 +127,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._heeftFaxVoorkeur.set_waarde(value, owner=self._parent)
 
     @property
-    def telefoonnnummer(self):
+    def telefoonnnummer(self) -> List[str]:
         """Het telefoonnummer."""
         return self._telefoonnnummer.get_waarde()
 
@@ -135,7 +136,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._telefoonnnummer.set_waarde(value, owner=self._parent)
 
     @property
-    def voornaam(self):
+    def voornaam(self) -> str:
         """De voornaam."""
         return self._voornaam.get_waarde()
 

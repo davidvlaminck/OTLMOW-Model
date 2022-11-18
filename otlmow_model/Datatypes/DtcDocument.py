@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DteTekstblok import DteTekstblok
+from otlmow_model.Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from otlmow_model.Datatypes.KlAlgMimeType import KlAlgMimeType
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.BaseClasses.URIField import URIField
@@ -41,7 +41,7 @@ class DtcDocumentWaarden(WaardenObject):
                                  owner=self)
 
     @property
-    def bestandsnaam(self):
+    def bestandsnaam(self) -> str:
         """De naam van het Document inclusief de bestandsextensie, van de naam gescheiden door een punt."""
         return self._bestandsnaam.get_waarde()
 
@@ -50,7 +50,7 @@ class DtcDocumentWaarden(WaardenObject):
         self._bestandsnaam.set_waarde(value, owner=self._parent)
 
     @property
-    def mimeType(self):
+    def mimeType(self) -> str:
         """Het MIME type van het document."""
         return self._mimeType.get_waarde()
 
@@ -59,7 +59,7 @@ class DtcDocumentWaarden(WaardenObject):
         self._mimeType.set_waarde(value, owner=self._parent)
 
     @property
-    def omschrijving(self):
+    def omschrijving(self) -> DteTekstblokWaarden:
         """Een korte toelichting over waar het document juist voor dient."""
         return self._omschrijving.get_waarde()
 
@@ -68,7 +68,7 @@ class DtcDocumentWaarden(WaardenObject):
         self._omschrijving.set_waarde(value, owner=self._parent)
 
     @property
-    def uri(self):
+    def uri(self) -> str:
         """De verwijzing naar de bestandslocatie via een link. Bij lokale bestanden kan dit eventueel ook een pad zijn."""
         return self._uri.get_waarde()
 

@@ -2,10 +2,10 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AxiaalDraagvermogen import AxiaalDraagvermogen
 from otlmow_model.Classes.Abstracten.Fundering import Fundering
-from otlmow_model.Datatypes.DtuDwarsafmetingen import DtuDwarsafmetingen
-from otlmow_model.Datatypes.DtuHellingsSchoorhoek import DtuHellingsSchoorhoek
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
+from otlmow_model.Datatypes.DtuDwarsafmetingen import DtuDwarsafmetingen, DtuDwarsafmetingenWaarden
+from otlmow_model.Datatypes.DtuHellingsSchoorhoek import DtuHellingsSchoorhoek, DtuHellingsSchoorhoekWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -58,7 +58,7 @@ class Funderingspaal(AxiaalDraagvermogen, Fundering, PuntGeometrie):
                                         owner=self)
 
     @property
-    def afkappeil(self):
+    def afkappeil(self) -> KwantWrdInMeterTAWWaarden:
         """De hoogte van het bovenvlak van de paal, na verwijderen van eventuele overlengte, exclusief uitstekende wapening. Berekend ten opzichte van gemiddeld laagwaterpeil te Oostende (TAWpeil)."""
         return self._afkappeil.get_waarde()
 
@@ -67,7 +67,7 @@ class Funderingspaal(AxiaalDraagvermogen, Fundering, PuntGeometrie):
         self._afkappeil.set_waarde(value, owner=self)
 
     @property
-    def dwarsafmetingen(self):
+    def dwarsafmetingen(self) -> DtuDwarsafmetingenWaarden:
         """Dwarsdoorsnede van het element bv. lengte, breedte, diameter,..."""
         return self._dwarsafmetingen.get_waarde()
 
@@ -76,7 +76,7 @@ class Funderingspaal(AxiaalDraagvermogen, Fundering, PuntGeometrie):
         self._dwarsafmetingen.set_waarde(value, owner=self)
 
     @property
-    def hellingsSchoorhoek(self):
+    def hellingsSchoorhoek(self) -> DtuHellingsSchoorhoekWaarden:
         """De hoek die de paal maakt ten opzichte van de verticale, uitgedrukt in decimale graden of in 1 op x."""
         return self._hellingsSchoorhoek.get_waarde()
 
@@ -85,7 +85,7 @@ class Funderingspaal(AxiaalDraagvermogen, Fundering, PuntGeometrie):
         self._hellingsSchoorhoek.set_waarde(value, owner=self)
 
     @property
-    def paallengte(self):
+    def paallengte(self) -> KwantWrdInMeterWaarden:
         """Afstand gemeten, in meter, volgens de as van de paal tussen het afkappeil en het aanzetpeil."""
         return self._paallengte.get_waarde()
 

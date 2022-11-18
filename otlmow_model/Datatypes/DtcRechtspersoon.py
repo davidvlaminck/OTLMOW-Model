@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcAdres import DtcAdres
+from otlmow_model.Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -39,7 +39,7 @@ class DtcRechtspersoonWaarden(WaardenObject):
                                              owner=self)
 
     @property
-    def adres(self):
+    def adres(self) -> DtcAdresWaarden:
         """Het adres."""
         return self._adres.get_waarde()
 
@@ -48,7 +48,7 @@ class DtcRechtspersoonWaarden(WaardenObject):
         self._adres.set_waarde(value, owner=self._parent)
 
     @property
-    def afdeling(self):
+    def afdeling(self) -> str:
         """De afdeling waartoe een rechtspersoon behoort."""
         return self._afdeling.get_waarde()
 
@@ -57,7 +57,7 @@ class DtcRechtspersoonWaarden(WaardenObject):
         self._afdeling.set_waarde(value, owner=self._parent)
 
     @property
-    def organisatie(self):
+    def organisatie(self) -> str:
         """De naam van de organisatie of rechtspersoon."""
         return self._organisatie.get_waarde()
 
@@ -66,7 +66,7 @@ class DtcRechtspersoonWaarden(WaardenObject):
         self._organisatie.set_waarde(value, owner=self._parent)
 
     @property
-    def telefoonnnummer(self):
+    def telefoonnnummer(self) -> str:
         """Het telefoonnummer."""
         return self._telefoonnnummer.get_waarde()
 

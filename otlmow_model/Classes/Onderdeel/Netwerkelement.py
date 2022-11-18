@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.Datatypes.KlNetwerkMerk import KlNetwerkMerk
 from otlmow_model.Datatypes.KlNetwerkelemGebruik import KlNetwerkelemGebruik
 from otlmow_model.Datatypes.KlNetwerkelemModelnaam import KlNetwerkelemModelnaam
@@ -111,7 +111,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
                                             owner=self)
 
     @property
-    def beschrijvingFabrikant(self):
+    def beschrijvingFabrikant(self) -> str:
         """Bijkomende specificaties over het apparaat of onderdeel type van de fabrikant."""
         return self._beschrijvingFabrikant.get_waarde()
 
@@ -120,7 +120,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._beschrijvingFabrikant.set_waarde(value, owner=self)
 
     @property
-    def gebruik(self):
+    def gebruik(self) -> str:
         """Toestel, onderdeel van het netwerk, waarop netwerkverbindingen kunnen aangelegd worden."""
         return self._gebruik.get_waarde()
 
@@ -129,7 +129,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._gebruik.set_waarde(value, owner=self)
 
     @property
-    def ipAddressBeheer(self):
+    def ipAddressBeheer(self) -> DteIPv4AdresWaarden:
         """IP adres van het toestel."""
         return self._ipAddressBeheer.get_waarde()
 
@@ -138,7 +138,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._ipAddressBeheer.set_waarde(value, owner=self)
 
     @property
-    def ipAddressMask(self):
+    def ipAddressMask(self) -> DteIPv4AdresWaarden:
         """IP adres mask van het toestel."""
         return self._ipAddressMask.get_waarde()
 
@@ -147,7 +147,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._ipAddressMask.set_waarde(value, owner=self)
 
     @property
-    def ipGateway(self):
+    def ipGateway(self) -> DteIPv4AdresWaarden:
         """IP adres van gateway."""
         return self._ipGateway.get_waarde()
 
@@ -156,7 +156,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._ipGateway.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk waarmee de fabrikant het netwerkelement identificeert."""
         return self._merk.get_waarde()
 
@@ -165,7 +165,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam waarmee de fabrikant dit type toestel identificeert."""
         return self._modelnaam.get_waarde()
 
@@ -174,7 +174,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def nSAPAddress(self):
+    def nSAPAddress(self) -> str:
         """Netwerkadres van deze component."""
         return self._nSAPAddress.get_waarde()
 
@@ -183,7 +183,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._nSAPAddress.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Unieke identificatiecode van het toestel, toegekend door de fabrikant."""
         return self._serienummer.get_waarde()
 
@@ -192,7 +192,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._serienummer.set_waarde(value, owner=self)
 
     @property
-    def softwareVersie(self):
+    def softwareVersie(self) -> str:
         """Identificatie van de softwareversie die op dit apparaat of onderdeel geladen is. Dit kan ook de firmwareversie zijn."""
         return self._softwareVersie.get_waarde()
 
@@ -201,7 +201,7 @@ class Netwerkelement(AIMNaamObject, PuntGeometrie):
         self._softwareVersie.set_waarde(value, owner=self)
 
     @property
-    def telefoonnummer(self):
+    def telefoonnummer(self) -> str:
         """Het telefoonnumer van het netwerkelement."""
         return self._telefoonnummer.get_waarde()
 

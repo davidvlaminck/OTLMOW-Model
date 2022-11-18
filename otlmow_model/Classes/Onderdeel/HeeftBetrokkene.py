@@ -1,8 +1,10 @@
 # coding=utf-8
+from typing import List
+from datetime import date, date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.DirectioneleRelatie import DirectioneleRelatie
 from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.Datatypes.DtcContactinfo import DtcContactinfo
+from otlmow_model.Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
 from otlmow_model.Datatypes.KlBetrokkenheidRol import KlBetrokkenheidRol
 
 
@@ -47,7 +49,7 @@ class HeeftBetrokkene(DirectioneleRelatie):
                                                    owner=self)
 
     @property
-    def datumAanvang(self):
+    def datumAanvang(self) -> date:
         """De datum waarop de betrokkenheid effectief geworden is of zal worden. """
         return self._datumAanvang.get_waarde()
 
@@ -56,7 +58,7 @@ class HeeftBetrokkene(DirectioneleRelatie):
         self._datumAanvang.set_waarde(value, owner=self)
 
     @property
-    def datumEinde(self):
+    def datumEinde(self) -> date:
         """De datum waarop de betrokkenheid beëindigd is of moet beëindigd worden. """
         return self._datumEinde.get_waarde()
 
@@ -65,7 +67,7 @@ class HeeftBetrokkene(DirectioneleRelatie):
         self._datumEinde.set_waarde(value, owner=self)
 
     @property
-    def rol(self):
+    def rol(self) -> str:
         """Type voor de manier waarop een agent betrokken is bij een object."""
         return self._rol.get_waarde()
 
@@ -74,7 +76,7 @@ class HeeftBetrokkene(DirectioneleRelatie):
         self._rol.set_waarde(value, owner=self)
 
     @property
-    def specifiekeContactinfo(self):
+    def specifiekeContactinfo(self) -> List[DtcContactinfoWaarden]:
         """Specifieke contactgegevens van de betrokken agent met betrekking tot het gekoppelde object."""
         return self._specifiekeContactinfo.get_waarde()
 

@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
@@ -86,7 +87,7 @@ class Hoppinzuil(AIMObject, PuntGeometrie):
                                         owner=self)
 
     @property
-    def weergegevenVervoersmodiOpKaart(self):
+    def weergegevenVervoersmodiOpKaart(self) -> List[str]:
         """De verschillende beschikbare vervoersmodi die op de bijhorende kaart worden weergegeven."""
         return self._weergegevenVervoersmodiOpKaart.get_waarde()
 
@@ -95,7 +96,7 @@ class Hoppinzuil(AIMObject, PuntGeometrie):
         self._weergegevenVervoersmodiOpKaart.set_waarde(value, owner=self)
 
     @property
-    def zuilnaam(self):
+    def zuilnaam(self) -> str:
         """Naam van het hoppinpunt die verwijst naar een duidelijke en herkenbare plaatsnaam."""
         return self._zuilnaam.get_waarde()
 
@@ -104,7 +105,7 @@ class Hoppinzuil(AIMObject, PuntGeometrie):
         self._zuilnaam.set_waarde(value, owner=self)
 
     @property
-    def zuilnummer(self):
+    def zuilnummer(self) -> str:
         """Uniek identificatienummer dat elke zuil krijgt en dat wordt opgenomen in de hoppinpuntendatabank."""
         return self._zuilnummer.get_waarde()
 

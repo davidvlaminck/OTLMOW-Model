@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.BaseClasses.URIField import URIField
 
@@ -40,7 +40,7 @@ class DtcProductidentificatiecodeWaarden(WaardenObject):
                                                       owner=self)
 
     @property
-    def keuringsverslag(self):
+    def keuringsverslag(self) -> DtcDocumentWaarden:
         """Een rapport met de resultaten van de keuring."""
         return self._keuringsverslag.get_waarde()
 
@@ -49,7 +49,7 @@ class DtcProductidentificatiecodeWaarden(WaardenObject):
         self._keuringsverslag.set_waarde(value, owner=self._parent)
 
     @property
-    def linkTechnischeFiche(self):
+    def linkTechnischeFiche(self) -> str:
         """De link naar de technische fiche van het gerelateerd product."""
         return self._linkTechnischeFiche.get_waarde()
 
@@ -58,7 +58,7 @@ class DtcProductidentificatiecodeWaarden(WaardenObject):
         self._linkTechnischeFiche.set_waarde(value, owner=self._parent)
 
     @property
-    def producent(self):
+    def producent(self) -> str:
         """De gerelateerde fabrikant."""
         return self._producent.get_waarde()
 
@@ -67,7 +67,7 @@ class DtcProductidentificatiecodeWaarden(WaardenObject):
         self._producent.set_waarde(value, owner=self._parent)
 
     @property
-    def productidentificatiecode(self):
+    def productidentificatiecode(self) -> str:
         """De code van het gebruikte product (COPRO/BENOR)."""
         return self._productidentificatiecode.get_waarde()
 

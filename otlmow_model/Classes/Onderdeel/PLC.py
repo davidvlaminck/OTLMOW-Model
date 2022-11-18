@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Controller import Controller
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlPLCMerk import KlPLCMerk
 from otlmow_model.Datatypes.KlPLCModelnaam import KlPLCModelnaam
 
@@ -47,7 +47,7 @@ class PLC(Controller):
                                              owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de PLC."""
         return self._merk.get_waarde()
 
@@ -56,7 +56,7 @@ class PLC(Controller):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de PLC."""
         return self._modelnaam.get_waarde()
 
@@ -65,7 +65,7 @@ class PLC(Controller):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van de PLC."""
         return self._technischeFiche.get_waarde()
 

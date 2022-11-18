@@ -38,7 +38,7 @@ class Obstakelbeveiliger(AfschermendeConstructie, SchokindexVoertuigkering, Vlak
                                   owner=self)
 
     @property
-    def performantieniveau(self):
+    def performantieniveau(self) -> str:
         """Het niveau waarop de obstakelbeveiliger is getest."""
         return self._performantieniveau.get_waarde()
 
@@ -47,7 +47,7 @@ class Obstakelbeveiliger(AfschermendeConstructie, SchokindexVoertuigkering, Vlak
         self._performantieniveau.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De functie die de obstakelbeveiliger vervult."""
         return self._type.get_waarde()
 

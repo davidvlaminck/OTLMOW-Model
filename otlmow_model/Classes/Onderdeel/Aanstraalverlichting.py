@@ -27,7 +27,7 @@ class Aanstraalverlichting(AIMObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Geeft het soort lamp mee dat voor de verlichting zorgt."""
         return self._type.get_waarde()
 

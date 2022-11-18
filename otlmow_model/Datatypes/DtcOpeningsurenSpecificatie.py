@@ -1,4 +1,5 @@
 # coding=utf-8
+from datetime import time, time
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
@@ -32,7 +33,7 @@ class DtcOpeningsurenSpecificatieWaarden(WaardenObject):
                                      owner=self)
 
     @property
-    def openingstijd(self):
+    def openingstijd(self) -> time:
         """Het tijdsstip waarop de opening plaatsvindt."""
         return self._openingstijd.get_waarde()
 
@@ -41,7 +42,7 @@ class DtcOpeningsurenSpecificatieWaarden(WaardenObject):
         self._openingstijd.set_waarde(value, owner=self._parent)
 
     @property
-    def sluitingstijd(self):
+    def sluitingstijd(self) -> time:
         """Het tijdsstip waarop de sluiting plaatsvindt."""
         return self._sluitingstijd.get_waarde()
 
@@ -50,7 +51,7 @@ class DtcOpeningsurenSpecificatieWaarden(WaardenObject):
         self._sluitingstijd.set_waarde(value, owner=self._parent)
 
     @property
-    def weekdag(self):
+    def weekdag(self) -> str:
         """Een dag uit de week incl. weekenddagen."""
         return self._weekdag.get_waarde()
 

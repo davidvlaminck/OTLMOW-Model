@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Datatypes.KlLichtmastMasthoogte import KlLichtmastMasthoogte
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
@@ -27,7 +27,7 @@ class DtuLichtmastMasthoogteWaarden(UnionWaarden):
                                              owner=self)
 
     @property
-    def afwijkendeHoogte(self):
+    def afwijkendeHoogte(self) -> KwantWrdInMeterWaarden:
         """De afwijkende hoogte van de mast in meter."""
         return self._afwijkendeHoogte.get_waarde()
 
@@ -38,7 +38,7 @@ class DtuLichtmastMasthoogteWaarden(UnionWaarden):
             self.clear_other_props('_afwijkendeHoogte')
 
     @property
-    def standaardHoogte(self):
+    def standaardHoogte(self) -> str:
         """Bepaling van de standaard hoogte van een mast."""
         return self._standaardHoogte.get_waarde()
 

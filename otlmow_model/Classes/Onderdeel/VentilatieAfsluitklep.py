@@ -26,7 +26,7 @@ class VentilatieAfsluitklep(AIMObject, PuntGeometrie):
                                                    owner=self)
 
     @property
-    def heeftManueleBediening(self):
+    def heeftManueleBediening(self) -> bool:
         """Geeft aan of de afsluitklep manueel kan bediend worden."""
         return self._heeftManueleBediening.get_waarde()
 

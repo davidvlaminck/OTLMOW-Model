@@ -1,7 +1,8 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -32,7 +33,7 @@ class ProefVerderOnderzoekTrekproef(Proef, PuntGeometrie, LijnGeometrie, VlakGeo
                                                       owner=self)
 
     @property
-    def verderOnderzoekTrekproef(self):
+    def verderOnderzoekTrekproef(self) -> List[DtcDocumentWaarden]:
         """Een trekproef is een niet-destructieve methode om de stabiliteit (gevoeligheid voor windworp) van bomen te testen door een kunstmatige belasting op de stam te relateren met het kantelen van de stamvoet."""
         return self._verderOnderzoekTrekproef.get_waarde()
 

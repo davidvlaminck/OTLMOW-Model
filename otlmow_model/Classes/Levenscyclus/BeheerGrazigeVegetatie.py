@@ -1,11 +1,12 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcMaaien import DtcMaaien
+from otlmow_model.Datatypes.DtcMaaien import DtcMaaien, DtcMaaienWaarden
 from otlmow_model.Datatypes.KlBeheerGrazigeVegetatie import KlBeheerGrazigeVegetatie
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -55,7 +56,7 @@ class BeheerGrazigeVegetatie(AIMObject):
                                          owner=self)
 
     @property
-    def beheeroptie(self):
+    def beheeroptie(self) -> List[str]:
         """Aanduiding van welk beheer wordt toegepast op de grazige vegetatie."""
         return self._beheeroptie.get_waarde()
 
@@ -64,7 +65,7 @@ class BeheerGrazigeVegetatie(AIMObject):
         self._beheeroptie.set_waarde(value, owner=self)
 
     @property
-    def heeftBeheerplan(self):
+    def heeftBeheerplan(self) -> bool:
         """Aanduiding of er een beheerplan bestaat."""
         return self._heeftBeheerplan.get_waarde()
 
@@ -73,7 +74,7 @@ class BeheerGrazigeVegetatie(AIMObject):
         self._heeftBeheerplan.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte in meter van de te behandelen grazige vegetatie."""
         return self._lengte.get_waarde()
 
@@ -82,7 +83,7 @@ class BeheerGrazigeVegetatie(AIMObject):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def maaien(self):
+    def maaien(self) -> DtcMaaienWaarden:
         """Complex datatype voor de eigenschappen van maaien."""
         return self._maaien.get_waarde()
 
@@ -91,7 +92,7 @@ class BeheerGrazigeVegetatie(AIMObject):
         self._maaien.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte in vierkante meter van de te behandelen grazige vegetatie."""
         return self._oppervlakte.get_waarde()
 

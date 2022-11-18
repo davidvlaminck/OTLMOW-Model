@@ -1,8 +1,10 @@
 # coding=utf-8
+from datetime import datetime
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.Datatypes.KlBoomConditiebeoordeling import KlBoomConditiebeoordeling
 from otlmow_model.Datatypes.KlBoomConditiewaarde import KlBoomConditiewaarde
@@ -12,8 +14,8 @@ from otlmow_model.Datatypes.KlBoomOnderhoudstoestand import KlBoomOnderhoudstoes
 from otlmow_model.Datatypes.KlBoomPlantwijzewaarde import KlBoomPlantwijzewaarde
 from otlmow_model.Datatypes.KlBoomStandplaatswaarde import KlBoomStandplaatswaarde
 from otlmow_model.Datatypes.KlBoomtoestandMeerwaardefactor import KlBoomtoestandMeerwaardefactor
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro, KwantWrdInEuroWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -156,7 +158,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                              owner=self)
 
     @property
-    def basiswaarde(self):
+    def basiswaarde(self) -> KwantWrdInEuroWaarden:
         """Het schriftelijk verslag dat na onderzoek of visuele controle wordt opgemaakt."""
         return self._basiswaarde.get_waarde()
 
@@ -165,7 +167,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._basiswaarde.set_waarde(value, owner=self)
 
     @property
-    def conditiebeoordeling(self):
+    def conditiebeoordeling(self) -> str:
         """De conditie beoordeeld volgens de kronenstructuur van Dr. A. Roloff, gelet op de scheutlengte ontwikkeling en vorming van dood hout."""
         return self._conditiebeoordeling.get_waarde()
 
@@ -174,7 +176,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._conditiebeoordeling.set_waarde(value, owner=self)
 
     @property
-    def conditiewaarde(self):
+    def conditiewaarde(self) -> str:
         """Een coëfficiënt die iets vertelt over de gezondheidstoestand (vitaliteit, conditie) en de levensverwachting van een boom."""
         return self._conditiewaarde.get_waarde()
 
@@ -183,7 +185,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._conditiewaarde.set_waarde(value, owner=self)
 
     @property
-    def conflicten(self):
+    def conflicten(self) -> str:
         """Mogelijke standplaatsconflicten die de condities of structuur van de boom negatief kunnen beïnvloeden."""
         return self._conflicten.get_waarde()
 
@@ -192,7 +194,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._conflicten.set_waarde(value, owner=self)
 
     @property
-    def gebreken(self):
+    def gebreken(self) -> List[str]:
         """Een visueel defect aan een boom wat dient gemonitord te worden."""
         return self._gebreken.get_waarde()
 
@@ -201,7 +203,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._gebreken.set_waarde(value, owner=self)
 
     @property
-    def krooninspectie(self):
+    def krooninspectie(self) -> DtcDocumentWaarden:
         """Controle van gebrekssymptomen in de kroon."""
         return self._krooninspectie.get_waarde()
 
@@ -210,7 +212,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._krooninspectie.set_waarde(value, owner=self)
 
     @property
-    def meerwaarde(self):
+    def meerwaarde(self) -> str:
         """Mogelijkheid om de boom een waarde toe te kennen op basis van hun uitzonderlijke ecologische of erfgoedwaarde ."""
         return self._meerwaarde.get_waarde()
 
@@ -219,7 +221,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._meerwaarde.set_waarde(value, owner=self)
 
     @property
-    def onderhoudstoestand(self):
+    def onderhoudstoestand(self) -> str:
         """De toestand van een boom die de eventuele snoeiachterstand aangeeft."""
         return self._onderhoudstoestand.get_waarde()
 
@@ -228,7 +230,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._onderhoudstoestand.set_waarde(value, owner=self)
 
     @property
-    def onderzoekVisueleBoomcontrole(self):
+    def onderzoekVisueleBoomcontrole(self) -> DtcDocumentWaarden:
         """Visueel bepalen van de veiligheid en conditie van een boom."""
         return self._onderzoekVisueleBoomcontrole.get_waarde()
 
@@ -237,7 +239,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._onderzoekVisueleBoomcontrole.set_waarde(value, owner=self)
 
     @property
-    def plantwijzewaarde(self):
+    def plantwijzewaarde(self) -> str:
         """Een factor die de ontwikkeling van het uiterlijk (de habitus) van een boom relateert met de manier waarop hij geplant wordt."""
         return self._plantwijzewaarde.get_waarde()
 
@@ -246,7 +248,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._plantwijzewaarde.set_waarde(value, owner=self)
 
     @property
-    def rapportageOnderzoek(self):
+    def rapportageOnderzoek(self) -> DtcDocumentWaarden:
         """Het schriftelijk verslag dat na onderzoek of visuele controle wordt opgemaakt."""
         return self._rapportageOnderzoek.get_waarde()
 
@@ -255,7 +257,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._rapportageOnderzoek.set_waarde(value, owner=self)
 
     @property
-    def soortwaarde(self):
+    def soortwaarde(self) -> float:
         """Geeft voor een bepaalde boomsoort of -variëteit de verhouding weer tussen de prijs per cm² van die soort en de eenheidsprijs."""
         return self._soortwaarde.get_waarde()
 
@@ -264,7 +266,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._soortwaarde.set_waarde(value, owner=self)
 
     @property
-    def stamomtrek(self):
+    def stamomtrek(self) -> KwantWrdInCentimeterWaarden:
         """Omtrek van de stam van de boom in cm, gemeten op 1 meter boven de grond."""
         return self._stamomtrek.get_waarde()
 
@@ -273,7 +275,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._stamomtrek.set_waarde(value, owner=self)
 
     @property
-    def standplaatswaarde(self):
+    def standplaatswaarde(self) -> str:
         """De waarde van de boom afhankelijk van de bebouwingsdichtheid en de aanplantingsmogelijkheden rondom en voor de boom."""
         return self._standplaatswaarde.get_waarde()
 
@@ -282,7 +284,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._standplaatswaarde.set_waarde(value, owner=self)
 
     @property
-    def tijdstempelBoomtoestand(self):
+    def tijdstempelBoomtoestand(self) -> datetime:
         """Datum van laatste snoeibeurt."""
         return self._tijdstempelBoomtoestand.get_waarde()
 
@@ -291,7 +293,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._tijdstempelBoomtoestand.set_waarde(value, owner=self)
 
     @property
-    def uitgebreidPlaatsonderzoek(self):
+    def uitgebreidPlaatsonderzoek(self) -> DtcDocumentWaarden:
         """Grondige beoordeling van de textuur en structuur van de bodem, met als doel een voorstel tot conditieverbeterende maatregelen."""
         return self._uitgebreidPlaatsonderzoek.get_waarde()
 
@@ -300,7 +302,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._uitgebreidPlaatsonderzoek.set_waarde(value, owner=self)
 
     @property
-    def wortelonderzoek(self):
+    def wortelonderzoek(self) -> DtcDocumentWaarden:
         """Bepalen van de kwaliteit van de wortels (bv. aantasting door schimmels) of het bepalen van de reikwijdte van de wortels (bv. om een wortelbeschermingszone op te zetten in de buurt van werken van de  bomen)."""
         return self._wortelonderzoek.get_waarde()
 

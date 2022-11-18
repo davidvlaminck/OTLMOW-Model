@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.BetonnenConstructieElement import BetonnenC
 from otlmow_model.Classes.Onderdeel.Funderingspaal import Funderingspaal
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlTypeSchachtHeipaal import KlTypeSchachtHeipaal
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -55,7 +55,7 @@ class BetonnenHeipaal(BetonnenConstructieElement, Funderingspaal):
                                          owner=self)
 
     @property
-    def diameterPaalschacht(self):
+    def diameterPaalschacht(self) -> KwantWrdInMillimeterWaarden:
         """Doorsnede in millimeter van de schacht van de paal."""
         return self._diameterPaalschacht.get_waarde()
 
@@ -64,7 +64,7 @@ class BetonnenHeipaal(BetonnenConstructieElement, Funderingspaal):
         self._diameterPaalschacht.set_waarde(value, owner=self)
 
     @property
-    def heeftVerbredeVoet(self):
+    def heeftVerbredeVoet(self) -> bool:
         """Geeft aan of de voet breder is gemaakt, al dan niet."""
         return self._heeftVerbredeVoet.get_waarde()
 
@@ -73,7 +73,7 @@ class BetonnenHeipaal(BetonnenConstructieElement, Funderingspaal):
         self._heeftVerbredeVoet.set_waarde(value, owner=self)
 
     @property
-    def heeftVerlorenVoerbuis(self):
+    def heeftVerlorenVoerbuis(self) -> bool:
         """Aanduiding of de heipaal een verloren voerbuis heeft."""
         return self._heeftVerlorenVoerbuis.get_waarde()
 
@@ -82,7 +82,7 @@ class BetonnenHeipaal(BetonnenConstructieElement, Funderingspaal):
         self._heeftVerlorenVoerbuis.set_waarde(value, owner=self)
 
     @property
-    def typeSchacht(self):
+    def typeSchacht(self) -> str:
         """De soort schacht van de heipaal."""
         return self._typeSchacht.get_waarde()
 

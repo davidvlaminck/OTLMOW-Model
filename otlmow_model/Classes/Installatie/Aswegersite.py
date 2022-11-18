@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcBereikInKg import DtcBereikInKg
-from otlmow_model.Datatypes.DtcKwaliteitscertifcaat import DtcKwaliteitscertifcaat
+from otlmow_model.Datatypes.DtcBereikInKg import DtcBereikInKg, DtcBereikInKgWaarden
+from otlmow_model.Datatypes.DtcKwaliteitscertifcaat import DtcKwaliteitscertifcaat, DtcKwaliteitscertifcaatWaarden
 from otlmow_model.Datatypes.KlAfmetingAswegerzone import KlAfmetingAswegerzone
 from otlmow_model.Datatypes.KlAswegersiteTypeMarkering import KlAswegersiteTypeMarkering
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -48,7 +48,7 @@ class Aswegersite(AIMNaamObject, VlakGeometrie):
                                                 owner=self)
 
     @property
-    def afmetingAswegerZone(self):
+    def afmetingAswegerZone(self) -> str:
         """De afmeting van de zone voor en na de weegplaat, inclusief de weegplaat zelf, als een waarde uit een vaste lijst van standaard afmetingen."""
         return self._afmetingAswegerZone.get_waarde()
 
@@ -57,7 +57,7 @@ class Aswegersite(AIMNaamObject, VlakGeometrie):
         self._afmetingAswegerZone.set_waarde(value, owner=self)
 
     @property
-    def kwaliteitscertificaat(self):
+    def kwaliteitscertificaat(self) -> DtcKwaliteitscertifcaatWaarden:
         """Het certificaat uitgereikt bij de eerste ijk nodig voor de rechtsgeldige uitbating van de aswegersite."""
         return self._kwaliteitscertificaat.get_waarde()
 
@@ -66,7 +66,7 @@ class Aswegersite(AIMNaamObject, VlakGeometrie):
         self._kwaliteitscertificaat.set_waarde(value, owner=self)
 
     @property
-    def typeMarkering(self):
+    def typeMarkering(self) -> str:
         """Geeft welke wegmarkering er aanwezig zijn rond de aswegerzone als een waarde uit een vaste lijst van mogelijkheden."""
         return self._typeMarkering.get_waarde()
 
@@ -75,7 +75,7 @@ class Aswegersite(AIMNaamObject, VlakGeometrie):
         self._typeMarkering.set_waarde(value, owner=self)
 
     @property
-    def weegvermogenBereik(self):
+    def weegvermogenBereik(self) -> DtcBereikInKgWaarden:
         """Het bereik (gewicht) dat de asweger kan wegen, uitgedrukt in kilo."""
         return self._weegvermogenBereik.get_waarde()
 

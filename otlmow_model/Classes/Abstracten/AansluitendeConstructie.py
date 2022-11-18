@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.AfschermendeConstructie import AfschermendeConstructie
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -35,7 +35,7 @@ class AansluitendeConstructie(AfschermendeConstructie, LijnGeometrie):
                                           owner=self)
 
     @property
-    def totaleLengte(self):
+    def totaleLengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte van de elementen van de aansluitende constructie."""
         return self._totaleLengte.get_waarde()
 

@@ -30,7 +30,7 @@ class ElectricityAppurtenance(Appurtenance):
                                       owner=self)
 
     @property
-    def appurtenanceType(self):
+    def appurtenanceType(self) -> str:
         """AppurtenanceType van de ElectricityAppurtenance."""
         return self._appurtenanceType.get_waarde()
 
@@ -39,7 +39,7 @@ class ElectricityAppurtenance(Appurtenance):
         self._appurtenanceType.set_waarde(value, owner=self)
 
     @property
-    def subthema(self):
+    def subthema(self) -> str:
         """Classificatie van de asset volgens zijn functie op basis van een vaste lijst."""
         return self._subthema.get_waarde()
 

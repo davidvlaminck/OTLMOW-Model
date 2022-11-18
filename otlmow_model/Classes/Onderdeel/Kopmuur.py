@@ -26,7 +26,7 @@ class Kopmuur(AIMObject, VlakGeometrie):
                                        owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Bepaalt het materiaal van de kopmuur."""
         return self._materiaal.get_waarde()
 

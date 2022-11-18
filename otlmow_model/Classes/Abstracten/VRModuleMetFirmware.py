@@ -34,7 +34,7 @@ class VRModuleMetFirmware(FirmwareObject, VerkeersregelaarModule):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de VR module met Firmware."""
         return self._merk.get_waarde()
 
@@ -43,7 +43,7 @@ class VRModuleMetFirmware(FirmwareObject, VerkeersregelaarModule):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van de VR module met Firmware."""
         return self._modelnaam.get_waarde()
 

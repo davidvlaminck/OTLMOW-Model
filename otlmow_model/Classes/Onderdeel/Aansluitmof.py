@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LinkendElement import LinkendElement
 from otlmow_model.Datatypes.KlAansluitstukMateriaal import KlAansluitstukMateriaal
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -32,7 +32,7 @@ class Aansluitmof(LinkendElement, PuntGeometrie):
                                        owner=self)
 
     @property
-    def diameter(self):
+    def diameter(self) -> KwantWrdInMillimeterWaarden:
         """De diameter van het boorgat gebruikt door de aansluitmof  in millimeter."""
         return self._diameter.get_waarde()
 
@@ -41,7 +41,7 @@ class Aansluitmof(LinkendElement, PuntGeometrie):
         self._diameter.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal van de aansluitmof."""
         return self._materiaal.get_waarde()
 

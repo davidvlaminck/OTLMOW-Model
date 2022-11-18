@@ -1,9 +1,11 @@
 # coding=utf-8
+from datetime import date
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from otlmow_model.Datatypes.KlRegelaarRegelaartype import KlRegelaarRegelaartype
 from otlmow_model.Datatypes.KlVerkeersregelaarCoordinatiewijze import KlVerkeersregelaarCoordinatiewijze
 from otlmow_model.Datatypes.KlVerkeersregelaarMerk import KlVerkeersregelaarMerk
@@ -122,7 +124,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
                                          owner=self)
 
     @property
-    def coordinatiewijze(self):
+    def coordinatiewijze(self) -> List[str]:
         """Wijze waarop de coördinatie is opgezet en de eventuele rol die de verkeersregelaar hierin speelt."""
         return self._coordinatiewijze.get_waarde()
 
@@ -131,7 +133,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._coordinatiewijze.set_waarde(value, owner=self)
 
     @property
-    def externeReferentie(self):
+    def externeReferentie(self) -> List[DtcExterneReferentieWaarden]:
         """Referentie zoals gekend bij een externe partij bv. aannemer, VLCC, ..."""
         return self._externeReferentie.get_waarde()
 
@@ -140,7 +142,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._externeReferentie.set_waarde(value, owner=self)
 
     @property
-    def kabelaansluitschema(self):
+    def kabelaansluitschema(self) -> DtcDocumentWaarden:
         """Document met het kabelaansluitschema."""
         return self._kabelaansluitschema.get_waarde()
 
@@ -149,7 +151,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._kabelaansluitschema.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van een verkeersregelaar."""
         return self._merk.get_waarde()
 
@@ -158,7 +160,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van een verkeersregelaar."""
         return self._modelnaam.get_waarde()
 
@@ -167,7 +169,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def programmeertool(self):
+    def programmeertool(self) -> str:
         """Software waarmee de verkeersregelaar geprogrammeerd kan worden."""
         return self._programmeertool.get_waarde()
 
@@ -176,7 +178,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._programmeertool.set_waarde(value, owner=self)
 
     @property
-    def regelaartype(self):
+    def regelaartype(self) -> str:
         """Onderverdeling in type regelaar volgens het maximale aantal aan te sluiten seingroepen en kruispuntdetectoren."""
         return self._regelaartype.get_waarde()
 
@@ -185,7 +187,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._regelaartype.set_waarde(value, owner=self)
 
     @property
-    def technischeDocumentatie(self):
+    def technischeDocumentatie(self) -> DtcDocumentWaarden:
         """Document met technische informatie."""
         return self._technischeDocumentatie.get_waarde()
 
@@ -194,7 +196,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._technischeDocumentatie.set_waarde(value, owner=self)
 
     @property
-    def voltageLampen(self):
+    def voltageLampen(self) -> str:
         """Voltage van de verkeerslichten."""
         return self._voltageLampen.get_waarde()
 
@@ -203,7 +205,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._voltageLampen.set_waarde(value, owner=self)
 
     @property
-    def vplanDatum(self):
+    def vplanDatum(self) -> date:
         """Datum van het V-plan."""
         return self._vplanDatum.get_waarde()
 
@@ -212,7 +214,7 @@ Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
         self._vplanDatum.set_waarde(value, owner=self)
 
     @property
-    def vplanNummer(self):
+    def vplanNummer(self) -> str:
         """Nummer van het V-plan."""
         return self._vplanNummer.get_waarde()
 

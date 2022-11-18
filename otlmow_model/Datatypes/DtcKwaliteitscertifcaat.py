@@ -1,9 +1,10 @@
 # coding=utf-8
+from datetime import date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -33,7 +34,7 @@ class DtcKwaliteitscertifcaatWaarden(WaardenObject):
                                            owner=self)
 
     @property
-    def datumOndertekening(self):
+    def datumOndertekening(self) -> date:
         """De datum waarop het kwalitetiscertificaat ondertekend is door de administrateur-generaal."""
         return self._datumOndertekening.get_waarde()
 
@@ -42,7 +43,7 @@ class DtcKwaliteitscertifcaatWaarden(WaardenObject):
         self._datumOndertekening.set_waarde(value, owner=self._parent)
 
     @property
-    def document(self):
+    def document(self) -> DtcDocumentWaarden:
         """Documentbijlage met de vergunning."""
         return self._document.get_waarde()
 
@@ -51,7 +52,7 @@ class DtcKwaliteitscertifcaatWaarden(WaardenObject):
         self._document.set_waarde(value, owner=self._parent)
 
     @property
-    def identificator(self):
+    def identificator(self) -> str:
         """De identificator van de vergunning."""
         return self._identificator.get_waarde()
 

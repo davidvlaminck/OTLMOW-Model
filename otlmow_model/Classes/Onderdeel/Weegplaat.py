@@ -27,7 +27,7 @@ class Weegplaat(AIMObject, VlakGeometrie):
                                        owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit de weegplaat is gemaakt volgens een vaste lijst van mogelijke materialen."""
         return self._materiaal.get_waarde()
 

@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Voedingspunt import Voedingspunt
 from otlmow_model.Datatypes.KlUPSMerk import KlUPSMerk
 from otlmow_model.Datatypes.KlUPSModelnaam import KlUPSModelnaam
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
-from otlmow_model.Datatypes.KwantWrdInkWh import KwantWrdInkWh
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
+from otlmow_model.Datatypes.KwantWrdInkWh import KwantWrdInkWh, KwantWrdInkWhWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -74,7 +74,7 @@ class UPS(Voedingspunt, PuntGeometrie):
                                          owner=self)
 
     @property
-    def autonomie(self):
+    def autonomie(self) -> KwantWrdInkWhWaarden:
         """De tijd die de UPS een installatie van voeding kan voorzien."""
         return self._autonomie.get_waarde()
 
@@ -83,7 +83,7 @@ class UPS(Voedingspunt, PuntGeometrie):
         self._autonomie.set_waarde(value, owner=self)
 
     @property
-    def maxContinuVermogen(self):
+    def maxContinuVermogen(self) -> KwantWrdInWattWaarden:
         """Maximale continu vermogen van de UPS."""
         return self._maxContinuVermogen.get_waarde()
 
@@ -92,7 +92,7 @@ class UPS(Voedingspunt, PuntGeometrie):
         self._maxContinuVermogen.set_waarde(value, owner=self)
 
     @property
-    def maxPiekVermogen(self):
+    def maxPiekVermogen(self) -> KwantWrdInWattWaarden:
         """Het maximale piekvermogen van de UPS."""
         return self._maxPiekVermogen.get_waarde()
 
@@ -101,7 +101,7 @@ class UPS(Voedingspunt, PuntGeometrie):
         self._maxPiekVermogen.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk waarmee de fabrikant de UPS identificeert."""
         return self._merk.get_waarde()
 
@@ -110,7 +110,7 @@ class UPS(Voedingspunt, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van de UPS volgens de fabrikant."""
         return self._modelnaam.get_waarde()
 
@@ -119,7 +119,7 @@ class UPS(Voedingspunt, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Unieke identificatiecode van het toestel, toegekend door de fabrikant."""
         return self._serienummer.get_waarde()
 

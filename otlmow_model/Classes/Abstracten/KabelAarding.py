@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -24,7 +24,7 @@ class KabelAarding(LijnGeometrie):
                                                   owner=self)
 
     @property
-    def buitenmantelDiameter(self):
+    def buitenmantelDiameter(self) -> KwantWrdInMillimeterWaarden:
         """De buitenste afmeting van de kabel in millimeter."""
         return self._buitenmantelDiameter.get_waarde()
 

@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.KabelAardingSamenstelling import KabelAardingSamenstelling
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -28,7 +28,7 @@ class Aardingspen(KabelAardingSamenstelling, AIMNaamObject, PuntGeometrie):
                                     owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInCentimeterWaarden:
         """De totale lengte van de aardingspen."""
         return self._lengte.get_waarde()
 

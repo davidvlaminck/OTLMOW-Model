@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LinkendElement import LinkendElement
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -24,7 +24,7 @@ class Wervel(LinkendElement, VlakGeometrie):
                                   owner=self)
 
     @property
-    def peil(self):
+    def peil(self) -> KwantWrdInMeterTAWWaarden:
         """Dit is het niveau in meter-TAW van de inlaat van het wervelventiel."""
         return self._peil.get_waarde()
 

@@ -37,7 +37,7 @@ class ProefSchokindex(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                         owner=self)
 
     @property
-    def schokindex(self):
+    def schokindex(self) -> str:
         """De parameter die weergeeft hoe groot de kans op ernstige letsels is van de inzittenden bij een aanrijding."""
         return self._schokindex.get_waarde()
 

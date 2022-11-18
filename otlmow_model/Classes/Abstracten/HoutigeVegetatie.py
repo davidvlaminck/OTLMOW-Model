@@ -1,11 +1,12 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.BegroeidVoorkomen import BegroeidVoorkomen
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcHoutigeAanleg import DtcHoutigeAanleg
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.DtcHoutigeAanleg import DtcHoutigeAanleg, DtcHoutigeAanlegWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -51,7 +52,7 @@ class HoutigeVegetatie(BegroeidVoorkomen):
                                            owner=self)
 
     @property
-    def aanleg(self):
+    def aanleg(self) -> List[DtcHoutigeAanlegWaarden]:
         """De manier van aanplanten van de houtige vegetatie."""
         return self._aanleg.get_waarde()
 
@@ -60,7 +61,7 @@ class HoutigeVegetatie(BegroeidVoorkomen):
         self._aanleg.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMeterWaarden:
         """De hoogte in meter gemeten van de stamvoet tot de top of bovenste snoeivlak van de houtige vegetatie. """
         return self._hoogte.get_waarde()
 
@@ -69,7 +70,7 @@ class HoutigeVegetatie(BegroeidVoorkomen):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def isVrijUitgroeiend(self):
+    def isVrijUitgroeiend(self) -> bool:
         """Geeft aan of de vegetatie of begroeiing al dan niet snoei vereist."""
         return self._isVrijUitgroeiend.get_waarde()
 
@@ -78,7 +79,7 @@ class HoutigeVegetatie(BegroeidVoorkomen):
         self._isVrijUitgroeiend.set_waarde(value, owner=self)
 
     @property
-    def knipoppervlak(self):
+    def knipoppervlak(self) -> KwantWrdInVierkanteMeterWaarden:
         """De afmeting van de begroeiing in vierkante meter dat geschoren moet worden."""
         return self._knipoppervlak.get_waarde()
 

@@ -70,7 +70,7 @@ class SelNietSelLus(Detectielus, LijnGeometrie):
                                           owner=self)
 
     @property
-    def heeftMofInTrekput(self):
+    def heeftMofInTrekput(self) -> bool:
         """Aanduiding of de mof bereikbaar is via een trekput."""
         return self._heeftMofInTrekput.get_waarde()
 
@@ -79,7 +79,7 @@ class SelNietSelLus(Detectielus, LijnGeometrie):
         self._heeftMofInTrekput.set_waarde(value, owner=self)
 
     @property
-    def isPrioritair(self):
+    def isPrioritair(self) -> bool:
         """Geeft aan of de lus prioritair hersteld moet worden bij defect."""
         return self._isPrioritair.get_waarde()
 

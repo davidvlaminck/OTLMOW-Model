@@ -1,15 +1,16 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcCameraBeeldverwerking import DtcCameraBeeldverwerking
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DtcCameraBeeldverwerking import DtcCameraBeeldverwerking, DtcCameraBeeldverwerkingWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.Datatypes.KlCameraMerk import KlCameraMerk
 from otlmow_model.Datatypes.KlCameraModelnaam import KlCameraModelnaam
 from otlmow_model.Datatypes.KlServicePrioriteit import KlServicePrioriteit
 from otlmow_model.Datatypes.KlSpectrum import KlSpectrum
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -136,7 +137,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
                                              owner=self)
 
     @property
-    def beeldverwerkingsinstelling(self):
+    def beeldverwerkingsinstelling(self) -> List[DtcCameraBeeldverwerkingWaarden]:
         """Geeft aan welke types beeldverwerking die camera zelf uitvoert dus zonder gebruik te maken van een externe verwerkingseenheid."""
         return self._beeldverwerkingsinstelling.get_waarde()
 
@@ -145,7 +146,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._beeldverwerkingsinstelling.set_waarde(value, owner=self)
 
     @property
-    def configBestandAid(self):
+    def configBestandAid(self) -> DtcDocumentWaarden:
         """Het bestand met de configuratie van de AID component die deel is van de camera."""
         return self._configBestandAid.get_waarde()
 
@@ -154,7 +155,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._configBestandAid.set_waarde(value, owner=self)
 
     @property
-    def dnsNaam(self):
+    def dnsNaam(self) -> str:
         """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
@@ -163,7 +164,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._dnsNaam.set_waarde(value, owner=self)
 
     @property
-    def heeftAid(self):
+    def heeftAid(self) -> bool:
         """Een AID-camera is een CCTV-camera met geintegreerde AID-module. Deze camera genereert naast een camerabeeld ook metadata ivm wat zich afspeelt op het beeld. Een voorbeeld hiervan is gestopte voertuigen."""
         return self._heeftAid.get_waarde()
 
@@ -172,7 +173,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._heeftAid.set_waarde(value, owner=self)
 
     @property
-    def heeftSpitsstrook(self):
+    def heeftSpitsstrook(self) -> bool:
         """Locatie-eigenschap van een camera. Dit attribuut geeft aan of de camera ingezet wordt om een spitsstrook te schouwen."""
         return self._heeftSpitsstrook.get_waarde()
 
@@ -181,7 +182,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._heeftSpitsstrook.set_waarde(value, owner=self)
 
     @property
-    def ipAdres(self):
+    def ipAdres(self) -> DteIPv4AdresWaarden:
         """Het IP-adres van de camera."""
         return self._ipAdres.get_waarde()
 
@@ -190,7 +191,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._ipAdres.set_waarde(value, owner=self)
 
     @property
-    def isPtz(self):
+    def isPtz(self) -> bool:
         """Een PTZ-camera is een CCTV-camera met bijhorend de mogelijkheid om te pannen, tilten en zoomen. Dit vanop afstand met behulp van een verstelbare lens en een motor die in twee assen draaibeweging toelaat."""
         return self._isPtz.get_waarde()
 
@@ -199,7 +200,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._isPtz.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de camera."""
         return self._merk.get_waarde()
 
@@ -208,7 +209,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de camera."""
         return self._modelnaam.get_waarde()
 
@@ -217,7 +218,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def opstelhoogte(self):
+    def opstelhoogte(self) -> KwantWrdInMeterWaarden:
         """De hoogte waarop de camera bevestigd is, gemeten ten opzichte van het maaiveld waarin de draagconstructie voor de camera verankerd is."""
         return self._opstelhoogte.get_waarde()
 
@@ -226,7 +227,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._opstelhoogte.set_waarde(value, owner=self)
 
     @property
-    def servicePrioriteit(self):
+    def servicePrioriteit(self) -> str:
         """Het prioriteitsniveau dat aangeeft hoe dringend iets moet onderhouden/gerepareerd worden"""
         return self._servicePrioriteit.get_waarde()
 
@@ -235,7 +236,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._servicePrioriteit.set_waarde(value, owner=self)
 
     @property
-    def spectrum(self):
+    def spectrum(self) -> str:
         """De golflengte van de invallende straling."""
         return self._spectrum.get_waarde()
 
@@ -244,7 +245,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._spectrum.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Technische fiche van dit element met opsplitsing tussen CCTV, AID en PTZ-camera's."""
         return self._technischeFiche.get_waarde()
 

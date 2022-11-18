@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LaagBouwklasse import LaagBouwklasse
-from otlmow_model.Datatypes.DtuBVLaagtypes import DtuBVLaagtypes
+from otlmow_model.Datatypes.DtuBVLaagtypes import DtuBVLaagtypes, DtuBVLaagtypesWaarden
 from otlmow_model.Datatypes.KlBVBindmiddel import KlBVBindmiddel
 from otlmow_model.Datatypes.KlBVMengseltype import KlBVMengseltype
 from otlmow_model.Datatypes.KlKleurSupp import KlKleurSupp
@@ -54,7 +54,7 @@ class BitumineuzeLaag(LaagBouwklasse):
                                          owner=self)
 
     @property
-    def bindmiddelType(self):
+    def bindmiddelType(self) -> str:
         """Het bindmiddeltype van de bitumineuze laag."""
         return self._bindmiddelType.get_waarde()
 
@@ -63,7 +63,7 @@ class BitumineuzeLaag(LaagBouwklasse):
         self._bindmiddelType.set_waarde(value, owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> str:
         """De kleur van de bitumineuze laag."""
         return self._kleur.get_waarde()
 
@@ -72,7 +72,7 @@ class BitumineuzeLaag(LaagBouwklasse):
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def laagtype(self):
+    def laagtype(self) -> DtuBVLaagtypesWaarden:
         """Het type van bitumineuze laag."""
         return self._laagtype.get_waarde()
 
@@ -81,7 +81,7 @@ class BitumineuzeLaag(LaagBouwklasse):
         self._laagtype.set_waarde(value, owner=self)
 
     @property
-    def mengseltype(self):
+    def mengseltype(self) -> str:
         """Het type van het (giet)asfaltmengsel."""
         return self._mengseltype.get_waarde()
 

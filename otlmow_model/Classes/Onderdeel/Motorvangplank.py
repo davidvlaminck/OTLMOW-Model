@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AfschermendeConstructie import AfschermendeConstructie
 from otlmow_model.Datatypes.KlLEACSchokindexMVP import KlLEACSchokindexMVP
 from otlmow_model.Datatypes.KlLEACSnelheidsklasse import KlLEACSnelheidsklasse
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -53,7 +53,7 @@ class Motorvangplank(AfschermendeConstructie, LijnGeometrie):
                                                   owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de motorvangplank in meter."""
         return self._lengte.get_waarde()
 
@@ -62,7 +62,7 @@ class Motorvangplank(AfschermendeConstructie, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def schokindexMvp(self):
+    def schokindexMvp(self) -> str:
         """Head injury criterium (HIC) van een motorvangplank."""
         return self._schokindexMvp.get_waarde()
 
@@ -71,7 +71,7 @@ class Motorvangplank(AfschermendeConstructie, LijnGeometrie):
         self._schokindexMvp.set_waarde(value, owner=self)
 
     @property
-    def snelheidsklasse(self):
+    def snelheidsklasse(self) -> str:
         """De snelheid waarmee de testen uitgevoerd worden en of deze plaatsvinden op een continu of discontinu (niet in gebruik bij AWV) systeem."""
         return self._snelheidsklasse.get_waarde()
 
@@ -80,7 +80,7 @@ class Motorvangplank(AfschermendeConstructie, LijnGeometrie):
         self._snelheidsklasse.set_waarde(value, owner=self)
 
     @property
-    def werkingsbreedteMvpwd(self):
+    def werkingsbreedteMvpwd(self) -> KwantWrdInMeterWaarden:
         """De afstand tussen de voorkant van het onvervormd systeem tot de maximale dynamische laterale positie van elk onderdeel van het systeem."""
         return self._werkingsbreedteMvpwd.get_waarde()
 

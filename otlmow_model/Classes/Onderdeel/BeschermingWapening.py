@@ -29,7 +29,7 @@ class BeschermingWapening(AndereLaag, VlakGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type bescherming of wapening."""
         return self._type.get_waarde()
 

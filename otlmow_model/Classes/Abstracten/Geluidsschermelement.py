@@ -2,9 +2,9 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.LijnvormigElement import LijnvormigElement
-from otlmow_model.Datatypes.DtcGCMateriaalKarakteristiek import DtcGCMateriaalKarakteristiek
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInKiloNewtonPerVierkanteMeter import KwantWrdInKiloNewtonPerVierkanteMeter
+from otlmow_model.Datatypes.DtcGCMateriaalKarakteristiek import DtcGCMateriaalKarakteristiek, DtcGCMateriaalKarakteristiekWaarden
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInKiloNewtonPerVierkanteMeter import KwantWrdInKiloNewtonPerVierkanteMeter, KwantWrdInKiloNewtonPerVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -73,7 +73,7 @@ class Geluidsschermelement(LijnvormigElement, LijnGeometrie):
                                            owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInCentimeterWaarden:
         """De hoogte in centimeter van het schermelement, verticaal gemeten."""
         return self._hoogte.get_waarde()
 
@@ -82,7 +82,7 @@ class Geluidsschermelement(LijnvormigElement, LijnGeometrie):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInCentimeterWaarden:
         """De lengte van het schermelement in centimeter zonder inbegrip van de profielen, horizontaal gemeten."""
         return self._lengte.get_waarde()
 
@@ -91,7 +91,7 @@ class Geluidsschermelement(LijnvormigElement, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def materiaalkarakteristiek(self):
+    def materiaalkarakteristiek(self) -> DtcGCMateriaalKarakteristiekWaarden:
         """Het materiaal van de geluidswerende constructie en het geluidskarakteristiek van het materiaal."""
         return self._materiaalkarakteristiek.get_waarde()
 
@@ -100,7 +100,7 @@ class Geluidsschermelement(LijnvormigElement, LijnGeometrie):
         self._materiaalkarakteristiek.set_waarde(value, owner=self)
 
     @property
-    def maximaleTotaleDikte(self):
+    def maximaleTotaleDikte(self) -> KwantWrdInCentimeterWaarden:
         """De maximale totale dikte van het schermelement in centimeter, gemeten ter hoogte van het geluidsabsorberende deel van het schermelement."""
         return self._maximaleTotaleDikte.get_waarde()
 
@@ -109,7 +109,7 @@ class Geluidsschermelement(LijnvormigElement, LijnGeometrie):
         self._maximaleTotaleDikte.set_waarde(value, owner=self)
 
     @property
-    def windbelasting(self):
+    def windbelasting(self) -> KwantWrdInKiloNewtonPerVierkanteMeterWaarden:
         """Getal in kN/m2 voor de aanduiding van de maximale windbelasting volgens de norm NBN EN 1994-1-4."""
         return self._windbelasting.get_waarde()
 

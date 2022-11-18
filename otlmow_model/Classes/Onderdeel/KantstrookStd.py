@@ -1,9 +1,9 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.GestandaardiseerdeKantopsluiting import GestandaardiseerdeKantopsluiting
-from otlmow_model.Datatypes.DtcLENorm import DtcLENorm
+from otlmow_model.Datatypes.DtcLENorm import DtcLENorm, DtcLENormWaarden
 from otlmow_model.Datatypes.KlLEKantstrookType import KlLEKantstrookType
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -50,7 +50,7 @@ class KantstrookStd(GestandaardiseerdeKantopsluiting):
                                   owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInCentimeterWaarden:
         """De breedte van de gestandaardiseerde kantstrook in centimeter."""
         return self._breedte.get_waarde()
 
@@ -59,7 +59,7 @@ class KantstrookStd(GestandaardiseerdeKantopsluiting):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def dikte(self):
+    def dikte(self) -> KwantWrdInCentimeterWaarden:
         """De dikte van de gestandaardiseerde kantstrook in centimeter."""
         return self._dikte.get_waarde()
 
@@ -68,7 +68,7 @@ class KantstrookStd(GestandaardiseerdeKantopsluiting):
         self._dikte.set_waarde(value, owner=self)
 
     @property
-    def norm(self):
+    def norm(self) -> DtcLENormWaarden:
         """De gestandaardiseerd kantstrook volgens aangeduide norm."""
         return self._norm.get_waarde()
 
@@ -77,7 +77,7 @@ class KantstrookStd(GestandaardiseerdeKantopsluiting):
         self._norm.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van gestandaardiseerde kantstrook."""
         return self._type.get_waarde()
 

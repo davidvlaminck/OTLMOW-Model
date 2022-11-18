@@ -32,7 +32,7 @@ class EnergiemeterDNB(DNBMeter):
                                        owner=self)
 
     @property
-    def isGecombineerdeEnergiemeter(self):
+    def isGecombineerdeEnergiemeter(self) -> bool:
         """Geeft aan of de meter naast de gewone verbruiksmeting ook reactief vermogen en piek metingen doet."""
         return self._isGecombineerdeEnergiemeter.get_waarde()
 
@@ -41,7 +41,7 @@ class EnergiemeterDNB(DNBMeter):
         self._isGecombineerdeEnergiemeter.set_waarde(value, owner=self)
 
     @property
-    def uurtarief(self):
+    def uurtarief(self) -> str:
         """Type uurtarief vb enkelvoudig, dubbelvoudig,..."""
         return self._uurtarief.get_waarde()
 

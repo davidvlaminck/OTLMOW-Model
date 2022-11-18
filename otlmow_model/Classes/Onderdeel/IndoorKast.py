@@ -1,7 +1,8 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Kast import Kast
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -27,7 +28,7 @@ class IndoorKast(Kast):
                                    owner=self)
 
     @property
-    def mplan(self):
+    def mplan(self) -> List[DtcDocumentWaarden]:
         """Mechanisch plan van de volledige installatie. Er wordt 1 plan toegevoegd per installatie/techniek die op de kast is aangesloten."""
         return self._mplan.get_waarde()
 

@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Put import Put
 from otlmow_model.Classes.Abstracten.PutRelatie import PutRelatie
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlHuisaansluitputMateriaal import KlHuisaansluitputMateriaal
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -50,7 +50,7 @@ class Huisaansluitput(Put, PutRelatie, PuntGeometrie):
                                        owner=self)
 
     @property
-    def aansluitingsfiche(self):
+    def aansluitingsfiche(self) -> DtcDocumentWaarden:
         """De aansluitingsfiche van de huisaansluitput."""
         return self._aansluitingsfiche.get_waarde()
 
@@ -59,7 +59,7 @@ class Huisaansluitput(Put, PutRelatie, PuntGeometrie):
         self._aansluitingsfiche.set_waarde(value, owner=self)
 
     @property
-    def heeftStankafsluiter(self):
+    def heeftStankafsluiter(self) -> bool:
         """Aanduiding of een huisaansluitput een stankafsluiter heeft of niet."""
         return self._heeftStankafsluiter.get_waarde()
 
@@ -68,7 +68,7 @@ class Huisaansluitput(Put, PutRelatie, PuntGeometrie):
         self._heeftStankafsluiter.set_waarde(value, owner=self)
 
     @property
-    def isInfiltrerend(self):
+    def isInfiltrerend(self) -> bool:
         """Wanneer de wanden van het putje poreus zijn (en het putje dus infiltrerend is), kan een deel van het water het water dat in het putje komt rechtstreeks in de grond infiltreren."""
         return self._isInfiltrerend.get_waarde()
 
@@ -77,7 +77,7 @@ class Huisaansluitput(Put, PutRelatie, PuntGeometrie):
         self._isInfiltrerend.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Bepaalt het materiaal waaruit de huisaansluitput is vervaardigd."""
         return self._materiaal.get_waarde()
 

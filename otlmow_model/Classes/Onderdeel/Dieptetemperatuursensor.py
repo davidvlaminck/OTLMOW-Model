@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.NietGedragenSensor import NietGedragenSensor
 from otlmow_model.Datatypes.KlDieptetemperatuurSensorMerk import KlDieptetemperatuurSensorMerk
 from otlmow_model.Datatypes.KlDieptetemperatuursensorModelnaam import KlDieptetemperatuursensorModelnaam
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -40,7 +40,7 @@ class Dieptetemperatuursensor(NietGedragenSensor):
                                           owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de dieptetemperatuursensor."""
         return self._merk.get_waarde()
 
@@ -49,7 +49,7 @@ class Dieptetemperatuursensor(NietGedragenSensor):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de dieptetemperatuursensor."""
         return self._modelnaam.get_waarde()
 
@@ -58,7 +58,7 @@ class Dieptetemperatuursensor(NietGedragenSensor):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def opsteldiepte(self):
+    def opsteldiepte(self) -> KwantWrdInCentimeterWaarden:
         """De diepte onder het wegdek waar de dieptesensor is opgesteld in centimeter."""
         return self._opsteldiepte.get_waarde()
 

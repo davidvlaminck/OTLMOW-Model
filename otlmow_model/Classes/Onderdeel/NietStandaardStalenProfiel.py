@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.StalenProfiel import StalenProfiel
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -46,7 +46,7 @@ class NietStandaardStalenProfiel(StalenProfiel):
                                            owner=self)
 
     @property
-    def detailDwarsdoorsnede(self):
+    def detailDwarsdoorsnede(self) -> DtcDocumentWaarden:
         """Details van de afmetingen en van de dwarsdoorsnedes."""
         return self._detailDwarsdoorsnede.get_waarde()
 
@@ -55,7 +55,7 @@ class NietStandaardStalenProfiel(StalenProfiel):
         self._detailDwarsdoorsnede.set_waarde(value, owner=self)
 
     @property
-    def profielbreedte(self):
+    def profielbreedte(self) -> KwantWrdInMillimeterWaarden:
         """De korte afmeting in millimeter van het profiel."""
         return self._profielbreedte.get_waarde()
 
@@ -64,7 +64,7 @@ class NietStandaardStalenProfiel(StalenProfiel):
         self._profielbreedte.set_waarde(value, owner=self)
 
     @property
-    def profielhoogte(self):
+    def profielhoogte(self) -> KwantWrdInMillimeterWaarden:
         """De langste afmeting in millimeter van het profiel."""
         return self._profielhoogte.get_waarde()
 

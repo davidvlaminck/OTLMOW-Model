@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Kabel import Kabel
 from otlmow_model.Datatypes.KlElectricitySubthema import KlElectricitySubthema
-from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
+from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -37,7 +37,7 @@ class ElectricityCable(Kabel):
                                       owner=self)
 
     @property
-    def nominaleSpanning(self):
+    def nominaleSpanning(self) -> KwantWrdInVoltWaarden:
         """Beschrijft de nominale systeemspanning op de plaats van levering."""
         return self._nominaleSpanning.get_waarde()
 
@@ -46,7 +46,7 @@ class ElectricityCable(Kabel):
         self._nominaleSpanning.set_waarde(value, owner=self)
 
     @property
-    def operationeleSpanning(self):
+    def operationeleSpanning(self) -> KwantWrdInVoltWaarden:
         """Beschrijft de gebruiks- of bedrijfsspanning op de leiding."""
         return self._operationeleSpanning.get_waarde()
 
@@ -55,7 +55,7 @@ class ElectricityCable(Kabel):
         self._operationeleSpanning.set_waarde(value, owner=self)
 
     @property
-    def subthema(self):
+    def subthema(self) -> str:
         """Classificatie van een kabel, leiding, of leidingelementen volgens het thematisch domein waar deze toe behoren."""
         return self._subthema.get_waarde()
 

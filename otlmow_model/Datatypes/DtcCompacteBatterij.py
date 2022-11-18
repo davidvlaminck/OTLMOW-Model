@@ -1,12 +1,13 @@
 # coding=utf-8
+from datetime import date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.KlCompacteBatterijMerk import KlCompacteBatterijMerk
 from otlmow_model.Datatypes.KlCompacteBatterijModelnaam import KlCompacteBatterijModelnaam
-from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
-from otlmow_model.Datatypes.KwantWrdInmAh import KwantWrdInmAh
+from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
+from otlmow_model.Datatypes.KwantWrdInmAh import KwantWrdInmAh, KwantWrdInmAhWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -49,7 +50,7 @@ class DtcCompacteBatterijWaarden(WaardenObject):
                                       owner=self)
 
     @property
-    def capaciteit(self):
+    def capaciteit(self) -> KwantWrdInmAhWaarden:
         """De hoeveelheid stroom die een batterij over een bepaalde tijd kan leveren in mAh."""
         return self._capaciteit.get_waarde()
 
@@ -58,7 +59,7 @@ class DtcCompacteBatterijWaarden(WaardenObject):
         self._capaciteit.set_waarde(value, owner=self._parent)
 
     @property
-    def ingebruikname(self):
+    def ingebruikname(self) -> date:
         """De dag dat de batterij in bruik werd genomen."""
         return self._ingebruikname.get_waarde()
 
@@ -67,7 +68,7 @@ class DtcCompacteBatterijWaarden(WaardenObject):
         self._ingebruikname.set_waarde(value, owner=self._parent)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de compacte batterij."""
         return self._merk.get_waarde()
 
@@ -76,7 +77,7 @@ class DtcCompacteBatterijWaarden(WaardenObject):
         self._merk.set_waarde(value, owner=self._parent)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de compacte batterij."""
         return self._modelnaam.get_waarde()
 
@@ -85,7 +86,7 @@ class DtcCompacteBatterijWaarden(WaardenObject):
         self._modelnaam.set_waarde(value, owner=self._parent)
 
     @property
-    def spanning(self):
+    def spanning(self) -> KwantWrdInVoltWaarden:
         """De elektrische spanning van de batterij in Volt."""
         return self._spanning.get_waarde()
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Bestrating import Bestrating
-from otlmow_model.Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm
+from otlmow_model.Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm, DtcAfmetingBxlInCmWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -27,7 +27,7 @@ class BestratingVanKassei(Bestrating):
                                                               owner=self)
 
     @property
-    def afmetingVanBestratingselementBxl(self):
+    def afmetingVanBestratingselementBxl(self) -> DtcAfmetingBxlInCmWaarden:
         """Afmeting van de breedte in cm (langste) en van de lengte in cm (kortste) van de kassei."""
         return self._afmetingVanBestratingselementBxl.get_waarde()
 

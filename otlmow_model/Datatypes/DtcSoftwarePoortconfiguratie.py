@@ -33,7 +33,7 @@ class DtcSoftwarePoortconfiguratieWaarden(WaardenObject):
                                      owner=self)
 
     @property
-    def poortnummer(self):
+    def poortnummer(self) -> int:
         """Het nummer dat werd toegekend aan de (netwerk)poort."""
         return self._poortnummer.get_waarde()
 
@@ -42,7 +42,7 @@ class DtcSoftwarePoortconfiguratieWaarden(WaardenObject):
         self._poortnummer.set_waarde(value, owner=self._parent)
 
     @property
-    def richting(self):
+    def richting(self) -> str:
         """De richting waarin de poort openstaat."""
         return self._richting.get_waarde()
 
@@ -51,7 +51,7 @@ class DtcSoftwarePoortconfiguratieWaarden(WaardenObject):
         self._richting.set_waarde(value, owner=self._parent)
 
     @property
-    def service(self):
+    def service(self) -> str:
         """De service die op een bepaalde poort is aangesloten."""
         return self._service.get_waarde()
 

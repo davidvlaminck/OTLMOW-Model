@@ -31,7 +31,7 @@ class VerkeersbordVerkeersteken(Verkeersteken):
                                          owner=self)
 
     @property
-    def isBeginZone(self):
+    def isBeginZone(self) -> bool:
         """Duidt aan of het verkeersteken het begin van een zone aanduidt."""
         return self._isBeginZone.get_waarde()
 
@@ -40,7 +40,7 @@ class VerkeersbordVerkeersteken(Verkeersteken):
         self._isBeginZone.set_waarde(value, owner=self)
 
     @property
-    def isEindeZone(self):
+    def isEindeZone(self) -> bool:
         """Duidt aan of het verkeersteken het einde van een zone aanduidt."""
         return self._isEindeZone.get_waarde()
 

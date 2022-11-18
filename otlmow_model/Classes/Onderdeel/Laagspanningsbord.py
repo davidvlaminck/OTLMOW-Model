@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -42,7 +42,7 @@ class Laagspanningsbord(AIMNaamObject, PuntGeometrie):
                                       owner=self)
 
     @property
-    def elektrischSchema(self):
+    def elektrischSchema(self) -> DtcDocumentWaarden:
         """Het elektrisch aansluitschema van het laagspanningsbord."""
         return self._elektrischSchema.get_waarde()
 
@@ -51,7 +51,7 @@ class Laagspanningsbord(AIMNaamObject, PuntGeometrie):
         self._elektrischSchema.set_waarde(value, owner=self)
 
     @property
-    def vermogen(self):
+    def vermogen(self) -> KwantWrdInAmpereWaarden:
         """Het vermogen van het laagspanningsbord."""
         return self._vermogen.get_waarde()
 

@@ -42,7 +42,7 @@ class Ontvanger(ZenderOntvangerToegang):
                                         owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van een ontvanger."""
         return self._merk.get_waarde()
 
@@ -51,7 +51,7 @@ class Ontvanger(ZenderOntvangerToegang):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van een ontvanger."""
         return self._modelnaam.get_waarde()
 
@@ -60,7 +60,7 @@ class Ontvanger(ZenderOntvangerToegang):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def toepassing(self):
+    def toepassing(self) -> str:
         """De techniek of standaard waarmee signalen over het netwerk verstuurd worden."""
         return self._toepassing.get_waarde()
 

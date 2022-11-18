@@ -26,7 +26,7 @@ class Afscherming(AIMObject, LijnGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van afscherming."""
         return self._type.get_waarde()
 

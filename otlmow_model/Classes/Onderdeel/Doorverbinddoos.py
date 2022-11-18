@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Behuizing import Behuizing
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
 from otlmow_model.Datatypes.KlAlgIngressProtectionCode import KlAlgIngressProtectionCode
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -37,7 +37,7 @@ class Doorverbinddoos(Behuizing, PuntGeometrie):
                                       owner=self)
 
     @property
-    def buitenafmetingen(self):
+    def buitenafmetingen(self) -> DtcAfmetingBxlxhInMmWaarden:
         """De afmeting van de buitenkant van de doorverbinddoos."""
         return self._buitenafmetingen.get_waarde()
 
@@ -46,7 +46,7 @@ class Doorverbinddoos(Behuizing, PuntGeometrie):
         self._buitenafmetingen.set_waarde(value, owner=self)
 
     @property
-    def ipKlasse(self):
+    def ipKlasse(self) -> str:
         """De IP-codering als een aanduiding voor de mate van beveiliging van de constructie van elektrische of elektronische apparatuur tegen eigen schade door gebruik in "vijandige omgevingen" en tegen eventueel gevaar voor de gebruiker volgens IEC 60529."""
         return self._ipKlasse.get_waarde()
 

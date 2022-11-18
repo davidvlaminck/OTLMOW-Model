@@ -25,7 +25,7 @@ class DtcConstructiestaalspecificatiesWaarden(WaardenObject):
                                          owner=self)
 
     @property
-    def staalsoort(self):
+    def staalsoort(self) -> str:
         """Staalkwaliteit die wordt gebruikt volgens Europese normen."""
         return self._staalsoort.get_waarde()
 
@@ -34,7 +34,7 @@ class DtcConstructiestaalspecificatiesWaarden(WaardenObject):
         self._staalsoort.set_waarde(value, owner=self._parent)
 
     @property
-    def walsmethode(self):
+    def walsmethode(self) -> str:
         """Op welke manier het staal gewalst is."""
         return self._walsmethode.get_waarde()
 

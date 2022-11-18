@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
@@ -63,7 +64,7 @@ class DtcMaaienWaarden(WaardenObject):
                                      owner=self)
 
     @property
-    def frequentie(self):
+    def frequentie(self) -> List[str]:
         """Het aantal keer dat er gemaaid wordt per jaar."""
         return self._frequentie.get_waarde()
 
@@ -72,7 +73,7 @@ class DtcMaaienWaarden(WaardenObject):
         self._frequentie.set_waarde(value, owner=self._parent)
 
     @property
-    def isGazonbeheer(self):
+    def isGazonbeheer(self) -> bool:
         """Aanduiding of de grazige vegetatie meer dan 3x per jaar gemaaid wordt."""
         return self._isGazonbeheer.get_waarde()
 
@@ -81,7 +82,7 @@ class DtcMaaienWaarden(WaardenObject):
         self._isGazonbeheer.set_waarde(value, owner=self._parent)
 
     @property
-    def isMachinaal(self):
+    def isMachinaal(self) -> bool:
         """Aanduiding of het maaien machinaal of handmatig wordt uitgevoerd."""
         return self._isMachinaal.get_waarde()
 
@@ -90,7 +91,7 @@ class DtcMaaienWaarden(WaardenObject):
         self._isMachinaal.set_waarde(value, owner=self._parent)
 
     @property
-    def isRuigtebeheer(self):
+    def isRuigtebeheer(self) -> bool:
         """Aanduiding of de grazige vegetatie minder dan 1x per jaar gemaaid wordt."""
         return self._isRuigtebeheer.get_waarde()
 
@@ -99,7 +100,7 @@ class DtcMaaienWaarden(WaardenObject):
         self._isRuigtebeheer.set_waarde(value, owner=self._parent)
 
     @property
-    def isVeiligheidsmaaien(self):
+    def isVeiligheidsmaaien(self) -> bool:
         """Aanduiding of er een maaistrook aanwezig is voor het vrijwaren van de zichtbaarheid en voor het vrijhouden van de bebakening en signalisatie."""
         return self._isVeiligheidsmaaien.get_waarde()
 
@@ -108,7 +109,7 @@ class DtcMaaienWaarden(WaardenObject):
         self._isVeiligheidsmaaien.set_waarde(value, owner=self._parent)
 
     @property
-    def klepelmaaierToegelaten(self):
+    def klepelmaaierToegelaten(self) -> bool:
         """Aanduiding of er gemaaid mag worden met een klepelmaaier."""
         return self._klepelmaaierToegelaten.get_waarde()
 
@@ -117,7 +118,7 @@ class DtcMaaienWaarden(WaardenObject):
         self._klepelmaaierToegelaten.set_waarde(value, owner=self._parent)
 
     @property
-    def periode(self):
+    def periode(self) -> List[str]:
         """De maand waarin het maaien wordt uitgevoerd."""
         return self._periode.get_waarde()
 

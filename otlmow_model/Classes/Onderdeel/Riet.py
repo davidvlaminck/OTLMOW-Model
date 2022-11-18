@@ -22,7 +22,7 @@ class Riet(Ruigte):
                                                owner=self)
 
     @property
-    def huidigNatuurbeeld(self):
+    def huidigNatuurbeeld(self) -> str:
         """Bepaling van het vegetatietype op basis van terreininventarisatie."""
         return self._huidigNatuurbeeld.get_waarde()
 

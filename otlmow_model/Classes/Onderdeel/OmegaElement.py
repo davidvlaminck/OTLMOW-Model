@@ -36,7 +36,7 @@ class OmegaElement(Straatmeubilair, LijnGeometrie):
                                              owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """De materie waaruit het omega-element bestaat."""
         return self._materiaal.get_waarde()
 
@@ -45,7 +45,7 @@ class OmegaElement(Straatmeubilair, LijnGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def plaatsingswijze(self):
+    def plaatsingswijze(self) -> str:
         """Aanduiding of het omega-element eenvoudig wegneembaar is."""
         return self._plaatsingswijze.get_waarde()
 

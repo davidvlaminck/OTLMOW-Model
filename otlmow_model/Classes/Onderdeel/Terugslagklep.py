@@ -4,8 +4,8 @@ from otlmow_model.Classes.Abstracten.LinkendElement import LinkendElement
 from otlmow_model.Datatypes.KlTerugslagklepType import KlTerugslagklepType
 from otlmow_model.Datatypes.KlTsklepAfsluiterMateriaal import KlTsklepAfsluiterMateriaal
 from otlmow_model.Datatypes.KlVormTerugslagklep import KlVormTerugslagklep
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -70,7 +70,7 @@ class Terugslagklep(LinkendElement, PuntGeometrie):
                                   owner=self)
 
     @property
-    def breedteOpening(self):
+    def breedteOpening(self) -> KwantWrdInMillimeterWaarden:
         """Breedte van de opening die door de terugslagklep wordt afgesloten in millimeter."""
         return self._breedteOpening.get_waarde()
 
@@ -79,7 +79,7 @@ class Terugslagklep(LinkendElement, PuntGeometrie):
         self._breedteOpening.set_waarde(value, owner=self)
 
     @property
-    def diameter(self):
+    def diameter(self) -> KwantWrdInMillimeterWaarden:
         """De diameter van de terugslagklep in millimeter."""
         return self._diameter.get_waarde()
 
@@ -88,7 +88,7 @@ class Terugslagklep(LinkendElement, PuntGeometrie):
         self._diameter.set_waarde(value, owner=self)
 
     @property
-    def hoogteOpening(self):
+    def hoogteOpening(self) -> KwantWrdInMillimeterWaarden:
         """De hoogte van de opening die door de terugslagklep wordt afgesloten in millimeter."""
         return self._hoogteOpening.get_waarde()
 
@@ -97,7 +97,7 @@ class Terugslagklep(LinkendElement, PuntGeometrie):
         self._hoogteOpening.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit de terugslagklep is vervaardigd."""
         return self._materiaal.get_waarde()
 
@@ -106,7 +106,7 @@ class Terugslagklep(LinkendElement, PuntGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def peil(self):
+    def peil(self) -> KwantWrdInMeterTAWWaarden:
         """Niveau van de doorlaatopening van de terugslagklep uitgedrukt in meter-TAW."""
         return self._peil.get_waarde()
 
@@ -115,7 +115,7 @@ class Terugslagklep(LinkendElement, PuntGeometrie):
         self._peil.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Bepaalt het type van terugslagklep."""
         return self._type.get_waarde()
 
@@ -124,7 +124,7 @@ class Terugslagklep(LinkendElement, PuntGeometrie):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> str:
         """De vorm van de terugslagklep."""
         return self._vorm.get_waarde()
 

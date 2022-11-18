@@ -44,7 +44,7 @@ class WeggebondenDetector(Detectie, FirmwareObject, PuntGeometrie):
                                        owner=self)
 
     @property
-    def detectieprincipe(self):
+    def detectieprincipe(self) -> str:
         """Het detectieprincipe geeft aan hoe de weggebonden detector voertuigen detecteert, bv. door gebruik te maken van inductie of doppler."""
         return self._detectieprincipe.get_waarde()
 
@@ -53,7 +53,7 @@ class WeggebondenDetector(Detectie, FirmwareObject, PuntGeometrie):
         self._detectieprincipe.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van een weggebonden detector."""
         return self._merk.get_waarde()
 
@@ -62,7 +62,7 @@ class WeggebondenDetector(Detectie, FirmwareObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van een weggebonden detector."""
         return self._modelnaam.get_waarde()
 

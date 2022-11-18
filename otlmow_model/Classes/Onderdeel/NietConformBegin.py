@@ -27,7 +27,7 @@ class NietConformBegin(AIMObject, LijnGeometrie):
                                        owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het gebruikte materiaal voor het niet conform begins."""
         return self._materiaal.get_waarde()
 

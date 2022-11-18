@@ -28,7 +28,7 @@ class Aardingskabel(KabelAarding, KabelAardingSamenstelling, AIMNaamObject):
                                           owner=self)
 
     @property
-    def isGeisoleerd(self):
+    def isGeisoleerd(self) -> bool:
         """Geeft expliciet aan of de aardingskabel al dan niet geïsoleerd is. """
         return self._isGeisoleerd.get_waarde()
 

@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
 from otlmow_model.Datatypes.KlOnderwaterkruisingAanlegWijze import KlOnderwaterkruisingAanlegWijze
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -40,7 +40,7 @@ class Onderwaterkruising(AbstracteAanvullendeGeometrie, LijnGeometrie):
                                     owner=self)
 
     @property
-    def aanlegWijze(self):
+    def aanlegWijze(self) -> str:
         """De manier waarop de onderwaterkruising gerealiseerd is volgens een vaste lijst met mogelijkheden."""
         return self._aanlegWijze.get_waarde()
 
@@ -49,7 +49,7 @@ class Onderwaterkruising(AbstracteAanvullendeGeometrie, LijnGeometrie):
         self._aanlegWijze.set_waarde(value, owner=self)
 
     @property
-    def buitendiameter(self):
+    def buitendiameter(self) -> KwantWrdInMillimeterWaarden:
         """De buitendiameter van de onderwaterkruising. Indien de kruising niet cirkelvormig is, gaat het hier om de diameter van de omgeschreven cirkel."""
         return self._buitendiameter.get_waarde()
 
@@ -58,7 +58,7 @@ class Onderwaterkruising(AbstracteAanvullendeGeometrie, LijnGeometrie):
         self._buitendiameter.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De effectieve lengte van de onderwaterkruising, rekening houdend met eventuele curves en dus niet als projectie op een vlak."""
         return self._lengte.get_waarde()
 

@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.SelNietSelLus import SelNietSelLus
 from otlmow_model.BaseClasses.BooleanField import BooleanField
@@ -51,7 +52,7 @@ class NietSelectieveDetectielus(SelNietSelLus):
                                            owner=self)
 
     @property
-    def functie(self):
+    def functie(self) -> str:
         """Type niet-selectieve detectielus bv. file, afstand, hiaat,..."""
         return self._functie.get_waarde()
 
@@ -60,7 +61,7 @@ class NietSelectieveDetectielus(SelNietSelLus):
         self._functie.set_waarde(value, owner=self)
 
     @property
-    def isMotorgevoelig(self):
+    def isMotorgevoelig(self) -> bool:
         """Geeft aan of de lus motorgevoelig is of niet."""
         return self._isMotorgevoelig.get_waarde()
 
@@ -69,7 +70,7 @@ class NietSelectieveDetectielus(SelNietSelLus):
         self._isMotorgevoelig.set_waarde(value, owner=self)
 
     @property
-    def isRichtingsgevoelig(self):
+    def isRichtingsgevoelig(self) -> bool:
         """Is de detectielus gevoelig voor de richting waarin het voertuig het gevoeligheidsgebied van de lus binnenkomt?"""
         return self._isRichtingsgevoelig.get_waarde()
 
@@ -78,7 +79,7 @@ class NietSelectieveDetectielus(SelNietSelLus):
         self._isRichtingsgevoelig.set_waarde(value, owner=self)
 
     @property
-    def soortVoertuig(self):
+    def soortVoertuig(self) -> List[str]:
         """Type voertuig dat de detectielus volgens zijn instellingen kan detecteren."""
         return self._soortVoertuig.get_waarde()
 

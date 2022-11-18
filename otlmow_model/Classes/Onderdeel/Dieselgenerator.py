@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Voedingspunt import Voedingspunt
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -29,7 +29,7 @@ class Dieselgenerator(Voedingspunt, PuntGeometrie, VlakGeometrie):
                                         owner=self)
 
     @property
-    def afmetingen(self):
+    def afmetingen(self) -> DtcAfmetingBxlxhInMmWaarden:
         """De afmetingen van de dieselgenerator."""
         return self._afmetingen.get_waarde()
 

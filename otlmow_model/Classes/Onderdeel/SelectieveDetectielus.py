@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.SelNietSelLus import SelNietSelLus
 from otlmow_model.BaseClasses.BooleanField import BooleanField
@@ -41,7 +42,7 @@ class SelectieveDetectielus(SelNietSelLus):
                                         owner=self)
 
     @property
-    def heeftMeerdereKruisingen(self):
+    def heeftMeerdereKruisingen(self) -> bool:
         """Aanduiding of de lus voor meerdere kruispunten wordt gebruikt."""
         return self._heeftMeerdereKruisingen.get_waarde()
 
@@ -50,7 +51,7 @@ class SelectieveDetectielus(SelNietSelLus):
         self._heeftMeerdereKruisingen.set_waarde(value, owner=self)
 
     @property
-    def soortLus(self):
+    def soortLus(self) -> List[str]:
         """Type detectielus vb bus, tram,..."""
         return self._soortLus.get_waarde()
 
@@ -59,7 +60,7 @@ class SelectieveDetectielus(SelNietSelLus):
         self._soortLus.set_waarde(value, owner=self)
 
     @property
-    def verbinding(self):
+    def verbinding(self) -> str:
         """Soort verbinding (serieel of contact)."""
         return self._verbinding.get_waarde()
 

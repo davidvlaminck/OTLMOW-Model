@@ -1,10 +1,11 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Signalisatie import Signalisatie
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from otlmow_model.Datatypes.KlOperationeleStatus import KlOperationeleStatus
 from otlmow_model.Datatypes.KlPositieSoort import KlPositieSoort
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
@@ -65,7 +66,7 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
                                         owner=self)
 
     @property
-    def afbeelding(self):
+    def afbeelding(self) -> List[DtcDocumentWaarden]:
         """Grafische weergave van de opstelling geplaatst op het openbaar domein."""
         return self._afbeelding.get_waarde()
 
@@ -74,7 +75,7 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
         self._afbeelding.set_waarde(value, owner=self)
 
     @property
-    def isBotsvriendelijk(self):
+    def isBotsvriendelijk(self) -> bool:
         """Een botsvriendelijk obstakel is een voorwerp dat bij aanrijding door een voertuig de letselernst voor de inzittenden reduceert."""
         return self._isBotsvriendelijk.get_waarde()
 
@@ -83,7 +84,7 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
         self._isBotsvriendelijk.set_waarde(value, owner=self)
 
     @property
-    def operationeleStatus(self):
+    def operationeleStatus(self) -> str:
         """Operationele status van de Verkeersbordopstelling volgens keuzelijst."""
         return self._operationeleStatus.get_waarde()
 
@@ -92,7 +93,7 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
         self._operationeleStatus.set_waarde(value, owner=self)
 
     @property
-    def positieTovRijweg(self):
+    def positieTovRijweg(self) -> str:
         """De plaatsing van de opstelling ten aanzien van de rijbaan."""
         return self._positieTovRijweg.get_waarde()
 
@@ -101,7 +102,7 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
         self._positieTovRijweg.set_waarde(value, owner=self)
 
     @property
-    def wegSegment(self):
+    def wegSegment(self) -> List[DtcExterneReferentieWaarden]:
         """Wegsegment waarbij de verkeersbordopstelling geplaatst is."""
         return self._wegSegment.get_waarde()
 

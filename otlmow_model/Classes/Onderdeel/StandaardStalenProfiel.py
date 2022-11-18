@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.StalenProfiel import StalenProfiel
-from otlmow_model.Datatypes.DtcProfieltype import DtcProfieltype
+from otlmow_model.Datatypes.DtcProfieltype import DtcProfieltype, DtcProfieltypeWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -27,7 +27,7 @@ class StandaardStalenProfiel(StalenProfiel):
                                          owner=self)
 
     @property
-    def profieltype(self):
+    def profieltype(self) -> DtcProfieltypeWaarden:
         """Soort van profiel gecombineerd met de hoogte."""
         return self._profieltype.get_waarde()
 

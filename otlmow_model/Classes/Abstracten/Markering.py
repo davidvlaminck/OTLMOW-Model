@@ -4,8 +4,8 @@ from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Signalisatie import Signalisatie
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcMarkeringOpvatting import DtcMarkeringOpvatting
-from otlmow_model.Datatypes.DtcProductidentificatiecode import DtcProductidentificatiecode
+from otlmow_model.Datatypes.DtcMarkeringOpvatting import DtcMarkeringOpvatting, DtcMarkeringOpvattingWaarden
+from otlmow_model.Datatypes.DtcProductidentificatiecode import DtcProductidentificatiecode, DtcProductidentificatiecodeWaarden
 from otlmow_model.Datatypes.KlKleurMarkering import KlKleurMarkering
 from otlmow_model.Datatypes.KlMarkeringSoort import KlMarkeringSoort
 
@@ -101,7 +101,7 @@ class Markering(Signalisatie, AIMObject):
                                        owner=self)
 
     @property
-    def isHandwerk(self):
+    def isHandwerk(self) -> bool:
         """Boolean om te bepalen of de markering machinaal of handmatig is aangebracht."""
         return self._isHandwerk.get_waarde()
 
@@ -110,7 +110,7 @@ class Markering(Signalisatie, AIMObject):
         self._isHandwerk.set_waarde(value, owner=self)
 
     @property
-    def isTijdelijk(self):
+    def isTijdelijk(self) -> bool:
         """Aanduiding of de wegmarkering al dan niet tot de werfsignalisatie behoort."""
         return self._isTijdelijk.get_waarde()
 
@@ -119,7 +119,7 @@ class Markering(Signalisatie, AIMObject):
         self._isTijdelijk.set_waarde(value, owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> str:
         """De kleur van de gebruikte markering."""
         return self._kleur.get_waarde()
 
@@ -128,7 +128,7 @@ class Markering(Signalisatie, AIMObject):
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def markeringsoort(self):
+    def markeringsoort(self) -> str:
         """De soort van markering (verf, thermopast,...)."""
         return self._markeringsoort.get_waarde()
 
@@ -137,7 +137,7 @@ class Markering(Signalisatie, AIMObject):
         self._markeringsoort.set_waarde(value, owner=self)
 
     @property
-    def markeringsysteemCopro(self):
+    def markeringsysteemCopro(self) -> DtcProductidentificatiecodeWaarden:
         """De product informatie van de markering via COPRO codes."""
         return self._markeringsysteemCopro.get_waarde()
 
@@ -146,7 +146,7 @@ class Markering(Signalisatie, AIMObject):
         self._markeringsysteemCopro.set_waarde(value, owner=self)
 
     @property
-    def opvatting(self):
+    def opvatting(self) -> DtcMarkeringOpvattingWaarden:
         """De opvatting van de markering, zijnde middelenverbintenis of resultaatsverbintenis met een minimale levensduur."""
         return self._opvatting.get_waarde()
 

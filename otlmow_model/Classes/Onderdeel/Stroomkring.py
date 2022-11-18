@@ -93,7 +93,7 @@ class Stroomkring(AIMNaamObject, PuntGeometrie):
                                                owner=self)
 
     @property
-    def stroomkringnummer(self):
+    def stroomkringnummer(self) -> str:
         """De identificatie van de stroomkring."""
         return self._stroomkringnummer.get_waarde()
 

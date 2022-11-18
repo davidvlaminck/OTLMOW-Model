@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.HoutigeVegetatie import HoutigeVegetatie
 from otlmow_model.Datatypes.KlGroeiplaatsverbetering import KlGroeiplaatsverbetering
@@ -48,7 +49,7 @@ class OpgaandeHoutigeVegetatie(HoutigeVegetatie, VlakGeometrie):
                                   owner=self)
 
     @property
-    def groeiplaatsverbetering(self):
+    def groeiplaatsverbetering(self) -> List[str]:
         """De techniek waarmee de groeiplaats wordt verbeterd met als doel de levensverwachting en de conditie van de vegetatie te verbeteren."""
         return self._groeiplaatsverbetering.get_waarde()
 
@@ -57,7 +58,7 @@ class OpgaandeHoutigeVegetatie(HoutigeVegetatie, VlakGeometrie):
         self._groeiplaatsverbetering.set_waarde(value, owner=self)
 
     @property
-    def huidigNatuurbeeld(self):
+    def huidigNatuurbeeld(self) -> str:
         """Bepaling van het vegetatietype op basis van terreininventarisatie."""
         return self._huidigNatuurbeeld.get_waarde()
 
@@ -66,7 +67,7 @@ class OpgaandeHoutigeVegetatie(HoutigeVegetatie, VlakGeometrie):
         self._huidigNatuurbeeld.set_waarde(value, owner=self)
 
     @property
-    def natuurstreefbeeld(self):
+    def natuurstreefbeeld(self) -> str:
         """Een natuurstreefbeeld is een nagestreefd biotoop, mozaïek van biotopen of een leefgebied van een soort dat je wil behouden of verkrijgen via een goed natuurbeheer.
 In het definitief plan van type twee, drie of vier wordt het ecologisch einddoel vastgesteld aan de hand van natuurstreefbeelden."""
         return self._natuurstreefbeeld.get_waarde()
@@ -76,7 +77,7 @@ In het definitief plan van type twee, drie of vier wordt het ecologisch einddoel
         self._natuurstreefbeeld.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de opgaande houtige vegetatie."""
         return self._type.get_waarde()
 

@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -40,7 +41,7 @@ class ProefNaderOnderzoekTomograaf(Proef, PuntGeometrie, LijnGeometrie, VlakGeom
                                                      owner=self)
 
     @property
-    def inclusiefElektrisch(self):
+    def inclusiefElektrisch(self) -> bool:
         """Aanduiding of naast een geluidsweerstandstomografie ook een elektrische weerstandstomografie gebeurd is."""
         return self._inclusiefElektrisch.get_waarde()
 
@@ -49,7 +50,7 @@ class ProefNaderOnderzoekTomograaf(Proef, PuntGeometrie, LijnGeometrie, VlakGeom
         self._inclusiefElektrisch.set_waarde(value, owner=self)
 
     @property
-    def naderOnderzoekTomograaf(self):
+    def naderOnderzoekTomograaf(self) -> List[DtcDocumentWaarden]:
         """Het resultaat van de tomograaf proef."""
         return self._naderOnderzoekTomograaf.get_waarde()
 

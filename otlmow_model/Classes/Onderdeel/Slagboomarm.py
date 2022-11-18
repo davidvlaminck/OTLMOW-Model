@@ -1,10 +1,10 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlSlagboomarmMerk import KlSlagboomarmMerk
 from otlmow_model.Datatypes.KlSlagboomarmModelnaam import KlSlagboomarmModelnaam
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -54,7 +54,7 @@ class Slagboomarm(AIMObject, LijnGeometrie):
                                              owner=self)
 
     @property
-    def lengteBoom(self):
+    def lengteBoom(self) -> KwantWrdInMeterWaarden:
         """De lengte van de slagboomarm uitgedrukt in meter."""
         return self._lengteBoom.get_waarde()
 
@@ -63,7 +63,7 @@ class Slagboomarm(AIMObject, LijnGeometrie):
         self._lengteBoom.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de slagboom installatie."""
         return self._merk.get_waarde()
 
@@ -72,7 +72,7 @@ class Slagboomarm(AIMObject, LijnGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Naam van het model van de slagboominstallatie."""
         return self._modelnaam.get_waarde()
 
@@ -81,7 +81,7 @@ class Slagboomarm(AIMObject, LijnGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Technische fiche van de slagboominstallatie."""
         return self._technischeFiche.get_waarde()
 

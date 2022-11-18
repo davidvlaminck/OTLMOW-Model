@@ -35,7 +35,7 @@ class BestratingVanGebakkenStraatsteen(Bestrating):
                                                        owner=self)
 
     @property
-    def formaatVanBestratingselement(self):
+    def formaatVanBestratingselement(self) -> str:
         """Bepaling van de afmeting van het bestratingselement."""
         return self._formaatVanBestratingselement.get_waarde()
 
@@ -44,7 +44,7 @@ class BestratingVanGebakkenStraatsteen(Bestrating):
         self._formaatVanBestratingselement.set_waarde(value, owner=self)
 
     @property
-    def standaardkwaliteitsklasse(self):
+    def standaardkwaliteitsklasse(self) -> str:
         """De standaardkwaliteitsklasse volgens PTV 910."""
         return self._standaardkwaliteitsklasse.get_waarde()
 

@@ -1,13 +1,14 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AndereLaag import AndereLaag
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlHechtspecie import KlHechtspecie
 from otlmow_model.Datatypes.KlStortsteenKaliber import KlStortsteenKaliber
 from otlmow_model.Datatypes.KlStortsteenPlaatsingswijze import KlStortsteenPlaatsingswijze
 from otlmow_model.Datatypes.KlStortsteenType import KlStortsteenType
-from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon
+from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -80,7 +81,7 @@ class Stortsteen(AndereLaag, VlakGeometrie):
                                   owner=self)
 
     @property
-    def gewicht(self):
+    def gewicht(self) -> KwantWrdInTonWaarden:
         """De hoeveelheid stortsteen in ton."""
         return self._gewicht.get_waarde()
 
@@ -89,7 +90,7 @@ class Stortsteen(AndereLaag, VlakGeometrie):
         self._gewicht.set_waarde(value, owner=self)
 
     @property
-    def hechtspecie(self):
+    def hechtspecie(self) -> List[str]:
         """Het gebruikte hechtingsmateriaal tussen gestapelde stenen."""
         return self._hechtspecie.get_waarde()
 
@@ -98,7 +99,7 @@ class Stortsteen(AndereLaag, VlakGeometrie):
         self._hechtspecie.set_waarde(value, owner=self)
 
     @property
-    def isVerankerd(self):
+    def isVerankerd(self) -> bool:
         """Aanduiding of de gestapelde ruwe steen verankerd is."""
         return self._isVerankerd.get_waarde()
 
@@ -107,7 +108,7 @@ class Stortsteen(AndereLaag, VlakGeometrie):
         self._isVerankerd.set_waarde(value, owner=self)
 
     @property
-    def kaliber(self):
+    def kaliber(self) -> str:
         """De gemiddelde diameter van de stortsteen."""
         return self._kaliber.get_waarde()
 
@@ -116,7 +117,7 @@ class Stortsteen(AndereLaag, VlakGeometrie):
         self._kaliber.set_waarde(value, owner=self)
 
     @property
-    def plaatsingswijze(self):
+    def plaatsingswijze(self) -> str:
         """De manier waarop de stenen worden geplaatst."""
         return self._plaatsingswijze.get_waarde()
 
@@ -125,7 +126,7 @@ class Stortsteen(AndereLaag, VlakGeometrie):
         self._plaatsingswijze.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van stortsteen als bijlage."""
         return self._technischeFiche.get_waarde()
 
@@ -134,7 +135,7 @@ class Stortsteen(AndereLaag, VlakGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type stortsteen."""
         return self._type.get_waarde()
 

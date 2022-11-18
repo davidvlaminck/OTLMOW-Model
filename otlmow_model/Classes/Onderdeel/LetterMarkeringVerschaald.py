@@ -4,7 +4,7 @@ from otlmow_model.Classes.Abstracten.FiguratieMarkeringToegang import FiguratieM
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.Datatypes.KlLetterVerschaald import KlLetterVerschaald
 from otlmow_model.Datatypes.KlLetterVerschaaldType import KlLetterVerschaaldType
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -62,7 +62,7 @@ class LetterMarkeringVerschaald(FiguratieMarkeringToegang, PuntGeometrie):
                                                owner=self)
 
     @property
-    def basisOppervlakte(self):
+    def basisOppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De basisoppervlakte van de individuele lettermarkering voor verschaling zoals beschreven in de algemene omzendbrief."""
         return self._basisOppervlakte.get_waarde()
 
@@ -71,7 +71,7 @@ class LetterMarkeringVerschaald(FiguratieMarkeringToegang, PuntGeometrie):
         self._basisOppervlakte.set_waarde(value, owner=self)
 
     @property
-    def letter(self):
+    def letter(self) -> str:
         """De individuele letter gebruikt bij de verschaalde wegmarkering."""
         return self._letter.get_waarde()
 
@@ -80,7 +80,7 @@ class LetterMarkeringVerschaald(FiguratieMarkeringToegang, PuntGeometrie):
         self._letter.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van een figuratiemarkering na de verschaling."""
         return self._oppervlakte.get_waarde()
 
@@ -89,7 +89,7 @@ class LetterMarkeringVerschaald(FiguratieMarkeringToegang, PuntGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de individuele verschaalde lettermarkering."""
         return self._type.get_waarde()
 
@@ -98,7 +98,7 @@ class LetterMarkeringVerschaald(FiguratieMarkeringToegang, PuntGeometrie):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def vergrotingsfactor(self):
+    def vergrotingsfactor(self) -> float:
         """Een decimaal getal dat weergeeft in welke mate de figuratiemarkering vergroot of verkleind wordt."""
         return self._vergrotingsfactor.get_waarde()
 
@@ -107,7 +107,7 @@ class LetterMarkeringVerschaald(FiguratieMarkeringToegang, PuntGeometrie):
         self._vergrotingsfactor.set_waarde(value, owner=self)
 
     @property
-    def verlengingsfactor(self):
+    def verlengingsfactor(self) -> float:
         """Een decimaal getal dat de verlenging van een figuratiemarkering weergeeft."""
         return self._verlengingsfactor.get_waarde()
 

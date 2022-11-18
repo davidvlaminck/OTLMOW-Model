@@ -32,7 +32,7 @@ class Plooibaken(Straatmeubilair, PuntGeometrie):
                                   owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> str:
         """Bepaling van de kleur van het plooibaken."""
         return self._kleur.get_waarde()
 
@@ -41,7 +41,7 @@ class Plooibaken(Straatmeubilair, PuntGeometrie):
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De diameter en vorm van het plooibaken."""
         return self._type.get_waarde()
 

@@ -2,9 +2,9 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.KwantWrdInMinuut import KwantWrdInMinuut
-from otlmow_model.Datatypes.KwantWrdInSeconde import KwantWrdInSeconde
-from otlmow_model.Datatypes.KwantWrdInUur import KwantWrdInUur
+from otlmow_model.Datatypes.KwantWrdInMinuut import KwantWrdInMinuut, KwantWrdInMinuutWaarden
+from otlmow_model.Datatypes.KwantWrdInSeconde import KwantWrdInSeconde, KwantWrdInSecondeWaarden
+from otlmow_model.Datatypes.KwantWrdInUur import KwantWrdInUur, KwantWrdInUurWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -33,7 +33,7 @@ class DtcTijdsduurWaarden(WaardenObject):
                                   owner=self)
 
     @property
-    def minuten(self):
+    def minuten(self) -> KwantWrdInMinuutWaarden:
         """Het aantal minuten."""
         return self._minuten.get_waarde()
 
@@ -42,7 +42,7 @@ class DtcTijdsduurWaarden(WaardenObject):
         self._minuten.set_waarde(value, owner=self._parent)
 
     @property
-    def seconden(self):
+    def seconden(self) -> KwantWrdInSecondeWaarden:
         """Het aantal seconden."""
         return self._seconden.get_waarde()
 
@@ -51,7 +51,7 @@ class DtcTijdsduurWaarden(WaardenObject):
         self._seconden.set_waarde(value, owner=self._parent)
 
     @property
-    def uren(self):
+    def uren(self) -> KwantWrdInUurWaarden:
         """Het aantal uren."""
         return self._uren.get_waarde()
 

@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.BetonnenConstructieElement import BetonnenConstructieElement
 from otlmow_model.Classes.Abstracten.Fundering import Fundering
-from otlmow_model.Datatypes.DtuAfmetingGrondvlak import DtuAfmetingGrondvlak
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.DtuAfmetingGrondvlak import DtuAfmetingGrondvlak, DtuAfmetingGrondvlakWaarden
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -42,7 +42,7 @@ class KlassiekeFundering(BetonnenConstructieElement, Fundering):
                                                owner=self)
 
     @property
-    def funderingshoogte(self):
+    def funderingshoogte(self) -> KwantWrdInCentimeterWaarden:
         """De afstand tussen het laagste punt van de onderkant en hoogste punt van de bovenkant van de fundering."""
         return self._funderingshoogte.get_waarde()
 
@@ -51,7 +51,7 @@ class KlassiekeFundering(BetonnenConstructieElement, Fundering):
         self._funderingshoogte.set_waarde(value, owner=self)
 
     @property
-    def grondvlakAfmeting(self):
+    def grondvlakAfmeting(self) -> DtuAfmetingGrondvlakWaarden:
         """De afmetingen van het (grond)vlak, van de bovenkant van de fundering, volgens de vorm."""
         return self._grondvlakAfmeting.get_waarde()
 

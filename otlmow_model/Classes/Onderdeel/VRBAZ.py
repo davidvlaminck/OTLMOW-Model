@@ -31,7 +31,7 @@ De display van de BAZ geeft de actuele werktoestand aan, inclusief eventuele toe
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """De merknaam van de VR-BAZ."""
         return self._merk.get_waarde()
 
@@ -40,7 +40,7 @@ De display van de BAZ geeft de actuele werktoestand aan, inclusief eventuele toe
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de VR-BAZ."""
         return self._modelnaam.get_waarde()
 

@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Geleiding import Geleiding
 from otlmow_model.Datatypes.KlGeleidingMateriaal import KlGeleidingMateriaal
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -42,7 +42,7 @@ class Geleidingswand(Geleiding, LijnGeometrie):
                                        owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMillimeterWaarden:
         """De hoogte van de geleidingswand in millimeter."""
         return self._hoogte.get_waarde()
 
@@ -51,7 +51,7 @@ class Geleidingswand(Geleiding, LijnGeometrie):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de geleidingswand in meter."""
         return self._lengte.get_waarde()
 
@@ -60,7 +60,7 @@ class Geleidingswand(Geleiding, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal van de geleiding."""
         return self._materiaal.get_waarde()
 

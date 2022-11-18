@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.Datatypes.KlOmvormerMerk import KlOmvormerMerk
 from otlmow_model.Datatypes.KlOmvormerModelnaam import KlOmvormerModelnaam
 from otlmow_model.Datatypes.KlOmvormerType import KlOmvormerType
@@ -86,7 +86,7 @@ class Omvormer(AIMNaamObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def dnsNaam(self):
+    def dnsNaam(self) -> str:
         """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
@@ -95,7 +95,7 @@ class Omvormer(AIMNaamObject, PuntGeometrie):
         self._dnsNaam.set_waarde(value, owner=self)
 
     @property
-    def ipAdres(self):
+    def ipAdres(self) -> DteIPv4AdresWaarden:
         """Het IP-adres van de omvormer."""
         return self._ipAdres.get_waarde()
 
@@ -104,7 +104,7 @@ class Omvormer(AIMNaamObject, PuntGeometrie):
         self._ipAdres.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de omvormer."""
         return self._merk.get_waarde()
 
@@ -113,7 +113,7 @@ class Omvormer(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de omvormer."""
         return self._modelnaam.get_waarde()
 
@@ -122,7 +122,7 @@ class Omvormer(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Technische fiche van de omvormer."""
         return self._technischeFiche.get_waarde()
 
@@ -131,7 +131,7 @@ class Omvormer(AIMNaamObject, PuntGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De soort omvorming die gebeurt er in de omvormer."""
         return self._type.get_waarde()
 

@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.GestandaardiseerdeKantopsluiting import GestandaardiseerdeKantopsluiting
-from otlmow_model.Datatypes.DtcLENorm import DtcLENorm
-from otlmow_model.Datatypes.DtcTrottoirbandVorm import DtcTrottoirbandVorm
+from otlmow_model.Datatypes.DtcLENorm import DtcLENorm, DtcLENormWaarden
+from otlmow_model.Datatypes.DtcTrottoirbandVorm import DtcTrottoirbandVorm, DtcTrottoirbandVormWaarden
 from otlmow_model.Datatypes.KlLETrottoirbandType import KlLETrottoirbandType
 
 
@@ -43,7 +43,7 @@ class TrottoirbandStd(GestandaardiseerdeKantopsluiting):
                                   owner=self)
 
     @property
-    def norm(self):
+    def norm(self) -> DtcLENormWaarden:
         """De gestandaardiseerde trottoirband volgens aangeduide norm."""
         return self._norm.get_waarde()
 
@@ -52,7 +52,7 @@ class TrottoirbandStd(GestandaardiseerdeKantopsluiting):
         self._norm.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Bepaling van het type van trottoirband."""
         return self._type.get_waarde()
 
@@ -61,7 +61,7 @@ class TrottoirbandStd(GestandaardiseerdeKantopsluiting):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> DtcTrottoirbandVormWaarden:
         """Bepaling van de vorm van de trottoirband."""
         return self._vorm.get_waarde()
 

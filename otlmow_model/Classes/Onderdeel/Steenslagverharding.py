@@ -27,7 +27,7 @@ class Steenslagverharding(AndereVerharding):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Bepaling van het type steenslagverharding."""
         return self._type.get_waarde()
 

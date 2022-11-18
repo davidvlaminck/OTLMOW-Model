@@ -1,8 +1,9 @@
 # coding=utf-8
+from datetime import date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.Datatypes.KwantWrdInkWh import KwantWrdInkWh
+from otlmow_model.Datatypes.KwantWrdInkWh import KwantWrdInkWh, KwantWrdInkWhWaarden
 from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
@@ -47,7 +48,7 @@ class MeteropnameEnergiemeter(AIMNaamObject, GeenGeometrie):
                                              owner=self)
 
     @property
-    def datumMeterstand(self):
+    def datumMeterstand(self) -> date:
         """De datum van de laatste meteropname van de energiemeter."""
         return self._datumMeterstand.get_waarde()
 
@@ -56,7 +57,7 @@ class MeteropnameEnergiemeter(AIMNaamObject, GeenGeometrie):
         self._datumMeterstand.set_waarde(value, owner=self)
 
     @property
-    def meterstandDag(self):
+    def meterstandDag(self) -> KwantWrdInkWhWaarden:
         """De meterstand bij de laatste meteropname van de dag-energiemeter."""
         return self._meterstandDag.get_waarde()
 
@@ -65,7 +66,7 @@ class MeteropnameEnergiemeter(AIMNaamObject, GeenGeometrie):
         self._meterstandDag.set_waarde(value, owner=self)
 
     @property
-    def meterstandNacht(self):
+    def meterstandNacht(self) -> KwantWrdInkWhWaarden:
         """De meterstand bij de laatste meteropname van de nacht-energiemeter."""
         return self._meterstandNacht.get_waarde()
 

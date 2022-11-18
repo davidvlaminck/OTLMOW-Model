@@ -35,7 +35,7 @@ class Binnenverlichtingstoestel(AIMObject, PuntGeometrie):
                                        owner=self)
 
     @property
-    def schakelwijze(self):
+    def schakelwijze(self) -> str:
         """Geeft aan hoe het toestel aan- en uitgeschakeld wordt."""
         return self._schakelwijze.get_waarde()
 
@@ -44,7 +44,7 @@ class Binnenverlichtingstoestel(AIMObject, PuntGeometrie):
         self._schakelwijze.set_waarde(value, owner=self)
 
     @property
-    def soortLamp(self):
+    def soortLamp(self) -> str:
         """Geeft aan welke soort lamp er gebruikt wordt in het binnenverlichtingstoestel."""
         return self._soortLamp.get_waarde()
 

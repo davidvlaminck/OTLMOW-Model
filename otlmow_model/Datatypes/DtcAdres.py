@@ -54,7 +54,7 @@ class DtcAdresWaarden(WaardenObject):
                                         owner=self)
 
     @property
-    def bus(self):
+    def bus(self) -> str:
         """Een nummer dat de postbus aanduidt."""
         return self._bus.get_waarde()
 
@@ -63,7 +63,7 @@ class DtcAdresWaarden(WaardenObject):
         self._bus.set_waarde(value, owner=self._parent)
 
     @property
-    def gemeente(self):
+    def gemeente(self) -> str:
         """De bestuurlijke eenheid waarin het adres gelegen is."""
         return self._gemeente.get_waarde()
 
@@ -72,7 +72,7 @@ class DtcAdresWaarden(WaardenObject):
         self._gemeente.set_waarde(value, owner=self._parent)
 
     @property
-    def huisnummer(self):
+    def huisnummer(self) -> str:
         """Een nummer dat door de gemeente aan bv. een huis wordt toegekend."""
         return self._huisnummer.get_waarde()
 
@@ -81,7 +81,7 @@ class DtcAdresWaarden(WaardenObject):
         self._huisnummer.set_waarde(value, owner=self._parent)
 
     @property
-    def postcode(self):
+    def postcode(self) -> str:
         """Een korte reeks tekens die in het postadres wordt opgenomen."""
         return self._postcode.get_waarde()
 
@@ -90,7 +90,7 @@ class DtcAdresWaarden(WaardenObject):
         self._postcode.set_waarde(value, owner=self._parent)
 
     @property
-    def provincie(self):
+    def provincie(self) -> str:
         """Het deelgebied waarin het adres gelegen is."""
         return self._provincie.get_waarde()
 
@@ -99,7 +99,7 @@ class DtcAdresWaarden(WaardenObject):
         self._provincie.set_waarde(value, owner=self._parent)
 
     @property
-    def straatnaam(self):
+    def straatnaam(self) -> str:
         """De naam van de straat."""
         return self._straatnaam.get_waarde()
 

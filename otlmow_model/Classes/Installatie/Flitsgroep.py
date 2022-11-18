@@ -24,7 +24,7 @@ class Flitsgroep(NaampadObject, VlakGeometrie):
                                          owner=self)
 
     @property
-    def isRoodLicht(self):
+    def isRoodLicht(self) -> bool:
         """Duidt aan of de groepering een snelheids- of roodlichtcamera installatie betreft."""
         return self._isRoodLicht.get_waarde()
 

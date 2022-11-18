@@ -30,7 +30,7 @@ class CalamiteitsBord(RetroreflecterendVerkeersbord):
                                   owner=self)
 
     @property
-    def calamiteitsbordType(self):
+    def calamiteitsbordType(self) -> str:
         """Het type van calamiteitsbord (bv. draaiend of dragend)."""
         return self._calamiteitsbordType.get_waarde()
 
@@ -39,7 +39,7 @@ class CalamiteitsBord(RetroreflecterendVerkeersbord):
         self._calamiteitsbordType.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> str:
         """De vorm van het calamiteitsbord."""
         return self._vorm.get_waarde()
 

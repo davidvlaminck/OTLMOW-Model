@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -17,7 +17,7 @@ class DtcAfmetingDiameterInMmWaarden(WaardenObject):
                                       owner=self)
 
     @property
-    def diameter(self):
+    def diameter(self) -> KwantWrdInMillimeterWaarden:
         """De diameter in millimeter."""
         return self._diameter.get_waarde()
 

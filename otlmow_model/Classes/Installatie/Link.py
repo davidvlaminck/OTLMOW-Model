@@ -42,7 +42,7 @@ class Link(NaampadObject, GeenGeometrie):
                                   owner=self)
 
     @property
-    def geleidingsgroepTnummer(self):
+    def geleidingsgroepTnummer(self) -> int:
         """T-nummer van de geleidingsgroep in de kabelnet toepassing."""
         return self._geleidingsgroepTnummer.get_waarde()
 
@@ -51,7 +51,7 @@ class Link(NaampadObject, GeenGeometrie):
         self._geleidingsgroepTnummer.set_waarde(value, owner=self)
 
     @property
-    def mediumtype(self):
+    def mediumtype(self) -> str:
         """Geeft aan hoe de verbinding tussen Netwerkelementen fysiek gerealiseerd wordt"""
         return self._mediumtype.get_waarde()
 
@@ -60,7 +60,7 @@ class Link(NaampadObject, GeenGeometrie):
         self._mediumtype.set_waarde(value, owner=self)
 
     @property
-    def ring(self):
+    def ring(self) -> str:
         """Naam van de ringstructuur in het transport netwerk."""
         return self._ring.get_waarde()
 

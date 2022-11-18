@@ -46,7 +46,7 @@ class Kabelmof(AIMNaamObject, PuntGeometrie):
                                              owner=self)
 
     @property
-    def netwerktype(self):
+    def netwerktype(self) -> str:
         """Geeft aan bij welk type nutsvoorzieningennet de kabelmof hoort volgens de types uit IMKL en Inspire."""
         return self._netwerktype.get_waarde()
 
@@ -55,7 +55,7 @@ class Kabelmof(AIMNaamObject, PuntGeometrie):
         self._netwerktype.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Soort mof volgens een lijst van types."""
         return self._type.get_waarde()
 
@@ -64,7 +64,7 @@ class Kabelmof(AIMNaamObject, PuntGeometrie):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def verbindingstype(self):
+    def verbindingstype(self) -> str:
         """Geeft het type aansluiting in de mof aan."""
         return self._verbindingstype.get_waarde()
 

@@ -1,7 +1,8 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -52,7 +53,7 @@ class Sensor(PuntGeometrie):
                                              owner=self)
 
     @property
-    def kalibratiecertificaat(self):
+    def kalibratiecertificaat(self) -> DtcDocumentWaarden:
         """Een kwaliteitsdocument dat aangeeft of de testresultaten van de sensor al dan niet binnen de vereiste bedrijfsspecificaties vallen."""
         return self._kalibratiecertificaat.get_waarde()
 
@@ -61,7 +62,7 @@ class Sensor(PuntGeometrie):
         self._kalibratiecertificaat.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Het unieke nummer waarmee het toestel door de fabrikant geïdentificeerd is."""
         return self._serienummer.get_waarde()
 
@@ -70,7 +71,7 @@ class Sensor(PuntGeometrie):
         self._serienummer.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technsiche fiche als bijlage van de sensor."""
         return self._technischeFiche.get_waarde()
 

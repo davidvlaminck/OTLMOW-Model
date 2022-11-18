@@ -65,7 +65,7 @@ class Netwerkkaart(AIMNaamObject, PuntGeometrie):
                                          owner=self)
 
     @property
-    def beschrijvingFabrikant(self):
+    def beschrijvingFabrikant(self) -> str:
         """Bijkomende specificaties over het apparaat of onderdeel type van de fabrikant."""
         return self._beschrijvingFabrikant.get_waarde()
 
@@ -74,7 +74,7 @@ class Netwerkkaart(AIMNaamObject, PuntGeometrie):
         self._beschrijvingFabrikant.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk waarmee de fabrikant de netwerkkaart identificeert."""
         return self._merk.get_waarde()
 
@@ -83,7 +83,7 @@ class Netwerkkaart(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam waarmee de fabrikant dit type toestel identificeert."""
         return self._modelnaam.get_waarde()
 
@@ -92,7 +92,7 @@ class Netwerkkaart(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Unieke identificatiecode van het toestel, toegekend door de fabrikant."""
         return self._serienummer.get_waarde()
 
@@ -101,7 +101,7 @@ class Netwerkkaart(AIMNaamObject, PuntGeometrie):
         self._serienummer.set_waarde(value, owner=self)
 
     @property
-    def softwareVersie(self):
+    def softwareVersie(self) -> str:
         """Identificatie van de softwareversie die op dit apparaat of onderdeel geladen is. Dit kan ook een firmwareversie zijn."""
         return self._softwareVersie.get_waarde()
 
@@ -110,7 +110,7 @@ class Netwerkkaart(AIMNaamObject, PuntGeometrie):
         self._softwareVersie.set_waarde(value, owner=self)
 
     @property
-    def technologie(self):
+    def technologie(self) -> str:
         """Intern gebruikte netwerk protocol."""
         return self._technologie.get_waarde()
 

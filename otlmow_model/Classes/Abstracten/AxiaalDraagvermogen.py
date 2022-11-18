@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
-from otlmow_model.Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton
+from otlmow_model.Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, KwantWrdInKiloNewtonWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -45,7 +45,7 @@ class AxiaalDraagvermogen(PuntGeometrie):
                                                    owner=self)
 
     @property
-    def drukdraagvermogenGGT(self):
+    def drukdraagvermogenGGT(self) -> KwantWrdInKiloNewtonWaarden:
         """Karakteristieke waarde van de maximale druklast die een constructie-element kan dragen in gebruiksgrenstoestanden (GGT), uitgedrukt in kilonewton."""
         return self._drukdraagvermogenGGT.get_waarde()
 
@@ -54,7 +54,7 @@ class AxiaalDraagvermogen(PuntGeometrie):
         self._drukdraagvermogenGGT.set_waarde(value, owner=self)
 
     @property
-    def drukdraagvermogenUGT(self):
+    def drukdraagvermogenUGT(self) -> KwantWrdInKiloNewtonWaarden:
         """Drukdraagvermogen, uitgedrukt in kilonewton, in uiterste grenstoestand (UGT) design approach DA1/1."""
         return self._drukdraagvermogenUGT.get_waarde()
 
@@ -63,7 +63,7 @@ class AxiaalDraagvermogen(PuntGeometrie):
         self._drukdraagvermogenUGT.set_waarde(value, owner=self)
 
     @property
-    def trekdraagvermorgenGGT(self):
+    def trekdraagvermorgenGGT(self) -> KwantWrdInKiloNewtonWaarden:
         """Karakteristieke waarde van de maximale treklast die een constructie-element kan dragen in gebruiksgrenstoestanden (GGT), uitgedrukt in kilonewton."""
         return self._trekdraagvermorgenGGT.get_waarde()
 
@@ -72,7 +72,7 @@ class AxiaalDraagvermogen(PuntGeometrie):
         self._trekdraagvermorgenGGT.set_waarde(value, owner=self)
 
     @property
-    def trekdraagvermorgenUGT(self):
+    def trekdraagvermorgenUGT(self) -> KwantWrdInKiloNewtonWaarden:
         """Trekdraagvermogen, uitgedrukt in kilonewton, in uiterste grenstoestand (UGT) design approach DA1/1."""
         return self._trekdraagvermorgenUGT.get_waarde()
 

@@ -1,11 +1,11 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlBekledingPlaats import KlBekledingPlaats
 from otlmow_model.Datatypes.KlBuisbekledingUitvoeringswijze import KlBuisbekledingUitvoeringswijze
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -72,7 +72,7 @@ class Buisbekleding(AIMObject, LijnGeometrie):
                                  owner=self)
 
     @property
-    def laagdikte(self):
+    def laagdikte(self) -> KwantWrdInMillimeterWaarden:
         """De dikte van de bekledingslaag in millimeter."""
         return self._laagdikte.get_waarde()
 
@@ -81,7 +81,7 @@ class Buisbekleding(AIMObject, LijnGeometrie):
         self._laagdikte.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte van de buisbekleding in lopende meter."""
         return self._lengte.get_waarde()
 
@@ -90,7 +90,7 @@ class Buisbekleding(AIMObject, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def plaats(self):
+    def plaats(self) -> str:
         """De kant waar de bekleding van de buis zich bevindt."""
         return self._plaats.get_waarde()
 
@@ -99,7 +99,7 @@ class Buisbekleding(AIMObject, LijnGeometrie):
         self._plaats.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van de buisbekleding."""
         return self._technischeFiche.get_waarde()
 
@@ -108,7 +108,7 @@ class Buisbekleding(AIMObject, LijnGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def tot(self):
+    def tot(self) -> KwantWrdInMeterWaarden:
         """Het einde van de buisbekleding in meter ten opzichte van de beginput van de buis."""
         return self._tot.get_waarde()
 
@@ -117,7 +117,7 @@ class Buisbekleding(AIMObject, LijnGeometrie):
         self._tot.set_waarde(value, owner=self)
 
     @property
-    def uitvoeringswijze(self):
+    def uitvoeringswijze(self) -> str:
         """Materiaal en manier van aanbrengen van de buisbekleding."""
         return self._uitvoeringswijze.get_waarde()
 
@@ -126,7 +126,7 @@ class Buisbekleding(AIMObject, LijnGeometrie):
         self._uitvoeringswijze.set_waarde(value, owner=self)
 
     @property
-    def van(self):
+    def van(self) -> KwantWrdInMeterWaarden:
         """Het begin van de buisbekleding in meter ten opzichte van de beginput van de leiding."""
         return self._van.get_waarde()
 

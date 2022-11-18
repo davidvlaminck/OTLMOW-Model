@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -24,7 +24,7 @@ class PiezometrischeBuis(AIMObject, PuntGeometrie):
                                     owner=self)
 
     @property
-    def diepte(self):
+    def diepte(self) -> KwantWrdInMeterWaarden:
         """De diepte vanaf maaiveld tot de onderkant van de piezometrische buis in meter."""
         return self._diepte.get_waarde()
 

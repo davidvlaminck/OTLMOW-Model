@@ -4,7 +4,7 @@ from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.KabelgeleidingEnLeidingBevestiging import KabelgeleidingEnLeidingBevestiging
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -36,7 +36,7 @@ class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject):
                                          owner=self)
 
     @property
-    def buitendiameter(self):
+    def buitendiameter(self) -> KwantWrdInMillimeterWaarden:
         """De buitendiameter van de leiding in millimeter. Indien de leiding geen cirkelvormige doorsnede heeft, dan gaat het hier om de diameter van de omgeschreven cirkel."""
         return self._buitendiameter.get_waarde()
 
@@ -45,7 +45,7 @@ class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject):
         self._buitendiameter.set_waarde(value, owner=self)
 
     @property
-    def isRisicovol(self):
+    def isRisicovol(self) -> bool:
         """Geeft aan of werken aan of rond de leiding een verhoogd risico met zich meebrengen omwille van de aard van de betrokken leiding."""
         return self._isRisicovol.get_waarde()
 

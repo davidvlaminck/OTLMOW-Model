@@ -31,7 +31,7 @@ class Hulppostkast(Buitenkast):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Classificatie van de hulppostkast op basis van de inhoud en vorm volgens gangbare standaarden."""
         return self._type.get_waarde()
 

@@ -3,13 +3,13 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.EMDraagconstructie import EMDraagconstructie
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtuWvLichtmastBevsToestelMethode import DtuWvLichtmastBevsToestelMethode
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtuWvLichtmastBevsToestelMethode import DtuWvLichtmastBevsToestelMethode, DtuWvLichtmastBevsToestelMethodeWaarden
 from otlmow_model.Datatypes.KlDraagconstructieDwarsdoorsnede import KlDraagconstructieDwarsdoorsnede
 from otlmow_model.Datatypes.KlLichtmastLeverancier import KlLichtmastLeverancier
 from otlmow_model.Datatypes.KlMasttypePunctueleVerlichting import KlMasttypePunctueleVerlichting
 from otlmow_model.Datatypes.KlWvLichtmastAantArmen import KlWvLichtmastAantArmen
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -93,7 +93,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
                                        owner=self)
 
     @property
-    def aantalArmen(self):
+    def aantalArmen(self) -> str:
         """Aantal armen van de punctuele verlichtingsmast."""
         return self._aantalArmen.get_waarde()
 
@@ -102,7 +102,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
         self._aantalArmen.set_waarde(value, owner=self)
 
     @property
-    def armlengte(self):
+    def armlengte(self) -> KwantWrdInMeterWaarden:
         """Lengte van de arm van de punctuele verlichtingsmast, in meter."""
         return self._armlengte.get_waarde()
 
@@ -111,7 +111,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
         self._armlengte.set_waarde(value, owner=self)
 
     @property
-    def bevestigingToestellen(self):
+    def bevestigingToestellen(self) -> DtuWvLichtmastBevsToestelMethodeWaarden:
         """Geeft de wijze aan waarop elk verlichtingstoestel bevestigd is op de punctuele verlichtingsmast als keuze uit een lijst voor standaardmethodes of verder toegelicht wanneer een afwijkende methode gebruikt wordt."""
         return self._bevestigingToestellen.get_waarde()
 
@@ -120,7 +120,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
         self._bevestigingToestellen.set_waarde(value, owner=self)
 
     @property
-    def dwarsdoorsnede(self):
+    def dwarsdoorsnede(self) -> str:
         """De vorm van de dwarsdoorsnede van het opstaande deel van de punctuele verlichtingsmast."""
         return self._dwarsdoorsnede.get_waarde()
 
@@ -129,7 +129,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
         self._dwarsdoorsnede.set_waarde(value, owner=self)
 
     @property
-    def isDraaibaar(self):
+    def isDraaibaar(self) -> bool:
         """Geeft aan of de punctuele verlichtingsmast draaibaar is, al dan niet."""
         return self._isDraaibaar.get_waarde()
 
@@ -138,7 +138,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
         self._isDraaibaar.set_waarde(value, owner=self)
 
     @property
-    def leverancier(self):
+    def leverancier(self) -> str:
         """Leverancier van de punctuele verlichtingsmast."""
         return self._leverancier.get_waarde()
 
@@ -147,7 +147,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
         self._leverancier.set_waarde(value, owner=self)
 
     @property
-    def masthoogte(self):
+    def masthoogte(self) -> KwantWrdInMeterWaarden:
         """Hoogte (in meter) van de punctuele verlichtingsmast."""
         return self._masthoogte.get_waarde()
 
@@ -156,7 +156,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
         self._masthoogte.set_waarde(value, owner=self)
 
     @property
-    def masttype(self):
+    def masttype(self) -> str:
         """Het type mast voor punctuele verlichting."""
         return self._masttype.get_waarde()
 
@@ -165,7 +165,7 @@ class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie
         self._masttype.set_waarde(value, owner=self)
 
     @property
-    def rekennota(self):
+    def rekennota(self) -> DtcDocumentWaarden:
         """Een bijlage met daarin de rekennota voor de punctuele verlichtingsmast. Deze bevat onder andere ook de omvang/afmetingen van de fundering."""
         return self._rekennota.get_waarde()
 

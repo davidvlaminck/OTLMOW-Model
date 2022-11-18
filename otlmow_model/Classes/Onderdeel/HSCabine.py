@@ -1,4 +1,5 @@
 # coding=utf-8
+from datetime import date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Onderdeel.Cabine import Cabine
 from otlmow_model.BaseClasses.DateField import DateField
@@ -32,7 +33,7 @@ class HSCabine(Cabine):
                                                                 owner=self)
 
     @property
-    def lokaalKlasse(self):
+    def lokaalKlasse(self) -> str:
         """Classificatie van de hoogspanningscabine als lokaal volgens Synergrid."""
         return self._lokaalKlasse.get_waarde()
 
@@ -41,7 +42,7 @@ class HSCabine(Cabine):
         self._lokaalKlasse.set_waarde(value, owner=self)
 
     @property
-    def vervaldatumVeiligheidshandschoenen(self):
+    def vervaldatumVeiligheidshandschoenen(self) -> date:
         """De datum waarop de huidige veiligheidshandschoenen in de hoogspanningscabine vervallen."""
         return self._vervaldatumVeiligheidshandschoenen.get_waarde()
 

@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Buitenkast import Buitenkast
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlWegkantkastType import KlWegkantkastType
 
 
@@ -60,7 +61,7 @@ class Wegkantkast(Buitenkast):
                                   owner=self)
 
     @property
-    def elektrischSchema(self):
+    def elektrischSchema(self) -> DtcDocumentWaarden:
         """Elektrisch aansluitschema van de kast."""
         return self._elektrischSchema.get_waarde()
 
@@ -69,7 +70,7 @@ class Wegkantkast(Buitenkast):
         self._elektrischSchema.set_waarde(value, owner=self)
 
     @property
-    def heeftMaaibescherming(self):
+    def heeftMaaibescherming(self) -> bool:
         """Geeft aan of de kast voorzien is van bescherming tegen schade bij het maaien van de omgeving rond de kast."""
         return self._heeftMaaibescherming.get_waarde()
 
@@ -78,7 +79,7 @@ class Wegkantkast(Buitenkast):
         self._heeftMaaibescherming.set_waarde(value, owner=self)
 
     @property
-    def mplan(self):
+    def mplan(self) -> List[DtcDocumentWaarden]:
         """Mechanisch plan van de volledige installatie. Er wordt één plan toegevoegd per installatie/techniek die op de kast is aangesloten."""
         return self._mplan.get_waarde()
 
@@ -87,7 +88,7 @@ class Wegkantkast(Buitenkast):
         self._mplan.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Type van de wegkantkast volgens de gangbare types."""
         return self._type.get_waarde()
 

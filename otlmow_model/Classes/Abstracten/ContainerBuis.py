@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod, ABC
 from otlmow_model.BaseClasses.StringField import StringField
@@ -25,7 +26,7 @@ class ContainerBuis(ABC):
                                    owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> List[str]:
         """De kleur van de coating."""
         return self._kleur.get_waarde()
 

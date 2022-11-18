@@ -1,9 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BevestigingGC import BevestigingGC
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlBevestigingsbeugelType import KlBevestigingsbeugelType
 
 
@@ -70,7 +71,7 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
                                   owner=self)
 
     @property
-    def berekeningsnota(self):
+    def berekeningsnota(self) -> List[DtcDocumentWaarden]:
         """Document met de berekeningsnota van de bevestigingsbeugel."""
         return self._berekeningsnota.get_waarde()
 
@@ -79,7 +80,7 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
         self._berekeningsnota.set_waarde(value, owner=self)
 
     @property
-    def constructieEnMontageplan(self):
+    def constructieEnMontageplan(self) -> List[DtcDocumentWaarden]:
         """Document met het constructie- en montageplan van de bevestigingsbeugel."""
         return self._constructieEnMontageplan.get_waarde()
 
@@ -88,7 +89,7 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
         self._constructieEnMontageplan.set_waarde(value, owner=self)
 
     @property
-    def isVerzegeld(self):
+    def isVerzegeld(self) -> bool:
         """Geeft aan of de bevestigingsbeugel verzegeld is tegen het ongemerkt losmaken ervan."""
         return self._isVerzegeld.get_waarde()
 
@@ -97,7 +98,7 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
         self._isVerzegeld.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de bevestigingsbeugel."""
         return self._type.get_waarde()
 

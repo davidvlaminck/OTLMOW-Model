@@ -25,7 +25,7 @@ class DtcBeschermingVraatschadeWaarden(WaardenObject):
                                              owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """De middelen als bescherming tegen vraatschade."""
         return self._materiaal.get_waarde()
 
@@ -34,7 +34,7 @@ class DtcBeschermingVraatschadeWaarden(WaardenObject):
         self._materiaal.set_waarde(value, owner=self._parent)
 
     @property
-    def tegenMaaischade(self):
+    def tegenMaaischade(self) -> bool:
         """Aanduiding of er bescherming tegen maaischade aanwezig is."""
         return self._tegenMaaischade.get_waarde()
 

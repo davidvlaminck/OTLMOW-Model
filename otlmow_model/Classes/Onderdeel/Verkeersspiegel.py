@@ -1,9 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Signalisatie import Signalisatie
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlVerkeersspiegelVorm import KlVerkeersspiegelVorm
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -45,7 +46,7 @@ class Verkeersspiegel(Signalisatie, AIMObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def bijlageDocument(self):
+    def bijlageDocument(self) -> List[DtcDocumentWaarden]:
         """Een document met dossiernummer waardoor men kan terugkoppelen naar de vergunning."""
         return self._bijlageDocument.get_waarde()
 
@@ -54,7 +55,7 @@ class Verkeersspiegel(Signalisatie, AIMObject, PuntGeometrie):
         self._bijlageDocument.set_waarde(value, owner=self)
 
     @property
-    def isGoedgekeurd(self):
+    def isGoedgekeurd(self) -> bool:
         """Geeft of de verkeersspiegel al dan niet goedgekeurd is."""
         return self._isGoedgekeurd.get_waarde()
 
@@ -63,7 +64,7 @@ class Verkeersspiegel(Signalisatie, AIMObject, PuntGeometrie):
         self._isGoedgekeurd.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> str:
         """Bepaling van de vorm van de gebruikte verkeersspiegel."""
         return self._vorm.get_waarde()
 

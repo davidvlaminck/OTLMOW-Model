@@ -22,7 +22,7 @@ class TelecommunicationsAppurtenance(Appurtenance):
                                               owner=self)
 
     @property
-    def appurtenanceType(self):
+    def appurtenanceType(self) -> str:
         """Classificatie van accessoires."""
         return self._appurtenanceType.get_waarde()
 

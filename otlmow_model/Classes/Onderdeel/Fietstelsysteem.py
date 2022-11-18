@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlFietstelsysteemMerk import KlFietstelsysteemMerk
 from otlmow_model.Datatypes.KlFietstelsysteemModelnaam import KlFietstelsysteemModelnaam
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
@@ -53,7 +53,7 @@ class Fietstelsysteem(AIMNaamObject, PuntGeometrie):
                                              owner=self)
 
     @property
-    def afmetingen(self):
+    def afmetingen(self) -> DtcAfmetingBxlxhInMmWaarden:
         """De afmetingen van het fietstelsysteem."""
         return self._afmetingen.get_waarde()
 
@@ -62,7 +62,7 @@ class Fietstelsysteem(AIMNaamObject, PuntGeometrie):
         self._afmetingen.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van het fietstelsysteem."""
         return self._merk.get_waarde()
 
@@ -71,7 +71,7 @@ class Fietstelsysteem(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Naam van het model van het fietstelsysteem volgens de fabrikant."""
         return self._modelnaam.get_waarde()
 
@@ -80,7 +80,7 @@ class Fietstelsysteem(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Document met de technische specificaties van het fietstelsysteem."""
         return self._technischeFiche.get_waarde()
 

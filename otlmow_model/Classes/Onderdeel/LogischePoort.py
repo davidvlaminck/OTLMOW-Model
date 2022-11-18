@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.SoftwareToegang import SoftwareToegang
-from otlmow_model.Datatypes.DtcSoftwarePoortconfiguratie import DtcSoftwarePoortconfiguratie
+from otlmow_model.Datatypes.DtcSoftwarePoortconfiguratie import DtcSoftwarePoortconfiguratie, DtcSoftwarePoortconfiguratieWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -26,7 +26,7 @@ class LogischePoort(SoftwareToegang):
                                                owner=self)
 
     @property
-    def poortconfiguratie(self):
+    def poortconfiguratie(self) -> DtcSoftwarePoortconfiguratieWaarden:
         """Type TCP of UDP service."""
         return self._poortconfiguratie.get_waarde()
 

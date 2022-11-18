@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -59,7 +60,7 @@ class LinkendElement(AIMObject):
                                              owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van een linkend element."""
         return self._technischeFiche.get_waarde()
 

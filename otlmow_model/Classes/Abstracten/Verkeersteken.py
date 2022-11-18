@@ -1,10 +1,11 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcAdres import DtcAdres
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie
+from otlmow_model.Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from otlmow_model.Datatypes.KlVerkeerstekenWettelijkeStatus import KlVerkeerstekenWettelijkeStatus
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
@@ -82,7 +83,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
                                               owner=self)
 
     @property
-    def adres(self):
+    def adres(self) -> DtcAdresWaarden:
         """Adres van het verkeersteken."""
         return self._adres.get_waarde()
 
@@ -91,7 +92,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._adres.set_waarde(value, owner=self)
 
     @property
-    def afbeelding(self):
+    def afbeelding(self) -> List[DtcDocumentWaarden]:
         """Foto van het verkeersteken."""
         return self._afbeelding.get_waarde()
 
@@ -100,7 +101,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._afbeelding.set_waarde(value, owner=self)
 
     @property
-    def mobiliteitsMaatregel(self):
+    def mobiliteitsMaatregel(self) -> List[DtcExterneReferentieWaarden]:
         """Externe referentie naar een maatregel om de beweging en verplaatsing van de weggebruiker op het openbaar domein of privé domein met openbaar karakter te organiseren."""
         return self._mobiliteitsMaatregel.get_waarde()
 
@@ -109,7 +110,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._mobiliteitsMaatregel.set_waarde(value, owner=self)
 
     @property
-    def plaatsbeschrijving(self):
+    def plaatsbeschrijving(self) -> str:
         """Tekstuele beschrijving waar het verkeersteken zal komen."""
         return self._plaatsbeschrijving.get_waarde()
 
@@ -118,7 +119,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._plaatsbeschrijving.set_waarde(value, owner=self)
 
     @property
-    def signalisatieVergunning(self):
+    def signalisatieVergunning(self) -> List[DtcExterneReferentieWaarden]:
         """Externe referentie naar een vergunning voor het tijdelijk aanbrengen of wijzigen van signalisatie op het openbaar domein of privaat domein met openbaar karakter."""
         return self._signalisatieVergunning.get_waarde()
 
@@ -127,7 +128,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._signalisatieVergunning.set_waarde(value, owner=self)
 
     @property
-    def variabelOpschrift(self):
+    def variabelOpschrift(self) -> str:
         """Variabele tekst die op het verkeersbordconcept komt te staan."""
         return self._variabelOpschrift.get_waarde()
 
@@ -136,7 +137,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._variabelOpschrift.set_waarde(value, owner=self)
 
     @property
-    def wettelijkeStatus(self):
+    def wettelijkeStatus(self) -> str:
         """Duidt de wettelijke status aan van het verkeersteken."""
         return self._wettelijkeStatus.get_waarde()
 

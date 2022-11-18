@@ -29,7 +29,7 @@ class ScheurremmendeLaag(AndereLaag, VlakGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type scheurremmende laag."""
         return self._type.get_waarde()
 

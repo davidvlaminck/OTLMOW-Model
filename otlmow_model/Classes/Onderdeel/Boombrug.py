@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlEcoBoombrugType import KlEcoBoombrugType
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -43,7 +43,7 @@ class Boombrug(AIMObject, LijnGeometrie):
                                   owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMeterWaarden:
         """De hoogte van de boombrug in meter."""
         return self._hoogte.get_waarde()
 
@@ -52,7 +52,7 @@ class Boombrug(AIMObject, LijnGeometrie):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de boombrug in meter."""
         return self._lengte.get_waarde()
 
@@ -61,7 +61,7 @@ class Boombrug(AIMObject, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van boombrug."""
         return self._type.get_waarde()
 

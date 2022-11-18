@@ -2,10 +2,10 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcAfmetingDiameterInCm import DtcAfmetingDiameterInCm
-from otlmow_model.Datatypes.DtuAfmetingGrondvlak import DtuAfmetingGrondvlak
+from otlmow_model.Datatypes.DtcAfmetingDiameterInCm import DtcAfmetingDiameterInCm, DtcAfmetingDiameterInCmWaarden
+from otlmow_model.Datatypes.DtuAfmetingGrondvlak import DtuAfmetingGrondvlak, DtuAfmetingGrondvlakWaarden
 from otlmow_model.Datatypes.KlAlgMateriaal import KlAlgMateriaal
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -72,7 +72,7 @@ class Sokkel(AIMNaamObject, VlakGeometrie):
                                           owner=self)
 
     @property
-    def afmetingGrondvlak(self):
+    def afmetingGrondvlak(self) -> DtuAfmetingGrondvlakWaarden:
         """De afmeting van het grondvlak van de sokkel volgens zijn vorm."""
         return self._afmetingGrondvlak.get_waarde()
 
@@ -81,7 +81,7 @@ class Sokkel(AIMNaamObject, VlakGeometrie):
         self._afmetingGrondvlak.set_waarde(value, owner=self)
 
     @property
-    def heeftMaaibescherming(self):
+    def heeftMaaibescherming(self) -> bool:
         """Geeft aan of de sokkel (en daarmee het object dat er bovenop geplaatst is) beschermd is tegen schade als gevolg van het maaien van omliggende begroeiing."""
         return self._heeftMaaibescherming.get_waarde()
 
@@ -90,7 +90,7 @@ class Sokkel(AIMNaamObject, VlakGeometrie):
         self._heeftMaaibescherming.set_waarde(value, owner=self)
 
     @property
-    def hoogteBovenMaaiveld(self):
+    def hoogteBovenMaaiveld(self) -> KwantWrdInCentimeterWaarden:
         """Hoogte in centimeters van het hoogste punt van de sokkel gemeten vanaf het maaiveld."""
         return self._hoogteBovenMaaiveld.get_waarde()
 
@@ -99,7 +99,7 @@ class Sokkel(AIMNaamObject, VlakGeometrie):
         self._hoogteBovenMaaiveld.set_waarde(value, owner=self)
 
     @property
-    def hoogteSokkel(self):
+    def hoogteSokkel(self) -> DtcAfmetingDiameterInCmWaarden:
         """De totale hoogte van de sokkel wanneer die rechtop staat."""
         return self._hoogteSokkel.get_waarde()
 
@@ -108,7 +108,7 @@ class Sokkel(AIMNaamObject, VlakGeometrie):
         self._hoogteSokkel.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """De grondstof waaruit de sokkel (voornamelijk) vervaardigd is."""
         return self._materiaal.get_waarde()
 
@@ -117,7 +117,7 @@ class Sokkel(AIMNaamObject, VlakGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def sokkelhoogte(self):
+    def sokkelhoogte(self) -> KwantWrdInCentimeterWaarden:
         """De totale hoogte van de sokkel wanneer die rechtop staat."""
         return self._sokkelhoogte.get_waarde()
 

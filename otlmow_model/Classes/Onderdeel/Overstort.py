@@ -2,9 +2,9 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LinkendElement import LinkendElement
 from otlmow_model.Datatypes.KlOverstortMateriaalDrempel import KlOverstortMateriaalDrempel
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -51,7 +51,7 @@ class Overstort(LinkendElement, VlakGeometrie):
                                          owner=self)
 
     @property
-    def drempellengte(self):
+    def drempellengte(self) -> KwantWrdInMillimeterWaarden:
         """Drempellengte of breedte van de overstort. Deze wordt gemeten aan de kortste zijde van de drempel."""
         return self._drempellengte.get_waarde()
 
@@ -60,7 +60,7 @@ class Overstort(LinkendElement, VlakGeometrie):
         self._drempellengte.set_waarde(value, owner=self)
 
     @property
-    def materiaalDrempel(self):
+    def materiaalDrempel(self) -> str:
         """Het gebruikte materiaal voor het vervaardigen van de overstort (drempel)."""
         return self._materiaalDrempel.get_waarde()
 
@@ -69,7 +69,7 @@ class Overstort(LinkendElement, VlakGeometrie):
         self._materiaalDrempel.set_waarde(value, owner=self)
 
     @property
-    def peil(self):
+    def peil(self) -> KwantWrdInMeterTAWWaarden:
         """Drempelpeil van de overstort. Uitgedrukt in meter-TAW gemeten in het midden van de drempel."""
         return self._peil.get_waarde()
 
@@ -78,7 +78,7 @@ class Overstort(LinkendElement, VlakGeometrie):
         self._peil.set_waarde(value, owner=self)
 
     @property
-    def vrijeHoogte(self):
+    def vrijeHoogte(self) -> KwantWrdInMeterWaarden:
         """De vrije hoogte tussen de overstortdrempel en het plafond van de
 constructie ter hoogte van de drempel. Voor drempels in leidingen worden
 de vrije hoogte voor de databank genomen tussen de drempel en de

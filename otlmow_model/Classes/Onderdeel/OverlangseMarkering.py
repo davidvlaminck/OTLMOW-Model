@@ -5,8 +5,8 @@ from otlmow_model.Classes.Abstracten.Markering import Markering
 from otlmow_model.Datatypes.KlOverlangseMarkeringCode import KlOverlangseMarkeringCode
 from otlmow_model.Datatypes.KlOverlangsemarkeringType import KlOverlangsemarkeringType
 from otlmow_model.Datatypes.KlPositieSoort import KlPositieSoort
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -60,7 +60,7 @@ class OverlangseMarkering(AOWSType, Markering, LijnGeometrie):
                                   owner=self)
 
     @property
-    def code(self):
+    def code(self) -> str:
         """De (COPRO/BENOR) code van de overlangse markering."""
         return self._code.get_waarde()
 
@@ -69,7 +69,7 @@ class OverlangseMarkering(AOWSType, Markering, LijnGeometrie):
         self._code.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de markering in meter."""
         return self._lengte.get_waarde()
 
@@ -78,7 +78,7 @@ class OverlangseMarkering(AOWSType, Markering, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van de overlangse markering in vierkante meter."""
         return self._oppervlakte.get_waarde()
 
@@ -87,7 +87,7 @@ class OverlangseMarkering(AOWSType, Markering, LijnGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def positie(self):
+    def positie(self) -> str:
         """Bepaling van het wegdeel van de overlangse markering."""
         return self._positie.get_waarde()
 
@@ -96,7 +96,7 @@ class OverlangseMarkering(AOWSType, Markering, LijnGeometrie):
         self._positie.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van overlangse markering."""
         return self._type.get_waarde()
 

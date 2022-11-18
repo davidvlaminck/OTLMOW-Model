@@ -2,12 +2,12 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.Datatypes.KlANPRMerk import KlANPRMerk
 from otlmow_model.Datatypes.KlANPRModelnaam import KlANPRModelnaam
 from otlmow_model.Datatypes.KlAlgRijrichting import KlAlgRijrichting
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -89,7 +89,7 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
                                              owner=self)
 
     @property
-    def dnsNaam(self):
+    def dnsNaam(self) -> str:
         """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
@@ -98,7 +98,7 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
         self._dnsNaam.set_waarde(value, owner=self)
 
     @property
-    def heeftFlits(self):
+    def heeftFlits(self) -> bool:
         """Geeft aan of de camera een externe infrarood flits heeft."""
         return self._heeftFlits.get_waarde()
 
@@ -107,7 +107,7 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
         self._heeftFlits.set_waarde(value, owner=self)
 
     @property
-    def ipAdres(self):
+    def ipAdres(self) -> DteIPv4AdresWaarden:
         """IP-adres van de ANPR-camera."""
         return self._ipAdres.get_waarde()
 
@@ -116,7 +116,7 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
         self._ipAdres.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de ANPR-camera."""
         return self._merk.get_waarde()
 
@@ -125,7 +125,7 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de ANPR-camera."""
         return self._modelnaam.get_waarde()
 
@@ -134,7 +134,7 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def opstelhoogte(self):
+    def opstelhoogte(self) -> KwantWrdInMeterWaarden:
         """De hoogte waarop de camera bevestigd is, gemeten ten opzichte van het maaiveld waarin de draagconstructie voor de camera verankerd is."""
         return self._opstelhoogte.get_waarde()
 
@@ -143,7 +143,7 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
         self._opstelhoogte.set_waarde(value, owner=self)
 
     @property
-    def rijrichting(self):
+    def rijrichting(self) -> str:
         """De rijrichting van de voertuigen die door de camera geregistreerd worden."""
         return self._rijrichting.get_waarde()
 
@@ -152,7 +152,7 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
         self._rijrichting.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Technische fiche van dit element."""
         return self._technischeFiche.get_waarde()
 

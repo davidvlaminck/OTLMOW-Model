@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.ConstructieElement import ConstructieElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlDamwandMateriaal import KlDamwandMateriaal
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -62,7 +62,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                           owner=self)
 
     @property
-    def isWaterdicht(self):
+    def isWaterdicht(self) -> bool:
         """Geeft aan of de damwand al dan niet waterdicht is."""
         return self._isWaterdicht.get_waarde()
 
@@ -71,7 +71,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
         self._isWaterdicht.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit de damwand bestaat."""
         return self._materiaal.get_waarde()
 
@@ -80,7 +80,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De totale oppervlakte van de damwandconstructie in vierkante meter."""
         return self._oppervlakte.get_waarde()
 
@@ -89,7 +89,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def profiellengte(self):
+    def profiellengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van één damwandprofiel."""
         return self._profiellengte.get_waarde()
 
@@ -98,7 +98,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
         self._profiellengte.set_waarde(value, owner=self)
 
     @property
-    def totaleLengte(self):
+    def totaleLengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte van de damwandconstructie in lopende meter."""
         return self._totaleLengte.get_waarde()
 

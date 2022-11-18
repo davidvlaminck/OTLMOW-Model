@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Buitenkast import Buitenkast
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -46,7 +46,7 @@ class Montagekast(Buitenkast):
                                           owner=self)
 
     @property
-    def eplanMechanischPlan(self):
+    def eplanMechanischPlan(self) -> DtcDocumentWaarden:
         """Elektrisch aansluitschema van de kast en mechanisch plan van de volledige installatie in de kast."""
         return self._eplanMechanischPlan.get_waarde()
 
@@ -55,7 +55,7 @@ class Montagekast(Buitenkast):
         self._eplanMechanischPlan.set_waarde(value, owner=self)
 
     @property
-    def opstelhoogte(self):
+    def opstelhoogte(self) -> KwantWrdInMeterWaarden:
         """De afstand tussen het maaiveld en de bovenrand van de montagekast in meter."""
         return self._opstelhoogte.get_waarde()
 

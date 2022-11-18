@@ -5,7 +5,7 @@ from otlmow_model.Classes.Abstracten.LijnvormigElement import LijnvormigElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlLEKantopsluitingKleur import KlLEKantopsluitingKleur
 from otlmow_model.Datatypes.KlLEKantopsluitingSoort import KlLEKantopsluitingSoort
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -67,7 +67,7 @@ class Kantopsluiting(LijnvormigElement, LijnGeometrie):
                                           owner=self)
 
     @property
-    def isGeprefabriceerd(self):
+    def isGeprefabriceerd(self) -> bool:
         """Aanduiding of de kantopsluiting al dan niet is geprefabriceerd."""
         return self._isGeprefabriceerd.get_waarde()
 
@@ -76,7 +76,7 @@ class Kantopsluiting(LijnvormigElement, LijnGeometrie):
         self._isGeprefabriceerd.set_waarde(value, owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> str:
         """De kleur van kantopsluiting."""
         return self._kleur.get_waarde()
 
@@ -85,7 +85,7 @@ class Kantopsluiting(LijnvormigElement, LijnGeometrie):
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def soort(self):
+    def soort(self) -> str:
         """De soort van kantopsluiting."""
         return self._soort.get_waarde()
 
@@ -94,7 +94,7 @@ class Kantopsluiting(LijnvormigElement, LijnGeometrie):
         self._soort.set_waarde(value, owner=self)
 
     @property
-    def totaleLengte(self):
+    def totaleLengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte van de geplaatste constructie van kantopsluitingen in meter."""
         return self._totaleLengte.get_waarde()
 

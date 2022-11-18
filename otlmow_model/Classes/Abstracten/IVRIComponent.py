@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Onderdeel.Software import Software
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlIVRIBaseline import KlIVRIBaseline
 
 
@@ -35,7 +35,7 @@ class IVRIComponent(Software):
                                          owner=self)
 
     @property
-    def baseline(self):
+    def baseline(self) -> str:
         """Specificatieversie van het protocol waarop de iVRI component werkt."""
         return self._baseline.get_waarde()
 
@@ -44,7 +44,7 @@ class IVRIComponent(Software):
         self._baseline.set_waarde(value, owner=self)
 
     @property
-    def certificaat(self):
+    def certificaat(self) -> DtcDocumentWaarden:
         """Certificaat van de keuringsinstantie dat wordt uitgereikt aan een iVRI (intelligente verkeersregelaar) component. """
         return self._certificaat.get_waarde()
 

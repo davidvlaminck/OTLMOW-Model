@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres
+from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
@@ -48,7 +48,7 @@ class VLAN(NaampadObject, GeenGeometrie):
                                     owner=self)
 
     @property
-    def defaultGateway(self):
+    def defaultGateway(self) -> DteIPv4AdresWaarden:
         """Het IP adres van de gateway. Binnen een deelnetwerk is de Gateway de toegangspoort tot het ruimere netwerk."""
         return self._defaultGateway.get_waarde()
 
@@ -57,7 +57,7 @@ class VLAN(NaampadObject, GeenGeometrie):
         self._defaultGateway.set_waarde(value, owner=self)
 
     @property
-    def ipMask(self):
+    def ipMask(self) -> DteIPv4AdresWaarden:
         """Bepaalt welke range van IP adressen beschikbaar zijn in een netwerk."""
         return self._ipMask.get_waarde()
 
@@ -66,7 +66,7 @@ class VLAN(NaampadObject, GeenGeometrie):
         self._ipMask.set_waarde(value, owner=self)
 
     @property
-    def ipSubnet(self):
+    def ipSubnet(self) -> DteIPv4AdresWaarden:
         """Identificatie van een IP netwerk binnen een ruimer netwerk."""
         return self._ipSubnet.get_waarde()
 
@@ -75,7 +75,7 @@ class VLAN(NaampadObject, GeenGeometrie):
         self._ipSubnet.set_waarde(value, owner=self)
 
     @property
-    def vlanId(self):
+    def vlanId(self) -> int:
         """Identificeert een VLAN met een getal tussen 0 en 4095."""
         return self._vlanId.get_waarde()
 

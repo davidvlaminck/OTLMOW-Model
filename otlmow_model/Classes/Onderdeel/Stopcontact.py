@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlStopcontactAantalPolen import KlStopcontactAantalPolen
-from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere
-from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
+from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
+from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -43,7 +43,7 @@ class Stopcontact(AIMObject, PuntGeometrie):
                                            owner=self)
 
     @property
-    def aantalPolen(self):
+    def aantalPolen(self) -> str:
         """Typering van het stopcontact volgens het aantal polen op basis van een keuzelijst."""
         return self._aantalPolen.get_waarde()
 
@@ -52,7 +52,7 @@ class Stopcontact(AIMObject, PuntGeometrie):
         self._aantalPolen.set_waarde(value, owner=self)
 
     @property
-    def spanning(self):
+    def spanning(self) -> KwantWrdInVoltWaarden:
         """De voorziene spanning voor het stopcontact."""
         return self._spanning.get_waarde()
 
@@ -61,7 +61,7 @@ class Stopcontact(AIMObject, PuntGeometrie):
         self._spanning.set_waarde(value, owner=self)
 
     @property
-    def stroomsterkte(self):
+    def stroomsterkte(self) -> KwantWrdInAmpereWaarden:
         """Maximale stroomsterkte van het stopcontact uitgedrukt in ampère."""
         return self._stroomsterkte.get_waarde()
 

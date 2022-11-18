@@ -4,8 +4,8 @@ from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlLEDDriverMerk import KlLEDDriverMerk
 from otlmow_model.Datatypes.KlLEDDriverModelnaam import KlLEDDriverModelnaam
 from otlmow_model.Datatypes.KlLEDDriverProtocol import KlLEDDriverProtocol
-from otlmow_model.Datatypes.KwantWrdInMilliAmpere import KwantWrdInMilliAmpere
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInMilliAmpere import KwantWrdInMilliAmpere, KwantWrdInMilliAmpereWaarden
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -65,7 +65,7 @@ class LEDDriver(AIMObject, PuntGeometrie):
                                       owner=self)
 
     @property
-    def maximaalVermogen(self):
+    def maximaalVermogen(self) -> KwantWrdInWattWaarden:
         """Maximaal afgenomen vermogen van de driver en lamp/lichtbron samen (incl. verlies/verbruik van de driver zelf)."""
         return self._maximaalVermogen.get_waarde()
 
@@ -74,7 +74,7 @@ class LEDDriver(AIMObject, PuntGeometrie):
         self._maximaalVermogen.set_waarde(value, owner=self)
 
     @property
-    def maximaleAanstuurstroom(self):
+    def maximaleAanstuurstroom(self) -> KwantWrdInMilliAmpereWaarden:
         """Maximale aanstuurstroom die de LED-driver kan leveren."""
         return self._maximaleAanstuurstroom.get_waarde()
 
@@ -83,7 +83,7 @@ class LEDDriver(AIMObject, PuntGeometrie):
         self._maximaleAanstuurstroom.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de LED-driver."""
         return self._merk.get_waarde()
 
@@ -92,7 +92,7 @@ class LEDDriver(AIMObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de LED-driver."""
         return self._modelnaam.get_waarde()
 
@@ -101,7 +101,7 @@ class LEDDriver(AIMObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def protocol(self):
+    def protocol(self) -> str:
         """Protocol gebruikt door de LED-driver voor het aansturen van de LED's."""
         return self._protocol.get_waarde()
 

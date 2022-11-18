@@ -31,7 +31,7 @@ class Struweel(HoutigeVegetatie, VlakGeometrie):
                                                owner=self)
 
     @property
-    def huidigNatuurbeeld(self):
+    def huidigNatuurbeeld(self) -> str:
         """Bepaling van het vegetatietype op basis van terreininventarisatie."""
         return self._huidigNatuurbeeld.get_waarde()
 
@@ -40,7 +40,7 @@ class Struweel(HoutigeVegetatie, VlakGeometrie):
         self._huidigNatuurbeeld.set_waarde(value, owner=self)
 
     @property
-    def natuurstreefbeeld(self):
+    def natuurstreefbeeld(self) -> str:
         """Een natuurstreefbeeld is een nagestreefd biotoop, mozaïek van biotopen of een leefgebied van een soort dat je wil behouden of verkrijgen via een goed natuurbeheer.
 In het definitief plan van type twee, drie of vier wordt het ecologisch einddoel vastgesteld aan de hand van natuurstreefbeelden."""
         return self._natuurstreefbeeld.get_waarde()

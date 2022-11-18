@@ -32,7 +32,7 @@ class DynBordRSS(LEDBord):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk van het dynamische bord."""
         return self._merk.get_waarde()
 
@@ -41,7 +41,7 @@ class DynBordRSS(LEDBord):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van het RSS-bord."""
         return self._modelnaam.get_waarde()
 

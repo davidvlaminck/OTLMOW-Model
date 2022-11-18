@@ -32,7 +32,7 @@ class KabelnetBuis(AIMNaamObject, LijnGeometrie):
                                          owner=self)
 
     @property
-    def kabelnetBuisId(self):
+    def kabelnetBuisId(self) -> int:
         """Uniek nummer uit de Kabelnet toepassing dat de betrokken beschermbuis identificeert."""
         return self._kabelnetBuisId.get_waarde()
 
@@ -41,7 +41,7 @@ class KabelnetBuis(AIMNaamObject, LijnGeometrie):
         self._kabelnetBuisId.set_waarde(value, owner=self)
 
     @property
-    def kabelnetURL(self):
+    def kabelnetURL(self) -> str:
         """De URL waarmee het corresponderend object in Kabelnet rechtstreeks gevonden kan worden in de Kabelnet-toepassing."""
         return self._kabelnetURL.get_waarde()
 

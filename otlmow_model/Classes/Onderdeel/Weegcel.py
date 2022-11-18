@@ -44,7 +44,7 @@ class Weegcel(AIMObject, PuntGeometrie):
                                          owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van het toestel volgens de fabrikant."""
         return self._merk.get_waarde()
 
@@ -53,7 +53,7 @@ class Weegcel(AIMObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van het toestel volgens de fabrikant."""
         return self._modelnaam.get_waarde()
 
@@ -62,7 +62,7 @@ class Weegcel(AIMObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """De unieke identificatie van de fabrikant voor een concreet toestel."""
         return self._serienummer.get_waarde()
 

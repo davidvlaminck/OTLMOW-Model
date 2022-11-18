@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlCameraBeeldverwerkingstype import KlCameraBeeldverwerkingstype
 
 
@@ -26,7 +26,7 @@ class DtcCameraBeeldverwerkingWaarden(WaardenObject):
                                                  owner=self)
 
     @property
-    def configBestand(self):
+    def configBestand(self) -> DtcDocumentWaarden:
         """Een bestand met de details van de configuratie voor het type beeldverwerking dat gekozen is in het type-attribuut van de instantie."""
         return self._configBestand.get_waarde()
 
@@ -35,7 +35,7 @@ class DtcCameraBeeldverwerkingWaarden(WaardenObject):
         self._configBestand.set_waarde(value, owner=self._parent)
 
     @property
-    def typeBeeldverwerking(self):
+    def typeBeeldverwerking(self) -> str:
         """Geeft aan welk type beeldverwerking als onlosmakelijk deel van de camera geconfigureerd is."""
         return self._typeBeeldverwerking.get_waarde()
 

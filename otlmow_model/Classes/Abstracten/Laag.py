@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlLaagRol import KlLaagRol
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -129,7 +129,7 @@ class Laag(AIMObject):
                                          owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMeterWaarden:
         """De (gemiddelde) breedte van een laag in meter. Dit kan ook de nominale breedte zijn afhankelijk van de laag en situatie."""
         return self._breedte.get_waarde()
 
@@ -138,7 +138,7 @@ class Laag(AIMObject):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def laagRol(self):
+    def laagRol(self) -> str:
         """De functie die de laag vervult in de verticale opbouw."""
         return self._laagRol.get_waarde()
 
@@ -147,7 +147,7 @@ class Laag(AIMObject):
         self._laagRol.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De (gemiddelde) lengte van een laag in meter. Dit kan ook de nominale lengte zijn afhankelijk van de laag en situatie."""
         return self._lengte.get_waarde()
 
@@ -156,7 +156,7 @@ class Laag(AIMObject):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van een laag in vierkante meter."""
         return self._oppervlakte.get_waarde()
 

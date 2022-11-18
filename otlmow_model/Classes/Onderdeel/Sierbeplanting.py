@@ -1,7 +1,8 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BegroeidVoorkomen import BegroeidVoorkomen
-from otlmow_model.Datatypes.DtcSierbeplAanleg import DtcSierbeplAanleg
+from otlmow_model.Datatypes.DtcSierbeplAanleg import DtcSierbeplAanleg, DtcSierbeplAanlegWaarden
 from otlmow_model.Datatypes.KlSierbeplantingType import KlSierbeplantingType
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -35,7 +36,7 @@ class Sierbeplanting(BegroeidVoorkomen, VlakGeometrie):
                                   owner=self)
 
     @property
-    def aanleg(self):
+    def aanleg(self) -> DtcSierbeplAanlegWaarden:
         """De manier van aanplanten van de sierbeplanting."""
         return self._aanleg.get_waarde()
 
@@ -44,7 +45,7 @@ class Sierbeplanting(BegroeidVoorkomen, VlakGeometrie):
         self._aanleg.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> List[str]:
         """Type van sierbeplanting."""
         return self._type.get_waarde()
 

@@ -30,7 +30,7 @@ class Draineerbuis(Buis):
                                        owner=self)
 
     @property
-    def heeftDrainbrug(self):
+    def heeftDrainbrug(self) -> bool:
         """Aanduiding of er al dan niet een profiel onderaan de draineerbuis aanwezig is om zettingen te vermijden."""
         return self._heeftDrainbrug.get_waarde()
 
@@ -39,7 +39,7 @@ class Draineerbuis(Buis):
         self._heeftDrainbrug.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Bepaalt het materiaal van de draineerbuis."""
         return self._materiaal.get_waarde()
 

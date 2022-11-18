@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
-from otlmow_model.Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm
-from otlmow_model.Datatypes.DtcAfmetingDiameterInCm import DtcAfmetingDiameterInCm
+from otlmow_model.Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm, DtcAfmetingBxlInCmWaarden
+from otlmow_model.Datatypes.DtcAfmetingDiameterInCm import DtcAfmetingDiameterInCm, DtcAfmetingDiameterInCmWaarden
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
@@ -27,7 +27,7 @@ class DtuAfmetingGrondvlakWaarden(UnionWaarden):
                                   owner=self)
 
     @property
-    def rechthoekig(self):
+    def rechthoekig(self) -> DtcAfmetingBxlInCmWaarden:
         """Afmetingen voor breedte en lengte of diepte. De breedte meet van links naar rechts in vooraanzicht, de lengte van voor naar achter."""
         return self._rechthoekig.get_waarde()
 
@@ -38,7 +38,7 @@ class DtuAfmetingGrondvlakWaarden(UnionWaarden):
             self.clear_other_props('_rechthoekig')
 
     @property
-    def rond(self):
+    def rond(self) -> DtcAfmetingDiameterInCmWaarden:
         """Afmeting van de diameter in centimeter van een rond (grond)vlak."""
         return self._rond.get_waarde()
 

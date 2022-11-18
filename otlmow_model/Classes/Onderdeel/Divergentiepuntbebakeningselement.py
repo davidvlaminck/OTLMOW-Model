@@ -38,7 +38,7 @@ class Divergentiepuntbebakeningselement(Signalisatie, AIMObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def folietype(self):
+    def folietype(self) -> str:
         """Het type folie dat bevestigd is aan het Divergentiepuntbebakeningselement."""
         return self._folietype.get_waarde()
 
@@ -47,7 +47,7 @@ class Divergentiepuntbebakeningselement(Signalisatie, AIMObject, PuntGeometrie):
         self._folietype.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De vormen van het divergentiepuntbebakeningselement."""
         return self._type.get_waarde()
 

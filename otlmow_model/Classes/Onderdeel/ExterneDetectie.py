@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Detectie import Detectie
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcNatuurlijkPersoon import DtcNatuurlijkPersoon
-from otlmow_model.Datatypes.DtcRechtspersoon import DtcRechtspersoon
+from otlmow_model.Datatypes.DtcNatuurlijkPersoon import DtcNatuurlijkPersoon, DtcNatuurlijkPersoonWaarden
+from otlmow_model.Datatypes.DtcRechtspersoon import DtcRechtspersoon, DtcRechtspersoonWaarden
 from otlmow_model.Datatypes.KlExternedetectieAangeslotentoestel import KlExternedetectieAangeslotentoestel
 from otlmow_model.Datatypes.KlExternedetectieCommunicatiewijze import KlExternedetectieCommunicatiewijze
 from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
@@ -56,7 +56,7 @@ class ExterneDetectie(Detectie, GeenGeometrie):
                                               owner=self)
 
     @property
-    def aangeslotenToestel(self):
+    def aangeslotenToestel(self) -> str:
         """Type aangesloten toestel (trein, brug, FCD)."""
         return self._aangeslotenToestel.get_waarde()
 
@@ -65,7 +65,7 @@ class ExterneDetectie(Detectie, GeenGeometrie):
         self._aangeslotenToestel.set_waarde(value, owner=self)
 
     @property
-    def communicatiewijze(self):
+    def communicatiewijze(self) -> str:
         """De manier waarop de externe detectie communiceert met de verkeersregelaar."""
         return self._communicatiewijze.get_waarde()
 
@@ -74,7 +74,7 @@ class ExterneDetectie(Detectie, GeenGeometrie):
         self._communicatiewijze.set_waarde(value, owner=self)
 
     @property
-    def contactpersoon(self):
+    def contactpersoon(self) -> DtcNatuurlijkPersoonWaarden:
         """Naam, voornaam en telefoonnummer van de contactpersoon."""
         return self._contactpersoon.get_waarde()
 
@@ -83,7 +83,7 @@ class ExterneDetectie(Detectie, GeenGeometrie):
         self._contactpersoon.set_waarde(value, owner=self)
 
     @property
-    def eigenaar(self):
+    def eigenaar(self) -> DtcRechtspersoonWaarden:
         """Eigenaar van het aangesloten toestel/systeem."""
         return self._eigenaar.get_waarde()
 
@@ -92,7 +92,7 @@ class ExterneDetectie(Detectie, GeenGeometrie):
         self._eigenaar.set_waarde(value, owner=self)
 
     @property
-    def heeftHandshaking(self):
+    def heeftHandshaking(self) -> bool:
         """Bij handshaking wordt gebruikt gemaakt van 2 contacten (maak / verbreek) om zeker te zijn dat het een valide signaal betreft (en geen kabelbreuk of gelijkwaardig)."""
         return self._heeftHandshaking.get_waarde()
 

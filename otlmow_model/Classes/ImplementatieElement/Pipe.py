@@ -40,7 +40,7 @@ class Pipe(Leiding, OmhullendeInrichting):
                                          owner=self)
 
     @property
-    def containerType(self):
+    def containerType(self) -> str:
         """Attribuut dat het soort van kabel- en leidingcontainer aangeeft."""
         return self._containerType.get_waarde()
 
@@ -49,7 +49,7 @@ class Pipe(Leiding, OmhullendeInrichting):
         self._containerType.set_waarde(value, owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> str:
         """Kleur van buitenmantel volgens een vaste lijst."""
         return self._kleur.get_waarde()
 
@@ -58,7 +58,7 @@ class Pipe(Leiding, OmhullendeInrichting):
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def netwerkType(self):
+    def netwerkType(self) -> str:
         """Geeft aan bij welk type nutsvoorzieningennet de kabelmof hoort volgens de types uit IMKL en Inspire."""
         return self._netwerkType.get_waarde()
 

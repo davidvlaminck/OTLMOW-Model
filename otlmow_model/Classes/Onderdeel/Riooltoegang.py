@@ -28,7 +28,7 @@ class Riooltoegang(Put, PutRelatie, PuntGeometrie):
                                               owner=self)
 
     @property
-    def typeRiooltoegang(self):
+    def typeRiooltoegang(self) -> str:
         """Bepaalt het type van een riooltoegang."""
         return self._typeRiooltoegang.get_waarde()
 

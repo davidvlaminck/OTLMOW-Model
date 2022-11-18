@@ -1,13 +1,14 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Leiding import Leiding
 from otlmow_model.Classes.Abstracten.OmhullendeInrichting import OmhullendeInrichting
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DteTekstblok import DteTekstblok
+from otlmow_model.Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from otlmow_model.Datatypes.KlBeschermbuisKleur import KlBeschermbuisKleur
 from otlmow_model.Datatypes.KlBeschermbuisMateriaal import KlBeschermbuisMateriaal
 from otlmow_model.Datatypes.KlKabelLeidingBescherming import KlKabelLeidingBescherming
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -73,7 +74,7 @@ Bij een discrepantie tussen de waarde van dit attribuut en de waarde in TAW uit 
                                                 owner=self)
 
     @property
-    def indicatieveDiepte(self):
+    def indicatieveDiepte(self) -> KwantWrdInMeterWaarden:
         """De opgemeten diepte als een (positief) getal in meter tussen het hoogste punt van de buis en het maaiveld zoals dit gekend was op het moment van aanleg van de buis."""
         return self._indicatieveDiepte.get_waarde()
 
@@ -82,7 +83,7 @@ Bij een discrepantie tussen de waarde van dit attribuut en de waarde in TAW uit 
         self._indicatieveDiepte.set_waarde(value, owner=self)
 
     @property
-    def isFlexibel(self):
+    def isFlexibel(self) -> bool:
         """Geeft aan of de beschermbuis flexibel is. Zo niet, dan spreken we van een vaste buis."""
         return self._isFlexibel.get_waarde()
 
@@ -91,7 +92,7 @@ Bij een discrepantie tussen de waarde van dit attribuut en de waarde in TAW uit 
         self._isFlexibel.set_waarde(value, owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> str:
         """De kleur van de buitenkant van de beschermbuis."""
         return self._kleur.get_waarde()
 
@@ -100,7 +101,7 @@ Bij een discrepantie tussen de waarde van dit attribuut en de waarde in TAW uit 
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Typering van de beschermbuis volgens het materiaal waaruit ze (hoofdzakelijk) gemaakt is."""
         return self._materiaal.get_waarde()
 
@@ -109,7 +110,7 @@ Bij een discrepantie tussen de waarde van dit attribuut en de waarde in TAW uit 
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def typeBescherming(self):
+    def typeBescherming(self) -> List[str]:
         """Geeft aan of en hoe de leiding bijkomend mechanisch beschermd nadat ze in de sleuf gelegd is."""
         return self._typeBescherming.get_waarde()
 
@@ -118,7 +119,7 @@ Bij een discrepantie tussen de waarde van dit attribuut en de waarde in TAW uit 
         self._typeBescherming.set_waarde(value, owner=self)
 
     @property
-    def voorzorgsmaatregel(self):
+    def voorzorgsmaatregel(self) -> DteTekstblokWaarden:
         """Omschrijving van bijzondere omstandigheden waarmee rekening moet gehouden bv. bij werken in de buurt van de asset."""
         return self._voorzorgsmaatregel.get_waarde()
 

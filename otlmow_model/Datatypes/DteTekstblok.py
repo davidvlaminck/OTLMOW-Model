@@ -17,7 +17,7 @@ class DteTekstblokWaarden(WaardenObject):
                                     owner=self)
 
     @property
-    def waarde(self):
+    def waarde(self) -> str:
         """De string welke uit meerdere zinnen bestaat, en ook regeleindes kan bevatten. Een tekstblok bevat maximaal 65.000 karakters."""
         return self._waarde.get_waarde()
 

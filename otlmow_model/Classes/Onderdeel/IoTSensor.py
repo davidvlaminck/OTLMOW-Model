@@ -1,7 +1,8 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcCompacteBatterij import DtcCompacteBatterij
+from otlmow_model.Datatypes.DtcCompacteBatterij import DtcCompacteBatterij, DtcCompacteBatterijWaarden
 from otlmow_model.Datatypes.KlIoTSensorMerk import KlIoTSensorMerk
 from otlmow_model.Datatypes.KlIoTSensorModelnaam import KlIoTSensorModelnaam
 from otlmow_model.Datatypes.KlIoTSensorParameter import KlIoTSensorParameter
@@ -69,7 +70,7 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
                                             owner=self)
 
     @property
-    def batterij(self):
+    def batterij(self) -> DtcCompacteBatterijWaarden:
         """Bevat de informatie van de inwendige compacte batterij."""
         return self._batterij.get_waarde()
 
@@ -78,7 +79,7 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
         self._batterij.set_waarde(value, owner=self)
 
     @property
-    def gemetenParameters(self):
+    def gemetenParameters(self) -> List[str]:
         """De mogelijke parameters die kunnen gemeten worden door de IoT-sensor."""
         return self._gemetenParameters.get_waarde()
 
@@ -87,7 +88,7 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
         self._gemetenParameters.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van een IoT-sensor."""
         return self._merk.get_waarde()
 
@@ -96,7 +97,7 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van een IoT-sensor."""
         return self._modelnaam.get_waarde()
 
@@ -105,7 +106,7 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Het unieke nummer waarmee het toestel door de fabrikant geïdentificeerd is."""
         return self._serienummer.get_waarde()
 
@@ -114,7 +115,7 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
         self._serienummer.set_waarde(value, owner=self)
 
     @property
-    def typeVerbinding(self):
+    def typeVerbinding(self) -> str:
         """De manier van de communicatieverbinding van de IoT-sensor."""
         return self._typeVerbinding.get_waarde()
 

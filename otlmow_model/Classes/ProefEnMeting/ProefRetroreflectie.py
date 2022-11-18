@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -30,7 +30,7 @@ class ProefRetroreflectie(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                             owner=self)
 
     @property
-    def retroreflectie(self):
+    def retroreflectie(self) -> DtcDocumentWaarden:
         """Proef om de retroreflectie van een verkeersbord te bepalen."""
         return self._retroreflectie.get_waarde()
 

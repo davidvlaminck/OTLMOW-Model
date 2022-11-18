@@ -36,7 +36,7 @@ class PTRegelaarModule(AIMNaamObject, PuntGeometrie):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de PT regelaar module."""
         return self._merk.get_waarde()
 
@@ -45,7 +45,7 @@ class PTRegelaarModule(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van de PT regelaar module."""
         return self._modelnaam.get_waarde()
 

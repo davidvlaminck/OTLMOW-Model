@@ -30,7 +30,7 @@ class Kabelgoot(Kabelgeleiding):
                                        owner=self)
 
     @property
-    def isGesloten(self):
+    def isGesloten(self) -> bool:
         """Geeft aan of de goot volledig gesloten is."""
         return self._isGesloten.get_waarde()
 
@@ -39,7 +39,7 @@ class Kabelgoot(Kabelgeleiding):
         self._isGesloten.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit de kabelgoot (hoofdzakelijk) is gemaakt."""
         return self._materiaal.get_waarde()
 

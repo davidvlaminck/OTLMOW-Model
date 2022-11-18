@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AndereLaag import AndereLaag
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlGeotextielType import KlGeotextielType
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -60,7 +61,7 @@ class Geotextiel(AndereLaag, VlakGeometrie):
                                   owner=self)
 
     @property
-    def heeftVulling(self):
+    def heeftVulling(self) -> bool:
         """Aanduiding of er vulling zoals bv. houtsnippers, grind,... in een omhulsel van geotextiel aanwezig is."""
         return self._heeftVulling.get_waarde()
 
@@ -69,7 +70,7 @@ class Geotextiel(AndereLaag, VlakGeometrie):
         self._heeftVulling.set_waarde(value, owner=self)
 
     @property
-    def isBiodegradeerbaar(self):
+    def isBiodegradeerbaar(self) -> bool:
         """Aanduiding of het geotextiel al dan niet biologisch degradeerbaar is."""
         return self._isBiodegradeerbaar.get_waarde()
 
@@ -78,7 +79,7 @@ class Geotextiel(AndereLaag, VlakGeometrie):
         self._isBiodegradeerbaar.set_waarde(value, owner=self)
 
     @property
-    def isIngezaaid(self):
+    def isIngezaaid(self) -> bool:
         """Aanduiding of er in het geotextiel zaden aanwezig zijn."""
         return self._isIngezaaid.get_waarde()
 
@@ -87,7 +88,7 @@ class Geotextiel(AndereLaag, VlakGeometrie):
         self._isIngezaaid.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van het geotextiel."""
         return self._technischeFiche.get_waarde()
 
@@ -96,7 +97,7 @@ class Geotextiel(AndereLaag, VlakGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type geotextiel."""
         return self._type.get_waarde()
 

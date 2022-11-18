@@ -1,10 +1,10 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlOverstortrandMateriaal import KlOverstortrandMateriaal
 from otlmow_model.Datatypes.KlVariabelDeelType import KlVariabelDeelType
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -64,7 +64,7 @@ class Overstortrand(AIMObject, VlakGeometrie):
                                        owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMillimeterWaarden:
         """De afstand tussen de uiterste zijden van de overstortrand in millimeter."""
         return self._breedte.get_waarde()
 
@@ -73,7 +73,7 @@ class Overstortrand(AIMObject, VlakGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMillimeterWaarden:
         """De afstand tussen de vaste drempel en het hoogste punt van de overstortrand in millimeter."""
         return self._hoogte.get_waarde()
 
@@ -82,7 +82,7 @@ class Overstortrand(AIMObject, VlakGeometrie):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit de overstortrand vervaardigd is."""
         return self._materiaal.get_waarde()
 
@@ -91,7 +91,7 @@ class Overstortrand(AIMObject, VlakGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van de de overstortrand."""
         return self._technischeFiche.get_waarde()
 
@@ -100,7 +100,7 @@ class Overstortrand(AIMObject, VlakGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def variabelDeelType(self):
+    def variabelDeelType(self) -> str:
         """Bepaalt het type van het variabel deel van de overstortrand."""
         return self._variabelDeelType.get_waarde()
 
@@ -109,7 +109,7 @@ class Overstortrand(AIMObject, VlakGeometrie):
         self._variabelDeelType.set_waarde(value, owner=self)
 
     @property
-    def wanddikte(self):
+    def wanddikte(self) -> KwantWrdInMillimeterWaarden:
         """De wanddikte van de overstortrand in millimeter."""
         return self._wanddikte.get_waarde()
 

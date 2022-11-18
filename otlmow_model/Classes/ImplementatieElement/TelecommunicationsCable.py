@@ -30,7 +30,7 @@ class TelecommunicationsCable(Kabel):
                                       owner=self)
 
     @property
-    def materiaalType(self):
+    def materiaalType(self) -> str:
         """De indeling van het type volgens soort en materiaal van de kabel conform de indeling in IMKL."""
         return self._materiaalType.get_waarde()
 
@@ -39,7 +39,7 @@ class TelecommunicationsCable(Kabel):
         self._materiaalType.set_waarde(value, owner=self)
 
     @property
-    def subthema(self):
+    def subthema(self) -> str:
         """Classificatie van een kabel, leiding, of leidingelementen volgens het thematisch domein waar deze toe behoren."""
         return self._subthema.get_waarde()
 

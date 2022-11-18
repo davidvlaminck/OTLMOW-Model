@@ -1,13 +1,14 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcVegetatieSoortnaam import DtcVegetatieSoortnaam
+from otlmow_model.Datatypes.DtcVegetatieSoortnaam import DtcVegetatieSoortnaam, DtcVegetatieSoortnaamWaarden
 from otlmow_model.Datatypes.KlTaludWaarde import KlTaludWaarde
 from otlmow_model.Datatypes.KlVegetatieDrassigheid import KlVegetatieDrassigheid
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -110,7 +111,7 @@ class BegroeidVoorkomen(AIMObject):
                                          owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMeterWaarden:
         """De afstand van het begroeide oppervlak dwars op de as van de (water)weg."""
         return self._breedte.get_waarde()
 
@@ -119,7 +120,7 @@ class BegroeidVoorkomen(AIMObject):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def drassigheid(self):
+    def drassigheid(self) -> str:
         """Mate waarin de bodem verzadigd is met water. De drassigheid geeft hierbij aan in welke mate de normale werking van types machines zou kunnen verstoord worden."""
         return self._drassigheid.get_waarde()
 
@@ -128,7 +129,7 @@ class BegroeidVoorkomen(AIMObject):
         self._drassigheid.set_waarde(value, owner=self)
 
     @property
-    def heeftObstakels(self):
+    def heeftObstakels(self) -> bool:
         """Eigenschap die aangeeft of er binnen het beheerdeel al dan niet objecten voorkomen die de vrije werking van machines of andere werktuigen kan verhinderen."""
         return self._heeftObstakels.get_waarde()
 
@@ -137,7 +138,7 @@ class BegroeidVoorkomen(AIMObject):
         self._heeftObstakels.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De afstand van het begroeide oppervlak evenwijdig met de as van de (water)weg."""
         return self._lengte.get_waarde()
 
@@ -146,7 +147,7 @@ class BegroeidVoorkomen(AIMObject):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van het begroeide oppervlak in vierkante meter."""
         return self._oppervlakte.get_waarde()
 
@@ -155,7 +156,7 @@ class BegroeidVoorkomen(AIMObject):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def soort(self):
+    def soort(self) -> List[DtcVegetatieSoortnaamWaarden]:
         """Met deze eigenschap worden de Nederlandse soortnaam, wetenschappelijke soortnaam en de soortcode van de meest voorkomende soorten binnen het begroeid oppervlak weergegeven."""
         return self._soort.get_waarde()
 
@@ -164,7 +165,7 @@ class BegroeidVoorkomen(AIMObject):
         self._soort.set_waarde(value, owner=self)
 
     @property
-    def taludwaarde(self):
+    def taludwaarde(self) -> str:
         """Een talud is het kunstmatig gedeelte van een vlak van de wegbaan, dijken, spoorbanen, vestingswerken, ... dat een helling (min. 20%, max 80% voor kunstmatig verharde taluds) vertoont en bedoeld voor het opvangen van een hoogteverschil."""
         return self._taludwaarde.get_waarde()
 

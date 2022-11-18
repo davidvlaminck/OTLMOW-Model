@@ -61,7 +61,7 @@ class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
                                        owner=self)
 
     @property
-    def ipKlasse(self):
+    def ipKlasse(self) -> str:
         """De IP-codering als een aanduiding voor de mate van beveiliging van de constructie van elektrische of elektronische apparatuur tegen eigen schade door gebruik in "vijandige omgevingen" en tegen eventueel gevaar voor de gebruiker volgens IEC 60529."""
         return self._ipKlasse.get_waarde()
 
@@ -70,7 +70,7 @@ class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
         self._ipKlasse.set_waarde(value, owner=self)
 
     @property
-    def isBeschermd(self):
+    def isBeschermd(self) -> bool:
         """Geeft aan of het toestel beschermd wordt tegen aanrijdingen of niet."""
         return self._isBeschermd.get_waarde()
 
@@ -79,7 +79,7 @@ class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
         self._isBeschermd.set_waarde(value, owner=self)
 
     @property
-    def meetCO(self):
+    def meetCO(self) -> bool:
         """Geeft aan of het meettoestel CO in de lucht meet of niet."""
         return self._meetCO.get_waarde()
 
@@ -88,7 +88,7 @@ class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
         self._meetCO.set_waarde(value, owner=self)
 
     @property
-    def meetNoX(self):
+    def meetNoX(self) -> bool:
         """Geeft aan of het meettoestel NOx in de lucht meet of niet."""
         return self._meetNoX.get_waarde()
 
@@ -97,7 +97,7 @@ class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
         self._meetNoX.set_waarde(value, owner=self)
 
     @property
-    def meetTemperatuur(self):
+    def meetTemperatuur(self) -> bool:
         """Geeft aan of het meettoestel de omgevingstemperatuur meet of niet."""
         return self._meetTemperatuur.get_waarde()
 
@@ -106,7 +106,7 @@ class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
         self._meetTemperatuur.set_waarde(value, owner=self)
 
     @property
-    def meetZicht(self):
+    def meetZicht(self) -> bool:
         """Geeft aan of het meettoestel zichtbaarheid meet of niet."""
         return self._meetZicht.get_waarde()
 

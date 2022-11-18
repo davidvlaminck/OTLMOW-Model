@@ -2,10 +2,10 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeterPerSeconde import KwantWrdInKubiekeMeterPerSeconde
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeterPerSeconde import KwantWrdInKubiekeMeterPerSeconde, KwantWrdInKubiekeMeterPerSecondeWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -62,7 +62,7 @@ class Ventilatie(AIMObject, PuntGeometrie):
                                       owner=self)
 
     @property
-    def binnendiameter(self):
+    def binnendiameter(self) -> KwantWrdInMillimeterWaarden:
         """De grootste afstand van de rechte lijn die kan worden getrokken tussen twee punten op de binnenzijde van de ventilatie. Deze rechte lijn gaat altijd door het middelpunt van de ventilatie."""
         return self._binnendiameter.get_waarde()
 
@@ -71,7 +71,7 @@ class Ventilatie(AIMObject, PuntGeometrie):
         self._binnendiameter.set_waarde(value, owner=self)
 
     @property
-    def buitendiameter(self):
+    def buitendiameter(self) -> KwantWrdInMillimeterWaarden:
         """De grootste afstand van de rechte lijn die kan worden getrokken tussen twee punten op de buitenzijde van de ventilatie. Deze rechte lijn gaat altijd door het middelpunt van de ventilatie."""
         return self._buitendiameter.get_waarde()
 
@@ -80,7 +80,7 @@ class Ventilatie(AIMObject, PuntGeometrie):
         self._buitendiameter.set_waarde(value, owner=self)
 
     @property
-    def maximaalDebiet(self):
+    def maximaalDebiet(self) -> KwantWrdInKubiekeMeterWaarden:
         """Maximaal debiet is de grootste hoeveelheid gas of vloeistof die per tijdseenheid door een bepaald oppervlak kan stromen."""
         return self._maximaalDebiet.get_waarde()
 
@@ -89,7 +89,7 @@ class Ventilatie(AIMObject, PuntGeometrie):
         self._maximaalDebiet.set_waarde(value, owner=self)
 
     @property
-    def maximaalVolumedebiet(self):
+    def maximaalVolumedebiet(self) -> KwantWrdInKubiekeMeterPerSecondeWaarden:
         """Maximaal volumedebiet is de grootste hoeveelheid volume aan gas of vloeistof die per tijdseenheid door een bepaald oppervlak kan stromen."""
         return self._maximaalVolumedebiet.get_waarde()
 
@@ -98,7 +98,7 @@ class Ventilatie(AIMObject, PuntGeometrie):
         self._maximaalVolumedebiet.set_waarde(value, owner=self)
 
     @property
-    def vermogen(self):
+    def vermogen(self) -> KwantWrdInWattWaarden:
         """Het vermogen van een ventilatie is de energie die dat het per seconde omzet."""
         return self._vermogen.get_waarde()
 

@@ -1,16 +1,17 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlDekselKaderType import KlDekselKaderType
 from otlmow_model.Datatypes.KlDekselKlasse import KlDekselKlasse
 from otlmow_model.Datatypes.KlDekselMateriaal import KlDekselMateriaal
 from otlmow_model.Datatypes.KlDekselRegeling import KlDekselRegeling
 from otlmow_model.Datatypes.KlDekselVergrendeling import KlDekselVergrendeling
 from otlmow_model.Datatypes.KlRioleringVorm import KlRioleringVorm
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -127,7 +128,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
                                            owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInCentimeterWaarden:
         """Breedte-afmeting van het deksel in centimeter. Bij vierkante en cirkelvormige deksels is deze waarde gelijk aan de hoogte."""
         return self._breedte.get_waarde()
 
@@ -136,7 +137,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def dekselklasse(self):
+    def dekselklasse(self) -> str:
         """Bepaalt de mate waarin het deksel van de bovenbouw belast kan worden door voertuigen."""
         return self._dekselklasse.get_waarde()
 
@@ -145,7 +146,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._dekselklasse.set_waarde(value, owner=self)
 
     @property
-    def dekselvorm(self):
+    def dekselvorm(self) -> str:
         """Bepaalt de vorm van het deksel."""
         return self._dekselvorm.get_waarde()
 
@@ -154,7 +155,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._dekselvorm.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInCentimeterWaarden:
         """Hoogte-afmeting van het deksel in centimeter. Bij vierkante en cirkelvormige deksels is deze waarde gelijk aan de breedte."""
         return self._hoogte.get_waarde()
 
@@ -163,7 +164,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def isAfgesloten(self):
+    def isAfgesloten(self) -> bool:
         """Bepaling of de afsluitinrichting vergrendeld is of niet."""
         return self._isAfgesloten.get_waarde()
 
@@ -172,7 +173,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._isAfgesloten.set_waarde(value, owner=self)
 
     @property
-    def isScharnierend(self):
+    def isScharnierend(self) -> bool:
         """Het deksel is al of niet bevestigd met een scharnier."""
         return self._isScharnierend.get_waarde()
 
@@ -181,7 +182,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._isScharnierend.set_waarde(value, owner=self)
 
     @property
-    def isWaterdichtVergrendeld(self):
+    def isWaterdichtVergrendeld(self) -> bool:
         """Geeft aan of de bovenbouw al dan niet waterdicht vergrendeld is zodat het water zich niet boven de bovenbouw kan begeven."""
         return self._isWaterdichtVergrendeld.get_waarde()
 
@@ -190,7 +191,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._isWaterdichtVergrendeld.set_waarde(value, owner=self)
 
     @property
-    def kader(self):
+    def kader(self) -> str:
         """Bepaalt het type van het dekselkader."""
         return self._kader.get_waarde()
 
@@ -199,7 +200,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._kader.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Het materiaal waaruit het deksel van de bovenbouw is vervaardigd."""
         return self._materiaal.get_waarde()
 
@@ -208,7 +209,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van het zichtbare deel van de bovenbouw in vierkante meter."""
         return self._oppervlakte.get_waarde()
 
@@ -217,7 +218,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def regeling(self):
+    def regeling(self) -> str:
         """De wijze hoe de regeling van het deksel is uitgevoerd."""
         return self._regeling.get_waarde()
 
@@ -226,7 +227,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._regeling.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van de bovenbouw."""
         return self._technischeFiche.get_waarde()
 
@@ -235,7 +236,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def vergrendeling(self):
+    def vergrendeling(self) -> str:
         """Bepaalt het type sleutel voor het ontgrendelen van het deksel."""
         return self._vergrendeling.get_waarde()
 

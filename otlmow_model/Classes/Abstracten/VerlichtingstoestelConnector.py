@@ -21,7 +21,7 @@ class VerlichtingstoestelConnector(ABC):
                                                  owner=self)
 
     @property
-    def besturingsconnector(self):
+    def besturingsconnector(self) -> str:
         """Type van connector verwerkt in de behuizing van het verlichtingstoestel voor de aansluiting van de module voor lokale afstandsbediening en -bewaking."""
         return self._besturingsconnector.get_waarde()
 

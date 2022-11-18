@@ -27,7 +27,7 @@ class VerhardingGrasKunststofplaat(Bestrating):
                                      owner=self)
 
     @property
-    def vulling(self):
+    def vulling(self) -> str:
         """Het gebruikte materiaal als toevoeging in de vrije openingen van de gras-kunststofplaten."""
         return self._vulling.get_waarde()
 

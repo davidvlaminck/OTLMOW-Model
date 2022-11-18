@@ -1,12 +1,13 @@
 # coding=utf-8
+from datetime import date, date, date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Voedingspunt import Voedingspunt
 from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.Datatypes.DtcAdres import DtcAdres
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcRechtspersoon import DtcRechtspersoon
-from otlmow_model.Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAmpere
+from otlmow_model.Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcRechtspersoon import DtcRechtspersoon, DtcRechtspersoonWaarden
+from otlmow_model.Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAmpere, KwantWrdInKiloVoltAmpereWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
@@ -96,7 +97,7 @@ class DNB(Voedingspunt, GeenGeometrie):
                                            owner=self)
 
     @property
-    def aansluitvermogen(self):
+    def aansluitvermogen(self) -> KwantWrdInKiloVoltAmpereWaarden:
         """Vermogen van de aansluiting."""
         return self._aansluitvermogen.get_waarde()
 
@@ -105,7 +106,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._aansluitvermogen.set_waarde(value, owner=self)
 
     @property
-    def adresVolgensDNB(self):
+    def adresVolgensDNB(self) -> DtcAdresWaarden:
         """Het adres van de aansluiting volgens de distributienetbeheerder."""
         return self._adresVolgensDNB.get_waarde()
 
@@ -114,7 +115,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._adresVolgensDNB.set_waarde(value, owner=self)
 
     @property
-    def datumEnergieleveringscontract(self):
+    def datumEnergieleveringscontract(self) -> date:
         """De datum waarop het energieleveringscontract afgesloten is."""
         return self._datumEnergieleveringscontract.get_waarde()
 
@@ -123,7 +124,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._datumEnergieleveringscontract.set_waarde(value, owner=self)
 
     @property
-    def datumOprichting(self):
+    def datumOprichting(self) -> date:
         """Datum waarop de DNB het voedingsbord koppelt met het net."""
         return self._datumOprichting.get_waarde()
 
@@ -132,7 +133,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._datumOprichting.set_waarde(value, owner=self)
 
     @property
-    def datumStartEnergielevering(self):
+    def datumStartEnergielevering(self) -> date:
         """De datum waarop de energielevering effectief aanvangt. Dit gebeurt zodra zowel de aansluiting op het DNB-net als het energieleveringscontract in orde zijn."""
         return self._datumStartEnergielevering.get_waarde()
 
@@ -141,7 +142,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._datumStartEnergielevering.set_waarde(value, owner=self)
 
     @property
-    def eanNummer(self):
+    def eanNummer(self) -> str:
         """Uniek identificatienummer van de elektrische aansluiting, bestaande uit 18 cijfers."""
         return self._eanNummer.get_waarde()
 
@@ -150,7 +151,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._eanNummer.set_waarde(value, owner=self)
 
     @property
-    def energieleverancier(self):
+    def energieleverancier(self) -> DtcRechtspersoonWaarden:
         """Leverancier van de energie."""
         return self._energieleverancier.get_waarde()
 
@@ -159,7 +160,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._energieleverancier.set_waarde(value, owner=self)
 
     @property
-    def netbeheerder(self):
+    def netbeheerder(self) -> DtcRechtspersoonWaarden:
         """Lokale instantie die instaat voor het beheer van het elektriciteitsnet."""
         return self._netbeheerder.get_waarde()
 
@@ -168,7 +169,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._netbeheerder.set_waarde(value, owner=self)
 
     @property
-    def referentieDNB(self):
+    def referentieDNB(self) -> str:
         """De wijze waarop, de referentie waarmee de aansluiting gekend is bij de distributienetbeheerder."""
         return self._referentieDNB.get_waarde()
 
@@ -177,7 +178,7 @@ class DNB(Voedingspunt, GeenGeometrie):
         self._referentieDNB.set_waarde(value, owner=self)
 
     @property
-    def risicoAnalyse(self):
+    def risicoAnalyse(self) -> DtcDocumentWaarden:
         """Document met de risicoanalyse."""
         return self._risicoAnalyse.get_waarde()
 

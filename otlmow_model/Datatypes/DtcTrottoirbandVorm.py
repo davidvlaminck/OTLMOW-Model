@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlLETrottoirbandVorm import KlLETrottoirbandVorm
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -32,7 +32,7 @@ class DtcTrottoirbandVormWaarden(WaardenObject):
                                   owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInCentimeterWaarden:
         """De breedte van de trottoirband."""
         return self._breedte.get_waarde()
 
@@ -41,7 +41,7 @@ class DtcTrottoirbandVormWaarden(WaardenObject):
         self._breedte.set_waarde(value, owner=self._parent)
 
     @property
-    def dikte(self):
+    def dikte(self) -> KwantWrdInCentimeterWaarden:
         """De dikte, ook aanzien als hoogte, van de trottoirband."""
         return self._dikte.get_waarde()
 
@@ -50,7 +50,7 @@ class DtcTrottoirbandVormWaarden(WaardenObject):
         self._dikte.set_waarde(value, owner=self._parent)
 
     @property
-    def vorm(self):
+    def vorm(self) -> str:
         """De vorm van de trottoirband."""
         return self._vorm.get_waarde()
 

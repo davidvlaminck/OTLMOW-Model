@@ -1,10 +1,10 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.EMAfbakening import EMAfbakening
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
@@ -56,7 +56,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
                                            owner=self)
 
     @property
-    def aantalActieveReflectoren(self):
+    def aantalActieveReflectoren(self) -> int:
         """Het aantal actieve reflectoren in de verzameling van reflectoren die hetzelfde obstakel of risico aangeven."""
         return self._aantalActieveReflectoren.get_waarde()
 
@@ -65,7 +65,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
         self._aantalActieveReflectoren.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De afstand tussen de eerste en de laatste actieve reflector in de verzameling gevoed door dezelfde stroomkring. """
         return self._lengte.get_waarde()
 
@@ -74,7 +74,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def nominaalVermogen(self):
+    def nominaalVermogen(self) -> KwantWrdInWattWaarden:
         """Nominale spanning (in volt) van de LED rotondeafbakening."""
         return self._nominaalVermogen.get_waarde()
 
@@ -83,7 +83,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
         self._nominaalVermogen.set_waarde(value, owner=self)
 
     @property
-    def nominaleSpanning(self):
+    def nominaleSpanning(self) -> KwantWrdInVoltWaarden:
         """Nominaal vermogen (in watt) van de LED rotondeafbakening."""
         return self._nominaleSpanning.get_waarde()
 
@@ -92,7 +92,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
         self._nominaleSpanning.set_waarde(value, owner=self)
 
     @property
-    def tussenafstand(self):
+    def tussenafstand(self) -> KwantWrdInCentimeterWaarden:
         """De afstand van middelpunt tot middelpunt tussen twee reflectoren in de verzameling."""
         return self._tussenafstand.get_waarde()
 

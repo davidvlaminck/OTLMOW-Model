@@ -34,7 +34,7 @@ class Persleiding(Buis, LijnGeometrie):
                                        owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Bepaalt het materiaal van de persleiding."""
         return self._materiaal.get_waarde()
 
@@ -43,7 +43,7 @@ class Persleiding(Buis, LijnGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def sdrKlasse(self):
+    def sdrKlasse(self) -> str:
         """De verhouding tussen de wanddikte en de diameter van de persleiding."""
         return self._sdrKlasse.get_waarde()
 

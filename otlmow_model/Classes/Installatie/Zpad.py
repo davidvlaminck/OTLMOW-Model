@@ -47,7 +47,7 @@ class Zpad(NaampadObject, GeenGeometrie):
                                   owner=self)
 
     @property
-    def WANCapaciteit(self):
+    def WANCapaciteit(self) -> int:
         """Capaciteit van de verbinding vanuit het standpunt van de gebruiker."""
         return self._WANCapaciteit.get_waarde()
 
@@ -56,7 +56,7 @@ class Zpad(NaampadObject, GeenGeometrie):
         self._WANCapaciteit.set_waarde(value, owner=self)
 
     @property
-    def netwerkklant(self):
+    def netwerkklant(self) -> str:
         """Naam van de organisatie van de gebruiker."""
         return self._netwerkklant.get_waarde()
 
@@ -65,7 +65,7 @@ class Zpad(NaampadObject, GeenGeometrie):
         self._netwerkklant.set_waarde(value, owner=self)
 
     @property
-    def omschrijving(self):
+    def omschrijving(self) -> str:
         """Beschrijving van de aard en/of doel van de verbinding."""
         return self._omschrijving.get_waarde()
 
@@ -74,7 +74,7 @@ class Zpad(NaampadObject, GeenGeometrie):
         self._omschrijving.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De soort verbinding, gebaseerd op het gebruikte protocol."""
         return self._type.get_waarde()
 

@@ -1,13 +1,14 @@
 # coding=utf-8
+from datetime import date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Brandvoorziening import Brandvoorziening
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.KlBrandhaspelMerk import KlBrandhaspelMerk
 from otlmow_model.Datatypes.KlBrandhaspelModelnaam import KlBrandhaspelModelnaam
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeterPerSeconde import KwantWrdInKubiekeMeterPerSeconde
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeterPerSeconde import KwantWrdInKubiekeMeterPerSeconde, KwantWrdInKubiekeMeterPerSecondeWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -75,7 +76,7 @@ class Brandhaspel(Brandvoorziening):
                                          owner=self)
 
     @property
-    def buitendiameter(self):
+    def buitendiameter(self) -> KwantWrdInCentimeterWaarden:
         """Buitendiameter van de slang op de haspel."""
         return self._buitendiameter.get_waarde()
 
@@ -84,7 +85,7 @@ class Brandhaspel(Brandvoorziening):
         self._buitendiameter.set_waarde(value, owner=self)
 
     @property
-    def keuringsdatum(self):
+    def keuringsdatum(self) -> date:
         """Laatste datum waarop de haspel gekeurd is."""
         return self._keuringsdatum.get_waarde()
 
@@ -93,7 +94,7 @@ class Brandhaspel(Brandvoorziening):
         self._keuringsdatum.set_waarde(value, owner=self)
 
     @property
-    def maximaalDebiet(self):
+    def maximaalDebiet(self) -> KwantWrdInKubiekeMeterWaarden:
         """Het maximale debiet dat door de slang en spuitmond kan stromen."""
         return self._maximaalDebiet.get_waarde()
 
@@ -102,7 +103,7 @@ class Brandhaspel(Brandvoorziening):
         self._maximaalDebiet.set_waarde(value, owner=self)
 
     @property
-    def maximaalVolumedebiet(self):
+    def maximaalVolumedebiet(self) -> KwantWrdInKubiekeMeterPerSecondeWaarden:
         """Het maximale debiet dat per tijdseenheid door de slang en spuitmond kan stromen."""
         return self._maximaalVolumedebiet.get_waarde()
 
@@ -111,7 +112,7 @@ class Brandhaspel(Brandvoorziening):
         self._maximaalVolumedebiet.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de brandhaspel."""
         return self._merk.get_waarde()
 
@@ -120,7 +121,7 @@ class Brandhaspel(Brandvoorziening):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de brandhaspel."""
         return self._modelnaam.get_waarde()
 
@@ -129,7 +130,7 @@ class Brandhaspel(Brandvoorziening):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def slangLengte(self):
+    def slangLengte(self) -> KwantWrdInMeterWaarden:
         """Nuttige lengte van de brandslang op de haspel."""
         return self._slangLengte.get_waarde()
 

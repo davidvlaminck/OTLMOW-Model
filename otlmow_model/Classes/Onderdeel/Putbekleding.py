@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlPutbekledingType import KlPutbekledingType
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -34,7 +34,7 @@ class Putbekleding(AIMObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def laagdikte(self):
+    def laagdikte(self) -> KwantWrdInMillimeterWaarden:
         """De dikte van de bekledingslaag in millimeter."""
         return self._laagdikte.get_waarde()
 
@@ -43,7 +43,7 @@ class Putbekleding(AIMObject, PuntGeometrie):
         self._laagdikte.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Bepaalt het type van de putbekleding."""
         return self._type.get_waarde()
 

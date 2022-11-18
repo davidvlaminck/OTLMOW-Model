@@ -95,7 +95,7 @@ class IOKaart(AIMObject, PuntGeometrie):
                                          owner=self)
 
     @property
-    def bitsnelheid(self):
+    def bitsnelheid(self) -> str:
         """De snelheid (hoeveel bits per seconde) waarmee data doorgestuurd kan worden."""
         return self._bitsnelheid.get_waarde()
 
@@ -104,7 +104,7 @@ class IOKaart(AIMObject, PuntGeometrie):
         self._bitsnelheid.set_waarde(value, owner=self)
 
     @property
-    def firmwareversie(self):
+    def firmwareversie(self) -> str:
         """Versie van de firmware."""
         return self._firmwareversie.get_waarde()
 
@@ -113,7 +113,7 @@ class IOKaart(AIMObject, PuntGeometrie):
         self._firmwareversie.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de IO-kaart."""
         return self._merk.get_waarde()
 
@@ -122,7 +122,7 @@ class IOKaart(AIMObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de IO-kaart."""
         return self._modelnaam.get_waarde()
 
@@ -131,7 +131,7 @@ class IOKaart(AIMObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def poortadres(self):
+    def poortadres(self) -> str:
         """Het IO-kaart poortadres wordt gebruikt om data uit te wisselen met een perifere component. Elke component krijgt een uniek poortadres toegekend, dit adres is een hexadecimaal getal."""
         return self._poortadres.get_waarde()
 
@@ -140,7 +140,7 @@ class IOKaart(AIMObject, PuntGeometrie):
         self._poortadres.set_waarde(value, owner=self)
 
     @property
-    def richting(self):
+    def richting(self) -> str:
         """Geeft aan of de IO-kaart dient voor input of output."""
         return self._richting.get_waarde()
 
@@ -149,7 +149,7 @@ class IOKaart(AIMObject, PuntGeometrie):
         self._richting.set_waarde(value, owner=self)
 
     @property
-    def signaalType(self):
+    def signaalType(self) -> str:
         """Geeft aan of de IO-kaart werkt met een digitaal of met een analoog signaal."""
         return self._signaalType.get_waarde()
 

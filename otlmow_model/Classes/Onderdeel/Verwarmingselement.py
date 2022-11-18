@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlVerwarmingselementMerk import KlVerwarmingselementMerk
 from otlmow_model.Datatypes.KlVerwarmingselementModelnaam import KlVerwarmingselementModelnaam
-from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt
+from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -42,7 +42,7 @@ class Verwarmingselement(AIMObject, PuntGeometrie):
                                       owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk van het element volgens de fabrikant."""
         return self._merk.get_waarde()
 
@@ -51,7 +51,7 @@ class Verwarmingselement(AIMObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van het element volgens de fabrikant."""
         return self._modelnaam.get_waarde()
 
@@ -60,7 +60,7 @@ class Verwarmingselement(AIMObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def vermogen(self):
+    def vermogen(self) -> KwantWrdInWattWaarden:
         """Elektrisch vermogen nodig voor de correcte werking van het element."""
         return self._vermogen.get_waarde()
 

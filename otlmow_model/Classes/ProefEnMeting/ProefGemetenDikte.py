@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -37,7 +37,7 @@ class ProefGemetenDikte(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                           owner=self)
 
     @property
-    def gemetenDikte(self):
+    def gemetenDikte(self) -> KwantWrdInCentimeterWaarden:
         """De gemeten dikte van de laag in centimeter."""
         return self._gemetenDikte.get_waarde()
 

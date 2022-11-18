@@ -28,7 +28,7 @@ class Eindstuk(AfschermendeConstructie, LijnGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De vorm van het eindstuk."""
         return self._type.get_waarde()
 

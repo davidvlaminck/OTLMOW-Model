@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AndereLaag import AndereLaag
 from otlmow_model.Datatypes.KlDunneOverlagingType import KlDunneOverlagingType
 from otlmow_model.Datatypes.KlKleurSupp import KlKleurSupp
-from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon
+from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -45,7 +45,7 @@ class DunneOverlaging(AndereLaag, VlakGeometrie):
                                   owner=self)
 
     @property
-    def gewicht(self):
+    def gewicht(self) -> KwantWrdInTonWaarden:
         """Het gewicht van de dunne overlaging in ton."""
         return self._gewicht.get_waarde()
 
@@ -54,7 +54,7 @@ class DunneOverlaging(AndereLaag, VlakGeometrie):
         self._gewicht.set_waarde(value, owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> str:
         """De kleur van de dunne overlaging."""
         return self._kleur.get_waarde()
 
@@ -63,7 +63,7 @@ class DunneOverlaging(AndereLaag, VlakGeometrie):
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type SME overlaging of antisliplaag."""
         return self._type.get_waarde()
 

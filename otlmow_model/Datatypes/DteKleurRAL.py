@@ -18,7 +18,7 @@ class DteKleurRALWaarden(WaardenObject):
                                     owner=self)
 
     @property
-    def waarde(self):
+    def waarde(self) -> str:
         """Beschrijft een kleur volgens het RAL classificatiesysteem."""
         return self._waarde.get_waarde()
 

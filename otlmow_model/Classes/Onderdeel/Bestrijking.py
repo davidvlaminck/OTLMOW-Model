@@ -45,7 +45,7 @@ class Bestrijking(AndereLaag, VlakGeometrie):
                                    owner=self)
 
     @property
-    def kaliber(self):
+    def kaliber(self) -> str:
         """De korrelmaat gebruikt bij de bestrijking."""
         return self._kaliber.get_waarde()
 
@@ -54,7 +54,7 @@ class Bestrijking(AndereLaag, VlakGeometrie):
         self._kaliber.set_waarde(value, owner=self)
 
     @property
-    def productfamilie(self):
+    def productfamilie(self) -> str:
         """Bepaling tot welke productfamilie de bestrijking behoort. """
         return self._productfamilie.get_waarde()
 
@@ -63,7 +63,7 @@ class Bestrijking(AndereLaag, VlakGeometrie):
         self._productfamilie.set_waarde(value, owner=self)
 
     @property
-    def soort(self):
+    def soort(self) -> str:
         """De soort bestrijking."""
         return self._soort.get_waarde()
 

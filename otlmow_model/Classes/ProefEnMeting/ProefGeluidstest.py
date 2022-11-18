@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.DtcGeluidstestRapport import DtcGeluidstestRapport
+from otlmow_model.Datatypes.DtcGeluidstestRapport import DtcGeluidstestRapport, DtcGeluidstestRapportWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -31,7 +31,7 @@ class ProefGeluidstest(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                                 owner=self)
 
     @property
-    def geluidstestrapport(self):
+    def geluidstestrapport(self) -> DtcGeluidstestRapportWaarden:
         """Het resultaat geluidstest."""
         return self._geluidstestrapport.get_waarde()
 

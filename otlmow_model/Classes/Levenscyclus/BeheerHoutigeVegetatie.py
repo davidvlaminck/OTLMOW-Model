@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
@@ -31,7 +32,7 @@ class BeheerHoutigeVegetatie(AIMObject):
                                              owner=self)
 
     @property
-    def beheeroptie(self):
+    def beheeroptie(self) -> List[str]:
         """Aanduiding van welk beheer wordt toegepast op de houtige vegetatie."""
         return self._beheeroptie.get_waarde()
 
@@ -40,7 +41,7 @@ class BeheerHoutigeVegetatie(AIMObject):
         self._beheeroptie.set_waarde(value, owner=self)
 
     @property
-    def heeftBeheerplan(self):
+    def heeftBeheerplan(self) -> bool:
         """Aanduiding of er een beheerplan bestaat."""
         return self._heeftBeheerplan.get_waarde()
 

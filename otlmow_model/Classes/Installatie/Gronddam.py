@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.Datatypes.KlHelling import KlHelling
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -66,7 +66,7 @@ Een gronddam kan volgende functies vervullen: geluidswering, geleiding van diere
                                           owner=self)
 
     @property
-    def basisbreedte(self):
+    def basisbreedte(self) -> KwantWrdInMeterWaarden:
         """De breedte van de basis van de gronddam in meter."""
         return self._basisbreedte.get_waarde()
 
@@ -75,7 +75,7 @@ Een gronddam kan volgende functies vervullen: geluidswering, geleiding van diere
         self._basisbreedte.set_waarde(value, owner=self)
 
     @property
-    def gronddichtheid(self):
+    def gronddichtheid(self) -> float:
         """De gronddichtheid van de gronddam."""
         return self._gronddichtheid.get_waarde()
 
@@ -84,7 +84,7 @@ Een gronddam kan volgende functies vervullen: geluidswering, geleiding van diere
         self._gronddichtheid.set_waarde(value, owner=self)
 
     @property
-    def hellingAchterzijde(self):
+    def hellingAchterzijde(self) -> str:
         """De hellingsgraad van de achterzijde gronddam in kwarten."""
         return self._hellingAchterzijde.get_waarde()
 
@@ -93,7 +93,7 @@ Een gronddam kan volgende functies vervullen: geluidswering, geleiding van diere
         self._hellingAchterzijde.set_waarde(value, owner=self)
 
     @property
-    def hellingVoorzijde(self):
+    def hellingVoorzijde(self) -> str:
         """De hellingsgraad van de voorzijde van de gronddam in kwarten."""
         return self._hellingVoorzijde.get_waarde()
 
@@ -102,7 +102,7 @@ Een gronddam kan volgende functies vervullen: geluidswering, geleiding van diere
         self._hellingVoorzijde.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInMeterWaarden:
         """De hoogte van de gronddam in meter."""
         return self._hoogte.get_waarde()
 
@@ -111,7 +111,7 @@ Een gronddam kan volgende functies vervullen: geluidswering, geleiding van diere
         self._hoogte.set_waarde(value, owner=self)
 
     @property
-    def kruinbreedte(self):
+    def kruinbreedte(self) -> KwantWrdInMeterWaarden:
         """De breedte van de kruin van de gronddam in meter."""
         return self._kruinbreedte.get_waarde()
 

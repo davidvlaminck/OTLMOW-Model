@@ -1,13 +1,13 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LaagBouwklasse import LaagBouwklasse
-from otlmow_model.Datatypes.DtcSupplementenCBV import DtcSupplementenCBV
+from otlmow_model.Datatypes.DtcSupplementenCBV import DtcSupplementenCBV, DtcSupplementenCBVWaarden
 from otlmow_model.BaseClasses.IntegerField import IntegerField
 from otlmow_model.Datatypes.KlCBVAardVerharding import KlCBVAardVerharding
 from otlmow_model.Datatypes.KlCBVLaagtype import KlCBVLaagtype
 from otlmow_model.Datatypes.KlCBVOppervlaktebehandeling import KlCBVOppervlaktebehandeling
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -79,7 +79,7 @@ class Cementbetonverharding(LaagBouwklasse):
                                     owner=self)
 
     @property
-    def aantalAnkerstaven(self):
+    def aantalAnkerstaven(self) -> int:
         """Aantal ankerstaven waarmee de voegen verankerd zijn."""
         return self._aantalAnkerstaven.get_waarde()
 
@@ -88,7 +88,7 @@ class Cementbetonverharding(LaagBouwklasse):
         self._aantalAnkerstaven.set_waarde(value, owner=self)
 
     @property
-    def aardVerharding(self):
+    def aardVerharding(self) -> str:
         """De uitvoeringswijze van de cementbetonverharding."""
         return self._aardVerharding.get_waarde()
 
@@ -97,7 +97,7 @@ class Cementbetonverharding(LaagBouwklasse):
         self._aardVerharding.set_waarde(value, owner=self)
 
     @property
-    def krimpvoegFrequentie(self):
+    def krimpvoegFrequentie(self) -> KwantWrdInMeterWaarden:
         """De afstand tussen de krimpvoegen in meter."""
         return self._krimpvoegFrequentie.get_waarde()
 
@@ -106,7 +106,7 @@ class Cementbetonverharding(LaagBouwklasse):
         self._krimpvoegFrequentie.set_waarde(value, owner=self)
 
     @property
-    def laagtype(self):
+    def laagtype(self) -> str:
         """Het type van de cementbetonverhardingslaag."""
         return self._laagtype.get_waarde()
 
@@ -115,7 +115,7 @@ class Cementbetonverharding(LaagBouwklasse):
         self._laagtype.set_waarde(value, owner=self)
 
     @property
-    def oppervlakbehandeling(self):
+    def oppervlakbehandeling(self) -> str:
         """Behandeling die wordt toegepast op het oppervlak van een laag, met of zonder toevoeging van materialen, en bestemd is om de eigenschappen van de laag te verbeteren, hetzij bij de uitvoering, hetzij achteraf."""
         return self._oppervlakbehandeling.get_waarde()
 
@@ -124,7 +124,7 @@ class Cementbetonverharding(LaagBouwklasse):
         self._oppervlakbehandeling.set_waarde(value, owner=self)
 
     @property
-    def supplementen(self):
+    def supplementen(self) -> DtcSupplementenCBVWaarden:
         """Additionele toevoegingen aan de verharding."""
         return self._supplementen.get_waarde()
 
@@ -133,7 +133,7 @@ class Cementbetonverharding(LaagBouwklasse):
         self._supplementen.set_waarde(value, owner=self)
 
     @property
-    def volume(self):
+    def volume(self) -> KwantWrdInKubiekeMeterWaarden:
         """Het volume van cementbetonverharding in kubieke meter."""
         return self._volume.get_waarde()
 

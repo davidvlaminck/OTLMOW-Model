@@ -27,7 +27,7 @@ class OnbegroeidVoorkomen(AndereVerharding):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Type van onbegroeid voorkomen."""
         return self._type.get_waarde()
 

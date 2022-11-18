@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -31,7 +31,7 @@ class ProefWaterdichtheid(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                             owner=self)
 
     @property
-    def waterdichtheid(self):
+    def waterdichtheid(self) -> DtcDocumentWaarden:
         """Testresultaten van het opgemeten waterverlies van het beproefde leidingsvak."""
         return self._waterdichtheid.get_waarde()
 

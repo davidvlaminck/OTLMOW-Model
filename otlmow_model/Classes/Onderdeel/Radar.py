@@ -35,7 +35,7 @@ class Radar(NietWeggebondenDetectie, TypeWeggebruiker):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van de radar."""
         return self._merk.get_waarde()
 
@@ -44,7 +44,7 @@ class Radar(NietWeggebondenDetectie, TypeWeggebruiker):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de radar."""
         return self._modelnaam.get_waarde()
 

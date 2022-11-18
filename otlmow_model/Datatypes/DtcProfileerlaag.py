@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlBVLaagtype import KlBVLaagtype
-from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon
+from otlmow_model.Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -25,7 +25,7 @@ class DtcProfileerlaagWaarden(WaardenObject):
                                       owner=self)
 
     @property
-    def gewicht(self):
+    def gewicht(self) -> KwantWrdInTonWaarden:
         """Het gewicht van de profileerlaag in ton."""
         return self._gewicht.get_waarde()
 
@@ -34,7 +34,7 @@ class DtcProfileerlaagWaarden(WaardenObject):
         self._gewicht.set_waarde(value, owner=self._parent)
 
     @property
-    def laagtype(self):
+    def laagtype(self) -> str:
         """Het type van de bitumineuze verharding."""
         return self._laagtype.get_waarde()
 

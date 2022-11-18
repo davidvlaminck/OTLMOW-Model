@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -34,7 +34,7 @@ class GroepDwarseMarkeringEnFiguratie(AIMObject, PuntGeometrie):
                                           owner=self)
 
     @property
-    def totaleOppervlakte(self):
+    def totaleOppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van de groep dwarse en/of figuratie markering."""
         return self._totaleOppervlakte.get_waarde()
 
@@ -43,7 +43,7 @@ class GroepDwarseMarkeringEnFiguratie(AIMObject, PuntGeometrie):
         self._totaleOppervlakte.set_waarde(value, owner=self)
 
     @property
-    def tussenruimte(self):
+    def tussenruimte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de tussenruimte in meter tussen de dwarse en/of figuratie markering."""
         return self._tussenruimte.get_waarde()
 

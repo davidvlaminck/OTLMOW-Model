@@ -25,7 +25,7 @@ class WatergreppelAfw(AfwijkendeKantopsluiting):
                                                          owner=self)
 
     @property
-    def aantalRijenBetonstraatsteen(self):
+    def aantalRijenBetonstraatsteen(self) -> int:
         """Het aantal rijen betonstraatsteen waaruit de watergreppel is opgebouwd."""
         return self._aantalRijenBetonstraatsteen.get_waarde()
 

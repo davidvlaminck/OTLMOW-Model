@@ -51,7 +51,7 @@ class Weegcomputer(AIMObject, PuntGeometrie):
                                          owner=self)
 
     @property
-    def checksum(self):
+    def checksum(self) -> str:
         """Een tekenreeks waarmee kan gecontroleerd worden of de vooropgestelde waardes van paramaters van de weegcomputer correct en ongewijzigd gebleven zijn."""
         return self._checksum.get_waarde()
 
@@ -60,7 +60,7 @@ class Weegcomputer(AIMObject, PuntGeometrie):
         self._checksum.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van het toestel volgens de fabrikant."""
         return self._merk.get_waarde()
 
@@ -69,7 +69,7 @@ class Weegcomputer(AIMObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van het toestel volgens de fabrikant."""
         return self._modelnaam.get_waarde()
 
@@ -78,7 +78,7 @@ class Weegcomputer(AIMObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Unieke identificatie van het toestel, toegekend door de fabrikant."""
         return self._serienummer.get_waarde()
 

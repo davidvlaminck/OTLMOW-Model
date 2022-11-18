@@ -26,7 +26,7 @@ class NietGetestBeginstuk(Beginstuk):
                                              owner=self)
 
     @property
-    def uitbuigingstype(self):
+    def uitbuigingstype(self) -> str:
         """Niet getest beginstuk dat uitbuigt weg van de weg in grondplan."""
         return self._uitbuigingstype.get_waarde()
 

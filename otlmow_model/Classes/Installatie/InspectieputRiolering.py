@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Put import Put
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlPutType import KlPutType
-from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden
+from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -34,7 +34,7 @@ class InspectieputRiolering(Put, AIMObject, VlakGeometrie):
                                   owner=self)
 
     @property
-    def hoekverdraaiing(self):
+    def hoekverdraaiing(self) -> KwantWrdInDecimaleGradenWaarden:
         """Verschil in richting tussen inkomende en uitgaande rioolbuis."""
         return self._hoekverdraaiing.get_waarde()
 
@@ -43,7 +43,7 @@ class InspectieputRiolering(Put, AIMObject, VlakGeometrie):
         self._hoekverdraaiing.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de put zoals beschreven in hoofdstuk 7 van het standaardbestek 250."""
         return self._type.get_waarde()
 

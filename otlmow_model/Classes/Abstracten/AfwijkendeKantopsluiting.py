@@ -1,10 +1,11 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Kantopsluiting import Kantopsluiting
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -52,7 +53,7 @@ class AfwijkendeKantopsluiting(Kantopsluiting):
                                                       owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInCentimeterWaarden:
         """De breedte van de afwijkende kantopsluiting in centimeter."""
         return self._breedte.get_waarde()
 
@@ -61,7 +62,7 @@ class AfwijkendeKantopsluiting(Kantopsluiting):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def dikte(self):
+    def dikte(self) -> KwantWrdInCentimeterWaarden:
         """De dikte van de afwijkende kantopsluiting in centimeter."""
         return self._dikte.get_waarde()
 
@@ -70,7 +71,7 @@ class AfwijkendeKantopsluiting(Kantopsluiting):
         self._dikte.set_waarde(value, owner=self)
 
     @property
-    def heeftOppervlaktebehandeling(self):
+    def heeftOppervlaktebehandeling(self) -> bool:
         """Aanduiding of er een oppervlaktebehandeling is uitgevoerd op de afwijkende kantopsluiting."""
         return self._heeftOppervlaktebehandeling.get_waarde()
 
@@ -79,7 +80,7 @@ class AfwijkendeKantopsluiting(Kantopsluiting):
         self._heeftOppervlaktebehandeling.set_waarde(value, owner=self)
 
     @property
-    def technischeFicheAfwijking(self):
+    def technischeFicheAfwijking(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van de afwijkende kantopsluiting."""
         return self._technischeFicheAfwijking.get_waarde()
 

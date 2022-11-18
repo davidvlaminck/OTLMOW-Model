@@ -3,10 +3,10 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.EMDraagconstructie import EMDraagconstructie
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL
+from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from otlmow_model.Datatypes.KlDraagConstrBeschermlaag import KlDraagConstrBeschermlaag
 from otlmow_model.Datatypes.KlDraagConstrBijzondertransport import KlDraagConstrBijzondertransport
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -72,7 +72,7 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
                                    owner=self)
 
     @property
-    def beschermlaag(self):
+    def beschermlaag(self) -> str:
         """Type bescherming van de steun, bv. geschilderd of gegalvaniseerd."""
         return self._beschermlaag.get_waarde()
 
@@ -81,7 +81,7 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
         self._beschermlaag.set_waarde(value, owner=self)
 
     @property
-    def bijzonderTransport(self):
+    def bijzonderTransport(self) -> str:
         """Wijze waarop het object eventueel geschikt is om bijzonder transport mogelijk te maken."""
         return self._bijzonderTransport.get_waarde()
 
@@ -90,7 +90,7 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
         self._bijzonderTransport.set_waarde(value, owner=self)
 
     @property
-    def fabrikant(self):
+    def fabrikant(self) -> str:
         """De fabrikant van de steun."""
         return self._fabrikant.get_waarde()
 
@@ -99,7 +99,7 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
         self._fabrikant.set_waarde(value, owner=self)
 
     @property
-    def hoogteBovenkant(self):
+    def hoogteBovenkant(self) -> KwantWrdInMeterWaarden:
         """Hoogte (in meter) van de bovenkant van de steun."""
         return self._hoogteBovenkant.get_waarde()
 
@@ -108,7 +108,7 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
         self._hoogteBovenkant.set_waarde(value, owner=self)
 
     @property
-    def kleur(self):
+    def kleur(self) -> DteKleurRALWaarden:
         """De RAL kleur van het uitwendig zichtbare gedeelte."""
         return self._kleur.get_waarde()
 

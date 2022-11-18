@@ -22,7 +22,7 @@ class VRStuurkaart(VRModuleMetFirmware):
                                                   owner=self)
 
     @property
-    def communicatieprotocol(self):
+    def communicatieprotocol(self) -> str:
         """Gebruikte communicatieprotocol voor de stuurkaart."""
         return self._communicatieprotocol.get_waarde()
 

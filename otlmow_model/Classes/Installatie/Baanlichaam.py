@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -45,7 +45,7 @@ class Baanlichaam(AIMObject, VlakGeometrie):
                                           owner=self)
 
     @property
-    def dwarsprofiel(self):
+    def dwarsprofiel(self) -> DtcDocumentWaarden:
         """Een dwarsprofiel is een doorsnijding van een terrein of constructie met een verticaal vlak, aangebracht loodrecht op de as ervan."""
         return self._dwarsprofiel.get_waarde()
 
@@ -54,7 +54,7 @@ class Baanlichaam(AIMObject, VlakGeometrie):
         self._dwarsprofiel.set_waarde(value, owner=self)
 
     @property
-    def horizontaleLigging(self):
+    def horizontaleLigging(self) -> DtcDocumentWaarden:
         """De horizontale ligging van het baanlichaam als document bijlage."""
         return self._horizontaleLigging.get_waarde()
 
@@ -63,7 +63,7 @@ class Baanlichaam(AIMObject, VlakGeometrie):
         self._horizontaleLigging.set_waarde(value, owner=self)
 
     @property
-    def langsprofiel(self):
+    def langsprofiel(self) -> DtcDocumentWaarden:
         """Een langsprofiel is een doorsnijding van een terrein of constructie met een verticaal vlak, aangebracht in de lengterichting van de as ervan."""
         return self._langsprofiel.get_waarde()
 

@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.ConstructieElement import ConstructieElement
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -109,7 +109,7 @@ class Fundering(ConstructieElement):
                                     owner=self)
 
     @property
-    def aanzetpeil(self):
+    def aanzetpeil(self) -> KwantWrdInMeterTAWWaarden:
         """De hoogte van het laagste punt van de onderkant van een element, ten opzichte van gemiddeld laagwaterpeil te Oostende (TAWpeil)."""
         return self._aanzetpeil.get_waarde()
 
@@ -118,7 +118,7 @@ class Fundering(ConstructieElement):
         self._aanzetpeil.set_waarde(value, owner=self)
 
     @property
-    def hoogte(self):
+    def hoogte(self) -> KwantWrdInCentimeterWaarden:
         """De afstand tussen het laagste punt van de onderkant en hoogste punt van de bovenkant van de fundering."""
         return self._hoogte.get_waarde()
 

@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.GestandaardiseerdeKantopsluiting import GestandaardiseerdeKantopsluiting
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcLENorm import DtcLENorm
-from otlmow_model.Datatypes.DtcTrottoirbandVorm import DtcTrottoirbandVorm
+from otlmow_model.Datatypes.DtcLENorm import DtcLENorm, DtcLENormWaarden
+from otlmow_model.Datatypes.DtcTrottoirbandVorm import DtcTrottoirbandVorm, DtcTrottoirbandVormWaarden
 from otlmow_model.Datatypes.KlLEWatergreppelType import KlLEWatergreppelType
 
 
@@ -49,7 +49,7 @@ class WatergreppelStd(GestandaardiseerdeKantopsluiting):
                                   owner=self)
 
     @property
-    def isVerholen(self):
+    def isVerholen(self) -> bool:
         """Aanduiding of de watergreppel verholen is. Verholen goten hebben een kleine sleufopening en een grote afvoercapaciteit."""
         return self._isVerholen.get_waarde()
 
@@ -58,7 +58,7 @@ class WatergreppelStd(GestandaardiseerdeKantopsluiting):
         self._isVerholen.set_waarde(value, owner=self)
 
     @property
-    def norm(self):
+    def norm(self) -> DtcLENormWaarden:
         """De gestandaardiseerde watergreppel volgens aangeduide norm."""
         return self._norm.get_waarde()
 
@@ -67,7 +67,7 @@ class WatergreppelStd(GestandaardiseerdeKantopsluiting):
         self._norm.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van gestandaardiseerde watergreppel."""
         return self._type.get_waarde()
 
@@ -76,7 +76,7 @@ class WatergreppelStd(GestandaardiseerdeKantopsluiting):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> DtcTrottoirbandVormWaarden:
         """De vorm van de watergreppel."""
         return self._vorm.get_waarde()
 

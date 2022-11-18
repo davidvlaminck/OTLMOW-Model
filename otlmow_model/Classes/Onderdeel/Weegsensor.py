@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlWeegsensorMerk import KlWeegsensorMerk
 from otlmow_model.Datatypes.KlWeegsensorModelnaam import KlWeegsensorModelnaam
 from otlmow_model.Datatypes.KlWeegsensorType import KlWeegsensorType
@@ -66,7 +66,7 @@ class Weegsensor(AIMNaamObject, LijnGeometrie):
                                   owner=self)
 
     @property
-    def meetrapport(self):
+    def meetrapport(self) -> DtcDocumentWaarden:
         """Document met kalibratiegegevens (aantal rondes, types voertuigen,...)."""
         return self._meetrapport.get_waarde()
 
@@ -75,7 +75,7 @@ class Weegsensor(AIMNaamObject, LijnGeometrie):
         self._meetrapport.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de weegsensor."""
         return self._merk.get_waarde()
 
@@ -84,7 +84,7 @@ class Weegsensor(AIMNaamObject, LijnGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de weegsensor."""
         return self._modelnaam.get_waarde()
 
@@ -93,7 +93,7 @@ class Weegsensor(AIMNaamObject, LijnGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def rijstrook(self):
+    def rijstrook(self) -> str:
         """Beschrijft de rijstroken die door de weegsensor bewaakt worden."""
         return self._rijstrook.get_waarde()
 
@@ -102,7 +102,7 @@ class Weegsensor(AIMNaamObject, LijnGeometrie):
         self._rijstrook.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Het unieke nummer waarmee het toestel door de fabrikant geïdentificeerd is."""
         return self._serienummer.get_waarde()
 
@@ -111,7 +111,7 @@ class Weegsensor(AIMNaamObject, LijnGeometrie):
         self._serienummer.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de weegsensor."""
         return self._type.get_waarde()
 

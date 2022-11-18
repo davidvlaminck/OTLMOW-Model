@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlSlagboomkolomMerk import KlSlagboomkolomMerk
 from otlmow_model.Datatypes.KlSlagboomkolomModelnaam import KlSlagboomkolomModelnaam
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
@@ -64,7 +64,7 @@ class Slagboomkolom(AIMObject, PuntGeometrie, VlakGeometrie):
                                              owner=self)
 
     @property
-    def afmetingen(self):
+    def afmetingen(self) -> DtcAfmetingBxlxhInMmWaarden:
         """De afmetingen van de slagboomkolom."""
         return self._afmetingen.get_waarde()
 
@@ -73,7 +73,7 @@ class Slagboomkolom(AIMObject, PuntGeometrie, VlakGeometrie):
         self._afmetingen.set_waarde(value, owner=self)
 
     @property
-    def isPivoterend(self):
+    def isPivoterend(self) -> bool:
         """Attribuut waarmee kan aangegeven worden of de koker van de slagboominstallatie al dan niet pivoteert."""
         return self._isPivoterend.get_waarde()
 
@@ -82,7 +82,7 @@ class Slagboomkolom(AIMObject, PuntGeometrie, VlakGeometrie):
         self._isPivoterend.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de slagboom installatie."""
         return self._merk.get_waarde()
 
@@ -91,7 +91,7 @@ class Slagboomkolom(AIMObject, PuntGeometrie, VlakGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Naam van het model van de slagboominstallatie."""
         return self._modelnaam.get_waarde()
 
@@ -100,7 +100,7 @@ class Slagboomkolom(AIMObject, PuntGeometrie, VlakGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Technische fiche van de slagboominstallatie."""
         return self._technischeFiche.get_waarde()
 

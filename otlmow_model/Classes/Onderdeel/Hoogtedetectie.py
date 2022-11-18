@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlHoogtedetectieMerk import KlHoogtedetectieMerk
 from otlmow_model.Datatypes.KlHoogtedetectieModelnaam import KlHoogtedetectieModelnaam
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -46,7 +46,7 @@ class Hoogtedetectie(AIMNaamObject, PuntGeometrie):
                                        owner=self)
 
     @property
-    def detectiehoogte(self):
+    def detectiehoogte(self) -> KwantWrdInMeterWaarden:
         """De ingestelde hoogtelimiet waarboven het systeem voor hoogtedetectie een detectiesignaal moet uitsturen."""
         return self._detectiehoogte.get_waarde()
 
@@ -55,7 +55,7 @@ class Hoogtedetectie(AIMNaamObject, PuntGeometrie):
         self._detectiehoogte.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van het systeem voor hoogtedetectie.Verwijst naar de fabrikant of producent."""
         return self._merk.get_waarde()
 
@@ -64,7 +64,7 @@ class Hoogtedetectie(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de hoogtedetectie."""
         return self._modelnaam.get_waarde()
 

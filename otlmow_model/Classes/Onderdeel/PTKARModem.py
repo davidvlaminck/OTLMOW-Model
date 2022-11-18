@@ -31,7 +31,7 @@ class PTKARModem(PTModuleMetFirmware):
                                               owner=self)
 
     @property
-    def protocolOVVoertuig(self):
+    def protocolOVVoertuig(self) -> str:
         """Beschrijft het protocol dat gebruikt wordt om te communiceren met een OV-voertuig."""
         return self._protocolOVVoertuig.get_waarde()
 
@@ -40,7 +40,7 @@ class PTKARModem(PTModuleMetFirmware):
         self._protocolOVVoertuig.set_waarde(value, owner=self)
 
     @property
-    def protocolRegelaar(self):
+    def protocolRegelaar(self) -> str:
         """Beschrijft het protocol dat gebruikt wordt om te communiceren met een regelaar."""
         return self._protocolRegelaar.get_waarde()
 

@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Put import Put
 from otlmow_model.Classes.Abstracten.PutRelatie import PutRelatie
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm
+from otlmow_model.Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
 from otlmow_model.Datatypes.KlPutRooster import KlPutRooster
 from otlmow_model.Datatypes.KlRoosterIndeling import KlRoosterIndeling
 from otlmow_model.Datatypes.KlRoosterOpeningswijze import KlRoosterOpeningswijze
@@ -91,7 +91,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
                                          owner=self)
 
     @property
-    def bakAfmetingen(self):
+    def bakAfmetingen(self) -> DtcAfmetingBxlxhInMmWaarden:
         """De afmetingen van de bak van de straatkolk in mm."""
         return self._bakAfmetingen.get_waarde()
 
@@ -100,7 +100,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
         self._bakAfmetingen.set_waarde(value, owner=self)
 
     @property
-    def bakType(self):
+    def bakType(self) -> str:
         """Het type van bak van de straatkolk."""
         return self._bakType.get_waarde()
 
@@ -109,7 +109,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
         self._bakType.set_waarde(value, owner=self)
 
     @property
-    def heeftAfdekplaatReukafsluiter(self):
+    def heeftAfdekplaatReukafsluiter(self) -> bool:
         """Dit attribuut geeft aan of de straatkolk een afdekplaat als reukafsluiter heeft."""
         return self._heeftAfdekplaatReukafsluiter.get_waarde()
 
@@ -118,7 +118,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
         self._heeftAfdekplaatReukafsluiter.set_waarde(value, owner=self)
 
     @property
-    def isInfiltrerend(self):
+    def isInfiltrerend(self) -> bool:
         """Wanneer de wanden van de straatkolk poreus zijn (en de straatkolk dus infiltrerend is), kan een deel van het water het water dat in de straatkolk komt rechtstreeks in de grond infiltreren."""
         return self._isInfiltrerend.get_waarde()
 
@@ -127,7 +127,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
         self._isInfiltrerend.set_waarde(value, owner=self)
 
     @property
-    def rooster(self):
+    def rooster(self) -> str:
         """Bepaalt het gebruikte type van rooster."""
         return self._rooster.get_waarde()
 
@@ -136,7 +136,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
         self._rooster.set_waarde(value, owner=self)
 
     @property
-    def roosterIndeling(self):
+    def roosterIndeling(self) -> str:
         """Dit attribuut geeft aan hoe het rooster ingedeeld is: met zijdelingse opvang of dat er sprake is van een 1-delig of 2-delig rooster."""
         return self._roosterIndeling.get_waarde()
 
@@ -145,7 +145,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
         self._roosterIndeling.set_waarde(value, owner=self)
 
     @property
-    def roosterOpeningswijze(self):
+    def roosterOpeningswijze(self) -> str:
         """Dit attribuut geeft de manier aan hoe het rooster geopend kan worden."""
         return self._roosterOpeningswijze.get_waarde()
 
@@ -154,7 +154,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
         self._roosterOpeningswijze.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de straatkolk."""
         return self._type.get_waarde()
 
@@ -163,7 +163,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def typeUitlaat(self):
+    def typeUitlaat(self) -> str:
         """Het type van uitlaat van de straatkolk."""
         return self._typeUitlaat.get_waarde()
 

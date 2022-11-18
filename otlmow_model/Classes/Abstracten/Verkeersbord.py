@@ -1,11 +1,12 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtuAfmetingVerkeersbord import DtuAfmetingVerkeersbord
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtuAfmetingVerkeersbord import DtuAfmetingVerkeersbord, DtuAfmetingVerkeersbordWaarden
 from otlmow_model.Datatypes.KlOperationeleStatus import KlOperationeleStatus
-from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -71,7 +72,7 @@ class Verkeersbord(PuntGeometrie):
                                           owner=self)
 
     @property
-    def aanzicht(self):
+    def aanzicht(self) -> KwantWrdInDecimaleGradenWaarden:
         """De hoek waarin het fysiek bord gepositioneerd is ten opzichte van een vooropgestelde as (het ware noorden). De hoek wordt gemeten in radialen of graden ten opzichte van het noorden in wijzerzin."""
         return self._aanzicht.get_waarde()
 
@@ -80,7 +81,7 @@ class Verkeersbord(PuntGeometrie):
         self._aanzicht.set_waarde(value, owner=self)
 
     @property
-    def afbeelding(self):
+    def afbeelding(self) -> List[DtcDocumentWaarden]:
         """De afbeelding van het verkeersbord."""
         return self._afbeelding.get_waarde()
 
@@ -89,7 +90,7 @@ class Verkeersbord(PuntGeometrie):
         self._afbeelding.set_waarde(value, owner=self)
 
     @property
-    def afmeting(self):
+    def afmeting(self) -> DtuAfmetingVerkeersbordWaarden:
         """De afmeting(en) van het verkeersbord."""
         return self._afmeting.get_waarde()
 
@@ -98,7 +99,7 @@ class Verkeersbord(PuntGeometrie):
         self._afmeting.set_waarde(value, owner=self)
 
     @property
-    def fabricagevoorschrift(self):
+    def fabricagevoorschrift(self) -> str:
         """Het fabricagevoorschrift op het verkeersbord."""
         return self._fabricagevoorschrift.get_waarde()
 
@@ -107,7 +108,7 @@ class Verkeersbord(PuntGeometrie):
         self._fabricagevoorschrift.set_waarde(value, owner=self)
 
     @property
-    def operationeleStatus(self):
+    def operationeleStatus(self) -> str:
         """De operationele status van het verkeersbord."""
         return self._operationeleStatus.get_waarde()
 
@@ -116,7 +117,7 @@ class Verkeersbord(PuntGeometrie):
         self._operationeleStatus.set_waarde(value, owner=self)
 
     @property
-    def opstelhoogte(self):
+    def opstelhoogte(self) -> KwantWrdInMeterWaarden:
         """Afstand tussen het maaiveld en de onderrand van het bord."""
         return self._opstelhoogte.get_waarde()
 

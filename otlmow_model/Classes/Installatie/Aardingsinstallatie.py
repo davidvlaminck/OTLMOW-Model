@@ -1,9 +1,9 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcAardingsstelsel import DtcAardingsstelsel
+from otlmow_model.Datatypes.DtcAardingsstelsel import DtcAardingsstelsel, DtcAardingsstelselWaarden
 from otlmow_model.Datatypes.KlAardingAardingsnet import KlAardingAardingsnet
-from otlmow_model.Datatypes.KwantWrdInOhm import KwantWrdInOhm
+from otlmow_model.Datatypes.KwantWrdInOhm import KwantWrdInOhm, KwantWrdInOhmWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -42,7 +42,7 @@ class Aardingsinstallatie(AIMNaamObject, VlakGeometrie):
                                                owner=self)
 
     @property
-    def aardingsnet(self):
+    def aardingsnet(self) -> str:
         """De manier waarop respectievelijk de bron en de verbruiker met de aarde verbonden worden om op die manier foutstromen af te voeren."""
         return self._aardingsnet.get_waarde()
 
@@ -51,7 +51,7 @@ class Aardingsinstallatie(AIMNaamObject, VlakGeometrie):
         self._aardingsnet.set_waarde(value, owner=self)
 
     @property
-    def aardingsstelsel(self):
+    def aardingsstelsel(self) -> DtcAardingsstelselWaarden:
         """De wijze waarop verschillende aardingen (bv. laagspanningsaarding, nulpuntsaarding, hoogspanningsaarding) zich t.o.v. elkaar bevinden: ofwel bevinden alle aardingen zich uit elkaars invloedssfeer en hebben ze geen impact op elkaars potentiaal ofwel zijn alle aardverbindingen galvanisch met elkaar in contact. In het eerste geval spreekt men van gescheiden aardingsstelsel, in het tweede geval van een globale aarding."""
         return self._aardingsstelsel.get_waarde()
 
@@ -60,7 +60,7 @@ class Aardingsinstallatie(AIMNaamObject, VlakGeometrie):
         self._aardingsstelsel.set_waarde(value, owner=self)
 
     @property
-    def aardingsweerstand(self):
+    def aardingsweerstand(self) -> KwantWrdInOhmWaarden:
         """De grootte van de weerstand tussen de aardelektrode en de omringende grond."""
         return self._aardingsweerstand.get_waarde()
 

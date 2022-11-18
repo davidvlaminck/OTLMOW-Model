@@ -43,7 +43,7 @@ class Afmetingsensor(AIMNaamObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de afmetingsensor."""
         return self._merk.get_waarde()
 
@@ -52,7 +52,7 @@ class Afmetingsensor(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de afmetingsensor."""
         return self._modelnaam.get_waarde()
 
@@ -61,7 +61,7 @@ class Afmetingsensor(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van de afmetingsensor."""
         return self._type.get_waarde()
 

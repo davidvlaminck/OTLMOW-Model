@@ -29,7 +29,7 @@ class AOWSType(ABC):
                                                owner=self)
 
     @property
-    def isGoedgekeurd(self):
+    def isGoedgekeurd(self) -> bool:
         """Bepaling van de goedkeuring van AOWS."""
         return self._isGoedgekeurd.get_waarde()
 
@@ -38,7 +38,7 @@ class AOWSType(ABC):
         self._isGoedgekeurd.set_waarde(value, owner=self)
 
     @property
-    def versieGoedgekeurd(self):
+    def versieGoedgekeurd(self) -> str:
         """De versie van het standaardbestek 250 waar de goedkeuring is bepaald."""
         return self._versieGoedgekeurd.get_waarde()
 

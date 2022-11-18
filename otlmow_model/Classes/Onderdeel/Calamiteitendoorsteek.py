@@ -2,10 +2,10 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlCADOMerk import KlCADOMerk
 from otlmow_model.Datatypes.KlCADOModelnaam import KlCADOModelnaam
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -60,7 +60,7 @@ class Calamiteitendoorsteek(AIMNaamObject, LijnGeometrie):
                                              owner=self)
 
     @property
-    def isDubbelArmig(self):
+    def isDubbelArmig(self) -> bool:
         """Aanduiding of de calamiteitendoorsteek dubbel armig is."""
         return self._isDubbelArmig.get_waarde()
 
@@ -69,7 +69,7 @@ class Calamiteitendoorsteek(AIMNaamObject, LijnGeometrie):
         self._isDubbelArmig.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte van de calamiteitendoorsteek constructie."""
         return self._lengte.get_waarde()
 
@@ -78,7 +78,7 @@ class Calamiteitendoorsteek(AIMNaamObject, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de calamiteitendoorsteek."""
         return self._merk.get_waarde()
 
@@ -87,7 +87,7 @@ class Calamiteitendoorsteek(AIMNaamObject, LijnGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de calamiteitendoorsteek."""
         return self._modelnaam.get_waarde()
 
@@ -96,7 +96,7 @@ class Calamiteitendoorsteek(AIMNaamObject, LijnGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van de calamiteitendoorsteek."""
         return self._technischeFiche.get_waarde()
 

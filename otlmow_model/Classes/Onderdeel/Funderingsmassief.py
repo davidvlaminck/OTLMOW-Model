@@ -2,10 +2,10 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Fundering import Fundering
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtuAfmetingGrondvlak import DtuAfmetingGrondvlak
+from otlmow_model.Datatypes.DtuAfmetingGrondvlak import DtuAfmetingGrondvlak, DtuAfmetingGrondvlakWaarden
 from otlmow_model.Datatypes.KlAlgMateriaal import KlAlgMateriaal
-from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
+from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -73,7 +73,7 @@ class Funderingsmassief(Fundering, VlakGeometrie):
                                     owner=self)
 
     @property
-    def afmetingGrondvlak(self):
+    def afmetingGrondvlak(self) -> DtuAfmetingGrondvlakWaarden:
         """De afmetingen van het grondvlak van de fundering volgens zijn vorm."""
         return self._afmetingGrondvlak.get_waarde()
 
@@ -82,7 +82,7 @@ class Funderingsmassief(Fundering, VlakGeometrie):
         self._afmetingGrondvlak.set_waarde(value, owner=self)
 
     @property
-    def funderingshoogte(self):
+    def funderingshoogte(self) -> KwantWrdInCentimeterWaarden:
         """De afstand tussen het laagste punt van de onderkant en hoogste punt van de bovenkant van de fundering."""
         return self._funderingshoogte.get_waarde()
 
@@ -91,7 +91,7 @@ class Funderingsmassief(Fundering, VlakGeometrie):
         self._funderingshoogte.set_waarde(value, owner=self)
 
     @property
-    def isPermanent(self):
+    def isPermanent(self) -> bool:
         """Bepaalt of de fundering (en het gefundeerd object) blijvend is."""
         return self._isPermanent.get_waarde()
 
@@ -100,7 +100,7 @@ class Funderingsmassief(Fundering, VlakGeometrie):
         self._isPermanent.set_waarde(value, owner=self)
 
     @property
-    def isPrefab(self):
+    def isPrefab(self) -> bool:
         """Bepaalt of de fundering ter plaatse gestort is of als geprefabriceerd element aangevoerd."""
         return self._isPrefab.get_waarde()
 
@@ -109,7 +109,7 @@ class Funderingsmassief(Fundering, VlakGeometrie):
         self._isPrefab.set_waarde(value, owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """De grondstof waaruit het funderingsmassief gemaakt is. """
         return self._materiaal.get_waarde()
 
@@ -118,7 +118,7 @@ class Funderingsmassief(Fundering, VlakGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def volume(self):
+    def volume(self) -> KwantWrdInKubiekeMeterWaarden:
         """Het volume in kubieke meter van het funderingsmassief."""
         return self._volume.get_waarde()
 

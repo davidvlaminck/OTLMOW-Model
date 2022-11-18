@@ -34,7 +34,7 @@ class Printer(AIMNaamObject, PuntGeometrie):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merknaam van de printer volgens de fabrikant."""
         return self._merk.get_waarde()
 
@@ -43,7 +43,7 @@ class Printer(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van de printer volgens de fabrikant."""
         return self._modelnaam.get_waarde()
 

@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.VegetatieElement import VegetatieElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -47,7 +47,7 @@ class Plantbakvorm(VegetatieElement, VlakGeometrie):
                                     owner=self)
 
     @property
-    def isBereikbaar(self):
+    def isBereikbaar(self) -> bool:
         """Duidt aan of de plantbakvorm door de mens fysiek bereikbaar is zonder hulpmiddelen."""
         return self._isBereikbaar.get_waarde()
 
@@ -56,7 +56,7 @@ class Plantbakvorm(VegetatieElement, VlakGeometrie):
         self._isBereikbaar.set_waarde(value, owner=self)
 
     @property
-    def isVerplaatsbaar(self):
+    def isVerplaatsbaar(self) -> bool:
         """Duidt aan of de plantbakvorm al dan niet verplaatsbaar is en dus niet permanent verankerd werd met het aardoppervlak."""
         return self._isVerplaatsbaar.get_waarde()
 
@@ -65,7 +65,7 @@ class Plantbakvorm(VegetatieElement, VlakGeometrie):
         self._isVerplaatsbaar.set_waarde(value, owner=self)
 
     @property
-    def oppervlakteBak(self):
+    def oppervlakteBak(self) -> KwantWrdInVierkanteMeterWaarden:
         """De afmetingen van de plantbak in vierkante meter."""
         return self._oppervlakteBak.get_waarde()
 
@@ -74,7 +74,7 @@ class Plantbakvorm(VegetatieElement, VlakGeometrie):
         self._oppervlakteBak.set_waarde(value, owner=self)
 
     @property
-    def volume(self):
+    def volume(self) -> KwantWrdInKubiekeMeterWaarden:
         """De inhoud of grootte van de plantbakvorm in de ruimte in kubieke meter."""
         return self._volume.get_waarde()
 

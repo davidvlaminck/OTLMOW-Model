@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod, ABC
-from otlmow_model.Datatypes.DtcBetonspecificaties import DtcBetonspecificaties
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcBetonspecificaties import DtcBetonspecificaties, DtcBetonspecificatiesWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlUitvoeringsmethode import KlUitvoeringsmethode
 
 
@@ -37,7 +37,7 @@ class BetonnenConstructieElement(ABC):
                                            owner=self)
 
     @property
-    def betonspecificaties(self):
+    def betonspecificaties(self) -> DtcBetonspecificatiesWaarden:
         """Eigenschappen van het gebruikte beton."""
         return self._betonspecificaties.get_waarde()
 
@@ -46,7 +46,7 @@ class BetonnenConstructieElement(ABC):
         self._betonspecificaties.set_waarde(value, owner=self)
 
     @property
-    def uitvoeringsmethode(self):
+    def uitvoeringsmethode(self) -> str:
         """Op welke manier het beton wordt aangebracht."""
         return self._uitvoeringsmethode.get_waarde()
 
@@ -55,7 +55,7 @@ class BetonnenConstructieElement(ABC):
         self._uitvoeringsmethode.set_waarde(value, owner=self)
 
     @property
-    def wapeningsplan(self):
+    def wapeningsplan(self) -> DtcDocumentWaarden:
         """Plan waarin de wapening zo gedetailleerd mogelijk wordt uitgetekend (met materiaalspecificaties en de afmetingen worden weergegeven in millimeters)."""
         return self._wapeningsplan.get_waarde()
 

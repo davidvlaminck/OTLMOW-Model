@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
-from otlmow_model.Datatypes.DtcAfmetingBxhInMm import DtcAfmetingBxhInMm
-from otlmow_model.Datatypes.DtcAfmetingDiameterInMm import DtcAfmetingDiameterInMm
-from otlmow_model.Datatypes.DtcAfmetingZijdeInMm import DtcAfmetingZijdeInMm
+from otlmow_model.Datatypes.DtcAfmetingBxhInMm import DtcAfmetingBxhInMm, DtcAfmetingBxhInMmWaarden
+from otlmow_model.Datatypes.DtcAfmetingDiameterInMm import DtcAfmetingDiameterInMm, DtcAfmetingDiameterInMmWaarden
+from otlmow_model.Datatypes.DtcAfmetingZijdeInMm import DtcAfmetingZijdeInMm, DtcAfmetingZijdeInMmWaarden
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 
@@ -52,7 +52,7 @@ class DtuAfmetingVerkeersbordWaarden(UnionWaarden):
                                        owner=self)
 
     @property
-    def achthoekig(self):
+    def achthoekig(self) -> DtcAfmetingZijdeInMmWaarden:
         """De afmeting voor een achthoekig verkeersbord (zijde in millimeter)."""
         return self._achthoekig.get_waarde()
 
@@ -63,7 +63,7 @@ class DtuAfmetingVerkeersbordWaarden(UnionWaarden):
             self.clear_other_props('_achthoekig')
 
     @property
-    def driehoekig(self):
+    def driehoekig(self) -> DtcAfmetingZijdeInMmWaarden:
         """De afmeting van een driehoekig verkeersbord (zijde in millimeter)."""
         return self._driehoekig.get_waarde()
 
@@ -74,7 +74,7 @@ class DtuAfmetingVerkeersbordWaarden(UnionWaarden):
             self.clear_other_props('_driehoekig')
 
     @property
-    def rond(self):
+    def rond(self) -> DtcAfmetingDiameterInMmWaarden:
         """De afmeting voor een rond verkeersbord (diameter in millimeter)."""
         return self._rond.get_waarde()
 
@@ -85,7 +85,7 @@ class DtuAfmetingVerkeersbordWaarden(UnionWaarden):
             self.clear_other_props('_rond')
 
     @property
-    def vierhoekig(self):
+    def vierhoekig(self) -> DtcAfmetingBxhInMmWaarden:
         """De afmeting voor een vierhoekig verkeersbord (breedte en hoogte in millimeter)."""
         return self._vierhoekig.get_waarde()
 
@@ -96,7 +96,7 @@ class DtuAfmetingVerkeersbordWaarden(UnionWaarden):
             self.clear_other_props('_vierhoekig')
 
     @property
-    def zeshoekig(self):
+    def zeshoekig(self) -> DtcAfmetingZijdeInMmWaarden:
         """De afmeting voor een zeshoekig verkeersbord (zijde in millimeter)."""
         return self._zeshoekig.get_waarde()
 

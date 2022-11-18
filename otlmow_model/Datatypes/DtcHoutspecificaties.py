@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlDuurzaamheidsklasseHout import KlDuurzaamheidsklasseHout
 from otlmow_model.Datatypes.KlKwaliteitsklasseHout import KlKwaliteitsklasseHout
 from otlmow_model.Datatypes.KlSterkteklasseHout import KlSterkteklasseHout
@@ -49,7 +49,7 @@ class DtcHoutspecificatiesWaarden(WaardenObject):
                                                              owner=self)
 
     @property
-    def fscCertificaat(self):
+    def fscCertificaat(self) -> DtcDocumentWaarden:
         """Een attest of een bewijs dat voor elke boom die gebruikt wordt er een andere in de plaats is geplant."""
         return self._fscCertificaat.get_waarde()
 
@@ -58,7 +58,7 @@ class DtcHoutspecificatiesWaarden(WaardenObject):
         self._fscCertificaat.set_waarde(value, owner=self._parent)
 
     @property
-    def houtduurzaamheidsklasse(self):
+    def houtduurzaamheidsklasse(self) -> str:
         """De verwachte levensduur van het hout. De klasse geeft de resistentie aan van het kernhout tegen ongunstige omstandigheden."""
         return self._houtduurzaamheidsklasse.get_waarde()
 
@@ -67,7 +67,7 @@ class DtcHoutspecificatiesWaarden(WaardenObject):
         self._houtduurzaamheidsklasse.set_waarde(value, owner=self._parent)
 
     @property
-    def houtkwaliteitsklasse(self):
+    def houtkwaliteitsklasse(self) -> str:
         """Kwaliteitsindeling van de houtsoort met betrekking op vervormingen, scheuren en kwasten."""
         return self._houtkwaliteitsklasse.get_waarde()
 
@@ -76,7 +76,7 @@ class DtcHoutspecificatiesWaarden(WaardenObject):
         self._houtkwaliteitsklasse.set_waarde(value, owner=self._parent)
 
     @property
-    def houtsterkteklasse(self):
+    def houtsterkteklasse(self) -> str:
         """De maximale belasting van het hout. Deze klasse geeft aan hoe sterk en voor welke constructies de houtsoort geschikt is."""
         return self._houtsterkteklasse.get_waarde()
 
@@ -85,7 +85,7 @@ class DtcHoutspecificatiesWaarden(WaardenObject):
         self._houtsterkteklasse.set_waarde(value, owner=self._parent)
 
     @property
-    def isResistentTegenMarieneBoorders(self):
+    def isResistentTegenMarieneBoorders(self) -> bool:
         """Geeft aan of het hout resistent is bij toepassingen in contact met zout of brak water."""
         return self._isResistentTegenMarieneBoorders.get_waarde()
 

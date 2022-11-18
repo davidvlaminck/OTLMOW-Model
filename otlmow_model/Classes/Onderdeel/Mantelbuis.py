@@ -24,7 +24,7 @@ class Mantelbuis(Buis, ContainerBuis):
                                        owner=self)
 
     @property
-    def materiaal(self):
+    def materiaal(self) -> str:
         """Bepaalt het materiaal van de mantelbuis."""
         return self._materiaal.get_waarde()
 

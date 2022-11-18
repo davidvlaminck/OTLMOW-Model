@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro, KwantWrdInEuroWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -32,7 +32,7 @@ class Onderdoorboring(AbstracteAanvullendeGeometrie, LijnGeometrie):
                                         owner=self)
 
     @property
-    def retributie(self):
+    def retributie(self) -> KwantWrdInEuroWaarden:
         """Periodieke geldsom verschuldigd aan de eigenaar of beheerder van het terrein waaronder de onderboring ligt."""
         return self._retributie.get_waarde()
 
@@ -41,7 +41,7 @@ class Onderdoorboring(AbstracteAanvullendeGeometrie, LijnGeometrie):
         self._retributie.set_waarde(value, owner=self)
 
     @property
-    def vergunning(self):
+    def vergunning(self) -> DtcDocumentWaarden:
         """Het document met de vergunning voor de onderdoorboring."""
         return self._vergunning.get_waarde()
 

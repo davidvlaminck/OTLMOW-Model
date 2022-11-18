@@ -1,15 +1,16 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlBetonmilieuklasse import KlBetonmilieuklasse
 from otlmow_model.Datatypes.KlBetonomgevingsklasse import KlBetonomgevingsklasse
 from otlmow_model.Datatypes.KlBetonsterkteklasse import KlBetonsterkteklasse
 from otlmow_model.Datatypes.KlGebruiksdomein import KlGebruiksdomein
 from otlmow_model.Datatypes.KlToeslagmiddelBeton import KlToeslagmiddelBeton
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -120,7 +121,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
                                              owner=self)
 
     @property
-    def betondekking(self):
+    def betondekking(self) -> KwantWrdInMillimeterWaarden:
         """De afstand in millimeter tussen de buitenkant van het beton (het oppervlak van het beton) tot het dichtstbijzijnde wapeningsstaal."""
         return self._betondekking.get_waarde()
 
@@ -129,7 +130,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._betondekking.set_waarde(value, owner=self._parent)
 
     @property
-    def betonmilieuklassen(self):
+    def betonmilieuklassen(self) -> List[str]:
         """Milieuklassen (X-klassen) leggen rechtstreeks de link met bepaalde aantastingsmechanismen, waaraan de betonconstructie (of een onderdeel ervan) wordt blootgesteld tijdens het gebruik. Er kunnen meerdere milieuklassen van toepassing zijn."""
         return self._betonmilieuklassen.get_waarde()
 
@@ -138,7 +139,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._betonmilieuklassen.set_waarde(value, owner=self._parent)
 
     @property
-    def betonomgevingsklassen(self):
+    def betonomgevingsklassen(self) -> List[str]:
         """De omgeving waaraan de betonconstructie (of een onderdeel ervan) wordt blootgesteld tijdens het gebruik. Er kunnen meerdere omgevingsklassen van toepassing zijn."""
         return self._betonomgevingsklassen.get_waarde()
 
@@ -147,7 +148,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._betonomgevingsklassen.set_waarde(value, owner=self._parent)
 
     @property
-    def betonsterkteklasse(self):
+    def betonsterkteklasse(self) -> str:
         """De sterkteklasse is een maat voor de druksterkte van beton."""
         return self._betonsterkteklasse.get_waarde()
 
@@ -156,7 +157,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._betonsterkteklasse.set_waarde(value, owner=self._parent)
 
     @property
-    def gebruiksdomein(self):
+    def gebruiksdomein(self) -> str:
         """De gebruiksomstandigheden van het beton. Dit bepaalt tevens het maximum chloridegehalte."""
         return self._gebruiksdomein.get_waarde()
 
@@ -165,7 +166,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._gebruiksdomein.set_waarde(value, owner=self._parent)
 
     @property
-    def grootsteKorrelafmetingDmax(self):
+    def grootsteKorrelafmetingDmax(self) -> KwantWrdInMillimeterWaarden:
         """De nominale grootste korrelafmeting (Dmax)."""
         return self._grootsteKorrelafmetingDmax.get_waarde()
 
@@ -174,7 +175,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._grootsteKorrelafmetingDmax.set_waarde(value, owner=self._parent)
 
     @property
-    def isCementMetBeperktAlkaligehalte(self):
+    def isCementMetBeperktAlkaligehalte(self) -> bool:
         """Aanduiding of het cement een beperkt alkaligehalte heeft (LA)."""
         return self._isCementMetBeperktAlkaligehalte.get_waarde()
 
@@ -183,7 +184,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._isCementMetBeperktAlkaligehalte.set_waarde(value, owner=self._parent)
 
     @property
-    def isCementMetHogeAanvangssterkte(self):
+    def isCementMetHogeAanvangssterkte(self) -> bool:
         """Geeft aan of het cement gebruikt wordt voor een snelle binding (bijvoorbeeld in de winter) (HES)."""
         return self._isCementMetHogeAanvangssterkte.get_waarde()
 
@@ -192,7 +193,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._isCementMetHogeAanvangssterkte.set_waarde(value, owner=self._parent)
 
     @property
-    def isCementMetHogeBestandheidTegenSulfaten(self):
+    def isCementMetHogeBestandheidTegenSulfaten(self) -> bool:
         """Geeft aan of het cement een hoge bestandheid heeft tegen sulfaten (SR)."""
         return self._isCementMetHogeBestandheidTegenSulfaten.get_waarde()
 
@@ -201,7 +202,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._isCementMetHogeBestandheidTegenSulfaten.set_waarde(value, owner=self._parent)
 
     @property
-    def isCementMetLageHydratatiewarmte(self):
+    def isCementMetLageHydratatiewarmte(self) -> bool:
         """Geeft aan of het cement gebruikt wordt voor een tragere sterkteontwikkeling (LH)."""
         return self._isCementMetLageHydratatiewarmte.get_waarde()
 
@@ -210,7 +211,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._isCementMetLageHydratatiewarmte.set_waarde(value, owner=self._parent)
 
     @property
-    def isColloidaalbeton(self):
+    def isColloidaalbeton(self) -> bool:
         """Geeft aan of het beton zich niet ontmengt onder of in water."""
         return self._isColloidaalbeton.get_waarde()
 
@@ -219,7 +220,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._isColloidaalbeton.set_waarde(value, owner=self._parent)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van het beton. Deze moet volgende eigenschappen bevatten: de norm waaraan het beton voldoet, de sterkteklasse, de duurzaamheid (bestaande uit het gebruiksdomein en de omgevingsklasse(n)), de consistentieklasse, de nominale grootste korrelafmeting,..."""
         return self._technischeFiche.get_waarde()
 
@@ -228,7 +229,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._technischeFiche.set_waarde(value, owner=self._parent)
 
     @property
-    def technischeFicheSpecificatiesBeton(self):
+    def technischeFicheSpecificatiesBeton(self) -> DtcDocumentWaarden:
         """De technische fiche van de specificaties van het beton. Deze moet volgende eigenschappen bevatten: de norm waaraan het beton voldoet, de sterkteklasse, de duurzaamheid (bestaande uit het gebruiksdomein en de omgevingsklasse(n)), de consistentieklasse, de nominale grootste korrelafmeting,..."""
         return self._technischeFicheSpecificatiesBeton.get_waarde()
 
@@ -237,7 +238,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._technischeFicheSpecificatiesBeton.set_waarde(value, owner=self._parent)
 
     @property
-    def toeslagmiddelen(self):
+    def toeslagmiddelen(self) -> List[str]:
         """Materialen die aan het beton worden toegevoegd om vb.: een beter geheel te maken, holle ruimten te vullen waardoor de sterkte toeneemt, ruimten met minder massa te creëren,... Dit kunnen er meerdere zijn."""
         return self._toeslagmiddelen.get_waarde()
 

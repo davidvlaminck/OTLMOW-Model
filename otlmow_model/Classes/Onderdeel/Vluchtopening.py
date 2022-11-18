@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlLEGCOpeningType import KlLEGCOpeningType
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -37,7 +37,7 @@ class Vluchtopening(AIMObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Document waarin onder andere het inplantingsplan van de doorgang wordt weergegeven."""
         return self._technischeFiche.get_waarde()
 
@@ -46,7 +46,7 @@ class Vluchtopening(AIMObject, PuntGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Bepaling van het type van doorgang (sas, nooddeur) (voorlopig opgenomen in figuur 8-4-1)."""
         return self._type.get_waarde()
 

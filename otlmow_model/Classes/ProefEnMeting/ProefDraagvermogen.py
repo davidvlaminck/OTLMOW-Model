@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -33,7 +33,7 @@ class ProefDraagvermogen(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                            owner=self)
 
     @property
-    def draagvermogen(self):
+    def draagvermogen(self) -> DtcDocumentWaarden:
         """Proef die het draagvermogen van de laag bepaald."""
         return self._draagvermogen.get_waarde()
 

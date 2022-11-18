@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlBeheerBoomvorm import KlBeheerBoomvorm
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -31,7 +32,7 @@ class BeheerBoomvorm(AIMObject):
                                          owner=self)
 
     @property
-    def beheeroptie(self):
+    def beheeroptie(self) -> List[str]:
         """Behandelingswijzen van bomen."""
         return self._beheeroptie.get_waarde()
 
@@ -40,7 +41,7 @@ class BeheerBoomvorm(AIMObject):
         self._beheeroptie.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte in vierkante meter van de te behandelen grond rond de boom."""
         return self._oppervlakte.get_waarde()
 

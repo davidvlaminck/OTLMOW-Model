@@ -3,8 +3,8 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.DwarseMarkeringToegang import DwarseMarkeringToegang
 from otlmow_model.Datatypes.KlDwarseMarkeringVerschuindCode import KlDwarseMarkeringVerschuindCode
 from otlmow_model.Datatypes.KlDwarseMarkeringVerschuindSoort import KlDwarseMarkeringVerschuindSoort
-from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -53,7 +53,7 @@ class DwarseMarkeringVerschuind(DwarseMarkeringToegang):
                                                owner=self)
 
     @property
-    def basisoppervlakte(self):
+    def basisoppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De basisoppervlakte van de dwarse markering in vierkante meter."""
         return self._basisoppervlakte.get_waarde()
 
@@ -62,7 +62,7 @@ class DwarseMarkeringVerschuind(DwarseMarkeringToegang):
         self._basisoppervlakte.set_waarde(value, owner=self)
 
     @property
-    def code(self):
+    def code(self) -> str:
         """De (COPRO/BENOR)  code van dwarse markering."""
         return self._code.get_waarde()
 
@@ -71,7 +71,7 @@ class DwarseMarkeringVerschuind(DwarseMarkeringToegang):
         self._code.set_waarde(value, owner=self)
 
     @property
-    def hoek(self):
+    def hoek(self) -> KwantWrdInDecimaleGradenWaarden:
         """De hoek van de verschuinde dwarsmarkering in decimale graden."""
         return self._hoek.get_waarde()
 
@@ -80,7 +80,7 @@ class DwarseMarkeringVerschuind(DwarseMarkeringToegang):
         self._hoek.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van een dwarsmarkering na verschuining."""
         return self._oppervlakte.get_waarde()
 
@@ -89,7 +89,7 @@ class DwarseMarkeringVerschuind(DwarseMarkeringToegang):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def soortOmschrijving(self):
+    def soortOmschrijving(self) -> str:
         """De soort en tevens de omschrijving van dwarse markering."""
         return self._soortOmschrijving.get_waarde()
 

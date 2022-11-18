@@ -4,8 +4,8 @@ from otlmow_model.Classes.Abstracten.AOWSType import AOWSType
 from otlmow_model.Classes.Abstracten.Markering import Markering
 from otlmow_model.Datatypes.KlLEMarkeringCode import KlLEMarkeringCode
 from otlmow_model.Datatypes.KlLEMarkeringSoort import KlLEMarkeringSoort
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -53,7 +53,7 @@ class LijnvormigElementMarkering(AOWSType, Markering, LijnGeometrie):
                                                owner=self)
 
     @property
-    def code(self):
+    def code(self) -> str:
         """De (COPRO/BENOR) code van de lijnvormig element markering."""
         return self._code.get_waarde()
 
@@ -62,7 +62,7 @@ class LijnvormigElementMarkering(AOWSType, Markering, LijnGeometrie):
         self._code.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de markering in meter."""
         return self._lengte.get_waarde()
 
@@ -71,7 +71,7 @@ class LijnvormigElementMarkering(AOWSType, Markering, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van de markering op het lijnvormig element in vierkante meter."""
         return self._oppervlakte.get_waarde()
 
@@ -80,7 +80,7 @@ class LijnvormigElementMarkering(AOWSType, Markering, LijnGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def soortOmschrijving(self):
+    def soortOmschrijving(self) -> str:
         """De soort en tevens de omschrijving van de lijnvormige elementen markering."""
         return self._soortOmschrijving.get_waarde()
 

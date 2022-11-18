@@ -1,9 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -72,7 +73,7 @@ class GeluidwerendeConstructie(AIMObject, LijnGeometrie):
                                                owner=self)
 
     @property
-    def detailplanHoogteverloop(self):
+    def detailplanHoogteverloop(self) -> DtcDocumentWaarden:
         """Dit is een detailplan in de vorm van een lijn waarin het verloop van de absolute hoogte van de top van de geluidswerende constructie wordt weergegeven. Minstens om de 10 meter wordt de hoogte van de top van de constructie bepaald. Het detailplan wordt gebruikt voor akoestische modellering."""
         return self._detailplanHoogteverloop.get_waarde()
 
@@ -81,7 +82,7 @@ class GeluidwerendeConstructie(AIMObject, LijnGeometrie):
         self._detailplanHoogteverloop.set_waarde(value, owner=self)
 
     @property
-    def horizontaalRuimtebeslag(self):
+    def horizontaalRuimtebeslag(self) -> DtcDocumentWaarden:
         """Document waarin de variatie in horizontaal ruimtebeslag over het verloop van de geluidswerende constructie is weergegeven. Het horizontaal ruimtebeslag is de breedte die de gehele constructie inneemt op het maaiveld, loodrecht op de richting waarin de schermelementen op elkaar aangesloten zijn. Er moet een nieuwe waarde ingegeven worden elke keer als de hoogte van de constructie wijzigt."""
         return self._horizontaalRuimtebeslag.get_waarde()
 
@@ -90,7 +91,7 @@ class GeluidwerendeConstructie(AIMObject, LijnGeometrie):
         self._horizontaalRuimtebeslag.set_waarde(value, owner=self)
 
     @property
-    def overzichtsafbeelding(self):
+    def overzichtsafbeelding(self) -> List[DtcDocumentWaarden]:
         """Dit een overzichtsfoto van de hele constructie. Op basis van deze afbeelding kan je snel bekijken hoe de kleur of hoogte varieert over het verloop van de geluidswerende constructie."""
         return self._overzichtsafbeelding.get_waarde()
 
@@ -99,7 +100,7 @@ class GeluidwerendeConstructie(AIMObject, LijnGeometrie):
         self._overzichtsafbeelding.set_waarde(value, owner=self)
 
     @property
-    def rekennota(self):
+    def rekennota(self) -> List[DtcDocumentWaarden]:
         """Dit is een document waarin allerlei berekeningen bijgehouden worden omtrent de stabiliteit en sterkte van de geluidswerende constructie (oa de variatie in statische belasting en windbelasting over het verloop van geluidswerende constructie)."""
         return self._rekennota.get_waarde()
 
@@ -108,7 +109,7 @@ class GeluidwerendeConstructie(AIMObject, LijnGeometrie):
         self._rekennota.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """Dit document geeft volgende zaken mee: producent, productnaam (type), beschrijving van de geplaatste constructie, certificatie (CE en ISO), montage, akoestische karakteristieken, duurzaamheid en brandwerende kenmerken."""
         return self._technischeFiche.get_waarde()
 
@@ -117,7 +118,7 @@ class GeluidwerendeConstructie(AIMObject, LijnGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def totaleLengte(self):
+    def totaleLengte(self) -> KwantWrdInMeterWaarden:
         """De afstand in meter gemeten tussen het beginpunt en het eindpunt van de geluidswerende constructie."""
         return self._totaleLengte.get_waarde()
 
@@ -126,7 +127,7 @@ class GeluidwerendeConstructie(AIMObject, LijnGeometrie):
         self._totaleLengte.set_waarde(value, owner=self)
 
     @property
-    def totaleOppervlakte(self):
+    def totaleOppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De totale oppervlakte van het naar de weg gerichte vlak van alle geplaatste schermelementen van de geluidswerende constructie."""
         return self._totaleOppervlakte.get_waarde()
 

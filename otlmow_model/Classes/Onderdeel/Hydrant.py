@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Brandvoorziening import Brandvoorziening
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlHydrantKoppeling import KlHydrantKoppeling
-from otlmow_model.Datatypes.KwantWrdInInch import KwantWrdInInch
+from otlmow_model.Datatypes.KwantWrdInInch import KwantWrdInInch, KwantWrdInInchWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -48,7 +48,7 @@ class Hydrant(Brandvoorziening):
                                        owner=self)
 
     @property
-    def diameter(self):
+    def diameter(self) -> KwantWrdInInchWaarden:
         """Diameter van het aftappunt."""
         return self._diameter.get_waarde()
 
@@ -57,7 +57,7 @@ class Hydrant(Brandvoorziening):
         self._diameter.set_waarde(value, owner=self)
 
     @property
-    def heeftEigenAfsluitkraan(self):
+    def heeftEigenAfsluitkraan(self) -> bool:
         """Geeft aan of de hydrant ter plaatse kan afgesloten/opengezet kan worden."""
         return self._heeftEigenAfsluitkraan.get_waarde()
 
@@ -66,7 +66,7 @@ class Hydrant(Brandvoorziening):
         self._heeftEigenAfsluitkraan.set_waarde(value, owner=self)
 
     @property
-    def heeftIsolatie(self):
+    def heeftIsolatie(self) -> bool:
         """Geeft aan of de hydrant voorzien is van eigen isolatie."""
         return self._heeftIsolatie.get_waarde()
 
@@ -75,7 +75,7 @@ class Hydrant(Brandvoorziening):
         self._heeftIsolatie.set_waarde(value, owner=self)
 
     @property
-    def koppeling(self):
+    def koppeling(self) -> str:
         """Aard van de koppeling voor aansluiting van een aftapping."""
         return self._koppeling.get_waarde()
 

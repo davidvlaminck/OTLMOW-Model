@@ -53,7 +53,7 @@ class Meetcel(AIMNaamObject, PuntGeometrie):
                                                owner=self)
 
     @property
-    def nauwkeurigheidsklasse(self):
+    def nauwkeurigheidsklasse(self) -> str:
         """Nauwkeurigheidsklasse van de meetcel (vb 0,2; 0,2s; 0,5; ...)."""
         return self._nauwkeurigheidsklasse.get_waarde()
 
@@ -62,7 +62,7 @@ class Meetcel(AIMNaamObject, PuntGeometrie):
         self._nauwkeurigheidsklasse.set_waarde(value, owner=self)
 
     @property
-    def nauwkeurigheidsvermogen(self):
+    def nauwkeurigheidsvermogen(self) -> str:
         """Nauwkeurigheidsvermogen van de meetcel (vb 5;15)."""
         return self._nauwkeurigheidsvermogen.get_waarde()
 
@@ -71,7 +71,7 @@ class Meetcel(AIMNaamObject, PuntGeometrie):
         self._nauwkeurigheidsvermogen.set_waarde(value, owner=self)
 
     @property
-    def transformatieverhouding(self):
+    def transformatieverhouding(self) -> str:
         """Verhouding van de transformatie (vb 25/5;50/5; (5500/v3)/( 110/v3);...)."""
         return self._transformatieverhouding.get_waarde()
 
@@ -80,7 +80,7 @@ class Meetcel(AIMNaamObject, PuntGeometrie):
         self._transformatieverhouding.set_waarde(value, owner=self)
 
     @property
-    def veiligheidsfactor(self):
+    def veiligheidsfactor(self) -> str:
         """Verhouding tussen de toegekende primaire limietstroom van de meetcel en de toegekende primaire stroom."""
         return self._veiligheidsfactor.get_waarde()
 

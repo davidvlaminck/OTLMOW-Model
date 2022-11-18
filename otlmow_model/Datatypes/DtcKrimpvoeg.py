@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -24,7 +24,7 @@ class DtcKrimpvoegWaarden(WaardenObject):
                                           owner=self)
 
     @property
-    def krimpvoegFrequentie(self):
+    def krimpvoegFrequentie(self) -> KwantWrdInMeterWaarden:
         """De afstand tussen de krimpvoegen in meter."""
         return self._krimpvoegFrequentie.get_waarde()
 
@@ -33,7 +33,7 @@ class DtcKrimpvoegWaarden(WaardenObject):
         self._krimpvoegFrequentie.set_waarde(value, owner=self._parent)
 
     @property
-    def totaleLengte(self):
+    def totaleLengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte in meter."""
         return self._totaleLengte.get_waarde()
 

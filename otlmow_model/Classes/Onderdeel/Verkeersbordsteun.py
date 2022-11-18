@@ -4,8 +4,8 @@ from otlmow_model.Classes.Abstracten.Draagconstructie import Draagconstructie
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlOperationeleStatus import KlOperationeleStatus
 from otlmow_model.Datatypes.KlVerkeersbordsteunType import KlVerkeersbordsteunType
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -95,7 +95,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
                                        owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMillimeterWaarden:
         """De breedte van een verkeersbordsteun in millimeter."""
         return self._breedte.get_waarde()
 
@@ -104,7 +104,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def diameter(self):
+    def diameter(self) -> KwantWrdInMillimeterWaarden:
         """De diameter van de verkeersbordpaal in millimeter."""
         return self._diameter.get_waarde()
 
@@ -113,7 +113,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
         self._diameter.set_waarde(value, owner=self)
 
     @property
-    def fabricagevoorschrift(self):
+    def fabricagevoorschrift(self) -> str:
         """Genormaliseerde referentie waaraan het infrastructuur element aan voldoet."""
         return self._fabricagevoorschrift.get_waarde()
 
@@ -122,7 +122,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
         self._fabricagevoorschrift.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de verkeersbordpaal in meter."""
         return self._lengte.get_waarde()
 
@@ -131,7 +131,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def lengteBovengronds(self):
+    def lengteBovengronds(self) -> KwantWrdInMeterWaarden:
         """De bovengrondse lengte van de verkeersbordpaal in meter."""
         return self._lengteBovengronds.get_waarde()
 
@@ -140,7 +140,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
         self._lengteBovengronds.set_waarde(value, owner=self)
 
     @property
-    def lengteOndergronds(self):
+    def lengteOndergronds(self) -> KwantWrdInMeterWaarden:
         """De ondergrondse lengte van de verkeersbordpaal in meter."""
         return self._lengteOndergronds.get_waarde()
 
@@ -149,7 +149,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
         self._lengteOndergronds.set_waarde(value, owner=self)
 
     @property
-    def operationeleStatus(self):
+    def operationeleStatus(self) -> str:
         """De operationele status van de verkeersbordsteun."""
         return self._operationeleStatus.get_waarde()
 
@@ -158,7 +158,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
         self._operationeleStatus.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type verkeersbordpaal."""
         return self._type.get_waarde()
 
@@ -167,7 +167,7 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def wanddikte(self):
+    def wanddikte(self) -> KwantWrdInMillimeterWaarden:
         """De dikte van de wand in millimeter."""
         return self._wanddikte.get_waarde()
 

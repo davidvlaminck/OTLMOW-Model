@@ -1,10 +1,11 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlLokaalTerreinType import KlLokaalTerreinType
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -75,7 +76,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie):
                                                 owner=self)
 
     @property
-    def beoordelingLokaleTerrein(self):
+    def beoordelingLokaleTerrein(self) -> List[str]:
         """Het soort terrein waarin het meetstation staat met betrekking tot het reliëf en de vegetatie."""
         return self._beoordelingLokaleTerrein.get_waarde()
 
@@ -84,7 +85,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie):
         self._beoordelingLokaleTerrein.set_waarde(value, owner=self)
 
     @property
-    def keuringsrapport(self):
+    def keuringsrapport(self) -> List[DtcDocumentWaarden]:
         """Het rapport dat 5 jaarlijks wordt opgesteld met details over het meetstation."""
         return self._keuringsrapport.get_waarde()
 
@@ -93,7 +94,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie):
         self._keuringsrapport.set_waarde(value, owner=self)
 
     @property
-    def masterOfBridgeSensor(self):
+    def masterOfBridgeSensor(self) -> bool:
         """Geeft aan of het meetstation ingeplant is ter hoogte van een brug."""
         return self._masterOfBridgeSensor.get_waarde()
 
@@ -102,7 +103,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie):
         self._masterOfBridgeSensor.set_waarde(value, owner=self)
 
     @property
-    def nabijheidVanHindernissen(self):
+    def nabijheidVanHindernissen(self) -> List[KwantWrdInMeterWaarden]:
         """De afstand tot een hindernis in de nabijheid."""
         return self._nabijheidVanHindernissen.get_waarde()
 
@@ -111,7 +112,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie):
         self._nabijheidVanHindernissen.set_waarde(value, owner=self)
 
     @property
-    def nabijheidVanWaterlopen(self):
+    def nabijheidVanWaterlopen(self) -> List[KwantWrdInMeterWaarden]:
         """De afstand tot een waterloop in de nabijheid."""
         return self._nabijheidVanWaterlopen.get_waarde()
 
@@ -120,7 +121,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie):
         self._nabijheidVanWaterlopen.set_waarde(value, owner=self)
 
     @property
-    def onderhoudsrapport(self):
+    def onderhoudsrapport(self) -> List[DtcDocumentWaarden]:
         """Het rapport dat jaarlijks wordt opgesteld met details over het onderhoud van het meetstation."""
         return self._onderhoudsrapport.get_waarde()
 
@@ -129,7 +130,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie):
         self._onderhoudsrapport.set_waarde(value, owner=self)
 
     @property
-    def sitePhysicsRapport(self):
+    def sitePhysicsRapport(self) -> List[DtcDocumentWaarden]:
         """Beschrijvend overzichtsrapport van het meteostation."""
         return self._sitePhysicsRapport.get_waarde()
 

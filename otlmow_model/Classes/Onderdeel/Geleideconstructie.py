@@ -42,7 +42,7 @@ class Geleideconstructie(AansluitendeConstructie, EigenschappenVoertuigkering, S
                                              owner=self)
 
     @property
-    def isVerwijderbaar(self):
+    def isVerwijderbaar(self) -> bool:
         """Geleideconstructie kan met minimale moeite tijdelijk worden weggenomen en teruggeplaatst worden."""
         return self._isVerwijderbaar.get_waarde()
 
@@ -51,7 +51,7 @@ class Geleideconstructie(AansluitendeConstructie, EigenschappenVoertuigkering, S
         self._isVerwijderbaar.set_waarde(value, owner=self)
 
     @property
-    def werkingsbreedte(self):
+    def werkingsbreedte(self) -> str:
         """Op het voorvlak van een geleideconstructie en loodrecht op de as van de weg gemeten afstand tussen de voorkant van de geleideconstructie in normale positie en de plaats van het verst uitwijkend onderdeel aan de achterzijde van de geleideconstructie bij aanrijding."""
         return self._werkingsbreedte.get_waarde()
 

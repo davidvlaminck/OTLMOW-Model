@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.SoftwareToegang import SoftwareToegang
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcSoftwarePoortconfiguratie import DtcSoftwarePoortconfiguratie
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcSoftwarePoortconfiguratie import DtcSoftwarePoortconfiguratie, DtcSoftwarePoortconfiguratieWaarden
 from otlmow_model.Datatypes.KlSoftwareLicentie import KlSoftwareLicentie
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.BaseClasses.URIField import URIField
@@ -93,7 +94,7 @@ class Software(SoftwareToegang, GeenGeometrie):
                                     owner=self)
 
     @property
-    def aangebodenServices(self):
+    def aangebodenServices(self) -> DtcDocumentWaarden:
         """De endpoints van diensten."""
         return self._aangebodenServices.get_waarde()
 
@@ -102,7 +103,7 @@ class Software(SoftwareToegang, GeenGeometrie):
         self._aangebodenServices.set_waarde(value, owner=self)
 
     @property
-    def buildnummer(self):
+    def buildnummer(self) -> str:
         """De software build."""
         return self._buildnummer.get_waarde()
 
@@ -111,7 +112,7 @@ class Software(SoftwareToegang, GeenGeometrie):
         self._buildnummer.set_waarde(value, owner=self)
 
     @property
-    def dependencies(self):
+    def dependencies(self) -> DtcDocumentWaarden:
         """Afhankelijkheden met andere diensten."""
         return self._dependencies.get_waarde()
 
@@ -120,7 +121,7 @@ class Software(SoftwareToegang, GeenGeometrie):
         self._dependencies.set_waarde(value, owner=self)
 
     @property
-    def documentatie(self):
+    def documentatie(self) -> str:
         """Link naar documentatie over de software."""
         return self._documentatie.get_waarde()
 
@@ -129,7 +130,7 @@ class Software(SoftwareToegang, GeenGeometrie):
         self._documentatie.set_waarde(value, owner=self)
 
     @property
-    def licentie(self):
+    def licentie(self) -> str:
         """De licentievorm van de software (bv. commercieel, shareware, freeware, open source [BSD, Apache, GPL],...)."""
         return self._licentie.get_waarde()
 
@@ -138,7 +139,7 @@ class Software(SoftwareToegang, GeenGeometrie):
         self._licentie.set_waarde(value, owner=self)
 
     @property
-    def onlineDocumentatie(self):
+    def onlineDocumentatie(self) -> str:
         """De url waarop documentatie over de software te vinden is."""
         return self._onlineDocumentatie.get_waarde()
 
@@ -147,7 +148,7 @@ class Software(SoftwareToegang, GeenGeometrie):
         self._onlineDocumentatie.set_waarde(value, owner=self)
 
     @property
-    def poortenconfiguratie(self):
+    def poortenconfiguratie(self) -> List[DtcSoftwarePoortconfiguratieWaarden]:
         """Beschrijft welke poort voor welke service gebruikt wordt."""
         return self._poortenconfiguratie.get_waarde()
 
@@ -156,7 +157,7 @@ class Software(SoftwareToegang, GeenGeometrie):
         self._poortenconfiguratie.set_waarde(value, owner=self)
 
     @property
-    def versie(self):
+    def versie(self) -> str:
         """Het versienummer van de software."""
         return self._versie.get_waarde()
 

@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.GestandaardiseerdeKantopsluiting import GestandaardiseerdeKantopsluiting
-from otlmow_model.Datatypes.DtcLENorm import DtcLENorm
-from otlmow_model.Datatypes.DtcTrottoirbandVorm import DtcTrottoirbandVorm
+from otlmow_model.Datatypes.DtcLENorm import DtcLENorm, DtcLENormWaarden
+from otlmow_model.Datatypes.DtcTrottoirbandVorm import DtcTrottoirbandVorm, DtcTrottoirbandVormWaarden
 from otlmow_model.Datatypes.KlLETrottoirbandWatergreppelType import KlLETrottoirbandWatergreppelType
 
 
@@ -41,7 +41,7 @@ class TrottoirbandWatergreppelStd(GestandaardiseerdeKantopsluiting):
                                   owner=self)
 
     @property
-    def norm(self):
+    def norm(self) -> DtcLENormWaarden:
         """De gestandaardiseerde trottoirband_watergreppel volgens aangeduide norm."""
         return self._norm.get_waarde()
 
@@ -50,7 +50,7 @@ class TrottoirbandWatergreppelStd(GestandaardiseerdeKantopsluiting):
         self._norm.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van gestandaardiseerde trottoirband_watergreppel."""
         return self._type.get_waarde()
 
@@ -59,7 +59,7 @@ class TrottoirbandWatergreppelStd(GestandaardiseerdeKantopsluiting):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> DtcTrottoirbandVormWaarden:
         """De vorm van de gestandaardiseerde trottoirband_watergreppel."""
         return self._vorm.get_waarde()
 

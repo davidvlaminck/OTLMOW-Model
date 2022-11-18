@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlSleufUitvoering import KlSleufUitvoering
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -52,7 +52,7 @@ class Sleuf(AIMObject, VlakGeometrie):
                                         owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMeterWaarden:
         """De breedte van de sleuf in meter volgens figuur 7-1-1 van Standaardbestek 250."""
         return self._breedte.get_waarde()
 
@@ -61,7 +61,7 @@ class Sleuf(AIMObject, VlakGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def diepte(self):
+    def diepte(self) -> KwantWrdInMeterWaarden:
         """De diepte van de sleuf tussen toekomstig maaiveld en de binnenonderkant van de buis in meter."""
         return self._diepte.get_waarde()
 
@@ -70,7 +70,7 @@ class Sleuf(AIMObject, VlakGeometrie):
         self._diepte.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte van de sleuf in lopende meter."""
         return self._lengte.get_waarde()
 
@@ -79,7 +79,7 @@ class Sleuf(AIMObject, VlakGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def uitvoering(self):
+    def uitvoering(self) -> str:
         """Bepaalt de wijze van de uitvoering van de sleuf."""
         return self._uitvoering.get_waarde()
 

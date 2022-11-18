@@ -1,8 +1,8 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
-from otlmow_model.Datatypes.DtcConstructiestaalspecificaties import DtcConstructiestaalspecificaties
-from otlmow_model.Datatypes.KwantWrdInKilogram import KwantWrdInKilogram
+from otlmow_model.Datatypes.DtcConstructiestaalspecificaties import DtcConstructiestaalspecificaties, DtcConstructiestaalspecificatiesWaarden
+from otlmow_model.Datatypes.KwantWrdInKilogram import KwantWrdInKilogram, KwantWrdInKilogramWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -32,7 +32,7 @@ class StalenConstructieElement(PuntGeometrie):
                                            owner=self)
 
     @property
-    def staalspecificaties(self):
+    def staalspecificaties(self) -> DtcConstructiestaalspecificatiesWaarden:
         """Eigenschappen van het gebruikte constructiestaal."""
         return self._staalspecificaties.get_waarde()
 
@@ -41,7 +41,7 @@ class StalenConstructieElement(PuntGeometrie):
         self._staalspecificaties.set_waarde(value, owner=self)
 
     @property
-    def totaalGewicht(self):
+    def totaalGewicht(self) -> KwantWrdInKilogramWaarden:
         """Een kwantitatieve waarde in kilogram van het totale stalen element."""
         return self._totaalGewicht.get_waarde()
 

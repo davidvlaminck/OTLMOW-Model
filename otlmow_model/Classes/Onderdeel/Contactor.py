@@ -34,7 +34,7 @@ class Contactor(AIMObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Geeft aan of het een K of Q contactor betreft."""
         return self._type.get_waarde()
 

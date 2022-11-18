@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlAardingAardingsstelsel import KlAardingAardingsstelsel
 
 
@@ -26,7 +26,7 @@ class DtcAardingsstelselWaarden(WaardenObject):
                                   owner=self)
 
     @property
-    def attestDNB(self):
+    def attestDNB(self) -> DtcDocumentWaarden:
         """Een bestandsbijlage met het attest volgens het aardingsstelsel voorzien door de distributienetbeheerder ."""
         return self._attestDNB.get_waarde()
 
@@ -35,7 +35,7 @@ class DtcAardingsstelselWaarden(WaardenObject):
         self._attestDNB.set_waarde(value, owner=self._parent)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Geeft het type aan van het aardingsstelsel volgens een keuzelijst."""
         return self._type.get_waarde()
 

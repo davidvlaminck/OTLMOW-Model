@@ -24,7 +24,7 @@ class Lichtzuil(EMAfbakening, PuntGeometrie):
                                        owner=self)
 
     @property
-    def soortLamp(self):
+    def soortLamp(self) -> str:
         """Welke soort lamp er gebruikt wordt in de lichtzuil."""
         return self._soortLamp.get_waarde()
 

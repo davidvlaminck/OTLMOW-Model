@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlAlgRijrichting import KlAlgRijrichting
 from otlmow_model.Datatypes.KlAlgSnelheidsregime import KlAlgSnelheidsregime
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
@@ -49,7 +49,7 @@ class Trajectcontrole(NaampadObject, LijnGeometrie):
                                              owner=self)
 
     @property
-    def attest(self):
+    def attest(self) -> DtcDocumentWaarden:
         """Het ijkingsattest van de trajectcontrole in zijn geheel."""
         return self._attest.get_waarde()
 
@@ -58,7 +58,7 @@ class Trajectcontrole(NaampadObject, LijnGeometrie):
         self._attest.set_waarde(value, owner=self)
 
     @property
-    def nTP(self):
+    def nTP(self) -> bool:
         """Aanduiding of het systeem voor zijn tijdsaanduiding gebruik maakt van NTP."""
         return self._nTP.get_waarde()
 
@@ -67,7 +67,7 @@ class Trajectcontrole(NaampadObject, LijnGeometrie):
         self._nTP.set_waarde(value, owner=self)
 
     @property
-    def rijrichting(self):
+    def rijrichting(self) -> str:
         """De rijrichting van de voertuigen die gecontroleerd worden."""
         return self._rijrichting.get_waarde()
 
@@ -76,7 +76,7 @@ class Trajectcontrole(NaampadObject, LijnGeometrie):
         self._rijrichting.set_waarde(value, owner=self)
 
     @property
-    def snelheidsregime(self):
+    def snelheidsregime(self) -> str:
         """Het snelheidsregime waarop de voertuigen worden gecontroleerd."""
         return self._snelheidsregime.get_waarde()
 

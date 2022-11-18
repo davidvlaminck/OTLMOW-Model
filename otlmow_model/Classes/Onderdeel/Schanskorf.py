@@ -1,8 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AndereVerharding import AndereVerharding
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlSchanskorfVorm import KlSchanskorfVorm
 from otlmow_model.Datatypes.KlStortsteenKaliber import KlStortsteenKaliber
 from otlmow_model.Datatypes.KlStortsteenType import KlStortsteenType
@@ -83,7 +84,7 @@ class Schanskorf(AndereVerharding):
                                   owner=self)
 
     @property
-    def heeftVerankeringspalen(self):
+    def heeftVerankeringspalen(self) -> bool:
         """Aanduiding of de palen de functie hebben om een schanskorf te verankeren."""
         return self._heeftVerankeringspalen.get_waarde()
 
@@ -92,7 +93,7 @@ class Schanskorf(AndereVerharding):
         self._heeftVerankeringspalen.set_waarde(value, owner=self)
 
     @property
-    def isGegalvaniseerd(self):
+    def isGegalvaniseerd(self) -> bool:
         """Aanduiding of de schanskorf gegalvaniseerd is."""
         return self._isGegalvaniseerd.get_waarde()
 
@@ -101,7 +102,7 @@ class Schanskorf(AndereVerharding):
         self._isGegalvaniseerd.set_waarde(value, owner=self)
 
     @property
-    def isGelast(self):
+    def isGelast(self) -> bool:
         """Aanduiding of de schanskorf gelast is."""
         return self._isGelast.get_waarde()
 
@@ -110,7 +111,7 @@ class Schanskorf(AndereVerharding):
         self._isGelast.set_waarde(value, owner=self)
 
     @property
-    def kaliber(self):
+    def kaliber(self) -> str:
         """Het kaliber of gemiddelde diameter van de stenen in de schanskorf."""
         return self._kaliber.get_waarde()
 
@@ -119,7 +120,7 @@ class Schanskorf(AndereVerharding):
         self._kaliber.set_waarde(value, owner=self)
 
     @property
-    def materiaalVulling(self):
+    def materiaalVulling(self) -> str:
         """Het soort stenen waaruit de opvulling van een schanskorf bestaat."""
         return self._materiaalVulling.get_waarde()
 
@@ -128,7 +129,7 @@ class Schanskorf(AndereVerharding):
         self._materiaalVulling.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """De technische fiche van de schanskorven als bijlage."""
         return self._technischeFiche.get_waarde()
 
@@ -137,7 +138,7 @@ class Schanskorf(AndereVerharding):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Duidt het type schanskorf aan."""
         return self._type.get_waarde()
 
@@ -146,7 +147,7 @@ class Schanskorf(AndereVerharding):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def vorm(self):
+    def vorm(self) -> str:
         """De gebruikte vorm van de schanskorf."""
         return self._vorm.get_waarde()
 

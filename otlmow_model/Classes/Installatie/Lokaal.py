@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Behuizing import Behuizing
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -28,7 +28,7 @@ class Lokaal(Behuizing, VlakGeometrie):
                                        owner=self)
 
     @property
-    def grondplan(self):
+    def grondplan(self) -> DtcDocumentWaarden:
         """Plattegrond van het lokaal met aanduidingen van de verschillende aanwezige elementen zoals kasten met kastnummers, toegangscontrole en meer."""
         return self._grondplan.get_waarde()
 

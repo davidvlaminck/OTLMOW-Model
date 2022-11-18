@@ -47,7 +47,7 @@ class Antenne(Communicatieapparatuur):
                                        owner=self)
 
     @property
-    def frequentierange(self):
+    def frequentierange(self) -> str:
         """Geeft de frequentierange aan waarbinnen de antenne gebruikt kan worden."""
         return self._frequentierange.get_waarde()
 
@@ -56,7 +56,7 @@ class Antenne(Communicatieapparatuur):
         self._frequentierange.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de antenne."""
         return self._merk.get_waarde()
 
@@ -65,7 +65,7 @@ class Antenne(Communicatieapparatuur):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van een antenne."""
         return self._modelnaam.get_waarde()
 

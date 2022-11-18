@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Onderdeel.Persleiding import Persleiding
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.KwantWrdInBar import KwantWrdInBar
+from otlmow_model.Datatypes.KwantWrdInBar import KwantWrdInBar, KwantWrdInBarWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -32,7 +32,7 @@ class Brandleiding(Persleiding):
                                          owner=self)
 
     @property
-    def isGeisoleerd(self):
+    def isGeisoleerd(self) -> bool:
         """Geeft aan of de brandleiding voorzien is van eigen isolatie."""
         return self._isGeisoleerd.get_waarde()
 
@@ -41,7 +41,7 @@ class Brandleiding(Persleiding):
         self._isGeisoleerd.set_waarde(value, owner=self)
 
     @property
-    def leidingdruk(self):
+    def leidingdruk(self) -> KwantWrdInBarWaarden:
         """De vastgelegde druk die moet voorzien worden op de leiding in functie van de aanvoer van bluswater."""
         return self._leidingdruk.get_waarde()
 

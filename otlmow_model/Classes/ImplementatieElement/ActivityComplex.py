@@ -24,7 +24,7 @@ class ActivityComplex(AIMNaamObject, VlakGeometrie):
                                      owner=self)
 
     @property
-    def netwerk(self):
+    def netwerk(self) -> str:
         """Geeft aan bij welk type nutsvoorzieningennet de kabelmof hoort volgens de types uit IMKL en Inspire."""
         return self._netwerk.get_waarde()
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -32,7 +32,7 @@ class MIVLuskaart(AIMNaamObject, PuntGeometrie):
                                                owner=self)
 
     @property
-    def lussenMeetrapport(self):
+    def lussenMeetrapport(self) -> DtcDocumentWaarden:
         """De elektrische eigenschappen van de lus: R, L, C en de isolatieweerstand. Dit verzekert naast de afmetingen mee de voorziene nauwkeurigheid van de voertuigmetingen."""
         return self._lussenMeetrapport.get_waarde()
 

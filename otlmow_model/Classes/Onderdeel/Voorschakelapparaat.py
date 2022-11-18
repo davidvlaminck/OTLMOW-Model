@@ -38,7 +38,7 @@ Voor de elektromagnetische bestaat deze uit
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Type van het voorschakelapparaat."""
         return self._type.get_waarde()
 

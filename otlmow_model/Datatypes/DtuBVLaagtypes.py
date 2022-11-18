@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
-from otlmow_model.Datatypes.DtcProfileerlaag import DtcProfileerlaag
+from otlmow_model.Datatypes.DtcProfileerlaag import DtcProfileerlaag, DtcProfileerlaagWaarden
 from otlmow_model.Datatypes.KlBVLaagtype import KlBVLaagtype
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
@@ -27,7 +27,7 @@ class DtuBVLaagtypesWaarden(UnionWaarden):
                                            owner=self)
 
     @property
-    def laagtype(self):
+    def laagtype(self) -> str:
         """Het type van de bitumineuze verharding."""
         return self._laagtype.get_waarde()
 
@@ -38,7 +38,7 @@ class DtuBVLaagtypesWaarden(UnionWaarden):
             self.clear_other_props('_laagtype')
 
     @property
-    def profileerlaag(self):
+    def profileerlaag(self) -> DtcProfileerlaagWaarden:
         """De laag die het profiel verbetert van de verharding."""
         return self._profileerlaag.get_waarde()
 

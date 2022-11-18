@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlWegdekvoegType import KlWegdekvoegType
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -44,7 +44,7 @@ class Wegdekvoeg(AIMObject, LijnGeometrie):
                                   owner=self)
 
     @property
-    def heeftDeuvels(self):
+    def heeftDeuvels(self) -> bool:
         """Aanduiding of de voeg al dan niet verdeuveld is."""
         return self._heeftDeuvels.get_waarde()
 
@@ -53,7 +53,7 @@ class Wegdekvoeg(AIMObject, LijnGeometrie):
         self._heeftDeuvels.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de wegdekvoeg."""
         return self._lengte.get_waarde()
 
@@ -62,7 +62,7 @@ class Wegdekvoeg(AIMObject, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van wegdekvoeg."""
         return self._type.get_waarde()
 

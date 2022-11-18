@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlTypeBeschoeiing import KlTypeBeschoeiing
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -42,7 +42,7 @@ class KringsBerliner(AIMObject, LijnGeometrie):
                                   owner=self)
 
     @property
-    def beschoeiingsLengte(self):
+    def beschoeiingsLengte(self) -> KwantWrdInMeterWaarden:
         """De totale lengte van de beschoeiing langs de sleuf in lopende meter."""
         return self._beschoeiingsLengte.get_waarde()
 
@@ -51,7 +51,7 @@ class KringsBerliner(AIMObject, LijnGeometrie):
         self._beschoeiingsLengte.set_waarde(value, owner=self)
 
     @property
-    def buisdiepte(self):
+    def buisdiepte(self) -> KwantWrdInMeterWaarden:
         """De diepte van de buis."""
         return self._buisdiepte.get_waarde()
 
@@ -60,7 +60,7 @@ class KringsBerliner(AIMObject, LijnGeometrie):
         self._buisdiepte.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type beschoeiing."""
         return self._type.get_waarde()
 

@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Verlichtingstoestel import Verlichtingstoestel
 from otlmow_model.Classes.Abstracten.VerlichtingstoestelConnector import VerlichtingstoestelConnector
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL
+from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from otlmow_model.Datatypes.KlArmatuurkleur import KlArmatuurkleur
 
 
@@ -56,7 +56,7 @@ class VerlichtingstoestelNaHP(Verlichtingstoestel, VerlichtingstoestelConnector)
                                            owner=self)
 
     @property
-    def armatuurkleur(self):
+    def armatuurkleur(self) -> DteKleurRALWaarden:
         """De kleur van de zichtbare buitenkant van het verlichtingstoestel."""
         return self._armatuurkleur.get_waarde()
 
@@ -65,7 +65,7 @@ class VerlichtingstoestelNaHP(Verlichtingstoestel, VerlichtingstoestelConnector)
         self._armatuurkleur.set_waarde(value, owner=self)
 
     @property
-    def heeftAntiVandalisme(self):
+    def heeftAntiVandalisme(self) -> bool:
         """Is het een antivandalisme type verlichtingstoestel?"""
         return self._heeftAntiVandalisme.get_waarde()
 
@@ -74,7 +74,7 @@ class VerlichtingstoestelNaHP(Verlichtingstoestel, VerlichtingstoestelConnector)
         self._heeftAntiVandalisme.set_waarde(value, owner=self)
 
     @property
-    def heeftSperfilter(self):
+    def heeftSperfilter(self) -> bool:
         """Is er een sperfilter aanwezig?"""
         return self._heeftSperfilter.get_waarde()
 
@@ -83,7 +83,7 @@ class VerlichtingstoestelNaHP(Verlichtingstoestel, VerlichtingstoestelConnector)
         self._heeftSperfilter.set_waarde(value, owner=self)
 
     @property
-    def kleurArmatuur(self):
+    def kleurArmatuur(self) -> str:
         """De kleur van de zichtbare buitenkant van het verlichtingstoestel."""
         return self._kleurArmatuur.get_waarde()
 

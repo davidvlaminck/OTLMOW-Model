@@ -27,7 +27,7 @@ class WegbebakeningAfschermendeConstructies(Bebakening, PuntGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De vorm van wegbebakening voor afschermende constructies."""
         return self._type.get_waarde()
 

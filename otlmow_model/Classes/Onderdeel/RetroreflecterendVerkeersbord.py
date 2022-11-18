@@ -2,11 +2,11 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Verkeersbord import Verkeersbord
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL
+from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from otlmow_model.Datatypes.KlRetroreflecterendVerkeersbordAfwerkingsgraad import KlRetroreflecterendVerkeersbordAfwerkingsgraad
 from otlmow_model.Datatypes.KlRetroreflecterendVerkeersbordGrootteorde import KlRetroreflecterendVerkeersbordGrootteorde
 from otlmow_model.Datatypes.KlRetroreflecterendVerkeersbordMerk import KlRetroreflecterendVerkeersbordMerk
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -65,7 +65,7 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMObject, PuntGeometrie):
                                          owner=self)
 
     @property
-    def afwerkingsgraad(self):
+    def afwerkingsgraad(self) -> str:
         """De afwerkingsgraad van het retroreflecterend verkeersbord, volgens een keuzelijst op basis van SB250."""
         return self._afwerkingsgraad.get_waarde()
 
@@ -74,7 +74,7 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMObject, PuntGeometrie):
         self._afwerkingsgraad.set_waarde(value, owner=self)
 
     @property
-    def grootteorde(self):
+    def grootteorde(self) -> str:
         """De classificatie naar grootteorde van het verkeersbord, zoals gedefinieerd in SB250 hoofdstuk 10."""
         return self._grootteorde.get_waarde()
 
@@ -83,7 +83,7 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMObject, PuntGeometrie):
         self._grootteorde.set_waarde(value, owner=self)
 
     @property
-    def kleurAchterkant(self):
+    def kleurAchterkant(self) -> DteKleurRALWaarden:
         """De kleur van de achterkant van het retroreflecterend verkeersbord."""
         return self._kleurAchterkant.get_waarde()
 
@@ -92,7 +92,7 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMObject, PuntGeometrie):
         self._kleurAchterkant.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """De merknaam van het verkeersbord; duidt op de leverancier of producent van het verkeersbord."""
         return self._merk.get_waarde()
 
@@ -101,7 +101,7 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van het beeldvlak van een verkeersbord."""
         return self._oppervlakte.get_waarde()
 

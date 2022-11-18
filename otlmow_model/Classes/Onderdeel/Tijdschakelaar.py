@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlTijdschakelaarUitvoering import KlTijdschakelaarUitvoering
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
@@ -50,7 +50,7 @@ class Tijdschakelaar(AIMNaamObject, PuntGeometrie):
                                         owner=self)
 
     @property
-    def componentnummer(self):
+    def componentnummer(self) -> str:
         """Het componentnummer van het elektrische toestel, zoals weergegeven op het schema van het lokale laagspanningsbord. Wordt ook wel onderdeelcode (ODC) genoemd."""
         return self._componentnummer.get_waarde()
 
@@ -59,7 +59,7 @@ class Tijdschakelaar(AIMNaamObject, PuntGeometrie):
         self._componentnummer.set_waarde(value, owner=self)
 
     @property
-    def instellingen(self):
+    def instellingen(self) -> DtcDocumentWaarden:
         """Het tijdsschema voor schakelingen als tekst."""
         return self._instellingen.get_waarde()
 
@@ -68,7 +68,7 @@ class Tijdschakelaar(AIMNaamObject, PuntGeometrie):
         self._instellingen.set_waarde(value, owner=self)
 
     @property
-    def serienummer(self):
+    def serienummer(self) -> str:
         """Het unieke nummer waarmee het toestel door de fabrikant geïdentificeerd is."""
         return self._serienummer.get_waarde()
 
@@ -77,7 +77,7 @@ class Tijdschakelaar(AIMNaamObject, PuntGeometrie):
         self._serienummer.set_waarde(value, owner=self)
 
     @property
-    def uitvoering(self):
+    def uitvoering(self) -> str:
         """Indeling van de tijdschakelaar volgens de manier waarop instellingen ingegeven worden."""
         return self._uitvoering.get_waarde()
 

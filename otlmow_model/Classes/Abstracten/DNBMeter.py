@@ -29,7 +29,7 @@ class DNBMeter(Energiemeter):
                                                    owner=self)
 
     @property
-    def meteropnameFrequentie(self):
+    def meteropnameFrequentie(self) -> str:
         """Frequentie waarmee de meterstand opgenomen wordt door de netbeheerder."""
         return self._meteropnameFrequentie.get_waarde()
 

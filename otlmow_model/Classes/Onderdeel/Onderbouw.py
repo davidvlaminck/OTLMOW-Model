@@ -3,9 +3,9 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Laag import Laag
 from otlmow_model.Classes.Abstracten.LaagDikte import LaagDikte
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcKrimpvoeg import DtcKrimpvoeg
+from otlmow_model.Datatypes.DtcKrimpvoeg import DtcKrimpvoeg, DtcKrimpvoegWaarden
 from otlmow_model.Datatypes.KlOnderbouwType import KlOnderbouwType
-from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter
+from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -53,7 +53,7 @@ class Onderbouw(Laag, LaagDikte):
                                     owner=self)
 
     @property
-    def isHerstel(self):
+    def isHerstel(self) -> bool:
         """Aanduiding of de onderbouw laag is of wordt hersteld."""
         return self._isHerstel.get_waarde()
 
@@ -62,7 +62,7 @@ class Onderbouw(Laag, LaagDikte):
         self._isHerstel.set_waarde(value, owner=self)
 
     @property
-    def krimpvoegen(self):
+    def krimpvoegen(self) -> DtcKrimpvoegWaarden:
         """Een gedeeltelijke insnijding in een constructiedeel die uitzetting en krimp in de constructie toelaat."""
         return self._krimpvoegen.get_waarde()
 
@@ -71,7 +71,7 @@ class Onderbouw(Laag, LaagDikte):
         self._krimpvoegen.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type van onderbouw."""
         return self._type.get_waarde()
 
@@ -80,7 +80,7 @@ class Onderbouw(Laag, LaagDikte):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def volume(self):
+    def volume(self) -> KwantWrdInKubiekeMeterWaarden:
         """Het volume van onderbouw in kubieke meter."""
         return self._volume.get_waarde()
 

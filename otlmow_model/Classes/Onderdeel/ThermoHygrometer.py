@@ -43,7 +43,7 @@ class ThermoHygrometer(Sensoropstelling, AIMNaamObject):
                                                  owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de thermo- hygrometer."""
         return self._merk.get_waarde()
 
@@ -52,7 +52,7 @@ class ThermoHygrometer(Sensoropstelling, AIMNaamObject):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de thermo- hygrometer."""
         return self._modelnaam.get_waarde()
 
@@ -61,7 +61,7 @@ class ThermoHygrometer(Sensoropstelling, AIMNaamObject):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def stralingsschermType(self):
+    def stralingsschermType(self) -> str:
         """Het type van stralingsscherm."""
         return self._stralingsschermType.get_waarde()
 

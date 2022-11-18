@@ -4,7 +4,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlBeheerExoten import KlBeheerExoten
 from otlmow_model.Datatypes.KlNazorgJaarfrequentie import KlNazorgJaarfrequentie
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -53,7 +53,7 @@ class BeheerExoten(AIMObject):
                                          owner=self)
 
     @property
-    def beheeroptie(self):
+    def beheeroptie(self) -> str:
         """Behandelingswijzen van exoten."""
         return self._beheeroptie.get_waarde()
 
@@ -62,7 +62,7 @@ class BeheerExoten(AIMObject):
         self._beheeroptie.set_waarde(value, owner=self)
 
     @property
-    def bijzondereAfvoerVereist(self):
+    def bijzondereAfvoerVereist(self) -> bool:
         """Aanduiding of voor de verwijderde exoten een niet-reguliere afvoer is voorzien."""
         return self._bijzondereAfvoerVereist.get_waarde()
 
@@ -71,7 +71,7 @@ class BeheerExoten(AIMObject):
         self._bijzondereAfvoerVereist.set_waarde(value, owner=self)
 
     @property
-    def heeftDeponie(self):
+    def heeftDeponie(self) -> bool:
         """Aanduiding of de Japanse duizendknoop terplaatse kan worden gedeponeerd in een gecontamineerde zone."""
         return self._heeftDeponie.get_waarde()
 
@@ -80,7 +80,7 @@ class BeheerExoten(AIMObject):
         self._heeftDeponie.set_waarde(value, owner=self)
 
     @property
-    def nazorgJaarfrequentie(self):
+    def nazorgJaarfrequentie(self) -> str:
         """Aantal keer dat de behandelde zone jaarlijks dient te worden gecontroleerd."""
         return self._nazorgJaarfrequentie.get_waarde()
 
@@ -89,7 +89,7 @@ class BeheerExoten(AIMObject):
         self._nazorgJaarfrequentie.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte in vierkante meter van de te behandelen exoten."""
         return self._oppervlakte.get_waarde()
 

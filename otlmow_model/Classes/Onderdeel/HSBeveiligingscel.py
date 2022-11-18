@@ -2,15 +2,15 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlHSBeveiligingscelHoogspanningszekering import KlHSBeveiligingscelHoogspanningszekering
 from otlmow_model.Datatypes.KlHSBeveiligingscelMerk import KlHSBeveiligingscelMerk
 from otlmow_model.Datatypes.KlHSBeveiligingscelModelnaam import KlHSBeveiligingscelModelnaam
 from otlmow_model.Datatypes.KlHSBeveiligingscelOverstroombeveiligingVermogenschakelaar import KlHSBeveiligingscelOverstroombeveiligingVermogenschakelaar
 from otlmow_model.Datatypes.KlHSBeveiligingscelSchakelmateriaalKlasse import KlHSBeveiligingscelSchakelmateriaalKlasse
 from otlmow_model.Datatypes.KlHSBeveiligingscelSchakelmateriaalType import KlHSBeveiligingscelSchakelmateriaalType
-from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere
-from otlmow_model.Datatypes.KwantWrdInJaar import KwantWrdInJaar
+from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
+from otlmow_model.Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -108,7 +108,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
                                                   owner=self)
 
     @property
-    def elektrischSchema(self):
+    def elektrischSchema(self) -> DtcDocumentWaarden:
         """Elektrisch aansluitschema van de HS beveiligingscel."""
         return self._elektrischSchema.get_waarde()
 
@@ -117,7 +117,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._elektrischSchema.set_waarde(value, owner=self)
 
     @property
-    def heeftreserveZekering(self):
+    def heeftreserveZekering(self) -> bool:
         """Is er een reserve zekering aanwezig?"""
         return self._heeftreserveZekering.get_waarde()
 
@@ -126,7 +126,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._heeftreserveZekering.set_waarde(value, owner=self)
 
     @property
-    def hoogspanningszekering(self):
+    def hoogspanningszekering(self) -> str:
         """Waarde van de hoogspanningszekering."""
         return self._hoogspanningszekering.get_waarde()
 
@@ -135,7 +135,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._hoogspanningszekering.set_waarde(value, owner=self)
 
     @property
-    def keuringsfrequentie(self):
+    def keuringsfrequentie(self) -> KwantWrdInJaarWaarden:
         """Frequentie (in jaar) waarmee de installatie moet onderworpen worden aan een periodieke keuring door een externe dienst voor technische controle."""
         return self._keuringsfrequentie.get_waarde()
 
@@ -144,7 +144,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._keuringsfrequentie.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Merk van de HS beveiligingscel."""
         return self._merk.get_waarde()
 
@@ -153,7 +153,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Modelnaam van de HS beveiligingscel."""
         return self._modelnaam.get_waarde()
 
@@ -162,7 +162,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def overstroombeveiligingInstelwaarde(self):
+    def overstroombeveiligingInstelwaarde(self) -> KwantWrdInAmpereWaarden:
         """Instelwaarde van de overstroombeveiliging."""
         return self._overstroombeveiligingInstelwaarde.get_waarde()
 
@@ -171,7 +171,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._overstroombeveiligingInstelwaarde.set_waarde(value, owner=self)
 
     @property
-    def overstroombeveiligingType(self):
+    def overstroombeveiligingType(self) -> str:
         """Type overstroombeveiliging."""
         return self._overstroombeveiligingType.get_waarde()
 
@@ -180,7 +180,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._overstroombeveiligingType.set_waarde(value, owner=self)
 
     @property
-    def overstroombeveiligingVermogenschakelaar(self):
+    def overstroombeveiligingVermogenschakelaar(self) -> str:
         """Directe of indirecte overstroombeveiliging van de vermogenschakelaar."""
         return self._overstroombeveiligingVermogenschakelaar.get_waarde()
 
@@ -189,7 +189,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._overstroombeveiligingVermogenschakelaar.set_waarde(value, owner=self)
 
     @property
-    def schakelmateriaalKlasse(self):
+    def schakelmateriaalKlasse(self) -> str:
         """Klasse van het schakelmateriaal volgens Synergrid."""
         return self._schakelmateriaalKlasse.get_waarde()
 
@@ -198,7 +198,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._schakelmateriaalKlasse.set_waarde(value, owner=self)
 
     @property
-    def schakelmateriaalType(self):
+    def schakelmateriaalType(self) -> str:
         """Type van schakelmateriaal."""
         return self._schakelmateriaalType.get_waarde()
 

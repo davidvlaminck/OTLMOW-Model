@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -40,7 +40,7 @@ class FietstelDisplay(AIMNaamObject, PuntGeometrie, VlakGeometrie):
                                              owner=self)
 
     @property
-    def isDubbelzijdig(self):
+    def isDubbelzijdig(self) -> bool:
         """Geeft aan of het display telgegevens toont langs zijn beide zijden of niet."""
         return self._isDubbelzijdig.get_waarde()
 
@@ -49,7 +49,7 @@ class FietstelDisplay(AIMNaamObject, PuntGeometrie, VlakGeometrie):
         self._isDubbelzijdig.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Document met de technische specificaties van het display."""
         return self._technischeFiche.get_waarde()
 

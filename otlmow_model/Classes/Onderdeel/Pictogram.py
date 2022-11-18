@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BevestigingGC import BevestigingGC
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlPictogramSymbool import KlPictogramSymbool
-from otlmow_model.Datatypes.KwantWrdInMinuut import KwantWrdInMinuut
+from otlmow_model.Datatypes.KwantWrdInMinuut import KwantWrdInMinuut, KwantWrdInMinuutWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -49,7 +49,7 @@ class Pictogram(BevestigingGC, AIMObject):
                                      owner=self)
 
     @property
-    def nalichtingstijd(self):
+    def nalichtingstijd(self) -> KwantWrdInMinuutWaarden:
         """De tijd dat het opgeslagen licht (bij bv. fosforen) in een andere lichtfrequentie (met minder energie) weer wordt uitgezonden."""
         return self._nalichtingstijd.get_waarde()
 
@@ -58,7 +58,7 @@ class Pictogram(BevestigingGC, AIMObject):
         self._nalichtingstijd.set_waarde(value, owner=self)
 
     @property
-    def opschrift(self):
+    def opschrift(self) -> str:
         """Eventueel begeleidende tekst bij het symbool."""
         return self._opschrift.get_waarde()
 
@@ -67,7 +67,7 @@ class Pictogram(BevestigingGC, AIMObject):
         self._opschrift.set_waarde(value, owner=self)
 
     @property
-    def symbool(self):
+    def symbool(self) -> str:
         """Het symbool op het pictogram."""
         return self._symbool.get_waarde()
 

@@ -18,7 +18,7 @@ class DteIPv4AdresWaarden(WaardenObject):
                                     owner=self)
 
     @property
-    def waarde(self):
+    def waarde(self) -> str:
         """De string die het IPv4 adres representeert."""
         return self._waarde.get_waarde()
 

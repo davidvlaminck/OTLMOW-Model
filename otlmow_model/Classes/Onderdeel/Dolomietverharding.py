@@ -27,7 +27,7 @@ class Dolomietverharding(AndereVerharding):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Het type dolomiet."""
         return self._type.get_waarde()
 

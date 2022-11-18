@@ -1,9 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.OTLObject import OTLObject
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
-from otlmow_model.Datatypes.DtcContactinfo import DtcContactinfo
-from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator
+from otlmow_model.Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
+from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -43,7 +44,7 @@ class Agent(OTLObject, RelationInteractor):
                                   owner=self)
 
     @property
-    def agentId(self):
+    def agentId(self) -> DtcIdentificatorWaarden:
         """Identificatie van de agent volgens een bepaalde bron."""
         return self._agentId.get_waarde()
 
@@ -52,7 +53,7 @@ class Agent(OTLObject, RelationInteractor):
         self._agentId.set_waarde(value, owner=self)
 
     @property
-    def contactinfo(self):
+    def contactinfo(self) -> List[DtcContactinfoWaarden]:
         """Algemene contactgegevens voor de agent."""
         return self._contactinfo.get_waarde()
 
@@ -61,7 +62,7 @@ class Agent(OTLObject, RelationInteractor):
         self._contactinfo.set_waarde(value, owner=self)
 
     @property
-    def naam(self):
+    def naam(self) -> str:
         """De naam waarmee de agent doorgaans benoemd wordt."""
         return self._naam.get_waarde()
 

@@ -27,7 +27,7 @@ class Wegreflector(Bebakening, PuntGeometrie):
                                   owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """De vorm van wegreflector."""
         return self._type.get_waarde()
 

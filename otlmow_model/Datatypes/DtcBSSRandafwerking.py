@@ -3,7 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
 from otlmow_model.Datatypes.KlBSSRandafwerking import KlBSSRandafwerking
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -25,7 +25,7 @@ class DtcBSSRandafwerkingWaarden(WaardenObject):
                                            owner=self)
 
     @property
-    def lengteRandafwerking(self):
+    def lengteRandafwerking(self) -> KwantWrdInMeterWaarden:
         """De lengte in meter van de randafwerking."""
         return self._lengteRandafwerking.get_waarde()
 
@@ -34,7 +34,7 @@ class DtcBSSRandafwerkingWaarden(WaardenObject):
         self._lengteRandafwerking.set_waarde(value, owner=self._parent)
 
     @property
-    def randafwerking(self):
+    def randafwerking(self) -> str:
         """De wijze waarop de rand van de bestrating is afgewerkt."""
         return self._randafwerking.get_waarde()
 

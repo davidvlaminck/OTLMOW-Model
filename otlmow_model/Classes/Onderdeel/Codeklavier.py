@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlCodeklavierMerk import KlCodeklavierMerk
 from otlmow_model.Datatypes.KlCodeklavierModelnaam import KlCodeklavierModelnaam
 from otlmow_model.Datatypes.KlCodeklavierWerking import KlCodeklavierWerking
@@ -54,7 +54,7 @@ class Codeklavier(AIMNaamObject, PuntGeometrie):
                                      owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van het codeklavier."""
         return self._merk.get_waarde()
 
@@ -63,7 +63,7 @@ class Codeklavier(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van het codeklavier."""
         return self._modelnaam.get_waarde()
 
@@ -72,7 +72,7 @@ class Codeklavier(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van het codeklavier."""
         return self._technischeFiche.get_waarde()
 
@@ -81,7 +81,7 @@ class Codeklavier(AIMNaamObject, PuntGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def werking(self):
+    def werking(self) -> str:
         """Indeling van het toestel volgens de manier waarop de gebruiker de aansturing doet."""
         return self._werking.get_waarde()
 

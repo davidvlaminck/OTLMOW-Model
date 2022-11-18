@@ -4,8 +4,8 @@ from otlmow_model.Classes.Abstracten.AOWSType import AOWSType
 from otlmow_model.Classes.Abstracten.Markering import Markering
 from otlmow_model.Datatypes.KlGekleurdWVCode import KlGekleurdWVCode
 from otlmow_model.Datatypes.KlGekleurdWVSoort import KlGekleurdWVSoort
-from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter
-from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -59,7 +59,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
                                                owner=self)
 
     @property
-    def breedte(self):
+    def breedte(self) -> KwantWrdInMeterWaarden:
         """De breedte van de markering in meter."""
         return self._breedte.get_waarde()
 
@@ -68,7 +68,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
         self._breedte.set_waarde(value, owner=self)
 
     @property
-    def code(self):
+    def code(self) -> str:
         """De  (COPRO/BENOR) code van de gekleurde wegvlak markering."""
         return self._code.get_waarde()
 
@@ -77,7 +77,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
         self._code.set_waarde(value, owner=self)
 
     @property
-    def lengte(self):
+    def lengte(self) -> KwantWrdInMeterWaarden:
         """De lengte van de markering in meter."""
         return self._lengte.get_waarde()
 
@@ -86,7 +86,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def oppervlakte(self):
+    def oppervlakte(self) -> KwantWrdInVierkanteMeterWaarden:
         """De oppervlakte van het gekleurd wegdeel in vierkante meter."""
         return self._oppervlakte.get_waarde()
 
@@ -95,7 +95,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def soortOmschrijving(self):
+    def soortOmschrijving(self) -> str:
         """De soort en tevens omschrijving van de figuratie markering."""
         return self._soortOmschrijving.get_waarde()
 

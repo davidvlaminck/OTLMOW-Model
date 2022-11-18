@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.Datatypes.KlPadNetwerkprotectie import KlPadNetwerkprotectie
@@ -30,7 +31,7 @@ class Pad(NaampadObject, GeenGeometrie):
                                               owner=self)
 
     @property
-    def netwerkprotectie(self):
+    def netwerkprotectie(self) -> List[str]:
         """Referentie van het pad dat redundantie levert aan dit pad."""
         return self._netwerkprotectie.get_waarde()
 

@@ -2,8 +2,8 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcAdres import DtcAdres
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -60,7 +60,7 @@ class Behuizing(AIMNaamObject):
                                                       owner=self)
 
     @property
-    def adres(self):
+    def adres(self) -> DtcAdresWaarden:
         """Adres (aanduiding van de locatie) van de behuizing. Indien deze geen adres heeft, wordt net zoals door Fluvius voor cabines, het adres van een nabijgelegen straat genomen."""
         return self._adres.get_waarde()
 
@@ -69,7 +69,7 @@ class Behuizing(AIMNaamObject):
         self._adres.set_waarde(value, owner=self)
 
     @property
-    def risicoanalyse(self):
+    def risicoanalyse(self) -> DtcDocumentWaarden:
         """Een bestandsbijlage met de risicoanalyse voor werken in en rond een behuizing."""
         return self._risicoanalyse.get_waarde()
 
@@ -78,7 +78,7 @@ class Behuizing(AIMNaamObject):
         self._risicoanalyse.set_waarde(value, owner=self)
 
     @property
-    def tabelUitwendigeInvloeden(self):
+    def tabelUitwendigeInvloeden(self) -> DtcDocumentWaarden:
         """Een bestandsbijlage met de ingevulde en actuele tabel uitwendige invloeden zoals vereist door het AREI voor bepaalde elektrische installaties."""
         return self._tabelUitwendigeInvloeden.get_waarde()
 

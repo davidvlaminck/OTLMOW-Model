@@ -2,7 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.PU import PU
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlDynBordExternePUMerk import KlDynBordExternePUMerk
 from otlmow_model.Datatypes.KlDynBordExternePUModelnaam import KlDynBordExternePUModelnaam
 
@@ -54,7 +54,7 @@ class DynBordExternePU(PU):
                                              owner=self)
 
     @property
-    def heeftGeintegreerdeModem(self):
+    def heeftGeintegreerdeModem(self) -> bool:
         """De PU heeft een geïntegreerde modem."""
         return self._heeftGeintegreerdeModem.get_waarde()
 
@@ -63,7 +63,7 @@ class DynBordExternePU(PU):
         self._heeftGeintegreerdeModem.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de externe PU volgens een keuzelijst."""
         return self._merk.get_waarde()
 
@@ -72,7 +72,7 @@ class DynBordExternePU(PU):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de externe PU volgens een keuzelijst."""
         return self._modelnaam.get_waarde()
 
@@ -81,7 +81,7 @@ class DynBordExternePU(PU):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """Document met technische informatie over de PU."""
         return self._technischeFiche.get_waarde()
 

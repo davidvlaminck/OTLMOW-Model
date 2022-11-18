@@ -21,7 +21,7 @@ class TypeWeggebruiker(ABC):
                                               owner=self)
 
     @property
-    def typeWeggebruiker(self):
+    def typeWeggebruiker(self) -> str:
         """het type weggebruiker."""
         return self._typeWeggebruiker.get_waarde()
 

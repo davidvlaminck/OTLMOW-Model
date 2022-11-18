@@ -27,7 +27,7 @@ class Slagboom(NaampadObject, VlakGeometrie):
                                        owner=self)
 
     @property
-    def isManueel(self):
+    def isManueel(self) -> bool:
         """Geeft aan of de slagboom (uitsluitend) manueel bediend wordt of door een aangestuurde motor in de slagboomkolom."""
         return self._isManueel.get_waarde()
 

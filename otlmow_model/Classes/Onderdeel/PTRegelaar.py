@@ -1,7 +1,8 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlPTRegelaarMerk import KlPTRegelaarMerk
 from otlmow_model.Datatypes.KlPTRegelaarModelnaam import KlPTRegelaarModelnaam
 from otlmow_model.Datatypes.KlPtRegelaarCommunicatiewijze import KlPtRegelaarCommunicatiewijze
@@ -72,7 +73,7 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
                                              owner=self)
 
     @property
-    def communicatiewijze(self):
+    def communicatiewijze(self) -> str:
         """De manier waarop de PT-regelaar communiceert met de verkeersregelaar."""
         return self._communicatiewijze.get_waarde()
 
@@ -81,7 +82,7 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
         self._communicatiewijze.set_waarde(value, owner=self)
 
     @property
-    def lijnnummers(self):
+    def lijnnummers(self) -> List[DtcDocumentWaarden]:
         """Nummers van de PT lijnen die connecteren met de PT regelaar."""
         return self._lijnnummers.get_waarde()
 
@@ -90,7 +91,7 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
         self._lijnnummers.set_waarde(value, owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van een PT regelaar."""
         return self._merk.get_waarde()
 
@@ -99,7 +100,7 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam/product range van een PT regelaar."""
         return self._modelnaam.get_waarde()
 
@@ -108,7 +109,7 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def protocol(self):
+    def protocol(self) -> str:
         """Naam van het protocol waarmee gecommuniceerd wordt tussen PT-regelaar en verkeersregelaar."""
         return self._protocol.get_waarde()
 
@@ -117,7 +118,7 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
         self._protocol.set_waarde(value, owner=self)
 
     @property
-    def voertuignummers(self):
+    def voertuignummers(self) -> List[str]:
         """Nummers van de voertuigen die connecteren met de PT regelaar."""
         return self._voertuignummers.get_waarde()
 

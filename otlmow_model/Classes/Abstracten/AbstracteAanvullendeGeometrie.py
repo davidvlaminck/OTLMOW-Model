@@ -5,8 +5,8 @@ from otlmow_model.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -48,7 +48,7 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, Relation
                                   owner=self)
 
     @property
-    def assetId(self):
+    def assetId(self) -> DtcIdentificatorWaarden:
         """Unieke identificatie van de aanvullende geometrie zoals toegekend door de beheerder of n.a.v. eerste aanlevering door de leverancier."""
         return self._assetId.get_waarde()
 
@@ -57,7 +57,7 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, Relation
         self._assetId.set_waarde(value, owner=self)
 
     @property
-    def bijlage(self):
+    def bijlage(self) -> DtcDocumentWaarden:
         """Het document of artefact dat een geometrie heeft."""
         return self._bijlage.get_waarde()
 
@@ -66,7 +66,7 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, Relation
         self._bijlage.set_waarde(value, owner=self)
 
     @property
-    def naam(self):
+    def naam(self) -> str:
         """De mensleesbare naam van een aanvullende geometrie. De beheerder kent deze naam toe of geeft de opdracht om deze toe te kennen."""
         return self._naam.get_waarde()
 

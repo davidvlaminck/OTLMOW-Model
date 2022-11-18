@@ -35,7 +35,7 @@ class Klimatisatie(AIMNaamObject, PuntGeometrie):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """De merknaam van de klimatisatie volgens de fabrikant."""
         return self._merk.get_waarde()
 
@@ -44,7 +44,7 @@ class Klimatisatie(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """Naam waarmee de fabrikant het model van de klimatisatie identificeert."""
         return self._modelnaam.get_waarde()
 

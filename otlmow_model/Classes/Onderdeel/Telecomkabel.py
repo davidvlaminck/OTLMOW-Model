@@ -38,7 +38,7 @@ class Telecomkabel(Kabel):
                                               owner=self)
 
     @property
-    def aantalAdersEnSectie(self):
+    def aantalAdersEnSectie(self) -> str:
         """Aantal en sectie van de ader(s) van de kabel volgens een lijst van voorkomende types."""
         return self._aantalAdersEnSectie.get_waarde()
 
@@ -47,7 +47,7 @@ class Telecomkabel(Kabel):
         self._aantalAdersEnSectie.set_waarde(value, owner=self)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Indeling van een telecomkabel op basis van de gebruikte materialen volgens het Standaardbestek en de catalogusposten."""
         return self._type.get_waarde()
 
@@ -56,7 +56,7 @@ class Telecomkabel(Kabel):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def typeSpecificatie(self):
+    def typeSpecificatie(self) -> str:
         """Een verdere specificatie van het type van de telecomkabel volgens een vaste lijst om bv. de brandklasse mee te geven."""
         return self._typeSpecificatie.get_waarde()
 

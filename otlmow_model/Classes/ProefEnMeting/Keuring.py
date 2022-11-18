@@ -1,9 +1,10 @@
 # coding=utf-8
+from datetime import date
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
 from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
-from otlmow_model.Datatypes.KwantWrdInJaar import KwantWrdInJaar
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden
 from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
@@ -43,7 +44,7 @@ class Keuring(Proef, GeenGeometrie):
                                      owner=self)
 
     @property
-    def datum(self):
+    def datum(self) -> date:
         """De datum waarop de keuring werd uitgevoerd."""
         return self._datum.get_waarde()
 
@@ -52,7 +53,7 @@ class Keuring(Proef, GeenGeometrie):
         self._datum.set_waarde(value, owner=self)
 
     @property
-    def geldigheidsDuur(self):
+    def geldigheidsDuur(self) -> KwantWrdInJaarWaarden:
         """de periode (in jaar) waarbinnen de keuring geldig blijft. """
         return self._geldigheidsDuur.get_waarde()
 
@@ -61,7 +62,7 @@ class Keuring(Proef, GeenGeometrie):
         self._geldigheidsDuur.set_waarde(value, owner=self)
 
     @property
-    def verslag(self):
+    def verslag(self) -> DtcDocumentWaarden:
         """document met het verslag van de keuring."""
         return self._verslag.get_waarde()
 

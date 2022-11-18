@@ -32,7 +32,7 @@ class Wegdeksensor(NietGedragenSensor):
                                        owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de oppervlaktetemperatuursensor."""
         return self._merk.get_waarde()
 
@@ -41,7 +41,7 @@ class Wegdeksensor(NietGedragenSensor):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de oppervlaktetemperatuursensor."""
         return self._modelnaam.get_waarde()
 
