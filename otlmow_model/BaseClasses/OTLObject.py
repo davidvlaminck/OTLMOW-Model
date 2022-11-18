@@ -100,8 +100,7 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
         value = d[key]
         if isinstance(value, dict):
             lines.append(prefix + f'{key} :')
-            prefix += ' ' * indent * level
-            lines.extend(_make_string_version_from_dict(value, level=level + 1, indent=indent, prefix=prefix))
+            lines.extend(_make_string_version_from_dict(value, level=level + 1, indent=indent, prefix=prefix + ' ' * indent * level))
         elif isinstance(value, list):
             lines.append(prefix + f'{key} :')
             for index, item in enumerate(value):
