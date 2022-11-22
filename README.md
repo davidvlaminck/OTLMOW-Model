@@ -41,7 +41,9 @@ c.isPtz = 20  # raises a CouldNotConvertToCorrectTypeError
 Inspect the object by printing it.
 ```
 print(c)
-# results in #
+```
+results in
+```
 <Camera> object
     typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera
     isPtz : True
@@ -50,5 +52,22 @@ print(c)
         waarde : 6.0
     toestand : in-gebruik
 ```
-
-
+Access the meta data information by using the meta_info function. Pass in an object. Optionally you can use also pass an attribute to view the metadata of attributes itself
+```
+print(meta_info(c, attribute='toestand'))
+```
+outputs
+```  
+Showing metadata of toestand:
+typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand
+definition: Geeft de actuele stand in de levenscyclus van het object.
+valid values:
+    geannuleerd
+    gepland
+    in-gebruik
+    in-ontwerp
+    in-opbouw
+    overgedragen
+    uit-gebruik
+    verwijderd
+```
