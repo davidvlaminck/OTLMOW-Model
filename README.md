@@ -32,10 +32,23 @@ c.toestand = 'in-gebruik'
 c.naam = 'CAM0001'
 c.opstelhoogte.waarde = 6.0
 ```
-Validation or conversion happens behind the screen
+Validation or conversion happens behind the scenes.
+You'll also get warnings for using deprecated classes or attributes.
 ```
 c.isPtz = 'True'  # this raises a warning, as the value can be interpreted but is not the correct type
 c.isPtz = 20  # raises a CouldNotConvertToCorrectTypeError
+```
+Inspect the object by printing it.
+```
+print(c)
+# results in #
+<Camera> object
+    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera
+    isPtz : True
+    naam : CAM0001
+    opstelhoogte :
+        waarde : 6.0
+    toestand : in-gebruik
 ```
 
 
