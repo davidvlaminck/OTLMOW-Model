@@ -31,7 +31,7 @@ class FloatOrDecimalField(OTLField):
             float_value = float(value)
             if log_warnings:
                 logging.warning(
-                    'Assigned a boolean to a decimal datatype. Automatically converted to the correct type. Please change the type')
+                    'Assigned a string to a decimal datatype. Automatically converted to the correct type. Please change the type')
             return float_value
         except ValueError:
             raise CouldNotConvertToCorrectTypeError(f'"{value}" could not be converted to correct type (implied by {cls.__name__})')
