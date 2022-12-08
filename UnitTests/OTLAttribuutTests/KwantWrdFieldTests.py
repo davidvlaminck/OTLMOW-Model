@@ -39,9 +39,9 @@ class KwantWrdFieldTests(TestCase):
 
         with self.subTest('assign value to kwantWrdField with kard * by using add_empty_value method'):
             instance._testKwantWrdMetKard.add_empty_value()
-            instance.testKwantWrdMetKard[1].waarde = 2.0
             self.assertEqual(1, instance.testKwantWrdMetKard[0].waarde)
-            self.assertEqual(2, instance.testKwantWrdMetKard[1].waarde)
+            instance.testKwantWrdMetKard[1].waarde = '2.5'
+            self.assertEqual(2.5, instance.testKwantWrdMetKard[1].waarde)
 
         with self.subTest('assign bad value to kwantWrdField with kard *'):
             with self.assertRaises(CouldNotConvertToCorrectTypeError):
