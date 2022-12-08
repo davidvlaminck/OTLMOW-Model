@@ -53,6 +53,7 @@ attributes:
                    '    bestekPostNummer (type: String)\n' \
                    '    datumOprichtingObject (type: Date)\n' \
                    '    deprecatedString (type: DtcTestComplexType) <deprecated since 2.0.0-RC3>\n' \
+                   '    geometry(type: WKT)\n' \
                    '    isActief (type: Boolean)\n' \
                    '    notitie (type: String)\n' \
                    '    standaardBestekPostNummer (type: String)\n' \
