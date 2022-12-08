@@ -1,14 +1,8 @@
-import logging
-import unittest
 from unittest import TestCase
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from otlmow_model.Exceptions.RemovedOptionError import RemovedOptionError
 
-
-class NonStringableObject(object):
-    def __str__(self):
-        pass
 
 # logging.warning = lambda l: None
 # logging.error = lambda l: None
@@ -39,7 +33,7 @@ class KeuzelijstFieldTests(TestCase):
         instance.testKeuzelijst = 'waarde 1'
         self.assertEqual('waarde-1', instance.testKeuzelijst)
 
-    def test_full_test_on_testclass_kard_1(self):
+    def test_full_test_on_test_class_kard_1(self):
         instance = AllCasesTestClass()
         with self.subTest('empty instance'):
             self.assertIsNone(instance.testKeuzelijst)
@@ -48,7 +42,7 @@ class KeuzelijstFieldTests(TestCase):
             instance.testKeuzelijst = 'waarde-1'
             self.assertEqual('waarde-1', instance.testKeuzelijst)
 
-    def test_full_test_on_testclass_kard_more(self):
+    def test_full_test_on_test_class_kard_more(self):
         instance = AllCasesTestClass()
         with self.subTest('empty instance'):
             self.assertIsNone(instance.testKeuzelijstMetKard)
