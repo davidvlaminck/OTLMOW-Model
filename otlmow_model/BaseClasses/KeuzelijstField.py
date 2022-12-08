@@ -50,3 +50,22 @@ deprecated_version: {self.deprecated_version}"""
         s += '\npossible values:\n'
         s += '\n'.join(list(map(lambda x: '    ' + x.print(), self.options.values())))
         return s
+
+    @staticmethod
+    def convert_to_invulwaarde(value: str, field) -> str:
+        if value == '':
+            return value
+
+        if value in field.options.keys():
+            return value
+
+        if value.startswith('http'):
+            option = next ((o for o in field.options.values() if o.objectUri == value), None)
+            if option is not None:
+                return option.invulwaarde
+        else:
+            option = next((o for o in field.options.values() if o.label == value), None)
+            if option is not None:
+                return option.invulwaarde
+
+        return value

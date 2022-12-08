@@ -3,6 +3,7 @@ import random
 import warnings
 from datetime import datetime
 
+from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
 from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
@@ -148,25 +149,30 @@ class OTLAttribuut:
             else:
                 kardinaliteit_max = int(self.kardinaliteit_max)
             self._perform_cardinality_check(owner, value, kardinaliteit_max)
+            converted_values = []
             for el_value in value:
                 try:
-                    field_validated = self.field.validate(self.field.convert_to_correct_type(el_value), self)
+                    converted_value = self.field.convert_to_correct_type(el_value)
+                    if issubclass(self.field, KeuzelijstField):
+                        converted_value = self.field.convert_to_invulwaarde(converted_value, self.field)
+
+                    field_validated = self.field.validate(converted_value, self)
                     if not field_validated:
                         raise ValueError(
                             f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not valid, must be valid for {self.field.naam}')
+                    converted_values.append(converted_value)
                 except TypeError as error:
                     raise ValueError(
                         f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not valid, must be valid for {self.field.naam}\n' + str(
                             error))
-            new_list = []
-            for el_value in value:
-                new_list.append(self.field.convert_to_correct_type(el_value))
-            self.waarde = new_list
+            self.waarde = converted_values
         else:
             if self.field.waardeObject is not None and isinstance(value, self.field.waardeObject):
                 self.waarde = value
             else:
                 converted_value = self.field.convert_to_correct_type(value)
+                if issubclass(self.field, KeuzelijstField):
+                    converted_value = self.field.convert_to_invulwaarde(converted_value, self.field)
                 if self.field.validate(value=converted_value, attribuut=self):
                     self.waarde = converted_value
                 else:
