@@ -1,5 +1,5 @@
 # OTLMOW-Model
-[![otlmow-model-downloads](https://img.shields.io/pypi/dm/otlmow-model)](https://pypi.org/project/otlmow-model/)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/otlmow-model)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/otlmow-model)
 <!---[![Coverage Status](https://coveralls.io/repos/github/davidvlaminck/OTLMOW-Model/badge.svg?branch=master)](https://coveralls.io/github/davidvlaminck/OTLMOW-Model?branch=master)--->
 ## Summary
@@ -56,7 +56,7 @@ results in
         waarde : 6.0
     toestand : in-gebruik
 ```
-Access the meta data information by using the meta_info function. Pass in an object. Optionally you can use also pass an attribute to view the metadata of attributes itself
+Access the metadata information by using the meta_info function. Pass in an object. Optionally you can use also pass an attribute to view the metadata of attributes itself
 ```
 print(meta_info(c, attribute='toestand'))
 ```
@@ -75,6 +75,3 @@ valid values:
     uit-gebruik
     verwijderd
 ```
-
-.. |PyPI-Downloads| image:: https://img.shields.io/pypi/dm/tqdm.svg?label=pypi%20downloads&logo=PyPI&logoColor=white
-   :target: https://pepy.tech/project/tqdm
