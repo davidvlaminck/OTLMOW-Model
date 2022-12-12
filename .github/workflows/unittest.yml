@@ -1,6 +1,6 @@
-name: Python package
+name: Unittests
 
-on: [workflow_dispatch]
+on: [push]
 
 jobs:
   build:
