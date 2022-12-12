@@ -30,7 +30,7 @@ class DateFieldTests(TestCase):
 
         convertable_values_list = [('10:11:12', datetime.time(10, 11, 12)), ('7:8:9', datetime.time(7, 8, 9)),
                                    ('2020-1-1 10:11:12', datetime.time(10, 11, 12)), (datetime.date(1, 1, 1), datetime.time(0, 0, 0)),
-                                   ('1/1/2020 10:11:12', datetime.time(10, 11, 12)), (10000, datetime.time(3, 46, 40))]
+                                   ('1/1/2020 10:11:12', datetime.time(10, 11, 12)), (10000, datetime.time(2, 46, 40))]
         for value, expected in convertable_values_list:
             with self.subTest(f'Correct value after conversion: value = {value}'):
                 with self.assertLogs() as captured:

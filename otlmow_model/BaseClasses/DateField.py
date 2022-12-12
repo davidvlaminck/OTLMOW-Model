@@ -31,7 +31,7 @@ class DateField(OTLField):
             if log_warnings:
                 logging.warning(
                     'Assigned a int to a date datatype. Automatically converted to the correct type. Please change the type')
-            timestamp = datetime.fromtimestamp(value)
+            timestamp = datetime.utcfromtimestamp(value)
 
             return date(timestamp.year, timestamp.month, timestamp.day)
 

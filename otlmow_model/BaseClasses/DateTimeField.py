@@ -38,7 +38,7 @@ class DateTimeField(OTLField):
             if log_warnings:
                 logging.warning(
                     'Assigned a int to a datetime datatype. Automatically converted to the correct type. Please change the type')
-            timestamp = datetime.datetime.fromtimestamp(value)
+            timestamp = datetime.datetime.utcfromtimestamp(value)
             return datetime.datetime(timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute, timestamp.second)
         if isinstance(value, str):
             try:
