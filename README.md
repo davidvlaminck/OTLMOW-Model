@@ -3,7 +3,6 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/otlmow-model)
 [![Unittests](https://github.com/davidvlaminck/OTLMOW-Model/actions/workflows/unittest.yml/badge.svg)](https://github.com/davidvlaminck/OTLMOW-Model/actions/workflows/unittest.yml)
 [![GitHub issues](https://img.shields.io/github/issues/davidvlaminck/OTLMOW-Model)](https://github.com/davidvlaminck/OTLMOW-Model/issues)
-<!---[![Coverage Status](https://coveralls.io/repos/github/davidvlaminck/OTLMOW-Model/badge.svg?branch=master)](https://coveralls.io/github/davidvlaminck/OTLMOW-Model?branch=master)--->
 ## Summary
 The main use case of otlmow-model is to provide a class model, allowing instances of OTL compliant classes. The classes have data validation and automatic conversion for attributes and relations between objects.
 
