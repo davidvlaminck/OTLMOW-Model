@@ -1,5 +1,5 @@
 name: Unittests
-
+run-name: Unittests for ${{ github.event.head_commit.tree.sha }}
 on: [push]
 
 jobs:
