@@ -1,5 +1,5 @@
 # OTLMOW-Model
-![PyPI - Downloads](https://img.shields.io/pypi/dm/otlmow-model)
+[![otlmow-model-downloads](https://img.shields.io/pypi/dm/otlmow-model)](https://pypi.org/project/otlmow-model/)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/otlmow-model)
 <!---[![Coverage Status](https://coveralls.io/repos/github/davidvlaminck/OTLMOW-Model/badge.svg?branch=master)](https://coveralls.io/github/davidvlaminck/OTLMOW-Model?branch=master)--->
 ## Summary
