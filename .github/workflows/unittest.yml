@@ -1,5 +1,5 @@
 name: Unittests
-run-name: Unittests for ${{ github.event.sha }}
+run-name: Unittests for ${{ github.sha }}
 on: [push]
 
 jobs:
