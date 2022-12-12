@@ -1,4 +1,7 @@
 # OTLMOW-Model
+[![otlmow-model-downloads](https://img.shields.io/pypi/dm/otlmow-model)](https://pypi.org/project/otlmow-model/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/otlmow-model)
+<!---[![Coverage Status](https://coveralls.io/repos/github/davidvlaminck/OTLMOW-Model/badge.svg?branch=master)](https://coveralls.io/github/davidvlaminck/OTLMOW-Model?branch=master)--->
 ## Summary
 The main use case of otlmow-model is to provide a class model, allowing instances of OTL compliant classes. The classes have data validation and automatic conversion for attributes and relations between objects.
 
@@ -9,6 +12,7 @@ It is split into different packages to reduce compatibility issues
 - otlmow-modelbuilder
 - otlmow-converter
 - otlmow-template
+- otlmow-postenmapping
 
 ## Installation and requirements
 OTLMOW-Model has no dependencies other than the standard Python libraries. Currently, you need at least Python version 3.8 to use this library.
@@ -71,3 +75,6 @@ valid values:
     uit-gebruik
     verwijderd
 ```
+
+.. |PyPI-Downloads| image:: https://img.shields.io/pypi/dm/tqdm.svg?label=pypi%20downloads&logo=PyPI&logoColor=white
+   :target: https://pepy.tech/project/tqdm
