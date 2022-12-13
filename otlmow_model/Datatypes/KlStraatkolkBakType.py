@@ -14,6 +14,11 @@ class KlStraatkolkBakType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStraatkolkBakType'
     options = {
+        'beton': KeuzelijstWaarde(invulwaarde='beton',
+                                  label='beton',
+                                  status='ingebruik',
+                                  definitie='beton',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStraatkolkBakType/beton'),
         'gemetst': KeuzelijstWaarde(invulwaarde='gemetst',
                                     label='gemetst',
                                     status='ingebruik',

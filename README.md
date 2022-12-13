@@ -1,4 +1,8 @@
 # OTLMOW-Model
+[![otlmow-model-downloads](https://img.shields.io/pypi/dm/otlmow-model)](https://pypi.org/project/otlmow-model/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/otlmow-model)
+[![Unittests](https://github.com/davidvlaminck/OTLMOW-Model/actions/workflows/unittest.yml/badge.svg)](https://github.com/davidvlaminck/OTLMOW-Model/actions/workflows/unittest.yml)
+[![GitHub issues](https://img.shields.io/github/issues/davidvlaminck/OTLMOW-Model)](https://github.com/davidvlaminck/OTLMOW-Model/issues)
 ## Summary
 The main use case of otlmow-model is to provide a class model, allowing instances of OTL compliant classes. The classes have data validation and automatic conversion for attributes and relations between objects.
 
@@ -9,6 +13,7 @@ It is split into different packages to reduce compatibility issues
 - otlmow-modelbuilder
 - otlmow-converter
 - otlmow-template
+- otlmow-postenmapping
 
 ## Installation and requirements
 OTLMOW-Model has no dependencies other than the standard Python libraries. Currently, you need at least Python version 3.8 to use this library.
@@ -52,7 +57,7 @@ results in
         waarde : 6.0
     toestand : in-gebruik
 ```
-Access the meta data information by using the meta_info function. Pass in an object. Optionally you can use also pass an attribute to view the metadata of attributes itself
+Access the metadata information by using the meta_info function. Pass in an object. Optionally you can use also pass an attribute to view the metadata of attributes itself
 ```
 print(meta_info(c, attribute='toestand'))
 ```

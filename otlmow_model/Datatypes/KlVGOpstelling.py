@@ -14,6 +14,11 @@ class KlVGOpstelling(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVGOpstelling'
     options = {
+        'gebogen': KeuzelijstWaarde(invulwaarde='gebogen',
+                                    label='gebogen',
+                                    status='ingebruik',
+                                    definitie='Gebogen',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVGOpstelling/gebogen'),
         'loodrecht-op-maaiveld': KeuzelijstWaarde(invulwaarde='loodrecht-op-maaiveld',
                                                   label='loodrecht op maaiveld',
                                                   status='ingebruik',
@@ -28,7 +33,22 @@ class KlVGOpstelling(KeuzelijstField):
                                                      label='schuin naar voor hellend',
                                                      status='ingebruik',
                                                      definitie='schuin naar voor hellend t.o.v. de weg',
-                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVGOpstelling/schuin-naar-voor-hellend')
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVGOpstelling/schuin-naar-voor-hellend'),
+        'taludvorm': KeuzelijstWaarde(invulwaarde='taludvorm',
+                                      label='taludvorm',
+                                      status='ingebruik',
+                                      definitie='Taludvorm',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVGOpstelling/taludvorm'),
+        'taludvorm---vertikaal': KeuzelijstWaarde(invulwaarde='taludvorm---vertikaal',
+                                                  label='taludvorm + vertikaal',
+                                                  status='ingebruik',
+                                                  definitie='Taludvorm + vertikaal',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVGOpstelling/taludvorm---vertikaal'),
+        'verticaal': KeuzelijstWaarde(invulwaarde='verticaal',
+                                      label='verticaal',
+                                      status='ingebruik',
+                                      definitie='Verticaal',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVGOpstelling/verticaal')
     }
 
     @classmethod

@@ -32,8 +32,8 @@ class DateTimeFieldTests(TestCase):
 
         convertable_values_list = [('2020-2-2 10:11:12', datetime.datetime(2020, 2, 2, 10, 11, 12)),
                                    ('2/2/2020 10:11:12', datetime.datetime(2020, 2, 2, 10, 11, 12)),
-                                   (datetime.date(2020, 2, 2), datetime.datetime(2020, 2, 2, 0, 0, 0)),
-                                   (10000000, datetime.datetime(1970, 4, 26, 19, 46, 40))]
+                                   (datetime.date(2020, 2, 2), datetime.datetime(2020, 2, 2)),
+                                   (10000000, datetime.datetime(1970, 4, 26, 17, 46, 40))]
         for value, expected in convertable_values_list:
             with self.subTest(f'Correct value after conversion: value = {value}'):
                 with self.assertLogs() as captured:

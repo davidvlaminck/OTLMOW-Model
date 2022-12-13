@@ -59,6 +59,11 @@ class KlNetwerkMerk(KeuzelijstField):
                                     status='ingebruik',
                                     definitie='Actelis',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/actelis'),
+        'aerohive': KeuzelijstWaarde(invulwaarde='aerohive',
+                                     label='Aerohive',
+                                     status='ingebruik',
+                                     definitie='Aerohive',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/aerohive'),
         'fortinet': KeuzelijstWaarde(invulwaarde='fortinet',
                                      label='Fortinet',
                                      status='ingebruik',
@@ -68,7 +73,12 @@ class KlNetwerkMerk(KeuzelijstField):
                                        label='Hirschmann',
                                        status='ingebruik',
                                        definitie='Hirschmann',
-                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/hirschmann')
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/hirschmann'),
+        'hiveap-122': KeuzelijstWaarde(invulwaarde='hiveap-122',
+                                       label='HiveAP 122',
+                                       status='verwijderd',
+                                       definitie='HiveAP 122',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/hiveap-122')
     }
 
     @classmethod

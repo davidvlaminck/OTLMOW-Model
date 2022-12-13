@@ -37,4 +37,8 @@ class WKTField(OTLField):
     def __str__(self):
         return OTLField.__str__(self)
 
+    @classmethod
+    def create_dummy_data(cls):
+        return 'POINT Z (0 0 0)'
+
 

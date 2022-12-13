@@ -31,12 +31,12 @@ class TimeField(OTLField):
             if log_warnings:
                 logging.warning(
                     'Assigned a date to a time datatype. Automatically converted to the correct type. Please change the type')
-            return time(0, 0, 0)
+            return time()
         if isinstance(value, int):
             if log_warnings:
                 logging.warning(
                     'Assigned a int to a date datatype. Automatically converted to the correct type. Please change the type')
-            timestamp = datetime.fromtimestamp(value)
+            timestamp = datetime.utcfromtimestamp(value)
 
             return time(timestamp.hour, timestamp.minute, timestamp.second)
         if isinstance(value, str):

@@ -1,7 +1,7 @@
 class WKTValidator:
     @classmethod
     def validate_wkt(cls, input_string: str) -> bool:
-        if not '(' in input_string or not ')' in input_string:
+        if '(' not in input_string or ')' not in input_string:
             return False
         geo_type = input_string.split(' (')[0]
 
@@ -46,18 +46,18 @@ class WKTValidator:
             return False
 
         for punt in puntenlijst:
-            coords = punt.split(' ')
-            if geo_type.endswith(' Z') and len(coords) != 3:
+            coordinates = punt.split(' ')
+            if geo_type.endswith(' Z') and len(coordinates) != 3:
                 return False
-            if not geo_type.endswith(' Z') and len(coords) != 2:
+            if not geo_type.endswith(' Z') and len(coordinates) != 2:
                 return False
 
-            for coord in coords:
+            for coord in coordinates:
                 try:
                     val = float(coord)
                     if val < 0:
                         return False
-                except Exception:
+                except ValueError:
                     return False
 
         return True
