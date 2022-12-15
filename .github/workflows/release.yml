@@ -2,8 +2,6 @@ name: Create release
 run-name: Automatic release
 on:
   push:
-    branches:
-      - master
     tags:
       - 'v*'
 
