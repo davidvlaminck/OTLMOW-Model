@@ -3,8 +3,9 @@ run-name: Unittests for ${{ github.sha }}
 on: [push]
 
 jobs:
+  configlet:
+    timeout-minutes: 10
   build:
-
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
