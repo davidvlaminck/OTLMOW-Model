@@ -13,7 +13,7 @@ class RelationValidatorTests(unittest.TestCase):
         all_cases = AllCasesTestClass()
         another = AnotherTestClass()
         self.assertTrue(RelationValidator.is_valid_relation_instance(source=another, relation_instance=Bevestiging(),
-                                                             target=all_cases))
+                                                                     target=all_cases))
         self.assertTrue(RelationValidator.is_valid_relation(source=another, relation=Bevestiging, target=all_cases))
         self.assertFalse(RelationValidator.is_valid_relation(source=another, relation=Voedt, target=all_cases))
         self.assertFalse(RelationValidator.is_valid_relation(source=all_cases, relation=Voedt, target=all_cases))
