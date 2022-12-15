@@ -1,10 +1,9 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "otlmow_model"
-version = "2.5.8"
 authors = [{name = "David Vlaminck", email = "david.vlaminck@mow.vlaanderen.be"}]
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -23,6 +22,8 @@ dependencies = []
 
 [tool.poetry.dependencies]
 python = "^3.6"
+
+[tool.setuptools_scm]
 
 [tool.setuptools.packages.find]
 include = ["otlmow_model*"]
