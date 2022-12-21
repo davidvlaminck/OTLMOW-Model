@@ -38,7 +38,7 @@ class Repeater(ZenderOntvangerToegang):
                                         naam='toepassing',
                                         label='toepassing',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Repeater.toepassing',
-                                        definition='De techniek of standaard waarmee signalen over het netwerk verstuurd worden. Mogelijke waarden zijn onder andere: KAR,  wifi, GPRS of GSM..',
+                                        definition='De techniek of standaard waarmee signalen over het netwerk verstuurd worden. Mogelijke waarden zijn onder andere: KAR, wifi, GPRS of GSM..',
                                         owner=self)
 
     @property
@@ -61,7 +61,7 @@ class Repeater(ZenderOntvangerToegang):
 
     @property
     def toepassing(self) -> DteTekstblokWaarden:
-        """De techniek of standaard waarmee signalen over het netwerk verstuurd worden. Mogelijke waarden zijn onder andere: KAR,  wifi, GPRS of GSM.."""
+        """De techniek of standaard waarmee signalen over het netwerk verstuurd worden. Mogelijke waarden zijn onder andere: KAR, wifi, GPRS of GSM.."""
         return self._toepassing.get_waarde()
 
     @toepassing.setter

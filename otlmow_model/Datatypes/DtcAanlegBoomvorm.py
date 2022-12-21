@@ -24,8 +24,8 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
                                                     naam='beschermingVraatschade',
                                                     label='bescherming vraatschade',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcAanlegBoomvorm.beschermingVraatschade',
-                                                    usagenote='Attribuut uit gebruik sinds versie 2.0.0 ',
-                                                    deprecated_version='2.0.0',
+                                                    usagenote='Attribuut uit gebruik sinds versie 2.0.0-RC3',
+                                                    deprecated_version='2.0.0-RC3',
                                                     definition='Bescherming van de stam tegen knaagdieren.',
                                                     owner=self)
 
@@ -75,7 +75,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
                                              naam='plantmaatOmtrek',
                                              label='plantmaat omtrek',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcAanlegBoomvorm.plantmaatOmtrek',
-                                             definition='De stamomtrek in centimeter  (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde.',
+                                             definition='De stamomtrek in centimeter (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde.',
                                              owner=self)
 
         self._verankering = OTLAttribuut(field=KlBoomVerankering,
@@ -178,7 +178,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
 
     @property
     def plantmaatOmtrek(self) -> str:
-        """De stamomtrek in centimeter  (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde."""
+        """De stamomtrek in centimeter (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde."""
         return self._plantmaatOmtrek.get_waarde()
 
     @plantmaatOmtrek.setter

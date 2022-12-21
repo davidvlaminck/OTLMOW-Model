@@ -18,11 +18,7 @@ from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMe
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
-    """Het geheel van de LEDlichtmodule en de behuizing die werden samengesteld met als doel:
- * de lichtstroom van de lichtbronnen hoofdzakelijk op het te verlichten oppervlak (doorlopende wegsectie, conflictgebied,...) te richten, teneinde de zichtbaarheid te verhogen;
- * de lichtstroom te beheersen zodat de weggebruikers niet verblind worden en de lichthinder beperkt wordt;
- * het optisch systeem, de lichtbronnen en de hulpapparatuur tegen uitwendige invloeden te beschermen
-De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een apart onderdeel behandeld."""
+    """Het geheel van de LEDlichtmodule en de behuizing die werden samengesteld met als doel: * de lichtstroom van de lichtbronnen hoofdzakelijk op het te verlichten oppervlak (doorlopende wegsectie, conflictgebied,...) te richten, teneinde de zichtbaarheid te verhogen; * de lichtstroom te beheersen zodat de weggebruikers niet verblind worden en de lichthinder beperkt wordt; * het optisch systeem, de lichtbronnen en de hulpapparatuur tegen uitwendige invloeden te beschermen De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een apart onderdeel behandeld."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -47,8 +43,8 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
                                            naam='armatuurkleur',
                                            label='armatuurkleur',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.armatuurkleur',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
-                                           deprecated_version='2.3.0',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0-RC1',
+                                           deprecated_version='2.3.0-RC1',
                                            definition='De kleur van de zichtbare buitenkant van het verlichtingstoestel.',
                                            owner=self)
 
@@ -119,8 +115,8 @@ De LED driver bevindt zich fysiek in het verlichtingstoestel maar wordt als een 
                                            naam='tussenAfstand',
                                            label='tussen afstand',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.tussenAfstand',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.4.0 ',
-                                           deprecated_version='2.4.0',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.4.0-RC1',
+                                           deprecated_version='2.4.0-RC1',
                                            definition='Afstand tussen de verschillende LED verlichtingstoestellen.',
                                            owner=self)
 

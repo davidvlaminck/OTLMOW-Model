@@ -44,11 +44,11 @@ class KwantWrdInKiloNewtonPerMeterWaarden(WaardenObject):
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
 class KwantWrdInKiloNewtonPerMeter(OTLField):
-    """Een kwantitatieve waarde die een getal in  kiloNewton per meter uitdrukt."""
+    """Een kwantitatieve waarde die een getal in kiloNewton per meter uitdrukt."""
     naam = 'KwantWrdInKiloNewtonPerMeter'
     label = 'Kwantitatieve waarde in kiloNewton per meter'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInKiloNewtonPerMeter'
-    definition = 'Een kwantitatieve waarde die een getal in  kiloNewton per meter uitdrukt.'
+    definition = 'Een kwantitatieve waarde die een getal in kiloNewton per meter uitdrukt.'
     waarde_shortcut_applicable = True
     waardeObject = KwantWrdInKiloNewtonPerMeterWaarden
 

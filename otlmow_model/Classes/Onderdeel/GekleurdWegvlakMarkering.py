@@ -34,7 +34,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
                                   naam='code',
                                   label='code',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GekleurdWegvlakMarkering.code',
-                                  definition='De  (COPRO/BENOR) code van de gekleurde wegvlak markering.',
+                                  definition='De (COPRO/BENOR) code van de gekleurde wegvlak markering.',
                                   owner=self)
 
         self._lengte = OTLAttribuut(field=KwantWrdInMeter,
@@ -69,7 +69,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
 
     @property
     def code(self) -> str:
-        """De  (COPRO/BENOR) code van de gekleurde wegvlak markering."""
+        """De (COPRO/BENOR) code van de gekleurde wegvlak markering."""
         return self._code.get_waarde()
 
     @code.setter

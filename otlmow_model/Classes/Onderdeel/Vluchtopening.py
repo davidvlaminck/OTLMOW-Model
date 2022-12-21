@@ -17,7 +17,7 @@ class Vluchtopening(AIMObject, PuntGeometrie):
         AIMObject.__init__(self)
         PuntGeometrie.__init__(self)
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0-RC3')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GeluidwerendeConstructie')
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
@@ -31,8 +31,8 @@ class Vluchtopening(AIMObject, PuntGeometrie):
                                   naam='type',
                                   label='type',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Vluchtopening.type',
-                                  usagenote='Attribuut uit gebruik sinds versie 2.1.0 ',
-                                  deprecated_version='2.1.0',
+                                  usagenote='Attribuut uit gebruik sinds versie 2.1.0-RC2',
+                                  deprecated_version='2.1.0-RC2',
                                   definition='Bepaling van het type van doorgang (sas, nooddeur) (voorlopig opgenomen in figuur 8-4-1).',
                                   owner=self)
 

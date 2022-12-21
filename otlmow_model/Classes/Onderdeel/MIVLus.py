@@ -34,7 +34,7 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
                                               naam='uitslijprichting',
                                               label='uitslijprichting',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus.uitslijprichting',
-                                              definition='De uitlopers van de lus gaan naar links of naar rechts  bekeken ten opzichte van de rijrichting.',
+                                              definition='De uitlopers van de lus gaan naar links of naar rechts bekeken ten opzichte van de rijrichting.',
                                               owner=self)
 
         self._zichtbaarheid = OTLAttribuut(field=KlMIVLusZichtbaarheid,
@@ -55,7 +55,7 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
 
     @property
     def uitslijprichting(self) -> str:
-        """De uitlopers van de lus gaan naar links of naar rechts  bekeken ten opzichte van de rijrichting."""
+        """De uitlopers van de lus gaan naar links of naar rechts bekeken ten opzichte van de rijrichting."""
         return self._uitslijprichting.get_waarde()
 
     @uitslijprichting.setter

@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
-from abc import abstractmethod, ABC
+from abc import abstractmethod
+from otlmow_model.Classes.Abstracten.Toegangselement import Toegangselement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DtcAfmetingBxhInM import DtcAfmetingBxhInM, DtcAfmetingBxhInMWaarden
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -12,7 +13,7 @@ from otlmow_model.Datatypes.KwantWrdInUur import KwantWrdInUur, KwantWrdInUurWaa
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Deur(ABC):
+class Deur(Toegangselement):
     """Een beweegbaar element ter afsluiting van een ruimte. In een gebouw is een deur meestal bevestigd in een kozijn,dat weer in een muur of wand is aangebracht."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur'
@@ -20,6 +21,8 @@ class Deur(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._afmetingDeuropening = OTLAttribuut(field=DtcAfmetingBxhInM,
                                                  naam='afmetingDeuropening',
                                                  label='afmeting deuropening',

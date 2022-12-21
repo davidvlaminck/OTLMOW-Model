@@ -47,7 +47,7 @@ class Overstort(LinkendElement, VlakGeometrie):
                                          naam='vrijeHoogte',
                                          label='vrije hoogte',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Overstort.vrijeHoogte',
-                                         definition='De vrije hoogte tussen de overstortdrempel en het plafond van deconstructie ter hoogte van de drempel. Voor drempels in leidingen wordende vrije hoogte voor de databank genomen tussen de drempel en debinnenbovenkant buis. Indien er geen sprake is van een vrije hoogte (vbdrempels in grachten) wordt dit niet ingevuld.',
+                                         definition='De vrije hoogte tussen de overstortdrempel en het plafond van de constructie ter hoogte van de drempel. Voor drempels in leidingen worden de vrije hoogte voor de databank genomen tussen de drempel en de binnenbovenkant buis. Indien er geen sprake is van een vrije hoogte (vb drempels in grachten) wordt dit niet ingevuld.',
                                          owner=self)
 
     @property
@@ -79,11 +79,7 @@ class Overstort(LinkendElement, VlakGeometrie):
 
     @property
     def vrijeHoogte(self) -> KwantWrdInMeterWaarden:
-        """De vrije hoogte tussen de overstortdrempel en het plafond van de
-constructie ter hoogte van de drempel. Voor drempels in leidingen worden
-de vrije hoogte voor de databank genomen tussen de drempel en de
-binnenbovenkant buis. Indien er geen sprake is van een vrije hoogte (vb
-drempels in grachten) wordt dit niet ingevuld."""
+        """De vrije hoogte tussen de overstortdrempel en het plafond van de constructie ter hoogte van de drempel. Voor drempels in leidingen worden de vrije hoogte voor de databank genomen tussen de drempel en de binnenbovenkant buis. Indien er geen sprake is van een vrije hoogte (vb drempels in grachten) wordt dit niet ingevuld."""
         return self._vrijeHoogte.get_waarde()
 
     @vrijeHoogte.setter

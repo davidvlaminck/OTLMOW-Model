@@ -20,6 +20,7 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
         OmhullendeInrichting.__init__(self)
         PuntGeometrie.__init__(self)
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Beschermbuis')
 
         self._inwendigeDiameter = OTLAttribuut(field=KwantWrdInMillimeter,

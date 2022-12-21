@@ -17,14 +17,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Verkeersregelaar(AIMNaamObject, PuntGeometrie):
-    """Een verkeersregelaar is een programmeerbaar toestel dat de verkeerslichten op kruispunten kan regelen overeenkomstig een goedgekeurd verkeersplan. Een verkeersregelaar is bedoeld om het verkeer verkeersafhankelijk te sturen overeenkomstig het gedetecteerde verkeer. Verkeersregelaars kunnen op zichzelf werken of in groep ingeschakeld worden, zodoende op een gecoördineerde wijze de verkeersstromen te verwerken.
-Eveneens detecteert een verkeersregelaar defecte onderdelen, van zichzelf of van aangesloten installaties. Afhankelijk van het soort defect stuurt een verkeersregelaar een code uit opdat het euvel hersteld kan worden. Bij welbepaalde defecten worden verkeerslichten uitgeschakeld of op knipperstand gezet.
-Volgende documenten zijn specifiek van toepassing voor verkeersregelaars:
-*Koninklijk Besluit van 01.12.1975 (wegcode), aangevuld met alle officiële documenten hierover gepubliceerd;
-*NBN EN 12675:2000 (Verkeersregelapparaten - Functionele veiligheidseisen);
-*NBN EN 50556:2011 (Signalisatie voor wegverkeer;
-*NBN EN 12368:2006 (Verkeersregelinstallaties - Verkeerslantaars);
-*NBN EN 50293:2012 (Verkeersregelinstallaties - Elektromagnetische compatibiliteit)"""
+    """Een verkeersregelaar is een programmeerbaar toestel dat de verkeerslichten op kruispunten kan regelen overeenkomstig een goedgekeurd verkeersplan. Een verkeersregelaar is bedoeld om het verkeer verkeersafhankelijk te sturen overeenkomstig het gedetecteerde verkeer. Verkeersregelaars kunnen op zichzelf werken of in groep ingeschakeld worden, zodoende op een gecoördineerde wijze de verkeersstromen te verwerken. Eveneens detecteert een verkeersregelaar defecte onderdelen, van zichzelf of van aangesloten installaties. Afhankelijk van het soort defect stuurt een verkeersregelaar een code uit opdat het euvel hersteld kan worden. Bij welbepaalde defecten worden verkeerslichten uitgeschakeld of op knipperstand gezet. Volgende documenten zijn specifiek van toepassing voor verkeersregelaars: *Koninklijk Besluit van 01.12.1975 (wegcode), aangevuld met alle officiële documenten hierover gepubliceerd; *NBN EN 12675:2000 (Verkeersregelapparaten - Functionele veiligheidseisen); *NBN EN 50556:2011 (Signalisatie voor wegverkeer; *NBN EN 12368:2006 (Verkeersregelinstallaties - Verkeerslantaars); *NBN EN 50293:2012 (Verkeersregelinstallaties - Elektromagnetische compatibiliteit)"""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

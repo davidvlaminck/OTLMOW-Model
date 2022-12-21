@@ -33,7 +33,7 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
                                                     label='technische documentatie',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie.technischeDocumentatie',
                                                     usagenote='Bestanden van het type pdf.',
-                                                    definition='Documentatie van de onderdelen: LVE / luskaart / communicatiekaart, configurator,  ...',
+                                                    definition='Documentatie van de onderdelen: LVE / luskaart / communicatiekaart, configurator, ...',
                                                     owner=self)
 
     @property
@@ -47,7 +47,7 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
 
     @property
     def technischeDocumentatie(self) -> DtcDocumentWaarden:
-        """Documentatie van de onderdelen: LVE / luskaart / communicatiekaart, configurator,  ..."""
+        """Documentatie van de onderdelen: LVE / luskaart / communicatiekaart, configurator, ..."""
         return self._technischeDocumentatie.get_waarde()
 
     @technischeDocumentatie.setter

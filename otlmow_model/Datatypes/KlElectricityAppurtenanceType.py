@@ -6,11 +6,11 @@ from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlElectricityAppurtenanceType(KeuzelijstField):
-    """Lijst voor types  van de ElectricityAppurtenance."""
+    """Lijst voor types van de ElectricityAppurtenance."""
     naam = 'KlElectricityAppurtenanceType'
     label = 'Electricity appurtenance type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlElectricityAppurtenanceType'
-    definition = 'Lijst voor types  van de ElectricityAppurtenance.'
+    definition = 'Lijst voor types van de ElectricityAppurtenance.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElectricityAppurtenanceType'
     options = {

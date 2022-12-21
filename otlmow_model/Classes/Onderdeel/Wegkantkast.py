@@ -9,7 +9,7 @@ from otlmow_model.Datatypes.KlWegkantkastType import KlWegkantkastType
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Wegkantkast(Buitenkast):
-    """Behuizing in de vorm van een kast typisch gebruikt buiten, langs de kant van de weg."""
+    """Behuizing in de vorm van een kast typisch gebruikt buiten,langs de kant van de weg."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wegkantkast'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -18,6 +18,7 @@ class Wegkantkast(Buitenkast):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Toegangselement')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AIDModule')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antenne')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabinecontroller')
@@ -34,6 +35,7 @@ class Wegkantkast(Buitenkast):
                                               naam='elektrischSchema',
                                               label='elektrisch schema',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wegkantkast.elektrischSchema',
+                                              usagenote='Bestanden van het type pdf,dwg of dxf.',
                                               definition='Elektrisch aansluitschema van de kast.',
                                               owner=self)
 

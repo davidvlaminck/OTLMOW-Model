@@ -75,8 +75,8 @@ class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
                                                 naam='operationeleStatus',
                                                 label='operationele status',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersbordsteun.operationeleStatus',
-                                                usagenote='Attribuut uit gebruik sinds versie 2.0.0 ',
-                                                deprecated_version='2.0.0',
+                                                usagenote="Attribuut uit gebruik sinds versie 2.0.0-RC3. Enkel te gebruiken wanneer een object 'in gebruik' is. Zie ook attribuut toestand overgeërfd van AIMToestand om de asset levenscyclus aan te duiden.",
+                                                deprecated_version='2.0.0-RC3.',
                                                 definition='De operationele status van de verkeersbordsteun.',
                                                 owner=self)
 

@@ -9,9 +9,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Gronddam(AIMObject, VlakGeometrie):
-    """Gronddammen zijn trapeziumvormige constructies bestaande uit zand, grond of steenachtige materialen.
-De onderkant van de gronddam wordt direct op het bestaand maaiveld aangebracht of op een vooraf aangebrachte grondverbetering.
-Een gronddam kan volgende functies vervullen: geluidswering, geleiding van dieren, veiligheid en lichtwering."""
+    """Gronddammen zijn trapeziumvormige constructies bestaande uit zand, grond of steenachtige materialen. De onderkant van de gronddam wordt direct op het bestaand maaiveld aangebracht of op een vooraf aangebrachte grondverbetering. Een gronddam kan volgende functies vervullen: geluidswering, geleiding van dieren, veiligheid en lichtwering."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gronddam'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -20,7 +18,7 @@ Een gronddam kan volgende functies vervullen: geluidswering, geleiding van diere
         AIMObject.__init__(self)
         VlakGeometrie.__init__(self)
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0-RC3')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ecoduct')
 
         self._basisbreedte = OTLAttribuut(field=KwantWrdInMeter,

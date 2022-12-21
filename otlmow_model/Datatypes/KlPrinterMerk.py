@@ -5,11 +5,11 @@ from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlPrinterMerk(KeuzelijstField):
-    """Lijst met merknamen va weegcellen."""
+    """Lijst met merknamen van printers."""
     naam = 'KlPrinterMerk'
-    label = 'Weegcel merk'
+    label = 'Printer merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPrinterMerk'
-    definition = 'Lijst met merknamen va weegcellen.'
+    definition = 'Lijst met merknamen van printers.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPrinterMerk'
     options = {

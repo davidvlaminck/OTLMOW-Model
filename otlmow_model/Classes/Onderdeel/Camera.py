@@ -28,8 +28,9 @@ class Camera(AIMNaamObject, PuntGeometrie):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0-RC1')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zoutbijlaadplaats')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AIDModule')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort')
@@ -48,8 +49,8 @@ class Camera(AIMNaamObject, PuntGeometrie):
                                               naam='configBestandAid',
                                               label='configuratie bestand AID',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.configBestandAid',
-                                              usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
-                                              deprecated_version='2.3.0',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.3.0-RC1',
+                                              deprecated_version='2.3.0-RC1',
                                               definition='Het bestand met de configuratie van de AID component die deel is van de camera.',
                                               owner=self)
 
@@ -57,15 +58,15 @@ class Camera(AIMNaamObject, PuntGeometrie):
                                      naam='dnsNaam',
                                      label='DNS naam',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.dnsNaam',
-                                     definition='De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be.',
+                                     definition='De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be.',
                                      owner=self)
 
         self._heeftAid = OTLAttribuut(field=BooleanField,
                                       naam='heeftAid',
                                       label='heeft AID',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.heeftAid',
-                                      usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
-                                      deprecated_version='2.3.0',
+                                      usagenote='Attribuut uit gebruik sinds versie 2.3.0-RC1',
+                                      deprecated_version='2.3.0-RC1',
                                       definition='Een AID-camera is een CCTV-camera met geintegreerde AID-module. Deze camera genereert naast een camerabeeld ook metadata ivm wat zich afspeelt op het beeld. Een voorbeeld hiervan is gestopte voertuigen.',
                                       owner=self)
 
@@ -73,8 +74,8 @@ class Camera(AIMNaamObject, PuntGeometrie):
                                               naam='heeftSpitsstrook',
                                               label='heeft spitsstrook',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.heeftSpitsstrook',
-                                              usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
-                                              deprecated_version='2.3.0',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.3.0-RC1',
+                                              deprecated_version='2.3.0-RC1',
                                               definition='Locatie-eigenschap van een camera. Dit attribuut geeft aan of de camera ingezet wordt om een spitsstrook te schouwen.',
                                               owner=self)
 
@@ -116,9 +117,9 @@ class Camera(AIMNaamObject, PuntGeometrie):
 
         self._servicePrioriteit = OTLAttribuut(field=KlServicePrioriteit,
                                                naam='servicePrioriteit',
-                                               label='Service Prioriteit',
+                                               label='service prioriteit',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.servicePrioriteit',
-                                               definition='Het prioriteitsniveau dat aangeeft hoe dringend iets moet onderhouden/gerepareerd worden',
+                                               definition='Het prioriteitsniveau dat aangeeft hoe dringend iets moet onderhouden/gerepareerd worden.',
                                                owner=self)
 
         self._spectrum = OTLAttribuut(field=KlSpectrum,
@@ -156,7 +157,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
 
     @property
     def dnsNaam(self) -> str:
-        """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
+        """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
     @dnsNaam.setter
@@ -228,7 +229,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
 
     @property
     def servicePrioriteit(self) -> str:
-        """Het prioriteitsniveau dat aangeeft hoe dringend iets moet onderhouden/gerepareerd worden"""
+        """Het prioriteitsniveau dat aangeeft hoe dringend iets moet onderhouden/gerepareerd worden."""
         return self._servicePrioriteit.get_waarde()
 
     @servicePrioriteit.setter
