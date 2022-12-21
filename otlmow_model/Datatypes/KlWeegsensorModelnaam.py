@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,16 @@ class KlWeegsensorModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWeegsensorModelnaam'
     options = {
+        'lineas-wim-sensor-9195gc41': KeuzelijstWaarde(invulwaarde='lineas-wim-sensor-9195gc41',
+                                                       label='Lineas WIM Sensor 9195GC41',
+                                                       status='ingebruik',
+                                                       definitie='Lineas WIM Sensor 9195GC41',
+                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWeegsensorModelnaam/lineas-wim-sensor-9195gc41'),
+        'lineas-wim-sensor-9195gc51': KeuzelijstWaarde(invulwaarde='lineas-wim-sensor-9195gc51',
+                                                       label='Lineas WIM Sensor 9195GC51',
+                                                       status='ingebruik',
+                                                       definitie='Lineas WIM Sensor 9195GC51',
+                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWeegsensorModelnaam/lineas-wim-sensor-9195gc51')
     }
 
     @classmethod
