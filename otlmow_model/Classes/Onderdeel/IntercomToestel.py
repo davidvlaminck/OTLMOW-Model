@@ -7,6 +7,7 @@ from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarde
 from otlmow_model.Datatypes.KlAudioTransportType import KlAudioTransportType
 from otlmow_model.Datatypes.KlIntercomMerk import KlIntercomMerk
 from otlmow_model.Datatypes.KlIntercomModelnaam import KlIntercomModelnaam
+from otlmow_model.Datatypes.KlIntercomUitvoering import KlIntercomUitvoering
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -28,6 +29,7 @@ class IntercomToestel(AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetmicrofoon')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Montagekast')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wegkantkast')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ZuilTGC')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Hulppost')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomServer')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omvormer')
@@ -36,8 +38,15 @@ class IntercomToestel(AIMNaamObject, PuntGeometrie):
                                      naam='dnsNaam',
                                      label='DNS naam',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomToestel.dnsNaam',
-                                     definition='De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be.',
+                                     definition='De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be.',
                                      owner=self)
+
+        self._heeftCamera = OTLAttribuut(field=BooleanField,
+                                         naam='heeftCamera',
+                                         label='heeft camera',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomToestel.heeftCamera',
+                                         definition='Geeft aan of het toestel voorzien is van een camera om naast audio ook video ter verzenden naar een ander toestel in het netwerk.',
+                                         owner=self)
 
         self._heeftVideo = OTLAttribuut(field=BooleanField,
                                         naam='heeftVideo',
@@ -53,6 +62,13 @@ class IntercomToestel(AIMNaamObject, PuntGeometrie):
                                      definition='Het IP-adres van het intercomtoestel.',
                                      owner=self)
 
+        self._isInbouw = OTLAttribuut(field=BooleanField,
+                                      naam='isInbouw',
+                                      label='is inbouw',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomToestel.isInbouw',
+                                      definition='Geeft aan of het intercomtoestel een inbouw- of opbouwtoestel is.',
+                                      owner=self)
+
         self._merk = OTLAttribuut(field=KlIntercomMerk,
                                   naam='merk',
                                   label='merk',
@@ -66,6 +82,13 @@ class IntercomToestel(AIMNaamObject, PuntGeometrie):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomToestel.modelnaam',
                                        definition='De modelnaam van het intercomtoestel.',
                                        owner=self)
+
+        self._oproepnummer = OTLAttribuut(field=StringField,
+                                          naam='oproepnummer',
+                                          label='oproepnummer',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomToestel.oproepnummer',
+                                          definition='Het nummer dat een gebruiker in een verzendend toestel ingeeft om een verbinding te maken met dit, het ontvangend, toestel.',
+                                          owner=self)
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
                                              naam='technischeFiche',
@@ -81,14 +104,30 @@ class IntercomToestel(AIMNaamObject, PuntGeometrie):
                                            definition='Geeft het type van (video- en) audiotransport aan van het intercomtoestel binnen het intercomsysteem.',
                                            owner=self)
 
+        self._uitvoering = OTLAttribuut(field=KlIntercomUitvoering,
+                                        naam='uitvoering',
+                                        label='uitvoering',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomToestel.uitvoering',
+                                        definition='Geeft aan welke functie het toestel vervultin het intercomnetwerk.',
+                                        owner=self)
+
     @property
     def dnsNaam(self) -> str:
-        """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
+        """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
     @dnsNaam.setter
     def dnsNaam(self, value):
         self._dnsNaam.set_waarde(value, owner=self)
+
+    @property
+    def heeftCamera(self) -> bool:
+        """Geeft aan of het toestel voorzien is van een camera om naast audio ook video ter verzenden naar een ander toestel in het netwerk."""
+        return self._heeftCamera.get_waarde()
+
+    @heeftCamera.setter
+    def heeftCamera(self, value):
+        self._heeftCamera.set_waarde(value, owner=self)
 
     @property
     def heeftVideo(self) -> bool:
@@ -109,6 +148,15 @@ class IntercomToestel(AIMNaamObject, PuntGeometrie):
         self._ipAdres.set_waarde(value, owner=self)
 
     @property
+    def isInbouw(self) -> bool:
+        """Geeft aan of het intercomtoestel een inbouw- of opbouwtoestel is."""
+        return self._isInbouw.get_waarde()
+
+    @isInbouw.setter
+    def isInbouw(self, value):
+        self._isInbouw.set_waarde(value, owner=self)
+
+    @property
     def merk(self) -> str:
         """Het merk van het intercomtoestel."""
         return self._merk.get_waarde()
@@ -127,6 +175,15 @@ class IntercomToestel(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
+    def oproepnummer(self) -> str:
+        """Het nummer dat een gebruiker in een verzendend toestel ingeeft om een verbinding te maken met dit, het ontvangend, toestel."""
+        return self._oproepnummer.get_waarde()
+
+    @oproepnummer.setter
+    def oproepnummer(self, value):
+        self._oproepnummer.set_waarde(value, owner=self)
+
+    @property
     def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van het intercomtoestel."""
         return self._technischeFiche.get_waarde()
@@ -143,3 +200,12 @@ class IntercomToestel(AIMNaamObject, PuntGeometrie):
     @transportType.setter
     def transportType(self, value):
         self._transportType.set_waarde(value, owner=self)
+
+    @property
+    def uitvoering(self) -> str:
+        """Geeft aan welke functie het toestel vervultin het intercomnetwerk."""
+        return self._uitvoering.get_waarde()
+
+    @uitvoering.setter
+    def uitvoering(self, value):
+        self._uitvoering.set_waarde(value, owner=self)

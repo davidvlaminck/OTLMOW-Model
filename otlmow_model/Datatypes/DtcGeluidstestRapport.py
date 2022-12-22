@@ -39,7 +39,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
                                                   naam='luchtgeluidsisolatie',
                                                   label='luchtgeluidsisolatie',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#DtcGeluidstestRapport.luchtgeluidsisolatie',
-                                                  definition='De gemeten waarde van het  luchtgeluidsisiolatie van het geluidsscherm.',
+                                                  definition='De gemeten waarde van het luchtgeluidsisiolatie van het geluidsscherm.',
                                                   owner=self)
 
         self._norm = OTLAttribuut(field=KlLEGCNorm,
@@ -94,7 +94,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
 
     @property
     def luchtgeluidsisolatie(self) -> int:
-        """De gemeten waarde van het  luchtgeluidsisiolatie van het geluidsscherm."""
+        """De gemeten waarde van het luchtgeluidsisiolatie van het geluidsscherm."""
         return self._luchtgeluidsisolatie.get_waarde()
 
     @luchtgeluidsisolatie.setter

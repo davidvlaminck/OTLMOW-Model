@@ -7,8 +7,7 @@ from otlmow_model.Datatypes.KlVRBAZModelnaam import KlVRBAZModelnaam
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class VRBAZ(VRModuleZFirmware):
-    """Het bedien- en aanzichttoestel, ook wel bedienings- en diagnosepaneel, is ingebouwd achter een politiedeur. Het bevat een display en bedieningstoetsen om de verkeersregelaar te bedienen. 
-De display van de BAZ geeft de actuele werktoestand aan, inclusief eventuele toestandswisselingen. De actieve defecten zijn onmiddellijk, zonder enige manipulatie, zichtbaar op de display. Met de bedieningsknoppen moet het werkingsregime (online, offline, handbediening, oranjegeel knipperlicht, integraal rood of volledig gedoofd) gekozen kunnen worden. Tevens moet het regime "handbediening" bediend kunnen worden met de bedieningsknoppen. Met een knop wordt er overgeschakeld naar de volgende fase. Een getuigen-LED geeft aan wanneer de overgangsfase is afgerond en er kan overgegaan worden naar de volgende fase"""
+    """Het bedien- en aanzichttoestel, ook wel bedienings- en diagnosepaneel, is ingebouwd achter een politiedeur. Het bevat een display en bedieningstoetsen om de verkeersregelaar te bedienen. De display van de BAZ geeft de actuele werktoestand aan, inclusief eventuele toestandswisselingen. De actieve defecten zijn onmiddellijk, zonder enige manipulatie, zichtbaar op de display. Met de bedieningsknoppen moet het werkingsregime (online, offline, handbediening, oranjegeel knipperlicht, integraal rood of volledig gedoofd) gekozen kunnen worden. Tevens moet het regime "handbediening" bediend kunnen worden met de bedieningsknoppen. Met een knop wordt er overgeschakeld naar de volgende fase. Een getuigen-LED geeft aan wanneer de overgangsfase is afgerond en er kan overgegaan worden naar de volgende fase"""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRBAZ'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

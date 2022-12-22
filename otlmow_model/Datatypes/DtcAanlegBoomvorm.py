@@ -75,7 +75,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
                                              naam='plantmaatOmtrek',
                                              label='plantmaat omtrek',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcAanlegBoomvorm.plantmaatOmtrek',
-                                             definition='De stamomtrek in centimeter  (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde.',
+                                             definition='De stamomtrek in centimeter (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde.',
                                              owner=self)
 
         self._verankering = OTLAttribuut(field=KlBoomVerankering,
@@ -178,7 +178,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
 
     @property
     def plantmaatOmtrek(self) -> str:
-        """De stamomtrek in centimeter  (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde."""
+        """De stamomtrek in centimeter (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde."""
         return self._plantmaatOmtrek.get_waarde()
 
     @plantmaatOmtrek.setter

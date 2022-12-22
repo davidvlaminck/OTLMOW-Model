@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlDynBordRVMSModelnaam import KlDynBordRVMSModelnaam
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class DynBordRVMS(LEDBord):
-    """Dynamisch verkeersbord dat dynamische verkeerstekens  en teksten kan afbeelden. RVMS staat voor Road-side Variable Message Signs."""
+    """Dynamisch verkeersbord dat dynamische verkeerstekens en teksten kan afbeelden. RVMS staat voor Road-side Variable Message Signs."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRVMS'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

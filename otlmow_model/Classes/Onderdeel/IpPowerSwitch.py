@@ -25,7 +25,7 @@ class IpPowerSwitch(AIMNaamObject, PuntGeometrie):
                                      naam='dnsNaam',
                                      label='DNS naam',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IpPowerSwitch.dnsNaam',
-                                     definition='De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be.',
+                                     definition='De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be.',
                                      owner=self)
 
         self._handleiding = OTLAttribuut(field=DtcDocument,
@@ -48,7 +48,7 @@ class IpPowerSwitch(AIMNaamObject, PuntGeometrie):
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IpPowerSwitch.technischeFiche',
                                              usagenote='Bestanden van het type pdf.',
-                                             definition='De technische fiche  van de IP powerswitch.',
+                                             definition='De technische fiche van de IP powerswitch.',
                                              owner=self)
 
         self._type = OTLAttribuut(field=KlIpPowerSwitchType,
@@ -60,7 +60,7 @@ class IpPowerSwitch(AIMNaamObject, PuntGeometrie):
 
     @property
     def dnsNaam(self) -> str:
-        """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en  toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
+        """De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be."""
         return self._dnsNaam.get_waarde()
 
     @dnsNaam.setter
@@ -87,7 +87,7 @@ class IpPowerSwitch(AIMNaamObject, PuntGeometrie):
 
     @property
     def technischeFiche(self) -> DtcDocumentWaarden:
-        """De technische fiche  van de IP powerswitch."""
+        """De technische fiche van de IP powerswitch."""
         return self._technischeFiche.get_waarde()
 
     @technischeFiche.setter

@@ -17,7 +17,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
-    """Cel die de hoogspanningsschakelinrichting omvat. Hieronder vallen onder meer de lastscheidingsschakelaar, smeltveiligheden, aardingsschakelaar,..."""
+    """Cel die de hoogspanningsschakelinrichting omvat. Hieronder vallen onder meer de lastscheidingsschakelaar,smeltveiligheden,aardingsschakelaar,..."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -34,6 +34,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
                                               naam='elektrischSchema',
                                               label='elektrisch schema',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel.elektrischSchema',
+                                              usagenote='Bestanden van het type pdf,dwg of dxf.',
                                               definition='Elektrisch aansluitschema van de HS beveiligingscel.',
                                               owner=self)
 

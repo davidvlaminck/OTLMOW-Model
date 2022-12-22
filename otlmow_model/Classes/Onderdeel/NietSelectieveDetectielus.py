@@ -9,7 +9,7 @@ from otlmow_model.Datatypes.KlVriLusSoortvoertuig import KlVriLusSoortvoertuig
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class NietSelectieveDetectielus(SelNietSelLus):
-    """Een niet-selectieve detectielus werkt onder invloed van een wijziging in de zelfinductie van een lus in het wegdek wanneer het metaal van een voertuig binnen het gevoeligheidsgebied van de lus komt. """
+    """Een niet-selectieve detectielus werkt onder invloed van een wijziging in de zelfinductie van een lus in het wegdek wanneer het metaal van een voertuig binnen het gevoeligheidsgebied van de lus komt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietSelectieveDetectielus'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -40,7 +40,7 @@ class NietSelectieveDetectielus(SelNietSelLus):
                                                  naam='isRichtingsgevoelig',
                                                  label='is richtingsgevoelig',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietSelectieveDetectielus.isRichtingsgevoelig',
-                                                 definition='Is de detectielus gevoelig voor de richting waarin het voertuig het gevoeligheidsgebied van de lus binnenkomt?',
+                                                 definition='Geeft aan of de detectielus gevoelig is voor de richting waarin het voertuig het gevoeligheidsgebied van de lus al dan niet binnenkomt.',
                                                  owner=self)
 
         self._soortVoertuig = OTLAttribuut(field=KlVriLusSoortvoertuig,
@@ -71,7 +71,7 @@ class NietSelectieveDetectielus(SelNietSelLus):
 
     @property
     def isRichtingsgevoelig(self) -> bool:
-        """Is de detectielus gevoelig voor de richting waarin het voertuig het gevoeligheidsgebied van de lus binnenkomt?"""
+        """Geeft aan of de detectielus gevoelig is voor de richting waarin het voertuig het gevoeligheidsgebied van de lus al dan niet binnenkomt."""
         return self._isRichtingsgevoelig.get_waarde()
 
     @isRichtingsgevoelig.setter
