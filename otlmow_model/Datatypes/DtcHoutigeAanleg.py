@@ -80,7 +80,7 @@ class DtcHoutigeAanlegWaarden(WaardenObject):
                                              naam='plantmaatOmtrek',
                                              label='plantmaat omtrek',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcHoutigeAanleg.plantmaatOmtrek',
-                                             definition='De stamomtrek in centimeter  (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde.',
+                                             definition='De stamomtrek in centimeter (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde.',
                                              owner=self)
 
         self._plantverband = OTLAttribuut(field=KlVegetatiePlantverband,
@@ -185,7 +185,7 @@ class DtcHoutigeAanlegWaarden(WaardenObject):
 
     @property
     def plantmaatOmtrek(self) -> str:
-        """De stamomtrek in centimeter  (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde."""
+        """De stamomtrek in centimeter (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde."""
         return self._plantmaatOmtrek.get_waarde()
 
     @plantmaatOmtrek.setter

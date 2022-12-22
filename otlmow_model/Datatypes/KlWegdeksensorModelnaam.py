@@ -5,11 +5,11 @@ from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlWegdeksensorModelnaam(KeuzelijstField):
-    """Oppervlaktetemperatuursensor modelnamen."""
+    """Wegdeksensor modelnamen."""
     naam = 'KlWegdeksensorModelnaam'
-    label = 'Oppervlaktetemperatuursensor modelnaam'
+    label = 'Wegdeksensor modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWegdeksensorModelnaam'
-    definition = 'Oppervlaktetemperatuursensor modelnamen.'
+    definition = 'Wegdeksensor modelnamen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegdeksensorModelnaam'
     options = {

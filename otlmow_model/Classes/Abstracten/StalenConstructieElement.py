@@ -1,13 +1,12 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
-from abc import abstractmethod
+from abc import abstractmethod, ABC
 from otlmow_model.Datatypes.DtcConstructiestaalspecificaties import DtcConstructiestaalspecificaties, DtcConstructiestaalspecificatiesWaarden
 from otlmow_model.Datatypes.KwantWrdInKilogram import KwantWrdInKilogram, KwantWrdInKilogramWaarden
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class StalenConstructieElement(PuntGeometrie):
+class StalenConstructieElement(ABC):
     """Bundeling van gemeenschappelijke eigenschappen van stalen constructie-elementen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#StalenConstructieElement'
@@ -15,8 +14,6 @@ class StalenConstructieElement(PuntGeometrie):
 
     @abstractmethod
     def __init__(self):
-        super().__init__()
-
         self._staalspecificaties = OTLAttribuut(field=DtcConstructiestaalspecificaties,
                                                 naam='staalspecificaties',
                                                 label='staalspecificaties',

@@ -9,9 +9,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Gronddam(AIMObject, VlakGeometrie):
-    """Gronddammen zijn trapeziumvormige constructies bestaande uit zand, grond of steenachtige materialen.
-De onderkant van de gronddam wordt direct op het bestaand maaiveld aangebracht of op een vooraf aangebrachte grondverbetering.
-Een gronddam kan volgende functies vervullen: geluidswering, geleiding van dieren, veiligheid en lichtwering."""
+    """Gronddammen zijn trapeziumvormige constructies bestaande uit zand, grond of steenachtige materialen. De onderkant van de gronddam wordt direct op het bestaand maaiveld aangebracht of op een vooraf aangebrachte grondverbetering. Een gronddam kan volgende functies vervullen: geluidswering, geleiding van dieren, veiligheid en lichtwering."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gronddam'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

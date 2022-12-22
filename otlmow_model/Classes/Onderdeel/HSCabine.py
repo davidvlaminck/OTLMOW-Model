@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlCabineLokaalKlasse import KlCabineLokaalKlasse
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class HSCabine(Cabine):
-    """Een behuizing  bestemd voor het beschermen van elektrisch hoogspanningsmateriaal en het daarbij horende laagspanningsmateriaal en elektromechanische technieken."""
+    """Een behuizing bestemd voor het beschermen van elektrisch hoogspanningsmateriaal en het daarbij horende laagspanningsmateriaal en elektromechanische technieken."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -17,6 +17,7 @@ class HSCabine(Cabine):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Toegangselement')
 
         self._lokaalKlasse = OTLAttribuut(field=KlCabineLokaalKlasse,
                                           naam='lokaalKlasse',
