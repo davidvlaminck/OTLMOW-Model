@@ -136,14 +136,14 @@ class OTLObjectsTests(TestCase):
                    '    testIntegerFieldMetKard :\n' \
                    '    [0] 1\n' \
                    '    [1] 2\n' \
-                   '    [2] 3\n'\
+                   '    [2] 3\n' \
                    '    [3] 4\n' \
                    '    [4] 5\n' \
                    '    [5] 6\n' \
                    '    [6] 7\n' \
                    '    [7] 8\n' \
                    '    [8] 9\n' \
-                   '    [9] 10\n'\
+                   '    [9] 10\n' \
                    '    ...(1 more item)'
 
         self.assertEqual(expected, info_string)
@@ -158,14 +158,14 @@ class OTLObjectsTests(TestCase):
                    '    testIntegerFieldMetKard :\n' \
                    '    [0] 1\n' \
                    '    [1] 2\n' \
-                   '    [2] 3\n'\
+                   '    [2] 3\n' \
                    '    [3] 4\n' \
                    '    [4] 5\n' \
                    '    [5] 6\n' \
                    '    [6] 7\n' \
                    '    [7] 8\n' \
                    '    [8] 9\n' \
-                   '    [9] 10\n'\
+                   '    [9] 10\n' \
                    '    ...(2 more items)'
 
         self.assertEqual(expected, info_string)
@@ -286,7 +286,7 @@ class OTLObjectsTests(TestCase):
                                     'testStringField': 'string',
                                     'testKwantWrd': 1.5,
                                     'testStringFieldMetKard': ['string in complex', 'string 2 in complex'],
-                                    'testComplexType2': {'testStringField': 'string in complex' }}}
+                                    'testComplexType2': {'testStringField': 'string in complex'}}}
             self.assertDictEqual(expected, d)
 
         with self.subTest('complex attributes with cardinality'):
@@ -298,13 +298,19 @@ class OTLObjectsTests(TestCase):
             instance.testComplexTypeMetKard[1].testStringField = 'string 2'
             instance.testComplexTypeMetKard[1].testBooleanField = False
             instance.testComplexTypeMetKard[1].testComplexType2.testStringField = 'string in complex'
+            instance.testComplexTypeMetKard[1]._testComplexType2MetKard.add_empty_value()
+            instance.testComplexTypeMetKard[1]._testComplexType2MetKard.add_empty_value()
+            instance.testComplexTypeMetKard[1].testComplexType2MetKard[0].testStringField = 'first string in complex'
+            instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
 
             d = instance.create_dict_from_asset(waarde_shortcut=True)
             expected = {
-                'testComplexTypeMetKard': [{'testBooleanField': True,
-                                            'testStringField': 'string 1'},
-                                           {'testBooleanField': False,
-                                            'testStringField': 'string 2',
-                                            'testComplexType2': {'testStringField': 'string in complex'}}
-                                           ]}
+                'testComplexTypeMetKard': [
+                    {'testBooleanField': True,
+                     'testStringField': 'string 1'},
+                    {'testBooleanField': False,
+                     'testStringField': 'string 2',
+                     'testComplexType2': {'testStringField': 'string in complex'},
+                     'testComplexType2MetKard': [{'testStringField': 'first string in complex'},
+                                                 {'testStringField': 'second string in complex'}]}]}
             self.assertDictEqual(expected, d)
