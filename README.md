@@ -78,3 +78,18 @@ valid values:
     uit-gebruik
     verwijderd
 ```
+The model also has access to all valid relations within the model. You can query the model to check if a relation of a 
+given type is valid between two instances of objects within the model. Use the RelationValidator class and one of its functions.
+```
+from otlmow_model.Classes.Onderdeel.Camera import Camera
+from otlmow_model.Classes.Onderdeel.Bevestiging import Bevestiging
+from otlmow_model.Classes.Onderdeel.Wegkantkast import Wegkantkast
+from otlmow_model.Helpers.RelationValidator import RelationValidator
+
+camera = Camera()
+kast = Wegkantkast()
+
+camera_kast_bevestiging = RelationValidator.is_valid_relation(source=camera, target=kast, relation_type=Bevestiging)
+print(camera_kast_bevestiging)
+```
+After executing the code above, the output is "False".
