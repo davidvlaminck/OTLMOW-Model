@@ -48,7 +48,6 @@ class RelationValidatorTests(unittest.TestCase):
 
     def test_add_valid_relation_check_if_exists(self):
         b = B()
-        print(b._valid_relations[''])
         self.assertEqual(2, len(b._valid_relations[''].keys()))
 
 
