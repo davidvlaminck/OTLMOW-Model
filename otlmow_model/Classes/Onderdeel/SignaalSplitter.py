@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlSignaalSplitterModelnaam import KlSignaalSplitterM
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class SignaalSplitter(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject):
+class SignaalSplitter(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
     """Een splitter laat toe een kabel in twee te splitsen en dusdanig een signaal te splitsen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SignaalSplitter'

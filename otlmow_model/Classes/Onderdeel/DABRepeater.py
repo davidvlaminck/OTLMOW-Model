@@ -9,7 +9,7 @@ from otlmow_model.Datatypes.KlDABRepeaterModelnaam import KlDABRepeaterModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DABRepeater(IPNetwerkToegangObject, RHZModule, AIMNaamObject):
+class DABRepeater(AIMNaamObject, IPNetwerkToegangObject, RHZModule):
     """DABRepeater is een radio-ontvanger en -zender, die het DAB-signaal ontvangt en weer doorgeeft om zo grotere afstanden te overbruggen en plaatsen te bereiken, waar de radiosignalen niet geraken, zoals in tunnels."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DABRepeater'

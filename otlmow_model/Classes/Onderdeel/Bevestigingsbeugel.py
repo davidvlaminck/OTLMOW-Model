@@ -9,7 +9,7 @@ from otlmow_model.Datatypes.KlBevestigingsbeugelType import KlBevestigingsbeugel
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
+class Bevestigingsbeugel(AIMNaamObject, BevestigingGC):
     """Verbindingsstuk waarmee een object kan vastgemaakt worden aan een steun of oppervlak."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel'

@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlAntennecouplerModelnaam import KlAntennecouplerMod
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Antennecoupler(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject):
+class Antennecoupler(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
     """Een element dat toelaat om twee directionele antennes op één coax aan te sluiten. Al doende creëer je één zendontvanger."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antennecoupler'

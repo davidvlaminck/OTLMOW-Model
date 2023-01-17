@@ -19,8 +19,8 @@ class Markering(Signalisatie, AIMObject):
 
     @abstractmethod
     def __init__(self):
-        AIMObject.__init__(self)
         Signalisatie.__init__(self)
+        AIMObject.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AndereLaag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AndereVerharding')

@@ -9,7 +9,7 @@ from otlmow_model.Datatypes.KlNoodstopknopUitvoering import KlNoodstopknopUitvoe
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Noodstopknop(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject):
+class Noodstopknop(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
     """Een knop waarmee de werking van een machine of installatie koste wat het koste onmiddellijk stilgelegd wordt. Ook noodstopschakelaar genoemd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Noodstopknop'

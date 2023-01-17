@@ -8,7 +8,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Verkenmerk(AanhorighedenBrug, AIMNaamObject, PuntGeometrie):
+class Verkenmerk(AIMNaamObject, AanhorighedenBrug, PuntGeometrie):
     """Een (roestvast) verkenmerk is geplaatst op een kunstwerk. Het periodiek opmeten maakt mogelijk de vervormingen van het kunstwerk te bepalen en de evolutie ervan na te gaan t.o.v. de begintoestand."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkenmerk'

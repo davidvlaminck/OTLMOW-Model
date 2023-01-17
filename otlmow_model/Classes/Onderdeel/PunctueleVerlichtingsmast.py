@@ -14,7 +14,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class PunctueleVerlichtingsmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
+class PunctueleVerlichtingsmast(AIMNaamObject, EMDraagconstructie, PuntGeometrie):
     """Paal waarop punctuele verlichting van niet-beveiligde oversteekplaatsen bevestigd kan worden, inclusief deurtje, klemmenblok, montagekastje, bevestigingsmaterialen (bv. voetplaten) en fundering (bv. buisfundering) of verankeringsmassief. Deze wordt geschilderd in afwisselende stroken zwart/geel."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PunctueleVerlichtingsmast'

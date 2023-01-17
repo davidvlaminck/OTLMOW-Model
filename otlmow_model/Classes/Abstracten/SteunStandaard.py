@@ -11,7 +11,7 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class SteunStandaard(EMDraagconstructie, AIMNaamObject):
+class SteunStandaard(AIMNaamObject, EMDraagconstructie):
     """Abstracte voor de standaard steunen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard'

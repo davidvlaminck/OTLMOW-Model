@@ -15,7 +15,7 @@ from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Badgelezer(ElektrischComponentennummerObject, FirmwareObject, SerienummerObject, AIMNaamObject):
+class Badgelezer(AIMNaamObject, ElektrischComponentennummerObject, FirmwareObject, SerienummerObject):
     """Een inrichting voor automatische authenticatie op basis van een badge."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Badgelezer'

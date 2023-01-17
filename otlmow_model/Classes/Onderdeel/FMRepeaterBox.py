@@ -11,7 +11,7 @@ from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class FMRepeaterBox(IPNetwerkToegangObject, RHZModule, SerienummerObject, AIMNaamObject):
+class FMRepeaterBox(AIMNaamObject, IPNetwerkToegangObject, RHZModule, SerienummerObject):
     """Een radio-ontvanger en -zender, die het FM-signaal ontvangt en weer doorgeeft om zo grotere afstanden te overbruggen en plaatsen te bereiken, waar de radiosignalen niet geraken, zoals in tunnels. De uitvoering is van het type 'box' waar aparte repeatermodules per frequentie of voor meerdere frequenties kunnen ingestoken worden, zoals in een vaste computer."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FMRepeaterBox'

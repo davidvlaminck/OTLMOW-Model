@@ -8,15 +8,15 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class ConstructieSokkel(BetonnenConstructieElement, ConstructieElement, ConstructieElementenGC, VlakGeometrie):
+class ConstructieSokkel(ConstructieElement, BetonnenConstructieElement, ConstructieElementenGC, VlakGeometrie):
     """Betonnen zool die het object dat erop rust verhoogt of dat dient om een structuur op een goede manier te kunnen opleggen/verbinden met de fundering."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ConstructieSokkel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        BetonnenConstructieElement.__init__(self)
         ConstructieElement.__init__(self)
+        BetonnenConstructieElement.__init__(self)
         ConstructieElementenGC.__init__(self)
         VlakGeometrie.__init__(self)
 

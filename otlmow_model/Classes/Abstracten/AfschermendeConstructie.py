@@ -12,7 +12,7 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
+class AfschermendeConstructie(LijnvormigElement, BijlageVoertuigkering):
     """Abstracte die een lijn- of puntvormige constructie,geïnstalleerd langs de weg om een kerend vermogen te bieden aan een dwalend voertuig,samenvat."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AfschermendeConstructie'
@@ -20,8 +20,8 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
 
     @abstractmethod
     def __init__(self):
-        BijlageVoertuigkering.__init__(self)
         LijnvormigElement.__init__(self)
+        BijlageVoertuigkering.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Fundering')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')

@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlWindmeterType import KlWindmeterType
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Windmeter(Sensoropstelling, AIMNaamObject):
+class Windmeter(AIMNaamObject, Sensoropstelling):
     """Een meettoestel dat windsnelheid en/of windrichting meet. Het meetresultaat wordt omgezet in een uitleesbaar signaal."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Windmeter'

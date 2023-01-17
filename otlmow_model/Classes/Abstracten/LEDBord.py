@@ -11,7 +11,7 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class LEDBord(Verkeersbord, AIMNaamObject):
+class LEDBord(AIMNaamObject, Verkeersbord):
     """Abstracte klasse die de gemeenschappelijke eigenschappen van verschillende types dynamische verkeersborden groepeert."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LEDBord'

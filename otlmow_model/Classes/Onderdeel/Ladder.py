@@ -10,7 +10,7 @@ from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ladder(AanhorighedenBrug, AIMNaamObject, LijnGeometrie):
+class Ladder(AIMNaamObject, AanhorighedenBrug, LijnGeometrie):
     """Een ladder is een constructie van verticale bomen met horizontale sporten die gebruikt wordt als klimmiddel/gereedschap."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder'

@@ -11,7 +11,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Signaalfilter(RHZModule, SerienummerObject, AIMNaamObject, PuntGeometrie):
+class Signaalfilter(AIMNaamObject, RHZModule, SerienummerObject, PuntGeometrie):
     """Een frequentiegestuurde module (in het bereik van 0 Hz tot 20 kHz) dat bepaalde frequentiebereiken kan versterken, doorlaten of verzwakken."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Signaalfilter'

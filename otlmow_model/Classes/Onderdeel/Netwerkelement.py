@@ -11,7 +11,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Netwerkelement(RHZModule, AIMNaamObject, PuntGeometrie):
+class Netwerkelement(AIMNaamObject, RHZModule, PuntGeometrie):
     """Toestel,onderdeel van het netwerk zoals een backbone of IP-netwerk,waarop netwerkverbindingen kunnen aangelegd worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement'

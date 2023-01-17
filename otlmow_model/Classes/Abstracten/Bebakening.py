@@ -15,8 +15,8 @@ class Bebakening(Signalisatie, AIMObject):
 
     @abstractmethod
     def __init__(self):
-        AIMObject.__init__(self)
         Signalisatie.__init__(self)
+        AIMObject.__init__(self)
 
         self._kleurReflectorAflopend = OTLAttribuut(field=KlKleurReflector,
                                                     naam='kleurReflectorAflopend',

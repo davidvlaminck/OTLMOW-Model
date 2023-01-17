@@ -10,7 +10,7 @@ from otlmow_model.Datatypes.KlDisplayType import KlDisplayType
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Display(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject):
+class Display(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
     """Een display is een elektrisch apparaat, ingebed in een techniek, waarop informatie visueel afgebeeld wordt. en dat kan gebruikt voor sturing van die techniek."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Display'

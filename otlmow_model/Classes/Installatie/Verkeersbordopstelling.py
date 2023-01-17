@@ -19,8 +19,8 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
         Signalisatie.__init__(self)
+        AIMObject.__init__(self)
         PuntGeometrie.__init__(self)
 
         self._afbeelding = OTLAttribuut(field=DtcDocument,

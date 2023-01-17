@@ -19,7 +19,7 @@ from otlmow_model.Datatypes.KwantWrdInRPM import KwantWrdInRPM, KwantWrdInRPMWaa
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Elektromotor(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject):
+class Elektromotor(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
     """Een machine die elektrische energie omzet in mechanische energie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor'

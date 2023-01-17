@@ -5,7 +5,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class NietGedragenSensor(Sensor, AIMNaamObject):
+class NietGedragenSensor(AIMNaamObject, Sensor):
     """Abstracte om de eigenschappen en relatie te groeperen voor niet gedragen sensoren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#NietGedragenSensor'

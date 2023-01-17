@@ -11,7 +11,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class SignaalControleModule(RHZModule, SerienummerObject, AIMNaamObject, PuntGeometrie):
+class SignaalControleModule(AIMNaamObject, RHZModule, SerienummerObject, PuntGeometrie):
     """Een controlemodule dat nagaat of een specifiek (meestal DC-)signaal nog aanwezig is of dat de signaal/ruis-verhouding niet te laag is."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SignaalControleModule'

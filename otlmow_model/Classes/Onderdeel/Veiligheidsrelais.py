@@ -9,7 +9,7 @@ from otlmow_model.Datatypes.KlVeiligheidsrelaisModelnaam import KlVeiligheidsrel
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Veiligheidsrelais(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject):
+class Veiligheidsrelais(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
     """Relais voor de bewaking van de noodstop binnen het noodstopcircuit. Voldoet omwille aan specifieke vereisten om te vermijden dat een storing tot een verlies van de veiligheidsfunctie kan leiden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Veiligheidsrelais'
