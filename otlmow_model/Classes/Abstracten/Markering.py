@@ -11,7 +11,7 @@ from otlmow_model.Datatypes.KlMarkeringSoort import KlMarkeringSoort
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Markering(Signalisatie, AIMObject):
+class Markering(AIMObject, Signalisatie):
     """Abstracte als noemer voor de verschillende types van markeringen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering'
@@ -19,8 +19,8 @@ class Markering(Signalisatie, AIMObject):
 
     @abstractmethod
     def __init__(self):
-        Signalisatie.__init__(self)
         AIMObject.__init__(self)
+        Signalisatie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AndereLaag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AndereVerharding')
