@@ -13,15 +13,7 @@ class MetaInfoTests(TestCase):
         expected = """Showing metadata of deprecatedString:
 typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass.deprecatedString
 definition: Tekstveld dat niet meer gebruikt wordt
-deprecated since 2.0.0-RC3
-attributes:
-    testBooleanField (type: Boolean)
-    testComplexType2 (type: DtcTestComplexType2)
-    testComplexType2MetKard (type: DtcTestComplexType2, cardinality: 1-*)
-    testKwantWrd (type: KwantWrdTest)
-    testKwantWrdMetKard (type: KwantWrdTest, cardinality: 1-*)
-    testStringField (type: String)
-    testStringFieldMetKard (type: String, cardinality: 1-*)"""
+deprecated since 2.0.0-RC3"""
         self.assertEqual(expected, result)
 
     def test_meta_info_on_deprecated_class(self):
@@ -53,7 +45,7 @@ attributes:
                    '    assetId (type: DtcIdentificator)\n' \
                    '    bestekPostNummer (type: String)\n' \
                    '    datumOprichtingObject (type: Date)\n' \
-                   '    deprecatedString (type: DtcTestComplexType) <deprecated since 2.0.0-RC3>\n' \
+                   '    deprecatedString (type: String) <deprecated since 2.0.0-RC3>\n' \
                    '    geometry (type: WKT)\n' \
                    '    isActief (type: Boolean)\n' \
                    '    notitie (type: String)\n' \
