@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.Datatypes.DtcDocument import DtcDocument
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KLLuidsprekerVormgeving import KLLuidsprekerVormgeving
 from otlmow_model.Datatypes.KlAudioTransportType import KlAudioTransportType
 from otlmow_model.Datatypes.KlLuidsprekerMerk import KlLuidsprekerMerk
@@ -21,6 +21,9 @@ class Luidspreker(AIMNaamObject, PuntGeometrie):
         PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zoutbijlaadplaats')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Audioversterker')
 
         self._merk = OTLAttribuut(field=KlLuidsprekerMerk,
@@ -59,7 +62,7 @@ class Luidspreker(AIMNaamObject, PuntGeometrie):
                                         owner=self)
 
     @property
-    def merk(self):
+    def merk(self) -> str:
         """Het merk van de luidspreker."""
         return self._merk.get_waarde()
 
@@ -68,7 +71,7 @@ class Luidspreker(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
-    def modelnaam(self):
+    def modelnaam(self) -> str:
         """De modelnaam van de luidspreker."""
         return self._modelnaam.get_waarde()
 
@@ -77,7 +80,7 @@ class Luidspreker(AIMNaamObject, PuntGeometrie):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self):
+    def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van de luidspreker."""
         return self._technischeFiche.get_waarde()
 
@@ -86,7 +89,7 @@ class Luidspreker(AIMNaamObject, PuntGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def transportType(self):
+    def transportType(self) -> str:
         """Geeft aan op welke manier het audiosignaal wordt getransporteerd door het toestel."""
         return self._transportType.get_waarde()
 
@@ -95,7 +98,7 @@ class Luidspreker(AIMNaamObject, PuntGeometrie):
         self._transportType.set_waarde(value, owner=self)
 
     @property
-    def vormgeving(self):
+    def vormgeving(self) -> str:
         """Soort luidsprekers volgens zijn vormfactor."""
         return self._vormgeving.get_waarde()
 
