@@ -35,8 +35,7 @@ class SubsetTemplateCreatorTests(TestCase):
         for class_name, file_path in classes_to_instantiate.items():
             with self.subTest(f'Trying to instantiate {class_name}'):
                 try:
-                    split_path = str(file_path).split('/')
-                    import_path = f'{split_path[-3]}.{split_path[-2]}.{split_path[-1]}'
+                    import_path = f'{file_path.parts[-3]}.{file_path.parts[-2]}.{file_path.parts[-1]}'
                     if 'otlmow_model' not in import_path:
                         import_path = 'otlmow_model.' + import_path
                     py_mod = __import__(name=import_path, fromlist=f'{class_name}')
