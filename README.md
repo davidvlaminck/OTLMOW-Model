@@ -11,11 +11,11 @@ The main use case of otlmow-model is to provide a class model, allowing instance
 ## OTLMOW Project 
 This project aims to implement the Flemish data standard OTL (https://wegenenverkeer.data.vlaanderen.be/) in Python.
 It is split into different packages to reduce compatibility issues
-- otlmow-model (you are currently looking at this package)
-- otlmow-modelbuilder
-- otlmow-converter
-- otlmow-template
-- otlmow-postenmapping
+- [otlmow_model](https://github.com/davidvlaminck/OTLMOW-Model) (you are currently looking at this package)
+- [otlmow_modelbuilder](https://github.com/davidvlaminck/OTLMOW-ModelBuilder)
+- [otlmow_converter](https://github.com/davidvlaminck/OTLMOW-Converter) 
+- [otlmow_template](https://github.com/davidvlaminck/OTLMOW-Template) 
+- [otlmow_postenmapping](https://github.com/davidvlaminck/OTLMOW-PostenMapping) 
 
 ## Installation and requirements
 OTLMOW-Model has no dependencies other than the standard Python libraries. Currently, you need at least Python version 3.6 to use this library.
