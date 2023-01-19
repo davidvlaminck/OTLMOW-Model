@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, Kw
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject):
+class Leiding(AIMNaamObject, KabelgeleidingEnLeidingBevestiging):
     """Abstracte om de gemeenschappelijke eigenschappen en relaties van de verschillende soorten leidingen onder één noemer te houden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Leiding'

@@ -9,16 +9,15 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Huisaansluitput(Put, PutRelatie, PuntGeometrie):
-    """Het constructieonderdeel (putje of T-stuk) dat de verbinding vormt tussen de private riolering en de 
- huisaansluiting."""
+class Huisaansluitput(PutRelatie, Put, PuntGeometrie):
+    """Het constructieonderdeel (putje of T-stuk) dat de verbinding vormt tussen de private riolering en de huisaansluiting."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Huisaansluitput'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        Put.__init__(self)
         PutRelatie.__init__(self)
+        Put.__init__(self)
         PuntGeometrie.__init__(self)
 
         self._aansluitingsfiche = OTLAttribuut(field=DtcDocument,

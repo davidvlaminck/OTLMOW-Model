@@ -5,7 +5,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Aardingslus(KabelAarding, KabelAardingSamenstelling, AIMNaamObject):
+class Aardingslus(AIMNaamObject, KabelAarding, KabelAardingSamenstelling):
     """Een koperen geleider die onder de fundering van een gebouw de contouren van het te aarden gebouw volgt. De lus vertrekt en komt aan op de aardingsonderbreker."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aardingslus'

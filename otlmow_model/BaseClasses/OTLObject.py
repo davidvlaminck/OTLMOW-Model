@@ -9,18 +9,55 @@ from otlmow_model.BaseClasses.TimeField import TimeField
 from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 
 
-def create_dict_from_asset(asset, waarde_shortcut=False) -> dict:
-    d = recursive_create_dict_from_asset(asset, waarde_shortcut=waarde_shortcut)
+class OTLObject:
+    typeURI = ''
+    """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
+
+    def __init__(self):
+        if hasattr(self, 'deprecated_version'):
+            if self.deprecated_version is not None:
+                try:
+                    warnings.warn(message=f'{self.typeURI} is deprecated since version {self.deprecated_version}',
+                                  category=ClassDeprecationWarning)
+                except KeyError:
+                    warnings.warn(
+                        message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
+                        category=ClassDeprecationWarning)
+
+    def create_dict_from_asset(self, waarde_shortcut=False) -> Dict:
+        """Converts this asset into a dictionary representation"""
+        return create_dict_from_asset(otl_object=self, waarde_shortcut=waarde_shortcut)
+
+    def fill_with_dummy_data(self):
+        gen = self._generator_for_attributes()
+        for attr in gen:
+            if attr is not None:
+                attr.fill_with_dummy_data()
+
+    def __repr__(self):
+        return build_string_version(asset=self)
+
+    def _generator_for_attributes(self) -> Generator[OTLAttribuut, None, None]:
+        for k, v in vars(self).items():
+            if k in ['_parent', '_geometry_types', '_valid_relations']:
+                continue
+            yield v
+
+
+def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False) -> Dict:
+    """Creates a dictionary from an OTLObject"""
+    d = _recursive_create_dict_from_asset(otl_object, waarde_shortcut=waarde_shortcut)
     if d is None:
         return {}
     return d
 
 
-def recursive_create_dict_from_asset(asset=None, waarde_shortcut=False) -> Union[Dict, List[Dict]]:
+def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list, dict],
+                                      waarde_shortcut: bool = False) -> Union[Dict, List[Dict]]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         l = []
         for item in asset:
-            dict_item = recursive_create_dict_from_asset(asset=item, waarde_shortcut=waarde_shortcut)
+            dict_item = _recursive_create_dict_from_asset(asset=item, waarde_shortcut=waarde_shortcut)
             if dict_item is not None:
                 l.append(dict_item)
         if len(l) > 0:
@@ -46,7 +83,7 @@ def recursive_create_dict_from_asset(asset=None, waarde_shortcut=False) -> Union
                         if dict_item is not None:
                             d[k[1:]] = dict_item
                 else:
-                    dict_item = recursive_create_dict_from_asset(asset=v.waarde, waarde_shortcut=waarde_shortcut)
+                    dict_item = _recursive_create_dict_from_asset(asset=v.waarde, waarde_shortcut=waarde_shortcut)
                     if dict_item is not None:
                         d[k[1:]] = dict_item
             else:
@@ -100,7 +137,8 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
         value = d[key]
         if isinstance(value, dict):
             lines.append(prefix + f'{key} :')
-            lines.extend(_make_string_version_from_dict(value, level=level + 1, indent=indent, prefix=prefix + ' ' * indent * level))
+            lines.extend(_make_string_version_from_dict(value, level=level + 1, indent=indent,
+                                                        prefix=prefix + ' ' * indent * level))
         elif isinstance(value, list):
             lines.append(prefix + f'{key} :')
             for index, item in enumerate(value):
@@ -111,7 +149,8 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
                         lines.append(prefix + f'...({len(value) - 10} more items)')
                     break
                 if isinstance(item, dict):
-                    lines.extend(_make_string_version_from_dict(item, level=level, indent=indent, list_index=index, prefix=prefix))
+                    lines.extend(_make_string_version_from_dict(item, level=level, indent=indent, list_index=index,
+                                                                prefix=prefix))
                 else:
                     index_string = f'[{index}]'
                     index_string += ' ' * (indent - len(index_string))
@@ -119,37 +158,3 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
         else:
             lines.append(prefix + f'{key} : {value}')
     return lines
-
-
-class OTLObject:
-    typeURI = ''
-    """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
-
-    def __init__(self):
-        if hasattr(self, 'deprecated_version'):
-            if self.deprecated_version is not None:
-                try:
-                    warnings.warn(message=f'{self.typeURI} is deprecated since version {self.deprecated_version}',
-                                  category=ClassDeprecationWarning)
-                except KeyError:
-                    warnings.warn(
-                        message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
-                        category=ClassDeprecationWarning)
-
-    def create_dict_from_asset(self, waarde_shortcut=False) -> Dict:
-        return create_dict_from_asset(asset=self, waarde_shortcut=waarde_shortcut)
-
-    def fill_with_dummy_data(self):
-        gen = self._generator_for_attributes()
-        for attr in gen:
-            if attr is not None:
-                attr.fill_with_dummy_data()
-
-    def __repr__(self):
-        return build_string_version(asset=self)
-
-    def _generator_for_attributes(self) -> Generator[OTLAttribuut, None, None]:
-        for k, v in vars(self).items():
-            if k in ['_parent', '_geometry_types', '_valid_relations']:
-                continue
-            yield v

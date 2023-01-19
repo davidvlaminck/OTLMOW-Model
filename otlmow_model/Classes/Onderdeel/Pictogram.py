@@ -8,7 +8,7 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Pictogram(BevestigingGC, AIMObject):
+class Pictogram(AIMObject, BevestigingGC):
     """Een bord dat een symbool of afbeelding bevat dat de plaats inneemt van een tekst."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pictogram'

@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlLichtsensorModelnaam import KlLichtsensorModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Lichtsensor(Sensoropstelling, AIMNaamObject):
+class Lichtsensor(AIMNaamObject, Sensoropstelling):
     """Een meettoestel dat wordt gebruikt om de lichtsterkte of illuminantie,voortgebracht door een lichtbron,te meten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtsensor'

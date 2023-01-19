@@ -9,7 +9,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class ProefLuchtgehalte(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
-    """Proef die de hoeveelheid lucht bepaalt  in vers beton met de drukmethode volgens NBN EN 12350-7."""
+    """Proef die de hoeveelheid lucht bepaalt in vers beton met de drukmethode volgens NBN EN 12350-7."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefLuchtgehalte'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

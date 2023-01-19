@@ -10,15 +10,15 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
+class GekleurdWegvlakMarkering(Markering, AOWSType, VlakGeometrie):
     """Een markering van een wegdeel aangebracht om het verkeer te waarschuwen, informeren of regelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GekleurdWegvlakMarkering'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AOWSType.__init__(self)
         Markering.__init__(self)
+        AOWSType.__init__(self)
         VlakGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GroepMarkering')
@@ -34,7 +34,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
                                   naam='code',
                                   label='code',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GekleurdWegvlakMarkering.code',
-                                  definition='De  (COPRO/BENOR) code van de gekleurde wegvlak markering.',
+                                  definition='De (COPRO/BENOR) code van de gekleurde wegvlak markering.',
                                   owner=self)
 
         self._lengte = OTLAttribuut(field=KwantWrdInMeter,
@@ -69,7 +69,7 @@ class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
 
     @property
     def code(self) -> str:
-        """De  (COPRO/BENOR) code van de gekleurde wegvlak markering."""
+        """De (COPRO/BENOR) code van de gekleurde wegvlak markering."""
         return self._code.get_waarde()
 
     @code.setter

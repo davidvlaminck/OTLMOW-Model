@@ -21,7 +21,7 @@ class Aansluitmof(LinkendElement, PuntGeometrie):
                                       naam='diameter',
                                       label='diameter',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof.diameter',
-                                      definition='De diameter van het boorgat gebruikt door de aansluitmof  in millimeter.',
+                                      definition='De diameter van het boorgat gebruikt door de aansluitmof in millimeter.',
                                       owner=self)
 
         self._materiaal = OTLAttribuut(field=KlAansluitstukMateriaal,
@@ -33,7 +33,7 @@ class Aansluitmof(LinkendElement, PuntGeometrie):
 
     @property
     def diameter(self) -> KwantWrdInMillimeterWaarden:
-        """De diameter van het boorgat gebruikt door de aansluitmof  in millimeter."""
+        """De diameter van het boorgat gebruikt door de aansluitmof in millimeter."""
         return self._diameter.get_waarde()
 
     @diameter.setter

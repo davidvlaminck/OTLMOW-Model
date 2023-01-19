@@ -11,7 +11,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Verkeersbordsteun(Draagconstructie, AIMNaamObject, PuntGeometrie):
+class Verkeersbordsteun(AIMNaamObject, Draagconstructie, PuntGeometrie):
     """Een draagconstructie voor verkeersborden. Dit kan een ronde paal of een vakwerksteun zijn."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersbordsteun'

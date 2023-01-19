@@ -28,7 +28,7 @@ class DwarseMarkeringVerschuind(DwarseMarkeringToegang):
                                   naam='code',
                                   label='code',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DwarseMarkeringVerschuind.code',
-                                  definition='De (COPRO/BENOR)  code van dwarse markering.',
+                                  definition='De (COPRO/BENOR) code van dwarse markering.',
                                   owner=self)
 
         self._hoek = OTLAttribuut(field=KwantWrdInDecimaleGraden,
@@ -63,7 +63,7 @@ class DwarseMarkeringVerschuind(DwarseMarkeringToegang):
 
     @property
     def code(self) -> str:
-        """De (COPRO/BENOR)  code van dwarse markering."""
+        """De (COPRO/BENOR) code van dwarse markering."""
         return self._code.get_waarde()
 
     @code.setter

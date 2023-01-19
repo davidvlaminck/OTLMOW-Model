@@ -20,10 +20,10 @@ class Segmentcontroller(Controller):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Armatuurcontroller')
 
-        self._beveil?igingssleutel = OTLAttribuut(field=KlControllerBeveiligingssleutel,
-                                                  naam='beveil?igingssleutel',
+        self._beveil_igingssleutel = OTLAttribuut(field=KlControllerBeveiligingssleutel,
+                                                  naam='beveil_igingssleutel',
                                                   label='beveiligingssleutel',
-                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.beveil?igingssleutel',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.beveil_igingssleutel',
                                                   usagenote='Attribuut uit gebruik sinds versie 2.0.0 ',
                                                   deprecated_version='2.0.0',
                                                   definition='De encryptie die wordt toegepast om de verbinding tussen lokaal en centraal te beveiligen.',
@@ -51,13 +51,13 @@ class Segmentcontroller(Controller):
                                        owner=self)
 
     @property
-    def beveil?igingssleutel(self) -> str:
+    def beveil_igingssleutel(self) -> str:
         """De encryptie die wordt toegepast om de verbinding tussen lokaal en centraal te beveiligen."""
-        return self._beveil?igingssleutel.get_waarde()
+        return self._beveil_igingssleutel.get_waarde()
 
-    @beveil?igingssleutel.setter
-    def beveil?igingssleutel(self, value):
-        self._beveil?igingssleutel.set_waarde(value, owner=self)
+    @beveil_igingssleutel.setter
+    def beveil_igingssleutel(self, value):
+        self._beveil_igingssleutel.set_waarde(value, owner=self)
 
     @property
     def beveiligingssleutel(self) -> str:

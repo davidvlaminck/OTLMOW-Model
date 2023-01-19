@@ -9,7 +9,7 @@ from otlmow_model.Datatypes.KlKleurSupp import KlKleurSupp
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class BitumineuzeLaag(LaagBouwklasse):
-    """Flexibele verharding die meestal uit bitumineus gebonden materialen (asfalt of gietasfalt) bestaat en laagsgewijs wordt aangelegd. ."""
+    """Flexibele verharding die meestal uit bitumineus gebonden materialen (asfalt of gietasfalt) bestaat en laagsgewijs wordt aangelegd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BitumineuzeLaag'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

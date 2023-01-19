@@ -10,7 +10,7 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Neerslagsensor(Sensoropstelling, AIMNaamObject):
+class Neerslagsensor(AIMNaamObject, Sensoropstelling):
     """Detectie van neerslag(hoeveelheid/intensiteit)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Neerslagsensor'

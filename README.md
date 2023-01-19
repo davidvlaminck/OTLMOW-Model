@@ -1,8 +1,10 @@
 # OTLMOW-Model
+[![PyPI](https://img.shields.io/pypi/v/otlmow-model?label=latest%20release)](https://pypi.org/project/otlmow-model/)
 [![otlmow-model-downloads](https://img.shields.io/pypi/dm/otlmow-model)](https://pypi.org/project/otlmow-model/)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/otlmow-model)
 [![Unittests](https://github.com/davidvlaminck/OTLMOW-Model/actions/workflows/unittest.yml/badge.svg)](https://github.com/davidvlaminck/OTLMOW-Model/actions/workflows/unittest.yml)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/otlmow-model)
 [![GitHub issues](https://img.shields.io/github/issues/davidvlaminck/OTLMOW-Model)](https://github.com/davidvlaminck/OTLMOW-Model/issues)
+
 ## Summary
 The main use case of otlmow-model is to provide a class model, allowing instances of OTL compliant classes. The classes have data validation and automatic conversion for attributes and relations between objects.
 
@@ -16,7 +18,7 @@ It is split into different packages to reduce compatibility issues
 - otlmow-postenmapping
 
 ## Installation and requirements
-OTLMOW-Model has no dependencies other than the standard Python libraries. Currently, you need at least Python version 3.8 to use this library.
+OTLMOW-Model has no dependencies other than the standard Python libraries. Currently, you need at least Python version 3.6 to use this library.
 To install the OTL MOW project into your Python project, use pip to install it:
 ``` 
 pip install otlmow-model
@@ -76,3 +78,18 @@ valid values:
     uit-gebruik
     verwijderd
 ```
+The model also has access to all valid relations within the model. You can query the model to check if a relation of a 
+given type is valid between two instances of objects within the model. Use the RelationValidator class and one of its functions.
+```
+from otlmow_model.Classes.Onderdeel.Camera import Camera
+from otlmow_model.Classes.Onderdeel.Bevestiging import Bevestiging
+from otlmow_model.Classes.Onderdeel.Wegkantkast import Wegkantkast
+from otlmow_model.Helpers.RelationValidator import RelationValidator
+
+camera = Camera()
+kast = Wegkantkast()
+
+camera_kast_bevestiging = RelationValidator.is_valid_relation(source=camera, target=kast, relation_type=Bevestiging)
+print(camera_kast_bevestiging)
+```
+After executing the code above, the output is "False".

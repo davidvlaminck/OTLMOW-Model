@@ -10,7 +10,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Verkeersspiegel(Signalisatie, AIMObject, PuntGeometrie):
+class Verkeersspiegel(AIMObject, Signalisatie, PuntGeometrie):
     """Een verkeersspiegel is een spiegel die de zichtbaarheid verbetert van het aankomende verkeer."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersspiegel'

@@ -8,7 +8,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Divergentiepuntbebakeningselement(Signalisatie, AIMObject, PuntGeometrie):
+class Divergentiepuntbebakeningselement(AIMObject, Signalisatie, PuntGeometrie):
     """Een constructie met als doel de zichtbaarheid van het divergentiepunt te vergroten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Divergentiepuntbebakeningselement'

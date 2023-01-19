@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlOptischeWegdeksensorModelnaam import KlOptischeWeg
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class OptischeWegdeksensor(Sensoropstelling, AIMNaamObject):
+class OptischeWegdeksensor(AIMNaamObject, Sensoropstelling):
     """Een meettoestel dat gebruik maakt van optische eigenschappen om de wegdekcondities zoals nat, ijs, sneeuw en vorst te meten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OptischeWegdeksensor'

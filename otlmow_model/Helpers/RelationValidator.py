@@ -9,24 +9,43 @@ from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecati
 
 class RelationValidator:
     @staticmethod
-    def is_valid_relation_instance(source: RelationInteractor, relation_instance: RelatieObject, target: RelationInteractor):
-        return RelationValidator.is_valid_relation(source=source,
-                                                   relation=type(relation_instance),
-                                                   target=target)
+    def is_valid_relation_instance(source: RelationInteractor, relation_instance: RelatieObject, 
+                                   target: RelationInteractor) -> bool:
+        """
+        Verifies if a relation would be valid between a source and a target, given the instance of that relation
+
+        :param source: the intended source for the relation
+        :param relation_instance: the instance of the relation
+        :param target: the intended source for the relation
+        :return: 'True' if the relation would be valid, 'False' otherwise
+        """
+        return RelationValidator.is_valid_relation(source=source, target=target,
+                                                   relation_type=type(relation_instance))
 
     @staticmethod
-    def is_valid_relation(source: RelationInteractor, relation: Type[RelatieObject], target: RelationInteractor):
+    def is_valid_relation(source: RelationInteractor, relation_type: Type[RelatieObject],
+                          target: RelationInteractor) -> bool:
+        """
+        Verifies if a relation would be valid between a source and a target, given a relation_type type
+
+        :param source: the intended source for the relation_type
+        :param relation_type: the intended type of the relation
+        :param target: the intended source for the relation_type
+        :return: 'True' if the relation would be valid, 'False' otherwise
+        """
         if 'lgc.' in source.typeURI or 'lgc.' in target.typeURI:
             return True
 
-        if relation.typeURI not in source._valid_relations:
+        if relation_type.typeURI not in source._valid_relations:
             return False
-        targets = source._valid_relations[relation.typeURI].keys()
+
+        targets = source._valid_relations[relation_type.typeURI].keys()
         if target.typeURI in targets:
-            deprecated_value = source._valid_relations[relation.typeURI][target.typeURI]
+            deprecated_value = source._valid_relations[relation_type.typeURI][target.typeURI]
             if deprecated_value != '':
                 warnings.warn(
-                    message=f'the relation of type {relation.typeURI} between assets of types {source.typeURI} and {target.typeURI} is deprecated since version {deprecated_value}',
+                    message=f'the relation_type of type {relation_type.typeURI} between assets of types '
+                            f'{source.typeURI} and {target.typeURI} is deprecated since version {deprecated_value}',
                     category=RelationDeprecationWarning)
             return True
 
@@ -34,14 +53,14 @@ class RelationValidator:
         for base in bases:
             base_type_uri = RelationValidator._get_member(base, 'typeURI')
             if base_type_uri in targets:
-                deprecated_value = source._valid_relations[relation.typeURI][base_type_uri]
+                deprecated_value = source._valid_relations[relation_type.typeURI][base_type_uri]
                 if deprecated_value != '':
                     warnings.warn(
-                        message=f'the relation of type {relation.typeURI} between assets of types {source.typeURI} and {target.typeURI} is deprecated since version {deprecated_value}',
+                        message=f'the relation_type of type {relation_type.typeURI} between assets of types '
+                                f'{source.typeURI} and {target.typeURI} is deprecated since version {deprecated_value}',
                         category=RelationDeprecationWarning)
                 return True
 
-        # print(bases)
         return False
 
     @staticmethod

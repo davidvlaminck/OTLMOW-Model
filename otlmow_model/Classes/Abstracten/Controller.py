@@ -25,7 +25,7 @@ class Controller(AIMNaamObject, PuntGeometrie):
                                          naam='batchnummer',
                                          label='batchnummer',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Controller.batchnummer',
-                                         definition='Nummer van de batch.',
+                                         definition='Nummer van de productiebatch van de leverancier.',
                                          owner=self)
 
         self._dNSNaam = OTLAttribuut(field=StringField,
@@ -58,7 +58,7 @@ class Controller(AIMNaamObject, PuntGeometrie):
 
     @property
     def batchnummer(self) -> str:
-        """Nummer van de batch."""
+        """Nummer van de productiebatch van de leverancier."""
         return self._batchnummer.get_waarde()
 
     @batchnummer.setter

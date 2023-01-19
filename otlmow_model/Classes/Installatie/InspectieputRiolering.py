@@ -8,7 +8,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class InspectieputRiolering(Put, AIMObject, VlakGeometrie):
+class InspectieputRiolering(AIMObject, Put, VlakGeometrie):
     """Dient om de aanwezige riolering te kunnen inspecteren, reinigen of onderhouden. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#InspectieputRiolering'

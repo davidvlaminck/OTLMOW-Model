@@ -7,7 +7,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Aardingspen(KabelAardingSamenstelling, AIMNaamObject, PuntGeometrie):
+class Aardingspen(AIMNaamObject, KabelAardingSamenstelling, PuntGeometrie):
     """De aardingspen is het deel van de aardingsinstallatie dat in direct contact staat met de grond / de aarde."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aardingspen'

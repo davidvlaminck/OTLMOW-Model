@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlKleurReflector import KlKleurReflector
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Bebakening(Signalisatie, AIMObject):
+class Bebakening(AIMObject, Signalisatie):
     """Abstracte voor de bebakeningen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Bebakening'

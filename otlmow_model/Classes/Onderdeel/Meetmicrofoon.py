@@ -10,9 +10,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Meetmicrofoon(AIMNaamObject, PuntGeometrie):
-    """Een microfoon is een elektromechanisch instrument dat geluid omzet in een elektrisch signaal. 
-Een meetmicrofoon registreert de geluidsdruk, is gevoelig voor geluid uit alle richtingen en heeft een vlakke frequentiekarakteristiek. Nauwkeurigheid is hier belangrijker dan geluidskwaliteit. In een tunnel meet de microfoon het geluidsniveau in de tunnel om het volume van een luidspreker aan te kunnen passen om zo verstaanbaar mogelijk te communiceren.
-"""
+    """Een microfoon is een elektromechanisch instrument dat geluid omzet in een elektrisch signaal. Een meetmicrofoon registreert de geluidsdruk, is gevoelig voor geluid uit alle richtingen en heeft een vlakke frequentiekarakteristiek. Nauwkeurigheid is hier belangrijker dan geluidskwaliteit. In een tunnel meet de microfoon het geluidsniveau in de tunnel om het volume van een luidspreker aan te kunnen passen om zo verstaanbaar mogelijk te communiceren. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetmicrofoon'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
