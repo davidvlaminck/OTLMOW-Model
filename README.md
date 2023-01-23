@@ -61,6 +61,7 @@ results in
 ```
 Access the metadata information by using the meta_info function. Pass in an object. Optionally you can use also pass an attribute to view the metadata of attributes itself
 ```
+from otlmow_model.BaseClasses.MetaInfo import meta_info
 print(meta_info(c, attribute='toestand'))
 ```
 outputs
