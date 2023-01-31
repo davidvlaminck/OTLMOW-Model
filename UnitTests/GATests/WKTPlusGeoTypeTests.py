@@ -42,6 +42,10 @@ class WKTPlusGeoTypeTests(unittest.TestCase):
             puntvlakclass.geometry = 'POINT Z (1 2 3)'
             self.assertIsNotNone(puntvlakclass.geometry)
 
+        with self.subTest('valid point with negative coordinate'):
+            puntvlakclass.geometry = 'POINT Z (1 2 -3)'
+            self.assertIsNotNone(puntvlakclass.geometry)
+
         with self.subTest('valid polygon'):
             puntvlakclass.geometry = 'POLYGON Z ((10.0 20.0 1, 30.0 40.0 2, 50.0 60.0 3))'
             self.assertIsNotNone(puntvlakclass.geometry)
