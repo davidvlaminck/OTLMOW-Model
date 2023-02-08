@@ -1,10 +1,12 @@
 import inspect
 import warnings
-from typing import Type
+from types import NoneType
+from typing import Type, Union
 
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObject
 from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
+from otlmow_model.Helpers.AssetCreator import AssetCreator
 
 
 class RelationValidator:
@@ -23,32 +25,60 @@ class RelationValidator:
                                                    relation_type=type(relation_instance))
 
     @staticmethod
-    def is_valid_relation(source: RelationInteractor, relation_type: Type[RelatieObject],
-                          target: RelationInteractor) -> bool:
+    def is_valid_relation(relation_type: Type[RelatieObject], source: RelationInteractor = None,
+                          source_typeURI: Union[str, NoneType] = None, target: RelationInteractor = None,
+                          target_typeURI: Union[str, NoneType] = None) -> bool:
         """
-        Verifies if a relation would be valid between a source and a target, given a relation_type type
+        Verifies if a relation would be valid between a source and a target, given a relation_type type. Exactly one of source or source_typeURI must not be None. Exactly one of target or target_typeURI must not be None.
 
-        :param source: the intended source for the relation_type
         :param relation_type: the intended type of the relation
-        :param target: the intended source for the relation_type
+        :param source: the intended source for the relation_type
+        :param source_typeURI: the typeURI of the intended source for the relation
+        :param target: the intended source for the relation
+        :param target_typeURI: the typeURI of the intended target for the relation
         :return: 'True' if the relation would be valid, 'False' otherwise
         """
-        if 'lgc.' in source.typeURI or 'lgc.' in target.typeURI:
+
+        if source is not None and source_typeURI is not None:
+            warnings.warn('both source and source_typeURI are not None. Overriding source by instantiating it',
+                          RuntimeWarning)
+            source = AssetCreator.dynamic_create_instance_from_uri(source_typeURI)
+        if target is not None and target_typeURI is not None:
+            warnings.warn('both target and target_typeURI are not None. Overriding source by instantiating it',
+                          RuntimeWarning)
+            target = AssetCreator.dynamic_create_instance_from_uri(source_typeURI)
+
+        if source is not None and source_typeURI is None:
+            source_typeURI = source.typeURI
+        if source_typeURI is None:
+            raise ValueError('Exactly one of source or source_typeURI needs to be not None.')
+
+        if target is not None and target_typeURI is None:
+            target_typeURI = target.typeURI
+        if target_typeURI is None:
+            raise ValueError('Exactly one of target or target_typeURI needs to be not None.')
+
+        if 'lgc.' in source_typeURI or 'lgc.' in target_typeURI:
             return True
+
+        if source is None:
+            source = AssetCreator.dynamic_create_instance_from_uri(source_typeURI)
 
         if relation_type.typeURI not in source._valid_relations:
             return False
 
         targets = source._valid_relations[relation_type.typeURI].keys()
-        if target.typeURI in targets:
-            deprecated_value = source._valid_relations[relation_type.typeURI][target.typeURI]
+        if target_typeURI in targets:
+            deprecated_value = source._valid_relations[relation_type.typeURI][target_typeURI]
             if deprecated_value != '':
                 warnings.warn(
                     message=f'the relation_type of type {relation_type.typeURI} between assets of types '
-                            f'{source.typeURI} and {target.typeURI} is deprecated since version {deprecated_value}',
+                            f'{source_typeURI} and {target_typeURI} is deprecated since version {deprecated_value}',
                     category=RelationDeprecationWarning)
             return True
 
+        if target is None:
+            target = AssetCreator.dynamic_create_instance_from_uri(target_typeURI)
         bases = inspect.getmro(type(target))
         for base in bases:
             base_type_uri = RelationValidator._get_member(base, 'typeURI')
@@ -57,7 +87,7 @@ class RelationValidator:
                 if deprecated_value != '':
                     warnings.warn(
                         message=f'the relation_type of type {relation_type.typeURI} between assets of types '
-                                f'{source.typeURI} and {target.typeURI} is deprecated since version {deprecated_value}',
+                                f'{source_typeURI} and {target_typeURI} is deprecated since version {deprecated_value}',
                         category=RelationDeprecationWarning)
                 return True
 

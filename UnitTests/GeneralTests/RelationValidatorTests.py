@@ -1,5 +1,9 @@
 import unittest
 
+from otlmow_model.Classes.Onderdeel.Laagspanningsbord import Laagspanningsbord
+
+from otlmow_model.Classes.Onderdeel.Stroomkring import Stroomkring
+
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
@@ -30,7 +34,7 @@ class B(A, C):
 
 
 class RelationValidatorTests(unittest.TestCase):
-    def test_nieuwe_implementatie_relaties(self):
+    def test_is_valid_relation(self):
         all_cases = AllCasesTestClass()
         another = AnotherTestClass()
         self.assertTrue(RelationValidator.is_valid_relation_instance(source=another, relation_instance=Bevestiging(),
@@ -38,6 +42,13 @@ class RelationValidatorTests(unittest.TestCase):
         self.assertTrue(RelationValidator.is_valid_relation(source=another, relation_type=Bevestiging, target=all_cases))
         self.assertFalse(RelationValidator.is_valid_relation(source=another, relation_type=Voedt, target=all_cases))
         self.assertFalse(RelationValidator.is_valid_relation(source=all_cases, relation_type=Voedt, target=all_cases))
+
+    def test_is_valid_relation_typeURI(self):
+        stroomkring = Stroomkring()
+        laagspanningsbord = Laagspanningsbord()
+        self.assertTrue(RelationValidator.is_valid_relation(source_typeURI=stroomkring.typeURI, relation_type=Bevestiging,
+                                                            target_typeURI=laagspanningsbord.typeURI))
+
 
     def test_nieuwe_implementatie_relaties_deprecated(self):
         all_cases = AllCasesTestClass()
