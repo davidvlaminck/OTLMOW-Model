@@ -1,7 +1,6 @@
 import inspect
 import warnings
-from types import NoneType
-from typing import Type, Union
+from typing import Type, Optional
 
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObject
@@ -26,8 +25,8 @@ class RelationValidator:
 
     @staticmethod
     def is_valid_relation(relation_type: Type[RelatieObject], source: RelationInteractor = None,
-                          source_typeURI: Union[str, NoneType] = None, target: RelationInteractor = None,
-                          target_typeURI: Union[str, NoneType] = None) -> bool:
+                          source_typeURI: Optional[str] = None, target: RelationInteractor = None,
+                          target_typeURI: Optional[str] = None) -> bool:
         """
         Verifies if a relation would be valid between a source and a target, given a relation_type type. Exactly one of source or source_typeURI must not be None. Exactly one of target or target_typeURI must not be None.
 

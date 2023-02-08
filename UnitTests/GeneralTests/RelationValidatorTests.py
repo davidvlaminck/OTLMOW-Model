@@ -49,7 +49,6 @@ class RelationValidatorTests(unittest.TestCase):
         self.assertTrue(RelationValidator.is_valid_relation(source_typeURI=stroomkring.typeURI, relation_type=Bevestiging,
                                                             target_typeURI=laagspanningsbord.typeURI))
 
-
     def test_nieuwe_implementatie_relaties_deprecated(self):
         all_cases = AllCasesTestClass()
         another = AnotherTestClass()
