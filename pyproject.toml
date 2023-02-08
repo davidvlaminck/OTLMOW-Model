@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -27,3 +27,5 @@ include = ["otlmow_model*"]
 [project.urls]
 "Homepage" = "https://github.com/davidvlaminck/OTLMOW-Model"
 "Bug Tracker" = "https://github.com/davidvlaminck/OTLMOW-Model/issues"
+
+[tool.setuptools_scm]
