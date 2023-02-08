@@ -52,12 +52,24 @@ class WKTValidator:
             if not geo_type.endswith(' Z') and len(coordinates) != 2:
                 return False
 
-            for coord in coordinates:
+            for index, coord in enumerate(coordinates):
                 try:
                     val = float(coord)
-                    if val < 0:
-                        return False
+                    if index == 0:
+                        if val < 14637.2 or val > 291015.3:
+                            return False
+                    elif index == 1:
+                        if val < 22608.2 or val > 246424.3:
+                            return False
+                    elif index == 2:
+                        if val > 700:
+                            return False
                 except ValueError:
                     return False
 
         return True
+
+ # public static Double MIN_X = 14637.2d;
+ #    public static Double MAX_X = 291015.3d;
+ #    public static Double MIN_Y = 22608.2d;
+ #    public static Double MAX_Y = 246424.3d;

@@ -39,6 +39,6 @@ class WKTField(OTLField):
 
     @classmethod
     def create_dummy_data(cls):
-        return 'POINT Z (0 0 0)'
+        return 'POINT Z (200000 200000 0)'
 
 
