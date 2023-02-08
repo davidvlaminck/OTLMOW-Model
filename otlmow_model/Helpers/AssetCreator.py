@@ -2,8 +2,7 @@ from typing import Union
 
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObject
-
-from otlmow_converter.HelperFunctions import get_ns_and_name_from_uri, get_titlecase_from_ns
+from otlmow_model.Helpers.GenericHelper import get_titlecase_from_ns, get_ns_and_name_from_uri
 
 
 class AssetCreator:
