@@ -78,7 +78,12 @@ class KlBetonomgevingsklasse(KeuzelijstField):
                                label='EI',
                                status='ingebruik',
                                definitie='Binnenomgeving.',
-                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/ei')
+                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/ei'),
+        'xf3': KeuzelijstWaarde(invulwaarde='xf3',
+                                label='XF3',
+                                status='ingebruik',
+                                definitie='Verzadigd met water, zonder dooizouten.',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/xf3')
     }
 
     @classmethod

@@ -23,7 +23,17 @@ class KlOmvormerMerk(KeuzelijstField):
                                   label='Bosch',
                                   status='ingebruik',
                                   definitie='Bosch',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerMerk/bosch')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerMerk/bosch'),
+        'c4line': KeuzelijstWaarde(invulwaarde='c4line',
+                                   label='C4LINE',
+                                   status='ingebruik',
+                                   definitie='C4LINE',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerMerk/c4line'),
+        'kti-networks': KeuzelijstWaarde(invulwaarde='kti-networks',
+                                         label='KTI NETWORKS',
+                                         status='ingebruik',
+                                         definitie='KTI NETWORKS',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerMerk/kti-networks')
     }
 
     @classmethod

@@ -14,6 +14,11 @@ class KlKlassePlantjaar(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKlassePlantjaar'
     options = {
+        '1860-1880': KeuzelijstWaarde(invulwaarde='1860-1880',
+                                      label='1860-1880',
+                                      status='ingebruik',
+                                      definitie='De boom is aangeplant tussen 1860 en 1880.',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKlassePlantjaar/1860-1880'),
         '1880-1900': KeuzelijstWaarde(invulwaarde='1880-1900',
                                       label='1880-1900',
                                       status='ingebruik',
