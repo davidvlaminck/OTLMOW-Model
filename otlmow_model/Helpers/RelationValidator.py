@@ -16,8 +16,11 @@ class RelationValidator:
         Verifies if a relation would be valid between a source and a target, given the instance of that relation
 
         :param source: the intended source for the relation
+        :type: RelationInteractor
         :param relation_instance: the instance of the relation
-        :param target: the intended source for the relation
+        :type: RelatieObject
+        :param target: the intended target for the relation
+        :type: RelationInteractor
         :return: 'True' if the relation would be valid, 'False' otherwise
         """
         return RelationValidator.is_valid_relation(source=source, target=target,
