@@ -44,11 +44,8 @@ class AssetCreator:
         if directory is None:
             directory = 'otlmow_model.Classes'
 
-        if not class_uri.startswith('https://wegenenverkeer.data.vlaanderen.be/ns'):
-            raise ValueError(
-                f'{class_uri} is not valid uri, it does not begin with "https://wegenenverkeer.data.vlaanderen.be/ns"')
         ns, name = get_ns_and_name_from_uri(class_uri)
         created = AssetCreator.dynamic_create_instance_from_ns_and_name(ns, name, directory=directory)
         if created is None:
-            raise ValueError(f'{class_uri} is likely not valid uri, it does not result in a created instance')
+            raise ValueError(f'{class_uri} is likely not a valid uri, it does not result in a created instance')
         return created
