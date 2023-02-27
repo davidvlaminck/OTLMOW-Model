@@ -38,7 +38,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
     Instantiates a relation, if valid, between instantiated objects, given a specific relation type.
     Instead of instantiated objects, valid guids and typeURI's can be provided, for source and/or target.
 
-    :param relation_type: the instance of the relation
+    :param relation_type: the relation type of the relation to be created
     :type: RelatieObject
     :param source: the intended source for the relation
     :type: RelationInteractor
