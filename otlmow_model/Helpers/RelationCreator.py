@@ -12,7 +12,7 @@ from otlmow_model.Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri
-from otlmow_model.Helpers.RelationValidator import RelationValidator
+from otlmow_model.Helpers.RelationValidator import is_valid_relation
 
 
 def validate_guid(uuid: str) -> Optional[Match]:
@@ -104,7 +104,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
             target.assetId.toegekendDoor = 'AWV'
 
     if not (source_is_legacy or target_is_legacy):
-        valid = RelationValidator.is_valid_relation(source=source, target=target, relation_type=relation_type)
+        valid = is_valid_relation(source=source, target=target, relation_type=relation_type)
         if not valid:
             raise CouldNotCreateRelationError("Can't create an invalid relation_type, please validate relations first")
 
