@@ -3,7 +3,7 @@ import re
 import warnings
 from typing import Type, Optional
 
-from otlmow_model.Classes.Onderdeel.HoortBij import HoortBij
+from typing.re import Match
 
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Classes.Agent import Agent
@@ -13,7 +13,6 @@ from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRe
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri
 from otlmow_model.Helpers.RelationValidator import RelationValidator
-from typing.re import Match
 
 
 def validate_guid(uuid: str) -> Optional[Match]:
@@ -34,7 +33,31 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
                     target: Optional[RelationInteractor] = None,
                     source_uuid: Optional[str] = None, source_typeURI: Optional[str] = None,
                     target_uuid: Optional[str] = None, target_typeURI: Optional[str] = None,
-                    class_directory: str = None) -> RelatieObject:
+                    class_directory: str = None) -> Optional[RelatieObject]:
+    """
+    Instantiates a relation, if valid, between instantiated objects, given a specific relation type.
+    Instead of instantiated objects, valid guids and typeURI's can be provided, for source and/or target.
+
+    :param relation_type: the instance of the relation
+    :type: RelatieObject
+    :param source: the intended source for the relation
+    :type: RelationInteractor
+    :param target: the intended target for the relation
+    :type: RelationInteractor
+    :param source_uuid: the uuid of the intended source for the relation
+    :type: str
+    :param source_typeURI: the typeURI of the intended source for the relation
+    :type: str
+    :param target_uuid: the uuid of the intended target for the relation
+    :type: str
+    :param target_typeURI: the typeURI of the intended target for the relation
+    :type: str
+    :param class_directory: directory where the class modules are located, defaults to OTLMOW.OTLModel.Classes
+    :type: str
+
+    :return: Returns the instantiated relation between the given source and target, or None if the relation is invalid.
+    :rtype: RelatieObject or None
+    """
     if source is None and (source_typeURI is None or source_uuid is None):
         raise ValueError('Exactly one of source or (source_typeURI + source_uuid) needs to be not None.')
     if target is None and (target_typeURI is None or target_uuid is None):
@@ -86,7 +109,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
             raise CouldNotCreateRelationError("Can't create an invalid relation_type, please validate relations first")
 
     relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI,
-                                                                  directory=class_directory)
+                                                     directory=class_directory)
 
     if not source_is_legacy and source.assetId.identificator is None:
         raise AttributeError('In order to create a relation_type, the source needs to have a valid assetId '
@@ -128,10 +151,10 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
 
 
 def create_betrokkenerelation(rol: str, source: Optional[RelationInteractor] = None,
-                    target: Optional[Agent] = None,
-                    source_uuid: Optional[str] = None, source_typeURI: Optional[str] = None,
-                    target_uuid: Optional[str] = None, target_typeURI: Optional[str] = None,
-                    class_directory: str = None) -> HeeftBetrokkene:
+                              target: Optional[Agent] = None,
+                              source_uuid: Optional[str] = None, source_typeURI: Optional[str] = None,
+                              target_uuid: Optional[str] = None, target_typeURI: Optional[str] = None,
+                              class_directory: str = None) -> Optional[HeeftBetrokkene]:
     relation = create_relation(source=source, target=target, source_uuid=source_uuid, source_typeURI=source_typeURI,
                                target_uuid=target_uuid, target_typeURI=target_typeURI, class_directory=class_directory,
                                relation_type=HeeftBetrokkene)
