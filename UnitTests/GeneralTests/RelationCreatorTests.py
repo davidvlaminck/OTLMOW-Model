@@ -106,7 +106,6 @@ class RelationCreatorTests(unittest.TestCase):
                                                                          class_name='Wegkantkast')
             uuid: str = '847a91b3-569d-4bae-87bf-7e148e8f7de9'
             typeURI = 'https://lgc.data.wegenenverkeer.be/ns/installatie#Beheersys'
-            print(kast)
             kast.assetId.identificator = '0000'
 
             relation = create_relation(source=kast, target_uuid=uuid, target_typeURI=typeURI,
