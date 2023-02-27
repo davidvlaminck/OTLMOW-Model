@@ -10,7 +10,7 @@ from otlmow_model.Classes.Agent import Agent
 from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObject
 from otlmow_model.Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
-from otlmow_model.Helpers.AssetCreator import AssetCreator
+from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri
 from otlmow_model.Helpers.RelationValidator import RelationValidator
 from typing.re import Match
@@ -61,7 +61,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if 'lgc.' in source_typeURI:
             source_is_legacy = True
         else:
-            source = AssetCreator.dynamic_create_instance_from_uri(source_typeURI, directory=class_directory)
+            source = dynamic_create_instance_from_uri(source_typeURI, directory=class_directory)
             source.assetId.identificator = source_aim_id
             source.assetId.toegekendDoor = 'AWV'
 
@@ -76,7 +76,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if 'lgc.' in target_typeURI:
             target_is_legacy = True
         else:
-            target = AssetCreator.dynamic_create_instance_from_uri(target_typeURI, directory=class_directory)
+            target = dynamic_create_instance_from_uri(target_typeURI, directory=class_directory)
             target.assetId.identificator = target_aim_id
             target.assetId.toegekendDoor = 'AWV'
 
@@ -85,7 +85,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if not valid:
             raise CouldNotCreateRelationError("Can't create an invalid relation_type, please validate relations first")
 
-    relation_type = AssetCreator.dynamic_create_instance_from_uri(class_uri=relation_type.typeURI,
+    relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI,
                                                                   directory=class_directory)
 
     if not source_is_legacy and source.assetId.identificator is None:

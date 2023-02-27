@@ -3,15 +3,14 @@ from os.path import isfile, join
 from pathlib import Path
 from unittest import TestCase
 
-from otlmow_model.Helpers.AssetCreator import AssetCreator
+from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 class InstantiationTests(TestCase):
     def test_instantiate_single_class_with_asset_creator(self):
-        mof = AssetCreator.dynamic_create_instance_from_uri(
-            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof')
+        mof = dynamic_create_instance_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof')
         self.assertIsNotNone(mof)
 
     def test_instantiate_all_classes(self):

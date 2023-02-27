@@ -8,7 +8,7 @@ from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTe
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 from UnitTests.TestClasses.Classes.Onderdeel.Voedt import Voedt
-from otlmow_model.Helpers.AssetCreator import AssetCreator
+from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_ns_and_name
 
 from otlmow_model.Helpers.RelationCreator import create_relation
 
@@ -102,7 +102,7 @@ class RelationCreatorTests(unittest.TestCase):
             self.assertEqual(relation.doelAssetId.identificator, all_cases.assetId.identificator)
 
         with self.subTest('real test'):
-            kast = AssetCreator.dynamic_create_instance_from_ns_and_name(namespace='onderdeel',
+            kast = dynamic_create_instance_from_ns_and_name(namespace='onderdeel',
                                                                          class_name='Wegkantkast')
             uuid: str = '847a91b3-569d-4bae-87bf-7e148e8f7de9'
             typeURI = 'https://lgc.data.wegenenverkeer.be/ns/installatie#Beheersys'

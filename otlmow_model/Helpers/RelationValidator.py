@@ -5,7 +5,7 @@ from typing import Type, Optional
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObject
 from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
-from otlmow_model.Helpers.AssetCreator import AssetCreator
+from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 
 class RelationValidator:
@@ -42,11 +42,11 @@ class RelationValidator:
         if source is not None and source_typeURI is not None:
             warnings.warn('both source and source_typeURI are not None. Overriding source by instantiating it',
                           RuntimeWarning)
-            source = AssetCreator.dynamic_create_instance_from_uri(source_typeURI)
+            source = dynamic_create_instance_from_uri(source_typeURI)
         if target is not None and target_typeURI is not None:
             warnings.warn('both target and target_typeURI are not None. Overriding source by instantiating it',
                           RuntimeWarning)
-            target = AssetCreator.dynamic_create_instance_from_uri(source_typeURI)
+            target = dynamic_create_instance_from_uri(source_typeURI)
 
         if source is not None and source_typeURI is None:
             source_typeURI = source.typeURI
@@ -62,7 +62,7 @@ class RelationValidator:
             return True
 
         if source is None:
-            source = AssetCreator.dynamic_create_instance_from_uri(source_typeURI)
+            source = dynamic_create_instance_from_uri(source_typeURI)
 
         if relation_type.typeURI not in source._valid_relations:
             return False
@@ -78,7 +78,7 @@ class RelationValidator:
             return True
 
         if target is None:
-            target = AssetCreator.dynamic_create_instance_from_uri(target_typeURI)
+            target = dynamic_create_instance_from_uri(target_typeURI)
         bases = inspect.getmro(type(target))
         for base in bases:
             base_type_uri = RelationValidator._get_member(base, 'typeURI')
