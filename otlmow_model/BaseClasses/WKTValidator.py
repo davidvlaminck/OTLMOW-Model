@@ -68,8 +68,3 @@ class WKTValidator:
                     return False
 
         return True
-
- # public static Double MIN_X = 14637.2d;
- #    public static Double MAX_X = 291015.3d;
- #    public static Double MIN_Y = 22608.2d;
- #    public static Double MAX_Y = 246424.3d;
