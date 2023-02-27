@@ -24,11 +24,12 @@ class RelationValidator:
                                                    relation_type=type(relation_instance))
 
     @staticmethod
-    def is_valid_relation(relation_type: Type[RelatieObject], source: RelationInteractor = None,
-                          source_typeURI: Optional[str] = None, target: RelationInteractor = None,
+    def is_valid_relation(relation_type: Type[RelatieObject], source: Optional[RelationInteractor] = None,
+                          source_typeURI: Optional[str] = None, target: Optional[RelationInteractor] = None,
                           target_typeURI: Optional[str] = None) -> bool:
         """
-        Verifies if a relation would be valid between a source and a target, given a relation_type type. Exactly one of source or source_typeURI must not be None. Exactly one of target or target_typeURI must not be None.
+        Verifies if a relation would be valid between a source and a target, given a relation_type type. Exactly one of
+        source or source_typeURI must not be None. Exactly one of target or target_typeURI must not be None.
 
         :param relation_type: the intended type of the relation
         :param source: the intended source for the relation_type
