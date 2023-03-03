@@ -4,7 +4,7 @@ from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTe
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 from otlmow_model.Helpers.GenericHelper import count_assets_by_type, \
-    remove_duplicates_in_iterable_based_on_property
+    remove_duplicates_in_iterable_based_on_property, get_titlecase_from_ns
 
 
 class GenericHelperTests(TestCase):
@@ -52,3 +52,20 @@ class GenericHelperTests(TestCase):
         with self.assertRaises(NotImplementedError):
             remove_duplicates_in_iterable_based_on_property(testset,
                                                             'testComplexType.testComplexType2MetKard.testStringField')
+
+    def test_get_titlecase_from_ns(self):
+        for ns_input, expected_output in {
+            'ABSTRACTEN': 'Abstracten',
+            'abstracten': 'Abstracten',
+            'implementatieelement': 'ImplementatieElement',
+            'installatie': 'Installatie',
+            'levenscyclus': 'Levenscyclus',
+            'onderdeel': 'Onderdeel',
+            'proefenmeting': 'ProefEnMeting'
+        }.items():
+            with self.subTest(f'testing {ns_input}, expecting {expected_output}'):
+                self.assertEqual(expected_output, get_titlecase_from_ns(ns_input))
+
+        with self.subTest(f'unknown value'):
+            with self.assertRaises(ValueError):
+                get_titlecase_from_ns('wrong input')
