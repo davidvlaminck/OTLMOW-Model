@@ -31,23 +31,34 @@ pip install otlmow-model --upgrade
 To use any of the classes in the class model, instantiate a class after importing it. In this example the Camera class is used.
 ```
 from otlmow_model.Classes.Onderdeel.Camera import Camera
-c = Camera()
+camera = Camera()
+```
+You can also create an instance dynamically, either by providing the typeURI...
+```
+from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
+camera_type_uri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera'
+camera = dynamic_create_instance_from_uri(camera_type_uri)
+```
+... or by providing the namespace + the class name.
+```
+from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_ns_and_name
+camera = dynamic_create_instance_from_ns_and_name(namespace='onderdeel', class_name='Camera')
 ```
 Now, this Camera instance can be edited by accessing its properties.
 ```
-c.toestand = 'in-gebruik'
-c.naam = 'CAM0001'
-c.opstelhoogte.waarde = 6.0
+camera.toestand = 'in-gebruik'
+camera.naam = 'CAM0001'
+camera.opstelhoogte.waarde = 6.0
 ```
 Validation or conversion happens behind the scenes.
 You'll also get warnings for using deprecated classes or attributes.
 ```
-c.isPtz = 'True'  # this raises a warning, as the value can be interpreted but is not the correct type
-c.isPtz = 20  # raises a CouldNotConvertToCorrectTypeError
+camera.isPtz = 'True'  # this raises a warning, as the value can be interpreted but is not the correct type
+camera.isPtz = 20  # raises a CouldNotConvertToCorrectTypeError
 ```
 Inspect the object by printing it.
 ```
-print(c)
+print(camera)
 ```
 results in
 ```
@@ -62,7 +73,7 @@ results in
 Access the metadata information by using the meta_info function. Pass in an object. Optionally you can use also pass an attribute to view the metadata of attributes itself
 ```
 from otlmow_model.BaseClasses.MetaInfo import meta_info
-print(meta_info(c, attribute='toestand'))
+print(meta_info(camera, attribute='toestand'))
 ```
 outputs
 ```  
