@@ -1,5 +1,5 @@
 from otlmow_model.BaseClasses.StringField import StringField
-
+import re
 
 class URIField(StringField):
     """Een tekstwaarde die een verwijzing naar meer informatie van het element bevat volgens http://www.w3.org/2001/XMLSchema#anyURI ."""
@@ -11,8 +11,17 @@ class URIField(StringField):
 
     @staticmethod
     def validate(value, attribuut):
-        return StringField.validate(value, attribuut)
-        # TODO add URI validation
+        if not StringField.validate(value, attribuut):
+            return False
+
+        regex = re.compile(
+            r'^(?:http|ftp)s?://'
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  
+            r'localhost|'
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  
+            r'(?::\d+)?' 
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)  # django url validation regex
+        return re.match(regex, value) is not None
 
     def __str__(self):
         return StringField.__str__(self)
