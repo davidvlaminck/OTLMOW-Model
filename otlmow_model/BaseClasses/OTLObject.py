@@ -2,6 +2,8 @@
 from datetime import date, time, datetime
 from typing import Union, Dict, List, Generator
 
+from otlmow_model.BaseClasses.URIField import URIField
+
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
@@ -10,8 +12,21 @@ from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarn
 
 
 class OTLObject:
-    typeURI = ''
+    typeURI: str = None
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
+
+    def __setattr__(self, name, value):
+        if name != 'typeURI':
+            super(OTLObject, self).__setattr__(name, value)
+        else:
+            if hasattr(self, 'typeURI') and (value is not None or self.typeURI is not None):
+                raise ValueError("The typeURI is an OSLOAttribute that indicates the class of the instance. "
+                                 "Within a class this value is predefined and cannot be changed.")
+            else:
+                if URIField.validate(value, OTLAttribuut(naam='typeURI')):
+                    self.__dict__['value'] = value
+                else:
+                    raise ValueError(f'{value} is not a valid value for typeURI.')
 
     def __init__(self):
         if hasattr(self, 'deprecated_version'):

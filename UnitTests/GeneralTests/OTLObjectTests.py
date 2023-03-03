@@ -6,6 +6,16 @@ from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 
 
 class OTLObjectsTests(TestCase):
+    def test_change_typeURI(self):
+        instance = AllCasesTestClass()
+        self.assertEqual(instance.typeURI, AllCasesTestClass.typeURI)
+
+        with self.assertRaises(ValueError):
+            instance.typeURI = 'https://www.newuri.com/'
+
+        with self.assertRaises(ValueError):
+            instance.typeURI = None
+
     def test_fill_with_dummy_data(self):
         instance = AllCasesTestClass()
         instance.fill_with_dummy_data()
