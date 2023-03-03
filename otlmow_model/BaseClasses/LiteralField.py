@@ -1,4 +1,4 @@
-﻿from otlmow_model.Datatypes import StringField
+﻿from otlmow_model.BaseClasses.StringField import StringField
 
 
 class LiteralField(StringField):
