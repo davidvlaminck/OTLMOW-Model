@@ -57,6 +57,7 @@ def get_class_directory_from_ns(ns):
 
 
 def get_titlecase_from_ns(ns: str) -> str:
+    ns = ns.lower()
     if ns == 'abstracten':
         return 'Abstracten'
     elif ns == 'implementatieelement':
