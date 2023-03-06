@@ -8,7 +8,6 @@ from otlmow_model.BaseClasses.OTLField import OTLField
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
-from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
 
 
@@ -221,12 +220,22 @@ class OTLAttribuut:
             return
 
         if self.field.waardeObject is None:
-            data = self.field.create_dummy_data()
-            if self.kardinaliteit_max != '1':
-                self.set_waarde([data])
+            if self.naam == 'geometry':
+                first_geom_type = self.owner._geometry_types[0]
+                if first_geom_type == 'POINT Z':
+                    self.set_waarde('POINT Z (200000 200000 0)')
+                elif first_geom_type == 'LINESTRING Z':
+                    self.set_waarde('LINESTRING Z (200000 200000 0, 200001 200001 1)')
+                elif first_geom_type == 'POLYGON Z':
+                    self.set_waarde('POLYGON Z ((200000 200000 0, 200001 200001 1, 200002 200002 2))')
+                return
             else:
-                self.set_waarde(data)
-            return
+                data = self.field.create_dummy_data()
+                if self.kardinaliteit_max != '1':
+                    self.set_waarde([data])
+                else:
+                    self.set_waarde(data)
+                return
 
         new_value_object = self.field.waardeObject()
         new_value_object._parent = self
