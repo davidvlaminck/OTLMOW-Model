@@ -1,3 +1,6 @@
+import random
+import string
+
 from otlmow_model.BaseClasses.StringField import StringField
 import re
 
@@ -25,4 +28,8 @@ class URIField(StringField):
 
     def __str__(self):
         return StringField.__str__(self)
+
+    @classmethod
+    def create_dummy_data(cls):
+        return 'http://' + ''.join(random.choice(string.ascii_letters) for i in range(random.randint(5, 15))) + '.dummy'
 
