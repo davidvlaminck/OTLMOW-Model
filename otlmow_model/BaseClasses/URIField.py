@@ -12,6 +12,13 @@ class URIField(StringField):
     label = 'URI'
     usagenote = 'https://www.w3.org/TR/xmlschema-2/#anyURI'
 
+    @classmethod
+    def convert_to_correct_type(cls, value: str, log_warnings=True):
+        value = StringField.convert_to_correct_type(value, log_warnings=log_warnings)
+        if value is not None and value.startswith('/eminfra'):
+            return f'https://apps.mow.vlaanderen.be{value}'
+        return value
+
     @staticmethod
     def validate(value, attribuut):
         if not StringField.validate(value, attribuut):
