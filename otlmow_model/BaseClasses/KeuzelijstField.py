@@ -53,7 +53,7 @@ deprecated_version: {self.deprecated_version}"""
 
     @staticmethod
     def convert_to_invulwaarde(value: str, field) -> str:
-        if value == '':
+        if value is None or value == '':
             return value
 
         if value in field.options.keys():
