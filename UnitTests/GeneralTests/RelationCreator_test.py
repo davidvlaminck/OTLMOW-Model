@@ -119,8 +119,7 @@ class RelationCreatorTests(unittest.TestCase):
         another.assetId.identificator = 'another'
 
         with self.assertRaises(CouldNotCreateRelationError):
-            relation = create_relation(source=another, target=all_cases, relation_type=Voedt)
-            self.assertIsNone(relation)
+            create_relation(source=another, target=all_cases, relation_type=Voedt)
 
     def test_create_deprecated_relation(self):
         all_cases = AllCasesTestClass()
@@ -138,5 +137,4 @@ class RelationCreatorTests(unittest.TestCase):
         another = AnotherTestClass()
 
         with self.assertRaises(AttributeError):
-            relation = create_relation(source=another, target=all_cases, relation_type=Bevestiging)
-            self.assertIsNone(relation)
+            create_relation(source=another, target=all_cases, relation_type=Bevestiging)

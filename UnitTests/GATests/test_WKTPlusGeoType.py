@@ -75,10 +75,10 @@ def test_point_polygon(subtests):
             puntvlakclass.geometry = 'POLYGON Z ((200010.0 200020.0, 200030.0 200040.0 2, 200050.0 200060.0))'
 
 
-# def test_invalid_geometry_based_on_geometry_artefact():
-#     instance = PointPolygonTestClass()
-#     with pytest.warns(WrongGeometryWarning) as wrong_geometry_warning:
-#         instance.geometry = 'LINESTRING Z (200001 200002 10, 200003 200004 20)'
-#     expected_msg = "Asset type PointPolygonTestClass shouldn't be assigned a LINESTRING Z as geometry, " \
-#                    "valid types are POINT Z and POLYGON Z"
-#     assert expected_msg == str(wrong_geometry_warning.message.args[0])
+def test_invalid_geometry_based_on_geometry_artefact():
+    instance = PointPolygonTestClass()
+    with pytest.warns(WrongGeometryWarning) as wrong_geometry_warning:
+        instance.geometry = 'LINESTRING Z (200001 200002 10, 200003 200004 20)'
+    expected_msg = "Asset type PointPolygonTestClass shouldn't be assigned a LINESTRING Z as geometry, " \
+                   "valid types are POINT Z and POLYGON Z"
+    assert expected_msg == wrong_geometry_warning[0].message.args[0]

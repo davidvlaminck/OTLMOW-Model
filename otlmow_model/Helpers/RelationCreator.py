@@ -1,9 +1,7 @@
 import base64
 import re
 import warnings
-from typing import Type, Optional
-
-from typing.re import Match
+from typing import Type, Optional, Match
 
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Classes.Agent import Agent
