@@ -1,5 +1,6 @@
 ﻿import warnings
-from unittest import TestCase
+
+import pytest
 
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
@@ -8,26 +9,28 @@ from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDepreca
 from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 
 
-class DeprecatedTests(TestCase):
-    def test_use_regular_class(self):
-        instance = AnotherTestClass()
-        if hasattr(instance, 'deprecated_version'):
-            self.assertIsNone(instance.deprecated_version)
-        else:
-            self.assertTrue(True)
+def test_use_regular_class():
+    instance = AnotherTestClass()
+    if hasattr(instance, 'deprecated_version'):
+        assert instance.deprecated_version is None
+    else:
+        assert True
 
-    def test_use_deprecated_class(self):
-        with self.assertWarns(ClassDeprecationWarning):
-            DeprecatedTestClass()
 
-    def test_use_regular_attribute(self):
-        with warnings.catch_warnings(record=True) as warns:
-            v = Voedt()
-            v.aansluitspanning.waarde = 230
-        deprecated = list(filter(lambda x: isinstance(x, DeprecationWarning), warns))
-        self.assertEqual(0, len(deprecated))
+def test_use_deprecated_class():
+    with pytest.warns(ClassDeprecationWarning):
+        DeprecatedTestClass()
 
-    def test_use_deprecated_attribute(self):
-        with self.assertWarns(AttributeDeprecationWarning):
-            v = Voedt()
-            v.aansluitvermogen.waarde = 20
+
+def test_use_regular_attribute():
+    with warnings.catch_warnings(record=True) as warns:
+        v = Voedt()
+        v.aansluitspanning.waarde = 230
+    deprecated = list(filter(lambda x: isinstance(x, DeprecationWarning), warns))
+    assert len(deprecated) == 0
+
+
+def test_use_deprecated_attribute():
+    with pytest.warns(AttributeDeprecationWarning):
+        v = Voedt()
+        v.aansluitvermogen.waarde = 20
