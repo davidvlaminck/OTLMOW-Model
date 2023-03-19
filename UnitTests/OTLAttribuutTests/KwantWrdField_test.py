@@ -1,4 +1,4 @@
-from unittest import TestCase
+import pytest
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
@@ -9,40 +9,40 @@ class NonStringableObject(object):
         pass
 
 
-class KwantWrdFieldTests(TestCase):
-    def test_full_test_on_testclass_kard_1(self):
-        instance = AllCasesTestClass()
-        with self.subTest('empty instance'):
-            self.assertIsNotNone(instance.testKwantWrd)
-            self.assertTrue(instance._testKwantWrd.field.waarde_shortcut_applicable)
+def test_full_test_on_testclass_kard_1(subtests):
+    instance = AllCasesTestClass()
+    with subtests.test(msg='empty instance'):
+        assert instance.testKwantWrd is not None
+        assert instance._testKwantWrd.field.waarde_shortcut_applicable
 
-        with self.subTest('assign values to kwantWrdField with kard 1'):
-            instance.testKwantWrd.waarde = 1
-            self.assertEqual(1.0, instance.testKwantWrd.waarde)
-            self.assertEqual('%', instance.testKwantWrd.standaardEenheid)
-            instance.testKwantWrd.waarde = 2
-            self.assertEqual(2, instance.testKwantWrd.waarde)
+    with subtests.test(msg='assign values to kwantWrdField with kard 1'):
+        instance.testKwantWrd.waarde = 1
+        assert instance.testKwantWrd.waarde == 1.0
+        assert instance.testKwantWrd.standaardEenheid == '%'
+        instance.testKwantWrd.waarde = 2
+        assert instance.testKwantWrd.waarde == 2
 
-        with self.subTest('assigning to readonly field of kwantWrdField with kard 1'):
-            with self.assertRaises(AttributeError):
-                instance.testKwantWrd.standaardEenheid = 'A'
+    with subtests.test(msg='assigning to readonly field of kwantWrdField with kard 1'):
+        with pytest.raises(AttributeError):
+            instance.testKwantWrd.standaardEenheid = 'A'
 
-    def test_full_test_on_testclass_kard_more(self):
-        instance = AllCasesTestClass()
-        with self.subTest('empty instance'):
-            self.assertIsNotNone(instance.testKwantWrdMetKard)
-            self.assertTrue(instance._testKwantWrdMetKard.field.waarde_shortcut_applicable)
 
-        with self.subTest('assign value directly to kwantWrdField with kard *'):
-            instance.testKwantWrdMetKard[0].waarde = 1.0
-            self.assertEqual(1, instance.testKwantWrdMetKard[0].waarde)
+def test_full_test_on_testclass_kard_more(subtests):
+    instance = AllCasesTestClass()
+    with subtests.test(msg='empty instance'):
+        assert instance.testKwantWrdMetKard is not None
+        assert instance._testKwantWrdMetKard.field.waarde_shortcut_applicable
 
-        with self.subTest('assign value to kwantWrdField with kard * by using add_empty_value method'):
-            instance._testKwantWrdMetKard.add_empty_value()
-            self.assertEqual(1, instance.testKwantWrdMetKard[0].waarde)
-            instance.testKwantWrdMetKard[1].waarde = '2.5'
-            self.assertEqual(2.5, instance.testKwantWrdMetKard[1].waarde)
+    with subtests.test(msg='assign value directly to kwantWrdField with kard *'):
+        instance.testKwantWrdMetKard[0].waarde = 1.0
+        assert instance.testKwantWrdMetKard[0].waarde == 1
 
-        with self.subTest('assign bad value to kwantWrdField with kard *'):
-            with self.assertRaises(CouldNotConvertToCorrectTypeError):
-                instance.testKwantWrdMetKard[0].waarde = 'a'
+    with subtests.test(msg='assign value to kwantWrdField with kard * by using add_empty_value method'):
+        instance._testKwantWrdMetKard.add_empty_value()
+        assert instance.testKwantWrdMetKard[0].waarde == 1
+        instance.testKwantWrdMetKard[1].waarde = '2.5'
+        assert instance.testKwantWrdMetKard[1].waarde == 2.5
+
+    with subtests.test(msg='assign bad value to kwantWrdField with kard *'):
+        with pytest.raises(CouldNotConvertToCorrectTypeError):
+            instance.testKwantWrdMetKard[0].waarde = 'a'

@@ -1,54 +1,57 @@
-import unittest
+import pytest
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 
 
-class ContainerBuisKardinaliteitFieldTests(unittest.TestCase):
-    def test_basic_assignment(self):
-        instance = AllCasesTestClass()
-        instance.testStringFieldMetKard = ['geel', 'rood']
-        self.assertEqual("geel", instance.testStringFieldMetKard[0])
-        self.assertEqual("rood", instance.testStringFieldMetKard[1])
+def test_basic_assignment():
+    instance = AllCasesTestClass()
+    instance.testStringFieldMetKard = ['geel', 'rood']
+    assert instance.testStringFieldMetKard[0] == "geel"
+    assert instance.testStringFieldMetKard[1] == "rood"
 
-    def test_basic_reassign(self):
-        instance = AllCasesTestClass()
-        instance.testStringFieldMetKard = ['geel']
-        self.assertEqual("geel", instance.testStringFieldMetKard[0])
 
-        instance.testStringFieldMetKard = ['geel', 'rood']
-        self.assertEqual("geel", instance.testStringFieldMetKard[0])
-        self.assertEqual("rood", instance.testStringFieldMetKard[1])
+def test_basic_reassign():
+    instance = AllCasesTestClass()
+    instance.testStringFieldMetKard = ['geel']
+    assert instance.testStringFieldMetKard[0] == "geel"
 
-        instance.testStringFieldMetKard = None
-        self.assertEqual(None, instance.testStringFieldMetKard)
+    instance.testStringFieldMetKard = ['geel', 'rood']
+    assert instance.testStringFieldMetKard[0] == "geel"
+    assert instance.testStringFieldMetKard[1] == "rood"
 
-    def test_two_instances(self):
-        instance = AllCasesTestClass()
-        instance.testStringFieldMetKard = ['geel', 'rood']
-        instance2 = AllCasesTestClass()
-        instance2.testStringFieldMetKard = ['blauw']
-        self.assertTrue(instance.testStringFieldMetKard[0] == "geel")
-        self.assertTrue(instance.testStringFieldMetKard[1] == "rood")
-        self.assertTrue(instance2.testStringFieldMetKard[0] == "blauw")
+    instance.testStringFieldMetKard = None
+    assert instance.testStringFieldMetKard is None
 
-    def test_errors(self):
-        instance = AllCasesTestClass()
 
-        with self.assertRaises(TypeError) as exc_number:
-            instance.testStringFieldMetKard = 2
-        self.assertEqual(str(exc_number.exception), "expecting a list in AllCasesTestClass.testStringFieldMetKard")
+def test_two_instances():
+    instance = AllCasesTestClass()
+    instance.testStringFieldMetKard = ['geel', 'rood']
+    instance2 = AllCasesTestClass()
+    instance2.testStringFieldMetKard = ['blauw']
 
-        with self.assertRaises(TypeError) as exc_dict:
-            instance.testStringFieldMetKard = {}
-        self.assertEqual(str(exc_dict.exception), "expecting a list in AllCasesTestClass.testStringFieldMetKard")
+    assert instance.testStringFieldMetKard[0] == "geel"
+    assert instance.testStringFieldMetKard[1] == "rood"
+    assert instance2.testStringFieldMetKard[0] == "blauw"
 
-        instance._testStringFieldMetKard.kardinaliteit_min = "2"
-        instance._testStringFieldMetKard.kardinaliteit_max = "2"
-        with self.assertRaises(ValueError) as exc_list_one_short:
-            instance.testStringFieldMetKard = ["geel"]
-        self.assertEqual(str(exc_list_one_short.exception), "expecting at least 2 element(s) in AllCasesTestClass.testStringFieldMetKard")
-        with self.assertRaises(ValueError) as exc_list_one_too_many:
-            instance.testStringFieldMetKard = ["geel", "rood", "blauw"]
-        self.assertEqual(str(exc_list_one_too_many.exception), "expecting at most 2 element(s) in AllCasesTestClass.testStringFieldMetKard")
+
+def test_errors():
+    instance = AllCasesTestClass()
+
+    with pytest.raises(TypeError) as exc_number:
+        instance.testStringFieldMetKard = 2
+    assert str(exc_number.value) == "expecting a list in AllCasesTestClass.testStringFieldMetKard"
+
+    with pytest.raises(TypeError) as exc_dict:
+        instance.testStringFieldMetKard = {}
+    assert str(exc_dict.value) == "expecting a list in AllCasesTestClass.testStringFieldMetKard"
+
+    instance._testStringFieldMetKard.kardinaliteit_min = "2"
+    instance._testStringFieldMetKard.kardinaliteit_max = "2"
+    with pytest.raises(ValueError) as exc_list_one_short:
+        instance.testStringFieldMetKard = ["geel"]
+    assert str(exc_list_one_short.value) == "expecting at least 2 element(s) in AllCasesTestClass.testStringFieldMetKard"
+    with pytest.raises(ValueError) as exc_list_one_too_many:
+        instance.testStringFieldMetKard = ["geel", "rood", "blauw"]
+    assert str(exc_list_one_too_many.value) == "expecting at most 2 element(s) in AllCasesTestClass.testStringFieldMetKard"
 
 

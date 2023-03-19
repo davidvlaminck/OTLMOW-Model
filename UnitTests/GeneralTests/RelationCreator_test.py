@@ -1,140 +1,144 @@
-import unittest
-
-from otlmow_model.Classes.Onderdeel.HoortBij import HoortBij
-from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
-from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
+import pytest
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 from UnitTests.TestClasses.Classes.Onderdeel.Voedt import Voedt
+from otlmow_model.Classes.Onderdeel.HoortBij import HoortBij
+from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
+from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_ns_and_name
-
 from otlmow_model.Helpers.RelationCreator import create_relation
 
 
-class RelationCreatorTests(unittest.TestCase):
-    def test_create_valid_relation(self):
-        all_cases = AllCasesTestClass()
-        all_cases.assetId.identificator = 'all_cases'
-        another = AnotherTestClass()
-        another.assetId.identificator = 'another'
+def test_create_valid_relation():
+    all_cases = AllCasesTestClass()
+    all_cases.assetId.identificator = 'all_cases'
+    another = AnotherTestClass()
+    another.assetId.identificator = 'another'
 
-        relation = create_relation(source=another, target=all_cases, relation_type=Bevestiging)
-        self.assertIsNotNone(relation)
-        self.assertEqual(relation.typeURI, Bevestiging.typeURI)
-        self.assertEqual(relation.bronAssetId.identificator, another.assetId.identificator)
-        self.assertEqual(relation.doelAssetId.identificator, all_cases.assetId.identificator)
+    relation = create_relation(source=another, target=all_cases, relation_type=Bevestiging)
+    assert relation is not None
+    assert relation.typeURI == Bevestiging.typeURI
+    assert relation.bronAssetId.identificator == another.assetId.identificator
+    assert relation.doelAssetId.identificator == all_cases.assetId.identificator
 
-    def test_create_relation_input_parameters(self):
-        all_cases = AllCasesTestClass()
-        all_cases.assetId.identificator = 'all_cases'
-        another = AnotherTestClass()
-        another.assetId.identificator = 'another'
 
-        with self.subTest('testing if there are enough not None parameters'):
-            with self.assertRaises(ValueError):
-                create_relation(source=None, source_typeURI=None, source_uuid='', target=all_cases,
-                                relation_type=Bevestiging,
-                                class_directory='UnitTests.TestClasses.Classes')
-            with self.assertRaises(ValueError):
-                create_relation(source=None, source_typeURI='', source_uuid=None, target=all_cases,
-                                relation_type=Bevestiging,
-                                class_directory='UnitTests.TestClasses.Classes')
-            with self.assertRaises(ValueError):
-                create_relation(target=None, target_typeURI=None, target_uuid='', source=all_cases,
-                                relation_type=Bevestiging,
-                                class_directory='UnitTests.TestClasses.Classes')
-            with self.assertRaises(ValueError):
-                create_relation(target=None, target_typeURI='', target_uuid=None, source=all_cases,
-                                relation_type=Bevestiging,
-                                class_directory='UnitTests.TestClasses.Classes')
+def test_create_relation_input_parameters(subtests):
+    all_cases = AllCasesTestClass()
+    all_cases.assetId.identificator = 'all_cases'
+    another = AnotherTestClass()
+    another.assetId.identificator = 'another'
 
-        with self.subTest('testing uuid format'):
-            relation = create_relation(source_typeURI=another.typeURI, target=all_cases,
-                                       source_uuid='00000000-0000-0000-0000-000000000000',
-                                       relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
-            self.assertIsNotNone(relation)
-            relation = create_relation(target_typeURI=another.typeURI, source=all_cases,
-                                       target_uuid='00000000-0000-0000-0000-000000000000',
-                                       relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
-            self.assertIsNotNone(relation)
-            with self.assertRaises(ValueError):
-                create_relation(source_typeURI=another.typeURI, source_uuid='', target=all_cases,
-                                relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
-            with self.assertRaises(ValueError):
-                create_relation(target_typeURI=another.typeURI, target_uuid='', source=all_cases,
-                                relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
+    with subtests.test(msg='testing if there are enough not None parameters'):
+        with pytest.raises(ValueError):
+            create_relation(source=None, source_typeURI=None, source_uuid='', target=all_cases,
+                            relation_type=Bevestiging,
+                            class_directory='UnitTests.TestClasses.Classes')
+        with pytest.raises(ValueError):
+            create_relation(source=None, source_typeURI='', source_uuid=None, target=all_cases,
+                            relation_type=Bevestiging,
+                            class_directory='UnitTests.TestClasses.Classes')
+        with pytest.raises(ValueError):
+            create_relation(target=None, target_typeURI=None, target_uuid='', source=all_cases,
+                            relation_type=Bevestiging,
+                            class_directory='UnitTests.TestClasses.Classes')
+        with pytest.raises(ValueError):
+            create_relation(target=None, target_typeURI='', target_uuid=None, source=all_cases,
+                            relation_type=Bevestiging,
+                            class_directory='UnitTests.TestClasses.Classes')
 
-        with self.subTest('testing for warning if there are too many not None parameters'):
-            with self.assertWarns(RuntimeWarning):
-                create_relation(source=another, source_typeURI=another.typeURI, source_uuid='', target=all_cases,
-                                relation_type=Bevestiging,
-                                class_directory='UnitTests.TestClasses.Classes')
-            with self.assertWarns(RuntimeWarning):
-                create_relation(source=another, target=all_cases, target_typeURI=all_cases.typeURI,
-                                relation_type=Bevestiging)
+    with subtests.test(msg='testing uuid format'):
+        relation = create_relation(source_typeURI=another.typeURI, target=all_cases,
+                                   source_uuid='00000000-0000-0000-0000-000000000000',
+                                   relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
+        assert relation is not None
 
-        with self.subTest('creating relations using uuid and typeURI'):
-            relation = create_relation(source_typeURI=another.typeURI, source_uuid='00000000-0000-0000-0000-000000000000',
-                                       target=all_cases, relation_type=Bevestiging,
-                                       class_directory='UnitTests.TestClasses.Classes')
-            self.assertIsNotNone(relation)
-            self.assertEqual(relation.typeURI, Bevestiging.typeURI)
-            self.assertEqual(relation.bronAssetId.identificator, '00000000-0000-0000-0000-000000000000'
-                                                                 '-b25kZXJkZWVsI0Fub3RoZXJUZXN0Q2xhc3M')
-            self.assertEqual(relation.doelAssetId.identificator, all_cases.assetId.identificator)
+        relation = create_relation(target_typeURI=another.typeURI, source=all_cases,
+                                   target_uuid='00000000-0000-0000-0000-000000000000',
+                                   relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
+        assert relation is not None
 
-            relation = create_relation(target_typeURI=another.typeURI, target_uuid='00000000-0000-0000-0000-000000000000',
-                                       source=all_cases, relation_type=Bevestiging,
-                                       class_directory='UnitTests.TestClasses.Classes')
-            self.assertIsNotNone(relation)
-            self.assertEqual(relation.typeURI, Bevestiging.typeURI)
-            self.assertEqual(relation.doelAssetId.identificator, '00000000-0000-0000-0000-000000000000'
-                                                                 '-b25kZXJkZWVsI0Fub3RoZXJUZXN0Q2xhc3M')
-            self.assertEqual(relation.bronAssetId.identificator, all_cases.assetId.identificator)
+        with pytest.raises(ValueError):
+            create_relation(source_typeURI=another.typeURI, source_uuid='', target=all_cases,
+                            relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
 
-        with self.subTest('creating relations using instances of objects'):
-            relation = create_relation(source=another, target=all_cases, relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
-            self.assertIsNotNone(relation)
-            self.assertEqual(relation.typeURI, Bevestiging.typeURI)
-            self.assertEqual(relation.bronAssetId.identificator, another.assetId.identificator)
-            self.assertEqual(relation.doelAssetId.identificator, all_cases.assetId.identificator)
+        with pytest.raises(ValueError):
+            create_relation(target_typeURI=another.typeURI, target_uuid='', source=all_cases,
+                            relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
 
-        with self.subTest('real test'):
-            kast = dynamic_create_instance_from_ns_and_name(namespace='onderdeel',
-                                                                         class_name='Wegkantkast')
-            uuid: str = '847a91b3-569d-4bae-87bf-7e148e8f7de9'
-            typeURI = 'https://lgc.data.wegenenverkeer.be/ns/installatie#Beheersys'
-            kast.assetId.identificator = '0000'
+    with subtests.test(msg='testing for warning if there are too many not None parameters'):
+        with pytest.warns(RuntimeWarning):
+            create_relation(source=another, source_typeURI=another.typeURI, source_uuid='', target=all_cases,
+                            relation_type=Bevestiging,
+                            class_directory='UnitTests.TestClasses.Classes')
+        with pytest.warns(RuntimeWarning):
+            create_relation(source=another, target=all_cases, target_typeURI=all_cases.typeURI,
+                            relation_type=Bevestiging)
 
-            relation = create_relation(source=kast, target_uuid=uuid, target_typeURI=typeURI,
-                                       relation_type=HoortBij)
-            self.assertIsNotNone(relation)
+    with subtests.test(msg='creating relations using uuid and typeURI'):
+        relation = create_relation(source_typeURI=another.typeURI, source_uuid='00000000-0000-0000-0000-000000000000',
+                                   target=all_cases, relation_type=Bevestiging,
+                                   class_directory='UnitTests.TestClasses.Classes')
+        assert relation is not None
+        assert relation.typeURI == Bevestiging.typeURI
+        assert relation.bronAssetId.identificator == '00000000-0000-0000-0000-000000000000' \
+                                                     '-b25kZXJkZWVsI0Fub3RoZXJUZXN0Q2xhc3M'
+        assert relation.doelAssetId.identificator == all_cases.assetId.identificator
 
-    def test_create_invalid_relation(self):
-        all_cases = AllCasesTestClass()
-        all_cases.assetId.identificator = 'all_cases'
-        another = AnotherTestClass()
-        another.assetId.identificator = 'another'
+        relation = create_relation(target_typeURI=another.typeURI, target_uuid='00000000-0000-0000-0000-000000000000',
+                                   source=all_cases, relation_type=Bevestiging,
+                                   class_directory='UnitTests.TestClasses.Classes')
+        assert relation is not None
+        assert relation.typeURI == Bevestiging.typeURI
+        assert relation.doelAssetId.identificator == '00000000-0000-0000-0000-000000000000' \
+                                                     '-b25kZXJkZWVsI0Fub3RoZXJUZXN0Q2xhc3M'
+        assert relation.bronAssetId.identificator == all_cases.assetId.identificator
 
-        with self.assertRaises(CouldNotCreateRelationError):
-            create_relation(source=another, target=all_cases, relation_type=Voedt)
+    with subtests.test(msg='creating relations using instances of objects'):
+        relation = create_relation(source=another, target=all_cases, relation_type=Bevestiging,
+                                   class_directory='UnitTests.TestClasses.Classes')
+        assert relation is not None
+        assert relation.typeURI == Bevestiging.typeURI
+        assert relation.bronAssetId.identificator == another.assetId.identificator
+        assert relation.doelAssetId.identificator == all_cases.assetId.identificator
 
-    def test_create_deprecated_relation(self):
-        all_cases = AllCasesTestClass()
-        all_cases.assetId.identificator = 'all_cases'
-        another = AnotherTestClass()
-        another.assetId.identificator = 'another'
+    with subtests.test(msg='real test'):
+        kast = dynamic_create_instance_from_ns_and_name(namespace='onderdeel', class_name='Wegkantkast')
+        uuid: str = '847a91b3-569d-4bae-87bf-7e148e8f7de9'
+        typeURI = 'https://lgc.data.wegenenverkeer.be/ns/installatie#Beheersys'
+        kast.assetId.identificator = '0000'
 
-        with self.assertWarns(RelationDeprecationWarning):
-            relation = create_relation(source=all_cases, target=another, relation_type=Voedt)
+        relation = create_relation(source=kast, target_uuid=uuid, target_typeURI=typeURI,
+                                   relation_type=HoortBij)
+        assert relation is not None
 
-        self.assertIsNotNone(relation)
 
-    def test_create_valid_relation_without_assetIds(self):
-        all_cases = AllCasesTestClass()
-        another = AnotherTestClass()
+def test_create_invalid_relation():
+    all_cases = AllCasesTestClass()
+    all_cases.assetId.identificator = 'all_cases'
+    another = AnotherTestClass()
+    another.assetId.identificator = 'another'
 
-        with self.assertRaises(AttributeError):
-            create_relation(source=another, target=all_cases, relation_type=Bevestiging)
+    with pytest.raises(CouldNotCreateRelationError):
+        create_relation(source=another, target=all_cases, relation_type=Voedt)
+
+
+def test_create_deprecated_relation():
+    all_cases = AllCasesTestClass()
+    all_cases.assetId.identificator = 'all_cases'
+    another = AnotherTestClass()
+    another.assetId.identificator = 'another'
+
+    with pytest.warns(RelationDeprecationWarning):
+        relation = create_relation(source=all_cases, target=another, relation_type=Voedt)
+
+    assert relation is not None
+
+
+def test_create_valid_relation_without_assetIds():
+    all_cases = AllCasesTestClass()
+    another = AnotherTestClass()
+
+    with pytest.raises(AttributeError):
+        create_relation(source=another, target=all_cases, relation_type=Bevestiging)

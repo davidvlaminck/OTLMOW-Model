@@ -1,53 +1,51 @@
-from unittest import TestCase
+import pytest
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 
 
+def test_full_test_on_testclass_kard_1(subtests):
+    instance = AllCasesTestClass()
+    with subtests.test(msg='empty instance'):
+        assert instance.testDecimalField is None
 
-class FloatOrDecimalAttributeTests(TestCase):
-    def test_full_test_on_testclass_kard_1(self):
+    with subtests.test(msg='assign values to DecimalField with kard 1'):
+        instance.testDecimalField = 1.0
+        assert instance.testDecimalField == 1.0
+        instance.testDecimalField = 2
+        assert instance.testDecimalField == 2
+
+
+def test_full_test_on_testclass_kard_more(subtests, caplog):
+    with subtests.test(msg='empty instance'):
         instance = AllCasesTestClass()
-        with self.subTest('empty instance'):
-            self.assertIsNone(instance.testDecimalField)
+        assert instance.testDecimalFieldMetKard is None
 
-        with self.subTest('assign values to DecimalField with kard 1'):
-            instance.testDecimalField = 1.0
-            self.assertEqual(1.0, instance.testDecimalField)
-            instance.testDecimalField = 2
-            self.assertEqual(2, instance.testDecimalField)
+    with subtests.test(msg='assign value to DecimalField with kard * by using add_value method'):
+        instance = AllCasesTestClass()
+        instance._testDecimalFieldMetKard.add_value(1.0)
+        assert instance.testDecimalFieldMetKard[0] == 1.0
+        instance._testDecimalFieldMetKard.add_value(2)
+        assert instance.testDecimalFieldMetKard[0] == 1.0
+        assert instance.testDecimalFieldMetKard[1] == 2
 
-    def test_full_test_on_testclass_kard_more(self):
-        with self.subTest('empty instance'):
-            instance = AllCasesTestClass()
-            self.assertIsNone(instance.testDecimalFieldMetKard)
+    with subtests.test(msg='assign bad value to DecimalField with kard * by using add_value method'):
+        instance = AllCasesTestClass()
+        with pytest.raises(CouldNotConvertToCorrectTypeError):
+            instance._testDecimalFieldMetKard.add_value('a')
 
-        with self.subTest('assign value to DecimalField with kard * by using add_value method'):
-            instance = AllCasesTestClass()
-            instance._testDecimalFieldMetKard.add_value(1.0)
-            self.assertEqual(1.0, instance.testDecimalFieldMetKard[0])
-            instance._testDecimalFieldMetKard.add_value(2)
-            self.assertEqual(1.0, instance.testDecimalFieldMetKard[0])
-            self.assertEqual(2, instance.testDecimalFieldMetKard[1])
+    with subtests.test(msg='assign values directly to DecimalField with kard *'):
+        instance = AllCasesTestClass()
+        instance.testDecimalFieldMetKard = [1.0]
+        assert instance.testDecimalFieldMetKard[0] == 1.0
+        instance.testDecimalFieldMetKard = [2]
+        assert instance.testDecimalFieldMetKard[0] == 2
+        instance.testDecimalFieldMetKard = [1.0, 2]
+        assert instance.testDecimalFieldMetKard[0] == 1.0
+        assert instance.testDecimalFieldMetKard[1] == 2
 
-        with self.subTest('assign bad value to DecimalField with kard * by using add_value method'):
-            instance = AllCasesTestClass()
-            with self.assertRaises(CouldNotConvertToCorrectTypeError):
-                instance._testDecimalFieldMetKard.add_value('a')
-
-        with self.subTest('assign values directly to DecimalField with kard *'):
-            instance = AllCasesTestClass()
-            instance.testDecimalFieldMetKard = [1.0]
-            self.assertEqual(1.0, instance.testDecimalFieldMetKard[0])
-            instance.testDecimalFieldMetKard = [2]
-            self.assertEqual(2, instance.testDecimalFieldMetKard[0])
-            instance.testDecimalFieldMetKard = [1.0, 2]
-            self.assertEqual(1.0, instance.testDecimalFieldMetKard[0])
-            self.assertEqual(2, instance.testDecimalFieldMetKard[1])
-
-        with self.subTest('assign good and bad typed value directly to DecimalField with kard *'):
-            with self.assertLogs() as captured:
-                instance.testDecimalFieldMetKard = [1.0, '2']
-                self.assertEqual(len(captured.records), 1)
-            self.assertEqual(1.0, instance.testDecimalFieldMetKard[0])
-            self.assertEqual(2, instance.testDecimalFieldMetKard[1])
+    with subtests.test(msg='assign good and bad typed value directly to DecimalField with kard *'):
+        instance.testDecimalFieldMetKard = [1.0, '2']
+        assert instance.testDecimalFieldMetKard[0] == 1.0
+        assert instance.testDecimalFieldMetKard[1] == 2
+        assert len(caplog.records) == 1

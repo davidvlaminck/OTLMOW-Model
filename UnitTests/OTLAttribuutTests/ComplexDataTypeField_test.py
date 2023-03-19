@@ -1,106 +1,107 @@
-import unittest
+import pytest
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestClasses.Datatypes.DtcTestComplexType import DtcTestComplexTypeWaarden
 
 
-class ComplexDataTypeFieldTests(unittest.TestCase):
-    def test_full_test_on_testclass_kard_1(self):
-        instance = AllCasesTestClass()
-        with self.subTest('empty instance'):
-            self.assertIsNotNone(instance.testComplexType)
+def test_full_test_on_testclass_kard_1(subtests):
+    instance = AllCasesTestClass()
+    with subtests.test(msg='empty instance'):
+        assert instance.testComplexType is not None
 
-        with self.subTest('assign values to testComplexType with kard 1'):
-            self.assertIsNotNone(instance.testComplexType)
-            self.assertIsInstance(instance.testComplexType, DtcTestComplexTypeWaarden)
+    with subtests.test(msg='assign values to testComplexType with kard 1'):
+        assert instance.testComplexType is not None
+        assert isinstance(instance.testComplexType, DtcTestComplexTypeWaarden)
 
-            instance.testComplexType.testStringField = '1'
-            self.assertEqual('1', instance.testComplexType.testStringField)
-            instance.testComplexType.testBooleanField = True
-            self.assertEqual(True, instance.testComplexType.testBooleanField)
+        instance.testComplexType.testStringField = '1'
+        assert instance.testComplexType.testStringField == '1'
+        instance.testComplexType.testBooleanField = True
+        assert instance.testComplexType.testBooleanField == True
 
-        with self.subTest('incorrect use of add_empty_value'):
-            with self.assertRaises(RuntimeError):
-                instance._testComplexType.add_empty_value()
+    with subtests.test(msg='incorrect use of add_empty_value'):
+        with pytest.raises(RuntimeError):
+            instance._testComplexType.add_empty_value()
 
-        with self.subTest('incorrectly assign values to testComplexType with kard 1 directly'):
-            with self.assertRaises(ValueError):
-                instance.testComplexType = '1'
+    with subtests.test(msg='incorrectly assign values to testComplexType with kard 1 directly'):
+        with pytest.raises(ValueError):
+            instance.testComplexType = '1'
 
-    def test_full_test_on_testclass_kard_more(self):
-        instance = AllCasesTestClass()
-        with self.subTest('empty instance'):
-            self.assertIsNotNone(instance.testComplexTypeMetKard)
 
-        with self.subTest('assign value to ComplexType with kard * by using add_empty_value method'):
-            self.assertIsNotNone(instance.testComplexTypeMetKard)
-            self.assertIsInstance(instance.testComplexTypeMetKard, list)
-            self.assertIsInstance(instance.testComplexTypeMetKard[0], DtcTestComplexTypeWaarden)
-            self.assertEqual(1, len(instance.testComplexTypeMetKard))
+def test_full_test_on_testclass_kard_more(subtests):
+    instance = AllCasesTestClass()
+    with subtests.test(msg='empty instance'):
+        assert instance.testComplexTypeMetKard is not None
 
-            instance.testComplexTypeMetKard[0].testStringField = '1'
-            self.assertEqual('1', instance.testComplexTypeMetKard[0].testStringField)
-            instance.testComplexTypeMetKard[0].testBooleanField = True
-            self.assertEqual(True, instance.testComplexTypeMetKard[0].testBooleanField)
+    with subtests.test(msg='assign value to ComplexType with kard * by using add_empty_value method'):
+        assert instance.testComplexTypeMetKard is not None
+        assert isinstance(instance.testComplexTypeMetKard, list)
+        assert isinstance(instance.testComplexTypeMetKard[0], DtcTestComplexTypeWaarden)
+        assert len(instance.testComplexTypeMetKard) == 1
 
-            instance._testComplexTypeMetKard.add_empty_value()
-            self.assertIsNotNone(instance.testComplexTypeMetKard)
-            self.assertIsInstance(instance.testComplexTypeMetKard[1], DtcTestComplexTypeWaarden)
-            self.assertEqual(2, len(instance.testComplexTypeMetKard))
+        instance.testComplexTypeMetKard[0].testStringField = '1'
+        assert instance.testComplexTypeMetKard[0].testStringField == '1'
+        instance.testComplexTypeMetKard[0].testBooleanField = True
+        assert instance.testComplexTypeMetKard[0].testBooleanField
 
-            instance.testComplexTypeMetKard[1].testStringField = '2'
-            self.assertEqual('2', instance.testComplexTypeMetKard[1].testStringField)
-            instance.testComplexTypeMetKard[1].testBooleanField = False
-            self.assertEqual(False, instance.testComplexTypeMetKard[1].testBooleanField)
+        instance._testComplexTypeMetKard.add_empty_value()
+        assert instance.testComplexTypeMetKard is not None
+        assert isinstance(instance.testComplexTypeMetKard[1], DtcTestComplexTypeWaarden)
+        assert len(instance.testComplexTypeMetKard) == 2
 
-        with self.subTest('assign value directly to ComplexType with kard *'):
-            waardeObject1 = DtcTestComplexTypeWaarden()
-            waardeObject1.testStringField = '1'
-            waardeObject1.testBooleanField = True
+        instance.testComplexTypeMetKard[1].testStringField = '2'
+        assert instance.testComplexTypeMetKard[1].testStringField == '2'
+        instance.testComplexTypeMetKard[1].testBooleanField = False
+        assert not instance.testComplexTypeMetKard[1].testBooleanField
 
-            waardeObject2 = DtcTestComplexTypeWaarden()
-            waardeObject2.testStringField = '2'
-            waardeObject2.testBooleanField = False
+    with subtests.test(msg='assign value directly to ComplexType with kard *'):
+        waardeObject1 = DtcTestComplexTypeWaarden()
+        waardeObject1.testStringField = '1'
+        waardeObject1.testBooleanField = True
 
-            instance.testComplexTypeMetKard = [waardeObject1]
-            self.assertEqual('1', instance.testComplexTypeMetKard[0].testStringField)
-            self.assertEqual(True, instance.testComplexTypeMetKard[0].testBooleanField)
+        waardeObject2 = DtcTestComplexTypeWaarden()
+        waardeObject2.testStringField = '2'
+        waardeObject2.testBooleanField = False
 
-            instance.testComplexTypeMetKard = [waardeObject2]
-            self.assertEqual('2', instance.testComplexTypeMetKard[0].testStringField)
-            self.assertEqual(False, instance.testComplexTypeMetKard[0].testBooleanField)
+        instance.testComplexTypeMetKard = [waardeObject1]
+        assert instance.testComplexTypeMetKard[0].testStringField == '1'
+        assert instance.testComplexTypeMetKard[0].testBooleanField
 
-            instance.testComplexTypeMetKard = [waardeObject1, waardeObject2]
-            self.assertEqual('1', instance.testComplexTypeMetKard[0].testStringField)
-            self.assertEqual(True, instance.testComplexTypeMetKard[0].testBooleanField)
-            self.assertEqual('2', instance.testComplexTypeMetKard[1].testStringField)
-            self.assertEqual(False, instance.testComplexTypeMetKard[1].testBooleanField)
+        instance.testComplexTypeMetKard = [waardeObject2]
+        assert instance.testComplexTypeMetKard[0].testStringField == '2'
+        assert not instance.testComplexTypeMetKard[0].testBooleanField
 
-    def test_complex_kard_in_complex_kard(self):
-        instance = AllCasesTestClass()
-        with self.subTest('empty instance'):
-            self.assertIsNotNone(instance.testComplexTypeMetKard)
+        instance.testComplexTypeMetKard = [waardeObject1, waardeObject2]
+        assert instance.testComplexTypeMetKard[0].testStringField == '1'
+        assert instance.testComplexTypeMetKard[0].testBooleanField
+        assert instance.testComplexTypeMetKard[1].testStringField == '2'
+        assert not instance.testComplexTypeMetKard[1].testBooleanField
 
-        with self.subTest('assign value to ComplexType with kard *'):
-            self.assertIsNotNone(instance.testComplexTypeMetKard)
-            self.assertIsInstance(instance.testComplexTypeMetKard, list)
-            self.assertIsInstance(instance.testComplexTypeMetKard[0], DtcTestComplexTypeWaarden)
-            self.assertEqual(1, len(instance.testComplexTypeMetKard))
-            instance.testComplexTypeMetKard[0].testStringField = '1'
-            self.assertEqual('1', instance.testComplexTypeMetKard[0].testStringField)
-            instance.testComplexTypeMetKard[0].testBooleanField = True
-            self.assertEqual(True, instance.testComplexTypeMetKard[0].testBooleanField)
 
-            instance._testComplexTypeMetKard.add_empty_value()
-            self.assertIsNotNone(instance.testComplexTypeMetKard)
-            self.assertIsInstance(instance.testComplexTypeMetKard[1], DtcTestComplexTypeWaarden)
-            self.assertEqual(2, len(instance.testComplexTypeMetKard))
+def test_complex_kard_in_complex_kard(subtests):
+    instance = AllCasesTestClass()
+    with subtests.test(msg='empty instance'):
+        assert instance.testComplexTypeMetKard is not None
 
-            instance.testComplexTypeMetKard[1].testStringField = '2'
-            self.assertEqual('2', instance.testComplexTypeMetKard[1].testStringField)
-            instance.testComplexTypeMetKard[1].testBooleanField = False
-            self.assertEqual(False, instance.testComplexTypeMetKard[1].testBooleanField)
+    with subtests.test(msg='assign value to ComplexType with kard *'):
+        assert instance.testComplexTypeMetKard is not None
+        assert isinstance(instance.testComplexTypeMetKard, list)
+        assert isinstance(instance.testComplexTypeMetKard[0], DtcTestComplexTypeWaarden)
+        assert len(instance.testComplexTypeMetKard) == 1
+        instance.testComplexTypeMetKard[0].testStringField = '1'
+        assert instance.testComplexTypeMetKard[0].testStringField == '1'
+        instance.testComplexTypeMetKard[0].testBooleanField = True
+        assert instance.testComplexTypeMetKard[0].testBooleanField
 
-        with self.subTest('assign value to ComplexType within ComplexType with kard *'):
-            instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField = '1.1'
-            self.assertEqual('1.1', instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField)
+        instance._testComplexTypeMetKard.add_empty_value()
+        assert instance.testComplexTypeMetKard is not None
+        assert isinstance(instance.testComplexTypeMetKard[1], DtcTestComplexTypeWaarden)
+        assert len(instance.testComplexTypeMetKard) == 2
+
+        instance.testComplexTypeMetKard[1].testStringField = '2'
+        assert instance.testComplexTypeMetKard[1].testStringField == '2'
+        instance.testComplexTypeMetKard[1].testBooleanField = False
+        assert not instance.testComplexTypeMetKard[1].testBooleanField
+
+    with subtests.test(msg='assign value to ComplexType within ComplexType with kard *'):
+        instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField = '1.1'
+        assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField == '1.1'

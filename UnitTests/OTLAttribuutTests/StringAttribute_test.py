@@ -1,4 +1,4 @@
-from unittest import TestCase
+import pytest
 
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
@@ -9,39 +9,39 @@ class NonStringableObject(object):
         pass
 
 
-class StringAttributeTests(TestCase):
-    def test_full_test_on_testclass_kard_1(self):
-        instance = AllCasesTestClass()
-        with self.subTest('empty instance'):
-            self.assertIsNone(instance.testStringField)
+def test_full_test_on_testclass_kard_1(subtests):
+    instance = AllCasesTestClass()
+    with subtests.test(msg='empty instance'):
+        assert instance.testStringField is None
 
-        with self.subTest('assign values to stringfield with kard 1'):
-            instance.testStringField = '1'
-            self.assertEqual('1', instance.testStringField)
-            instance.testStringField = '2'
-            self.assertEqual('2', instance.testStringField)
+    with subtests.test(msg='assign values to stringfield with kard 1'):
+        instance.testStringField = '1'
+        assert instance.testStringField == '1'
+        instance.testStringField = '2'
+        assert instance.testStringField == '2'
 
-    def test_full_test_on_testclass_kard_more(self):
-        instance = AllCasesTestClass()
-        with self.subTest('empty instance'):
-            self.assertIsNone(instance.testStringFieldMetKard)
 
-        with self.subTest('assign value to stringfield with kard * by using add_value method'):
-            instance._testStringFieldMetKard.add_value('1')
-            self.assertEqual('1', instance.testStringFieldMetKard[0])
-            instance._testStringFieldMetKard.add_value('2')
-            self.assertEqual('1', instance.testStringFieldMetKard[0])
-            self.assertEqual('2', instance.testStringFieldMetKard[1])
+def test_full_test_on_testclass_kard_more(subtests):
+    instance = AllCasesTestClass()
+    with subtests.test(msg='empty instance'):
+        assert instance.testStringFieldMetKard is None
 
-        with self.subTest('assign bad value to stringfield with kard * by using add_value method'):
-            with self.assertRaises(CouldNotConvertToCorrectTypeError):
-                instance._testStringFieldMetKard.add_value(NonStringableObject())
+    with subtests.test(msg='assign value to stringfield with kard * by using add_value method'):
+        instance._testStringFieldMetKard.add_value('1')
+        assert instance.testStringFieldMetKard[0] == '1'
+        instance._testStringFieldMetKard.add_value('2')
+        assert instance.testStringFieldMetKard[0] == '1'
+        assert instance.testStringFieldMetKard[1] == '2'
 
-        with self.subTest('assign value directly to stringfield with kard *'):
-            instance.testStringFieldMetKard = ['1']
-            self.assertEqual('1', instance.testStringFieldMetKard[0])
-            instance.testStringFieldMetKard = ['2']
-            self.assertEqual('2', instance.testStringFieldMetKard[0])
-            instance.testStringFieldMetKard = ['1', '2']
-            self.assertEqual('1', instance.testStringFieldMetKard[0])
-            self.assertEqual('2', instance.testStringFieldMetKard[1])
+    with subtests.test(msg='assign bad value to stringfield with kard * by using add_value method'):
+        with pytest.raises(CouldNotConvertToCorrectTypeError):
+            instance._testStringFieldMetKard.add_value(NonStringableObject())
+
+    with subtests.test(msg='assign value directly to stringfield with kard *'):
+        instance.testStringFieldMetKard = ['1']
+        assert instance.testStringFieldMetKard[0] == '1'
+        instance.testStringFieldMetKard = ['2']
+        assert instance.testStringFieldMetKard[0] == '2'
+        instance.testStringFieldMetKard = ['1', '2']
+        assert instance.testStringFieldMetKard[0] == '1'
+        assert instance.testStringFieldMetKard[1] == '2'
