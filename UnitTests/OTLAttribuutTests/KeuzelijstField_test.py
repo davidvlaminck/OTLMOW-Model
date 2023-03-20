@@ -66,3 +66,10 @@ def test_full_test_on_test_class_kard_more(subtests):
     with subtests.test(msg='assign bad value to KeuzelijstMetKard with kard *'):
         with pytest.raises(ValueError):
             instance.testKeuzelijstMetKard = ['waarde-1', 'a']
+
+
+def test_print_keuzelijstwaarde():
+    instance = AllCasesTestClass()
+    assert instance._testKeuzelijst.field.options['waarde-4'].print() == 'waarde-4'
+    assert instance._testKeuzelijst.field.options['waarde-5'].print() == 'waarde-5 (uitgebruik)'
+    assert instance._testKeuzelijst.field.options['waarde-6'].print() == 'waarde-6 (verwijderd)'
