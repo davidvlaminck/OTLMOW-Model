@@ -22,7 +22,7 @@ jobs:
         with:
           path: "requirements.txt"
       - name: Run unittests with pytest and coverage
-        run: python run_all_tests_html_github.py
+        run: python -m pytest --cov -v --cov-report=html
       - name: Coverage Badge.
         uses: tj-actions/coverage-badge-py@v2
         with:
