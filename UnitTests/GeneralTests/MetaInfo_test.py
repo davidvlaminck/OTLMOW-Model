@@ -117,3 +117,13 @@ attributes:
     testStringField (type: String)
     testStringFieldMetKard (type: String, cardinality: 1-*)"""
     assert result == expected
+
+
+def test_meta_info_on_otl_attribute_Dtc_by_dotnotation():
+    instance = AllCasesTestClass()
+
+    result = meta_info(instance, attribute='testComplexType.testStringField')
+    expected = """Showing metadata of testStringField:
+typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField
+definition: Test attribuut voor tekst in een complex datatype."""
+    assert result == expected
