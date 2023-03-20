@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Coverage for /home/runner/work/OTLMOW-Model/OTLMOW-Model/otlmow_model/BaseClasses/MetaInfo.py: 85%</title>
+    <title>Coverage for /home/runner/work/OTLMOW-Model/OTLMOW-Model/otlmow_model/BaseClasses/MetaInfo.py: 92%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="coverage_html.js" defer></script>
@@ -12,7 +12,7 @@
     <div class="content">
         <h1>
             <span class="text">Coverage for </span><b>/home/runner/work/OTLMOW-Model/OTLMOW-Model/otlmow_model/BaseClasses/MetaInfo.py</b>:
-            <span class="pc_cov">85%</span>
+            <span class="pc_cov">92%</span>
         </h1>
         <aside id="help_panel_wrapper">
             <input id="help_panel_state" type="checkbox">
@@ -55,8 +55,8 @@
         </aside>
         <h2>
             <span class="text">61 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">52<span class="text"> run</span></button>
-            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">9<span class="text"> missing</span></button>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">56<span class="text"> run</span></button>
+            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">5<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
         <p class="text">
@@ -64,8 +64,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="d_305863b415013c66_NonNegIntegerField_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.2.1">coverage.py v7.2.1</a>,
-            created at 2023-03-20 10:14 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.2.2">coverage.py v7.2.2</a>,
+            created at 2023-03-20 15:20 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -91,11 +91,11 @@
     <p class="pln"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t">    <span class="str">"""Returns metadata of the object or attribute"""</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t">    <span class="key">if</span> <span class="nam">attribute</span> <span class="op">!=</span> <span class="str">''</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t">        <span class="key">if</span> <span class="str">'.'</span> <span class="key">in</span> <span class="nam">attribute</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">            <span class="nam">first</span> <span class="op">=</span> <span class="nam">attribute</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'.'</span><span class="op">)</span><span class="op">[</span><span class="num">0</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">            <span class="nam">rest</span> <span class="op">=</span> <span class="nam">attribute</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'.'</span><span class="op">,</span> <span class="num">1</span><span class="op">)</span><span class="op">[</span><span class="num">1</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">            <span class="key">if</span> <span class="nam">hasattr</span><span class="op">(</span><span class="nam">obj</span><span class="op">,</span> <span class="str">'_'</span> <span class="op">+</span> <span class="nam">first</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">                <span class="nam">attr</span> <span class="op">=</span> <span class="nam">getattr</span><span class="op">(</span><span class="nam">obj</span><span class="op">,</span> <span class="str">'_'</span> <span class="op">+</span> <span class="nam">first</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">                <span class="key">return</span> <span class="nam">meta_info</span><span class="op">(</span><span class="nam">attr</span><span class="op">.</span><span class="nam">field</span><span class="op">.</span><span class="nam">waardeObject</span><span class="op">(</span><span class="op">)</span><span class="op">,</span> <span class="nam">rest</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">            <span class="nam">first</span> <span class="op">=</span> <span class="nam">attribute</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'.'</span><span class="op">)</span><span class="op">[</span><span class="num">0</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">            <span class="nam">rest</span> <span class="op">=</span> <span class="nam">attribute</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'.'</span><span class="op">,</span> <span class="num">1</span><span class="op">)</span><span class="op">[</span><span class="num">1</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">            <span class="key">if</span> <span class="nam">hasattr</span><span class="op">(</span><span class="nam">obj</span><span class="op">,</span> <span class="str">'_'</span> <span class="op">+</span> <span class="nam">first</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">                <span class="nam">attr</span> <span class="op">=</span> <span class="nam">getattr</span><span class="op">(</span><span class="nam">obj</span><span class="op">,</span> <span class="str">'_'</span> <span class="op">+</span> <span class="nam">first</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">                <span class="key">return</span> <span class="nam">meta_info</span><span class="op">(</span><span class="nam">attr</span><span class="op">.</span><span class="nam">field</span><span class="op">.</span><span class="nam">waardeObject</span><span class="op">(</span><span class="op">)</span><span class="op">,</span> <span class="nam">rest</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">            <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">                <span class="key">raise</span> <span class="nam">ValueError</span><span class="op">(</span><span class="str">f"'{attribute}' does not exist, please check the spelling"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">        <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -159,7 +159,7 @@
     <p class="run"><span class="n"><a id="t77" href="#t77">77</a></span><span class="t">        <span class="key">for</span> <span class="nam">attr</span> <span class="key">in</span> <span class="nam">_get_attributes</span><span class="op">(</span><span class="nam">attribute</span><span class="op">.</span><span class="nam">field</span><span class="op">.</span><span class="nam">waardeObject</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t78" href="#t78">78</a></span><span class="t">            <span class="nam">attr_line</span> <span class="op">=</span> <span class="str">f'    {attr.naam} (type: {attr.field.naam}'</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t79" href="#t79">79</a></span><span class="t">            <span class="key">if</span> <span class="nam">attr</span><span class="op">.</span><span class="nam">kardinaliteit_min</span> <span class="op">!=</span> <span class="str">'1'</span> <span class="key">or</span> <span class="nam">attr</span><span class="op">.</span><span class="nam">kardinaliteit_max</span> <span class="op">!=</span> <span class="str">'1'</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t80" href="#t80">80</a></span><span class="t">                <span class="nam">attr_line</span> <span class="op">+=</span> <span class="str">f', cardinality: {attr.kardinaliteit_min}-{attr.kardinaliteit_max}'</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t80" href="#t80">80</a></span><span class="t">                <span class="nam">attr_line</span> <span class="op">+=</span> <span class="str">f', cardinality: {attr.kardinaliteit_min}-{attr.kardinaliteit_max}'</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t81" href="#t81">81</a></span><span class="t">            <span class="nam">attr_line</span> <span class="op">+=</span> <span class="str">')'</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t82" href="#t82">82</a></span><span class="t">            <span class="key">if</span> <span class="nam">attr</span><span class="op">.</span><span class="nam">deprecated_version</span> <span class="op">!=</span> <span class="str">''</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t83" href="#t83">83</a></span><span class="t">                <span class="nam">attr_line</span> <span class="op">+=</span> <span class="str">f' &lt;deprecated since {attr.deprecated_version}>'</span>&nbsp;</span><span class="r"></span></p>
@@ -174,8 +174,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="d_305863b415013c66_NonNegIntegerField_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.2.1">coverage.py v7.2.1</a>,
-            created at 2023-03-20 10:14 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.2.2">coverage.py v7.2.2</a>,
+            created at 2023-03-20 15:20 +0000
         </p>
     </div>
 </footer>
