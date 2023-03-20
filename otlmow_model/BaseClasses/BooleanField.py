@@ -1,5 +1,6 @@
 import logging
 import random
+import warnings
 
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.BaseClasses.OTLField import OTLField
@@ -17,7 +18,7 @@ class BooleanField(OTLField):
     def convert_to_correct_type(cls, value, log_warnings=True):
         if value is None:
             return None
-        if value == True or value == False:
+        if isinstance(value, bool):
             return value
         if isinstance(value, str):
             if value.lower() == 'false':
@@ -30,6 +31,13 @@ class BooleanField(OTLField):
                 return True
             else:
                 raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
+        elif isinstance(value, int):
+            if log_warnings:
+                logging.warning(
+                    'Assigned an integer to a boolean datatype. Automatically converted to the correct type. Please change the type')
+            if value == 0:
+                return False
+            return True
         raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
 
     @staticmethod

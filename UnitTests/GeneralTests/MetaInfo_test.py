@@ -4,6 +4,7 @@ from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTe
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
 from otlmow_model.BaseClasses.MetaInfo import meta_info
+from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 
 
 def test_meta_info_on_deprecated_attribute():
@@ -17,23 +18,24 @@ deprecated since 2.0.0-RC3"""
 
 
 def test_meta_info_on_deprecated_class():
-    instance = DeprecatedTestClass()
-    result = meta_info(instance)
-    expected = 'Showing metadata of DeprecatedTestClass:\n' \
-               'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DeprecatedTestClass\n' \
-               'definition: Deprecated TestClass\n' \
-               'deprecated since 2.0.0\n' \
-               'attributes:\n' \
-               '    assetId (type: DtcIdentificator)\n' \
-               '    bestekPostNummer (type: String)\n' \
-               '    datumOprichtingObject (type: Date)\n' \
-               '    geometry (type: WKT)\n' \
-               '    isActief (type: Boolean)\n' \
-               '    notitie (type: String)\n' \
-               '    standaardBestekPostNummer (type: String)\n' \
-               '    theoretischeLevensduur (type: KwantWrdInMaand)\n' \
-               '    toestand (type: KlAIMToestand)'
-    assert result == expected
+    with pytest.warns(ClassDeprecationWarning):
+        instance = DeprecatedTestClass()
+        result = meta_info(instance)
+        expected = 'Showing metadata of DeprecatedTestClass:\n' \
+                   'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DeprecatedTestClass\n' \
+                   'definition: Deprecated TestClass\n' \
+                   'deprecated since 2.0.0\n' \
+                   'attributes:\n' \
+                   '    assetId (type: DtcIdentificator)\n' \
+                   '    bestekPostNummer (type: String)\n' \
+                   '    datumOprichtingObject (type: Date)\n' \
+                   '    geometry (type: WKT)\n' \
+                   '    isActief (type: Boolean)\n' \
+                   '    notitie (type: String)\n' \
+                   '    standaardBestekPostNummer (type: String)\n' \
+                   '    theoretischeLevensduur (type: KwantWrdInMaand)\n' \
+                   '    toestand (type: KlAIMToestand)'
+        assert result == expected
 
 
 def test_meta_info_on_otl_object():

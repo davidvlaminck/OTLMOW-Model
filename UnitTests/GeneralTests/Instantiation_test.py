@@ -2,16 +2,19 @@ import os
 from os.path import isfile
 from pathlib import Path
 
+import pytest
+
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# @TODO change name to include it into pytest
+
 def test_instantiate_single_class_with_asset_creator():
     mof = dynamic_create_instance_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof')
     assert mof is not None
 
 
+@pytest.mark.filterwarnings("ignore::DeprecationWarning")
 def test_instantiate_all_classes(subtests):
     classes_to_instantiate = {}
 

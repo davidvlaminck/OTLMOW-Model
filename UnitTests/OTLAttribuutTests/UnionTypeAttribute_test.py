@@ -1,3 +1,5 @@
+import pytest
+
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.Exceptions.UnionTypeError import UnionTypeError
@@ -15,33 +17,34 @@ def test_full_test_on_testclass_kard_1(subtests):
 
     with subtests.test(msg='assign values to UnionType with kard 1'):
         instance.testUnionType.unionString = '1'
-        self.assertEqual('1', instance.testUnionType.unionString)
+        assert instance.testUnionType.unionString == '1'
         instance.testUnionType.unionKwantWrd.waarde = 2
-        self.assertEqual(2, instance.testUnionType.unionKwantWrd.waarde)
-        self.assertEqual(None, instance.testUnionType.unionString)
+        assert instance.testUnionType.unionKwantWrd.waarde == 2
+        assert instance.testUnionType.unionString is None
 
     with subtests.test(msg='setting None to UnionType with kard 1'):
         instance.testUnionType.unionKwantWrd.waarde = None
-        self.assertEqual(None, instance.testUnionType.unionKwantWrd.waarde)
-        self.assertEqual(None, instance.testUnionType.unionString)
+        assert instance.testUnionType.unionKwantWrd.waarde is None
+        assert instance.testUnionType.unionString is None
 
-def test_full_test_on_testclass_kard_more(self):
+
+def test_full_test_on_testclass_kard_more(subtests):
     instance = AllCasesTestClass()
     with subtests.test(msg='empty instance'):
-        self.assertIsNotNone(instance.testUnionTypeMetKard)
+        assert instance.testUnionTypeMetKard is not None
 
     with subtests.test(msg='assign value to UnionType with kard * by using add_empty_value method'):
         instance.testUnionTypeMetKard[0].unionString = '1'
-        self.assertEqual('1', instance.testUnionTypeMetKard[0].unionString)
+        assert instance.testUnionTypeMetKard[0].unionString == '1'
         instance._testUnionTypeMetKard.add_empty_value()
         instance.testUnionTypeMetKard[1].unionKwantWrd.waarde = 2
-        self.assertEqual('1', instance.testUnionTypeMetKard[0].unionString)
-        self.assertEqual(2, instance.testUnionTypeMetKard[1].unionKwantWrd.waarde)
+        assert instance.testUnionTypeMetKard[0].unionString == '1'
+        assert instance.testUnionTypeMetKard[1].unionKwantWrd.waarde == 2
 
     with subtests.test(msg='assign bad value to UnionType with kard *'):
-        with self.assertRaises(CouldNotConvertToCorrectTypeError):
+        with pytest.raises(CouldNotConvertToCorrectTypeError):
             instance.testUnionTypeMetKard[1].unionKwantWrd.waarde = 'a'
 
     with subtests.test(msg='assign value directly to UnionType with kard *'):
-        with self.assertRaises(UnionTypeError):
+        with pytest.raises(UnionTypeError):
             instance.testUnionTypeMetKard = ['1']
