@@ -18,6 +18,7 @@ It is split into different packages to reduce compatibility issues
 - [otlmow_converter](https://github.com/davidvlaminck/OTLMOW-Converter) 
 - [otlmow_template](https://github.com/davidvlaminck/OTLMOW-Template) 
 - [otlmow_postenmapping](https://github.com/davidvlaminck/OTLMOW-PostenMapping) 
+- [otlmow_davie](https://github.com/davidvlaminck/OTLMOW-DAVIE) 
 
 ## Installation and requirements
 OTLMOW-Model has no dependencies other than the standard Python libraries. Currently, you need at least Python version 3.6 to use this library.
