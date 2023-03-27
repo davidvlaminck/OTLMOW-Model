@@ -8,10 +8,11 @@ from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 
 def test_change_typeURI():
     instance = AllCasesTestClass()
-    AllCasesTestClass.typeURI == instance.typeURI
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.typeURI is not None
 
     with pytest.raises(ValueError):
-        instance.typeURI = 'https://www.newuri.com/'
+        instance.typeURI = 'https://www.new-uri.com/'
 
     with pytest.raises(ValueError):
         instance.typeURI = None
