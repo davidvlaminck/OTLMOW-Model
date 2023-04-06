@@ -17,7 +17,18 @@ class KlElektromotorBeschermingsgraad(KeuzelijstField):
         'ip20': KeuzelijstWaarde(invulwaarde='ip20',
                                  label='IP20',
                                  status='ingebruik',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorBeschermingsgraad/ip20')
+                                 definitie='IP20',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorBeschermingsgraad/ip20'),
+        'ip24': KeuzelijstWaarde(invulwaarde='ip24',
+                                 label='IP24',
+                                 status='ingebruik',
+                                 definitie='IP24',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorBeschermingsgraad/ip24'),
+        'ip54': KeuzelijstWaarde(invulwaarde='ip54',
+                                 label='IP54',
+                                 status='ingebruik',
+                                 definitie='IP54',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorBeschermingsgraad/ip54')
     }
 
     @classmethod

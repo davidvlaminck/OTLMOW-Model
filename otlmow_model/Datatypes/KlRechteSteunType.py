@@ -38,7 +38,7 @@ class KlRechteSteunType(KeuzelijstField):
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRechteSteunType/variabele-Z30'),
         'vri-met-zwanehals': KeuzelijstWaarde(invulwaarde='vri-met-zwanehals',
                                               label='VRI met zwanehals',
-                                              status='ingebruik',
+                                              status='uitgebruik',
                                               definitie='VRI met zwanehals',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRechteSteunType/vri-met-zwanehals')
     }
