@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlPMUMerk import KlPMUMerk
 from otlmow_model.Datatypes.KlPMUModelnaam import KlPMUModelnaam
 from otlmow_model.BaseClasses.StringField import StringField
@@ -47,6 +48,13 @@ class PMU(AIMNaamObject, PuntGeometrie):
                                          definition='Het unieke nummer waarmee het toestel door de fabrikant geïdentificeerd is.',
                                          owner=self)
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PMU.technischeFiche',
+                                             definition='De technische fiche of datasheet van de PMU.',
+                                             owner=self)
+
     @property
     def merk(self) -> str:
         """Het merk van de power management unit."""
@@ -73,3 +81,12 @@ class PMU(AIMNaamObject, PuntGeometrie):
     @serienummer.setter
     def serienummer(self, value):
         self._serienummer.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> DtcDocumentWaarden:
+        """De technische fiche of datasheet van de PMU."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)

@@ -11,6 +11,7 @@ from otlmow_model.Datatypes.KlHSBeveiligingscelSchakelmateriaalKlasse import KlH
 from otlmow_model.Datatypes.KlHSBeveiligingscelSchakelmateriaalType import KlHSBeveiligingscelSchakelmateriaalType
 from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
 from otlmow_model.Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden
+from otlmow_model.Datatypes.KwantWrdInKiloAmpere import KwantWrdInKiloAmpere, KwantWrdInKiloAmpereWaarden
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -38,6 +39,13 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
                                               definition='Elektrisch aansluitschema van de HS beveiligingscel.',
                                               owner=self)
 
+        self._heeftAardingsschakelaar = OTLAttribuut(field=BooleanField,
+                                                     naam='heeftAardingsschakelaar',
+                                                     label='Aardingsschakelaar',
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel.heeftAardingsschakelaar',
+                                                     definition='Geeft aan of er al dan niet een aardingsschakelaar aanwezig is.',
+                                                     owner=self)
+
         self._heeftreserveZekering = OTLAttribuut(field=BooleanField,
                                                   naam='heeftreserveZekering',
                                                   label='heeft reserve zekering',
@@ -58,6 +66,20 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel.keuringsfrequentie',
                                                 definition='Frequentie (in jaar) waarmee de installatie moet onderworpen worden aan een periodieke keuring door een externe dienst voor technische controle.',
                                                 owner=self)
+
+        self._kortsluitStroom = OTLAttribuut(field=KwantWrdInKiloAmpere,
+                                             naam='kortsluitStroom',
+                                             label='kortsluitstroom',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel.kortsluitStroom',
+                                             definition='De maximale elektrische stroom die kan lopen in een elektrisch circuit.',
+                                             owner=self)
+
+        self._kortsluitVermogen = OTLAttribuut(field=KwantWrdInKiloAmpere,
+                                               naam='kortsluitVermogen',
+                                               label='kortsluitvermogen',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel.kortsluitVermogen',
+                                               definition='De theoretische stroom die gaat lopen bij een kortsluiting wanneer de beveiliging nog niet heeft ingegrepen.',
+                                               owner=self)
 
         self._merk = OTLAttribuut(field=KlHSBeveiligingscelMerk,
                                   naam='merk',
@@ -118,6 +140,15 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
         self._elektrischSchema.set_waarde(value, owner=self)
 
     @property
+    def heeftAardingsschakelaar(self) -> bool:
+        """Geeft aan of er al dan niet een aardingsschakelaar aanwezig is."""
+        return self._heeftAardingsschakelaar.get_waarde()
+
+    @heeftAardingsschakelaar.setter
+    def heeftAardingsschakelaar(self, value):
+        self._heeftAardingsschakelaar.set_waarde(value, owner=self)
+
+    @property
     def heeftreserveZekering(self) -> bool:
         """Is er een reserve zekering aanwezig?"""
         return self._heeftreserveZekering.get_waarde()
@@ -143,6 +174,24 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
     @keuringsfrequentie.setter
     def keuringsfrequentie(self, value):
         self._keuringsfrequentie.set_waarde(value, owner=self)
+
+    @property
+    def kortsluitStroom(self) -> KwantWrdInKiloAmpereWaarden:
+        """De maximale elektrische stroom die kan lopen in een elektrisch circuit."""
+        return self._kortsluitStroom.get_waarde()
+
+    @kortsluitStroom.setter
+    def kortsluitStroom(self, value):
+        self._kortsluitStroom.set_waarde(value, owner=self)
+
+    @property
+    def kortsluitVermogen(self) -> KwantWrdInKiloAmpereWaarden:
+        """De theoretische stroom die gaat lopen bij een kortsluiting wanneer de beveiliging nog niet heeft ingegrepen."""
+        return self._kortsluitVermogen.get_waarde()
+
+    @kortsluitVermogen.setter
+    def kortsluitVermogen(self, value):
+        self._kortsluitVermogen.set_waarde(value, owner=self)
 
     @property
     def merk(self) -> str:

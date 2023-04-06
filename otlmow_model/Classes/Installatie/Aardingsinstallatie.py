@@ -3,6 +3,7 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.DtcAardingsstelsel import DtcAardingsstelsel, DtcAardingsstelselWaarden
 from otlmow_model.Datatypes.KlAardingAardingsnet import KlAardingAardingsnet
+from otlmow_model.Datatypes.KlAardingsInstallatieType import KlAardingsInstallatieType
 from otlmow_model.Datatypes.KwantWrdInOhm import KwantWrdInOhm, KwantWrdInOhmWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -19,6 +20,14 @@ class Aardingsinstallatie(AIMNaamObject, VlakGeometrie):
         VlakGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aardingsinstallatie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine')
+
+        self._aardingsinstallatietype = OTLAttribuut(field=KlAardingsInstallatieType,
+                                                     naam='aardingsinstallatietype',
+                                                     label='type aardingsinstallatietype',
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aardingsinstallatie.aardingsinstallatietype',
+                                                     definition='Mogelijke types van aardingsinstallaties.',
+                                                     owner=self)
 
         self._aardingsnet = OTLAttribuut(field=KlAardingAardingsnet,
                                          naam='aardingsnet',
@@ -40,6 +49,15 @@ class Aardingsinstallatie(AIMNaamObject, VlakGeometrie):
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aardingsinstallatie.aardingsweerstand',
                                                definition='De grootte van de weerstand tussen de aardelektrode en de omringende grond.',
                                                owner=self)
+
+    @property
+    def aardingsinstallatietype(self) -> str:
+        """Mogelijke types van aardingsinstallaties."""
+        return self._aardingsinstallatietype.get_waarde()
+
+    @aardingsinstallatietype.setter
+    def aardingsinstallatietype(self, value):
+        self._aardingsinstallatietype.set_waarde(value, owner=self)
 
     @property
     def aardingsnet(self) -> str:

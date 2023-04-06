@@ -8,7 +8,7 @@ from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Pad(NaampadObject, GeenGeometrie):
-    """Een aaneengesloten reeks van links die samen een verbinding realiseren over het netwerk, gebruik makende van eenzelfde technologie (vb SDH, OTN…)."""
+    """Een aaneengesloten reeks van benen die samen een verbinding realiseren over het netwerk, gebruik makende van eenzelfde technologie (vb SDH, OTN...). De verschillende benen binnen een pad volgen bij voorkeur een gescheiden geografisch traject binnen het netwerk."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pad'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

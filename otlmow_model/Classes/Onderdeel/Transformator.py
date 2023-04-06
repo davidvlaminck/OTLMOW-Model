@@ -1,8 +1,10 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlTransformatorIsolatiemedium import KlTransformatorIsolatiemedium
 from otlmow_model.Datatypes.KlTransformatorTrafobeveiliging import KlTransformatorTrafobeveiliging
+from otlmow_model.Datatypes.KlVerliezenType import KlVerliezenType
 from otlmow_model.Datatypes.KwantWrdInKiloVolt import KwantWrdInKiloVolt, KwantWrdInKiloVoltWaarden
 from otlmow_model.Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAmpere, KwantWrdInKiloVoltAmpereWaarden
 from otlmow_model.Datatypes.KwantWrdInProcent import KwantWrdInProcent, KwantWrdInProcentWaarden
@@ -13,7 +15,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Transformator(AIMNaamObject, PuntGeometrie):
-    """Elektrische apparatuur, bestaande uit magnetisch gekoppelde spoelen, die instaat voor het transformeren van de voedingsspanning."""
+    """Elektrische apparatuur,bestaande uit magnetisch gekoppelde spoelen,die instaat voor het transformeren van de voedingsspanning."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Transformator'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -28,6 +30,13 @@ class Transformator(AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hoofdschakelaar')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetcel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring')
+
+        self._isGalvanischGescheiden = OTLAttribuut(field=BooleanField,
+                                                    naam='isGalvanischGescheiden',
+                                                    label='is galvanisch gescheiden',
+                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Transformator.isGalvanischGescheiden',
+                                                    definition='Geeft aan of de transformator al dan niet galvanisch gescheiden is.',
+                                                    owner=self)
 
         self._isolatiemedium = OTLAttribuut(field=KlTransformatorIsolatiemedium,
                                             naam='isolatiemedium',
@@ -77,6 +86,22 @@ class Transformator(AIMNaamObject, PuntGeometrie):
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Transformator.typeBeveiliging',
                                              definition='Type transformatorbeveiliging.',
                                              owner=self)
+
+        self._typeVerliezen = OTLAttribuut(field=KlVerliezenType,
+                                           naam='typeVerliezen',
+                                           label='type verliezen',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Transformator.typeVerliezen',
+                                           definition='Type verliezen.',
+                                           owner=self)
+
+    @property
+    def isGalvanischGescheiden(self) -> bool:
+        """Geeft aan of de transformator al dan niet galvanisch gescheiden is."""
+        return self._isGalvanischGescheiden.get_waarde()
+
+    @isGalvanischGescheiden.setter
+    def isGalvanischGescheiden(self, value):
+        self._isGalvanischGescheiden.set_waarde(value, owner=self)
 
     @property
     def isolatiemedium(self) -> str:
@@ -140,3 +165,12 @@ class Transformator(AIMNaamObject, PuntGeometrie):
     @typeBeveiliging.setter
     def typeBeveiliging(self, value):
         self._typeBeveiliging.set_waarde(value, owner=self)
+
+    @property
+    def typeVerliezen(self) -> str:
+        """Type verliezen."""
+        return self._typeVerliezen.get_waarde()
+
+    @typeVerliezen.setter
+    def typeVerliezen(self, value):
+        self._typeVerliezen.set_waarde(value, owner=self)

@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.Classes.Abstracten.SerienummerObject import SerienummerObject
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DtcCameraBeeldverwerking import DtcCameraBeeldverwerking, DtcCameraBeeldverwerkingWaarden
@@ -16,7 +17,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Camera(AIMNaamObject, PuntGeometrie):
+class Camera(AIMNaamObject, SerienummerObject, PuntGeometrie):
     """Een CCTV-camera, closed-circuit television camera, kortweg camera, produceert beelden of opnames voor bewaking van een regio vanop afstand. Het is een element dat beelden neemt van een locatie en deze doorgeeft naar verschillende partijen om zo de werkelijke situatie te kunnen inschatten vanop afstand. Deze camera kan van het analoge type zijn of digitaal."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera'
@@ -24,12 +25,14 @@ class Camera(AIMNaamObject, PuntGeometrie):
 
     def __init__(self):
         AIMNaamObject.__init__(self)
+        SerienummerObject.__init__(self)
         PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wilddetectiezone')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zoutbijlaadplaats')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AIDModule')
@@ -134,6 +137,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.technischeFiche',
                                              usagenote='Bestanden van het type pdf.',
+                                             kardinaliteit_max='*',
                                              definition="Technische fiche van dit element met opsplitsing tussen CCTV, AID en PTZ-camera's.",
                                              owner=self)
 
@@ -246,7 +250,7 @@ class Camera(AIMNaamObject, PuntGeometrie):
         self._spectrum.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> DtcDocumentWaarden:
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
         """Technische fiche van dit element met opsplitsing tussen CCTV, AID en PTZ-camera's."""
         return self._technischeFiche.get_waarde()
 

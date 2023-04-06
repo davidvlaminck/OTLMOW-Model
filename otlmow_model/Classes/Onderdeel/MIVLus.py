@@ -9,7 +9,7 @@ from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class MIVLus(AIMNaamObject, LijnGeometrie):
-    """Meten in Vlaanderen : inductieve lus, ingeslepen in het wegdek."""
+    """Meten in Vlaanderen : inductieve lus,ingeslepen in het wegdek."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -19,6 +19,8 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
         LijnGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Doorverbinddoos')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelmof')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LoopTerminationAndProtection')
 

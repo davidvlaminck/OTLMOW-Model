@@ -47,7 +47,7 @@ class PLC(Controller):
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
                                              naam='technischeFiche',
-                                             label='technischeFiche',
+                                             label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC.technischeFiche',
                                              definition='De technische fiche van de PLC.',
                                              owner=self)

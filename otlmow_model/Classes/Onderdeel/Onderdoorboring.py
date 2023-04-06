@@ -3,12 +3,12 @@ from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro, KwantWrdInEuroWaarden
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Onderdoorboring(AbstracteAanvullendeGeometrie, PuntGeometrie, LijnGeometrie):
+class Onderdoorboring(AbstracteAanvullendeGeometrie, LijnGeometrie, VlakGeometrie):
     """Gebruikt voor de registratie van kenmerken en de geometrie van een boring onder een weg of spoorweg."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderdoorboring'
@@ -17,7 +17,7 @@ class Onderdoorboring(AbstracteAanvullendeGeometrie, PuntGeometrie, LijnGeometri
     def __init__(self):
         AbstracteAanvullendeGeometrie.__init__(self)
         LijnGeometrie.__init__(self)
-        PuntGeometrie.__init__(self)
+        VlakGeometrie.__init__(self)
 
         self._retributie = OTLAttribuut(field=KwantWrdInEuro,
                                         naam='retributie',

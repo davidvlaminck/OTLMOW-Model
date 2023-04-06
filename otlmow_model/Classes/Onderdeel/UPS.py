@@ -4,6 +4,8 @@ from otlmow_model.Classes.Abstracten.RHZModule import RHZModule
 from otlmow_model.Classes.Abstracten.Voedingspunt import Voedingspunt
 from otlmow_model.Datatypes.KlUPSMerk import KlUPSMerk
 from otlmow_model.Datatypes.KlUPSModelnaam import KlUPSModelnaam
+from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
+from otlmow_model.Datatypes.KwantWrdInHerz import KwantWrdInHerz, KwantWrdInHerzWaarden
 from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from otlmow_model.Datatypes.KwantWrdInkWh import KwantWrdInkWh, KwantWrdInkWhWaarden
 from otlmow_model.BaseClasses.StringField import StringField
@@ -23,9 +25,14 @@ class UPS(Voedingspunt, RHZModule, PuntGeometrie):
         PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AutomatischeOmschakelaar')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Batterijlader')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BypassSchakelaar')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Spanningsomvormer')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hardware')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomverdelingssysteem')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hardware')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement')
@@ -74,6 +81,20 @@ class UPS(Voedingspunt, RHZModule, PuntGeometrie):
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS.serienummer',
                                          definition='Unieke identificatiecode van het toestel, toegekend door de fabrikant.',
                                          owner=self)
+
+        self._uitgangsfrequentie = OTLAttribuut(field=KwantWrdInHerz,
+                                                naam='uitgangsfrequentie',
+                                                label='uitgangsfrequentie',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS.uitgangsfrequentie',
+                                                definition='De waarde van de frequentie van de elektriciteit aan de uitgangszijde van de omvormer. Indien het om DC stroom gaat, is deze waarde gelijk aan nul.',
+                                                owner=self)
+
+        self._uitgangsstroom = OTLAttribuut(field=KwantWrdInAmpere,
+                                            naam='uitgangsstroom',
+                                            label='uitgangsstroom',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS.uitgangsstroom',
+                                            definition='De waarde van de elektrische stroom aan de uitgangszijde van de omvormer.',
+                                            owner=self)
 
     @property
     def autonomie(self) -> KwantWrdInkWhWaarden:
@@ -128,3 +149,21 @@ class UPS(Voedingspunt, RHZModule, PuntGeometrie):
     @serienummer.setter
     def serienummer(self, value):
         self._serienummer.set_waarde(value, owner=self)
+
+    @property
+    def uitgangsfrequentie(self) -> KwantWrdInHerzWaarden:
+        """De waarde van de frequentie van de elektriciteit aan de uitgangszijde van de omvormer. Indien het om DC stroom gaat, is deze waarde gelijk aan nul."""
+        return self._uitgangsfrequentie.get_waarde()
+
+    @uitgangsfrequentie.setter
+    def uitgangsfrequentie(self, value):
+        self._uitgangsfrequentie.set_waarde(value, owner=self)
+
+    @property
+    def uitgangsstroom(self) -> KwantWrdInAmpereWaarden:
+        """De waarde van de elektrische stroom aan de uitgangszijde van de omvormer."""
+        return self._uitgangsstroom.get_waarde()
+
+    @uitgangsstroom.setter
+    def uitgangsstroom(self, value):
+        self._uitgangsstroom.set_waarde(value, owner=self)

@@ -20,6 +20,7 @@ class Ecoraster(ComplexeGeleiding, LijnGeometrie):
         LijnGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleidingswand')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wilddetectiezone')
 
         self._heeftPrikkeldraad = OTLAttribuut(field=BooleanField,
                                                naam='heeftPrikkeldraad',

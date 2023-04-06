@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.Classes.Abstracten.SerienummerObject import SerienummerObject
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlIOBitSnelheid import KlIOBitSnelheid
 from otlmow_model.Datatypes.KlIOKaartMerk import KlIOKaartMerk
@@ -11,7 +12,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class IOKaart(AIMObject, PuntGeometrie):
+class IOKaart(AIMObject, SerienummerObject, PuntGeometrie):
     """Een kaart of module die gebruikt wordt voor de ingang of uitgang van een verwerkingseenheid (bv. een PLC). Op de IO-kaart worden perifere toestellen en sensoren aangesloten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart'
@@ -19,6 +20,7 @@ class IOKaart(AIMObject, PuntGeometrie):
 
     def __init__(self):
         AIMObject.__init__(self)
+        SerienummerObject.__init__(self)
         PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC')

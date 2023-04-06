@@ -18,6 +18,8 @@ class Zpad(NaampadObject, GeenGeometrie):
         NaampadObject.__init__(self)
         GeenGeometrie.__init__(self)
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zpad')
+
         self._WANCapaciteit = OTLAttribuut(field=IntegerField,
                                            naam='WANCapaciteit',
                                            label='wan capaciteit',

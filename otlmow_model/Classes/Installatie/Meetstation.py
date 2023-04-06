@@ -7,10 +7,11 @@ from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlLokaalTerreinType import KlLokaalTerreinType
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Meetstation(AIMNaamObject, PuntGeometrie):
+class Meetstation(AIMNaamObject, PuntGeometrie, VlakGeometrie):
     """De plaats waar verschillende sensoren samen 1 meetstation vormen. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation'
@@ -19,6 +20,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie):
     def __init__(self):
         AIMNaamObject.__init__(self)
         PuntGeometrie.__init__(self)
+        VlakGeometrie.__init__(self)
 
         self._beoordelingLokaleTerrein = OTLAttribuut(field=KlLokaalTerreinType,
                                                       naam='beoordelingLokaleTerrein',

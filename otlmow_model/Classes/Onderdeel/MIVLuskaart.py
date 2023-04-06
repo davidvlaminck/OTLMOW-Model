@@ -2,6 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KlMIVLuskaartType import KlMIVLuskaartType
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -31,6 +32,13 @@ class MIVLuskaart(AIMNaamObject, PuntGeometrie):
                                                definition='De elektrische eigenschappen van de lus: R, L, C en de isolatieweerstand. Dit verzekert naast de afmetingen mee de voorziene nauwkeurigheid van de voertuigmetingen.',
                                                owner=self)
 
+        self._type = OTLAttribuut(field=KlMIVLuskaartType,
+                                  naam='type',
+                                  label='type MIV luskaart',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLuskaart.type',
+                                  definition='De uitvoering van de luskaart volgens een vaste lijst van mogelijke types.',
+                                  owner=self)
+
     @property
     def lussenMeetrapport(self) -> DtcDocumentWaarden:
         """De elektrische eigenschappen van de lus: R, L, C en de isolatieweerstand. Dit verzekert naast de afmetingen mee de voorziene nauwkeurigheid van de voertuigmetingen."""
@@ -39,3 +47,12 @@ class MIVLuskaart(AIMNaamObject, PuntGeometrie):
     @lussenMeetrapport.setter
     def lussenMeetrapport(self, value):
         self._lussenMeetrapport.set_waarde(value, owner=self)
+
+    @property
+    def type(self) -> str:
+        """De uitvoering van de luskaart volgens een vaste lijst van mogelijke types."""
+        return self._type.get_waarde()
+
+    @type.setter
+    def type(self, value):
+        self._type.set_waarde(value, owner=self)

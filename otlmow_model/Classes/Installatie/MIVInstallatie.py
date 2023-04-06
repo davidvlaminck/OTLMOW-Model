@@ -2,6 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.KlMIVEenheidType import KlMIVEenheidType
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -18,6 +19,7 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVCommunicatiekaart')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVVoedingsmodule')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVVoedingsmodule')
 
         self._lusConfig = OTLAttribuut(field=DtcDocument,
@@ -36,6 +38,13 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
                                                     definition='Documentatie van de onderdelen: LVE / luskaart / communicatiekaart, configurator, ...',
                                                     owner=self)
 
+        self._type = OTLAttribuut(field=KlMIVEenheidType,
+                                  naam='type',
+                                  label='type MIV installatie',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie.type',
+                                  definition='Het type volgens de gebruikte technologie en inzet in een groter geheel.',
+                                  owner=self)
+
     @property
     def lusConfig(self) -> DtcDocumentWaarden:
         """Een definierende tabel die relatie legt tussen meetpuntnummer lusvolgorde nummer en de GPS locatie."""
@@ -53,3 +62,12 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
     @technischeDocumentatie.setter
     def technischeDocumentatie(self, value):
         self._technischeDocumentatie.set_waarde(value, owner=self)
+
+    @property
+    def type(self) -> str:
+        """Het type volgens de gebruikte technologie en inzet in een groter geheel."""
+        return self._type.get_waarde()
+
+    @type.setter
+    def type(self, value):
+        self._type.set_waarde(value, owner=self)

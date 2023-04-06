@@ -7,9 +7,7 @@ from otlmow_model.Datatypes.KlUltrasoonNiveaumetingModelnaam import KlUltrasoonN
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class UltrasoonNiveaumeting(Niveaumeting):
-    """Een inrichting voor het bepalen van het peil van een vloeistof (bv. het peil van een waterloop, uitgedrukt in meter TAW). De sensor meet het tijdsinterval tussen het uitzenden en ontvangen van geluidsgolven en bepaald hiermee de afstand (hoogte) tot een object (water). Het resultaat wordt omgezet in een uitleesbaar signaal.
-
-"""
+    """Een inrichting voor het bepalen van het peil van een vloeistof (bv. het peil van een waterloop, uitgedrukt in meter TAW). De sensor meet het tijdsinterval tussen het uitzenden en ontvangen van geluidsgolven en bepaald hiermee de afstand (hoogte) tot een object (water). Het resultaat wordt omgezet in een uitleesbaar signaal. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UltrasoonNiveaumeting'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

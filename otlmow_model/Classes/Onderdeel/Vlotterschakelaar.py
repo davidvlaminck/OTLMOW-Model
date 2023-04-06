@@ -7,8 +7,7 @@ from otlmow_model.Datatypes.KlVlotterschalelaarModelnaam import KlVlotterschalel
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Vlotterschakelaar(Niveaumeting):
-    """Een inrichting voor het bepalen van het peil van een vloeistof (bv. het waterniveau in een lekwaterput van een kelder of het waterniveau van een waterloop). Een vlotterschakelaar (peilpeer) genereert een stuursignaal door op- en neer te bewegen en contact te maken met discrete contactpunten. De combinatie van verschillende peilperen levert een niveaumeting op.
-"""
+    """Een inrichting voor het bepalen van het peil van een vloeistof (bv. het waterniveau in een lekwaterput van een kelder of het waterniveau van een waterloop). Een vlotterschakelaar (peilpeer) genereert een stuursignaal door op- en neer te bewegen en contact te maken met discrete contactpunten. De combinatie van verschillende peilperen levert een niveaumeting op. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Vlotterschakelaar'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

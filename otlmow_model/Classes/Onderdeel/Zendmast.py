@@ -8,7 +8,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Zendmast(AIMNaamObject, VlakGeometrie):
-    """Een constructie, doorgaans hoger dan 10 meter,  die door mensen beklimbaar is en waarop apparatuur kan worden geïnstalleerd. Aan de mast is doorgaans een koppelstuk voorzien dat rond de mast klemt en bevestigbaar is op verschillende hoogtes met de nodige doorgangen voor de aansluitkabels, dat toelaat de antenne's te bevestigen."""
+    """Een constructie, doorgaans hoger dan 10 meter, die door mensen beklimbaar is en waarop apparatuur kan worden geïnstalleerd. Aan de mast is doorgaans een koppelstuk voorzien dat rond de mast klemt en bevestigbaar is op verschillende hoogtes met de nodige doorgangen voor de aansluitkabels, dat toelaat de antenne's te bevestigen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Zendmast'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

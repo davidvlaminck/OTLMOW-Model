@@ -5,6 +5,7 @@ from otlmow_model.Classes.Abstracten.VerlichtingstoestelConnector import Verlich
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from otlmow_model.Datatypes.KlArmatuurkleur import KlArmatuurkleur
+from otlmow_model.Datatypes.KlLumenOutput import KlLumenOutput
 from otlmow_model.Datatypes.KlWvLedAantalTeVerlichtenRijstroken import KlWvLedAantalTeVerlichtenRijstroken
 from otlmow_model.Datatypes.KlWvLedKleurTemp import KlWvLedKleurTemp
 from otlmow_model.Datatypes.KlWvLedLichtkleur import KlWvLedLichtkleur
@@ -96,6 +97,13 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.lichtpuntHoogte',
                                              definition='Hoogte van het lichtpunt ten opzichte van de rijweg.',
                                              owner=self)
+
+        self._lumenOutput = OTLAttribuut(field=KlLumenOutput,
+                                         naam='lumenOutput',
+                                         label='Lumen output',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.lumenOutput',
+                                         definition='De totale hoeveelheid licht dat de lamp in het verlichtingstoestel uitstraalt.',
+                                         owner=self)
 
         self._overhang = OTLAttribuut(field=KlWvLedOverhang,
                                       naam='overhang',
@@ -215,6 +223,15 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
     @lichtpuntHoogte.setter
     def lichtpuntHoogte(self, value):
         self._lichtpuntHoogte.set_waarde(value, owner=self)
+
+    @property
+    def lumenOutput(self) -> str:
+        """De totale hoeveelheid licht dat de lamp in het verlichtingstoestel uitstraalt."""
+        return self._lumenOutput.get_waarde()
+
+    @lumenOutput.setter
+    def lumenOutput(self, value):
+        self._lumenOutput.set_waarde(value, owner=self)
 
     @property
     def overhang(self) -> str:

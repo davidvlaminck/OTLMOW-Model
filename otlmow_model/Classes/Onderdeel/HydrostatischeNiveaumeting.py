@@ -7,8 +7,7 @@ from otlmow_model.Datatypes.KlHydrostatischeNiveaumetingModelnaam import KlHydro
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class HydrostatischeNiveaumeting(Niveaumeting):
-    """Een inrichting voor het bepalen van het peil van een vloeistof (bv. het waterniveau in een vloeistoftank of lekwaterput van een kelder). De sensor meet de hydrostatische druk (gewicht) van een vloeistof en bepaalt met deze gegevens het niveau van de vloeistof. Het resultaat wordt omgezet in een uitleesbaar signaal.
-"""
+    """Een inrichting voor het bepalen van het peil van een vloeistof (bv. het waterniveau in een vloeistoftank of lekwaterput van een kelder). De sensor meet de hydrostatische druk (gewicht) van een vloeistof en bepaalt met deze gegevens het niveau van de vloeistof. Het resultaat wordt omgezet in een uitleesbaar signaal. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HydrostatischeNiveaumeting'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

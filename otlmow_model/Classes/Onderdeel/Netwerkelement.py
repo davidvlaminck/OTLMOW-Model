@@ -2,6 +2,7 @@
 from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from otlmow_model.Classes.Abstracten.RHZModule import RHZModule
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from otlmow_model.Datatypes.DtcAfmetingNetwerkelement import DtcAfmetingNetwerkelement, DtcAfmetingNetwerkelementWaarden
 from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.Datatypes.KlNetwerkMerk import KlNetwerkMerk
 from otlmow_model.Datatypes.KlNetwerkelemGebruik import KlNetwerkelemGebruik
@@ -32,7 +33,15 @@ class Netwerkelement(AIMNaamObject, RHZModule, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsNetwerkECC', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort')
+
+        self._afmeting = OTLAttribuut(field=DtcAfmetingNetwerkelement,
+                                      naam='afmeting',
+                                      label='afmeting',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement.afmeting',
+                                      definition='De afmeting van een netwerkelement.',
+                                      owner=self)
 
         self._beschrijvingFabrikant = OTLAttribuut(field=StringField,
                                                    naam='beschrijvingFabrikant',
@@ -111,6 +120,15 @@ class Netwerkelement(AIMNaamObject, RHZModule, PuntGeometrie):
                                             usagenote='Dit attribuut is alleen verplicht voor netwerkelementen met een eigen telefoonnummer, bv.in DSL gerelateerde installaties.',
                                             definition='Het telefoonnumer van het netwerkelement.',
                                             owner=self)
+
+    @property
+    def afmeting(self) -> DtcAfmetingNetwerkelementWaarden:
+        """De afmeting van een netwerkelement."""
+        return self._afmeting.get_waarde()
+
+    @afmeting.setter
+    def afmeting(self, value):
+        self._afmeting.set_waarde(value, owner=self)
 
     @property
     def beschrijvingFabrikant(self) -> str:
