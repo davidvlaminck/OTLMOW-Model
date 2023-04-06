@@ -61,6 +61,9 @@ class OTLObject:
     def __iter__(self) -> Generator[OTLAttribuut, None, None]:
         yield from self._generator_for_attributes()
 
+    def __eq__(self, other):
+        return create_dict_from_asset(self) == create_dict_from_asset(other)
+
 
 def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False) -> Dict:
     """Creates a dictionary from an OTLObject"""

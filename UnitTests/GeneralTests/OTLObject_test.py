@@ -374,3 +374,50 @@ def test__iter__():
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testTimeField',
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionType',
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionTypeMetKard']
+
+def test__eq__(subtests):
+    with subtests.test(msg='equal'):
+        instance = AllCasesTestClass()
+        instance.testIntegerFieldMetKard = [1, 2, 3]
+        instance.testComplexType.testStringField = 'string'
+        instance.testComplexType.testBooleanField = True
+        instance.testComplexType.testKwantWrd.waarde = 1.5
+        instance._testComplexTypeMetKard.add_empty_value()
+        instance.testComplexTypeMetKard[0].testStringField = 'string 1'
+        instance.testComplexTypeMetKard[0].testBooleanField = True
+        instance._testComplexTypeMetKard.add_empty_value()
+        instance.testComplexTypeMetKard[1].testStringField = 'string 2'
+        instance.testComplexTypeMetKard[1].testBooleanField = False
+
+        instance2 = AllCasesTestClass()
+        instance2.testIntegerFieldMetKard = [1, 2, 3]
+        instance2.testComplexType.testStringField = 'string'
+        instance2.testComplexType.testBooleanField = True
+        instance2.testComplexType.testKwantWrd.waarde = 1.5
+        instance2._testComplexTypeMetKard.add_empty_value()
+        instance2.testComplexTypeMetKard[0].testStringField = 'string 1'
+        instance2.testComplexTypeMetKard[0].testBooleanField = True
+        instance2._testComplexTypeMetKard.add_empty_value()
+        instance2.testComplexTypeMetKard[1].testStringField = 'string 2'
+        instance2.testComplexTypeMetKard[1].testBooleanField = False
+
+        assert instance == instance2
+
+    with subtests.test(msg='not equal'):
+        instance = AllCasesTestClass()
+        instance._testComplexTypeMetKard.add_empty_value()
+        instance.testComplexTypeMetKard[0].testStringField = 'string 1'
+        instance.testComplexTypeMetKard[0].testBooleanField = True
+        instance._testComplexTypeMetKard.add_empty_value()
+        instance.testComplexTypeMetKard[1].testStringField = 'string 2'
+        instance.testComplexTypeMetKard[1].testBooleanField = False
+
+        instance2 = AllCasesTestClass()
+        instance2.testComplexTypeMetKard[0].testStringField = 'string 1'
+        instance2.testComplexTypeMetKard[0].testBooleanField = True
+        instance2._testComplexTypeMetKard.add_empty_value()
+        instance2.testComplexTypeMetKard[1].testStringField = 'string 3'
+        instance2.testComplexTypeMetKard[1].testBooleanField = False
+
+        assert not instance == instance2
+    
