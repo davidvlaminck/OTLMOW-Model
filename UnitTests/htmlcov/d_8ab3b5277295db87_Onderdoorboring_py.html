@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_8ab3b5277295db87_Onderwaterkruising_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.2">coverage.py v7.2.2</a>,
-            created at 2023-03-20 15:20 +0000
+            created at 2023-04-06 12:06 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -85,12 +85,12 @@
     <p class="run"><span class="n"><a id="t3" href="#t3">3</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">Classes</span><span class="op">.</span><span class="nam">Abstracten</span><span class="op">.</span><span class="nam">AbstracteAanvullendeGeometrie</span> <span class="key">import</span> <span class="nam">AbstracteAanvullendeGeometrie</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t4" href="#t4">4</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">Datatypes</span><span class="op">.</span><span class="nam">DtcDocument</span> <span class="key">import</span> <span class="nam">DtcDocument</span><span class="op">,</span> <span class="nam">DtcDocumentWaarden</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t5" href="#t5">5</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">Datatypes</span><span class="op">.</span><span class="nam">KwantWrdInEuro</span> <span class="key">import</span> <span class="nam">KwantWrdInEuro</span><span class="op">,</span> <span class="nam">KwantWrdInEuroWaarden</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6" href="#t6">6</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">GeometrieTypes</span><span class="op">.</span><span class="nam">PuntGeometrie</span> <span class="key">import</span> <span class="nam">PuntGeometrie</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t7" href="#t7">7</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">GeometrieTypes</span><span class="op">.</span><span class="nam">LijnGeometrie</span> <span class="key">import</span> <span class="nam">LijnGeometrie</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6" href="#t6">6</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">GeometrieTypes</span><span class="op">.</span><span class="nam">LijnGeometrie</span> <span class="key">import</span> <span class="nam">LijnGeometrie</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t7" href="#t7">7</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">GeometrieTypes</span><span class="op">.</span><span class="nam">VlakGeometrie</span> <span class="key">import</span> <span class="nam">VlakGeometrie</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t8" href="#t8">8</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t"><span class="com"># Generated with OTLClassCreator. To modify: extend, do not edit</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t"><span class="key">class</span> <span class="nam">Onderdoorboring</span><span class="op">(</span><span class="nam">AbstracteAanvullendeGeometrie</span><span class="op">,</span> <span class="nam">PuntGeometrie</span><span class="op">,</span> <span class="nam">LijnGeometrie</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t"><span class="key">class</span> <span class="nam">Onderdoorboring</span><span class="op">(</span><span class="nam">AbstracteAanvullendeGeometrie</span><span class="op">,</span> <span class="nam">LijnGeometrie</span><span class="op">,</span> <span class="nam">VlakGeometrie</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">    <span class="str">"""Gebruikt voor de registratie van kenmerken en de geometrie van een boring onder een weg of spoorweg."""</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">    <span class="nam">typeURI</span> <span class="op">=</span> <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderdoorboring'</span>&nbsp;</span><span class="r"></span></p>
@@ -99,7 +99,7 @@
     <p class="run"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">        <span class="nam">AbstracteAanvullendeGeometrie</span><span class="op">.</span><span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">        <span class="nam">LijnGeometrie</span><span class="op">.</span><span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">        <span class="nam">PuntGeometrie</span><span class="op">.</span><span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">        <span class="nam">VlakGeometrie</span><span class="op">.</span><span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">_retributie</span> <span class="op">=</span> <span class="nam">OTLAttribuut</span><span class="op">(</span><span class="nam">field</span><span class="op">=</span><span class="nam">KwantWrdInEuro</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">                                        <span class="nam">naam</span><span class="op">=</span><span class="str">'retributie'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
@@ -141,7 +141,7 @@
             <a id="nextFileLink" class="nav" href="d_8ab3b5277295db87_Onderwaterkruising_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.2">coverage.py v7.2.2</a>,
-            created at 2023-03-20 15:20 +0000
+            created at 2023-04-06 12:06 +0000
         </p>
     </div>
 </footer>
