@@ -85,37 +85,35 @@ def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list
             return l
     else:
         d = {}
-        for k, v in vars(asset).items():
-            if k in ['_parent', '_geometry_types', '_valid_relations']:
-                continue
-            if v.waarde is None or v.waarde == []:
+        for attr in asset:
+            if attr.waarde is None or attr.waarde == []:
                 continue
 
-            if v.field.waardeObject is not None:  # complex
-                if waarde_shortcut and v.field.waarde_shortcut_applicable:
-                    if isinstance(v.waarde, list):
+            if attr.field.waardeObject is not None:  # complex
+                if waarde_shortcut and attr.field.waarde_shortcut_applicable:
+                    if isinstance(attr.waarde, list):
                         dict_item = []
-                        for item in v.waarde:
+                        for item in attr.waarde:
                             dict_item.append(item.waarde)
                         if len(dict_item) > 0:
-                            d[k[1:]] = dict_item
+                            d[attr.naam] = dict_item
                     else:
-                        dict_item = v.waarde.waarde
+                        dict_item = attr.waarde.waarde
                         if dict_item is not None:
-                            d[k[1:]] = dict_item
+                            d[attr.naam] = dict_item
                 else:
-                    dict_item = _recursive_create_dict_from_asset(asset=v.waarde, waarde_shortcut=waarde_shortcut)
+                    dict_item = _recursive_create_dict_from_asset(asset=attr.waarde, waarde_shortcut=waarde_shortcut)
                     if dict_item is not None:
-                        d[k[1:]] = dict_item
+                        d[attr.naam] = dict_item
             else:
-                if v.field == TimeField:
-                    d[k[1:]] = time.strftime(v.waarde, "%H:%M:%S")
-                elif v.field == DateField:
-                    d[k[1:]] = date.strftime(v.waarde, "%Y-%m-%d")
-                elif v.field == DateTimeField:
-                    d[k[1:]] = datetime.strftime(v.waarde, "%Y-%m-%d %H:%M:%S")
+                if attr.field == TimeField:
+                    d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
+                elif attr.field == DateField:
+                    d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
+                elif attr.field == DateTimeField:
+                    d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
                 else:
-                    d[k[1:]] = v.waarde
+                    d[attr.naam] = attr.waarde
 
         if len(d.items()) > 0:
             return d
