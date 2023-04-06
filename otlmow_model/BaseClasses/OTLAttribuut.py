@@ -82,29 +82,29 @@ class OTLAttribuut:
 
     def default(self):
         if self.waarde is not dict and isinstance(self.waarde, list):
-            valueList = []
+            value_list = []
             for item in self.waarde:
                 if self.field.waardeObject is not None:
-                    waardeDict = vars(item)
-                    valueDict = {}
-                    for k, v in waardeDict.items():
+                    waarde_dict = vars(item)
+                    value_dict = {}
+                    for k, v in waarde_dict.items():
                         if v.default() is not None:
-                            valueDict[k[1:]] = v.default()
-                    if len(valueDict) != 0:
-                        valueList.append(valueDict)
+                            value_dict[k[1:]] = v.default()
+                    if len(value_dict) != 0:
+                        value_list.append(value_dict)
                 else:
-                    valueList.append(item)
-            return valueList
+                    value_list.append(item)
+            return value_list
         if self.field.waardeObject is not None:
             if self.field.waarde_shortcut_applicable:
-                waardeDict = vars(self.waarde)
-                valueDict = {}
-                for k, v in waardeDict.items():
+                waarde_dict = vars(self.waarde)
+                value_dict = {}
+                for k, v in waarde_dict.items():
                     if v.default() is not None:
-                        valueDict[k[1:]] = v.default()
-                if len(valueDict) == 0:
+                        value_dict[k[1:]] = v.default()
+                if len(value_dict) == 0:
                     return None
-                return valueDict
+                return value_dict
             else:
                 if self.waarde.waarde is not None:
                     if hasattr(self.waarde.waarde, 'default'):
