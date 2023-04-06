@@ -54,7 +54,7 @@ class OTLObject:
 
     def _generator_for_attributes(self) -> Generator[OTLAttribuut, None, None]:
         for k, v in vars(self).items():
-            if k in ['_parent', '_geometry_types', '_valid_relations']:
+            if k in ['_geometry_types', '_valid_relations']:
                 continue
             yield v
 
