@@ -241,17 +241,10 @@ class OTLAttribuut:
         new_value_object._parent = self
 
         if isinstance(new_value_object, UnionWaarden):
-            valid_attrs = []
-            for k, a in vars(new_value_object).items():
-                if k in ['_parent', '_geometry_types', '_valid_relations']:
-                    continue
-                valid_attrs.append(a)
-            selected_attr = random.choice(valid_attrs)
+            selected_attr = random.choice(list(new_value_object))
             selected_attr.fill_with_dummy_data()
         else:
-            for k, a in vars(new_value_object).items():
-                if k in ['_parent', '_geometry_types', '_valid_relations']:
-                    continue
+            for a in new_value_object:
                 a.fill_with_dummy_data()
 
         if self.kardinaliteit_max != '1':
