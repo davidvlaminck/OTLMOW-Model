@@ -53,7 +53,7 @@ class OTLObject:
         return build_string_version(asset=self)
 
     def _generator_for_attributes(self) -> Generator[OTLAttribuut, None, None]:
-        for k, v in vars(self).items():
+        for k, v in sorted(vars(self).items()):
             if k in ['_geometry_types', '_valid_relations']:
                 continue
             yield v

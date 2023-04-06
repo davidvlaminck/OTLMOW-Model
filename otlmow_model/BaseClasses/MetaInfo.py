@@ -39,20 +39,13 @@ def _meta_info_otl_object(otl_object: OTLObject):
 
     object_string += 'attributes:\n'
 
-    for attr in _get_attributes(otl_object):
+    for attr in otl_object:
         attr_line = f'    {attr.naam} (type: {attr.field.naam})'
         if attr.deprecated_version != '':
             attr_line += f' <deprecated since {attr.deprecated_version}>'
         object_string += attr_line + '\n'
 
     return object_string[:-1]
-
-
-def _get_attributes(obj) -> Generator[OTLAttribuut, None, None]:
-    for k, v in sorted(vars(obj).items()):
-        if k in ['_parent', '_geometry_types', '_valid_relations']:
-            continue
-        yield v
 
 
 def _meta_info_attribute(attribute: OTLAttribuut):
@@ -74,7 +67,7 @@ def _meta_info_attribute(attribute: OTLAttribuut):
 
     if attribute.field.waardeObject is not None:
         object_string += f'attributes:\n'
-        for attr in _get_attributes(attribute.field.waardeObject()):
+        for attr in attribute.field.waardeObject():
             attr_line = f'    {attr.naam} (type: {attr.field.naam}'
             if attr.kardinaliteit_min != '1' or attr.kardinaliteit_max != '1':
                 attr_line += f', cardinality: {attr.kardinaliteit_min}-{attr.kardinaliteit_max}'
