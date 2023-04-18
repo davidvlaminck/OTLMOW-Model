@@ -292,8 +292,7 @@ class OTLObject:
         return create_dict_from_asset(otl_object=self, waarde_shortcut=waarde_shortcut)
 
     def fill_with_dummy_data(self):
-        gen = self._generator_for_attributes()
-        for attr in gen:
+        for attr in self:
             if attr is not None:
                 attr.fill_with_dummy_data()
 
