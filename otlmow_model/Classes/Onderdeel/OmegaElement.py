@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Straatmeubilair import Straatmeubilair
 from otlmow_model.Datatypes.KlOmegaElementMateriaal import KlOmegaElementMateriaal
 from otlmow_model.Datatypes.KlPlaatsingswijze import KlPlaatsingswijze

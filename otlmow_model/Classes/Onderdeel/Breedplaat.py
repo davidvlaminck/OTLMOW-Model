@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.ConstructieElement import ConstructieElement
 from otlmow_model.Datatypes.DtcBetonspecificaties import DtcBetonspecificaties, DtcBetonspecificatiesWaarden
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden

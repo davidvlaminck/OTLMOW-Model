@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlGrondverbeteringsmiddel import KlGrondverbeteringsmiddel
 from otlmow_model.Datatypes.KwantWrdInKilogram import KwantWrdInKilogram, KwantWrdInKilogramWaarden

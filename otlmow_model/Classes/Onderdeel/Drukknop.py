@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.NietWeggebondenDetectie import NietWeggebondenDetectie
 from otlmow_model.Datatypes.DtcTijdsduur import DtcTijdsduur, DtcTijdsduurWaarden
 from otlmow_model.Datatypes.KlDrukknopMerk import KlDrukknopMerk

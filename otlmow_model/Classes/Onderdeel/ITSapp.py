@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.IVRIComponent import IVRIComponent
 from otlmow_model.Datatypes.KlIVRIMerkITSapp import KlIVRIMerkITSapp
 from otlmow_model.Datatypes.KlIVRIModelITSapp import KlIVRIModelITSapp

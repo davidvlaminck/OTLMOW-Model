@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Detectie import Detectie
 from otlmow_model.Classes.Abstracten.FirmwareObject import FirmwareObject
 from otlmow_model.Datatypes.KlWeggebondendetectorDetectieprincipe import KlWeggebondendetectorDetectieprincipe

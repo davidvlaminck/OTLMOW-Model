@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.VegetatieElement import VegetatieElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DtcAanlegBoomvorm import DtcAanlegBoomvorm, DtcAanlegBoomvormWaarden

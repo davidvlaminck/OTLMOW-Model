@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.BaseClasses.OTLAsset import OTLAsset

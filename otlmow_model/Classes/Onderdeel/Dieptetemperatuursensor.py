@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.NietGedragenSensor import NietGedragenSensor
 from otlmow_model.Datatypes.KlDieptetemperatuurSensorMerk import KlDieptetemperatuurSensorMerk
 from otlmow_model.Datatypes.KlDieptetemperatuursensorModelnaam import KlDieptetemperatuursensorModelnaam

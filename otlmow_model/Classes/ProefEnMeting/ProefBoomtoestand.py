@@ -1,7 +1,7 @@
 # coding=utf-8
 from datetime import datetime
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden

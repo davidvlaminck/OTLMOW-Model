@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Behuizing import Behuizing
 from otlmow_model.Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie

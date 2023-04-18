@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AxiaalDraagvermogen import AxiaalDraagvermogen
 from otlmow_model.Classes.Abstracten.Fundering import Fundering
 from otlmow_model.Datatypes.DtuDwarsafmetingen import DtuDwarsafmetingen, DtuDwarsafmetingenWaarden

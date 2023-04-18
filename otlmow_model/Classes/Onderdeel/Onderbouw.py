@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Laag import Laag
 from otlmow_model.Classes.Abstracten.LaagDikte import LaagDikte
 from otlmow_model.BaseClasses.BooleanField import BooleanField

@@ -1,9 +1,8 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
 from abc import abstractmethod
 from UnitTests.TestClasses.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.BaseClasses.DavieRelatieAttributes import DavieRelatieAttributes
-from otlmow_model.BaseClasses.OTLObject import OTLObject
+from otlmow_model.BaseClasses.OTLObject import OTLObject, OTLAttribuut
 from UnitTests.TestClasses.Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
 
 

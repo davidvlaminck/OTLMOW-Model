@@ -1,7 +1,7 @@
 # coding=utf-8
 from typing import List
 from datetime import date, date
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.DirectioneleRelatie import DirectioneleRelatie
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden

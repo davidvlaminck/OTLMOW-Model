@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlWIMDataloggerMerk import KlWIMDataloggerMerk
 from otlmow_model.Datatypes.KlWIMDataloggerModelnaam import KlWIMDataloggerModelnaam

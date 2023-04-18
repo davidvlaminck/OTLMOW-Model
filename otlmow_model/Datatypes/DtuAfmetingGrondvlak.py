@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm, DtcAfmetingBxlInCmWaarden
 from otlmow_model.Datatypes.DtcAfmetingDiameterInCm import DtcAfmetingDiameterInCm, DtcAfmetingDiameterInCmWaarden
 from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField

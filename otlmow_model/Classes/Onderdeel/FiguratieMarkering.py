@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.FiguratieMarkeringToegang import FiguratieMarkeringToegang
 from otlmow_model.Datatypes.KlFiguratieCode import KlFiguratieCode
 from otlmow_model.Datatypes.KlFiguratieSoort import KlFiguratieSoort

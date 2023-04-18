@@ -3,7 +3,7 @@ import decimal
 import pytest
 
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 
 

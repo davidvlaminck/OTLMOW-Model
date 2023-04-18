@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.HoutigeVegetatie import HoutigeVegetatie
 from otlmow_model.Datatypes.KlGroeiplaatsverbetering import KlGroeiplaatsverbetering
 from otlmow_model.Datatypes.KlHoutigeType import KlHoutigeType

@@ -2,7 +2,7 @@
 from abc import abstractmethod
 
 from otlmow_model.BaseClasses.DteAssetType import DteAssetType
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 
 
 class DavieRelatieAttributes:
