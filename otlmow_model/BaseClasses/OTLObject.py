@@ -16,6 +16,7 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
+from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 
 class OTLAttribuut:
@@ -300,19 +301,31 @@ class OTLObject:
         return build_string_version(asset=self)
 
     def __iter__(self) -> Generator[OTLAttribuut, None, None]:
-        yield from filter(lambda v: isinstance(v, OTLAttribuut), vars(self).values())
+        yield from sorted(filter(lambda v: isinstance(v, OTLAttribuut), (vars(self).values())), key=lambda x: x.naam)
 
     def __eq__(self, other):
         return create_dict_from_asset(self) == create_dict_from_asset(other)
 
-    # @classmethod
-    # def from_dict(cls, d: Dict) -> object:
-    #     o = dynamic_create_instance_from_uri(d['typeURI'])
-    #     for k, v in d.items():
-    #         if k == 'typeURI':
-    #             continue
-    #         set_value_by_dictitem(o, k, v)
-    #     return o
+    @classmethod
+    def from_dict(cls, input_dict: Dict, directory: str = 'otlmow_model.Classes', waarde_shortcut: bool = False) -> object:
+        if 'typeURI' in input_dict:
+            typeURI = input_dict['typeURI']
+        else:
+            typeURI = cls.typeURI
+
+        if typeURI is None:
+            raise ValueError('typeURI is None. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
+
+        try:
+            o = dynamic_create_instance_from_uri(typeURI, directory=directory)
+        except TypeError:
+            raise ValueError('typeURI is invalid. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
+
+        for k, v in input_dict.items():
+            if k == 'typeURI':
+                continue
+            set_value_by_dictitem(o, k, v, waarde_shortcut=waarde_shortcut)
+        return o
 
 
 def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False) -> Dict:
@@ -321,9 +334,6 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False) -> Dict
     if d is None:
         return {}
     return d
-
-
-
 
 
 def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list, dict],
@@ -431,3 +441,43 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
             lines.append(prefix + f'{key} : {value}')
     return lines
 
+
+def get_attribute_by_uri(instance_or_attribute, key: str) -> OTLAttribuut:
+    return next(v for v in vars(instance_or_attribute).values() if isinstance(v, OTLAttribuut) and v.objectUri == key)
+
+
+def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut:
+    return getattr(instance_or_attribute, '_' + key)
+
+
+# dict encoder = asset object to dict
+# dict decoder = dict to asset object
+
+def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value, waarde_shortcut: bool = False):
+    attribute_to_set = get_attribute_by_name(instance_or_attribute, key)
+
+    if attribute_to_set.field.waardeObject is not None:  # complex / union / KwantWrd / dte
+        if isinstance(value, list):
+            for index, list_item in enumerate(value):
+                if attribute_to_set.waarde is None or len(attribute_to_set.waarde) <= index:
+                    attribute_to_set.add_empty_value()
+
+                if attribute_to_set.field.waarde_shortcut_applicable and waarde_shortcut:  # dte / kwantWrd
+                    attribute_to_set.waarde[index]._waarde.set_waarde(list_item)
+                else:  # complex / union
+                    for k, v in list_item.items():
+                        set_value_by_dictitem(attribute_to_set.waarde[index], k, v, waarde_shortcut)
+
+        elif isinstance(value, dict):  # only complex / union possible
+            if attribute_to_set.waarde is None:
+                attribute_to_set.add_empty_value()
+
+            for k, v in value.items():
+                set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut)
+        else:  # must be a dte / kwantWrd
+            if attribute_to_set.waarde is None:
+                attribute_to_set.add_empty_value()
+
+            attribute_to_set.waarde._waarde.set_waarde(value)
+    else:
+        attribute_to_set.set_waarde(value)
