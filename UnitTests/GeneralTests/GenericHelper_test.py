@@ -3,8 +3,8 @@ import pytest
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
-from otlmow_model.Helpers.GenericHelper import count_assets_by_type, \
-    remove_duplicates_in_iterable_based_on_property, get_titlecase_from_ns
+from otlmow_model.Helpers.GenericHelper import get_titlecase_from_ns
+from otlmow_model.Helpers.OTLObjectHelper import count_assets_by_type, remove_duplicates_in_iterable_based_on_property
 
 
 def test_count_assets_by_type():
