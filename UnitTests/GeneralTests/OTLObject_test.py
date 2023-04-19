@@ -380,9 +380,10 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType.testBooleanField = True
 
         d = instance.create_dict_from_asset()
-        expected = {'testComplexType': {
-            'testBooleanField': True,
-            'testStringField': 'string'}}
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testComplexType': {
+                        'testBooleanField': True,
+                        'testStringField': 'string'}}
         assert d == expected
 
     with subtests.test(msg='simple attributes'):
@@ -394,7 +395,8 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testDateField = date(year=2022, month=2, day=2)
 
         d = instance.create_dict_from_asset()
-        expected = {'testBooleanField': True,
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testBooleanField': True,
                     'testDateField': '2022-02-02',
                     'testDecimalField': 1.5,
                     'testKeuzelijst': 'waarde-2',
@@ -411,7 +413,8 @@ def test_create_dict_from_asset_testclass(subtests):
         instance._testDecimalFieldMetKard.add_value(2.5)
 
         d = instance.create_dict_from_asset()
-        expected = {'testDecimalFieldMetKard': [1.5, 2.5],
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testDecimalFieldMetKard': [1.5, 2.5],
                     'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
                     'testStringFieldMetKard': ['string', 'string 2']}
         assert d == expected
@@ -425,12 +428,14 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testKwantWrdMetKard[1].waarde = 5.5
 
         d = instance.create_dict_from_asset(waarde_shortcut=True)
-        expected = {'testKwantWrd': 3.5,
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testKwantWrd': 3.5,
                     'testKwantWrdMetKard': [4.5, 5.5]}
         assert d == expected
 
         d = instance.create_dict_from_asset(waarde_shortcut=False)
-        expected = {'testKwantWrd': {'waarde': 3.5},
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testKwantWrd': {'waarde': 3.5},
                     'testKwantWrdMetKard': [{'waarde': 4.5}, {'waarde': 5.5}]}
         assert d == expected
 
@@ -445,6 +450,7 @@ def test_create_dict_from_asset_testclass(subtests):
 
         d = instance.create_dict_from_asset(waarde_shortcut=True)
         expected = {
+            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexType': {'testBooleanField': True,
                                 'testStringField': 'string',
                                 'testKwantWrd': 1.5,
@@ -468,6 +474,7 @@ def test_create_dict_from_asset_testclass(subtests):
 
         d = instance.create_dict_from_asset(waarde_shortcut=True)
         expected = {
+            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexTypeMetKard': [
                 {'testBooleanField': True,
                  'testStringField': 'string 1'},
@@ -602,3 +609,54 @@ def test_to_dict_and_from_dict():
     created_dict = create_dict_from_asset(instance)
     created_instance = AllCasesTestClass.from_dict(created_dict, directory='UnitTests.TestClasses.Classes')
     assert instance == created_instance
+
+
+def test_create_ld_dict_from_asset_only_id():
+    instance = AllCasesTestClass()
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    json_ld_dict = create_dict_from_asset(instance, rdf=True)
+    expected = {
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        }
+    }
+
+    assert json_ld_dict == expected
+
+
+def test_create_ld_dict_from_asset_ComplexTypeMetKard():
+    instance = AllCasesTestClass()
+    instance.toestand = 'in-gebruik'
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    instance.testComplexTypeMetKard[0].testStringField = 'string'
+    instance.testComplexTypeMetKard[0].testStringFieldMetKard = ['lijst', 'waardes']
+    instance._testComplexTypeMetKard.add_empty_value()
+    instance.testComplexTypeMetKard[1].testStringField = 'string 2'
+    instance.testComplexTypeMetKard[1].testStringFieldMetKard = ['lijst2', 'waardes']
+    instance.testKwantWrd.waarde = 1.1
+    json_ld_dict = create_dict_from_asset(instance, rdf=True)
+    expected = {
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
+            'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.1
+        },
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        },
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard': [{
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField': 'string',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard':
+                ['lijst', 'waardes']
+        }, {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField': 'string 2',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard':
+                ['lijst2', 'waardes']
+        }]
+    }
+
+    assert json_ld_dict == expected

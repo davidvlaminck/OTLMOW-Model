@@ -20,8 +20,9 @@ from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 
 class OTLAttribuut:
-    def __init__(self, naam='', label='', objectUri='', definition='', constraints='', usagenote='', deprecated_version='',
-                 kardinaliteit_min='1', kardinaliteit_max='1', field=OTLField, readonly=False, readonlyValue=None, owner=None):
+    def __init__(self, naam='', label='', objectUri='', definition='', constraints='', usagenote='',
+                 deprecated_version='', kardinaliteit_min='1', kardinaliteit_max='1', field=OTLField, readonly=False,
+                 readonlyValue=None, owner=None):
         super().__init__()
         self.naam = naam
         self.label = label
@@ -75,7 +76,8 @@ class OTLAttribuut:
 
     def add_value(self, value):
         raise MethodNotApplicableError(
-            "This attribute does not have a cardinality other than 1 so simply assign your value directly instead of using this method")
+            "This attribute does not have a cardinality other than 1 so simply assign your value directly instead of "
+            "using this method")
 
     def get_waarde(self):
         if self.field.waardeObject and self.waarde is None:
@@ -86,7 +88,8 @@ class OTLAttribuut:
         """Helper method for datatypes UnionType, ComplexType, KwantWrd and Dte to add the underlying waarde object"""
         if not self.field.waardeObject:
             raise MethodNotApplicableError(
-                "In order to use this method this object must be one of these types: UnionType, ComplexType, KwantWrd, Dte")
+                "In order to use this method this object must be one of these types: UnionType, ComplexType, KwantWrd, "
+                "Dte")
 
     def default(self):
         if self.waarde is not dict and isinstance(self.waarde, list):
@@ -139,9 +142,11 @@ class OTLAttribuut:
         elif isinstance(value, list) and isinstance(value, set):
             raise TypeError(f'expecting a non set type of list in {owner.__class__.__name__}.{self.naam}')
         elif 0 < len(value) < kardinaliteit_min:
-            raise ValueError(f'expecting at least {kardinaliteit_min} element(s) in {owner.__class__.__name__}.{self.naam}')
+            raise ValueError(
+                f'expecting at least {kardinaliteit_min} element(s) in {owner.__class__.__name__}.{self.naam}')
         elif len(value) > kardinaliteit_max:
-            raise ValueError(f'expecting at most {kardinaliteit_max} element(s) in {owner.__class__.__name__}.{self.naam}')
+            raise ValueError(
+                f'expecting at most {kardinaliteit_max} element(s) in {owner.__class__.__name__}.{self.naam}')
 
     def set_waarde(self, value, owner=None):
         self._perform_deprecation_check(self)
@@ -166,11 +171,13 @@ class OTLAttribuut:
                     field_validated = self.field.validate(converted_value, self)
                     if not field_validated:
                         raise ValueError(
-                            f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not valid, must be valid for {self.field.naam}')
+                            f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not '
+                            f'valid, must be valid for {self.field.naam}')
                     converted_values.append(converted_value)
                 except TypeError as error:
                     raise ValueError(
-                        f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not valid, must be valid for {self.field.naam}\n' + str(
+                        f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not valid, '
+                        f'must be valid for {self.field.naam}\n' + str(
                             error))
             self.waarde = converted_values
         else:
@@ -188,7 +195,8 @@ class OTLAttribuut:
 
         # check if kwant Wrd inside a union type, if so, call clear_props
         if owner is not None and value is not None and hasattr(owner, 'field') and owner.field.waardeObject is not None:
-            if owner.field.waarde_shortcut_applicable and not isinstance(owner.field, UnionTypeField) and owner.owner is not None and isinstance(owner.owner, UnionWaarden):
+            if owner.field.waarde_shortcut_applicable and not isinstance(
+                    owner.field, UnionTypeField) and owner.owner is not None and isinstance(owner.owner, UnionWaarden):
                 owner.owner.clear_other_props('_' + owner.naam)
 
     @staticmethod
@@ -200,14 +208,16 @@ class OTLAttribuut:
             if hasattr(owner, 'deprecated_version'):
                 if owner.deprecated_version != '':
                     if hasattr(owner, 'objectUri'):
-                        warnings.warn(message=f'{owner.objectUri} is deprecated since version {owner.deprecated_version}',
-                                      category=AttributeDeprecationWarning)
+                        warnings.warn(
+                            message=f'{owner.objectUri} is deprecated since version {owner.deprecated_version}',
+                            category=AttributeDeprecationWarning)
                     elif hasattr(owner, 'typeURI'):
                         warnings.warn(message=f'{owner.typeURI} is deprecated since version {owner.deprecated_version}',
                                       category=AttributeDeprecationWarning)
                     else:
-                        warnings.warn(message=f'used a class that is deprecated since version {owner.deprecated_version}',
-                                      category=AttributeDeprecationWarning)
+                        warnings.warn(
+                            message=f'used a class that is deprecated since version {owner.deprecated_version}',
+                            category=AttributeDeprecationWarning)
 
     def __str__(self):
         s = (f'information about {self.naam}:\n'
@@ -260,7 +270,8 @@ class OTLAttribuut:
         else:
             self.set_waarde(new_value_object)
 
-class OTLObject:
+
+class OTLObject(object):
     typeURI: str = None
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
@@ -307,19 +318,22 @@ class OTLObject:
         return create_dict_from_asset(self) == create_dict_from_asset(other)
 
     @classmethod
-    def from_dict(cls, input_dict: Dict, directory: str = 'otlmow_model.Classes', waarde_shortcut: bool = False) -> object:
+    def from_dict(cls, input_dict: Dict, directory: str = 'otlmow_model.Classes',
+                  waarde_shortcut: bool = False) -> object:
         if 'typeURI' in input_dict:
-            typeURI = input_dict['typeURI']
+            type_uri = input_dict['typeURI']
         else:
-            typeURI = cls.typeURI
+            type_uri = cls.typeURI
 
-        if typeURI is None:
-            raise ValueError('typeURI is None. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
+        if type_uri is None:
+            raise ValueError(
+                'typeURI is None. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
 
         try:
-            o = dynamic_create_instance_from_uri(typeURI, directory=directory)
+            o = dynamic_create_instance_from_uri(type_uri, directory=directory)
         except TypeError:
-            raise ValueError('typeURI is invalid. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
+            raise ValueError(
+                'typeURI is invalid. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
 
         for k, v in input_dict.items():
             if k == 'typeURI':
@@ -328,11 +342,19 @@ class OTLObject:
         return o
 
 
-def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False) -> Dict:
+def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bool = False) -> Dict:
     """Creates a dictionary from an OTLObject"""
-    d = _recursive_create_dict_from_asset(otl_object, waarde_shortcut=waarde_shortcut)
+    if rdf:
+        d = _recursive_create_rdf_dict_from_asset(asset=otl_object, waarde_shortcut=waarde_shortcut)
+    else:
+        d = _recursive_create_dict_from_asset(otl_object, waarde_shortcut=waarde_shortcut)
+
     if d is None:
-        return {}
+        d = {}
+    if rdf:
+        d['@type'] = otl_object.typeURI
+    else:
+        d['typeURI'] = otl_object.typeURI
     return d
 
 
@@ -382,6 +404,55 @@ def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list
             return d
 
 
+def _recursive_create_rdf_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list, dict],
+                                          waarde_shortcut: bool = False) -> Union[Dict, List[Dict]]:
+    if isinstance(asset, list) and not isinstance(asset, dict):
+        l = []
+        for item in asset:
+            dict_item = _recursive_create_rdf_dict_from_asset(asset=item, waarde_shortcut=waarde_shortcut)
+            if dict_item is not None:
+                l.append(dict_item)
+        if len(l) > 0:
+            return l
+    else:
+        d = {}
+        for attr in asset:
+            if attr.waarde is None or attr.waarde == []:
+                continue
+
+            if attr.field.waardeObject is not None:  # complex
+                if waarde_shortcut and attr.field.waarde_shortcut_applicable:
+                    if isinstance(attr.waarde, list):
+                        dict_item = []
+                        for item in attr.waarde:
+                            dict_item.append(item.waarde)
+                        if len(dict_item) > 0:
+                            d[attr.objectUri] = dict_item
+                    else:
+                        dict_item = attr.waarde.waarde
+                        if dict_item is not None:
+                            d[attr.objectUri] = dict_item
+                else:
+                    dict_item = _recursive_create_rdf_dict_from_asset(asset=attr.waarde,
+                                                                      waarde_shortcut=waarde_shortcut)
+                    if dict_item is not None:
+                        d[attr.objectUri] = dict_item
+            else:
+                if attr.field == TimeField:
+                    d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
+                elif attr.field == DateField:
+                    d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
+                elif attr.field == DateTimeField:
+                    d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                elif issubclass(attr.field, KeuzelijstField):
+                    d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
+                else:
+                    d[attr.objectUri] = attr.waarde
+
+        if len(d.items()) > 0:
+            return d
+
+
 def clean_dict(d) -> Union[Dict, None]:
     """Recursively remove None values and empty dicts from input dict"""
     if d is None:
@@ -416,6 +487,8 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
         prefix += index_string
 
     for key in sorted(d):
+        if key == 'typeURI':
+            continue
         value = d[key]
         if isinstance(value, dict):
             lines.append(prefix + f'{key} :')
@@ -453,7 +526,8 @@ def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut:
 # dict encoder = asset object to dict
 # dict decoder = dict to asset object
 
-def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value, waarde_shortcut: bool = False):
+def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value,
+                          waarde_shortcut: bool = False):
     attribute_to_set = get_attribute_by_name(instance_or_attribute, key)
 
     if attribute_to_set.field.waardeObject is not None:  # complex / union / KwantWrd / dte
