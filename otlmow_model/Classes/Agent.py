@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLObject import OTLObject, OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLObject
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
 from otlmow_model.Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
