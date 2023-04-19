@@ -320,6 +320,17 @@ class OTLObject(object):
     @classmethod
     def from_dict(cls, input_dict: Dict, directory: str = 'otlmow_model.Classes',
                   waarde_shortcut: bool = False) -> object:
+        """Alternative constructor. Allows the instantiation of an object using a dictionary. Either start from the
+        appropriate class or add a typeURI entry to the dictionary to get an instance of that type.
+
+        :param input_dict: input dictionary, containing key value pairs for the attributes of the instance
+        :type: dict
+        :param directory: directory where the class modules are located, defaults to otlmow_model.Classes
+        :type: str
+        :param waarde_shortcut: whether to use the waarde shortcut when processing the dictionary, defaults to False
+        :type: bool
+        :return: returns an instance where the values of the attributes matches the given dictionary
+        :rtype: OTLObject"""
         if 'typeURI' in input_dict:
             type_uri = input_dict['typeURI']
         else:
@@ -343,7 +354,17 @@ class OTLObject(object):
 
 
 def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bool = False) -> Dict:
-    """Creates a dictionary from an OTLObject"""
+    """Creates a dictionary from an OTLObject with key value pairs for attributes and their values. Saves the type of the object in typeURI (or @type for the RDF dict)
+
+    :param otl_object: input object to be transformed
+    :type: OTLObject
+    :param waarde_shortcut: whether to use the waarde shortcut when processing the dictionary, defaults to False
+    :type: bool
+    :param rdf: whether to generate a dictionary where the key's are the URI's of the attributes rather than the names, defaults to False
+    :type: bool
+
+    :return: returns an instance where the values of the attributes matches the given dictionary
+    :rtype: OTLObject"""
     if rdf:
         d = _recursive_create_rdf_dict_from_asset(asset=otl_object, waarde_shortcut=waarde_shortcut)
     else:
