@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.Datatypes.KlWeergegevenVervoersmodiOpKaart import KlWeergegevenVervoersmodiOpKaart

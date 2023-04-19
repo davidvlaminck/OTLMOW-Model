@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ProefEnMeting.MeteropnameEnergiemeter import MeteropnameEnergiemeter
 from otlmow_model.Datatypes.KwantWrdInKiloWatt import KwantWrdInKiloWatt, KwantWrdInKiloWattWaarden
 from otlmow_model.Datatypes.KwantWrdInkVARh import KwantWrdInkVARh, KwantWrdInkVARhWaarden

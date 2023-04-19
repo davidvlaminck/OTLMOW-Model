@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from otlmow_model.Classes.Abstracten.FirmwareObject import FirmwareObject
 from otlmow_model.Classes.Abstracten.SerienummerObject import SerienummerObject

@@ -1,9 +1,149 @@
-﻿from datetime import date
+﻿import datetime
+import time
+from datetime import date
 
 import pytest
 
+from UnitTests.TestClasses.Classes.ImplementatieElement.AIMObject import AIMObject
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
+from otlmow_model.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+
+
+def test_from_dict_typeURI_in_dict():
+    input_dict = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+    instance = OTLObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance is not None
+    assert AllCasesTestClass.typeURI == instance.typeURI
+
+
+def test_from_dict_abstract_class_no_typeURI_in_dict():
+    input_dict = {}
+    with pytest.raises(ValueError):
+        OTLObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    with pytest.raises(ValueError):
+        AIMObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+
+
+def test_from_dict_simple_single_attributes():
+    input_dict = {'testBooleanField': True,
+                  'testKeuzelijst': 'waarde-2',
+                  'testDateField': '2023-01-01',
+                  'testDateTimeField': '2023-01-01 10:11:12',
+                  'testTimeField': '10:11:12',
+                  'testDecimalField': 1.2,
+                  'testIntegerField': 1,
+                  'testStringField': 'test'}
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance is not None
+    assert isinstance(instance, AllCasesTestClass)
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.testBooleanField
+    assert instance.testKeuzelijst == 'waarde-2'
+    assert instance.testDateField == datetime.date(2023, 1, 1)
+    assert instance.testDateTimeField == datetime.datetime(2023, 1, 1, 10, 11, 12)
+    assert instance.testTimeField == datetime.time(10, 11, 12)
+    assert instance.testDecimalField == 1.2
+    assert instance.testIntegerField == 1
+    assert instance.testStringField == 'test'
+
+
+def test_from_dict_simple_attributes_with_cardinality():
+    input_dict = {'testDecimalFieldMetKard': [1.2, 2.3],
+                  'testIntegerFieldMetKard': [1, 2],
+                  'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
+                  'testStringFieldMetKard': ['1', '2']}
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance is not None
+    assert isinstance(instance, AllCasesTestClass)
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.testDecimalFieldMetKard[0] == 1.2
+    assert instance.testDecimalFieldMetKard[1] == 2.3
+    assert instance.testIntegerFieldMetKard[0] == 1
+    assert instance.testIntegerFieldMetKard[1] == 2
+    assert instance.testKeuzelijstMetKard[0] == 'waarde-1'
+    assert instance.testKeuzelijstMetKard[1] == 'waarde-2'
+    assert instance.testStringFieldMetKard[0] == '1'
+    assert instance.testStringFieldMetKard[1] == '2'
+
+
+def test_from_dict_attributes_with_waarde_shortcut(subtests):
+    with subtests.test('waarde_shortcut = True'):
+        input_dict = {'testEenvoudigType': '1',
+                      'testEenvoudigTypeMetKard': ['1', '2'],
+                      'testKwantWrd': 1.2,
+                      'testKwantWrdMetKard': [1.2, 2.3]}
+        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes',
+                                               waarde_shortcut=True)
+        assert instance is not None
+        assert isinstance(instance, AllCasesTestClass)
+        assert AllCasesTestClass.typeURI == instance.typeURI
+        assert instance.testEenvoudigType.waarde == '1'
+        assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
+        assert instance.testEenvoudigTypeMetKard[1].waarde == '2'
+        assert instance.testKwantWrd.waarde == 1.2
+        assert instance.testKwantWrdMetKard[0].waarde == 1.2
+        assert instance.testKwantWrdMetKard[1].waarde == 2.3
+
+    with subtests.test('waarde_shortcut = False'):
+        input_dict = {'testEenvoudigType': {'waarde': '1'},
+                      'testEenvoudigTypeMetKard': [{'waarde': '1'}, {'waarde': '2'}],
+                      'testKwantWrd': {'waarde': 1.2},
+                      'testKwantWrdMetKard': [{'waarde': 1.2}, {'waarde': 2.3}]}
+        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+        assert instance is not None
+        assert isinstance(instance, AllCasesTestClass)
+        assert AllCasesTestClass.typeURI == instance.typeURI
+        assert instance.testEenvoudigType.waarde == '1'
+        assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
+        assert instance.testEenvoudigTypeMetKard[1].waarde == '2'
+        assert instance.testKwantWrd.waarde == 1.2
+        assert instance.testKwantWrdMetKard[0].waarde == 1.2
+        assert instance.testKwantWrdMetKard[1].waarde == 2.3
+
+
+def test_from_dict_complex_single_attributes():
+    input_dict = {'testComplexType': {'testBooleanField': True,
+                                      'testComplexType2': {
+                                          'testStringField': 'test'},
+                                      'testKwantWrd': {'waarde': 1.2}},
+                  'testUnionType': {'unionString': 'union_test'}}
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance is not None
+    assert isinstance(instance, AllCasesTestClass)
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.testComplexType.testBooleanField
+    assert instance.testComplexType.testComplexType2.testStringField == 'test'
+    assert instance.testComplexType.testKwantWrd.waarde == 1.2
+    assert instance.testUnionType.unionString == 'union_test'
+
+
+def test_from_dict_complex_attributes_with_cardinality():
+    input_dict = {'testComplexTypeMetKard': [
+        {'testBooleanField': True,
+         'testComplexType2MetKard': [{
+             'testStringField': 'test2.1'}, {
+             'testStringField': 'test2.2'}],
+         'testKwantWrdMetKard': [{'waarde': 1.2}, {'waarde': 2.3}],
+         'testStringFieldMetKard': ['test3', 'test4']},
+        {'testStringFieldMetKard': ['test5', 'test6']}],
+        'testUnionTypeMetKard': [{'unionString': 'union_test'}, {'unionString': 'union_test2'}]
+    }
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance is not None
+    assert isinstance(instance, AllCasesTestClass)
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.testComplexTypeMetKard[0].testBooleanField
+    assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField == 'test2.1'
+    assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[1].testStringField == 'test2.2'
+    assert instance.testComplexTypeMetKard[0].testKwantWrdMetKard[0].waarde == 1.2
+    assert instance.testComplexTypeMetKard[0].testKwantWrdMetKard[1].waarde == 2.3
+    assert instance.testComplexTypeMetKard[0].testStringFieldMetKard[0] == 'test3'
+    assert instance.testComplexTypeMetKard[0].testStringFieldMetKard[1] == 'test4'
+    assert instance.testComplexTypeMetKard[1].testStringFieldMetKard[0] == 'test5'
+    assert instance.testComplexTypeMetKard[1].testStringFieldMetKard[1] == 'test6'
+    assert instance.testUnionTypeMetKard[0].unionString == 'union_test'
+    assert instance.testUnionTypeMetKard[1].unionString == 'union_test2'
 
 
 def test_change_typeURI():
@@ -240,9 +380,10 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType.testBooleanField = True
 
         d = instance.create_dict_from_asset()
-        expected = {'testComplexType': {
-            'testBooleanField': True,
-            'testStringField': 'string'}}
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testComplexType': {
+                        'testBooleanField': True,
+                        'testStringField': 'string'}}
         assert d == expected
 
     with subtests.test(msg='simple attributes'):
@@ -254,7 +395,8 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testDateField = date(year=2022, month=2, day=2)
 
         d = instance.create_dict_from_asset()
-        expected = {'testBooleanField': True,
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testBooleanField': True,
                     'testDateField': '2022-02-02',
                     'testDecimalField': 1.5,
                     'testKeuzelijst': 'waarde-2',
@@ -271,7 +413,8 @@ def test_create_dict_from_asset_testclass(subtests):
         instance._testDecimalFieldMetKard.add_value(2.5)
 
         d = instance.create_dict_from_asset()
-        expected = {'testDecimalFieldMetKard': [1.5, 2.5],
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testDecimalFieldMetKard': [1.5, 2.5],
                     'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
                     'testStringFieldMetKard': ['string', 'string 2']}
         assert d == expected
@@ -285,12 +428,14 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testKwantWrdMetKard[1].waarde = 5.5
 
         d = instance.create_dict_from_asset(waarde_shortcut=True)
-        expected = {'testKwantWrd': 3.5,
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testKwantWrd': 3.5,
                     'testKwantWrdMetKard': [4.5, 5.5]}
         assert d == expected
 
         d = instance.create_dict_from_asset(waarde_shortcut=False)
-        expected = {'testKwantWrd': {'waarde': 3.5},
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testKwantWrd': {'waarde': 3.5},
                     'testKwantWrdMetKard': [{'waarde': 4.5}, {'waarde': 5.5}]}
         assert d == expected
 
@@ -305,6 +450,7 @@ def test_create_dict_from_asset_testclass(subtests):
 
         d = instance.create_dict_from_asset(waarde_shortcut=True)
         expected = {
+            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexType': {'testBooleanField': True,
                                 'testStringField': 'string',
                                 'testKwantWrd': 1.5,
@@ -328,6 +474,7 @@ def test_create_dict_from_asset_testclass(subtests):
 
         d = instance.create_dict_from_asset(waarde_shortcut=True)
         expected = {
+            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexTypeMetKard': [
                 {'testBooleanField': True,
                  'testStringField': 'string 1'},
@@ -421,3 +568,95 @@ def test__eq__(subtests):
         instance2.testComplexTypeMetKard[1].testBooleanField = False
 
         assert not instance == instance2
+
+
+def test_to_dict_and_from_dict():
+    instance = AllCasesTestClass()
+    instance.testStringField = 'string'
+    instance.testBooleanField = True
+    instance.testKeuzelijst = 'waarde-2'
+    instance.testDecimalField = 1.5
+    instance.testDateField = date(year=2022, month=2, day=2)
+    instance._testStringFieldMetKard.add_value('string')
+    instance._testStringFieldMetKard.add_value('string 2')
+    instance._testKeuzelijstMetKard.add_value('waarde-1')
+    instance._testKeuzelijstMetKard.add_value('waarde-2')
+    instance._testDecimalFieldMetKard.add_value(1.5)
+    instance._testDecimalFieldMetKard.add_value(2.5)
+    instance.testKwantWrd.waarde = 3.5
+    instance._testKwantWrdMetKard.add_empty_value()
+    instance.testKwantWrdMetKard[0].waarde = 4.5
+    instance._testKwantWrdMetKard.add_empty_value()
+    instance.testKwantWrdMetKard[1].waarde = 5.5
+    instance.testComplexType.testStringField = 'string'
+    instance.testComplexType.testBooleanField = True
+    instance.testComplexType.testKwantWrd.waarde = 1.5
+    instance.testComplexType.testComplexType2.testStringField = 'string in complex'
+    instance.testComplexType._testStringFieldMetKard.add_value('string in complex')
+    instance.testComplexType._testStringFieldMetKard.add_value('string 2 in complex')
+    instance._testComplexTypeMetKard.add_empty_value()
+    instance.testComplexTypeMetKard[0].testStringField = 'string 1'
+    instance.testComplexTypeMetKard[0].testBooleanField = True
+    instance._testComplexTypeMetKard.add_empty_value()
+    instance.testComplexTypeMetKard[1].testStringField = 'string 2'
+    instance.testComplexTypeMetKard[1].testBooleanField = False
+    instance.testComplexTypeMetKard[1].testComplexType2.testStringField = 'string in complex'
+    instance.testComplexTypeMetKard[1]._testComplexType2MetKard.add_empty_value()
+    instance.testComplexTypeMetKard[1]._testComplexType2MetKard.add_empty_value()
+    instance.testComplexTypeMetKard[1].testComplexType2MetKard[0].testStringField = 'first string in complex'
+    instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
+
+    created_dict = create_dict_from_asset(instance)
+    created_instance = AllCasesTestClass.from_dict(created_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance == created_instance
+
+
+def test_create_ld_dict_from_asset_only_id():
+    instance = AllCasesTestClass()
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    json_ld_dict = create_dict_from_asset(instance, rdf=True)
+    expected = {
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        }
+    }
+
+    assert json_ld_dict == expected
+
+
+def test_create_ld_dict_from_asset_ComplexTypeMetKard():
+    instance = AllCasesTestClass()
+    instance.toestand = 'in-gebruik'
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    instance.testComplexTypeMetKard[0].testStringField = 'string'
+    instance.testComplexTypeMetKard[0].testStringFieldMetKard = ['lijst', 'waardes']
+    instance._testComplexTypeMetKard.add_empty_value()
+    instance.testComplexTypeMetKard[1].testStringField = 'string 2'
+    instance.testComplexTypeMetKard[1].testStringFieldMetKard = ['lijst2', 'waardes']
+    instance.testKwantWrd.waarde = 1.1
+    json_ld_dict = create_dict_from_asset(instance, rdf=True)
+    expected = {
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
+            'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.1
+        },
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        },
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard': [{
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField': 'string',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard':
+                ['lijst', 'waardes']
+        }, {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField': 'string 2',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard':
+                ['lijst2', 'waardes']
+        }]
+    }
+
+    assert json_ld_dict == expected

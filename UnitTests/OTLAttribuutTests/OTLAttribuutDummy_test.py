@@ -9,7 +9,7 @@ from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.BaseClasses.IntegerField import IntegerField
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.BaseClasses.StringField import StringField
 from otlmow_model.BaseClasses.TimeField import TimeField
 

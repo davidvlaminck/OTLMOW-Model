@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Detectielus import Detectielus
 from otlmow_model.Datatypes.KlVriLusFunctie import KlVriLusFunctie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie

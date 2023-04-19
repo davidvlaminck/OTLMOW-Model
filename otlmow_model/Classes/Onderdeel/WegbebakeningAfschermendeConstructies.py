@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Bebakening import Bebakening
 from otlmow_model.Datatypes.KlWegbebakeningType import KlWegbebakeningType
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie

@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.NietWeggebondenDetectie import NietWeggebondenDetectie
 from otlmow_model.Classes.Abstracten.TypeWeggebruiker import TypeWeggebruiker
 from otlmow_model.Datatypes.KlDetectiecameraDetectieprincipe import KlDetectiecameraDetectieprincipe

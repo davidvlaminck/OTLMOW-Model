@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.ZenderOntvangerToegang import ZenderOntvangerToegang
 from otlmow_model.Datatypes.KlOntvangerMerk import KlOntvangerMerk
 from otlmow_model.Datatypes.KlOntvangerModelnaam import KlOntvangerModelnaam

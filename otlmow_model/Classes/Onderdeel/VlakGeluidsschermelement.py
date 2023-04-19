@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Geluidsschermelement import Geluidsschermelement
 from otlmow_model.Datatypes.KlVGOpstelling import KlVGOpstelling
 from otlmow_model.Datatypes.KlVGSchermelementtype import KlVGSchermelementtype

@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AndereVerharding import AndereVerharding
 from otlmow_model.Datatypes.KlDolomietType import KlDolomietType
 

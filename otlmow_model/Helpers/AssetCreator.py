@@ -1,12 +1,8 @@
-from typing import Union
-
-from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObject
 from otlmow_model.Helpers.GenericHelper import get_titlecase_from_ns, get_ns_and_name_from_uri
 
 
 def dynamic_create_instance_from_ns_and_name(namespace: str, class_name: str,
-                                             directory: str = 'otlmow_model.Classes') -> Union[AIMObject, RelatieObject]:
+                                             directory: str = 'otlmow_model.Classes'):
     """Loads the OTL class module and attempts to instantiate the class using the name and namespace of the class
 
     :param namespace: namespace of the class
@@ -38,7 +34,7 @@ def dynamic_create_instance_from_ns_and_name(namespace: str, class_name: str,
     return instance
 
 
-def dynamic_create_instance_from_uri(class_uri: str, directory: str = None) -> Union[AIMObject, RelatieObject]:
+def dynamic_create_instance_from_uri(class_uri: str, directory: str = None):
     if directory is None:
         directory = 'otlmow_model.Classes'
 

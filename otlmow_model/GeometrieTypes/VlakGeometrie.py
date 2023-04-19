@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABC
 
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.BaseClasses.WKTField import WKTField
 
 

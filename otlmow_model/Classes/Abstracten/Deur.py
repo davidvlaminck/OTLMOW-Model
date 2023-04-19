@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.Toegangselement import Toegangselement
 from otlmow_model.BaseClasses.BooleanField import BooleanField

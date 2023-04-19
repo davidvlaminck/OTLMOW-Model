@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.GrazigeVegetatie import GrazigeVegetatie
 from otlmow_model.Datatypes.KlNSB import KlNSB
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie

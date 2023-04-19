@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.DtcCompacteBatterij import DtcCompacteBatterij, DtcCompacteBatterijWaarden
 from otlmow_model.Datatypes.KlIoTSensorMerk import KlIoTSensorMerk

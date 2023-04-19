@@ -1,6 +1,6 @@
 # coding=utf-8
 from datetime import date, date
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.Datatypes.KlBrandblusserBlusmiddel import KlBrandblusserBlusmiddel

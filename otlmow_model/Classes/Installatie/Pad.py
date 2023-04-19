@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.Datatypes.KlPadNetwerkprotectie import KlPadNetwerkprotectie
 from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie

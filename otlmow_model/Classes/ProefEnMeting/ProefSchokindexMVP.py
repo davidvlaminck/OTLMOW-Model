@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Proef import Proef
 from otlmow_model.Datatypes.KlLEACSchokindexMVP import KlLEACSchokindexMVP
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie

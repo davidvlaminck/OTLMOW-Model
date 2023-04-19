@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.BaseClasses.OTLAttribuut import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BegroeidVoorkomen import BegroeidVoorkomen
 from otlmow_model.Datatypes.DtcSierbeplAanleg import DtcSierbeplAanleg, DtcSierbeplAanlegWaarden
 from otlmow_model.Datatypes.KlSierbeplantingType import KlSierbeplantingType
