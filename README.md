@@ -53,6 +53,14 @@ camera.toestand = 'in-gebruik'
 camera.naam = 'CAM0001'
 camera.opstelhoogte.waarde = 6.0
 ```
+It's also possible to instantiate an object by providing a dictionary, which results in the same object as above.
+```
+from otlmow_model.Classes.Onderdeel.Camera import Camera
+d = {'toestand': 'in-gebruik',
+     'naam': 'CAM0001',
+     'opstelhoogte': {'waarde': 6.0}}
+camera = Camera.from_dict(d)
+```
 Validation or conversion happens behind the scenes.
 You'll also get warnings for using deprecated classes or attributes.
 ```
