@@ -299,9 +299,9 @@ class OTLObject(object):
                         message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
                         category=ClassDeprecationWarning)
 
-    def create_dict_from_asset(self, waarde_shortcut=False) -> Dict:
+    def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False) -> Dict:
         """Converts this asset into a dictionary representation"""
-        return create_dict_from_asset(otl_object=self, waarde_shortcut=waarde_shortcut)
+        return create_dict_from_asset(otl_object=self, waarde_shortcut=waarde_shortcut, rdf=rdf)
 
     def fill_with_dummy_data(self):
         for attr in self:
@@ -466,7 +466,10 @@ def _recursive_create_rdf_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, 
                 elif attr.field == DateTimeField:
                     d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
                 elif issubclass(attr.field, KeuzelijstField):
-                    d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
+                    if isinstance(attr.waarde, list):
+                        d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in attr.waarde]
+                    else:
+                        d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
                 else:
                     d[attr.objectUri] = attr.waarde
 

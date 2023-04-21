@@ -626,6 +626,42 @@ def test_create_ld_dict_from_asset_only_id():
     assert json_ld_dict == expected
 
 
+def test_create_dict_from_asset_cardinality():
+    instance = AllCasesTestClass()
+    instance.toestand = 'in-gebruik'
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    instance.testKeuzelijstMetKard = ['waarde-1', 'waarde-2']
+
+    json_ld_dict = create_dict_from_asset(instance)
+    expected = {
+        'assetId': {'identificator': '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
+        'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
+        'toestand': 'in-gebruik',
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+
+    assert json_ld_dict == expected
+
+
+def test_create_ld_dict_from_asset_cardinality():
+    instance = AllCasesTestClass()
+    instance.toestand = 'in-gebruik'
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    instance.testStringFieldMetKard = ['1', '2']
+
+    json_ld_dict = create_dict_from_asset(instance, rdf=True)
+    expected = {
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
+            'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringFieldMetKard': ['1', '2']
+    }
+
+    assert json_ld_dict == expected
+
+
 def test_create_ld_dict_from_asset_ComplexTypeMetKard():
     instance = AllCasesTestClass()
     instance.toestand = 'in-gebruik'
