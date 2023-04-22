@@ -467,7 +467,10 @@ def _recursive_create_rdf_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, 
                     d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
                 elif issubclass(attr.field, KeuzelijstField):
                     if isinstance(attr.waarde, list):
-                        d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in attr.waarde]
+                        if attr.waarde == [None]:
+                            d[attr.objectUri] = []
+                        else:
+                            d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in attr.waarde]
                     else:
                         d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
                 else:
@@ -570,8 +573,12 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()
 
-            for k, v in value.items():
-                set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut)
+            if attribute_to_set.kardinaliteit_max != '1':
+                for k, v in value.items():
+                    set_value_by_dictitem(attribute_to_set.waarde[0], k, v, waarde_shortcut)
+            else:
+                for k, v in value.items():
+                    set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut)
         else:  # must be a dte / kwantWrd
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()
