@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_b5538e4f72581b98_RelationCreator_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.3">coverage.py v7.2.3</a>,
-            created at 2023-04-21 12:24 +0000
+            created at 2023-04-24 21:53 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -714,14 +714,14 @@
     <p class="run"><span class="n"><a id="t632" href="#t632">632</a></span><span class="t">    <span class="nam">instance</span><span class="op">.</span><span class="nam">assetId</span><span class="op">.</span><span class="nam">identificator</span> <span class="op">=</span> <span class="str">'0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t633" href="#t633">633</a></span><span class="t">    <span class="nam">instance</span><span class="op">.</span><span class="nam">testKeuzelijstMetKard</span> <span class="op">=</span> <span class="op">[</span><span class="str">'waarde-1'</span><span class="op">,</span> <span class="str">'waarde-2'</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t634" href="#t634">634</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t635" href="#t635">635</a></span><span class="t">    <span class="nam">json_ld_dict</span> <span class="op">=</span> <span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">instance</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t635" href="#t635">635</a></span><span class="t">    <span class="nam">asset_dict</span> <span class="op">=</span> <span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">instance</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t636" href="#t636">636</a></span><span class="t">    <span class="nam">expected</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t637" href="#t637">637</a></span><span class="t">        <span class="str">'assetId'</span><span class="op">:</span> <span class="op">{</span><span class="str">'identificator'</span><span class="op">:</span> <span class="str">'0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'</span><span class="op">}</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t638" href="#t638">638</a></span><span class="t">        <span class="str">'testKeuzelijstMetKard'</span><span class="op">:</span> <span class="op">[</span><span class="str">'waarde-1'</span><span class="op">,</span> <span class="str">'waarde-2'</span><span class="op">]</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t639" href="#t639">639</a></span><span class="t">        <span class="str">'toestand'</span><span class="op">:</span> <span class="str">'in-gebruik'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t640" href="#t640">640</a></span><span class="t">        <span class="str">'typeURI'</span><span class="op">:</span> <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t641" href="#t641">641</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t642" href="#t642">642</a></span><span class="t">    <span class="key">assert</span> <span class="nam">json_ld_dict</span> <span class="op">==</span> <span class="nam">expected</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t642" href="#t642">642</a></span><span class="t">    <span class="key">assert</span> <span class="nam">asset_dict</span> <span class="op">==</span> <span class="nam">expected</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t643" href="#t643">643</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t644" href="#t644">644</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t645" href="#t645">645</a></span><span class="t"><span class="key">def</span> <span class="nam">test_create_ld_dict_from_asset_cardinality</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -730,7 +730,7 @@
     <p class="run"><span class="n"><a id="t648" href="#t648">648</a></span><span class="t">    <span class="nam">instance</span><span class="op">.</span><span class="nam">assetId</span><span class="op">.</span><span class="nam">identificator</span> <span class="op">=</span> <span class="str">'0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t649" href="#t649">649</a></span><span class="t">    <span class="nam">instance</span><span class="op">.</span><span class="nam">testStringFieldMetKard</span> <span class="op">=</span> <span class="op">[</span><span class="str">'1'</span><span class="op">,</span> <span class="str">'2'</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t650" href="#t650">650</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t651" href="#t651">651</a></span><span class="t">    <span class="nam">json_ld_dict</span> <span class="op">=</span> <span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">instance</span><span class="op">,</span> <span class="nam">rdf</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t651" href="#t651">651</a></span><span class="t">    <span class="nam">rdf_dict</span> <span class="op">=</span> <span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">instance</span><span class="op">,</span> <span class="nam">rdf</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t652" href="#t652">652</a></span><span class="t">    <span class="nam">expected</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t653" href="#t653">653</a></span><span class="t">        <span class="str">'@type'</span><span class="op">:</span> <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t654" href="#t654">654</a></span><span class="t">        <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId'</span><span class="op">:</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
@@ -741,7 +741,7 @@
     <p class="pln"><span class="n"><a id="t659" href="#t659">659</a></span><span class="t">        <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringFieldMetKard'</span><span class="op">:</span> <span class="op">[</span><span class="str">'1'</span><span class="op">,</span> <span class="str">'2'</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t660" href="#t660">660</a></span><span class="t">    <span class="op">}</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t661" href="#t661">661</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t662" href="#t662">662</a></span><span class="t">    <span class="key">assert</span> <span class="nam">json_ld_dict</span> <span class="op">==</span> <span class="nam">expected</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t662" href="#t662">662</a></span><span class="t">    <span class="key">assert</span> <span class="nam">rdf_dict</span> <span class="op">==</span> <span class="nam">expected</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t663" href="#t663">663</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t664" href="#t664">664</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t665" href="#t665">665</a></span><span class="t"><span class="key">def</span> <span class="nam">test_create_ld_dict_from_asset_ComplexTypeMetKard</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -787,7 +787,7 @@
             <a id="nextFileLink" class="nav" href="d_b5538e4f72581b98_RelationCreator_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.3">coverage.py v7.2.3</a>,
-            created at 2023-04-21 12:24 +0000
+            created at 2023-04-24 21:53 +0000
         </p>
     </div>
 </footer>
