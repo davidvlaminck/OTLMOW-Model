@@ -387,12 +387,14 @@ def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list
             dict_item = _recursive_create_dict_from_asset(asset=item, waarde_shortcut=waarde_shortcut)
             if dict_item is not None:
                 l.append(dict_item)
-        if len(l) > 0:
-            return l
+        return l
     else:
         d = {}
         for attr in asset:
-            if attr.waarde is None or attr.waarde == []:
+            if attr.waarde is None:
+                continue
+            if attr.waarde == []:
+                d[attr.naam] = []
                 continue
 
             if attr.field.waardeObject is not None:  # complex
