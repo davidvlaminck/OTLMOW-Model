@@ -163,22 +163,16 @@ class OTLAttribuut:
             self._perform_cardinality_check(owner, value, kardinaliteit_max)
             converted_values = []
             for el_value in value:
-                try:
-                    converted_value = self.field.convert_to_correct_type(el_value)
-                    if issubclass(self.field, KeuzelijstField):
-                        converted_value = self.field.convert_to_invulwaarde(converted_value, self.field)
+                converted_value = self.field.convert_to_correct_type(el_value)
+                if issubclass(self.field, KeuzelijstField):
+                    converted_value = self.field.convert_to_invulwaarde(converted_value, self.field)
 
-                    field_validated = self.field.validate(converted_value, self)
-                    if not field_validated:
-                        raise ValueError(
-                            f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not '
-                            f'valid, must be valid for {self.field.naam}')
-                    converted_values.append(converted_value)
-                except TypeError as error:
+                field_validated = self.field.validate(converted_value, self)
+                if not field_validated:
                     raise ValueError(
-                        f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not valid, '
-                        f'must be valid for {self.field.naam}\n' + str(
-                            error))
+                        f'invalid value in list for {owner.__class__.__name__}.{self.naam}: {el_value} is not '
+                        f'valid, must be valid for {self.field.naam}')
+                converted_values.append(converted_value)
             self.waarde = converted_values
         else:
             if self.field.waardeObject is not None and isinstance(value, self.field.waardeObject):

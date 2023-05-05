@@ -696,3 +696,9 @@ def test_create_ld_dict_from_asset_ComplexTypeMetKard():
     }
 
     assert json_ld_dict == expected
+
+
+def test_raise_value_errors_in_set_waarde_with_cardinality():
+    instance = AllCasesTestClass()
+    with pytest.raises(ValueError):
+        instance.testKeuzelijstMetKard = ['1']
