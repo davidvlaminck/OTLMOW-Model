@@ -400,9 +400,7 @@ def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list
             if attr.field.waardeObject is not None:  # complex
                 if waarde_shortcut and attr.field.waarde_shortcut_applicable:
                     if isinstance(attr.waarde, list):
-                        dict_item = []
-                        for item in attr.waarde:
-                            dict_item.append(item.waarde)
+                        dict_item = [item.waarde for item in attr.waarde]
                         if len(dict_item) > 0:
                             d[attr.naam] = dict_item
                     else:
@@ -446,9 +444,7 @@ def _recursive_create_rdf_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, 
             if attr.field.waardeObject is not None:  # complex
                 if waarde_shortcut and attr.field.waarde_shortcut_applicable:
                     if isinstance(attr.waarde, list):
-                        dict_item = []
-                        for item in attr.waarde:
-                            dict_item.append(item.waarde)
+                        dict_item = [item.waarde for item in attr.waarde]
                         if len(dict_item) > 0:
                             d[attr.objectUri] = dict_item
                     else:
