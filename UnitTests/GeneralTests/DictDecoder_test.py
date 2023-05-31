@@ -70,7 +70,6 @@ def test_get_attribute_by_uri_union():
 
 def test_get_attribute_by_uri_kwant_wrd_shortcut_False():
     instance = AllCasesTestClass()
-    instance.testKwantWrd.waarde = 1.2
     attr = get_attribute_by_uri(instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd')
     assert attr is not None
     assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd'
@@ -78,7 +77,6 @@ def test_get_attribute_by_uri_kwant_wrd_shortcut_False():
 
 def test_get_attribute_by_uri_dte_kard_shortcut_False():
     instance = AllCasesTestClass()
-    instance.testEenvoudigTypeMetKard[0].waarde = '1'
     attr = get_attribute_by_uri(instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard')
     assert attr is not None
     assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard'
@@ -86,7 +84,13 @@ def test_get_attribute_by_uri_dte_kard_shortcut_False():
 
 def test_get_attribute_by_uri_complex_kard():
     instance = AllCasesTestClass()
-    instance.testComplexTypeMetKard[0].testStringField = '1'
-    attr = get_attribute_by_uri(instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard')
+    attr = get_attribute_by_uri(
+        instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard')
     assert attr is not None
     assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard'
+
+    attr2 = get_attribute_by_uri(
+        instance.testComplexTypeMetKard[0],
+        key='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField')
+    assert attr2 is not None
+    assert attr2.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField'

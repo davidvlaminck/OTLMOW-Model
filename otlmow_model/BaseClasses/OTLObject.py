@@ -535,7 +535,7 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
 
 
 def get_attribute_by_uri(instance_or_attribute, key: str) -> OTLAttribuut:
-    return next(v for v in vars(instance_or_attribute).values() if isinstance(v, OTLAttribuut) and v.objectUri == key)
+    return next(v for v in instance_or_attribute if v.objectUri == key)
 
 
 def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut:
