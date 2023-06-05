@@ -65,7 +65,7 @@ Validation or conversion happens behind the scenes.
 You'll also get warnings for using deprecated classes or attributes.
 ```
 camera.isPtz = 'True'  # this raises a warning, as the value can be interpreted but is not the correct type
-camera.isPtz = 20  # raises a CouldNotConvertToCorrectTypeError
+camera.isPtz = 20.0  # raises a CouldNotConvertToCorrectTypeError
 ```
 Inspect the object by printing it.
 ```
@@ -107,7 +107,7 @@ given type is valid between two instances of objects within the model. Use the R
 from otlmow_model.Classes.Onderdeel.Camera import Camera
 from otlmow_model.Classes.Onderdeel.Bevestiging import Bevestiging
 from otlmow_model.Classes.Onderdeel.Wegkantkast import Wegkantkast
-from otlmow_model.Helpers.RelationValidator import RelationValidator
+from otlmow_model.Helpers.RelationValidator import is_valid_relation
 
 camera = Camera()
 kast = Wegkantkast()
