@@ -112,6 +112,7 @@ def test_create_relation_input_parameters(subtests):
         relation = create_relation(source=kast, target_uuid=uuid, target_typeURI=typeURI,
                                    relation_type=HoortBij)
         assert relation is not None
+        assert relation.doelAssetId.identificator == '847a91b3-569d-4bae-87bf-7e148e8f7de9-bGdjOmluc3RhbGxhdGllI0JlaGVlcnN5cw'
 
 
 def test_create_invalid_relation():

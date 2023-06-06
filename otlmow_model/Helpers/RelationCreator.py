@@ -75,13 +75,17 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if not validate_guid(source_uuid):
             raise ValueError('source_uuid is not a valid guid format.')
 
-        ns, name = get_ns_and_name_from_uri(source_typeURI)
-        encoded_uri = encode_short_uri(f'{ns}#{name}')
-        source_aim_id = f'{source_uuid}-{encoded_uri}'
-
         if 'lgc.' in source_typeURI:
             source_is_legacy = True
+
+        ns, name = get_ns_and_name_from_uri(source_typeURI)
+        if source_is_legacy:
+            encoded_uri = encode_short_uri(f'lgc:{ns}#{name}')
         else:
+            encoded_uri = encode_short_uri(f'{ns}#{name}')
+        source_aim_id = f'{source_uuid}-{encoded_uri}'
+
+        if not source_is_legacy:
             source = dynamic_create_instance_from_uri(source_typeURI, directory=class_directory)
             source.assetId.identificator = source_aim_id
             source.assetId.toegekendDoor = 'AWV'
@@ -90,13 +94,17 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if not validate_guid(target_uuid):
             raise ValueError('target_uuid is not a valid guid format.')
 
-        ns, name = get_ns_and_name_from_uri(target_typeURI)
-        encoded_uri = encode_short_uri(f'{ns}#{name}')
-        target_aim_id = f'{target_uuid}-{encoded_uri}'
-
         if 'lgc.' in target_typeURI:
             target_is_legacy = True
+
+        ns, name = get_ns_and_name_from_uri(target_typeURI)
+        if target_is_legacy:
+            encoded_uri = encode_short_uri(f'lgc:{ns}#{name}')
         else:
+            encoded_uri = encode_short_uri(f'{ns}#{name}')
+        target_aim_id = f'{target_uuid}-{encoded_uri}'
+
+        if not target_is_legacy:
             target = dynamic_create_instance_from_uri(target_typeURI, directory=class_directory)
             target.assetId.identificator = target_aim_id
             target.assetId.toegekendDoor = 'AWV'
@@ -141,6 +149,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
     relation_type.assetId.identificator = relation_id
     relation_type.assetId.toegekendDoor = 'OTLMOW'
 
+    # TODO replace check with check for format of AIM id, if False, add typeURI
     if relation_type.bronAssetId.toegekendDoor != 'AWV':
         relation_type.bron.typeURI = source.typeURI
     if relation_type.doelAssetId.toegekendDoor != 'AWV':
