@@ -312,7 +312,7 @@ class OTLObject(object):
         return create_dict_from_asset(self) == create_dict_from_asset(other)
 
     @classmethod
-    def from_dict(cls, input_dict: Dict, directory: str = 'otlmow_model.Classes',
+    def from_dict(cls, input_dict: Dict, directory: str = 'otlmow_model.Classes', rdf: bool = False,
                   waarde_shortcut: bool = False) -> object:
         """Alternative constructor. Allows the instantiation of an object using a dictionary. Either start from the
         appropriate class or add a typeURI entry to the dictionary to get an instance of that type.
@@ -321,12 +321,16 @@ class OTLObject(object):
         :type: dict
         :param directory: directory where the class modules are located, defaults to otlmow_model.Classes
         :type: str
+        :param rdf: whether to use uri's as keys instead of the names, defaults to False
+        :type: bool
         :param waarde_shortcut: whether to use the waarde shortcut when processing the dictionary, defaults to False
         :type: bool
         :return: returns an instance where the values of the attributes matches the given dictionary
         :rtype: OTLObject"""
-        if 'typeURI' in input_dict:
+        if not rdf and 'typeURI' in input_dict:
             type_uri = input_dict['typeURI']
+        elif rdf and 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI' in input_dict:
+            type_uri = input_dict['https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI']
         else:
             type_uri = cls.typeURI
 
@@ -341,9 +345,9 @@ class OTLObject(object):
                 'typeURI is invalid. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
 
         for k, v in input_dict.items():
-            if k == 'typeURI':
+            if k == 'typeURI' or k == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI':
                 continue
-            set_value_by_dictitem(o, k, v, waarde_shortcut=waarde_shortcut)
+            set_value_by_dictitem(o, k, v, waarde_shortcut=waarde_shortcut, rdf=rdf)
         return o
 
 
@@ -546,8 +550,11 @@ def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut:
 # dict decoder = dict to asset object
 
 def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value,
-                          waarde_shortcut: bool = False):
-    attribute_to_set = get_attribute_by_name(instance_or_attribute, key)
+                          waarde_shortcut: bool = False, rdf: bool = False):
+    if rdf:
+        attribute_to_set = get_attribute_by_uri(instance_or_attribute, key)
+    else:
+        attribute_to_set = get_attribute_by_name(instance_or_attribute, key)
 
     if attribute_to_set.field.waardeObject is not None:  # complex / union / KwantWrd / dte
         if isinstance(value, list):
@@ -559,7 +566,7 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
                     attribute_to_set.waarde[index]._waarde.set_waarde(list_item)
                 else:  # complex / union
                     for k, v in list_item.items():
-                        set_value_by_dictitem(attribute_to_set.waarde[index], k, v, waarde_shortcut)
+                        set_value_by_dictitem(attribute_to_set.waarde[index], k, v, waarde_shortcut, rdf=rdf)
 
         elif isinstance(value, dict):  # only complex / union possible
             if attribute_to_set.waarde is None:
@@ -567,10 +574,10 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
 
             if attribute_to_set.kardinaliteit_max != '1':
                 for k, v in value.items():
-                    set_value_by_dictitem(attribute_to_set.waarde[0], k, v, waarde_shortcut)
+                    set_value_by_dictitem(attribute_to_set.waarde[0], k, v, waarde_shortcut, rdf=rdf)
             else:
                 for k, v in value.items():
-                    set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut)
+                    set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut, rdf=rdf)
         else:  # must be a dte / kwantWrd
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()

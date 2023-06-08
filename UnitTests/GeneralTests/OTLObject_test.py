@@ -17,6 +17,15 @@ def test_from_dict_typeURI_in_dict():
     assert AllCasesTestClass.typeURI == instance.typeURI
 
 
+def test_from_dict_rdf_typeURI_in_dict():
+    input_dict = {
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI':
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+    instance = OTLObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+    assert instance is not None
+    assert AllCasesTestClass.typeURI == instance.typeURI
+
+
 def test_from_dict_abstract_class_no_typeURI_in_dict():
     input_dict = {}
     with pytest.raises(ValueError):
@@ -48,12 +57,57 @@ def test_from_dict_simple_single_attributes():
     assert instance.testStringField == 'test'
 
 
+def test_from_dict_rdf_simple_single_attributes():
+    input_dict = {
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testBooleanField': True,
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKeuzelijst': 'waarde-2',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateField': '2023-01-01',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateTimeField': '2023-01-01 10:11:12',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testTimeField': '10:11:12',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDecimalField': 1.2,
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testIntegerField': 1,
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringField': 'test'}
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+    assert instance is not None
+    assert isinstance(instance, AllCasesTestClass)
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.testBooleanField
+    assert instance.testKeuzelijst == 'waarde-2'
+    assert instance.testDateField == datetime.date(2023, 1, 1)
+    assert instance.testDateTimeField == datetime.datetime(2023, 1, 1, 10, 11, 12)
+    assert instance.testTimeField == datetime.time(10, 11, 12)
+    assert instance.testDecimalField == 1.2
+    assert instance.testIntegerField == 1
+    assert instance.testStringField == 'test'
+
+
 def test_from_dict_simple_attributes_with_cardinality():
     input_dict = {'testDecimalFieldMetKard': [1.2, 2.3],
                   'testIntegerFieldMetKard': [1, 2],
                   'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
                   'testStringFieldMetKard': ['1', '2']}
     instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance is not None
+    assert isinstance(instance, AllCasesTestClass)
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.testDecimalFieldMetKard[0] == 1.2
+    assert instance.testDecimalFieldMetKard[1] == 2.3
+    assert instance.testIntegerFieldMetKard[0] == 1
+    assert instance.testIntegerFieldMetKard[1] == 2
+    assert instance.testKeuzelijstMetKard[0] == 'waarde-1'
+    assert instance.testKeuzelijstMetKard[1] == 'waarde-2'
+    assert instance.testStringFieldMetKard[0] == '1'
+    assert instance.testStringFieldMetKard[1] == '2'
+
+
+def test_from_dict_rdf_simple_attributes_with_cardinality():
+    input_dict = {
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDecimalFieldMetKard': [1.2, 2.3],
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testIntegerFieldMetKard': [1, 2],
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKeuzelijstMetKard': ['waarde-1',
+                                                                                                           'waarde-2'],
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringFieldMetKard': ['1', '2']}
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -102,6 +156,55 @@ def test_from_dict_attributes_with_waarde_shortcut(subtests):
         assert instance.testKwantWrdMetKard[1].waarde == 2.3
 
 
+def test_from_dict_rdf_attributes_with_waarde_shortcut(subtests):
+    with subtests.test('waarde_shortcut = True'):
+        input_dict = {'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigType': '1',
+                      'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard': [
+                          '1', '2'],
+                      'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd': 1.2,
+                      'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrdMetKard': [
+                          1.2, 2.3]}
+        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes',
+                                               waarde_shortcut=True, rdf=True)
+        assert instance is not None
+        assert isinstance(instance, AllCasesTestClass)
+        assert AllCasesTestClass.typeURI == instance.typeURI
+        assert instance.testEenvoudigType.waarde == '1'
+        assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
+        assert instance.testEenvoudigTypeMetKard[1].waarde == '2'
+        assert instance.testKwantWrd.waarde == 1.2
+        assert instance.testKwantWrdMetKard[0].waarde == 1.2
+        assert instance.testKwantWrdMetKard[1].waarde == 2.3
+
+    with subtests.test('waarde_shortcut = False'):
+        input_dict = {'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigType':
+            {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DteTestEenvoudigType.waarde': '1'},
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard':
+                [{
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DteTestEenvoudigType.waarde': '1'},
+                    {
+                        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DteTestEenvoudigType.waarde': '2'}],
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd':
+                {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.2},
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrdMetKard':
+                [{
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.2},
+                    {
+                        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 2.3}]}
+        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+        assert instance is not None
+        assert isinstance(instance, AllCasesTestClass)
+        assert AllCasesTestClass.typeURI == instance.typeURI
+        assert instance.testEenvoudigType.waarde == '1'
+        assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
+        assert instance.testEenvoudigTypeMetKard[1].waarde == '2'
+        assert instance.testKwantWrd.waarde == 1.2
+        assert instance.testKwantWrdMetKard[0].waarde == 1.2
+        assert instance.testKwantWrdMetKard[1].waarde == 2.3
+
+
 def test_from_dict_complex_single_attributes():
     input_dict = {'testComplexType': {'testBooleanField': True,
                                       'testComplexType2': {
@@ -109,6 +212,27 @@ def test_from_dict_complex_single_attributes():
                                       'testKwantWrd': {'waarde': 1.2}},
                   'testUnionType': {'unionString': 'union_test'}}
     instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance is not None
+    assert isinstance(instance, AllCasesTestClass)
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.testComplexType.testBooleanField
+    assert instance.testComplexType.testComplexType2.testStringField == 'test'
+    assert instance.testComplexType.testKwantWrd.waarde == 1.2
+    assert instance.testUnionType.unionString == 'union_test'
+
+
+def test_from_dict_rdf_complex_single_attributes():
+    input_dict = {
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexType':
+            {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testBooleanField': True,
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'test'},
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrd': {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.2}},
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionType': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test'}}
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -130,6 +254,45 @@ def test_from_dict_complex_attributes_with_cardinality():
         'testUnionTypeMetKard': [{'unionString': 'union_test'}, {'unionString': 'union_test2'}]
     }
     instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert instance is not None
+    assert isinstance(instance, AllCasesTestClass)
+    assert AllCasesTestClass.typeURI == instance.typeURI
+    assert instance.testComplexTypeMetKard[0].testBooleanField
+    assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField == 'test2.1'
+    assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[1].testStringField == 'test2.2'
+    assert instance.testComplexTypeMetKard[0].testKwantWrdMetKard[0].waarde == 1.2
+    assert instance.testComplexTypeMetKard[0].testKwantWrdMetKard[1].waarde == 2.3
+    assert instance.testComplexTypeMetKard[0].testStringFieldMetKard[0] == 'test3'
+    assert instance.testComplexTypeMetKard[0].testStringFieldMetKard[1] == 'test4'
+    assert instance.testComplexTypeMetKard[1].testStringFieldMetKard[0] == 'test5'
+    assert instance.testComplexTypeMetKard[1].testStringFieldMetKard[1] == 'test6'
+    assert instance.testUnionTypeMetKard[0].unionString == 'union_test'
+    assert instance.testUnionTypeMetKard[1].unionString == 'union_test2'
+
+
+def test_from_dict_rdf_complex_attributes_with_cardinality():
+    input_dict = {
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard':
+            [{
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testBooleanField': True,
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2MetKard':
+                     [{'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'test2.1'},
+                      {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'test2.2'}],
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrdMetKard':
+                     [{'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.2},
+                      {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 2.3}],
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard': [
+                     'test3', 'test4']},
+             {
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard': [
+                     'test5', 'test6']}],
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionTypeMetKard':
+            [{
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test'},
+             {
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test2'}]
+    }
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
