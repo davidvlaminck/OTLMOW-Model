@@ -1,7 +1,5 @@
-import base64
-import re
 import warnings
-from typing import Type, Optional, Match
+from typing import Type, Optional
 
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Classes.Agent import Agent
@@ -9,22 +7,8 @@ from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObjec
 from otlmow_model.Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
-from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri
+from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri, validate_guid, encode_short_uri
 from otlmow_model.Helpers.RelationValidator import is_valid_relation
-
-
-def validate_guid(uuid: str) -> Optional[Match]:
-    uuid_pattern = "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-    return re.match(uuid_pattern, uuid)
-
-
-def encode_short_uri(short_uri: str) -> str:
-    short_uri_bytes = short_uri.encode('ascii')
-    base64_bytes = base64.b64encode(short_uri_bytes)
-    base64_short_uri = base64_bytes.decode('ascii')
-    while base64_short_uri.endswith('='):
-        base64_short_uri = base64_short_uri[:-1]
-    return base64_short_uri
 
 
 def create_relation(relation_type: Type[RelatieObject], source: Optional[RelationInteractor] = None,
