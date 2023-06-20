@@ -7,7 +7,8 @@ from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObjec
 from otlmow_model.Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
-from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri, validate_guid, encode_short_uri
+from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri, validate_guid, encode_short_uri, \
+    get_aim_id_from_uuid_and_typeURI
 from otlmow_model.Helpers.RelationValidator import is_valid_relation
 
 
@@ -62,16 +63,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if 'lgc.' in source_typeURI:
             source_is_legacy = True
 
-        if source_typeURI == 'http://purl.org/dc/terms/Agent':
-            encoded_uri = 'purl:Agent'
-            source_aim_id = f'{source_uuid}-cHVybDpBZ2VudA'
-        else:
-            ns, name = get_ns_and_name_from_uri(source_typeURI)
-            if source_is_legacy:
-                encoded_uri = encode_short_uri(f'lgc:{ns}#{name}')
-            else:
-                encoded_uri = encode_short_uri(f'{ns}#{name}')
-            source_aim_id = f'{source_uuid}-{encoded_uri}'
+        source_aim_id = get_aim_id_from_uuid_and_typeURI(source_uuid, source_typeURI)
 
         if not source_is_legacy:
             source = dynamic_create_instance_from_uri(source_typeURI, directory=class_directory)
@@ -89,16 +81,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if 'lgc.' in target_typeURI:
             target_is_legacy = True
 
-        if target_typeURI == 'http://purl.org/dc/terms/Agent':
-            encoded_uri = 'purl:Agent'
-            target_aim_id = f'{target_uuid}-cHVybDpBZ2VudA'
-        else:
-            ns, name = get_ns_and_name_from_uri(target_typeURI)
-            if target_is_legacy:
-                encoded_uri = encode_short_uri(f'lgc:{ns}#{name}')
-            else:
-                encoded_uri = encode_short_uri(f'{ns}#{name}')
-            target_aim_id = f'{target_uuid}-{encoded_uri}'
+        target_aim_id = get_aim_id_from_uuid_and_typeURI(target_uuid, target_typeURI)
 
         if not target_is_legacy:
             target = dynamic_create_instance_from_uri(target_typeURI, directory=class_directory)
