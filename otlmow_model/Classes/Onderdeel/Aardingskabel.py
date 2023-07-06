@@ -24,12 +24,12 @@ class Aardingskabel(AIMNaamObject, KabelAarding, KabelAardingSamenstelling):
                                           naam='isGeisoleerd',
                                           label='is geïsoleerd',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aardingskabel.isGeisoleerd',
-                                          definition='Geeft expliciet aan of de aardingskabel al dan niet geïsoleerd is. ',
+                                          definition='Geeft expliciet aan of de aardingskabel al dan niet geïsoleerd is.',
                                           owner=self)
 
     @property
     def isGeisoleerd(self) -> bool:
-        """Geeft expliciet aan of de aardingskabel al dan niet geïsoleerd is. """
+        """Geeft expliciet aan of de aardingskabel al dan niet geïsoleerd is."""
         return self._isGeisoleerd.get_waarde()
 
     @isGeisoleerd.setter

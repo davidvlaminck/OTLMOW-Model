@@ -1,0 +1,60 @@
+# coding=utf-8
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.Classes.Abstracten.BetonnenConstructieElement import BetonnenConstructieElement
+from otlmow_model.Classes.Onderdeel.Funderingspaal import Funderingspaal
+from otlmow_model.BaseClasses.BooleanField import BooleanField
+from otlmow_model.Datatypes.KlTypeCFAPaal import KlTypeCFAPaal
+
+
+# Generated with OTLClassCreator. To modify: extend, do not edit
+class CFAPaal(Funderingspaal, BetonnenConstructieElement):
+    """Ook: mortelschroefpaal. Het betreft een schroefpaal met continue schroefboor met holle stam."""
+
+    typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#CFAPaal'
+    """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
+
+    def __init__(self):
+        Funderingspaal.__init__(self)
+        BetonnenConstructieElement.__init__(self)
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Grondanker')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Hoppinzuil')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verlichtingstoestel')
+
+        self._heeftVoerbuis = OTLAttribuut(field=BooleanField,
+                                           naam='heeftVoerbuis',
+                                           label='heeft voerbuis',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#CFAPaal.heeftVoerbuis',
+                                           definition='Geeft aan of de CFA paal een voerbuis of niet heeft.',
+                                           owner=self)
+
+        self._typeCFAPaal = OTLAttribuut(field=KlTypeCFAPaal,
+                                         naam='typeCFAPaal',
+                                         label='type CFA paal',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#CFAPaal.typeCFAPaal',
+                                         definition='Keuzelijst om de uitvoering van de CFA paal aan te geven.',
+                                         owner=self)
+
+    @property
+    def heeftVoerbuis(self) -> bool:
+        """Geeft aan of de CFA paal een voerbuis of niet heeft."""
+        return self._heeftVoerbuis.get_waarde()
+
+    @heeftVoerbuis.setter
+    def heeftVoerbuis(self, value):
+        self._heeftVoerbuis.set_waarde(value, owner=self)
+
+    @property
+    def typeCFAPaal(self) -> str:
+        """Keuzelijst om de uitvoering van de CFA paal aan te geven."""
+        return self._typeCFAPaal.get_waarde()
+
+    @typeCFAPaal.setter
+    def typeCFAPaal(self, value):
+        self._typeCFAPaal.set_waarde(value, owner=self)

@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,16 @@ class KlSensorOpstelwijze(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSensorOpstelwijze'
     options = {
+        'rechtstreeks-op-rechte-steun': KeuzelijstWaarde(invulwaarde='rechtstreeks-op-rechte-steun',
+                                                         label='Rechtstreeks op rechte steun',
+                                                         status='ingebruik',
+                                                         definitie='Rechtstreeks op rechte steun',
+                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSensorOpstelwijze/rechtstreeks-op-rechte-steun'),
+        'via-dwarsligger-op-rechte-steun': KeuzelijstWaarde(invulwaarde='via-dwarsligger-op-rechte-steun',
+                                                            label='Via dwarsligger op rechte steun',
+                                                            status='ingebruik',
+                                                            definitie='Via dwarsligger op rechte steun',
+                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSensorOpstelwijze/via-dwarsligger-op-rechte-steun')
     }
 
     @classmethod

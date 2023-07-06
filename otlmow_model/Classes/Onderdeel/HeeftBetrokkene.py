@@ -22,14 +22,14 @@ class HeeftBetrokkene(DirectioneleRelatie):
                                           naam='datumAanvang',
                                           label='datum aanvang',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene.datumAanvang',
-                                          definition='De datum waarop de betrokkenheid effectief geworden is of zal worden. ',
+                                          definition='De datum waarop de betrokkenheid effectief geworden is of zal worden.',
                                           owner=self)
 
         self._datumEinde = OTLAttribuut(field=DateField,
                                         naam='datumEinde',
                                         label='datum einde',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene.datumEinde',
-                                        definition='De datum waarop de betrokkenheid beëindigd is of moet beëindigd worden. ',
+                                        definition='De datum waarop de betrokkenheid beëindigd is of moet beëindigd worden.',
                                         owner=self)
 
         self._rol = OTLAttribuut(field=KlBetrokkenheidRol,
@@ -50,7 +50,7 @@ class HeeftBetrokkene(DirectioneleRelatie):
 
     @property
     def datumAanvang(self) -> date:
-        """De datum waarop de betrokkenheid effectief geworden is of zal worden. """
+        """De datum waarop de betrokkenheid effectief geworden is of zal worden."""
         return self._datumAanvang.get_waarde()
 
     @datumAanvang.setter
@@ -59,7 +59,7 @@ class HeeftBetrokkene(DirectioneleRelatie):
 
     @property
     def datumEinde(self) -> date:
-        """De datum waarop de betrokkenheid beëindigd is of moet beëindigd worden. """
+        """De datum waarop de betrokkenheid beëindigd is of moet beëindigd worden."""
         return self._datumEinde.get_waarde()
 
     @datumEinde.setter

@@ -17,7 +17,12 @@ class KlNeerslagsensorMerk(KeuzelijstField):
         'Luft': KeuzelijstWaarde(invulwaarde='Luft',
                                  label='Luft',
                                  status='ingebruik',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorMerk/Luft')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorMerk/Luft'),
+        'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',
+                                    label='Vaisala',
+                                    status='ingebruik',
+                                    definitie='Vaisala',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorMerk/vaisala')
     }
 
     @classmethod

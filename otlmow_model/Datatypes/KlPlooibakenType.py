@@ -6,11 +6,11 @@ from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlPlooibakenType(KeuzelijstField):
-    """ vormen van een plooibaken."""
+    """vormen van een plooibaken."""
     naam = 'KlPlooibakenType'
     label = 'Plooibaken type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPlooibakenType'
-    definition = ' vormen van een plooibaken.'
+    definition = 'vormen van een plooibaken.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlooibakenType'
     options = {

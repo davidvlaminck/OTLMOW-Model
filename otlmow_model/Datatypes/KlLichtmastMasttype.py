@@ -63,7 +63,17 @@ class KlLichtmastMasttype(KeuzelijstField):
                                 label='RMS',
                                 status='ingebruik',
                                 definitie='Rechte metalen paal op voet',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasttype/RMS')
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasttype/RMS'),
+        'rmk': KeuzelijstWaarde(invulwaarde='rmk',
+                                label='RMK',
+                                status='ingebruik',
+                                definitie='Rechte mast kreukel',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasttype/rmk'),
+        'rmks': KeuzelijstWaarde(invulwaarde='rmks',
+                                 label='RMKS',
+                                 status='ingebruik',
+                                 definitie='Rechte mast kreukel sokkel',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasttype/rmks')
     }
 
     @classmethod

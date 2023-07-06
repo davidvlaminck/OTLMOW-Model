@@ -21,6 +21,16 @@ class Ladder(AIMNaamObject, AanhorighedenBrug, LijnGeometrie):
         AanhorighedenBrug.__init__(self)
         LijnGeometrie.__init__(self)
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompstation')
+
+        self._heeftBordes = OTLAttribuut(field=BooleanField,
+                                         naam='heeftBordes',
+                                         label='heeft bordes',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder.heeftBordes',
+                                         definition='Geeft aan of de ladder een bordes heeft, al dan niet. Een bordes wordt voorzien bij kooiladders vanaf 10 meter om iedere 6 meter de mogelijkheid te geven om te rusten.',
+                                         owner=self)
+
         self._heeftRailMetAntivaltoestel = OTLAttribuut(field=BooleanField,
                                                         naam='heeftRailMetAntivaltoestel',
                                                         label='heeft rail met antivaltoestel',
@@ -76,6 +86,15 @@ class Ladder(AIMNaamObject, AanhorighedenBrug, LijnGeometrie):
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder.uitschuiffbaarlengte',
                                                   definition='De lengte, uitgedrukt in meter, tot waar de ladder uitschuifbaar is.',
                                                   owner=self)
+
+    @property
+    def heeftBordes(self) -> bool:
+        """Geeft aan of de ladder een bordes heeft, al dan niet. Een bordes wordt voorzien bij kooiladders vanaf 10 meter om iedere 6 meter de mogelijkheid te geven om te rusten."""
+        return self._heeftBordes.get_waarde()
+
+    @heeftBordes.setter
+    def heeftBordes(self, value):
+        self._heeftBordes.set_waarde(value, owner=self)
 
     @property
     def heeftRailMetAntivaltoestel(self) -> bool:

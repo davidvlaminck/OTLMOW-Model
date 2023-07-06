@@ -1,23 +1,26 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Controller import Controller
+from otlmow_model.Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlPLCMerk import KlPLCMerk
 from otlmow_model.Datatypes.KlPLCModelnaam import KlPLCModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class PLC(Controller):
+class PLC(Controller, ElektrischComponentennummerObject):
     """Een verwerkingseenheid die volgens een vaste cyclus op basis van informatie van zijn ingangen, zijn uitgangen aanstuurt op basis van zijn programma. Omwille van zijn vormfactor kan de eenheid gebruikt worden in een vijandige omgeving."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        super().__init__()
+        Controller.__init__(self)
+        ElektrischComponentennummerObject.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rack')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Niveaumeting')

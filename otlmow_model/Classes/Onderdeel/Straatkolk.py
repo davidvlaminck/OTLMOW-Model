@@ -85,7 +85,7 @@ class Straatkolk(PutRelatie, Put, PuntGeometrie):
 
         self._typeUitlaat = OTLAttribuut(field=KlStraatkolkTypeUitlaat,
                                          naam='typeUitlaat',
-                                         label='type uitlaat ',
+                                         label='type uitlaat',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkolk.typeUitlaat',
                                          definition='Het type van uitlaat van de straatkolk.',
                                          owner=self)

@@ -33,7 +33,7 @@ class Bewegingssensor(AIMNaamObject, SerienummerObject, PuntGeometrie):
                                              naam='detectieAfstand',
                                              label='detectie afstand',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bewegingssensor.detectieAfstand',
-                                             definition='De detectieafstand of het bereik van de bewegingssensor geeft de maximale afstand in meter aan voor de detectie van aanwezigheid, tov het toestel. ',
+                                             definition='De detectieafstand of het bereik van de bewegingssensor geeft de maximale afstand in meter aan voor de detectie van aanwezigheid, tov het toestel.',
                                              owner=self)
 
         self._detectiemethode = OTLAttribuut(field=KlBewegingssensorDetectiemethode,
@@ -54,7 +54,7 @@ class Bewegingssensor(AIMNaamObject, SerienummerObject, PuntGeometrie):
                                                 naam='materiaalBehuizing',
                                                 label='materiaal behuizing',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bewegingssensor.materiaalBehuizing',
-                                                definition='Het materiaal waaruit de behuizing van de sensor vervaardigd is. ',
+                                                definition='Het materiaal waaruit de behuizing van de sensor vervaardigd is.',
                                                 owner=self)
 
         self._merk = OTLAttribuut(field=KlBewegingssensorMerk,
@@ -87,7 +87,7 @@ class Bewegingssensor(AIMNaamObject, SerienummerObject, PuntGeometrie):
 
     @property
     def detectieAfstand(self) -> KwantWrdInMeterWaarden:
-        """De detectieafstand of het bereik van de bewegingssensor geeft de maximale afstand in meter aan voor de detectie van aanwezigheid, tov het toestel. """
+        """De detectieafstand of het bereik van de bewegingssensor geeft de maximale afstand in meter aan voor de detectie van aanwezigheid, tov het toestel."""
         return self._detectieAfstand.get_waarde()
 
     @detectieAfstand.setter
@@ -114,7 +114,7 @@ class Bewegingssensor(AIMNaamObject, SerienummerObject, PuntGeometrie):
 
     @property
     def materiaalBehuizing(self) -> str:
-        """Het materiaal waaruit de behuizing van de sensor vervaardigd is. """
+        """Het materiaal waaruit de behuizing van de sensor vervaardigd is."""
         return self._materiaalBehuizing.get_waarde()
 
     @materiaalBehuizing.setter

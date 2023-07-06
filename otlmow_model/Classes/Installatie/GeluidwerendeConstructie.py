@@ -1,7 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
+from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
@@ -9,14 +9,14 @@ from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class GeluidwerendeConstructie(AIMObject, LijnGeometrie):
+class GeluidwerendeConstructie(AIMNaamObject, LijnGeometrie):
     """Een geluidswerende wandvormige constructie bestaande uit een desgevallend geluidsisolerend materiaal en/of geluidsabsorberend materiaal en voorzien van de nodige structuren om de bouwkundige stabiliteit te verzekeren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GeluidwerendeConstructie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
+        AIMNaamObject.__init__(self)
         LijnGeometrie.__init__(self)
 
         self._detailplanHoogteverloop = OTLAttribuut(field=DtcDocument,

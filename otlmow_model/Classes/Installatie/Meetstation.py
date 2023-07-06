@@ -12,7 +12,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Meetstation(AIMNaamObject, PuntGeometrie, VlakGeometrie):
-    """De plaats waar verschillende sensoren samen 1 meetstation vormen. """
+    """De plaats waar verschillende sensoren samen 1 meetstation vormen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

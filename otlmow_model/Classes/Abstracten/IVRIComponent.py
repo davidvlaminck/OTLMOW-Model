@@ -31,7 +31,7 @@ class IVRIComponent(Software):
                                          naam='certificaat',
                                          label='certificaat',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#IVRIComponent.certificaat',
-                                         definition='Certificaat van de keuringsinstantie dat wordt uitgereikt aan een iVRI (intelligente verkeersregelaar) component. ',
+                                         definition='Certificaat van de keuringsinstantie dat wordt uitgereikt aan een iVRI (intelligente verkeersregelaar) component.',
                                          owner=self)
 
     @property
@@ -45,7 +45,7 @@ class IVRIComponent(Software):
 
     @property
     def certificaat(self) -> DtcDocumentWaarden:
-        """Certificaat van de keuringsinstantie dat wordt uitgereikt aan een iVRI (intelligente verkeersregelaar) component. """
+        """Certificaat van de keuringsinstantie dat wordt uitgereikt aan een iVRI (intelligente verkeersregelaar) component."""
         return self._certificaat.get_waarde()
 
     @certificaat.setter

@@ -1,20 +1,20 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
+from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlLEGCOpeningType import KlLEGCOpeningType
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Vluchtopening(AIMObject, PuntGeometrie):
+class Vluchtopening(AIMNaamObject, PuntGeometrie):
     """Vluchtopeningen voorzien een vluchtmogelijkheid. Deze bezitten dezelfde akoestische kwaliteitseisen als de voorgestelde schermen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Vluchtopening'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
+        AIMNaamObject.__init__(self)
         PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0')

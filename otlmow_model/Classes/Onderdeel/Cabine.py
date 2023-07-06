@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Inloopbehuizing import Inloopbehuizing
+from otlmow_model.Datatypes.KlCabineAardingsstelsel import KlCabineAardingsstelsel
 from otlmow_model.Datatypes.KlCabineStandaardtype import KlCabineStandaardtype
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -23,6 +24,15 @@ class Cabine(Inloopbehuizing, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Transformator')
 
+        self._aardingsstelsel = OTLAttribuut(field=KlCabineAardingsstelsel,
+                                             naam='aardingsstelsel',
+                                             label='aardingsstelsel',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine.aardingsstelsel',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.7.0 ',
+                                             deprecated_version='2.7.0',
+                                             definition='Keuze tussen verschillende types voor het gebruikte aardingsstelsel.',
+                                             owner=self)
+
         self._kelderdiepte = OTLAttribuut(field=KwantWrdInMeter,
                                           naam='kelderdiepte',
                                           label='kelderdiepte',
@@ -36,6 +46,15 @@ class Cabine(Inloopbehuizing, VlakGeometrie):
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine.standaardtype',
                                            definition='Het type van de cabine volgens de gangbare standaarden.',
                                            owner=self)
+
+    @property
+    def aardingsstelsel(self) -> str:
+        """Keuze tussen verschillende types voor het gebruikte aardingsstelsel."""
+        return self._aardingsstelsel.get_waarde()
+
+    @aardingsstelsel.setter
+    def aardingsstelsel(self, value):
+        self._aardingsstelsel.set_waarde(value, owner=self)
 
     @property
     def kelderdiepte(self) -> KwantWrdInMeterWaarden:

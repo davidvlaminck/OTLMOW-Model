@@ -34,7 +34,7 @@ class Slemlaag(AndereLaag, VlakGeometrie):
                                             naam='productfamilie',
                                             label='productfamilie',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Slemlaag.productfamilie',
-                                            definition='Bepaling tot welke productfamilie de slemlaag behoort. ',
+                                            definition='Bepaling tot welke productfamilie de slemlaag behoort.',
                                             owner=self)
 
         self._soort = OTLAttribuut(field=KlSlemlaagsoort,
@@ -55,7 +55,7 @@ class Slemlaag(AndereLaag, VlakGeometrie):
 
     @property
     def productfamilie(self) -> str:
-        """Bepaling tot welke productfamilie de slemlaag behoort. """
+        """Bepaling tot welke productfamilie de slemlaag behoort."""
         return self._productfamilie.get_waarde()
 
     @productfamilie.setter

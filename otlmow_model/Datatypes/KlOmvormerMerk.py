@@ -33,7 +33,12 @@ class KlOmvormerMerk(KeuzelijstField):
                                          label='KTI NETWORKS',
                                          status='ingebruik',
                                          definitie='KTI NETWORKS',
-                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerMerk/kti-networks')
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerMerk/kti-networks'),
+        'siqura': KeuzelijstWaarde(invulwaarde='siqura',
+                                   label='Siqura',
+                                   status='ingebruik',
+                                   definitie='Siqura',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerMerk/siqura')
     }
 
     @classmethod

@@ -6,10 +6,11 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlVeiligheidsrelaisMerk import KlVeiligheidsrelaisMerk
 from otlmow_model.Datatypes.KlVeiligheidsrelaisModelnaam import KlVeiligheidsrelaisModelnaam
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Veiligheidsrelais(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
+class Veiligheidsrelais(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
     """Relais voor de bewaking van de noodstop binnen het noodstopcircuit. Voldoet omwille aan specifieke vereisten om te vermijden dat een storing tot een verlies van de veiligheidsfunctie kan leiden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Veiligheidsrelais'
@@ -19,10 +20,13 @@ class Veiligheidsrelais(AIMNaamObject, ElektrischComponentennummerObject, Serien
         AIMNaamObject.__init__(self)
         ElektrischComponentennummerObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Noodstopknop')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VoedtAangestuurd', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactor')
 
         self._merk = OTLAttribuut(field=KlVeiligheidsrelaisMerk,
                                   naam='merk',

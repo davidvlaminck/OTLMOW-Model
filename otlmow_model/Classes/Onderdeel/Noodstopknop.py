@@ -6,10 +6,11 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 from otlmow_model.Datatypes.KlNoodstopknopMerk import KlNoodstopknopMerk
 from otlmow_model.Datatypes.KlNoodstopknopModelnaam import KlNoodstopknopModelnaam
 from otlmow_model.Datatypes.KlNoodstopknopUitvoering import KlNoodstopknopUitvoering
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Noodstopknop(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
+class Noodstopknop(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
     """Een knop waarmee de werking van een machine of installatie koste wat het koste onmiddellijk stilgelegd wordt. Ook noodstopschakelaar genoemd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Noodstopknop'
@@ -19,6 +20,7 @@ class Noodstopknop(AIMNaamObject, ElektrischComponentennummerObject, Serienummer
         AIMNaamObject.__init__(self)
         ElektrischComponentennummerObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Veiligheidsrelais')

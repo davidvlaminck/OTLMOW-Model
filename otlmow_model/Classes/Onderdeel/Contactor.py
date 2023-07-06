@@ -1,12 +1,16 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
+from otlmow_model.Classes.Abstracten.MotorVermogenskring import MotorVermogenskring
+from otlmow_model.Classes.Abstracten.SerienummerObject import SerienummerObject
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
+from otlmow_model.Datatypes.KlContactorMerk import KlContactorMerk
+from otlmow_model.Datatypes.KlContactorModelnaam import KlContactorModelnaam
 from otlmow_model.Datatypes.KlContactorType import KlContactorType
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Contactor(AIMObject, PuntGeometrie):
+class Contactor(AIMObject, ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject):
     """Toestel dat ter plaatse of op afstand aangestuurd wordt om (grote) vermogensstromen af te schakelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactor'
@@ -14,7 +18,9 @@ class Contactor(AIMObject, PuntGeometrie):
 
     def __init__(self):
         AIMObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        ElektrischComponentennummerObject.__init__(self)
+        MotorVermogenskring.__init__(self)
+        SerienummerObject.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord')
@@ -26,12 +32,44 @@ class Contactor(AIMObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VoedtAangestuurd', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SlagboomarmVerlichting')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VoedtAangestuurd', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Slagboomkolom')
 
+        self._merk = OTLAttribuut(field=KlContactorMerk,
+                                  naam='merk',
+                                  label='merk',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactor.merk',
+                                  definition='Het merk van de contactor volgens de fabrikant.',
+                                  owner=self)
+
+        self._modelnaam = OTLAttribuut(field=KlContactorModelnaam,
+                                       naam='modelnaam',
+                                       label='modelnaam',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactor.modelnaam',
+                                       definition='De modelnaam van de contactor volgens de fabrikant.',
+                                       owner=self)
+
         self._type = OTLAttribuut(field=KlContactorType,
                                   naam='type',
                                   label='type contactor',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactor.type',
                                   definition='Geeft aan of het een K of Q contactor betreft.',
                                   owner=self)
+
+    @property
+    def merk(self) -> str:
+        """Het merk van de contactor volgens de fabrikant."""
+        return self._merk.get_waarde()
+
+    @merk.setter
+    def merk(self, value):
+        self._merk.set_waarde(value, owner=self)
+
+    @property
+    def modelnaam(self) -> str:
+        """De modelnaam van de contactor volgens de fabrikant."""
+        return self._modelnaam.get_waarde()
+
+    @modelnaam.setter
+    def modelnaam(self, value):
+        self._modelnaam.set_waarde(value, owner=self)
 
     @property
     def type(self) -> str:

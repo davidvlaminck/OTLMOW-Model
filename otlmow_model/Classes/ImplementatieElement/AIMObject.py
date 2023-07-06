@@ -30,6 +30,7 @@ class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AanvullendeGeometrie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='http://purl.org/dc/terms/Agent')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftToegangsprocedure', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject')
@@ -76,7 +77,7 @@ class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor):
                                                     naam='theoretischeLevensduur',
                                                     label='theoretische levensduur',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.theoretischeLevensduur',
-                                                    definition=' De levensduur in aantal maanden die theoretisch mag verwacht worden voor een object.',
+                                                    definition='De levensduur in aantal maanden die theoretisch mag verwacht worden voor een object.',
                                                     owner=self)
 
     @property
@@ -126,7 +127,7 @@ class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor):
 
     @property
     def theoretischeLevensduur(self) -> KwantWrdInMaandWaarden:
-        """ De levensduur in aantal maanden die theoretisch mag verwacht worden voor een object."""
+        """De levensduur in aantal maanden die theoretisch mag verwacht worden voor een object."""
         return self._theoretischeLevensduur.get_waarde()
 
     @theoretischeLevensduur.setter

@@ -5,11 +5,12 @@ from otlmow_model.Classes.Abstracten.HoutigeVegetatie import HoutigeVegetatie
 from otlmow_model.Datatypes.KlGroeiplaatsverbetering import KlGroeiplaatsverbetering
 from otlmow_model.Datatypes.KlHoutigeType import KlHoutigeType
 from otlmow_model.Datatypes.KlNSB import KlNSB
+from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class OpgaandeHoutigeVegetatie(HoutigeVegetatie, VlakGeometrie):
+class OpgaandeHoutigeVegetatie(HoutigeVegetatie, LijnGeometrie, VlakGeometrie):
     """Een houtkant of een bos."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeHoutigeVegetatie'
@@ -17,6 +18,7 @@ class OpgaandeHoutigeVegetatie(HoutigeVegetatie, VlakGeometrie):
 
     def __init__(self):
         HoutigeVegetatie.__init__(self)
+        LijnGeometrie.__init__(self)
         VlakGeometrie.__init__(self)
 
         self._groeiplaatsverbetering = OTLAttribuut(field=KlGroeiplaatsverbetering,

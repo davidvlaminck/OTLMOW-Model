@@ -14,10 +14,25 @@ class KlMIVEenheidType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMIVEenheidType'
     options = {
+        'compact': KeuzelijstWaarde(invulwaarde='compact',
+                                    label='compact',
+                                    status='ingebruik',
+                                    definitie='compact',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/compact'),
         'lve-19-inch': KeuzelijstWaarde(invulwaarde='lve-19-inch',
                                         label='LVE 19 inch',
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/lve-19-inch'),
+        'lve-19-inch-3h': KeuzelijstWaarde(invulwaarde='lve-19-inch-3h',
+                                           label='LVE 19 inch 3H',
+                                           status='ingebruik',
+                                           definitie='LVE 19 inch 3H',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/lve-19-inch-3h'),
+        'lve-19-inch-6h': KeuzelijstWaarde(invulwaarde='lve-19-inch-6h',
+                                           label='LVE 19 inch 6H',
+                                           status='ingebruik',
+                                           definitie='LVE 19 inch 6H',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/lve-19-inch-6h'),
         'lve-compact': KeuzelijstWaarde(invulwaarde='lve-compact',
                                         label='LVE compact',
                                         status='ingebruik',
@@ -30,10 +45,20 @@ class KlMIVEenheidType(KeuzelijstField):
                                      label='LVE MINI',
                                      status='ingebruik',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/lve-mini'),
+        'mini-lve': KeuzelijstWaarde(invulwaarde='mini-lve',
+                                     label='mini LVE',
+                                     status='ingebruik',
+                                     definitie='mini LVE',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/mini-lve'),
         'sat': KeuzelijstWaarde(invulwaarde='sat',
                                 label='SAT',
                                 status='ingebruik',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/sat')
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/sat'),
+        'satelliet-module': KeuzelijstWaarde(invulwaarde='satelliet-module',
+                                             label='satelliet module',
+                                             status='ingebruik',
+                                             definitie='satelliet module',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVEenheidType/satelliet-module')
     }
 
     @classmethod

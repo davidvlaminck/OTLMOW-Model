@@ -5,10 +5,11 @@ from otlmow_model.Classes.Abstracten.SerienummerObject import SerienummerObject
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlAntennecouplerMerk import KlAntennecouplerMerk
 from otlmow_model.Datatypes.KlAntennecouplerModelnaam import KlAntennecouplerModelnaam
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Antennecoupler(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
+class Antennecoupler(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
     """Een element dat toelaat om twee directionele antennes op één coax aan te sluiten. Al doende creëer je één zendontvanger."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antennecoupler'
@@ -18,6 +19,7 @@ class Antennecoupler(AIMNaamObject, ElektrischComponentennummerObject, Serienumm
         AIMNaamObject.__init__(self)
         ElektrischComponentennummerObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#RHZModule')

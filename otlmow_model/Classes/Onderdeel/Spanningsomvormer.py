@@ -8,10 +8,11 @@ from otlmow_model.Datatypes.KlSpanningsomvormerModelnaam import KlSpanningsomvor
 from otlmow_model.Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
 from otlmow_model.Datatypes.KwantWrdInHerz import KwantWrdInHerz, KwantWrdInHerzWaarden
 from otlmow_model.Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Spanningsomvormer(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
+class Spanningsomvormer(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
     """Een apparaat dat de invoerspanning kan omvormen om een andere uitvoerspanning te bekomen. Typisch is dit type apparaat ook in staat om de frequentie van de elektriciteit te veranderen. Het kan dus gelijkspanning omvormen naar wisselspanning (alternator of wisselrichter), wisselspanning naar wisselspanning van een andere frequentie, of wisselspanning naar gelijkspanning (gelijkrichter)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Spanningsomvormer'
@@ -21,6 +22,7 @@ class Spanningsomvormer(AIMNaamObject, ElektrischComponentennummerObject, Serien
         AIMNaamObject.__init__(self)
         ElektrischComponentennummerObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS')
 

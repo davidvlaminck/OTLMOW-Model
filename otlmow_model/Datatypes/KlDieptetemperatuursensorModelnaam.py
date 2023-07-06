@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,11 @@ class KlDieptetemperatuursensorModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDieptetemperatuursensorModelnaam'
     options = {
+        'dts12g': KeuzelijstWaarde(invulwaarde='dts12g',
+                                   label='DTS12G',
+                                   status='ingebruik',
+                                   definitie='DTS12G',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDieptetemperatuursensorModelnaam/dts12g')
     }
 
     @classmethod

@@ -12,6 +12,7 @@ class KlOntvangerToepassing(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOntvangerToepassing'
     definition = 'Keuzelijst met modelnamen voor OntvangerToepassing.'
     status = 'ingebruik'
+    deprecated_version = '2.8.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOntvangerToepassing'
     options = {
         'GPRS': KeuzelijstWaarde(invulwaarde='GPRS',

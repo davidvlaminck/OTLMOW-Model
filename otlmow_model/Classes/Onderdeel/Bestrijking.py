@@ -34,7 +34,7 @@ class Bestrijking(AndereLaag, VlakGeometrie):
                                             naam='productfamilie',
                                             label='productfamilie',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bestrijking.productfamilie',
-                                            definition='Bepaling tot welke productfamilie de bestrijking behoort. ',
+                                            definition='Bepaling tot welke productfamilie de bestrijking behoort.',
                                             owner=self)
 
         self._soort = OTLAttribuut(field=KlBestrijkingsoort,
@@ -55,7 +55,7 @@ class Bestrijking(AndereLaag, VlakGeometrie):
 
     @property
     def productfamilie(self) -> str:
-        """Bepaling tot welke productfamilie de bestrijking behoort. """
+        """Bepaling tot welke productfamilie de bestrijking behoort."""
         return self._productfamilie.get_waarde()
 
     @productfamilie.setter

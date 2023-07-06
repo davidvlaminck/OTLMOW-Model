@@ -21,6 +21,8 @@ class Funderingsmassief(Fundering, VlakGeometrie):
         VlakGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Grondanker')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Hoppinzuil')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
@@ -62,7 +64,7 @@ class Funderingsmassief(Fundering, VlakGeometrie):
                                        naam='materiaal',
                                        label='materiaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingsmassief.materiaal',
-                                       definition='De grondstof waaruit het funderingsmassief gemaakt is. ',
+                                       definition='De grondstof waaruit het funderingsmassief gemaakt is.',
                                        owner=self)
 
         self._volume = OTLAttribuut(field=KwantWrdInKubiekeMeter,
@@ -110,7 +112,7 @@ class Funderingsmassief(Fundering, VlakGeometrie):
 
     @property
     def materiaal(self) -> str:
-        """De grondstof waaruit het funderingsmassief gemaakt is. """
+        """De grondstof waaruit het funderingsmassief gemaakt is."""
         return self._materiaal.get_waarde()
 
     @materiaal.setter

@@ -3,6 +3,7 @@ from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlKabelFabrikant import KlKabelFabrikant
+from otlmow_model.Datatypes.KlKabelLeidingBescherming import KlKabelLeidingBescherming
 from otlmow_model.Datatypes.KlKabelmantelKleur import KlKabelmantelKleur
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
@@ -46,6 +47,13 @@ class Kabel(AIMNaamObject, LijnGeometrie):
                                        definition='De naam van de producent van de kabel.',
                                        owner=self)
 
+        self._typeBescherming = OTLAttribuut(field=KlKabelLeidingBescherming,
+                                             naam='typeBescherming',
+                                             label='type bescherming',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabel.typeBescherming',
+                                             definition='Geeft aan of en hoe de leiding bijkomend mechanisch beschermd nadat ze in de sleuf gelegd is.',
+                                             owner=self)
+
     @property
     def buitenmantelDiameter(self) -> KwantWrdInMillimeterWaarden:
         """De buitenste afmeting van de kabel in millimeter."""
@@ -72,3 +80,12 @@ class Kabel(AIMNaamObject, LijnGeometrie):
     @fabrikant.setter
     def fabrikant(self, value):
         self._fabrikant.set_waarde(value, owner=self)
+
+    @property
+    def typeBescherming(self) -> str:
+        """Geeft aan of en hoe de leiding bijkomend mechanisch beschermd nadat ze in de sleuf gelegd is."""
+        return self._typeBescherming.get_waarde()
+
+    @typeBescherming.setter
+    def typeBescherming(self, value):
+        self._typeBescherming.set_waarde(value, owner=self)

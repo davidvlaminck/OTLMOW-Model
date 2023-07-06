@@ -14,6 +14,11 @@ class KlLESchampkantType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLESchampkantType'
     options = {
+        'aanrijbescherming': KeuzelijstWaarde(invulwaarde='aanrijbescherming',
+                                              label='Aanrijbescherming',
+                                              status='ingebruik',
+                                              definitie='Voorziening die een kunstwerk of wegmeubilair moet beschermen tegen beschadiging door aanrijdingen.',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLESchampkantType/aanrijbescherming'),
         'afgeknotte-New-Jersey-eenzijdig': KeuzelijstWaarde(invulwaarde='afgeknotte-New-Jersey-eenzijdig',
                                                             label='afgeknotte New Jersey eenzijdig',
                                                             status='ingebruik',

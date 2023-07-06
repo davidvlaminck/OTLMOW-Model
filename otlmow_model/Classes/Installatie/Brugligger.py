@@ -3,11 +3,11 @@ from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlTypeBrugligger import KlTypeBrugligger
-from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Brugligger(ConstructiefObject, LijnGeometrie):
+class Brugligger(ConstructiefObject, VlakGeometrie):
     """Ondersteunende balkstructuur van een brug onder het brugdek."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger'
@@ -15,8 +15,9 @@ class Brugligger(ConstructiefObject, LijnGeometrie):
 
     def __init__(self):
         ConstructiefObject.__init__(self)
-        LijnGeometrie.__init__(self)
+        VlakGeometrie.__init__(self)
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')

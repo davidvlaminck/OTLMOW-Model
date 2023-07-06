@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,11 @@ class KlPLCMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPLCMerk'
     options = {
+        'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',
+                                    label='Vaisala',
+                                    status='ingebruik',
+                                    definitie='Vaisala',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPLCMerk/vaisala')
     }
 
     @classmethod

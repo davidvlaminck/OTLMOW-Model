@@ -1,12 +1,12 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from abc import abstractmethod
+from abc import abstractmethod, ABC
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, KwantWrdInKiloNewtonWaarden
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AxiaalDraagvermogen(PuntGeometrie):
+class AxiaalDraagvermogen(ABC):
     """Abstracte voor de bundeling van de axiale druk- en trekdraagvermogens, berekend volgens verschillende grenstoestanden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogen'
@@ -14,8 +14,6 @@ class AxiaalDraagvermogen(PuntGeometrie):
 
     @abstractmethod
     def __init__(self):
-        super().__init__()
-
         self._drukdraagvermogenGGT = OTLAttribuut(field=KwantWrdInKiloNewton,
                                                   naam='drukdraagvermogenGGT',
                                                   label='drukdraagvermogen in gebruiksgrenstoestanden',
@@ -29,6 +27,13 @@ class AxiaalDraagvermogen(PuntGeometrie):
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogen.drukdraagvermogenUGT',
                                                   definition='Drukdraagvermogen, uitgedrukt in kilonewton, in uiterste grenstoestand (UGT) design approach DA1/1.',
                                                   owner=self)
+
+        self._ontwerpnorm = OTLAttribuut(field=DtcDocument,
+                                         naam='ontwerpnorm',
+                                         label='ontwerpnorm',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogen.ontwerpnorm',
+                                         definition='Document dat de eurocode en norm toelicht dat gebruikt is voor het draagvermogen te berekenen.',
+                                         owner=self)
 
         self._trekdraagvermorgenGGT = OTLAttribuut(field=KwantWrdInKiloNewton,
                                                    naam='trekdraagvermorgenGGT',
@@ -61,6 +66,15 @@ class AxiaalDraagvermogen(PuntGeometrie):
     @drukdraagvermogenUGT.setter
     def drukdraagvermogenUGT(self, value):
         self._drukdraagvermogenUGT.set_waarde(value, owner=self)
+
+    @property
+    def ontwerpnorm(self) -> DtcDocumentWaarden:
+        """Document dat de eurocode en norm toelicht dat gebruikt is voor het draagvermogen te berekenen."""
+        return self._ontwerpnorm.get_waarde()
+
+    @ontwerpnorm.setter
+    def ontwerpnorm(self, value):
+        self._ontwerpnorm.set_waarde(value, owner=self)
 
     @property
     def trekdraagvermorgenGGT(self) -> KwantWrdInKiloNewtonWaarden:

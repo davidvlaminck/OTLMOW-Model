@@ -20,6 +20,8 @@ class Terugslagklep(LinkendElement, PuntGeometrie):
         LinkendElement.__init__(self)
         PuntGeometrie.__init__(self)
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompstation')
+
         self._breedteOpening = OTLAttribuut(field=KwantWrdInMillimeter,
                                             naam='breedteOpening',
                                             label='breedte opening',

@@ -23,7 +23,12 @@ class KlOmvormerModelnaam(KeuzelijstField):
                                       label='KC 300D C',
                                       status='ingebruik',
                                       definitie='KC300D C',
-                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerModelnaam/kc-300d-c')
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerModelnaam/kc-300d-c'),
+        's-60-e-v2': KeuzelijstWaarde(invulwaarde='s-60-e-v2',
+                                      label='S-60 E V2',
+                                      status='ingebruik',
+                                      definitie='S-60 E V2',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerModelnaam/s-60-e-v2')
     }
 
     @classmethod

@@ -1,12 +1,11 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from abc import abstractmethod
+from abc import abstractmethod, ABC
 from otlmow_model.Datatypes.DtcHoutspecificaties import DtcHoutspecificaties, DtcHoutspecificatiesWaarden
-from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class HoutenConstructieElement(LijnGeometrie):
+class HoutenConstructieElement(ABC):
     """Bundeling van gemeenschappelijke eigenschappen van houten constructie-elementen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#HoutenConstructieElement'
@@ -14,8 +13,6 @@ class HoutenConstructieElement(LijnGeometrie):
 
     @abstractmethod
     def __init__(self):
-        super().__init__()
-
         self._houtspecificaties = OTLAttribuut(field=DtcHoutspecificaties,
                                                naam='houtspecificaties',
                                                label='houtspecificaties',

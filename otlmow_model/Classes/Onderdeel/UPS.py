@@ -44,7 +44,7 @@ class UPS(Voedingspunt, RHZModule, PuntGeometrie):
                                        naam='autonomie',
                                        label='autonomie',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS.autonomie',
-                                       definition='De tijd die de UPS een installatie van voeding kan voorzien.',
+                                       definition='De energie die de UPS kan voorzien aan een installatie voor een zekere tijd.',
                                        owner=self)
 
         self._maxContinuVermogen = OTLAttribuut(field=KwantWrdInWatt,
@@ -98,7 +98,7 @@ class UPS(Voedingspunt, RHZModule, PuntGeometrie):
 
     @property
     def autonomie(self) -> KwantWrdInkWhWaarden:
-        """De tijd die de UPS een installatie van voeding kan voorzien."""
+        """De energie die de UPS kan voorzien aan een installatie voor een zekere tijd."""
         return self._autonomie.get_waarde()
 
     @autonomie.setter

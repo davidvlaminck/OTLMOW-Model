@@ -6,11 +6,11 @@ from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlBewegingssensorDetectiemethode(KeuzelijstField):
-    """De methode waarvolgens de detectie gebeurt. """
+    """De methode waarvolgens de detectie gebeurt."""
     naam = 'KlBewegingssensorDetectiemethode'
     label = 'Bewegingssensor detectiemethode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBewegingssensorDetectiemethode'
-    definition = 'De methode waarvolgens de detectie gebeurt. '
+    definition = 'De methode waarvolgens de detectie gebeurt.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBewegingssensorDetectiemethode'
     options = {

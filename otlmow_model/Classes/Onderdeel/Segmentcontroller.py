@@ -2,6 +2,8 @@
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Controller import Controller
 from otlmow_model.Datatypes.KlControllerBeveiligingssleutel import KlControllerBeveiligingssleutel
+from otlmow_model.Datatypes.KlSegmentcontrollerMerk import KlSegmentcontrollerMerk
+from otlmow_model.Datatypes.KlSegmentcontrollerModelnaam import KlSegmentcontrollerModelnaam
 from otlmow_model.BaseClasses.StringField import StringField
 
 
@@ -40,13 +42,31 @@ class Segmentcontroller(Controller):
                                   naam='merk',
                                   label='merk',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.merk',
+                                  usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
+                                  deprecated_version='2.8.0',
                                   definition='Merk van de segmentcontroller.',
                                   owner=self)
+
+        self._merknaam = OTLAttribuut(field=KlSegmentcontrollerMerk,
+                                      naam='merknaam',
+                                      label='merk',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.merknaam',
+                                      definition='Merk van de segmentcontroller.',
+                                      owner=self)
+
+        self._model = OTLAttribuut(field=KlSegmentcontrollerModelnaam,
+                                   naam='model',
+                                   label='modelnaam',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.model',
+                                   definition='Modelnaam van de segmentcontroller.',
+                                   owner=self)
 
         self._modelnaam = OTLAttribuut(field=StringField,
                                        naam='modelnaam',
                                        label='modelnaam',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.modelnaam',
+                                       usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
+                                       deprecated_version='2.8.0',
                                        definition='Modelnaam van de segmentcontroller.',
                                        owner=self)
 
@@ -76,6 +96,24 @@ class Segmentcontroller(Controller):
     @merk.setter
     def merk(self, value):
         self._merk.set_waarde(value, owner=self)
+
+    @property
+    def merknaam(self) -> str:
+        """Merk van de segmentcontroller."""
+        return self._merknaam.get_waarde()
+
+    @merknaam.setter
+    def merknaam(self, value):
+        self._merknaam.set_waarde(value, owner=self)
+
+    @property
+    def model(self) -> str:
+        """Modelnaam van de segmentcontroller."""
+        return self._model.get_waarde()
+
+    @model.setter
+    def model(self, value):
+        self._model.set_waarde(value, owner=self)
 
     @property
     def modelnaam(self) -> str:

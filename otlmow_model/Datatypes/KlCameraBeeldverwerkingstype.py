@@ -23,7 +23,12 @@ class KlCameraBeeldverwerkingstype(KeuzelijstField):
                                 label='AID',
                                 status='ingebruik',
                                 definitie='Interne beeldverwerking van het type automatische incident detectie (AID).',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraBeeldverwerkingstype/aid')
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraBeeldverwerkingstype/aid'),
+        'surface-state': KeuzelijstWaarde(invulwaarde='surface-state',
+                                          label='Surface state',
+                                          status='ingebruik',
+                                          definitie='Surface state',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraBeeldverwerkingstype/surface-state')
     }
 
     @classmethod

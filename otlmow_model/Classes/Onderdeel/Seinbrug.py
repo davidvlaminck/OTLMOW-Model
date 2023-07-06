@@ -39,7 +39,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
                                            naam='aantalSteunen',
                                            label='aantal steunen',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug.aantalSteunen',
-                                           definition='Het aantal steunen waarmee de seinbrug gedragen wordt. ',
+                                           definition='Het aantal steunen waarmee de seinbrug gedragen wordt.',
                                            owner=self)
 
         self._berekeningsnota = OTLAttribuut(field=DtcDocument,
@@ -116,7 +116,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
 
     @property
     def aantalSteunen(self) -> float:
-        """Het aantal steunen waarmee de seinbrug gedragen wordt. """
+        """Het aantal steunen waarmee de seinbrug gedragen wordt."""
         return self._aantalSteunen.get_waarde()
 
     @aantalSteunen.setter

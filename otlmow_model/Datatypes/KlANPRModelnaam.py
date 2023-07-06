@@ -28,9 +28,24 @@ class KlANPRModelnaam(KeuzelijstField):
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/dual'),
         'i-car-cam5': KeuzelijstWaarde(invulwaarde='i-car-cam5',
                                        label='iCar cam5',
-                                       status='ingebruik',
+                                       status='uitgebruik',
                                        definitie='iCar cam5',
-                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/i-car-cam5')
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/i-car-cam5'),
+        'qcam3': KeuzelijstWaarde(invulwaarde='qcam3',
+                                  label='QCAM3',
+                                  status='ingebruik',
+                                  definitie='QCAM3',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/qcam3'),
+        'qcam5': KeuzelijstWaarde(invulwaarde='qcam5',
+                                  label='QCAM5',
+                                  status='ingebruik',
+                                  definitie='QCAM5',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/qcam5'),
+        'vega': KeuzelijstWaarde(invulwaarde='vega',
+                                 label='Vega',
+                                 status='ingebruik',
+                                 definitie='Vega',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/vega')
     }
 
     @classmethod
