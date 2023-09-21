@@ -8,6 +8,7 @@ from UnitTests.TestClasses.Classes.ImplementatieElement.AIMObject import AIMObje
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 from otlmow_model.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+from otlmow_model.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 
 
 def test_from_dict_typeURI_in_dict():
@@ -32,6 +33,18 @@ def test_from_dict_abstract_class_no_typeURI_in_dict():
         OTLObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
     with pytest.raises(ValueError):
         AIMObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+
+
+def test_from_dict_non_standard_attributes():
+    with pytest.warns(NonStandardAttributeWarning):
+        input_dict = {'testBooleanField': True,
+                      'non_standard_attribute': True }
+        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+        assert instance is not None
+        assert isinstance(instance, AllCasesTestClass)
+        assert AllCasesTestClass.typeURI == instance.typeURI
+        assert instance.testBooleanField
+        assert instance.non_standard_attribute
 
 
 def test_from_dict_simple_single_attributes():

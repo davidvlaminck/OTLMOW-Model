@@ -16,6 +16,7 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
+from otlmow_model.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 
@@ -538,12 +539,12 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
     return lines
 
 
-def get_attribute_by_uri(instance_or_attribute, key: str) -> OTLAttribuut:
-    return next(v for v in instance_or_attribute if v.objectUri == key)
+def get_attribute_by_uri(instance_or_attribute, key: str) -> OTLAttribuut | None:
+    return next((v for v in instance_or_attribute if v.objectUri == key), None)
 
 
-def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut:
-    return getattr(instance_or_attribute, '_' + key)
+def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut | None:
+    return getattr(instance_or_attribute, '_' + key, None)
 
 
 # dict encoder = asset object to dict
@@ -551,10 +552,22 @@ def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut:
 
 def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value,
                           waarde_shortcut: bool = False, rdf: bool = False):
+    if instance_or_attribute is None:
+        raise ValueError('instance_or_attribute cannot be None')
+    if key is None or key == '':
+        raise ValueError('key cannot be empty')
+
     if rdf:
         attribute_to_set = get_attribute_by_uri(instance_or_attribute, key)
     else:
         attribute_to_set = get_attribute_by_name(instance_or_attribute, key)
+
+    if attribute_to_set is None:
+        warnings.warn(message=f'Attribute with name "{key}" can not be found on the given instance or attribute. Assume this is '
+                              f'a non standardized attribute. Setting the attribute with setattr',
+                      category=NonStandardAttributeWarning)
+        setattr(instance_or_attribute, key, value)
+        return
 
     if attribute_to_set.field.waardeObject is not None:  # complex / union / KwantWrd / dte
         if isinstance(value, list):
