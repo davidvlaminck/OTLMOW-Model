@@ -539,11 +539,11 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
     return lines
 
 
-def get_attribute_by_uri(instance_or_attribute, key: str) -> OTLAttribuut | None:
+def get_attribute_by_uri(instance_or_attribute, key: str) -> Union[OTLAttribuut, None]:
     return next((v for v in instance_or_attribute if v.objectUri == key), None)
 
 
-def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut | None:
+def get_attribute_by_name(instance_or_attribute, key: str) -> Union[OTLAttribuut, None]:
     return getattr(instance_or_attribute, '_' + key, None)
 
 
