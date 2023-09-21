@@ -549,6 +549,28 @@ def test_make_string_version_multiple_complex_():
     assert info_string == expected
 
 
+def test_create_dict_from_asset_non_standard_attributes():
+    instance = AllCasesTestClass()
+    instance.testStringField = 'string'
+    instance.testBooleanField = True
+    instance.non_standard_attribute = 'waarde-2'
+    instance.non_standard_attribute_list = [1, 2]
+    instance.testComplexType.testStringField = 'string'
+    instance.testComplexType.non_standard_in_complex_attribute = 'waarde-3'
+
+    d = instance.create_dict_from_asset()
+    expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                'testBooleanField': True,
+                'testStringField': 'string',
+                'non_standard_attribute': 'waarde-2',
+                'non_standard_attribute_list': [1, 2],
+                'testComplexType': {
+                    'non_standard_in_complex_attribute': 'waarde-3',
+                    'testStringField': 'string'}
+                }
+    assert d == expected
+
+
 def test_create_dict_from_asset_testclass(subtests):
     with subtests.test(msg='Complex datatype: Dtc'):
         instance = AllCasesTestClass()
