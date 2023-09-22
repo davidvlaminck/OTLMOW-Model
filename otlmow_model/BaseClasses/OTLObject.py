@@ -440,7 +440,7 @@ def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list
                 if not attr_key.startswith('_'):
                     if not suppress_warnings_non_standardised_attributes:
                         warnings.warn(message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
-                                              f'The attribute will be added on the instance',
+                                              f'The attribute will be added on the instance', stacklevel=2,
                                       category=NonStandardAttributeWarning)
                     d[attr_key] = attr
 
@@ -533,7 +533,7 @@ def clean_dict(d) -> Union[Dict, None]:
 def build_string_version(asset, indent: int = 4) -> str:
     if indent < 4:
         indent = 4
-    d = create_dict_from_asset(asset)
+    d = create_dict_from_asset(asset, suppress_warnings_non_standardised_attributes=True)
     string_version = '\n'.join(_make_string_version_from_dict(d, level=1, indent=indent, prefix='    '))
     if string_version != '':
         string_version = '\n' + string_version
