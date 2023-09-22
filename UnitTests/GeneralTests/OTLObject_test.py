@@ -549,20 +549,20 @@ def test_make_string_version_multiple_complex_():
 
     assert info_string == expected
 
-def test_create_dict_from_asset_non_standard_attributes_warnings_suppressed(subtests):
+def test_create_dict_from_asset_non_standard_attributes_warnings_suppressed(subtests, recwarn):
     with subtests.test(msg='non-standard simple attribute / warnings suppressed'):
         instance = AllCasesTestClass()
         instance.testStringField = 'string'
         instance.testBooleanField = True
         instance.non_standard_attribute_no_warning = 'waarde-2'
 
-        with warnings.catch_warnings():
-            d = instance.create_dict_from_asset(suppress_warnings_non_standardised_attributes=True)
-            expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-                        'testBooleanField': True,
-                        'testStringField': 'string',
-                        'non_standard_attribute_no_warning': 'waarde-2'}
-            assert d == expected
+        d = instance.create_dict_from_asset(suppress_warnings_non_standardised_attributes=True)
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testBooleanField': True,
+                    'testStringField': 'string',
+                    'non_standard_attribute_no_warning': 'waarde-2'}
+        assert d == expected
+        assert len(recwarn) == 0
 
 
 def test_create_dict_from_asset_non_standard_attributes(subtests):
@@ -870,6 +870,48 @@ def test_create_dict_from_asset_cardinality():
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
 
     assert asset_dict == expected
+
+
+def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes(subtests, recwarn):
+    with subtests.test(msg='non-standard simple attribute / warnings suppressed'):
+        instance = AllCasesTestClass()
+        instance.toestand = 'in-gebruik'
+        instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        instance.non_standard_attribute = 'waarde-2'
+
+        rdf_dict = create_dict_from_asset(instance, rdf=True, suppress_warnings_non_standardised_attributes=True)
+        expected = {
+            '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                    '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
+                'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
+            'non_standard_attribute': 'waarde-2'
+        }
+
+        assert rdf_dict == expected
+        assert len(recwarn) == 0
+
+    with subtests.test(msg='non-standard simple attribute'):
+        instance = AllCasesTestClass()
+        instance.toestand = 'in-gebruik'
+        instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        instance.non_standard_attribute = 'waarde-2'
+
+        with pytest.warns(NonStandardAttributeWarning):
+            rdf_dict = create_dict_from_asset(instance, rdf=True)
+            expected = {
+                '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                        '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
+                    'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
+                'non_standard_attribute': 'waarde-2'
+            }
+
+            assert rdf_dict == expected
 
 
 def test_create_ld_dict_from_asset_cardinality():

@@ -463,43 +463,53 @@ def _recursive_create_rdf_dict_from_asset(
             return l
     else:
         d = {}
-        for attr in asset:
-            if attr.waarde is None or attr.waarde == []:
+        for attr_key, attr in vars(asset).items():
+            if attr_key == '_parent' or attr_key == '_valid_relations':
                 continue
+            if isinstance(attr, OTLAttribuut):
+                if attr.waarde is None or attr.waarde == []:
+                    continue
 
-            if attr.field.waardeObject is not None:  # complex
-                if waarde_shortcut and attr.field.waarde_shortcut_applicable:
-                    if isinstance(attr.waarde, list):
-                        dict_item = [item.waarde for item in attr.waarde]
-                        if len(dict_item) > 0:
-                            d[attr.objectUri] = dict_item
+                if attr.field.waardeObject is not None:  # complex
+                    if waarde_shortcut and attr.field.waarde_shortcut_applicable:
+                        if isinstance(attr.waarde, list):
+                            dict_item = [item.waarde for item in attr.waarde]
+                            if len(dict_item) > 0:
+                                d[attr.objectUri] = dict_item
+                        else:
+                            dict_item = attr.waarde.waarde
+                            if dict_item is not None:
+                                d[attr.objectUri] = dict_item
                     else:
-                        dict_item = attr.waarde.waarde
+                        dict_item = _recursive_create_rdf_dict_from_asset(
+                            asset=attr.waarde, waarde_shortcut=waarde_shortcut,
+                            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
                         if dict_item is not None:
                             d[attr.objectUri] = dict_item
                 else:
-                    dict_item = _recursive_create_rdf_dict_from_asset(
-                        asset=attr.waarde, waarde_shortcut=waarde_shortcut,
-                        suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
-                    if dict_item is not None:
-                        d[attr.objectUri] = dict_item
-            else:
-                if attr.field == TimeField:
-                    d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
-                elif attr.field == DateField:
-                    d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
-                elif attr.field == DateTimeField:
-                    d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
-                elif issubclass(attr.field, KeuzelijstField):
-                    if isinstance(attr.waarde, list):
-                        if attr.waarde == [None]:
-                            d[attr.objectUri] = []
+                    if attr.field == TimeField:
+                        d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
+                    elif attr.field == DateField:
+                        d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
+                    elif attr.field == DateTimeField:
+                        d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                    elif issubclass(attr.field, KeuzelijstField):
+                        if isinstance(attr.waarde, list):
+                            if attr.waarde == [None]:
+                                d[attr.objectUri] = []
+                            else:
+                                d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in attr.waarde]
                         else:
-                            d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in attr.waarde]
+                            d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
                     else:
-                        d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
-                else:
-                    d[attr.objectUri] = attr.waarde
+                        d[attr.objectUri] = attr.waarde
+            else:
+                if not attr_key.startswith('_'):
+                    if not suppress_warnings_non_standardised_attributes:
+                        warnings.warn(message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                              f'The attribute will be added on the instance',
+                                      category=NonStandardAttributeWarning)
+                    d[attr_key] = attr
 
         if len(d.items()) > 0:
             return d
