@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_305863b415013c66_RelationInteractor_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.1">coverage.py v7.3.1</a>,
-            created at 2023-09-22 11:19 +0000
+            created at 2023-09-22 22:06 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -522,7 +522,7 @@
     <p class="run"><span class="n"><a id="t440" href="#t440">440</a></span><span class="t">                <span class="key">if</span> <span class="key">not</span> <span class="nam">attr_key</span><span class="op">.</span><span class="nam">startswith</span><span class="op">(</span><span class="str">'_'</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t441" href="#t441">441</a></span><span class="t">                    <span class="key">if</span> <span class="key">not</span> <span class="nam">suppress_warnings_non_standardised_attributes</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t442" href="#t442">442</a></span><span class="t">                        <span class="nam">warnings</span><span class="op">.</span><span class="nam">warn</span><span class="op">(</span><span class="nam">message</span><span class="op">=</span><span class="str">f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t443" href="#t443">443</a></span><span class="t">                                              <span class="str">f'The attribute will be added on the instance'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t443" href="#t443">443</a></span><span class="t">                                              <span class="str">f'The attribute will be added on the instance'</span><span class="op">,</span> <span class="nam">stacklevel</span><span class="op">=</span><span class="num">2</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t444" href="#t444">444</a></span><span class="t">                                      <span class="nam">category</span><span class="op">=</span><span class="nam">NonStandardAttributeWarning</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t445" href="#t445">445</a></span><span class="t">                    <span class="nam">d</span><span class="op">[</span><span class="nam">attr_key</span><span class="op">]</span> <span class="op">=</span> <span class="nam">attr</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t446" href="#t446">446</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -615,7 +615,7 @@
     <p class="run"><span class="n"><a id="t533" href="#t533">533</a></span><span class="t"><span class="key">def</span> <span class="nam">build_string_version</span><span class="op">(</span><span class="nam">asset</span><span class="op">,</span> <span class="nam">indent</span><span class="op">:</span> <span class="nam">int</span> <span class="op">=</span> <span class="num">4</span><span class="op">)</span> <span class="op">-></span> <span class="nam">str</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t534" href="#t534">534</a></span><span class="t">    <span class="key">if</span> <span class="nam">indent</span> <span class="op">&lt;</span> <span class="num">4</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t535" href="#t535">535</a></span><span class="t">        <span class="nam">indent</span> <span class="op">=</span> <span class="num">4</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t536" href="#t536">536</a></span><span class="t">    <span class="nam">d</span> <span class="op">=</span> <span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">asset</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t536" href="#t536">536</a></span><span class="t">    <span class="nam">d</span> <span class="op">=</span> <span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">asset</span><span class="op">,</span> <span class="nam">suppress_warnings_non_standardised_attributes</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t537" href="#t537">537</a></span><span class="t">    <span class="nam">string_version</span> <span class="op">=</span> <span class="str">'\n'</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">_make_string_version_from_dict</span><span class="op">(</span><span class="nam">d</span><span class="op">,</span> <span class="nam">level</span><span class="op">=</span><span class="num">1</span><span class="op">,</span> <span class="nam">indent</span><span class="op">=</span><span class="nam">indent</span><span class="op">,</span> <span class="nam">prefix</span><span class="op">=</span><span class="str">'    '</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t538" href="#t538">538</a></span><span class="t">    <span class="key">if</span> <span class="nam">string_version</span> <span class="op">!=</span> <span class="str">''</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t539" href="#t539">539</a></span><span class="t">        <span class="nam">string_version</span> <span class="op">=</span> <span class="str">'\n'</span> <span class="op">+</span> <span class="nam">string_version</span>&nbsp;</span><span class="r"></span></p>
@@ -727,7 +727,7 @@
             <a id="nextFileLink" class="nav" href="d_305863b415013c66_RelationInteractor_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.1">coverage.py v7.3.1</a>,
-            created at 2023-09-22 11:19 +0000
+            created at 2023-09-22 22:06 +0000
         </p>
     </div>
 </footer>
