@@ -7,11 +7,12 @@ from otlmow_model.Datatypes.KlBypassSchakelaarLocatie import KlBypassSchakelaarL
 from otlmow_model.Datatypes.KlBypassSchakelaarMerk import KlBypassSchakelaarMerk
 from otlmow_model.Datatypes.KlBypassSchakelaarModelnaam import KlBypassSchakelaarModelnaam
 from otlmow_model.Datatypes.KlSchakelaarUitvoering import KlSchakelaarUitvoering
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BypassSchakelaar(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
-    """Een schakelaar die toelaat om de stroomtoevoer naar afnemende technieken via het geschakeld toestel zoals een UPS,  te omzeilen en te isoleren om veilig te kunnen werken aan dat toestel terwijl de stroomtoevoer voor afnemende technieken verzekerd blijft."""
+class BypassSchakelaar(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
+    """Een schakelaar die toelaat om de stroomtoevoer naar afnemende technieken via het geschakeld toestel zoals een UPS, te omzeilen en te isoleren om veilig te kunnen werken aan dat toestel terwijl de stroomtoevoer voor afnemende technieken verzekerd blijft."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BypassSchakelaar'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -20,6 +21,7 @@ class BypassSchakelaar(AIMNaamObject, ElektrischComponentennummerObject, Serienu
         AIMNaamObject.__init__(self)
         ElektrischComponentennummerObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS')
 

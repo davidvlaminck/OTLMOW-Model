@@ -12,10 +12,11 @@ from otlmow_model.Datatypes.KlBadgelezerModelnaam import KlBadgelezerModelnaam
 from otlmow_model.Datatypes.KlBadgelezerProtocol import KlBadgelezerProtocol
 from otlmow_model.Datatypes.KlEncryptieType import KlEncryptieType
 from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Badgelezer(AIMNaamObject, ElektrischComponentennummerObject, FirmwareObject, SerienummerObject):
+class Badgelezer(AIMNaamObject, ElektrischComponentennummerObject, FirmwareObject, SerienummerObject, PuntGeometrie):
     """Een inrichting voor automatische authenticatie op basis van een badge."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Badgelezer'
@@ -26,6 +27,7 @@ class Badgelezer(AIMNaamObject, ElektrischComponentennummerObject, FirmwareObjec
         ElektrischComponentennummerObject.__init__(self)
         FirmwareObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
@@ -52,6 +54,8 @@ class Badgelezer(AIMNaamObject, ElektrischComponentennummerObject, FirmwareObjec
                                                  naam='configuratiebestand',
                                                  label='configuratiebestand',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Badgelezer.configuratiebestand',
+                                                 usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
+                                                 deprecated_version='2.8.0',
                                                  definition='Bestand dat de configuratie gegevens van de badgelezer bijhoudt.',
                                                  owner=self)
 

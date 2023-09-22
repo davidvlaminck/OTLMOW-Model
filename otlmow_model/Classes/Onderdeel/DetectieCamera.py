@@ -10,7 +10,7 @@ from otlmow_model.Datatypes.KlDetectiecameraModelnaam import KlDetectiecameraMod
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class DetectieCamera(NietWeggebondenDetectie, TypeWeggebruiker):
-    """Deze camera's worden onder andere opgesteld op kruispunten om de aanwezigheid van voertuigen te detecteren. De detectie kan optisch en/of thermografisch gebeuren. """
+    """Deze camera's worden onder andere opgesteld op kruispunten om de aanwezigheid van voertuigen te detecteren. De detectie kan optisch en/of thermografisch gebeuren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DetectieCamera'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

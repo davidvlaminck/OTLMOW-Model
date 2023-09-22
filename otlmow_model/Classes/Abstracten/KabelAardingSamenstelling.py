@@ -15,7 +15,7 @@ class KabelAardingSamenstelling(ABC):
     def __init__(self):
         self._sectie = OTLAttribuut(field=KlAardingskabelSectie,
                                     naam='sectie',
-                                    label='sectie ',
+                                    label='sectie',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelAardingSamenstelling.sectie',
                                     definition='Geeft de dikte van een kabel of pen voor aarding weer als oppervlakte van een doorsnede, uitgedrukt in mm².',
                                     owner=self)

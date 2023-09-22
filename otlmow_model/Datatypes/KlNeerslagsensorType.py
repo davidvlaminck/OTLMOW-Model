@@ -14,6 +14,11 @@ class KlNeerslagsensorType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNeerslagsensorType'
     options = {
+        'capacitief': KeuzelijstWaarde(invulwaarde='capacitief',
+                                       label='capacitief',
+                                       status='ingebruik',
+                                       definitie='capacitief',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorType/capacitief'),
         'optisch': KeuzelijstWaarde(invulwaarde='optisch',
                                     label='optisch',
                                     status='ingebruik',

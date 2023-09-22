@@ -4,6 +4,7 @@ from otlmow_model.Classes.Abstracten.BetonnenConstructieElement import BetonnenC
 from otlmow_model.Classes.Onderdeel.Funderingspaal import Funderingspaal
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlTypeSchachtHeipaal import KlTypeSchachtHeipaal
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 
 
@@ -19,6 +20,8 @@ class BetonnenHeipaal(Funderingspaal, BetonnenConstructieElement):
         BetonnenConstructieElement.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Grondanker')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Hoppinzuil')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
@@ -46,6 +49,13 @@ class BetonnenHeipaal(Funderingspaal, BetonnenConstructieElement):
                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BetonnenHeipaal.heeftVerlorenVoerbuis',
                                                    definition='Aanduiding of de heipaal een verloren voerbuis heeft.',
                                                    owner=self)
+
+        self._nuttigeLengte = OTLAttribuut(field=KwantWrdInMeter,
+                                           naam='nuttigeLengte',
+                                           label='nuttige lengte',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BetonnenHeipaal.nuttigeLengte',
+                                           definition='Afstand gemeten, in meter, volgens de as van de heipaal tussen het aanzetpeil van de funderingszool boven de werkvloer (of, in geval van een vrijstaande paal, het bovenpeil) en het aanzetpeil (definitief funderingspeil).',
+                                           owner=self)
 
         self._typeSchacht = OTLAttribuut(field=KlTypeSchachtHeipaal,
                                          naam='typeSchacht',
@@ -80,6 +90,15 @@ class BetonnenHeipaal(Funderingspaal, BetonnenConstructieElement):
     @heeftVerlorenVoerbuis.setter
     def heeftVerlorenVoerbuis(self, value):
         self._heeftVerlorenVoerbuis.set_waarde(value, owner=self)
+
+    @property
+    def nuttigeLengte(self) -> KwantWrdInMeterWaarden:
+        """Afstand gemeten, in meter, volgens de as van de heipaal tussen het aanzetpeil van de funderingszool boven de werkvloer (of, in geval van een vrijstaande paal, het bovenpeil) en het aanzetpeil (definitief funderingspeil)."""
+        return self._nuttigeLengte.get_waarde()
+
+    @nuttigeLengte.setter
+    def nuttigeLengte(self, value):
+        self._nuttigeLengte.set_waarde(value, owner=self)
 
     @property
     def typeSchacht(self) -> str:

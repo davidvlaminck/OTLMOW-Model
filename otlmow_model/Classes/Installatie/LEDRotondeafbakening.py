@@ -31,7 +31,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
                                     naam='lengte',
                                     label='lengte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#LEDRotondeafbakening.lengte',
-                                    definition='De afstand tussen de eerste en de laatste actieve reflector in de verzameling gevoed door dezelfde stroomkring. ',
+                                    definition='De afstand tussen de eerste en de laatste actieve reflector in de verzameling gevoed door dezelfde stroomkring.',
                                     owner=self)
 
         self._nominaalVermogen = OTLAttribuut(field=KwantWrdInWatt,
@@ -66,7 +66,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
 
     @property
     def lengte(self) -> KwantWrdInMeterWaarden:
-        """De afstand tussen de eerste en de laatste actieve reflector in de verzameling gevoed door dezelfde stroomkring. """
+        """De afstand tussen de eerste en de laatste actieve reflector in de verzameling gevoed door dezelfde stroomkring."""
         return self._lengte.get_waarde()
 
     @lengte.setter

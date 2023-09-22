@@ -6,7 +6,7 @@ from otlmow_model.Datatypes.KlBestratingOpvulsoort import KlBestratingOpvulsoort
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class VerhardingGrasKunststofplaat(Bestrating):
-    """Gras/grind-kunststofplaten zijn kunststofplaten met raatvormige structuur die aangewend worden voor het wapenen van grasmatten. Ze voldoen aan de voorschriften van PTV 828. """
+    """Gras/grind-kunststofplaten zijn kunststofplaten met raatvormige structuur die aangewend worden voor het wapenen van grasmatten. Ze voldoen aan de voorschriften van PTV 828."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerhardingGrasKunststofplaat'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

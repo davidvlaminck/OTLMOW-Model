@@ -8,10 +8,11 @@ from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarde
 from otlmow_model.Datatypes.KlPDUMerk import KlPDUMerk
 from otlmow_model.Datatypes.KlPDUModelnaam import KlPDUModelnaam
 from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Stroomverdelingssysteem(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
+class Stroomverdelingssysteem(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
     """Een stroomverdelingssysteem, ook wel Power Distribution Unit of PDU genoemd, is een inrichting met verschillende outputs voor het distribueren van elektriciteit."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomverdelingssysteem'
@@ -21,6 +22,7 @@ class Stroomverdelingssysteem(AIMNaamObject, ElektrischComponentennummerObject, 
         AIMNaamObject.__init__(self)
         ElektrischComponentennummerObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS')
@@ -34,7 +36,7 @@ class Stroomverdelingssysteem(AIMNaamObject, ElektrischComponentennummerObject, 
 
         self._heeftAlgemeneAanUit = OTLAttribuut(field=BooleanField,
                                                  naam='heeftAlgemeneAanUit',
-                                                 label='heeft algemene aan-uit ',
+                                                 label='heeft algemene aan-uit',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomverdelingssysteem.heeftAlgemeneAanUit',
                                                  definition='Geeft aan of het verdeelsysteem voorzien is van een eigen aan/uit schakelaar om de stroomverdeling naar alle aansluitpunten tegelijk uit en aan te schakelen.',
                                                  owner=self)

@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,26 @@ class KlIOKaartModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOKaartModelnaam'
     options = {
+        'dri701': KeuzelijstWaarde(invulwaarde='dri701',
+                                   label='DRI701',
+                                   status='ingebruik',
+                                   definitie='DRI701',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartModelnaam/dri701'),
+        'pma701': KeuzelijstWaarde(invulwaarde='pma701',
+                                   label='PMA701',
+                                   status='ingebruik',
+                                   definitie='PMA701',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartModelnaam/pma701'),
+        'pms701': KeuzelijstWaarde(invulwaarde='pms701',
+                                   label='PMS701',
+                                   status='ingebruik',
+                                   definitie='PMS701',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartModelnaam/pms701'),
+        'siu701': KeuzelijstWaarde(invulwaarde='siu701',
+                                   label='SIU701',
+                                   status='ingebruik',
+                                   definitie='SIU701',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartModelnaam/siu701')
     }
 
     @classmethod

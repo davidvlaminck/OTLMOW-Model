@@ -7,7 +7,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Weegplaat(AIMObject, VlakGeometrie):
-    """Een plaat waarop te wegen objecten komen en die rust op weegsensoren rust."""
+    """Een plaat waarop te wegen objecten komen en die op weegsensoren rust."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Weegplaat'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

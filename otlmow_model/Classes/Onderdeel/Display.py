@@ -7,10 +7,11 @@ from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlDisplayMerk import KlDisplayMerk
 from otlmow_model.Datatypes.KlDisplayModelnaam import KlDisplayModelnaam
 from otlmow_model.Datatypes.KlDisplayType import KlDisplayType
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Display(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
+class Display(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
     """Een display is een elektrisch apparaat, ingebed in een techniek, waarop informatie visueel afgebeeld wordt. en dat kan gebruikt voor sturing van die techniek."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Display'
@@ -20,6 +21,7 @@ class Display(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObjec
         AIMNaamObject.__init__(self)
         ElektrischComponentennummerObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC')

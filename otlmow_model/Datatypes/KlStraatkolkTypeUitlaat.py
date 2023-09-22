@@ -8,7 +8,7 @@ from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 class KlStraatkolkTypeUitlaat(KeuzelijstField):
     """Het type van uitlaat van de straatkolk."""
     naam = 'KlStraatkolkTypeUitlaat'
-    label = 'straatkolk type uitlaat '
+    label = 'straatkolk type uitlaat'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStraatkolkTypeUitlaat'
     definition = 'Het type van uitlaat van de straatkolk.'
     status = 'ingebruik'

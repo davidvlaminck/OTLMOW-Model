@@ -12,7 +12,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Silo(AIMNaamObject, VlakGeometrie):
-    """Meestal een metalen reservoir voor eerder vaste vulmiddelen, zoals korrels, kristallen: zout, zand, enz…, waarbij op een gecontroleerde manier middelen kunnen afgenomen of bijgevuld worden."""
+    """Meestal een metalen reservoir voor eerder vaste vulmiddelen,zoals korrels,kristallen: zout,zand,enz…,waarbij op een gecontroleerde manier middelen kunnen afgenomen of bijgevuld worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Silo'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

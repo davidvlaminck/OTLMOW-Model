@@ -5,10 +5,11 @@ from otlmow_model.Classes.Abstracten.SerienummerObject import SerienummerObject
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.KlSignaalSplitterMerk import KlSignaalSplitterMerk
 from otlmow_model.Datatypes.KlSignaalSplitterModelnaam import KlSignaalSplitterModelnaam
+from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class SignaalSplitter(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject):
+class SignaalSplitter(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
     """Een splitter laat toe een kabel in twee te splitsen en dusdanig een signaal te splitsen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SignaalSplitter'
@@ -18,6 +19,7 @@ class SignaalSplitter(AIMNaamObject, ElektrischComponentennummerObject, Serienum
         AIMNaamObject.__init__(self)
         ElektrischComponentennummerObject.__init__(self)
         SerienummerObject.__init__(self)
+        PuntGeometrie.__init__(self)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#RHZModule')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#ASTRIDInstallatie')

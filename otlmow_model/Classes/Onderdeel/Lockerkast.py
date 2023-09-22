@@ -9,7 +9,7 @@ from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Lockerkast(Kast):
-    """Een lockerkast is een geheel dat onderverdeeld is in een aantal kleinere en smallere opslagruimtes, bedoeld voor het opslaan van persoonlijke goederen of bezittingen. De lockers kunnen vaak afzonderlijk geopend en afgesloten worden. """
+    """Een lockerkast is een geheel dat onderverdeeld is in een aantal kleinere en smallere opslagruimtes, bedoeld voor het opslaan van persoonlijke goederen of bezittingen. De lockers kunnen vaak afzonderlijk geopend en afgesloten worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lockerkast'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

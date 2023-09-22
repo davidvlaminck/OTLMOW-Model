@@ -33,7 +33,12 @@ class KlHulpstukType(KeuzelijstField):
                                       label='bochtstuk',
                                       status='ingebruik',
                                       definitie='bochtstuk',
-                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHulpstukType/bochtstuk')
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHulpstukType/bochtstuk'),
+        'perrot-koppeling': KeuzelijstWaarde(invulwaarde='perrot-koppeling',
+                                             label='perrot koppeling',
+                                             status='ingebruik',
+                                             definitie='perrot koppeling',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHulpstukType/perrot-koppeling')
     }
 
     @classmethod

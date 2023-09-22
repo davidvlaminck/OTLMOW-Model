@@ -21,11 +21,11 @@ def dynamic_create_instance_from_ns_and_name(namespace: str, class_name: str,
     if namespace is None:
         namespace = ''
     else:
-        namespace = get_titlecase_from_ns(namespace)
+        namespace = get_titlecase_from_ns(namespace) + '.'
 
     try:
         # TODO: check https://stackoverflow.com/questions/2724260/why-does-pythons-import-require-fromlist
-        py_mod = __import__(name=f'{directory}.{namespace}.{class_name}', fromlist=f'{class_name}')
+        py_mod = __import__(name=f'{directory}.{namespace}{class_name}', fromlist=f'{class_name}')
     except ModuleNotFoundError:
         return None
     class_ = getattr(py_mod, class_name)
@@ -38,7 +38,10 @@ def dynamic_create_instance_from_uri(class_uri: str, directory: str = None):
     if directory is None:
         directory = 'otlmow_model.Classes'
 
-    ns, name = get_ns_and_name_from_uri(class_uri)
+    if class_uri == 'http://purl.org/dc/terms/Agent':
+        ns, name = None, 'Agent'
+    else:
+        ns, name = get_ns_and_name_from_uri(class_uri)
     created = dynamic_create_instance_from_ns_and_name(ns, name, directory=directory)
     if created is None:
         raise ValueError(f'{class_uri} is likely not a valid uri, it does not result in a created instance')

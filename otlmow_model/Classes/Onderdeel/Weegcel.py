@@ -10,7 +10,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Weegcel(AIMNaamObject, PuntGeometrie):
-    """Een toestel dat op basis druk het gewicht meet van een object dat er rechtstreeks of via een tussenliggende plaat,bovenop geplaatst wordt"""
+    """Een toestel dat op basis van druk het gewicht meet van een object dat er rechtstreeks of via een tussenliggende plaat bovenop geplaatst wordt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Weegcel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

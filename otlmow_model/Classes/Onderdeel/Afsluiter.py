@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LinkendElement import LinkendElement
+from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlAfsluiterType import KlAfsluiterType
 from otlmow_model.Datatypes.KlTsklepAfsluiterMateriaal import KlTsklepAfsluiterMateriaal
 from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
@@ -41,6 +42,13 @@ class Afsluiter(LinkendElement, PuntGeometrie):
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afsluiter.hoogte',
                                     definition='De afstand tussen het hoogste en laagste punt van de afsluiter met uitzondering van de spindel in millimeter.',
                                     owner=self)
+
+        self._isContinuRegelbaar = OTLAttribuut(field=BooleanField,
+                                                naam='isContinuRegelbaar',
+                                                label='is continu regelbaar',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afsluiter.isContinuRegelbaar',
+                                                definition='Geeft aan of de doorstroming vloeiend regelbaar is tussen de geheel gesloten stand (geen stroming) en de volledig geopende stand (maximale stroming).',
+                                                owner=self)
 
         self._materiaal = OTLAttribuut(field=KlTsklepAfsluiterMateriaal,
                                        naam='materiaal',
@@ -89,6 +97,15 @@ class Afsluiter(LinkendElement, PuntGeometrie):
     @hoogte.setter
     def hoogte(self, value):
         self._hoogte.set_waarde(value, owner=self)
+
+    @property
+    def isContinuRegelbaar(self) -> bool:
+        """Geeft aan of de doorstroming vloeiend regelbaar is tussen de geheel gesloten stand (geen stroming) en de volledig geopende stand (maximale stroming)."""
+        return self._isContinuRegelbaar.get_waarde()
+
+    @isContinuRegelbaar.setter
+    def isContinuRegelbaar(self, value):
+        self._isContinuRegelbaar.set_waarde(value, owner=self)
 
     @property
     def materiaal(self) -> str:

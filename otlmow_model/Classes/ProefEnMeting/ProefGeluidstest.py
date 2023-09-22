@@ -9,7 +9,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class ProefGeluidstest(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
-    """Test van het geluidsscherm op oa. luchtgeluidsisolatie, geluidsabsorptie, e.d. """
+    """Test van het geluidsscherm op oa. luchtgeluidsisolatie, geluidsabsorptie, e.d."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefGeluidstest'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

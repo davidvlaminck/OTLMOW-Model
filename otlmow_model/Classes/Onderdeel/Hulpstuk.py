@@ -10,7 +10,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
-    """Stukken die zorgen voor verbindingen tussen rechte buizen om bv. van richting te veranderen, te verlengen, te verlopen van diameter, meerdere buizen op mekaar aan te sluiten,..."""
+    """Stukken die zorgen voor verbindingen tussen buizen en/of leidingen om bv. van richting te veranderen,te verlengen,te verlopen van diameter,meerdere buizen op mekaar aan te sluiten,..."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hulpstuk'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

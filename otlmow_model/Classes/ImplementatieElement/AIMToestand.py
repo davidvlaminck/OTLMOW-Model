@@ -15,7 +15,7 @@ class AIMToestand(ABC):
     def __init__(self):
         self._toestand = OTLAttribuut(field=KlAIMToestand,
                                       naam='toestand',
-                                      label='toestand',
+                                      label='AIM-toestand',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand',
                                       definition='Geeft de actuele stand in de levenscyclus van het object.',
                                       owner=self)

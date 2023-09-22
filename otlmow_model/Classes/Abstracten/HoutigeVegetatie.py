@@ -34,7 +34,7 @@ class HoutigeVegetatie(BegroeidVoorkomen):
                                     naam='hoogte',
                                     label='hoogte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#HoutigeVegetatie.hoogte',
-                                    definition='De hoogte in meter gemeten van de stamvoet tot de top of bovenste snoeivlak van de houtige vegetatie. ',
+                                    definition='De hoogte in meter gemeten van de stamvoet tot de top of bovenste snoeivlak van de houtige vegetatie.',
                                     owner=self)
 
         self._isVrijUitgroeiend = OTLAttribuut(field=BooleanField,
@@ -62,7 +62,7 @@ class HoutigeVegetatie(BegroeidVoorkomen):
 
     @property
     def hoogte(self) -> KwantWrdInMeterWaarden:
-        """De hoogte in meter gemeten van de stamvoet tot de top of bovenste snoeivlak van de houtige vegetatie. """
+        """De hoogte in meter gemeten van de stamvoet tot de top of bovenste snoeivlak van de houtige vegetatie."""
         return self._hoogte.get_waarde()
 
     @hoogte.setter

@@ -33,7 +33,7 @@ class Keuring(Proef, GeenGeometrie):
                                              naam='geldigheidsDuur',
                                              label='geldigheidsduur',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#Keuring.geldigheidsDuur',
-                                             definition='de periode (in jaar) waarbinnen de keuring geldig blijft. ',
+                                             definition='de periode (in jaar) waarbinnen de keuring geldig blijft.',
                                              owner=self)
 
         self._verslag = OTLAttribuut(field=DtcDocument,
@@ -54,7 +54,7 @@ class Keuring(Proef, GeenGeometrie):
 
     @property
     def geldigheidsDuur(self) -> KwantWrdInJaarWaarden:
-        """de periode (in jaar) waarbinnen de keuring geldig blijft. """
+        """de periode (in jaar) waarbinnen de keuring geldig blijft."""
         return self._geldigheidsDuur.get_waarde()
 
     @geldigheidsDuur.setter

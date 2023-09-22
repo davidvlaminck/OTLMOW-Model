@@ -14,6 +14,8 @@ def test_WKT_valid(subtests):
         assert not WKTValidator.validate_wkt("POINT(200001 200002)")
         assert not WKTValidator.validate_wkt("POINT (-200001 -200002)")
         assert not WKTValidator.validate_wkt("punt Z (200001 200002)")
+        assert WKTValidator.validate_wkt("MULTIPOINT ((200001.0 200002.0), (200001.0 200002.0)")
+        assert WKTValidator.validate_wkt("MULTIPOINT Z ((200001.0 200002.0 3.0), (200001.0 200002.0 3.0)")
 
     with subtests.test(msg='testen LINESTRING'):
         assert WKTValidator.validate_wkt("LINESTRING (200001.0 200002.0, 200003.0 200004.0)")

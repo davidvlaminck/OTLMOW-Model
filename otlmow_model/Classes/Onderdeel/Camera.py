@@ -9,6 +9,7 @@ from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.Datatypes.KlCameraMerk import KlCameraMerk
 from otlmow_model.Datatypes.KlCameraModelnaam import KlCameraModelnaam
+from otlmow_model.Datatypes.KlSensorOpstelwijze import KlSensorOpstelwijze
 from otlmow_model.Datatypes.KlServicePrioriteit import KlServicePrioriteit
 from otlmow_model.Datatypes.KlSpectrum import KlSpectrum
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
@@ -117,6 +118,13 @@ class Camera(AIMNaamObject, SerienummerObject, PuntGeometrie):
                                           usagenote='De plaats waar de draagconstructie in de grond bevestigd is, bepaalt van waar gemeten wordt voor het bepalen van de opstelhoogte. Wanneer een camera die een brugdek overziet, bevestigd is aan een paal die naast de brug staat, wordt de hoogte gemeten vanaf de basis van de paal en niet vanaf het brugdek. ',
                                           definition='De hoogte waarop de camera bevestigd is, gemeten ten opzichte van het maaiveld waarin de draagconstructie voor de camera verankerd is.',
                                           owner=self)
+
+        self._opstelwijze = OTLAttribuut(field=KlSensorOpstelwijze,
+                                         naam='opstelwijze',
+                                         label='opstelwijze',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.opstelwijze',
+                                         definition='De manier waarop de camera is opgesteld, bv. via dwarsligger,...',
+                                         owner=self)
 
         self._servicePrioriteit = OTLAttribuut(field=KlServicePrioriteit,
                                                naam='servicePrioriteit',
@@ -230,6 +238,15 @@ class Camera(AIMNaamObject, SerienummerObject, PuntGeometrie):
     @opstelhoogte.setter
     def opstelhoogte(self, value):
         self._opstelhoogte.set_waarde(value, owner=self)
+
+    @property
+    def opstelwijze(self) -> str:
+        """De manier waarop de camera is opgesteld, bv. via dwarsligger,..."""
+        return self._opstelwijze.get_waarde()
+
+    @opstelwijze.setter
+    def opstelwijze(self, value):
+        self._opstelwijze.set_waarde(value, owner=self)
 
     @property
     def servicePrioriteit(self) -> str:

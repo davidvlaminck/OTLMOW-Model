@@ -16,7 +16,7 @@ class DtcSoortVervuilingWaarden(WaardenObject):
                                                   label='microgram per kilogram',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcSoortVervuiling.microgramPerKilogram',
                                                   kardinaliteit_max='3',
-                                                  definition='De concentratie van de vervuiling kan in µg/kg bepaalt worden. ',
+                                                  definition='De concentratie van de vervuiling kan in µg/kg bepaalt worden.',
                                                   owner=self)
 
         self._soortVervuiling = OTLAttribuut(field=KlVervuilingSoorten,
@@ -28,7 +28,7 @@ class DtcSoortVervuilingWaarden(WaardenObject):
 
     @property
     def microgramPerKilogram(self) -> List[KwantWrdInMicrogramPerKilogramWaarden]:
-        """De concentratie van de vervuiling kan in µg/kg bepaalt worden. """
+        """De concentratie van de vervuiling kan in µg/kg bepaalt worden."""
         return self._microgramPerKilogram.get_waarde()
 
     @microgramPerKilogram.setter

@@ -1,12 +1,11 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from abc import abstractmethod
+from abc import abstractmethod, ABC
 from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class ElektrischComponentennummerObject(PuntGeometrie):
+class ElektrischComponentennummerObject(ABC):
     """Abstracte voor Objecttypes waarvoor het componentnummer op het lokale elektrische schema moet bijgehouden worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ElektrischComponentennummerObject'
@@ -14,8 +13,6 @@ class ElektrischComponentennummerObject(PuntGeometrie):
 
     @abstractmethod
     def __init__(self):
-        super().__init__()
-
         self._componentnummer = OTLAttribuut(field=StringField,
                                              naam='componentnummer',
                                              label='componentnummer',

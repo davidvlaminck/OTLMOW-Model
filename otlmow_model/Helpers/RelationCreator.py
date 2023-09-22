@@ -1,7 +1,5 @@
-import base64
-import re
 import warnings
-from typing import Type, Optional, Match
+from typing import Type, Optional
 
 from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.Classes.Agent import Agent
@@ -9,22 +7,9 @@ from otlmow_model.Classes.ImplementatieElement.RelatieObject import RelatieObjec
 from otlmow_model.Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
-from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri
+from otlmow_model.Helpers.GenericHelper import get_ns_and_name_from_uri, validate_guid, encode_short_uri, \
+    get_aim_id_from_uuid_and_typeURI
 from otlmow_model.Helpers.RelationValidator import is_valid_relation
-
-
-def validate_guid(uuid: str) -> Optional[Match]:
-    uuid_pattern = "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-    return re.match(uuid_pattern, uuid)
-
-
-def encode_short_uri(short_uri: str) -> str:
-    short_uri_bytes = short_uri.encode('ascii')
-    base64_bytes = base64.b64encode(short_uri_bytes)
-    base64_short_uri = base64_bytes.decode('ascii')
-    while base64_short_uri.endswith('='):
-        base64_short_uri = base64_short_uri[:-1]
-    return base64_short_uri
 
 
 def create_relation(relation_type: Type[RelatieObject], source: Optional[RelationInteractor] = None,
@@ -78,17 +63,16 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if 'lgc.' in source_typeURI:
             source_is_legacy = True
 
-        ns, name = get_ns_and_name_from_uri(source_typeURI)
-        if source_is_legacy:
-            encoded_uri = encode_short_uri(f'lgc:{ns}#{name}')
-        else:
-            encoded_uri = encode_short_uri(f'{ns}#{name}')
-        source_aim_id = f'{source_uuid}-{encoded_uri}'
+        source_aim_id = get_aim_id_from_uuid_and_typeURI(source_uuid, source_typeURI)
 
         if not source_is_legacy:
             source = dynamic_create_instance_from_uri(source_typeURI, directory=class_directory)
-            source.assetId.identificator = source_aim_id
-            source.assetId.toegekendDoor = 'AWV'
+            if source_typeURI == 'http://purl.org/dc/terms/Agent':
+                source.agentId.identificator = source_aim_id
+                source.agentId.toegekendDoor = 'AWV'
+            else:
+                source.assetId.identificator = source_aim_id
+                source.assetId.toegekendDoor = 'AWV'
 
     if target is None:
         if not validate_guid(target_uuid):
@@ -97,17 +81,16 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         if 'lgc.' in target_typeURI:
             target_is_legacy = True
 
-        ns, name = get_ns_and_name_from_uri(target_typeURI)
-        if target_is_legacy:
-            encoded_uri = encode_short_uri(f'lgc:{ns}#{name}')
-        else:
-            encoded_uri = encode_short_uri(f'{ns}#{name}')
-        target_aim_id = f'{target_uuid}-{encoded_uri}'
+        target_aim_id = get_aim_id_from_uuid_and_typeURI(target_uuid, target_typeURI)
 
         if not target_is_legacy:
             target = dynamic_create_instance_from_uri(target_typeURI, directory=class_directory)
-            target.assetId.identificator = target_aim_id
-            target.assetId.toegekendDoor = 'AWV'
+            if target_typeURI == 'http://purl.org/dc/terms/Agent':
+                target.agentId.identificator = target_aim_id
+                target.agentId.toegekendDoor = 'AWV'
+            else:
+                target.assetId.identificator = target_aim_id
+                target.assetId.toegekendDoor = 'AWV'
 
     if not (source_is_legacy or target_is_legacy):
         valid = is_valid_relation(source=source, target=target, relation_type=relation_type)
@@ -117,13 +100,20 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
     relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI,
                                                      directory=class_directory)
 
-    if not source_is_legacy and source.assetId.identificator is None:
-        raise AttributeError('In order to create a relation_type, the source needs to have a valid assetId '
-                             '(source.assetId.identificator)')
-    if not target_is_legacy and target.assetId.identificator is None:
-        raise AttributeError(
-            'In order to create a relation_type, the target needs to have a valid assetId '
-            '(target.assetId.identificator)')
+    if not source_is_legacy:
+        if source.typeURI == 'http://purl.org/dc/terms/Agent' and source.agentId.identificator is None:
+            raise AttributeError('In order to create a relation_type, the source needs to have a valid agentId '
+                                 '(source.agentId.identificator)')
+        elif source.typeURI != 'http://purl.org/dc/terms/Agent' and source.assetId.identificator is None:
+            raise AttributeError('In order to create a relation_type, the source needs to have a valid assetId '
+                                 '(source.assetId.identificator)')
+    if not target_is_legacy:
+        if target.typeURI == 'http://purl.org/dc/terms/Agent' and target.agentId.identificator is None:
+            raise AttributeError('In order to create a relation_type, the target needs to have a valid agentId '
+                                 '(target.agentId.identificator)')
+        elif target.typeURI != 'http://purl.org/dc/terms/Agent' and target.assetId.identificator is None:
+            raise AttributeError('In order to create a relation_type, the target needs to have a valid assetId '
+                                 '(target.assetId.identificator)')
 
     relation_id = ''
     if source_is_legacy:
@@ -131,9 +121,14 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         relation_type.bronAssetId.toegekendDoor = 'AWV'
         relation_id += source_aim_id
     else:
-        relation_type.bronAssetId.identificator = source.assetId.identificator
-        relation_type.bronAssetId.toegekendDoor = source.assetId.toegekendDoor
-        relation_id += source.assetId.identificator
+        if source.typeURI == 'http://purl.org/dc/terms/Agent':
+            relation_type.bronAssetId.identificator = source.agentId.identificator
+            relation_type.bronAssetId.toegekendDoor = source.agentId.toegekendDoor
+            relation_id += source.agentId.identificator
+        else:
+            relation_type.bronAssetId.identificator = source.assetId.identificator
+            relation_type.bronAssetId.toegekendDoor = source.assetId.toegekendDoor
+            relation_id += source.assetId.identificator
 
     relation_id += '_-_'
 
@@ -142,9 +137,14 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         relation_type.doelAssetId.toegekendDoor = 'AWV'
         relation_id += target_aim_id
     else:
-        relation_type.doelAssetId.identificator = target.assetId.identificator
-        relation_type.doelAssetId.toegekendDoor = target.assetId.toegekendDoor
-        relation_id += target.assetId.identificator
+        if target.typeURI == 'http://purl.org/dc/terms/Agent':
+            relation_type.doelAssetId.identificator = target.agentId.identificator
+            relation_type.doelAssetId.toegekendDoor = target.agentId.toegekendDoor
+            relation_id += target.agentId.identificator
+        else:
+            relation_type.doelAssetId.identificator = target.assetId.identificator
+            relation_type.doelAssetId.toegekendDoor = target.assetId.toegekendDoor
+            relation_id += target.assetId.identificator
 
     relation_type.assetId.identificator = relation_id
     relation_type.assetId.toegekendDoor = 'OTLMOW'

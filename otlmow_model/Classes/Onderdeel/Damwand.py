@@ -10,26 +10,31 @@ from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Damwand(ConstructieElement, LijnGeometrie):
-    """Een grond- en/of waterkerende constructie, die bestaat uit een verticaal in de grond geplaatste wand."""
+    """Een grond- en/of waterkerende constructie,die bestaat uit een verticaal in de grond geplaatste wand."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
+
+    deprecated_version = '2.8.0'
 
     def __init__(self):
         ConstructieElement.__init__(self)
         LijnGeometrie.__init__(self)
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verlichtingstoestel')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bouwput')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sleuf')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent', deprecated='2.8.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing', deprecated='2.8.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging', deprecated='2.8.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', deprecated='2.8.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verlichtingstoestel', deprecated='2.8.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bouwput', deprecated='2.8.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sleuf', deprecated='2.8.0')
 
         self._isWaterdicht = OTLAttribuut(field=BooleanField,
                                           naam='isWaterdicht',
                                           label='is waterdicht',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.isWaterdicht',
+                                          usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                          deprecated_version='2.8.0',
                                           definition='Geeft aan of de damwand al dan niet waterdicht is.',
                                           owner=self)
 
@@ -37,6 +42,8 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                        naam='materiaal',
                                        label='Damwand materiaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.materiaal',
+                                       usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                       deprecated_version='2.8.0',
                                        definition='Het materiaal waaruit de damwand bestaat.',
                                        owner=self)
 
@@ -44,6 +51,8 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                          naam='oppervlakte',
                                          label='oppervlakte',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.oppervlakte',
+                                         usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                         deprecated_version='2.8.0',
                                          definition='De totale oppervlakte van de damwandconstructie in vierkante meter.',
                                          owner=self)
 
@@ -51,6 +60,8 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                            naam='profiellengte',
                                            label='profiellengte',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.profiellengte',
+                                           usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                           deprecated_version='2.8.0',
                                            definition='De lengte van één damwandprofiel.',
                                            owner=self)
 
@@ -58,6 +69,8 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                           naam='totaleLengte',
                                           label='totale lengte',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.totaleLengte',
+                                          usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                          deprecated_version='2.8.0',
                                           definition='De totale lengte van de damwandconstructie in lopende meter.',
                                           owner=self)
 

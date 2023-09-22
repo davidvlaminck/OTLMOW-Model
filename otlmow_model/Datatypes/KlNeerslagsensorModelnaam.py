@@ -17,7 +17,12 @@ class KlNeerslagsensorModelnaam(KeuzelijstField):
         'WS100': KeuzelijstWaarde(invulwaarde='WS100',
                                   label='WS100',
                                   status='ingebruik',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorModelnaam/WS100')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorModelnaam/WS100'),
+        'drd11a': KeuzelijstWaarde(invulwaarde='drd11a',
+                                   label='DRD11A',
+                                   status='ingebruik',
+                                   definitie='DRD11A',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorModelnaam/drd11a')
     }
 
     @classmethod

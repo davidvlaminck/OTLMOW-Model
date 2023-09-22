@@ -16,6 +16,7 @@ from otlmow_model.Datatypes.KlBoomStandplaatswaarde import KlBoomStandplaatswaar
 from otlmow_model.Datatypes.KlBoomtoestandMeerwaardefactor import KlBoomtoestandMeerwaardefactor
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro, KwantWrdInEuroWaarden
+from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -72,6 +73,13 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                       kardinaliteit_max='*',
                                       definition='Een visueel defect aan een boom wat dient gemonitord te worden.',
                                       owner=self)
+
+        self._kroonDiameter = OTLAttribuut(field=KwantWrdInMeter,
+                                           naam='kroonDiameter',
+                                           label='kroondiameter',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.kroonDiameter',
+                                           definition='Diameter van de kroonprojectie in meter.',
+                                           owner=self)
 
         self._krooninspectie = OTLAttribuut(field=DtcDocument,
                                             naam='krooninspectie',
@@ -201,6 +209,15 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
     @gebreken.setter
     def gebreken(self, value):
         self._gebreken.set_waarde(value, owner=self)
+
+    @property
+    def kroonDiameter(self) -> KwantWrdInMeterWaarden:
+        """Diameter van de kroonprojectie in meter."""
+        return self._kroonDiameter.get_waarde()
+
+    @kroonDiameter.setter
+    def kroonDiameter(self, value):
+        self._kroonDiameter.set_waarde(value, owner=self)
 
     @property
     def krooninspectie(self) -> DtcDocumentWaarden:

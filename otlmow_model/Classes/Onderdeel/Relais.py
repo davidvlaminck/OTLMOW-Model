@@ -1,0 +1,53 @@
+# coding=utf-8
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.Classes.Abstracten.MotorVermogenskring import MotorVermogenskring
+from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from otlmow_model.Datatypes.KlRelaisMerk import KlRelaisMerk
+from otlmow_model.Datatypes.KlRelaisModelnaam import KlRelaisModelnaam
+
+
+# Generated with OTLClassCreator. To modify: extend, do not edit
+class Relais(AIMNaamObject, MotorVermogenskring):
+    """Een door een elektromagneet bediende schakelaar voor het schakelen van kleine vermogens. Ook magneetschakelaar genoemd."""
+
+    typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Relais'
+    """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
+
+    def __init__(self):
+        AIMNaamObject.__init__(self)
+        MotorVermogenskring.__init__(self)
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Niveaumeting')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart')
+
+        self._merk = OTLAttribuut(field=KlRelaisMerk,
+                                  naam='merk',
+                                  label='merk',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Relais.merk',
+                                  definition='Merk van de relais volgens de fabrikant.',
+                                  owner=self)
+
+        self._modelnaam = OTLAttribuut(field=KlRelaisModelnaam,
+                                       naam='modelnaam',
+                                       label='modelnaam',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Relais.modelnaam',
+                                       definition='Naam die de fabrikant zelf geeft aan het model of de uitvoering van de relais.',
+                                       owner=self)
+
+    @property
+    def merk(self) -> str:
+        """Merk van de relais volgens de fabrikant."""
+        return self._merk.get_waarde()
+
+    @merk.setter
+    def merk(self, value):
+        self._merk.set_waarde(value, owner=self)
+
+    @property
+    def modelnaam(self) -> str:
+        """Naam die de fabrikant zelf geeft aan het model of de uitvoering van de relais."""
+        return self._modelnaam.get_waarde()
+
+    @modelnaam.setter
+    def modelnaam(self, value):
+        self._modelnaam.set_waarde(value, owner=self)

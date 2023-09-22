@@ -16,7 +16,7 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Tank(AIMNaamObject, VlakGeometrie):
-    """Een constructie voor het opslaan van goederen, typisch in vloeibare of gasvormige toestand, zoals water, brandstof, aardgas, lucht, etc."""
+    """Een constructie voor het opslaan van goederen,typisch in vloeibare of gasvormige toestand,zoals water,brandstof,aardgas,lucht,etc."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Tank'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -55,7 +55,7 @@ class Tank(AIMNaamObject, VlakGeometrie):
                                     naam='lengte',
                                     label='lengte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Tank.lengte',
-                                    definition='Lengte in centimeter van de tank. ',
+                                    definition='Lengte in centimeter van de tank.',
                                     owner=self)
 
         self._materiaal = OTLAttribuut(field=KlTankMateriaal,
@@ -143,7 +143,7 @@ class Tank(AIMNaamObject, VlakGeometrie):
 
     @property
     def lengte(self) -> KwantWrdInCentimeterWaarden:
-        """Lengte in centimeter van de tank. """
+        """Lengte in centimeter van de tank."""
         return self._lengte.get_waarde()
 
     @lengte.setter

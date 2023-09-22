@@ -14,6 +14,11 @@ class KlDraagconstructieDwarsdoorsnede(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDraagconstructieDwarsdoorsnede'
     options = {
+        'heptagonaal': KeuzelijstWaarde(invulwaarde='heptagonaal',
+                                        label='heptagonaal',
+                                        status='ingebruik',
+                                        definitie='heptagonaal',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDraagconstructieDwarsdoorsnede/heptagonaal'),
         'octagonaal': KeuzelijstWaarde(invulwaarde='octagonaal',
                                        label='octagonaal',
                                        status='ingebruik',

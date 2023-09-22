@@ -1,10 +1,10 @@
 # coding=utf-8
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Lensplaat(AIMObject, PuntGeometrie):
+class Lensplaat(AIMObject, GeenGeometrie):
     """Afsluitplaat van de camerakast."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lensplaat'
@@ -12,4 +12,4 @@ class Lensplaat(AIMObject, PuntGeometrie):
 
     def __init__(self):
         AIMObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        GeenGeometrie.__init__(self)

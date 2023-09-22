@@ -23,7 +23,12 @@ class KlBatterijMerk(KeuzelijstField):
                                      label='landport',
                                      status='ingebruik',
                                      definitie='landport',
-                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBatterijMerk/landport')
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBatterijMerk/landport'),
+        'yuasa': KeuzelijstWaarde(invulwaarde='yuasa',
+                                  label='yuasa',
+                                  status='ingebruik',
+                                  definitie='yuasa',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBatterijMerk/yuasa')
     }
 
     @classmethod

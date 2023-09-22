@@ -43,11 +43,11 @@ class KwantWrdInKiloAmpereWaarden(WaardenObject):
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
 class KwantWrdInKiloAmpere(OTLField):
-    """Een kwantitatieve waarde die een getal in kiloampère uitdrukt. """
+    """Een kwantitatieve waarde die een getal in kiloampère uitdrukt."""
     naam = 'KwantWrdInKiloAmpere'
     label = 'Kwantitatieve waarde in kilo ampère'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInKiloAmpere'
-    definition = 'Een kwantitatieve waarde die een getal in kiloampère uitdrukt. '
+    definition = 'Een kwantitatieve waarde die een getal in kiloampère uitdrukt.'
     waarde_shortcut_applicable = True
     waardeObject = KwantWrdInKiloAmpereWaarden
 
