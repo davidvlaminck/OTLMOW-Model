@@ -1,5 +1,6 @@
 ﻿import datetime
 import time
+import warnings
 from datetime import date
 
 import pytest
@@ -8,6 +9,7 @@ from UnitTests.TestClasses.Classes.ImplementatieElement.AIMObject import AIMObje
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 from otlmow_model.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+from otlmow_model.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 
 
 def test_from_dict_typeURI_in_dict():
@@ -32,6 +34,18 @@ def test_from_dict_abstract_class_no_typeURI_in_dict():
         OTLObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
     with pytest.raises(ValueError):
         AIMObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+
+
+def test_from_dict_non_standard_attributes():
+    with pytest.warns(NonStandardAttributeWarning):
+        input_dict = {'testBooleanField': True,
+                      'non_standard_attribute': True }
+        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+        assert instance is not None
+        assert isinstance(instance, AllCasesTestClass)
+        assert AllCasesTestClass.typeURI == instance.typeURI
+        assert instance.testBooleanField
+        assert instance.non_standard_attribute
 
 
 def test_from_dict_simple_single_attributes():
@@ -535,6 +549,59 @@ def test_make_string_version_multiple_complex_():
 
     assert info_string == expected
 
+def test_create_dict_from_asset_non_standard_attributes_warnings_suppressed(subtests, recwarn):
+    with subtests.test(msg='non-standard simple attribute / warnings suppressed'):
+        instance = AllCasesTestClass()
+        instance.testStringField = 'string'
+        instance.testBooleanField = True
+        instance.non_standard_attribute_no_warning = 'waarde-2'
+
+        d = instance.create_dict_from_asset(suppress_warnings_non_standardised_attributes=True)
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testBooleanField': True,
+                    'testStringField': 'string',
+                    'non_standard_attribute_no_warning': 'waarde-2'}
+        assert d == expected
+        assert len(recwarn) == 0
+
+
+def test_create_dict_from_asset_non_standard_attributes(subtests):
+    with subtests.test(msg='non-standard simple attribute / warnings not suppressed'):
+        instance = AllCasesTestClass()
+        instance.testStringField = 'string'
+        instance.testBooleanField = True
+        instance.non_standard_attribute = 'waarde-2'
+
+        with pytest.warns(NonStandardAttributeWarning):
+            d = instance.create_dict_from_asset()
+            expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                        'testBooleanField': True,
+                        'testStringField': 'string',
+                        'non_standard_attribute': 'waarde-2'}
+            assert d == expected
+
+    with subtests.test(msg='non-standard complex attribute / warnings not suppressed'):
+        instance = AllCasesTestClass()
+        instance.testStringField = 'string'
+        instance.testBooleanField = True
+        instance.non_standard_attribute = 'waarde-2'
+        instance.non_standard_attribute_list = [1, 2]
+        instance.testComplexType.testStringField = 'string'
+        instance.testComplexType.non_standard_in_complex_attribute = 'waarde-3'
+
+        with pytest.warns(NonStandardAttributeWarning):
+            d = instance.create_dict_from_asset()
+            expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                        'testBooleanField': True,
+                        'testStringField': 'string',
+                        'non_standard_attribute': 'waarde-2',
+                        'non_standard_attribute_list': [1, 2],
+                        'testComplexType': {
+                            'non_standard_in_complex_attribute': 'waarde-3',
+                            'testStringField': 'string'}
+                        }
+            assert d == expected
+
 
 def test_create_dict_from_asset_testclass(subtests):
     with subtests.test(msg='Complex datatype: Dtc'):
@@ -803,6 +870,48 @@ def test_create_dict_from_asset_cardinality():
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
 
     assert asset_dict == expected
+
+
+def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes(subtests, recwarn):
+    with subtests.test(msg='non-standard simple attribute / warnings suppressed'):
+        instance = AllCasesTestClass()
+        instance.toestand = 'in-gebruik'
+        instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        instance.non_standard_attribute = 'waarde-2'
+
+        rdf_dict = create_dict_from_asset(instance, rdf=True, suppress_warnings_non_standardised_attributes=True)
+        expected = {
+            '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                    '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
+                'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
+            'non_standard_attribute': 'waarde-2'
+        }
+
+        assert rdf_dict == expected
+        assert len(recwarn) == 0
+
+    with subtests.test(msg='non-standard simple attribute'):
+        instance = AllCasesTestClass()
+        instance.toestand = 'in-gebruik'
+        instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        instance.non_standard_attribute = 'waarde-2'
+
+        with pytest.warns(NonStandardAttributeWarning):
+            rdf_dict = create_dict_from_asset(instance, rdf=True)
+            expected = {
+                '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                        '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
+                    'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
+                'non_standard_attribute': 'waarde-2'
+            }
+
+            assert rdf_dict == expected
 
 
 def test_create_ld_dict_from_asset_cardinality():

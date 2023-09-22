@@ -16,6 +16,7 @@ from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
 from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
+from otlmow_model.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 
@@ -293,9 +294,12 @@ class OTLObject(object):
                         message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
                         category=ClassDeprecationWarning)
 
-    def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False) -> Dict:
+    def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False,
+                               suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
         """Converts this asset into a dictionary representation"""
-        return create_dict_from_asset(otl_object=self, waarde_shortcut=waarde_shortcut, rdf=rdf)
+        return create_dict_from_asset(
+            otl_object=self, waarde_shortcut=waarde_shortcut, rdf=rdf,
+            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
 
     def fill_with_dummy_data(self):
         for attr in self:
@@ -351,7 +355,8 @@ class OTLObject(object):
         return o
 
 
-def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bool = False) -> Dict:
+def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bool = False,
+                           suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
     """Creates a dictionary from an OTLObject with key value pairs for attributes and their values. Saves the type of the object in typeURI (or @type for the RDF dict)
 
     :param otl_object: input object to be transformed
@@ -360,13 +365,19 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     :type: bool
     :param rdf: whether to generate a dictionary where the key's are the URI's of the attributes rather than the names, defaults to False
     :type: bool
+    :param suppress_warnings_non_standardised_attributes: whether to suppress the warning that are raised because the object has attributes that aren't standardised
+    :type: bool
 
     :return: returns an instance where the values of the attributes matches the given dictionary
     :rtype: OTLObject"""
     if rdf:
-        d = _recursive_create_rdf_dict_from_asset(asset=otl_object, waarde_shortcut=waarde_shortcut)
+        d = _recursive_create_rdf_dict_from_asset(
+            asset=otl_object, waarde_shortcut=waarde_shortcut,
+            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
     else:
-        d = _recursive_create_dict_from_asset(otl_object, waarde_shortcut=waarde_shortcut)
+        d = _recursive_create_dict_from_asset(
+            asset=otl_object, waarde_shortcut=waarde_shortcut,
+            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
 
     if d is None:
         d = {}
@@ -377,100 +388,128 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     return d
 
 
-def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list, dict],
-                                      waarde_shortcut: bool = False) -> Union[Dict, List[Dict]]:
+def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list, dict], waarde_shortcut: bool = False,
+                                      suppress_warnings_non_standardised_attributes: bool = False) -> Union[Dict, List[Dict]]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         l = []
         for item in asset:
-            dict_item = _recursive_create_dict_from_asset(asset=item, waarde_shortcut=waarde_shortcut)
+            dict_item = _recursive_create_dict_from_asset(
+                asset=item, waarde_shortcut=waarde_shortcut,
+                suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
             if dict_item is not None:
                 l.append(dict_item)
         return l
     else:
         d = {}
-        for attr in asset:
-            if attr.waarde is None:
+        for attr_key, attr in vars(asset).items():
+            if attr_key == '_parent' or attr_key == '_valid_relations':
                 continue
-            if attr.waarde == []:
-                d[attr.naam] = []
-                continue
+            if isinstance(attr, OTLAttribuut):
+                if attr.waarde is None:
+                    continue
+                if attr.waarde == []:
+                    d[attr.naam] = []
+                    continue
 
-            if attr.field.waardeObject is not None:  # complex
-                if waarde_shortcut and attr.field.waarde_shortcut_applicable:
-                    if isinstance(attr.waarde, list):
-                        dict_item = [item.waarde for item in attr.waarde]
-                        if len(dict_item) > 0:
-                            d[attr.naam] = dict_item
+                if attr.field.waardeObject is not None:  # complex
+                    if waarde_shortcut and attr.field.waarde_shortcut_applicable:
+                        if isinstance(attr.waarde, list):
+                            dict_item = [item.waarde for item in attr.waarde]
+                            if len(dict_item) > 0:
+                                d[attr.naam] = dict_item
+                        else:
+                            dict_item = attr.waarde.waarde
+                            if dict_item is not None:
+                                d[attr.naam] = dict_item
                     else:
-                        dict_item = attr.waarde.waarde
+                        dict_item = _recursive_create_dict_from_asset(
+                            asset=attr.waarde, waarde_shortcut=waarde_shortcut,
+                            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
                         if dict_item is not None:
                             d[attr.naam] = dict_item
                 else:
-                    dict_item = _recursive_create_dict_from_asset(asset=attr.waarde, waarde_shortcut=waarde_shortcut)
-                    if dict_item is not None:
-                        d[attr.naam] = dict_item
+                    if attr.field == TimeField:
+                        d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
+                    elif attr.field == DateField:
+                        d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
+                    elif attr.field == DateTimeField:
+                        d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                    else:
+                        d[attr.naam] = attr.waarde
             else:
-                if attr.field == TimeField:
-                    d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
-                elif attr.field == DateField:
-                    d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
-                elif attr.field == DateTimeField:
-                    d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
-                else:
-                    d[attr.naam] = attr.waarde
+                if not attr_key.startswith('_'):
+                    if not suppress_warnings_non_standardised_attributes:
+                        warnings.warn(message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                              f'The attribute will be added on the instance',
+                                      category=NonStandardAttributeWarning)
+                    d[attr_key] = attr
 
         if len(d.items()) > 0:
             return d
 
 
-def _recursive_create_rdf_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list, dict],
-                                          waarde_shortcut: bool = False) -> Union[Dict, List[Dict]]:
+def _recursive_create_rdf_dict_from_asset(
+        asset: Union[OTLObject, OTLAttribuut, list, dict], waarde_shortcut: bool = False,
+        suppress_warnings_non_standardised_attributes: bool = False) -> Union[Dict, List[Dict]]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         l = []
         for item in asset:
-            dict_item = _recursive_create_rdf_dict_from_asset(asset=item, waarde_shortcut=waarde_shortcut)
+            dict_item = _recursive_create_rdf_dict_from_asset(
+                asset=item, waarde_shortcut=waarde_shortcut,
+                suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
             if dict_item is not None:
                 l.append(dict_item)
         if len(l) > 0:
             return l
     else:
         d = {}
-        for attr in asset:
-            if attr.waarde is None or attr.waarde == []:
+        for attr_key, attr in vars(asset).items():
+            if attr_key == '_parent' or attr_key == '_valid_relations':
                 continue
+            if isinstance(attr, OTLAttribuut):
+                if attr.waarde is None or attr.waarde == []:
+                    continue
 
-            if attr.field.waardeObject is not None:  # complex
-                if waarde_shortcut and attr.field.waarde_shortcut_applicable:
-                    if isinstance(attr.waarde, list):
-                        dict_item = [item.waarde for item in attr.waarde]
-                        if len(dict_item) > 0:
-                            d[attr.objectUri] = dict_item
+                if attr.field.waardeObject is not None:  # complex
+                    if waarde_shortcut and attr.field.waarde_shortcut_applicable:
+                        if isinstance(attr.waarde, list):
+                            dict_item = [item.waarde for item in attr.waarde]
+                            if len(dict_item) > 0:
+                                d[attr.objectUri] = dict_item
+                        else:
+                            dict_item = attr.waarde.waarde
+                            if dict_item is not None:
+                                d[attr.objectUri] = dict_item
                     else:
-                        dict_item = attr.waarde.waarde
+                        dict_item = _recursive_create_rdf_dict_from_asset(
+                            asset=attr.waarde, waarde_shortcut=waarde_shortcut,
+                            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
                         if dict_item is not None:
                             d[attr.objectUri] = dict_item
                 else:
-                    dict_item = _recursive_create_rdf_dict_from_asset(asset=attr.waarde,
-                                                                      waarde_shortcut=waarde_shortcut)
-                    if dict_item is not None:
-                        d[attr.objectUri] = dict_item
-            else:
-                if attr.field == TimeField:
-                    d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
-                elif attr.field == DateField:
-                    d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
-                elif attr.field == DateTimeField:
-                    d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
-                elif issubclass(attr.field, KeuzelijstField):
-                    if isinstance(attr.waarde, list):
-                        if attr.waarde == [None]:
-                            d[attr.objectUri] = []
+                    if attr.field == TimeField:
+                        d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
+                    elif attr.field == DateField:
+                        d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
+                    elif attr.field == DateTimeField:
+                        d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                    elif issubclass(attr.field, KeuzelijstField):
+                        if isinstance(attr.waarde, list):
+                            if attr.waarde == [None]:
+                                d[attr.objectUri] = []
+                            else:
+                                d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in attr.waarde]
                         else:
-                            d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in attr.waarde]
+                            d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
                     else:
-                        d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
-                else:
-                    d[attr.objectUri] = attr.waarde
+                        d[attr.objectUri] = attr.waarde
+            else:
+                if not attr_key.startswith('_'):
+                    if not suppress_warnings_non_standardised_attributes:
+                        warnings.warn(message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                              f'The attribute will be added on the instance',
+                                      category=NonStandardAttributeWarning)
+                    d[attr_key] = attr
 
         if len(d.items()) > 0:
             return d
@@ -538,12 +577,12 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
     return lines
 
 
-def get_attribute_by_uri(instance_or_attribute, key: str) -> OTLAttribuut:
-    return next(v for v in instance_or_attribute if v.objectUri == key)
+def get_attribute_by_uri(instance_or_attribute, key: str) -> Union[OTLAttribuut, None]:
+    return next((v for v in instance_or_attribute if v.objectUri == key), None)
 
 
-def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut:
-    return getattr(instance_or_attribute, '_' + key)
+def get_attribute_by_name(instance_or_attribute, key: str) -> Union[OTLAttribuut, None]:
+    return getattr(instance_or_attribute, '_' + key, None)
 
 
 # dict encoder = asset object to dict
@@ -551,10 +590,22 @@ def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut:
 
 def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value,
                           waarde_shortcut: bool = False, rdf: bool = False):
+    if instance_or_attribute is None:
+        raise ValueError('instance_or_attribute cannot be None')
+    if key is None or key == '':
+        raise ValueError('key cannot be empty')
+
     if rdf:
         attribute_to_set = get_attribute_by_uri(instance_or_attribute, key)
     else:
         attribute_to_set = get_attribute_by_name(instance_or_attribute, key)
+
+    if attribute_to_set is None:
+        warnings.warn(message=f'Attribute with name "{key}" can not be found on the given instance or attribute. Assume this is '
+                              f'a non standardized attribute. Setting the attribute with setattr',
+                      category=NonStandardAttributeWarning)
+        setattr(instance_or_attribute, key, value)
+        return
 
     if attribute_to_set.field.waardeObject is not None:  # complex / union / KwantWrd / dte
         if isinstance(value, list):
