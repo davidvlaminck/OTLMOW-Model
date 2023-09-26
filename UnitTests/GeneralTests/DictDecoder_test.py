@@ -1,5 +1,5 @@
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from otlmow_model.BaseClasses.OTLObject import get_attribute_by_name, get_attribute_by_uri, set_value_by_dictitem
+from otlmow_model.BaseClasses.OTLObject import get_attribute_by_name, get_attribute_by_uri
 
 
 def test_get_attribute_by_name_simple():

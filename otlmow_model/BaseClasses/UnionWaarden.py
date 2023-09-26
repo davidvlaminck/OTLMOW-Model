@@ -3,7 +3,7 @@
 
 class UnionWaarden(WaardenObject):
     def __init__(self):
-        WaardenObject.__init__(self)
+        super().__init__()
 
     def clear_other_props(self, prop_name: str):
         prop_name = prop_name[1:]
