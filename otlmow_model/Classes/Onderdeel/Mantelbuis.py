@@ -15,8 +15,7 @@ class Mantelbuis(Buis, ContainerBuis):
     deprecated_version = '2.8.0'
 
     def __init__(self):
-        Buis.__init__(self)
-        ContainerBuis.__init__(self)
+        super().__init__()
 
         self._materiaal = OTLAttribuut(field=KlRioleringsbuisMateriaal,
                                        naam='materiaal',

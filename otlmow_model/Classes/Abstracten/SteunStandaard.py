@@ -11,7 +11,7 @@ from otlmow_model.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class SteunStandaard(AIMNaamObject, EMDraagconstructie):
+class SteunStandaard(EMDraagconstructie, AIMNaamObject):
     """Abstracte voor de standaard steunen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard'
@@ -19,8 +19,7 @@ class SteunStandaard(AIMNaamObject, EMDraagconstructie):
 
     @abstractmethod
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        EMDraagconstructie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AfmetingenDiepCBWand')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Betonfundering', deprecated='2.0.0')

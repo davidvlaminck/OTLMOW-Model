@@ -15,16 +15,14 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Lichtmast(AIMNaamObject, EMDraagconstructie, PuntGeometrie):
+class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
     """Paal waarop een verlichtingstoestel of andere toestellen zoals een camera bevestigd kunnen worden met uitzondering van wegverlichting. Omvat het deurtje, klemmenblok, montagekastje, bevestigingsmaterialen (bv. voetplaten) en fundering (bv. buisfundering) of verankeringsmassief. Indien de paal gebruikt wordt voor wegverlichting moet het objecttype WVLichtmast gebruikt worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        EMDraagconstructie.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')

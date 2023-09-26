@@ -21,9 +21,7 @@ class Toegangsprocedure(AIMDBStatus, AIMToestand, PuntGeometrie):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMDBStatus.__init__(self)
-        AIMToestand.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='http://purl.org/dc/terms/Agent')
 

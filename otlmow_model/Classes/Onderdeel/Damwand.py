@@ -18,8 +18,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
     deprecated_version = '2.8.0'
 
     def __init__(self):
-        ConstructieElement.__init__(self)
-        LijnGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent', deprecated='2.8.0')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing', deprecated='2.8.0')

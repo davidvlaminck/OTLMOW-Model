@@ -19,8 +19,7 @@ class Seinlantaarn(AIMNaamObject, PuntGeometrie):
 
     @abstractmethod
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VRIDraagconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeerslicht')

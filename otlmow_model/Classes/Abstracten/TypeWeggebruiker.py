@@ -13,6 +13,8 @@ class TypeWeggebruiker(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._typeWeggebruiker = OTLAttribuut(field=KlVriTypeweggebruiker,
                                               naam='typeWeggebruiker',
                                               label='type weggebruiker',

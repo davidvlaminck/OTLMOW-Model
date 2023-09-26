@@ -12,17 +12,14 @@ from otlmow_model.Datatypes.KlMotorbeveiligingType import KlMotorbeveiligingType
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Motorbeveiligingsschakelaar(AIMNaamObject, ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject):
+class Motorbeveiligingsschakelaar(ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject, AIMNaamObject):
     """Techniek voor het beveiliging van een moter tegen schade door overbelasting."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Motorbeveiligingsschakelaar'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        ElektrischComponentennummerObject.__init__(self)
-        MotorVermogenskring.__init__(self)
-        SerienummerObject.__init__(self)
+        super().__init__()
 
         self._instellingen = OTLAttribuut(field=DtcDocument,
                                           naam='instellingen',

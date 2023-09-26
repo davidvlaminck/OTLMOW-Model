@@ -10,16 +10,14 @@ from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ladder(AIMNaamObject, AanhorighedenBrug, LijnGeometrie):
+class Ladder(AanhorighedenBrug, AIMNaamObject, LijnGeometrie):
     """Een ladder is een constructie van verticale bomen met horizontale sporten die gebruikt wordt als klimmiddel/gereedschap."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        AanhorighedenBrug.__init__(self)
-        LijnGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompstation')

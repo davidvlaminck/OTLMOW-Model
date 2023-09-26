@@ -18,6 +18,8 @@ class Put(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._adres = OTLAttribuut(field=DtcAdres,
                                    naam='adres',
                                    label='adres',

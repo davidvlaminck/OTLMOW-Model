@@ -14,6 +14,8 @@ class BijlageVoertuigkering(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._testrapportVoertuigkering = OTLAttribuut(field=DtcDocument,
                                                        naam='testrapportVoertuigkering',
                                                        label='testrapport voertuigkering',

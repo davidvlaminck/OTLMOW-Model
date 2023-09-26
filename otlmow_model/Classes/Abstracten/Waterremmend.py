@@ -13,6 +13,8 @@ class Waterremmend(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._heeftWaterremmendeFunctie = OTLAttribuut(field=BooleanField,
                                                        naam='heeftWaterremmendeFunctie',
                                                        label='heeft waterremmende functie',

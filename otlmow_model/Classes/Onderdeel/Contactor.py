@@ -10,17 +10,14 @@ from otlmow_model.Datatypes.KlContactorType import KlContactorType
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Contactor(AIMObject, ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject):
+class Contactor(ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject, AIMObject):
     """Toestel dat ter plaatse of op afstand aangestuurd wordt om (grote) vermogensstromen af te schakelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactor'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        ElektrischComponentennummerObject.__init__(self)
-        MotorVermogenskring.__init__(self)
-        SerienummerObject.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord')

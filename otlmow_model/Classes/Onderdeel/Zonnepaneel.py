@@ -10,15 +10,14 @@ from otlmow_model.Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWatt
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Zonnepaneel(Voedingspunt, BevestigingGC):
+class Zonnepaneel(BevestigingGC, Voedingspunt):
     """Toestel om elektrische energie op te wekken uit zonlicht met als doel het voeden van een installatie. Ook wel fotovoltaïsche cellen of zonnecellen genoemd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Zonnepaneel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        Voedingspunt.__init__(self)
-        BevestigingGC.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')

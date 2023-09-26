@@ -6,17 +6,14 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Werkschakelaar(AIMNaamObject, ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject):
+class Werkschakelaar(ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject, AIMNaamObject):
     """Een handbediende schakelaar die in de nabijheid van een elektromechanische installatie is aangebracht om deze gedurende onderhouds- en reparatiewerkzaamheden te kunnen uitschakelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Werkschakelaar'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        ElektrischComponentennummerObject.__init__(self)
-        MotorVermogenskring.__init__(self)
-        SerienummerObject.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderstel')

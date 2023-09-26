@@ -10,17 +10,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Sleufbekisting(AIMNaamObject, Grondkeringen, LijnGeometrie, VlakGeometrie):
+class Sleufbekisting(Grondkeringen, AIMNaamObject, LijnGeometrie, VlakGeometrie):
     """Een kistsysteem (synoniemen: boxen, Verbau-systeem of grootvlakbeschoeiing) om sleuven/bouwputten te beschoeien. De kist kan op verschillende manieren opgebouwd worden. Enkel grondkerend en bedoeld als tijdelijke beschoeiing."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sleufbekisting'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        Grondkeringen.__init__(self)
-        LijnGeometrie.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Grondanker')
 

@@ -15,8 +15,7 @@ class SelNietSelLus(Detectielus, LijnGeometrie):
 
     @abstractmethod
     def __init__(self):
-        Detectielus.__init__(self)
-        LijnGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AndereLaag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AndereVerharding')

@@ -14,6 +14,8 @@ class AOWSType(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._isGoedgekeurd = OTLAttribuut(field=BooleanField,
                                            naam='isGoedgekeurd',
                                            label='is goedgekeurd',

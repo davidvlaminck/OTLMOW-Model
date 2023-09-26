@@ -26,9 +26,7 @@ class Bovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
     deprecated_version = '2.1.0'
 
     def __init__(self):
-        AIMObject.__init__(self)
-        PuntGeometrie.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactpunt', deprecated='2.1.0')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer', deprecated='2.1.0')

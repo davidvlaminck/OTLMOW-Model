@@ -22,10 +22,7 @@ class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor):
 
     @abstractmethod
     def __init__(self):
-        AIMDBStatus.__init__(self)
-        AIMToestand.__init__(self)
-        OTLAsset.__init__(self)
-        RelationInteractor.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AanvullendeGeometrie')

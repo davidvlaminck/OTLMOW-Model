@@ -20,9 +20,7 @@ class Grondanker(AxiaalDraagvermogen, Grondkeringen, PuntGeometrie):
 
     @abstractmethod
     def __init__(self):
-        AxiaalDraagvermogen.__init__(self)
-        Grondkeringen.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AfmetingenDiepCBWand')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Betonfundering', deprecated='2.0.0')

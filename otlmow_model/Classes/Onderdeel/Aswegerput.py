@@ -7,16 +7,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Aswegerput(PutRelatie, Put, VlakGeometrie):
+class Aswegerput(Put, PutRelatie, VlakGeometrie):
     """Een ondergrondse constructie die de elektronica van een asweger bevat."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aswegerput'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        PutRelatie.__init__(self)
-        Put.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Weegcel')

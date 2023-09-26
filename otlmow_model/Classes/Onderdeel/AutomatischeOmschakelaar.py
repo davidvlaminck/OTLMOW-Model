@@ -9,16 +9,14 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AutomatischeOmschakelaar(AIMObject, SerienummerObject, PuntGeometrie):
+class AutomatischeOmschakelaar(SerienummerObject, AIMObject, PuntGeometrie):
     """Automatische omschakelmodule voor voeding, ook gekend als Static Transfer Switch of STS."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AutomatischeOmschakelaar'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        SerienummerObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS')
 

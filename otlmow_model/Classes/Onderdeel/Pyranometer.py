@@ -7,15 +7,14 @@ from otlmow_model.Datatypes.KlPyranometerModelnaam import KlPyranometerModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Pyranometer(AIMNaamObject, Sensoropstelling):
+class Pyranometer(Sensoropstelling, AIMNaamObject):
     """Een meettoestel dat wordt gebruikt om de intensiteit van zonnestraling te meten. Het meetresultaat wordt omgezet in een uitleesbaar signaal."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pyranometer'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        Sensoropstelling.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
 

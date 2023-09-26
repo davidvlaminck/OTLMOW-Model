@@ -10,17 +10,14 @@ from otlmow_model.Datatypes.KlRadiolistenerModelnaam import KlRadiolistenerModel
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Radiolistener(AIMNaamObject, IPNetwerkToegangObject, RHZModule, SerienummerObject):
+class Radiolistener(IPNetwerkToegangObject, RHZModule, SerienummerObject, AIMNaamObject):
     """Een radiotoestel om de verschillende uitgezonden radiozenders (FM en DAB+) of boodschappen te beluisteren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Radiolistener'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        IPNetwerkToegangObject.__init__(self)
-        RHZModule.__init__(self)
-        SerienummerObject.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort')
 

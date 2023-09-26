@@ -13,6 +13,8 @@ class SerienummerObject(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._serienummer = OTLAttribuut(field=StringField,
                                          naam='serienummer',
                                          label='serienummer',

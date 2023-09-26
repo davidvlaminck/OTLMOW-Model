@@ -26,8 +26,7 @@ class GeluidswerendeConstructie(LijnvormigElement, LijnGeometrie):
     deprecated_version = '2.0.0'
 
     def __init__(self):
-        LijnvormigElement.__init__(self)
-        LijnGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AfschermendeConstructie', deprecated='2.0.0')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Fundering', deprecated='2.0.0')

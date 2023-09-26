@@ -12,15 +12,14 @@ from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantW
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Groutanker(AIMNaamObject, Grondanker):
+class Groutanker(Grondanker, AIMNaamObject):
     """Stalen staaf of strengen die de trekkracht op de grondkering overdraagt op een groutlichaam. Dit lichaam wordt rond het anker onder hoge druk in de bodem gevormd. Door wrijving tussen grout en grond kan de kracht worden overgedragen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Groutanker'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        Grondanker.__init__(self)
+        super().__init__()
 
         self._aanzetpeilwortel = OTLAttribuut(field=KwantWrdInMeterTAW,
                                               naam='aanzetpeilwortel',

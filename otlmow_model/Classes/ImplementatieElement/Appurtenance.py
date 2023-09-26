@@ -15,8 +15,7 @@ class Appurtenance(AIMObject, PuntGeometrie):
 
     @abstractmethod
     def __init__(self):
-        AIMObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self._opstelhoogte = OTLAttribuut(field=KwantWrdInMeter,
                                           naam='opstelhoogte',

@@ -10,16 +10,14 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Funderingspaal(Fundering, AxiaalDraagvermogen, PuntGeometrie):
+class Funderingspaal(AxiaalDraagvermogen, Fundering, PuntGeometrie):
     """Diepfundering waarbij d.m.v. palen de belasting wordt afgedragen naar de diepe ondergrond. Enkel te gebruiken wanneer het type paal nog niet is vastgelegd bij ontwerp."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingspaal'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        Fundering.__init__(self)
-        AxiaalDraagvermogen.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')

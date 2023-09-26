@@ -13,6 +13,8 @@ class ElektrischComponentennummerObject(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._componentnummer = OTLAttribuut(field=StringField,
                                              naam='componentnummer',
                                              label='componentnummer',

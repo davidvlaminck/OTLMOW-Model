@@ -17,10 +17,7 @@ class ProefPerformantieklasse(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie
     deprecated_version = '2.0.0'
 
     def __init__(self):
-        Proef.__init__(self)
-        LijnGeometrie.__init__(self)
-        PuntGeometrie.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GetesteBeginconstructie', deprecated='2.0.0')
 

@@ -18,8 +18,7 @@ class Betonfundering(Fundering, VlakGeometrie):
 
     @abstractmethod
     def __init__(self):
-        Fundering.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing', deprecated='2.0.0')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent', deprecated='2.0.0')

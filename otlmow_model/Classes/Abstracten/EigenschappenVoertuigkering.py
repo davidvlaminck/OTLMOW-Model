@@ -14,6 +14,8 @@ class EigenschappenVoertuigkering(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._kerendVermogen = OTLAttribuut(field=KlLEACKerendVermogen,
                                             naam='kerendVermogen',
                                             label='kerend vermogen',

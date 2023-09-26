@@ -7,15 +7,14 @@ from otlmow_model.Datatypes.KlWegbermType import KlWegbermType
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Wegberm(AIMObject, TerreinDeel):
+class Wegberm(TerreinDeel, AIMObject):
     """Gedeelte van het wegplatform dat buiten de rijbanen ligt. Een wegberm kan sloten en bijzonder ingerichte onderdelen bevatten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        TerreinDeel.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BegroeidVoorkomen')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LijnvormigElement')

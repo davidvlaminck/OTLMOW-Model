@@ -6,15 +6,14 @@ from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, Kw
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class HoutenHeipaal(Funderingspaal, HoutenConstructieElement):
+class HoutenHeipaal(HoutenConstructieElement, Funderingspaal):
     """De houten paal wordt in de grond gebracht door deze in een hei-installatie te plaatsen waarna men er een zwaar gewicht (heiblok) op laat vallen. De grond onder de paal wordt verdreven en verdicht waardoor de draagkracht groter wordt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoutenHeipaal'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        Funderingspaal.__init__(self)
-        HoutenConstructieElement.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')

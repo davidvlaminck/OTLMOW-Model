@@ -13,6 +13,8 @@ class HoutenConstructieElement(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._houtspecificaties = OTLAttribuut(field=DtcHoutspecificaties,
                                                naam='houtspecificaties',
                                                label='houtspecificaties',

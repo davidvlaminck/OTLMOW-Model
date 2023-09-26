@@ -13,5 +13,4 @@ class PU(AIMNaamObject, PuntGeometrie):
 
     @abstractmethod
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()

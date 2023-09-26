@@ -9,7 +9,7 @@ from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Leiding(AIMNaamObject, KabelgeleidingEnLeidingBevestiging, LijnGeometrie):
+class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject, LijnGeometrie):
     """Abstracte om de gemeenschappelijke eigenschappen en relaties van de verschillende soorten leidingen onder één noemer te houden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Leiding'
@@ -17,9 +17,7 @@ class Leiding(AIMNaamObject, KabelgeleidingEnLeidingBevestiging, LijnGeometrie):
 
     @abstractmethod
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        KabelgeleidingEnLeidingBevestiging.__init__(self)
-        LijnGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderwaterkruising')
 

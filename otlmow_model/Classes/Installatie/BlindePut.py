@@ -7,16 +7,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BlindePut(AIMObject, Put, VlakGeometrie):
+class BlindePut(Put, AIMObject, VlakGeometrie):
     """Een put waar de riolering op aangesloten is maar die niet meer zichtbaar is."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BlindePut'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        Put.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self._materiaal = OTLAttribuut(field=KlPutMateriaal,
                                        naam='materiaal',

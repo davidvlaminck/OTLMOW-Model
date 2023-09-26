@@ -7,16 +7,14 @@ from otlmow_model.BaseClasses.BooleanField import BooleanField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Aardingskabel(AIMNaamObject, KabelAarding, KabelAardingSamenstelling):
+class Aardingskabel(KabelAarding, KabelAardingSamenstelling, AIMNaamObject):
     """Een aardingskabel is een geleidende verbinding, typisch uit koper, die ervoor zorgt dat een ongewenste elektrische stroom (foutstroom) op een installatie naar de aarde kan afgeleid worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aardingskabel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        KabelAarding.__init__(self)
-        KabelAardingSamenstelling.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aardingsinstallatie')
 

@@ -5,13 +5,11 @@ from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VoorzieningNegatieveReactie(AIMNaamObject, AanhorighedenBrug, LijnGeometrie):
+class VoorzieningNegatieveReactie(AanhorighedenBrug, AIMNaamObject, LijnGeometrie):
     """Voorziening om opwaartse reacties ter hoogte van de steunpunten tegen te gaan, bv. stalen staven. Dit element maakt de verbinding tussen brugdeel en landhoofd/pijler en bevindt zich in de onmiddellijke omgeving van de opleggingen. De oplegging (dit is een andere klasse) kan zowel druk als trek opnemen en kan ook gebruikt worden als een voorziening tegen negatieve reactie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VoorzieningNegatieveReactie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        AanhorighedenBrug.__init__(self)
-        LijnGeometrie.__init__(self)
+        super().__init__()
