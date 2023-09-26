@@ -14,6 +14,16 @@ class KlLEDDriverModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEDDriverModelnaam'
     options = {
+        'elg-100-c350b-3y': KeuzelijstWaarde(invulwaarde='elg-100-c350b-3y',
+                                             label='ELG 100 C350B 3Y',
+                                             status='ingebruik',
+                                             definitie='ELG 100 C350B 3Y',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverModelnaam/elg-100-c350b-3y'),
+        'hlg-320h-c700b': KeuzelijstWaarde(invulwaarde='hlg-320h-c700b',
+                                           label='HLG 320H C700B',
+                                           status='ingebruik',
+                                           definitie='HLG 320H C700B',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverModelnaam/hlg-320h-c700b'),
         'ot-dx-110-220-240-1a0-dima-lt2-e': KeuzelijstWaarde(invulwaarde='ot-dx-110-220-240-1a0-dima-lt2-e',
                                                              label='OT DX 110 220-240 1A0 DIMA LT2 E',
                                                              status='ingebruik',

@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,11 @@ class KlLichtsensorModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtsensorModelnaam'
     options = {
+        'luminance-luci-l20': KeuzelijstWaarde(invulwaarde='luminance-luci-l20',
+                                               label='Luminance LUCI L20',
+                                               status='ingebruik',
+                                               definitie='Luminance LUCI L20',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorModelnaam/luminance-luci-l20')
     }
 
     @classmethod

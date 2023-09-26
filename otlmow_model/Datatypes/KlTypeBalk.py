@@ -23,7 +23,12 @@ class KlTypeBalk(KeuzelijstField):
                                        label='Koppelbalk',
                                        status='ingebruik',
                                        definitie='Een balk die de delen van een constructie met elkaar verbindt.',
-                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBalk/koppelbalk')
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBalk/koppelbalk'),
+        'ringbalk': KeuzelijstWaarde(invulwaarde='ringbalk',
+                                     label='Ringbalk',
+                                     status='ingebruik',
+                                     definitie='Aaneengesloten en doorlopende balk die op een constructie komt te staan. Een ringbalk dient meestal om de spatkrachten op te vangen.',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBalk/ringbalk')
     }
 
     @classmethod

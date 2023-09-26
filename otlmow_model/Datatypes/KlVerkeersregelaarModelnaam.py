@@ -14,6 +14,11 @@ class KlVerkeersregelaarModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersregelaarModelnaam'
     options = {
+        'c9': KeuzelijstWaarde(invulwaarde='c9',
+                               label='C9',
+                               status='ingebruik',
+                               definitie='C9',
+                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeersregelaarModelnaam/c9'),
         'civa-2020': KeuzelijstWaarde(invulwaarde='civa-2020',
                                       label='CIVA 2020',
                                       status='ingebruik',
@@ -24,6 +29,11 @@ class KlVerkeersregelaarModelnaam(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='FlowNode',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeersregelaarModelnaam/flow-node'),
+        'itc-3': KeuzelijstWaarde(invulwaarde='itc-3',
+                                  label='ITC-3',
+                                  status='ingebruik',
+                                  definitie='ITC-3',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeersregelaarModelnaam/itc-3'),
         'sx': KeuzelijstWaarde(invulwaarde='sx',
                                label='SX',
                                status='ingebruik',

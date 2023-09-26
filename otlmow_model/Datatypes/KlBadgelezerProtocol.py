@@ -17,6 +17,7 @@ class KlBadgelezerProtocol(KeuzelijstField):
         'rs485': KeuzelijstWaarde(invulwaarde='rs485',
                                   label='RS485',
                                   status='ingebruik',
+                                  definitie='RS485',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBadgelezerProtocol/rs485')
     }
 

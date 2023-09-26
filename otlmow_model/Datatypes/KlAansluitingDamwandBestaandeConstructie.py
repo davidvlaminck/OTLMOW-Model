@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,22 @@ class KlAansluitingDamwandBestaandeConstructie(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAansluitingDamwandBestaandeConstructie'
     options = {
+        'door-middel-van-betonprop': KeuzelijstWaarde(invulwaarde='door-middel-van-betonprop',
+                                                      label='door middel van betonprop',
+                                                      status='ingebruik',
+                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitingDamwandBestaandeConstructie/door-middel-van-betonprop'),
+        'door-middel-van-groutprop': KeuzelijstWaarde(invulwaarde='door-middel-van-groutprop',
+                                                      label='door middel van groutprop',
+                                                      status='ingebruik',
+                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitingDamwandBestaandeConstructie/door-middel-van-groutprop'),
+        'door-middel-van-kleiprop': KeuzelijstWaarde(invulwaarde='door-middel-van-kleiprop',
+                                                     label='door middel van kleiprop',
+                                                     status='ingebruik',
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitingDamwandBestaandeConstructie/door-middel-van-kleiprop'),
+        'door-middel-van-vrijzittend-slot': KeuzelijstWaarde(invulwaarde='door-middel-van-vrijzittend-slot',
+                                                             label='door middel van vrijzittend slot',
+                                                             status='ingebruik',
+                                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitingDamwandBestaandeConstructie/door-middel-van-vrijzittend-slot')
     }
 
     @classmethod

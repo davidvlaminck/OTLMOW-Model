@@ -107,7 +107,7 @@ class KlConstructiestaalsoort(KeuzelijstField):
         's-460-ml': KeuzelijstWaarde(invulwaarde='s-460-ml',
                                      label='S460ML',
                                      status='ingebruik',
-                                     definitie='S staat voor Structural steel (constructiestaal), 460 voor de vloeigrens in MPa en ML staat voor thermo mechanisch gewalst staal met min. gespecificeerde kerfslagwaarden onder -50 graden celsius.',
+                                     definitie='S staat voor Structural steel (constructiestaal), 460 voor de vloeigrens in MPa en ML staat voor thermo mechanisch gewalst staal met min. gespecificeerde kerfslagwaarden onder -50° celsius.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-460-ml'),
         's-460-n': KeuzelijstWaarde(invulwaarde='s-460-n',
                                     label='S460N',
@@ -117,7 +117,7 @@ class KlConstructiestaalsoort(KeuzelijstField):
         's-460-nl': KeuzelijstWaarde(invulwaarde='s-460-nl',
                                      label='S460NL',
                                      status='ingebruik',
-                                     definitie='S staat voor Structural steel (constructiestaal), 460 voor de vloeigrens in MPa en NL staat voor gegloeid en normaliserend gewalst staal met min. gespecificeerde kerfslagwaarden onder -50 graden celsius.',
+                                     definitie='S staat voor Structural steel (constructiestaal), 460 voor de vloeigrens in MPa en NL staat voor gegloeid en normaliserend gewalst staal met min. gespecificeerde kerfslagwaarden onder -50° celsius.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-460-nl')
     }
 

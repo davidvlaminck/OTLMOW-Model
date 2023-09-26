@@ -14,6 +14,16 @@ class KlIOKaartModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOKaartModelnaam'
     options = {
+        'dri50': KeuzelijstWaarde(invulwaarde='dri50',
+                                  label='DRI50',
+                                  status='ingebruik',
+                                  definitie='DRI50',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartModelnaam/dri50'),
+        'dri521': KeuzelijstWaarde(invulwaarde='dri521',
+                                   label='DRI521',
+                                   status='ingebruik',
+                                   definitie='DRI521',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartModelnaam/dri521'),
         'dri701': KeuzelijstWaarde(invulwaarde='dri701',
                                    label='DRI701',
                                    status='ingebruik',

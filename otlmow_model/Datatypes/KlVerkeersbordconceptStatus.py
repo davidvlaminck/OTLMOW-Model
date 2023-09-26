@@ -18,9 +18,15 @@ class KlVerkeersbordconceptStatus(KeuzelijstField):
                                        label='afgeschaft',
                                        status='ingebruik',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeersbordconceptStatus/afgeschaft'),
+        'blabla': KeuzelijstWaarde(invulwaarde='blabla',
+                                   label='blabla',
+                                   status='ingebruik',
+                                   definitie='qsfsd',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeersbordconceptStatus/blabla'),
         'stabiel': KeuzelijstWaarde(invulwaarde='stabiel',
                                     label='stabiel',
                                     status='ingebruik',
+                                    definitie='tstst',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeersbordconceptStatus/stabiel')
     }
 

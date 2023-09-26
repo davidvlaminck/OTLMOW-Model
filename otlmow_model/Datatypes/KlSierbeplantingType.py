@@ -22,7 +22,7 @@ class KlSierbeplantingType(KeuzelijstField):
         'bol-en-knolgewassen': KeuzelijstWaarde(invulwaarde='bol-en-knolgewassen',
                                                 label='bol- en knolgewassen',
                                                 status='ingebruik',
-                                                definitie="Bol- en knolgewassen beschikken over boven- of ondergrondse delen waarin voedsel voor 'barre' tijden kan worden opgeslagen.",
+                                                definitie='Bol- en knolgewassen beschikken over boven- of ondergrondse delen waarin voedsel voor ‘barre’ tijden kan worden opgeslagen.',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSierbeplantingType/bol-en-knolgewassen'),
         'siergrassen': KeuzelijstWaarde(invulwaarde='siergrassen',
                                         label='siergrassen',

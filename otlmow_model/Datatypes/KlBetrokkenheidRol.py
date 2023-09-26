@@ -17,6 +17,7 @@ class KlBetrokkenheidRol(KeuzelijstField):
         'beheerder': KeuzelijstWaarde(invulwaarde='beheerder',
                                       label='beheerder',
                                       status='ingebruik',
+                                      definitie='Test op tonen definitie',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetrokkenheidRol/beheerder'),
         'berekende-beheerder': KeuzelijstWaarde(invulwaarde='berekende-beheerder',
                                                 label='berekende beheerder',

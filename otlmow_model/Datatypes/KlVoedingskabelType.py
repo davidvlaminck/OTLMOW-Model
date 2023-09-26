@@ -14,6 +14,11 @@ class KlVoedingskabelType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVoedingskabelType'
     options = {
+        'cu': KeuzelijstWaarde(invulwaarde='cu',
+                               label='CU',
+                               status='ingebruik',
+                               definitie='CU',
+                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVoedingskabelType/cu'),
         'eaxecwb': KeuzelijstWaarde(invulwaarde='eaxecwb',
                                     label='EAXeCWB',
                                     status='ingebruik',

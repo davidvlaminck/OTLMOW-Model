@@ -22,7 +22,17 @@ class KlNeerslagsensorModelnaam(KeuzelijstField):
                                    label='DRD11A',
                                    status='ingebruik',
                                    definitie='DRD11A',
-                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorModelnaam/drd11a')
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorModelnaam/drd11a'),
+        'drs511': KeuzelijstWaarde(invulwaarde='drs511',
+                                   label='DRS511',
+                                   status='ingebruik',
+                                   definitie='DRS511',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorModelnaam/drs511'),
+        'hmp45': KeuzelijstWaarde(invulwaarde='hmp45',
+                                  label='HMP45',
+                                  status='ingebruik',
+                                  definitie='HMP45',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorModelnaam/hmp45')
     }
 
     @classmethod

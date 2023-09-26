@@ -14,6 +14,11 @@ class KlCameraModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCameraModelnaam'
     options = {
+        'b95a': KeuzelijstWaarde(invulwaarde='b95a',
+                                 label='B95A',
+                                 status='ingebruik',
+                                 definitie='B95A',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraModelnaam/b95a'),
         'dinion-ip-starlight-8000-m': KeuzelijstWaarde(invulwaarde='dinion-ip-starlight-8000-m',
                                                        label='Dinion IP Starlight 8000 M',
                                                        status='ingebruik',
