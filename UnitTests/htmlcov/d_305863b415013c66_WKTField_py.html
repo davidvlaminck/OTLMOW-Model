@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_305863b415013c66_WKTValidator_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.1">coverage.py v7.3.1</a>,
-            created at 2023-09-22 11:19 +0000
+            created at 2023-09-27 08:49 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -109,7 +109,7 @@
     <p class="run"><span class="n"><a id="t27" href="#t27">27</a></span><span class="t">                <span class="key">raise</span> <span class="nam">ValueError</span><span class="op">(</span><span class="str">f'{value} is not a valid WKT string for {attribuut.naam}'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t28" href="#t28">28</a></span><span class="t">            <span class="nam">geo_type</span> <span class="op">=</span> <span class="nam">value</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">' ('</span><span class="op">)</span><span class="op">[</span><span class="num">0</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t29" href="#t29">29</a></span><span class="t">            <span class="key">if</span> <span class="nam">geo_type</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">attribuut</span><span class="op">.</span><span class="nam">owner</span><span class="op">.</span><span class="nam">_geometry_types</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t30" href="#t30">30</a></span><span class="t">                <span class="nam">expected_types</span> <span class="op">=</span> <span class="str">' and '</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">attribuut</span><span class="op">.</span><span class="nam">owner</span><span class="op">.</span><span class="nam">_geometry_types</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t30" href="#t30">30</a></span><span class="t">                <span class="nam">expected_types</span> <span class="op">=</span> <span class="str">' and '</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">sorted</span><span class="op">(</span><span class="nam">attribuut</span><span class="op">.</span><span class="nam">owner</span><span class="op">.</span><span class="nam">_geometry_types</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t31" href="#t31">31</a></span><span class="t">                <span class="nam">verkorte_uri</span> <span class="op">=</span> <span class="nam">attribuut</span><span class="op">.</span><span class="nam">owner</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'#'</span><span class="op">)</span><span class="op">[</span><span class="num">1</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t32" href="#t32">32</a></span><span class="t">                <span class="nam">error_msg</span> <span class="op">=</span> <span class="str">f"Asset type {verkorte_uri} shouldn't be assigned a {geo_type} as geometry, "</span> <span class="xx">\</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t33" href="#t33">33</a></span><span class="t">                            <span class="str">f"valid types are {expected_types}"</span>&nbsp;</span><span class="r"></span></p>
@@ -133,7 +133,7 @@
             <a id="nextFileLink" class="nav" href="d_305863b415013c66_WKTValidator_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.1">coverage.py v7.3.1</a>,
-            created at 2023-09-22 11:19 +0000
+            created at 2023-09-27 08:49 +0000
         </p>
     </div>
 </footer>
