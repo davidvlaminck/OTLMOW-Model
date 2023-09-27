@@ -7,16 +7,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Funderingsput(KlassiekeFundering, AxiaalDraagvermogen, VlakGeometrie):
+class Funderingsput(AxiaalDraagvermogen, KlassiekeFundering, VlakGeometrie):
     """Funderingstype dat gebruikt wordt als goede funderingsgrond zich op betrekkelijke diepte bevindt. Gemaakt door putten te graven en deze met wapening en beton te vullen op de juiste diepte."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingsput'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        KlassiekeFundering.__init__(self)
-        AxiaalDraagvermogen.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')

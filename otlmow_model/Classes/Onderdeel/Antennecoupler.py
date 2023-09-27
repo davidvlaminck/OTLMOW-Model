@@ -9,17 +9,14 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Antennecoupler(AIMNaamObject, ElektrischComponentennummerObject, SerienummerObject, PuntGeometrie):
+class Antennecoupler(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject, PuntGeometrie):
     """Een element dat toelaat om twee directionele antennes op één coax aan te sluiten. Al doende creëer je één zendontvanger."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antennecoupler'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        ElektrischComponentennummerObject.__init__(self)
-        SerienummerObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#RHZModule')

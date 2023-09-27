@@ -17,6 +17,7 @@ class KlWeegsensorMerk(KeuzelijstField):
         'Kistler': KeuzelijstWaarde(invulwaarde='Kistler',
                                     label='Kistler',
                                     status='ingebruik',
+                                    definitie='.',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWeegsensorMerk/Kistler')
     }
 

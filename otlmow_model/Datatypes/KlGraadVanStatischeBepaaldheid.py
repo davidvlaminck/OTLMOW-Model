@@ -15,12 +15,12 @@ class KlGraadVanStatischeBepaaldheid(KeuzelijstField):
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGraadVanStatischeBepaaldheid'
     options = {
         'hyperstatisch': KeuzelijstWaarde(invulwaarde='hyperstatisch',
-                                          label='Hyperstatisch',
+                                          label='hyperstatisch',
                                           status='ingebruik',
                                           definitie='Statisch onbepaald. De reacties (de momenten en dwarskrachten) kunnen niet worden berekend met de statica alleen.',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGraadVanStatischeBepaaldheid/hyperstatisch'),
         'isostatisch': KeuzelijstWaarde(invulwaarde='isostatisch',
-                                        label='Isostatisch',
+                                        label='isostatisch',
                                         status='ingebruik',
                                         definitie='Statisch bepaald. De reacties en inwendige krachten zijn te berekenen met de statica.',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGraadVanStatischeBepaaldheid/isostatisch')

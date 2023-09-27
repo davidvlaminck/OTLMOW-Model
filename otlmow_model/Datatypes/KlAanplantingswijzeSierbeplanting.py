@@ -17,7 +17,7 @@ class KlAanplantingswijzeSierbeplanting(KeuzelijstField):
         'aanplanting-bol--en-knolgewassen': KeuzelijstWaarde(invulwaarde='aanplanting-bol--en-knolgewassen',
                                                              label='aanplanting bol- en knolgewassen',
                                                              status='ingebruik',
-                                                             definitie='Aanplanting via bol- en knolgewassen',
+                                                             definitie='Aanplanting via bol- en knolgewassen één',
                                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAanplantingswijzeSierbeplanting/aanplanting-bol--en-knolgewassen'),
         'aanplanting-helm': KeuzelijstWaarde(invulwaarde='aanplanting-helm',
                                              label='aanplanting helm',
@@ -28,7 +28,12 @@ class KlAanplantingswijzeSierbeplanting(KeuzelijstField):
                                                     label='aanplanting zonder helm',
                                                     status='ingebruik',
                                                     definitie='Aanplanting zonder helm',
-                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAanplantingswijzeSierbeplanting/aanplanting-zonder-helm')
+                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAanplantingswijzeSierbeplanting/aanplanting-zonder-helm'),
+        'mm-test': KeuzelijstWaarde(invulwaarde='mm-test',
+                                    label='mm² test',
+                                    status='ingebruik',
+                                    definitie='idem dito mm²',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAanplantingswijzeSierbeplanting/mm-test')
     }
 
     @classmethod

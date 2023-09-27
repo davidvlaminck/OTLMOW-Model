@@ -17,6 +17,7 @@ class KlAudioTransportType(KeuzelijstField):
         'analoog': KeuzelijstWaarde(invulwaarde='analoog',
                                     label='analoog',
                                     status='ingebruik',
+                                    definitie='analoog',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAudioTransportType/analoog'),
         'voip': KeuzelijstWaarde(invulwaarde='voip',
                                  label='voip',

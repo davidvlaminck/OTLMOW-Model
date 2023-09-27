@@ -7,16 +7,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Spuitbeton(AIMObject, BetonnenConstructieElement, VlakGeometrie):
+class Spuitbeton(BetonnenConstructieElement, AIMObject, VlakGeometrie):
     """Spuitbeton (gunitage) is een vorm van beton die tegen oppervlakten gespoten wordt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Spuitbeton'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        BetonnenConstructieElement.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VernageldeWand')
 

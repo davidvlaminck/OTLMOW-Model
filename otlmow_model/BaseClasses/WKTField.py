@@ -27,7 +27,7 @@ class WKTField(OTLField):
                 raise ValueError(f'{value} is not a valid WKT string for {attribuut.naam}')
             geo_type = value.split(' (')[0]
             if geo_type not in attribuut.owner._geometry_types:
-                expected_types = ' and '.join(attribuut.owner._geometry_types)
+                expected_types = ' and '.join(sorted(attribuut.owner._geometry_types))
                 verkorte_uri = attribuut.owner.typeURI.split('#')[1]
                 error_msg = f"Asset type {verkorte_uri} shouldn't be assigned a {geo_type} as geometry, " \
                             f"valid types are {expected_types}"

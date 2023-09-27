@@ -17,9 +17,7 @@ class OpgaandeHoutigeVegetatie(HoutigeVegetatie, LijnGeometrie, VlakGeometrie):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        HoutigeVegetatie.__init__(self)
-        LijnGeometrie.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self._groeiplaatsverbetering = OTLAttribuut(field=KlGroeiplaatsverbetering,
                                                     naam='groeiplaatsverbetering',

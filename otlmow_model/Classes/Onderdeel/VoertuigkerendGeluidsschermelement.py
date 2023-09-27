@@ -8,17 +8,14 @@ from otlmow_model.Datatypes.KlLEACWerkingsbreedte import KlLEACWerkingsbreedte
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VoertuigkerendGeluidsschermelement(Geluidsschermelement, BijlageVoertuigkering, EigenschappenVoertuigkering, SchokindexVoertuigkering):
+class VoertuigkerendGeluidsschermelement(BijlageVoertuigkering, EigenschappenVoertuigkering, Geluidsschermelement, SchokindexVoertuigkering):
     """Dit zijn schermelementen met een voet in de vorm van een T. Op de voet worden deltablocs geplaatst die een stabiliserende en voertuigkerende functie hebben."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VoertuigkerendGeluidsschermelement'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        Geluidsschermelement.__init__(self)
-        BijlageVoertuigkering.__init__(self)
-        EigenschappenVoertuigkering.__init__(self)
-        SchokindexVoertuigkering.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BevestigingGC')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElementenGC')

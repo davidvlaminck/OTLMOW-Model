@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,26 @@ class KlNoodstopknopMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNoodstopknopMerk'
     options = {
+        'isotron': KeuzelijstWaarde(invulwaarde='isotron',
+                                    label='ISOTRON',
+                                    status='ingebruik',
+                                    definitie='ISOTRON',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNoodstopknopMerk/isotron'),
+        'phoenics': KeuzelijstWaarde(invulwaarde='phoenics',
+                                     label='Phoenics',
+                                     status='uitgebruik',
+                                     definitie='Phoenix',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNoodstopknopMerk/phoenics'),
+        'phoenix': KeuzelijstWaarde(invulwaarde='phoenix',
+                                    label='Phoenix',
+                                    status='ingebruik',
+                                    definitie='Phoenix',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNoodstopknopMerk/phoenix'),
+        'pilz': KeuzelijstWaarde(invulwaarde='pilz',
+                                 label='PILZ',
+                                 status='ingebruik',
+                                 definitie='PILZ',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNoodstopknopMerk/pilz')
     }
 
     @classmethod

@@ -8,7 +8,7 @@ from otlmow_model.Datatypes.KlVRModuleMetFirmwareModelnaam import KlVRModuleMetF
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VRModuleMetFirmware(VerkeersregelaarModule, FirmwareObject):
+class VRModuleMetFirmware(FirmwareObject, VerkeersregelaarModule):
     """Abstracte voor modules met firmware van een verkeersregelaar."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VRModuleMetFirmware'
@@ -16,8 +16,7 @@ class VRModuleMetFirmware(VerkeersregelaarModule, FirmwareObject):
 
     @abstractmethod
     def __init__(self):
-        VerkeersregelaarModule.__init__(self)
-        FirmwareObject.__init__(self)
+        super().__init__()
 
         self._merk = OTLAttribuut(field=KlVRModuleMetFirmwareMerk,
                                   naam='merk',

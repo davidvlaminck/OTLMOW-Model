@@ -10,17 +10,14 @@ class PointTestClass(PuntGeometrie, OTLAsset):
     typeURI = '#PointTestClass'
 
     def __init__(self):
-        PuntGeometrie.__init__(self)
-        OTLAsset.__init__(self)
+        super().__init__()
 
 
 class PointPolygonTestClass(PuntGeometrie, VlakGeometrie, OTLAsset):
     typeURI = '#PointPolygonTestClass'
 
     def __init__(self):
-        PuntGeometrie.__init__(self)
-        VlakGeometrie.__init__(self)
-        OTLAsset.__init__(self)
+        super().__init__()
 
 
 def test_point(subtests):

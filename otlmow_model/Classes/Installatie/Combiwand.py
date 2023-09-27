@@ -12,18 +12,14 @@ from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMe
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Combiwand(AIMObject, AxiaalDraagvermogen, AxiaalDraagvermogenWand, Grondkeringen, WaterremmendeFunctie):
+class Combiwand(AxiaalDraagvermogen, AxiaalDraagvermogenWand, Grondkeringen, WaterremmendeFunctie, AIMObject):
     """Een gecombineerde wand bestaande uit verschillende damplanken en buispalen of H-profielen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Combiwand'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        AxiaalDraagvermogen.__init__(self)
-        AxiaalDraagvermogenWand.__init__(self)
-        Grondkeringen.__init__(self)
-        WaterremmendeFunctie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Grondanker')
 

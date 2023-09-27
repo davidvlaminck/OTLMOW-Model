@@ -10,16 +10,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class GekleurdWegvlakMarkering(Markering, AOWSType, VlakGeometrie):
+class GekleurdWegvlakMarkering(AOWSType, Markering, VlakGeometrie):
     """Een markering van een wegdeel aangebracht om het verkeer te waarschuwen, informeren of regelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GekleurdWegvlakMarkering'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        Markering.__init__(self)
-        AOWSType.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GroepMarkering')
 

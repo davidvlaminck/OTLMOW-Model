@@ -13,8 +13,7 @@ class Flitsgroep(NaampadObject, VlakGeometrie):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        NaampadObject.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self._isRoodLicht = OTLAttribuut(field=BooleanField,
                                          naam='isRoodLicht',

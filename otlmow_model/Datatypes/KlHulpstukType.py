@@ -38,7 +38,12 @@ class KlHulpstukType(KeuzelijstField):
                                              label='perrot koppeling',
                                              status='ingebruik',
                                              definitie='perrot koppeling',
-                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHulpstukType/perrot-koppeling')
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHulpstukType/perrot-koppeling'),
+        'storz-koppeling': KeuzelijstWaarde(invulwaarde='storz-koppeling',
+                                            label='storz koppeling',
+                                            status='ingebruik',
+                                            definitie='Een storz koppeling is bedoeld om slangen met elkaar of met vaste armaturen te verbinden. Het is een symmetrische koppeling met een bajonet dichting die door een opstaande kraag wordt beschermd.',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHulpstukType/storz-koppeling')
     }
 
     @classmethod

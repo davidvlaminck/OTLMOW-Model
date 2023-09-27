@@ -12,16 +12,14 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Verkeersbordopstelling(AIMObject, Signalisatie, PuntGeometrie):
+class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
     """Het geheel van verticale verkeerssignalisatie die bevestigd is aan één of meerdere draagconstructies op éénzelfde geolocatie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        Signalisatie.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self._afbeelding = OTLAttribuut(field=DtcDocument,
                                         naam='afbeelding',

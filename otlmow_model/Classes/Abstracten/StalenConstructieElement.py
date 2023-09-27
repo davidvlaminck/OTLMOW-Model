@@ -14,6 +14,8 @@ class StalenConstructieElement(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._staalspecificaties = OTLAttribuut(field=DtcConstructiestaalspecificaties,
                                                 naam='staalspecificaties',
                                                 label='staalspecificaties',

@@ -426,10 +426,20 @@ class KlNetwerkpoortGolflengte(KeuzelijstField):
                                   label='Other',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/Other'),
+        'elektrisch': KeuzelijstWaarde(invulwaarde='elektrisch',
+                                       label='elektrisch',
+                                       status='ingebruik',
+                                       definitie='elektrisch',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/elektrisch'),
         'flex': KeuzelijstWaarde(invulwaarde='flex',
                                  label='flex',
                                  status='ingebruik',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/flex')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/flex'),
+        'itc-3': KeuzelijstWaarde(invulwaarde='itc-3',
+                                  label='ITC-3',
+                                  status='ingebruik',
+                                  definitie='ITC-3',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/itc-3')
     }
 
     @classmethod

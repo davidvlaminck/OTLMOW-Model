@@ -248,7 +248,17 @@ class KlVerlichtingstoestelModelnaam(KeuzelijstField):
                                   label='Teceo',
                                   status='ingebruik',
                                   definitie='Teceo',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelModelnaam/teceo')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelModelnaam/teceo'),
+        'tflex-line': KeuzelijstWaarde(invulwaarde='tflex-line',
+                                       label='TFLEX LINE',
+                                       status='ingebruik',
+                                       definitie='TFLEX LINE',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelModelnaam/tflex-line'),
+        'tflex-module': KeuzelijstWaarde(invulwaarde='tflex-module',
+                                         label='TFLEX Module',
+                                         status='ingebruik',
+                                         definitie='TFLEX Module',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelModelnaam/tflex-module')
     }
 
     @classmethod

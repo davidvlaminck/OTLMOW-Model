@@ -10,17 +10,14 @@ from otlmow_model.Datatypes.KlMotorsturingType import KlMotorsturingType
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Motorsturing(AIMNaamObject, ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject):
+class Motorsturing(ElektrischComponentennummerObject, MotorVermogenskring, SerienummerObject, AIMNaamObject):
     """Type voor verschillende technieken voor de aansturing van de snelheid (toerental) van een motor."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Motorsturing'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        ElektrischComponentennummerObject.__init__(self)
-        MotorVermogenskring.__init__(self)
-        SerienummerObject.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart')
 

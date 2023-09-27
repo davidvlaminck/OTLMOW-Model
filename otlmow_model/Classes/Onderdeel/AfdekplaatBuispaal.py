@@ -7,16 +7,14 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AfdekplaatBuispaal(AIMObject, StalenConstructieElement, PuntGeometrie):
+class AfdekplaatBuispaal(StalenConstructieElement, AIMObject, PuntGeometrie):
     """Stalen plaat bevestigd op/in de buispaal."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AfdekplaatBuispaal'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        StalenConstructieElement.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenBuispaal')
 

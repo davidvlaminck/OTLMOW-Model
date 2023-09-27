@@ -8,7 +8,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Niveaumeting(AIMNaamObject, SerienummerObject, PuntGeometrie):
+class Niveaumeting(SerienummerObject, AIMNaamObject, PuntGeometrie):
     """Abstracte om alle methodes van niveau- of peilmeting te groeperen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Niveaumeting'
@@ -16,9 +16,7 @@ class Niveaumeting(AIMNaamObject, SerienummerObject, PuntGeometrie):
 
     @abstractmethod
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        SerienummerObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompkamer')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Silo')

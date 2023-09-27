@@ -15,12 +15,14 @@ class KlTankOpstelling(KeuzelijstField):
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTankOpstelling'
     options = {
         'liggend': KeuzelijstWaarde(invulwaarde='liggend',
-                                    label='liggend',
+                                    label='Liggend',
                                     status='ingebruik',
+                                    definitie='Liggend',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTankOpstelling/liggend'),
         'staand': KeuzelijstWaarde(invulwaarde='staand',
-                                   label='staand',
+                                   label='Staand',
                                    status='ingebruik',
+                                   definitie='Staand',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTankOpstelling/staand')
     }
 

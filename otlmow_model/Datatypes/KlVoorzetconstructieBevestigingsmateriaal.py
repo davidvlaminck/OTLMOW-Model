@@ -19,8 +19,9 @@ class KlVoorzetconstructieBevestigingsmateriaal(KeuzelijstField):
                                 status='ingebruik',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVoorzetconstructieBevestigingsmateriaal/rvs'),
         'staal': KeuzelijstWaarde(invulwaarde='staal',
-                                  label='staal',
+                                  label='Staal',
                                   status='ingebruik',
+                                  definitie='Staal',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVoorzetconstructieBevestigingsmateriaal/staal')
     }
 

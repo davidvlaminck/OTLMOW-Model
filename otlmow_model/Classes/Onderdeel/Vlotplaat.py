@@ -7,16 +7,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Vlotplaat(AIMNaamObject, BetonnenConstructieElement, VlakGeometrie):
+class Vlotplaat(BetonnenConstructieElement, AIMNaamObject, VlakGeometrie):
     """Een betonnen plaat met als doel de negatieve effecten bij eventuele nazakkingen van het aansluitende wegdek of spoorlijn tegen te gaan. Deze voorkomt een te abrupte en ongewenste overgang."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Vlotplaat'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        BetonnenConstructieElement.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdeel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kelderlandhoofd')

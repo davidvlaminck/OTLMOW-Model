@@ -15,9 +15,7 @@ class Onderdoorboring(AbstracteAanvullendeGeometrie, LijnGeometrie, VlakGeometri
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AbstracteAanvullendeGeometrie.__init__(self)
-        LijnGeometrie.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self._retributie = OTLAttribuut(field=KwantWrdInEuro,
                                         naam='retributie',

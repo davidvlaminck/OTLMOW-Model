@@ -8,16 +8,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Funderingszool(Fundering, BetonnenConstructieElement, VlakGeometrie):
+class Funderingszool(BetonnenConstructieElement, Fundering, VlakGeometrie):
     """Structuur van voldoende stijfheid om de belastingen van de bovenbouw op te nemen en over te dragen naar andere funderingselementen (bv. palen). Als het gaat over een funderingszool die de belastingen naar de grond overdraagt (fundering op staal), dan moet 'Fundering op staal' gebruikt worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingszool'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        Fundering.__init__(self)
-        BetonnenConstructieElement.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')

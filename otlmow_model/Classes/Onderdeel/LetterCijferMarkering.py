@@ -15,8 +15,7 @@ class LetterCijferMarkering(FiguratieMarkeringToegang, PuntGeometrie):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        FiguratieMarkeringToegang.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self._letterCijfer = OTLAttribuut(field=KlLetterCijfer,
                                           naam='letterCijfer',

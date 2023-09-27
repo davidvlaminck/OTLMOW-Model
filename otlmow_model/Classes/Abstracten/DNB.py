@@ -21,8 +21,7 @@ class DNB(Voedingspunt, GeenGeometrie):
 
     @abstractmethod
     def __init__(self):
-        Voedingspunt.__init__(self)
-        GeenGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
 

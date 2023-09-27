@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KlKleurReflector import KlKleurReflector
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Bebakening(AIMObject, Signalisatie):
+class Bebakening(Signalisatie, AIMObject):
     """Abstracte voor de bebakeningen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Bebakening'
@@ -15,8 +15,7 @@ class Bebakening(AIMObject, Signalisatie):
 
     @abstractmethod
     def __init__(self):
-        AIMObject.__init__(self)
-        Signalisatie.__init__(self)
+        super().__init__()
 
         self._kleurReflectorAflopend = OTLAttribuut(field=KlKleurReflector,
                                                     naam='kleurReflectorAflopend',

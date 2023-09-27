@@ -6,7 +6,7 @@ from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObjec
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kabelgeleiding(AIMNaamObject, KabelgeleidingEnLeidingBevestiging, OmhullendeInrichting):
+class Kabelgeleiding(KabelgeleidingEnLeidingBevestiging, OmhullendeInrichting, AIMNaamObject):
     """Abstracte voor het groeperen van inrichting met als functie het begeleiden van kabels en leidingen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabelgeleiding'
@@ -14,9 +14,7 @@ class Kabelgeleiding(AIMNaamObject, KabelgeleidingEnLeidingBevestiging, Omhullen
 
     @abstractmethod
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        KabelgeleidingEnLeidingBevestiging.__init__(self)
-        OmhullendeInrichting.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabelgeleiding')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabelgeleiding')

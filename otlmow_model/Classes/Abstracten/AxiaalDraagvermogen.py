@@ -14,6 +14,8 @@ class AxiaalDraagvermogen(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._drukdraagvermogenGGT = OTLAttribuut(field=KwantWrdInKiloNewton,
                                                   naam='drukdraagvermogenGGT',
                                                   label='drukdraagvermogen in gebruiksgrenstoestanden',

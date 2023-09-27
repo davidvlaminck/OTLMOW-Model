@@ -19,8 +19,7 @@ class VerkeersbordConcept(AIMObject, GeenGeometrie):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMObject.__init__(self)
-        GeenGeometrie.__init__(self)
+        super().__init__()
 
         self._afbeelding = OTLAttribuut(field=DtcDocument,
                                         naam='afbeelding',

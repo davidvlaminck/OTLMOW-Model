@@ -17,14 +17,17 @@ class KlMIVMeetpuntGebied(KeuzelijstField):
         'afrit': KeuzelijstWaarde(invulwaarde='afrit',
                                   label='afrit',
                                   status='ingebruik',
+                                  definitie='De rijstrook wordt gebruikt door het verkeer dat de hoofdweg wenst te verlaten.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVMeetpuntGebied/afrit'),
         'hoofdweg': KeuzelijstWaarde(invulwaarde='hoofdweg',
                                      label='hoofdweg',
                                      status='ingebruik',
+                                     definitie='De rijstrook maakt deel uit van een wegvak met meestal meerdere rijstroken bedoeld voor doorgaand verkeer.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVMeetpuntGebied/hoofdweg'),
         'oprit': KeuzelijstWaarde(invulwaarde='oprit',
                                   label='oprit',
                                   status='ingebruik',
+                                  definitie='De rijstrook wordt gebruikt door het verkeer dat de hoofdweg wenst te betreden.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVMeetpuntGebied/oprit'),
         'spookstrook': KeuzelijstWaarde(invulwaarde='spookstrook',
                                         label='spookstrook',
@@ -34,6 +37,7 @@ class KlMIVMeetpuntGebied(KeuzelijstField):
         'tunnel': KeuzelijstWaarde(invulwaarde='tunnel',
                                    label='tunnel',
                                    status='ingebruik',
+                                   definitie='De rijstrook maakt deel uit van een tunnel (overdekte weg).',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVMeetpuntGebied/tunnel')
     }
 

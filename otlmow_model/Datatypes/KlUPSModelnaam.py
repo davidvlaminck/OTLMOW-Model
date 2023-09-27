@@ -18,7 +18,12 @@ class KlUPSModelnaam(KeuzelijstField):
                                  label='PS15',
                                  status='ingebruik',
                                  definitie='PS15',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSModelnaam/ps15')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSModelnaam/ps15'),
+        'quint4-ps-1ac-24dc-2-5-pt': KeuzelijstWaarde(invulwaarde='quint4-ps-1ac-24dc-2-5-pt',
+                                                      label='QUINT4-PS-1AC-24DC-2.5-PT',
+                                                      status='ingebruik',
+                                                      definitie='QUINT4-PS-1AC-24DC-2.5-PT',
+                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSModelnaam/quint4-ps-1ac-24dc-2-5-pt')
     }
 
     @classmethod

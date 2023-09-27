@@ -8,16 +8,14 @@ from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BetonnenConstructieObject(ConstructieElement, BetonnenConstructieElement, VlakGeometrie):
+class BetonnenConstructieObject(BetonnenConstructieElement, ConstructieElement, VlakGeometrie):
     """Een generiek betonnen constructie-element dat op maat gemaakt is. Dit gaat niet over een (standaard) betonnen profiel of plaat, maar over een specifiek gevormd betonnen object."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BetonnenConstructieObject'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        ConstructieElement.__init__(self)
-        BetonnenConstructieElement.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing')

@@ -17,7 +17,7 @@ class KlEcoOverstaptype(KeuzelijstField):
         'dassenpoort': KeuzelijstWaarde(invulwaarde='dassenpoort',
                                         label='dassenpoort',
                                         status='ingebruik',
-                                        definitie='Een dassenpoortje is een luikje dat schuin in het raster bevestigd is. Dat luikje gaat maar langs één kant open en valt automatisch terug dicht. ',
+                                        definitie='Een dassenpoortje is een luikje dat schuin in het raster bevestigd is. Dat luikje gaat maar langs één kant open en valt automatisch terug dicht.',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEcoOverstaptype/dassenpoort'),
         'ree-overstap': KeuzelijstWaarde(invulwaarde='ree-overstap',
                                          label='ree overstap',

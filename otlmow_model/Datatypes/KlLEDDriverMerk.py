@@ -14,6 +14,11 @@ class KlLEDDriverMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEDDriverMerk'
     options = {
+        'mean-well': KeuzelijstWaarde(invulwaarde='mean-well',
+                                      label='Mean Well',
+                                      status='ingebruik',
+                                      definitie='Mean Well',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverMerk/mean-well'),
         'osram': KeuzelijstWaarde(invulwaarde='osram',
                                   label='OSRAM',
                                   status='ingebruik',

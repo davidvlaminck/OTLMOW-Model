@@ -13,6 +13,8 @@ class KabelAardingSamenstelling(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._sectie = OTLAttribuut(field=KlAardingskabelSectie,
                                     naam='sectie',
                                     label='sectie',

@@ -14,6 +14,11 @@ class KlVirtueleServerMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVirtueleServerMerk'
     options = {
+        'dell': KeuzelijstWaarde(invulwaarde='dell',
+                                 label='Dell',
+                                 status='ingebruik',
+                                 definitie='Dell',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVirtueleServerMerk/dell'),
         'hp': KeuzelijstWaarde(invulwaarde='hp',
                                label='HP',
                                status='ingebruik',

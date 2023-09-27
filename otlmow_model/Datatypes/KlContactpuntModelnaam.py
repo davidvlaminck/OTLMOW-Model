@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,11 @@ class KlContactpuntModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlContactpuntModelnaam'
     options = {
+        'aritech-dc-107': KeuzelijstWaarde(invulwaarde='aritech-dc-107',
+                                           label='Aritech-DC-107',
+                                           status='ingebruik',
+                                           definitie='Aritech-DC-107',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntModelnaam/aritech-dc-107')
     }
 
     @classmethod

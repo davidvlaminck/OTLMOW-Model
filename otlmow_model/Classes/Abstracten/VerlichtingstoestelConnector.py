@@ -13,6 +13,8 @@ class VerlichtingstoestelConnector(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._besturingsconnector = OTLAttribuut(field=KlVerlichtingstoestelconnectorBesturingsconnector,
                                                  naam='besturingsconnector',
                                                  label='besturingsconnector',

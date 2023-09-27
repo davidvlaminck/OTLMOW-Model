@@ -8,16 +8,14 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class ElastischElement(AIMNaamObject, SerienummerObject, PuntGeometrie):
+class ElastischElement(SerienummerObject, AIMNaamObject, PuntGeometrie):
     """Een elastisch of flexibel element is een onderdeel van een mechanische koppeling en zorgt voor het dempen van trillingen en schokken. Het wordt meestal tussen twee naven geplaatst."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ElastischElement'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        SerienummerObject.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Naaf')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koppeling')

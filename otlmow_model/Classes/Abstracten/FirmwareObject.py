@@ -13,6 +13,8 @@ class FirmwareObject(ABC):
 
     @abstractmethod
     def __init__(self):
+        super().__init__()
+
         self._firmwareversie = OTLAttribuut(field=StringField,
                                             naam='firmwareversie',
                                             label='firmwareversie',

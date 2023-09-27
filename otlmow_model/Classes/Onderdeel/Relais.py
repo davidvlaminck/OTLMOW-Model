@@ -7,15 +7,14 @@ from otlmow_model.Datatypes.KlRelaisModelnaam import KlRelaisModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Relais(AIMNaamObject, MotorVermogenskring):
+class Relais(MotorVermogenskring, AIMNaamObject):
     """Een door een elektromagneet bediende schakelaar voor het schakelen van kleine vermogens. Ook magneetschakelaar genoemd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Relais'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        MotorVermogenskring.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Niveaumeting')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart')

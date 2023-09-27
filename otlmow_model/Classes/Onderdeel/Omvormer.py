@@ -12,16 +12,14 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Omvormer(AIMNaamObject, RHZModule, PuntGeometrie):
+class Omvormer(RHZModule, AIMNaamObject, PuntGeometrie):
     """Een object, bijna altijd geplaatst in paar geplaatst, omvorming en "de"-omvorming, dat een signaal binnenneemt en terug uitstuurt maar dan op een andere manier. Er zijn een hele reeks manieren. - Omvorming waar er gewijzigd wordt van type kabel om dezelfde boodschap over te versturen, bv. omvorming van UTP naar Coax. - Omvorming van codering bv. analoog naar digitaal en in omgekeerde richting digitaal naar analoog (omvorming van codering analoog-digitaal verschilt van een encoder omdat een encoder een eindproduct aflevert; in dit geval is de omvorming ter ondersteuning het transport en zal er altijd een omvorming zijn terug naar analoog) - Omvorming die de gegevens opnieuw versterkt zodat ze over een langere afstand kunnen getransporteerd worden. Deze variant heeft niet noodzakelijk een tweede omvormer om terug te gaan naar het origineel."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omvormer'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        RHZModule.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LEDBord')

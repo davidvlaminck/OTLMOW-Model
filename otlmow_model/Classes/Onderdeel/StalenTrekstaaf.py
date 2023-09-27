@@ -9,15 +9,14 @@ from otlmow_model.Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantW
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class StalenTrekstaaf(AIMNaamObject, Grondanker):
+class StalenTrekstaaf(Grondanker, AIMNaamObject):
     """Verbindingselement tussen 2 wanden, bv. ronde staven. Toegepast bij (passieve) ankerschotten, kofferdammen,..."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenTrekstaaf'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        Grondanker.__init__(self)
+        super().__init__()
 
         self._dienstlast = OTLAttribuut(field=KwantWrdInKiloNewton,
                                         naam='dienstlast',

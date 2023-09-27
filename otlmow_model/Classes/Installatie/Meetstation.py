@@ -18,9 +18,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie, VlakGeometrie):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        AIMNaamObject.__init__(self)
-        PuntGeometrie.__init__(self)
-        VlakGeometrie.__init__(self)
+        super().__init__()
 
         self._beoordelingLokaleTerrein = OTLAttribuut(field=KlLokaalTerreinType,
                                                       naam='beoordelingLokaleTerrein',

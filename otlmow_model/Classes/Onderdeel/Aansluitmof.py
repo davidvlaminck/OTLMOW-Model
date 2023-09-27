@@ -14,8 +14,7 @@ class Aansluitmof(LinkendElement, PuntGeometrie):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
-        LinkendElement.__init__(self)
-        PuntGeometrie.__init__(self)
+        super().__init__()
 
         self._diameter = OTLAttribuut(field=KwantWrdInMillimeter,
                                       naam='diameter',

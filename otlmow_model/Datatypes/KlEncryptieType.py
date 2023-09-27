@@ -1,6 +1,7 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -13,6 +14,16 @@ class KlEncryptieType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEncryptieType'
     options = {
+        'mifare': KeuzelijstWaarde(invulwaarde='mifare',
+                                   label='MIFARE',
+                                   status='ingebruik',
+                                   definitie='MIFARE',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEncryptieType/mifare'),
+        'nedap': KeuzelijstWaarde(invulwaarde='nedap',
+                                  label='NEDAP',
+                                  status='ingebruik',
+                                  definitie='NEDAP',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEncryptieType/nedap')
     }
 
     @classmethod

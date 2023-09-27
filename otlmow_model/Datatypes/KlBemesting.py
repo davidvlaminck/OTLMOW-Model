@@ -17,12 +17,12 @@ class KlBemesting(KeuzelijstField):
         'meststoffen': KeuzelijstWaarde(invulwaarde='meststoffen',
                                         label='meststoffen',
                                         status='ingebruik',
-                                        definitie='Het toevoegen van en verwerken van meststoffen.',
+                                        definitie='Grond voor hergebruik binnen de werfzone.',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBemesting/meststoffen'),
         'meststoftabletten': KeuzelijstWaarde(invulwaarde='meststoftabletten',
                                               label='meststoftabletten',
                                               status='ingebruik',
-                                              definitie='Het toevoegen van en verwerken van meststoffen, gebruikmakende van tabletten.',
+                                              definitie='Grond voor hergebruik binnen de werfzone.',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBemesting/meststoftabletten')
     }
 
