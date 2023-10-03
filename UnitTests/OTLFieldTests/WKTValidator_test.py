@@ -1,4 +1,6 @@
-﻿from otlmow_model.BaseClasses.WKTValidator import WKTValidator
+﻿import pytest
+
+from otlmow_model.BaseClasses.WKTValidator import WKTValidator
 
 
 def test_WKT_valid(subtests):
@@ -36,6 +38,13 @@ def test_WKT_valid(subtests):
                                          "200070.0 200080.0))")
         assert WKTValidator.validate_wkt("POLYGON Z ((200010.0 200020.0 1, 200030.0 200040.0 2, 200050.0 200060.0 3))")
         assert not WKTValidator.validate_wkt("POLYGON Z ((200010.0 200020.0, 200030.0 200040.0 2, 200050.0 200060.0))")
-        assert not WKTValidator.validate_wkt("POLYGON ((200010.0 200020.0 1, 200030.0 200040.0 2, 200050.0 200060.0 3))")
+        assert not WKTValidator.validate_wkt(
+            "POLYGON ((200010.0 200020.0 1, 200030.0 200040.0 2, 200050.0 200060.0 3))")
         assert WKTValidator.validate_wkt("POLYGON ((200010.0 200020.0, 200030.0 200040.0, 200050.0 200060.0), "
-                                      "(200110.0 200120.0, 200130.0 200140.0, 200150.0 200160.0))")
+                                         "(200110.0 200120.0, 200130.0 200140.0, 200150.0 200160.0))")
+
+
+@pytest.mark.parametrize('input', [(1), (1.0), (object())])
+def test_WKT_non_string_value(input):
+    with pytest.raises(TypeError):
+        WKTValidator.validate_wkt(input)
