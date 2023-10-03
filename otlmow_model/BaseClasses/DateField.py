@@ -1,9 +1,11 @@
 import logging
+import warnings
 from datetime import date, datetime, timedelta
 from random import randrange
 
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.BaseClasses.OTLField import OTLField
+from otlmow_model.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class DateField(OTLField):
@@ -21,10 +23,9 @@ class DateField(OTLField):
         if isinstance(value, bool):
             raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
         if isinstance(value, datetime):
-            if log_warnings:
-                logging.warning(
-                    'Assigned a datetime to a date datatype. Automatically converted to the correct type. Please change the type')
-            return date(value.year, value.month, value.day)
+                warnings.warn(
+                    'Assigned a datetime to a date datatype. Automatically converted to the correct type. Please change the type', IncorrectTypeWarning)
+                return date(value.year, value.month, value.day)
         if isinstance(value, date):
             return value
         if isinstance(value, int):
