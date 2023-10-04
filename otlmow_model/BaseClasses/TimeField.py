@@ -64,14 +64,14 @@ class TimeField(OTLField):
                         raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
         raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None and not isinstance(value, time):
             raise TypeError(f'expecting datetime in {attribuut.naam}')
         return True
 
-    @staticmethod
-    def value_default(value):
+    @classmethod
+    def value_default(cls, value):
         if value is None:
             return None
         return value.strftime("%H:%M:%S")

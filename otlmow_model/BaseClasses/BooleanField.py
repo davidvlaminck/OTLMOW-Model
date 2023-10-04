@@ -40,8 +40,8 @@ class BooleanField(OTLField):
             return True
         raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None and not isinstance(value, bool):
             raise TypeError(f'expecting bool in {attribuut.naam}')
         return True

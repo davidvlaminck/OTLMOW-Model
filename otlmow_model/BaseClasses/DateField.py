@@ -52,14 +52,14 @@ class DateField(OTLField):
                         f'{value} could not be converted to correct type (implied by {cls.__name__})')
         raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None and not isinstance(value, date):
             raise TypeError(f'expecting date in {attribuut.naam}')
         return True
 
-    @staticmethod
-    def value_default(value):
+    @classmethod
+    def value_default(cls, value):
         return value.strftime("%Y-%m-%d")
 
     def __str__(self):

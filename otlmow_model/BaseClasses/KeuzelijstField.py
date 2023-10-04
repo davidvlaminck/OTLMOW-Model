@@ -21,8 +21,8 @@ class KeuzelijstField(OTLField):
             return None
         return random.choice(list(map(lambda x: x.invulwaarde, in_gebruik_values)))
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None:
             if not isinstance(value, str):
                 raise TypeError(f'{value} is not the correct type. Expecting a string')

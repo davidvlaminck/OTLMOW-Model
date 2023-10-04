@@ -15,8 +15,8 @@ class DateTimeField(OTLField):
     label = 'Datumtijd'
     usagenote = 'https://www.w3.org/TR/xmlschema-2/#dateTime'
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None and not isinstance(value, datetime.datetime):
             raise TypeError(f'expecting datetime in {attribuut.naam}')
         return True
@@ -68,8 +68,8 @@ class DateTimeField(OTLField):
         except Exception:
             raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
 
-    @staticmethod
-    def value_default(value):
+    @classmethod
+    def value_default(cls, value):
         return value.strftime("%Y-%m-%d %H:%M:%S")
 
     def __str__(self):

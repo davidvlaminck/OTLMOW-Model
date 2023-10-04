@@ -38,8 +38,8 @@ class FloatOrDecimalField(OTLField):
         except TypeError:
             raise CouldNotConvertToCorrectTypeError(f'"{value}" could not be converted to correct type (implied by {cls.__name__})')
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None:
             if isinstance(value, bool) or isinstance(value, float):
                 return True
