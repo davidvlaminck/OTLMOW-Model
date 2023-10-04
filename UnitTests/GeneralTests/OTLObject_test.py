@@ -715,6 +715,56 @@ def test_create_dict_from_asset_testclass(subtests):
         assert d == expected
 
 
+def test_create_dict_from_asset_clear_value():
+    instance = AllCasesTestClass()
+    instance.testComplexType.testStringField = 'a'
+    instance.testIntegerField = 1
+    instance.clear_value('testIntegerField')
+    instance.testComplexType.clear_value('testStringField')
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testComplexType': {'testStringField': '88888888'},
+        'testIntegerField': 88888888}
+    assert d == expected
+
+    assert instance.testIntegerField is None
+    assert instance._testIntegerField.mark_to_be_cleared
+    assert instance.testComplexType.testStringField is None
+    assert instance.testComplexType._testStringField.mark_to_be_cleared
+
+
+def test_from_dict_clear_value():
+    input_dict = {
+        'testComplexType': {'testStringField': '88888888'},
+        'testIntegerField': 88888888}
+    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    assert isinstance(instance, AllCasesTestClass)
+    assert instance.testIntegerField is None
+    assert instance._testIntegerField.mark_to_be_cleared
+    assert instance.testComplexType.testStringField is None
+    assert instance.testComplexType._testStringField.mark_to_be_cleared
+
+
+def test_create_dict_from_asset_clear_value():
+    instance = AllCasesTestClass()
+    instance.testComplexType.testStringField = 'a'
+    instance.testIntegerField = 1
+    instance.clear_value('testIntegerField')
+    instance.testComplexType.clear_value('testStringField')
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testComplexType': {'testStringField': '88888888'},
+        'testIntegerField': 88888888}
+    assert d == expected
+
+    assert instance.testIntegerField is None
+    assert instance._testIntegerField.mark_to_be_cleared
+    assert instance.testComplexType.testStringField is None
+    assert instance.testComplexType._testStringField.mark_to_be_cleared
+
+
 def test__iter__():
     instance = AllCasesTestClass()
     attribute_list = list(instance)
@@ -974,3 +1024,19 @@ def test_raise_value_errors_in_set_waarde_with_cardinality():
     instance = AllCasesTestClass()
     with pytest.raises(ValueError):
         instance.testKeuzelijstMetKard = ['1']
+
+
+def test_clear_value():
+    instance = AllCasesTestClass()
+    instance.testComplexType.testStringField = 'a'
+    instance.testIntegerField = 1
+    assert instance.testComplexType.testStringField == 'a'
+    assert instance.testIntegerField == 1
+
+    instance.clear_value('testIntegerField')
+    assert instance.testIntegerField is None
+    assert instance._testIntegerField.mark_to_be_cleared
+
+    instance.testComplexType.clear_value('testStringField')
+    assert instance.testComplexType.testStringField is None
+    assert instance.testComplexType._testStringField.mark_to_be_cleared

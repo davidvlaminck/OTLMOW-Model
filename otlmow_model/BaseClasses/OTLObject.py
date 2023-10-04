@@ -38,6 +38,7 @@ class OTLAttribuut:
         self._dotnotation = ''
         self.owner = owner
         self.readonlyValue = None
+        self.mark_to_be_cleared = False
         self.waarde = None
         self.field = field
 
@@ -294,6 +295,15 @@ class OTLObject(object):
                     warnings.warn(
                         message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
                         category=ClassDeprecationWarning)
+
+    def clear_value(self, attribute_name: str):
+        if attribute_name is None:
+            raise ValueError('attribute_name is None')
+        attr = get_attribute_by_name(self, attribute_name)
+        if attr is None:
+            raise ValueError(f'attribute {attribute_name} does not exist')
+        attr.set_waarde(None)
+        attr.mark_to_be_cleared = True
 
     def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False,
                                suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
