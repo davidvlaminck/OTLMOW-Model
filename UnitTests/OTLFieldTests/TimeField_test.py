@@ -44,3 +44,10 @@ def test_convert_to_correct_type(subtests, caplog):
         with subtests.test(msg=f'Could not perform conversion: value = {value}'):
             with pytest.raises(CouldNotConvertToCorrectTypeError):
                 TimeField.convert_to_correct_type(value)
+
+
+def test_datetime_auto_converts_but_warns(caplog):
+    time_attribute = OTLAttribuut(naam='time attribuut')
+    assert TimeField.convert_to_correct_type(datetime.datetime(2021,11,12,22,12,12),time_attribute) == datetime.time(22,12,12)
+    assert len(caplog.records) == 1
+    caplog.records.clear()
