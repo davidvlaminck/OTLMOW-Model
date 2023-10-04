@@ -1,4 +1,6 @@
+import concurrent
 import os
+from concurrent.futures import ThreadPoolExecutor
 from os.path import isfile
 from pathlib import Path
 
@@ -43,15 +45,22 @@ def test_instantiate_all_classes(subtests):
     classes_to_instantiate[
         'TelecommunicationsCable'] = class_location / 'ImplementatieElement' / 'TelecommunicationsCable'
 
-    for class_name, file_path in classes_to_instantiate.items():
-        with subtests.test(msg=f'Trying to instantiate {class_name}'):
-            try:
-                import_path = f'{file_path.parts[-3]}.{file_path.parts[-2]}.{file_path.parts[-1]}'
-                if 'otlmow_model' not in import_path:
-                    import_path = 'otlmow_model.' + import_path
-                py_mod = __import__(name=import_path, fromlist=f'{class_name}')
-            except ModuleNotFoundError:
-                raise ModuleNotFoundError(f'Could not import the module for {import_path}')
-            class_ = getattr(py_mod, class_name)
-            instance = class_()
-            assert instance is not None
+    # use multithreading
+    executor = ThreadPoolExecutor(8)
+    futures = [executor.submit(subtest_instantiate, class_name=class_name, file_path=file_path, subtests=subtests)
+               for class_name, file_path in classes_to_instantiate.items()]
+    concurrent.futures.wait(futures)
+
+def subtest_instantiate(class_name, file_path, subtests):
+    with subtests.test(msg=f'Trying to instantiate {class_name}'):
+        try:
+            import_path = f'{file_path.parts[-3]}.{file_path.parts[-2]}.{file_path.parts[-1]}'
+            if 'otlmow_model' not in import_path:
+                import_path = 'otlmow_model.' + import_path
+            py_mod = __import__(name=import_path, fromlist=f'{class_name}')
+        except ModuleNotFoundError:
+            raise ModuleNotFoundError(f'Could not import the module for {import_path}')
+        class_ = getattr(py_mod, class_name)
+        instance = class_()
+        assert instance is not None
+        instance.fill_with_dummy_data()
