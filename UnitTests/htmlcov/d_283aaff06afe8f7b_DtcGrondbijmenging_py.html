@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Coverage for /home/runner/work/OTLMOW-Model/OTLMOW-Model/otlmow_model/Datatypes/DtcGrondbijmenging.py: 71%</title>
+    <title>Coverage for /home/runner/work/OTLMOW-Model/OTLMOW-Model/otlmow_model/Datatypes/DtcGrondbijmenging.py: 82%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="coverage_html.js" defer></script>
@@ -12,7 +12,7 @@
     <div class="content">
         <h1>
             <span class="text">Coverage for </span><b>/home/runner/work/OTLMOW-Model/OTLMOW-Model/otlmow_model/Datatypes/DtcGrondbijmenging.py</b>:
-            <span class="pc_cov">71%</span>
+            <span class="pc_cov">82%</span>
         </h1>
         <aside id="help_panel_wrapper">
             <input id="help_panel_state" type="checkbox">
@@ -55,8 +55,8 @@
         </aside>
         <h2>
             <span class="text">38 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">27<span class="text"> run</span></button>
-            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">11<span class="text"> missing</span></button>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">31<span class="text"> run</span></button>
+            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">7<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
         <p class="text">
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_283aaff06afe8f7b_DtcGrondsoort_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.2">coverage.py v7.3.2</a>,
-            created at 2023-10-03 12:59 +0000
+            created at 2023-10-04 08:45 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -92,8 +92,8 @@
     <p class="pln"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t"><span class="com"># Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t"><span class="key">class</span> <span class="nam">DtcGrondbijmengingWaarden</span><span class="op">(</span><span class="nam">WaardenObject</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">        <span class="nam">WaardenObject</span><span class="op">.</span><span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">_bijmengingshoofdnaamcode</span> <span class="op">=</span> <span class="nam">OTLAttribuut</span><span class="op">(</span><span class="nam">field</span><span class="op">=</span><span class="nam">KlGrondHoofdnaamCode</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">        <span class="nam">WaardenObject</span><span class="op">.</span><span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">_bijmengingshoofdnaamcode</span> <span class="op">=</span> <span class="nam">OTLAttribuut</span><span class="op">(</span><span class="nam">field</span><span class="op">=</span><span class="nam">KlGrondHoofdnaamCode</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">                                                      <span class="nam">naam</span><span class="op">=</span><span class="str">'bijmengingshoofdnaamcode'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">                                                      <span class="nam">label</span><span class="op">=</span><span class="str">'bijmengingshoofdnaamcode'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">                                                      <span class="nam">objectUri</span><span class="op">=</span><span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcGrondbijmenging.bijmengingshoofdnaamcode'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
@@ -101,7 +101,7 @@
     <p class="pln"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">                                                      <span class="nam">definition</span><span class="op">=</span><span class="str">'Lithologisch nevenbestanddeel (als code) van de laag zoals gebruikt bij Databank Ondergrond Vlaanderen (gecodeerde lithologie en geotechnische codering).'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">                                                      <span class="nam">owner</span><span class="op">=</span><span class="nam">self</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">_hoeveelheidscode</span> <span class="op">=</span> <span class="nam">OTLAttribuut</span><span class="op">(</span><span class="nam">field</span><span class="op">=</span><span class="nam">KlGrondBijmengingHoeveelheidCode</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">_hoeveelheidscode</span> <span class="op">=</span> <span class="nam">OTLAttribuut</span><span class="op">(</span><span class="nam">field</span><span class="op">=</span><span class="nam">KlGrondBijmengingHoeveelheidCode</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">                                              <span class="nam">naam</span><span class="op">=</span><span class="str">'hoeveelheidscode'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t24" href="#t24">24</a></span><span class="t">                                              <span class="nam">label</span><span class="op">=</span><span class="str">'hoeveelheidscode'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t25" href="#t25">25</a></span><span class="t">                                              <span class="nam">objectUri</span><span class="op">=</span><span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcGrondbijmenging.hoeveelheidscode'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
@@ -109,7 +109,7 @@
     <p class="pln"><span class="n"><a id="t27" href="#t27">27</a></span><span class="t">                                              <span class="nam">definition</span><span class="op">=</span><span class="str">'Aanduiding (als code) van de hoeveelheid bijmenging.'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t28" href="#t28">28</a></span><span class="t">                                              <span class="nam">owner</span><span class="op">=</span><span class="nam">self</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t29" href="#t29">29</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t30" href="#t30">30</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">_isPlaatselijk</span> <span class="op">=</span> <span class="nam">OTLAttribuut</span><span class="op">(</span><span class="nam">field</span><span class="op">=</span><span class="nam">BooleanField</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t30" href="#t30">30</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">_isPlaatselijk</span> <span class="op">=</span> <span class="nam">OTLAttribuut</span><span class="op">(</span><span class="nam">field</span><span class="op">=</span><span class="nam">BooleanField</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t31" href="#t31">31</a></span><span class="t">                                           <span class="nam">naam</span><span class="op">=</span><span class="str">'isPlaatselijk'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t32" href="#t32">32</a></span><span class="t">                                           <span class="nam">label</span><span class="op">=</span><span class="str">'is grondmenging plaatselijk'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t33" href="#t33">33</a></span><span class="t">                                           <span class="nam">objectUri</span><span class="op">=</span><span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcGrondbijmenging.isPlaatselijk'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
@@ -165,7 +165,7 @@
             <a id="nextFileLink" class="nav" href="d_283aaff06afe8f7b_DtcGrondsoort_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.2">coverage.py v7.3.2</a>,
-            created at 2023-10-03 12:59 +0000
+            created at 2023-10-04 08:45 +0000
         </p>
     </div>
 </footer>
