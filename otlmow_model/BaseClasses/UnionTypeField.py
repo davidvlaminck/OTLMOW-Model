@@ -10,8 +10,8 @@ class UnionTypeField(OTLField):
 
     waarde_shortcut_applicable = False
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is None:
             return True
         if type(value) == attribuut.field.waardeObject:

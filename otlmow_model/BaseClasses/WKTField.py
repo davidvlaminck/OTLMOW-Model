@@ -18,8 +18,8 @@ class WKTField(OTLField):
         value = value.replace(' Z(', ' Z (').replace('T(', 'T (').replace('G(', 'G (').replace('N(', 'N (')
         return value
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None:
             if not isinstance(value, str):
                 raise TypeError(f'expecting string in {attribuut.naam}')

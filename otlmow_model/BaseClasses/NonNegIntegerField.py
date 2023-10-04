@@ -12,8 +12,8 @@ class NonNegIntegerField(IntegerField):
     label = 'Natuurlijk getal'
     usagenote = 'https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger'
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls,value, attribuut):
         if value is not None:
             if not isinstance(value, int):
                 raise TypeError(f'expecting an integer in {attribuut.naam}')

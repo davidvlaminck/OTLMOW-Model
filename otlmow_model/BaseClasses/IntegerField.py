@@ -45,8 +45,8 @@ class IntegerField(OTLField):
         except Exception:
             raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None and not isinstance(value, int):
             raise TypeError(f'expecting an integer in {attribuut.naam}')
         return True

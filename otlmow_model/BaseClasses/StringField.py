@@ -32,8 +32,8 @@ class StringField(OTLField):
         except TypeError:
             raise CouldNotConvertToCorrectTypeError(f'The given value of object of type {type(value)} could not be converted to string (implied by {cls.__name__})')
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if value is not None and not isinstance(value, str):
             raise TypeError(f'expecting string in {attribuut.naam}')
         return True

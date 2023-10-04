@@ -11,8 +11,8 @@ class OTLField:
     deprecated_version = ''
     waardeObject = None
 
-    @staticmethod
-    def validate(value, attribuut):
+    @classmethod
+    def validate(cls, value, attribuut):
         if attribuut.field.waardeObject:
             if isinstance(value, list):
                 for list_item in value:
@@ -38,12 +38,12 @@ class OTLField:
             return validation
         pass
 
-    @staticmethod
-    def value_default(value):
+    @classmethod
+    def value_default(cls, value):
         return value
 
-    @staticmethod
-    def convert_to_correct_type(value, log_warnings=True) -> object:
+    @classmethod
+    def convert_to_correct_type(cls, value, log_warnings=True) -> object:
         return value
 
     @abstractmethod
