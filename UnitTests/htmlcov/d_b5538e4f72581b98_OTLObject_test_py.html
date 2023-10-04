@@ -54,8 +54,8 @@
             </div>
         </aside>
         <h2>
-            <span class="text">550 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">550<span class="text"> run</span></button>
+            <span class="text">554 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">554<span class="text"> run</span></button>
             <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">0<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_b5538e4f72581b98_RelationCreator_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.2">coverage.py v7.3.2</a>,
-            created at 2023-10-04 08:03 +0000
+            created at 2023-10-04 19:50 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -1056,6 +1056,13 @@
     <p class="run"><span class="n"><a id="t974" href="#t974">974</a></span><span class="t">    <span class="nam">instance</span> <span class="op">=</span> <span class="nam">AllCasesTestClass</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t975" href="#t975">975</a></span><span class="t">    <span class="key">with</span> <span class="nam">pytest</span><span class="op">.</span><span class="nam">raises</span><span class="op">(</span><span class="nam">ValueError</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t976" href="#t976">976</a></span><span class="t">        <span class="nam">instance</span><span class="op">.</span><span class="nam">testKeuzelijstMetKard</span> <span class="op">=</span> <span class="op">[</span><span class="str">'1'</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t977" href="#t977">977</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t978" href="#t978">978</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t979" href="#t979">979</a></span><span class="t"><span class="key">def</span> <span class="nam">test_set_attributes_with_kwargs</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t980" href="#t980">980</a></span><span class="t">    <span class="nam">instance</span> <span class="op">=</span> <span class="nam">AllCasesTestClass</span><span class="op">(</span><span class="nam">toestand</span> <span class="op">=</span> <span class="str">'in-gebruik'</span><span class="op">,</span> <span class="nam">testStringField</span> <span class="op">=</span> <span class="str">'test'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t981" href="#t981">981</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t982" href="#t982">982</a></span><span class="t">    <span class="key">assert</span> <span class="nam">instance</span><span class="op">.</span><span class="nam">toestand</span> <span class="op">==</span> <span class="str">'in-gebruik'</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t983" href="#t983">983</a></span><span class="t">    <span class="key">assert</span> <span class="nam">instance</span><span class="op">.</span><span class="nam">testStringField</span> <span class="op">==</span> <span class="str">'test'</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -1065,7 +1072,7 @@
             <a id="nextFileLink" class="nav" href="d_b5538e4f72581b98_RelationCreator_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.2">coverage.py v7.3.2</a>,
-            created at 2023-10-04 08:03 +0000
+            created at 2023-10-04 19:50 +0000
         </p>
     </div>
 </footer>
