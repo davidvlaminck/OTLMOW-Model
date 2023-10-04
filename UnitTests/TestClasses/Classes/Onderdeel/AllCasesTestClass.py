@@ -1,7 +1,7 @@
 # coding=utf-8
 from datetime import date, datetime, time
 from typing import List
-from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.BaseClasses.OTLObject import OTLAttribuut, set_value_by_dictitem
 from UnitTests.TestClasses.Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.DateField import DateField
@@ -25,8 +25,8 @@ class AllCasesTestClass(AIMObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass', deprecated='2.0')
@@ -178,6 +178,10 @@ class AllCasesTestClass(AIMObject, PuntGeometrie):
                                                   kardinaliteit_max='*',
                                                   definition='Test attribuut voor een union type met kardinaliteit > 1',
                                                   owner=self)
+
+        for k, v in kwargs.items():
+            set_value_by_dictitem(self, k, v)
+        kwargs = {}
 
     @property
     def testBooleanField(self) -> bool:

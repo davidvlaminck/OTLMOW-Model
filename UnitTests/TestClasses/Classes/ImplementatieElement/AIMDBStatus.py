@@ -12,8 +12,8 @@ class AIMDBStatus(ABC):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     @abstractmethod
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         self._isActief = OTLAttribuut(field=BooleanField,
                                       naam='isActief',

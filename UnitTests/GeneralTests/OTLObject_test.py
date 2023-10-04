@@ -974,3 +974,10 @@ def test_raise_value_errors_in_set_waarde_with_cardinality():
     instance = AllCasesTestClass()
     with pytest.raises(ValueError):
         instance.testKeuzelijstMetKard = ['1']
+
+
+def test_set_attributes_with_kwargs():
+    instance = AllCasesTestClass(toestand = 'in-gebruik', testStringField = 'test')
+
+    assert instance.toestand == 'in-gebruik'
+    assert instance.testStringField == 'test'

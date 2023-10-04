@@ -6,8 +6,8 @@ from otlmow_model.BaseClasses.WKTField import WKTField
 
 class AbstracteGeometrie(ABC):
     @abstractmethod
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         if not hasattr(self, '_geometry_types'):
             self._geometry_types = []
         self._geometry = OTLAttribuut(field=WKTField,

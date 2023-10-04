@@ -12,8 +12,8 @@ class AIMToestand(ABC):
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     @abstractmethod
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         self._toestand = OTLAttribuut(field=KlAIMToestand,
                                       naam='toestand',
@@ -21,6 +21,10 @@ class AIMToestand(ABC):
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand',
                                       definition='Geeft de actuele stand in de levenscyclus van het object.',
                                       owner=self)
+
+        if 'toestand' in kwargs:
+            self.toestand = kwargs.pop('toestand')
+
 
     @property
     def toestand(self) -> str:

@@ -11,7 +11,7 @@ class RelationInteractor:
         self._valid_relations[relation][target] = deprecated
 
     @abstractmethod
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         self._valid_relations = {}

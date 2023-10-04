@@ -283,8 +283,9 @@ class OTLObject(object):
                 else:
                     raise ValueError(f'{value} is not a valid value for typeURI.')
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__()
+
         if hasattr(self, 'deprecated_version'):
             if self.deprecated_version is not None:
                 try:
