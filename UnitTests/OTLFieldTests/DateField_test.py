@@ -5,6 +5,7 @@ import pytest
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_validate():
@@ -23,7 +24,7 @@ def test_validate():
         DateField.validate(1.0, date_attribute)
 
 
-def test_convert_to_correct_type(subtests, caplog):
+def test_convert_to_correct_type(subtests):
     with subtests.test(msg='Correct values'):
         assert DateField.convert_to_correct_type(None) is None
         assert DateField.convert_to_correct_type(datetime.date(2020, 1, 1)) == datetime.date(2020, 1, 1)
@@ -35,10 +36,8 @@ def test_convert_to_correct_type(subtests, caplog):
                                (datetime.datetime(2020, 1, 1, 2, 2, 2), datetime.date(2020, 1, 1))]
     for value, expected in convertable_values_list:
         with subtests.test(msg=f'Correct value after conversion: value = {value}'):
-            caplog.records.clear()
-            assert DateField.convert_to_correct_type(value) == expected
-            assert len(caplog.records) == 1
-            caplog.records.clear()
+            with pytest.warns(IncorrectTypeWarning):
+                assert DateField.convert_to_correct_type(value) == expected
 
     incorrect_values = ['a', 0.1, '0.1', object(), [], {}, True, False, datetime.time(2, 2, 2)]
     for value in incorrect_values:

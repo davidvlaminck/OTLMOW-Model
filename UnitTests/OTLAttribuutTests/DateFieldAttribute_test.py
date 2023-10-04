@@ -11,11 +11,14 @@ def test_datefield_with_correct_input(subtests):
         assert instance.testDateField is None
 
     with subtests.test(msg='assign values to DateField with correct date'):
-        instance.testDateField = '2020-01-01'
+        with pytest.warns(IncorrectTypeWarning):
+            instance.testDateField = '2020-01-01'
         assert instance.testDateField == datetime.date(2020, 1, 1)
-        instance.testDateField = '2020-1-1'
+        with pytest.warns(IncorrectTypeWarning):
+            instance.testDateField = '2020-1-1'
         assert instance.testDateField == datetime.date(2020, 1, 1)
-        instance.testDateField = '1/1/2020'
+        with pytest.warns(IncorrectTypeWarning):
+            instance.testDateField = '1/1/2020'
         assert instance.testDateField == datetime.date(2020, 1, 1)
 
 
