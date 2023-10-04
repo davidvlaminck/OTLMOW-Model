@@ -1,6 +1,4 @@
 ﻿import datetime
-import time
-import warnings
 from datetime import date
 
 import pytest
@@ -10,6 +8,7 @@ from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTe
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 from otlmow_model.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
 from otlmow_model.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
+from otlmow_model.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_from_dict_typeURI_in_dict():
@@ -51,9 +50,9 @@ def test_from_dict_non_standard_attributes():
 def test_from_dict_simple_single_attributes():
     input_dict = {'testBooleanField': True,
                   'testKeuzelijst': 'waarde-2',
-                  'testDateField': '2023-01-01',
-                  'testDateTimeField': '2023-01-01 10:11:12',
-                  'testTimeField': '10:11:12',
+                  'testDateField': datetime.date(2023, 1, 1),
+                  'testDateTimeField': datetime.datetime(2023,1,1,10,11,12),
+                  'testTimeField': datetime.time(10, 11, 12),
                   'testDecimalField': 1.2,
                   'testIntegerField': 1,
                   'testStringField': 'test'}
@@ -75,9 +74,9 @@ def test_from_dict_rdf_simple_single_attributes():
     input_dict = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testBooleanField': True,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKeuzelijst': 'waarde-2',
-        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateField': '2023-01-01',
-        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateTimeField': '2023-01-01 10:11:12',
-        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testTimeField': '10:11:12',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateField': datetime.date(2023, 1, 1),
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateTimeField': datetime.datetime(2023,1,1,10,11,12),
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testTimeField': datetime.time(10, 11, 12),
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDecimalField': 1.2,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testIntegerField': 1,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringField': 'test'}
@@ -837,7 +836,8 @@ def test_to_dict_and_from_dict():
     instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
 
     created_dict = create_dict_from_asset(instance)
-    created_instance = AllCasesTestClass.from_dict(created_dict, directory='UnitTests.TestClasses.Classes')
+    with pytest.warns(IncorrectTypeWarning):
+        created_instance = AllCasesTestClass.from_dict(created_dict, directory='UnitTests.TestClasses.Classes')
     assert instance == created_instance
 
 

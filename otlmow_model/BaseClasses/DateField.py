@@ -23,15 +23,14 @@ class DateField(OTLField):
         if isinstance(value, bool):
             raise CouldNotConvertToCorrectTypeError(f'{value} could not be converted to correct type (implied by {cls.__name__})')
         if isinstance(value, datetime):
-                warnings.warn(
-                    'Assigned a datetime to a date datatype. Automatically converted to the correct type. Please change the type', IncorrectTypeWarning)
-                return date(value.year, value.month, value.day)
+            warnings.warn(category=IncorrectTypeWarning, message=
+                'Assigned a datetime to a date datatype. Automatically converted to the correct type. Please change the type')
+            return date(value.year, value.month, value.day)
         if isinstance(value, date):
             return value
         if isinstance(value, int):
-            if log_warnings:
-                logging.warning(
-                    'Assigned a int to a date datatype. Automatically converted to the correct type. Please change the type')
+            warnings.warn(category=IncorrectTypeWarning, message=
+                'Assigned a int to a date datatype. Automatically converted to the correct type. Please change the type')
             timestamp = datetime.utcfromtimestamp(value)
 
             return date(timestamp.year, timestamp.month, timestamp.day)
@@ -39,16 +38,14 @@ class DateField(OTLField):
         if isinstance(value, str):
             try:
                 dt = datetime.strptime(value, "%Y-%m-%d")
-                if log_warnings:
-                    logging.warning(
-                        'Assigned a string to a date datatype. Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning, message=
+                    'Assigned a string to a date datatype. Automatically converted to the correct type. Please change the type')
                 return date(dt.year, dt.month, dt.day)
             except ValueError:
                 try:
                     dt = datetime.strptime(value, "%d/%m/%Y")
-                    if log_warnings:
-                        logging.warning(
-                            'Assigned a string to a date datatype. Automatically converted to the correct type. Please change the type')
+                    warnings.warn(category=IncorrectTypeWarning, message=
+                        'Assigned a string to a date datatype. Automatically converted to the correct type. Please change the type')
                     return date(dt.year, dt.month, dt.day)
                 except ValueError:
                     raise CouldNotConvertToCorrectTypeError(
