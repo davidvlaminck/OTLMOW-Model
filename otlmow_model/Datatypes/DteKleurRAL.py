@@ -13,7 +13,7 @@ class DteKleurRALWaarden(WaardenObject):
                                     naam='waarde',
                                     label='waarde',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DteKleurRAL.waarde',
-                                    usagenote='De waarde moet voldoen aan volgende regex: [1-9]\d{3}',
+                                    usagenote='De waarde moet voldoen aan volgende regex: [1-9]\\d{3}',
                                     definition='Beschrijft een kleur volgens het RAL classificatiesysteem.',
                                     owner=self)
 
