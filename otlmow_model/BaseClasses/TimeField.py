@@ -1,6 +1,6 @@
 import logging
 import random
-from datetime import time, datetime, date, UTC
+from datetime import time, datetime, date, timezone
 
 from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.BaseClasses.OTLField import OTLField
@@ -36,7 +36,7 @@ class TimeField(OTLField):
             if log_warnings:
                 logging.warning(
                     'Assigned a int to a date datatype. Automatically converted to the correct type. Please change the type')
-            timestamp = datetime.fromtimestamp(value, UTC)
+            timestamp = datetime.fromtimestamp(value, timezone.utc)
 
             return time(timestamp.hour, timestamp.minute, timestamp.second)
         if isinstance(value, str):
