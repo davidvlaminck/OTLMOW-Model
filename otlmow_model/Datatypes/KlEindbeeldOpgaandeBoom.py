@@ -32,7 +32,7 @@ class KlEindbeeldOpgaandeBoom(KeuzelijstField):
         'leiboom': KeuzelijstWaarde(invulwaarde='leiboom',
                                     label='leiboom',
                                     status='ingebruik',
-                                    definitie='Het eindbeeld is een leiboom. Een leiboom is een boom waarvan alle gesteltakken gedwongen worden in één (verticaal) vlak te groeien door geleiding. Soms worden de geleide bomen tegen een muur geleid of wordt er in een leidconstructie voorzien.',
+                                    definitie='Het eindbeeld is een leiboom. Een leiboom is een boom waarvan alle gesteltakken gedwongen worden in één (verticaal) vlak te groeien door geleiding. Soms worden de geleide bomen tegen een muur geleid of wordt er in een leidconstructie voorzien. ',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEindbeeldOpgaandeBoom/leiboom'),
         'niet-vrij-uitgroeiend': KeuzelijstWaarde(invulwaarde='niet-vrij-uitgroeiend',
                                                   label='niet vrij uitgroeiend',

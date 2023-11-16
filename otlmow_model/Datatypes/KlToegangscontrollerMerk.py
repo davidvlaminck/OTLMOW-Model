@@ -17,7 +17,6 @@ class KlToegangscontrollerMerk(KeuzelijstField):
         'aeos': KeuzelijstWaarde(invulwaarde='aeos',
                                  label='AEOS',
                                  status='ingebruik',
-                                 definitie='AEOS/NEDAP',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangscontrollerMerk/aeos')
     }
 

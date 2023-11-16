@@ -22,7 +22,7 @@ class KlHuisaansluitputMateriaal(KeuzelijstField):
         'gres': KeuzelijstWaarde(invulwaarde='gres',
                                  label='gres',
                                  status='ingebruik',
-                                 definitie='aansluitputje in grès',
+                                 definitie='aansluitputje in grès.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHuisaansluitputMateriaal/gres'),
         'kunststof': KeuzelijstWaarde(invulwaarde='kunststof',
                                       label='kunststof',

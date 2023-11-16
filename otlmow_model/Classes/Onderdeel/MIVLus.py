@@ -18,7 +18,8 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Doorverbinddoos')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelmof')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LoopTerminationAndProtection')
@@ -27,7 +28,8 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
                                          naam='meetrapport',
                                          label='meetrapport',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus.meetrapport',
-                                         usagenote='Bestanden van het type pdf.',
+                                         usagenote='Attribuut uit gebruik sinds versie 2.9.0 ',
+                                         deprecated_version='2.9.0',
                                          definition='De elektrische eigenschappen van de lus: R, L, C en de isolatieweerstand. Dit verzekert naast de afmetingen mee de voorziene nauwkeurigheid van de voertuigmetingen.',
                                          owner=self)
 
@@ -35,6 +37,8 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
                                               naam='uitslijprichting',
                                               label='uitslijprichting',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus.uitslijprichting',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.9.0 ',
+                                              deprecated_version='2.9.0',
                                               definition='De uitlopers van de lus gaan naar links of naar rechts bekeken ten opzichte van de rijrichting.',
                                               owner=self)
 
@@ -42,6 +46,8 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
                                            naam='zichtbaarheid',
                                            label='zichtbaarheid',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus.zichtbaarheid',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.9.0 ',
+                                           deprecated_version='2.9.0',
                                            definition='Is dus lus zichtbaar in het wegdek of bedekt door een toplaag.',
                                            owner=self)
 

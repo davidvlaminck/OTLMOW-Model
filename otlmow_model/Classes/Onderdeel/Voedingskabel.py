@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Kabel import Kabel
+from otlmow_model.Datatypes.KlNominaleSpanning import KlNominaleSpanning
 from otlmow_model.Datatypes.KlVoedingskabelAdersEnSectie import KlVoedingskabelAdersEnSectie
 from otlmow_model.Datatypes.KlVoedingskabelType import KlVoedingskabelType
 from otlmow_model.Datatypes.KlVoedingskabelTypeSpecificatie import KlVoedingskabelTypeSpecificatie
@@ -22,6 +23,13 @@ class Voedingskabel(Kabel):
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedingskabel.aantalAdersEnSectie',
                                                  definition='Aantal en sectie van de ader(s) van de kabel volgens een lijst van voorkomende types.',
                                                  owner=self)
+
+        self._nominaleSpanning = OTLAttribuut(field=KlNominaleSpanning,
+                                              naam='nominaleSpanning',
+                                              label='nominale spanning',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedingskabel.nominaleSpanning',
+                                              definition='De nominale spanning van de voedingskabel.',
+                                              owner=self)
 
         self._type = OTLAttribuut(field=KlVoedingskabelType,
                                   naam='type',
@@ -45,6 +53,15 @@ class Voedingskabel(Kabel):
     @aantalAdersEnSectie.setter
     def aantalAdersEnSectie(self, value):
         self._aantalAdersEnSectie.set_waarde(value, owner=self)
+
+    @property
+    def nominaleSpanning(self) -> str:
+        """De nominale spanning van de voedingskabel."""
+        return self._nominaleSpanning.get_waarde()
+
+    @nominaleSpanning.setter
+    def nominaleSpanning(self, value):
+        self._nominaleSpanning.set_waarde(value, owner=self)
 
     @property
     def type(self) -> str:

@@ -17,6 +17,7 @@ class KlTelecommunicationsSubthema(KeuzelijstField):
         'elektronischecommunicatie': KeuzelijstWaarde(invulwaarde='elektronischecommunicatie',
                                                       label='elektronischeCommunicatie',
                                                       status='ingebruik',
+                                                      definitie='elektronischeCommunicatie',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecommunicationsSubthema/elektronischecommunicatie')
     }
 

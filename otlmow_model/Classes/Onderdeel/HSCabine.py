@@ -3,6 +3,7 @@ from datetime import date
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Onderdeel.Cabine import Cabine
 from otlmow_model.BaseClasses.DateField import DateField
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlCabineLokaalKlasse import KlCabineLokaalKlasse
 
 
@@ -19,6 +20,13 @@ class HSCabine(Cabine):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Toegangselement')
 
+        self._elektrischSchema = OTLAttribuut(field=DtcDocument,
+                                              naam='elektrischSchema',
+                                              label='elektrisch schema',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine.elektrischSchema',
+                                              definition='Elektrisch aansluitschema van de HS cabine.',
+                                              owner=self)
+
         self._lokaalKlasse = OTLAttribuut(field=KlCabineLokaalKlasse,
                                           naam='lokaalKlasse',
                                           label='lokaal klasse',
@@ -32,6 +40,15 @@ class HSCabine(Cabine):
                                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine.vervaldatumVeiligheidshandschoenen',
                                                                 definition='De datum waarop de huidige veiligheidshandschoenen in de hoogspanningscabine vervallen.',
                                                                 owner=self)
+
+    @property
+    def elektrischSchema(self) -> DtcDocumentWaarden:
+        """Elektrisch aansluitschema van de HS cabine."""
+        return self._elektrischSchema.get_waarde()
+
+    @elektrischSchema.setter
+    def elektrischSchema(self, value):
+        self._elektrischSchema.set_waarde(value, owner=self)
 
     @property
     def lokaalKlasse(self) -> str:

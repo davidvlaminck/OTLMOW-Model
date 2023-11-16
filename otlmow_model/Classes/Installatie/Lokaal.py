@@ -1,12 +1,12 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.Behuizing import Behuizing
+from otlmow_model.Classes.Abstracten.Kokerruimte import Kokerruimte
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Lokaal(Behuizing, VlakGeometrie):
+class Lokaal(Behuizing, Kokerruimte):
     """Een ruimte binnen een gebouw."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lokaal'

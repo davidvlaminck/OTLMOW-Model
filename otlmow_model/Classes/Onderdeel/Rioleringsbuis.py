@@ -18,6 +18,7 @@ class Rioleringsbuis(Buis):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ecokoker')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#WaterdoorvoerendeDuiker')
 
         self._aantalAfgedichteAansluitingen = OTLAttribuut(field=IntegerField,
                                                            naam='aantalAfgedichteAansluitingen',

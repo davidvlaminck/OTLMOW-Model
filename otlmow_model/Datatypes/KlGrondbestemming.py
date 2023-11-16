@@ -36,7 +36,7 @@ class KlGrondbestemming(KeuzelijstField):
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrondbestemming/storten'),
         'tijdelijke-opslagplaats-(top)': KeuzelijstWaarde(invulwaarde='tijdelijke-opslagplaats-(top)',
                                                           label='tijdelijke opslagplaats (TOP)',
-                                                          status='ingebruik',
+                                                          status='verwijderd',
                                                           definitie='Grond voor tijdelijke opslag.',
                                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrondbestemming/tijdelijke-opslagplaats-(top)'),
         'tijdelijke-werfopslagplaats': KeuzelijstWaarde(invulwaarde='tijdelijke-werfopslagplaats',

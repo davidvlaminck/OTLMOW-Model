@@ -21,6 +21,7 @@ class KlTelecommunicationsAppurtenanceType(KeuzelijstField):
         'termination': KeuzelijstWaarde(invulwaarde='termination',
                                         label='termination',
                                         status='ingebruik',
+                                        definitie='termination',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecommunicationsAppurtenanceType/termination')
     }
 

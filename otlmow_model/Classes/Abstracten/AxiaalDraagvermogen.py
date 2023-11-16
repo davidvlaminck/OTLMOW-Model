@@ -7,7 +7,7 @@ from otlmow_model.Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, Kw
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class AxiaalDraagvermogen(ABC):
-    """Abstracte voor de bundeling van de axiale druk- en trekdraagvermogens, berekend volgens verschillende grenstoestanden."""
+    """Abstracte voor de bundeling van de axiale druk- en trekdraagvermogens,berekend volgens verschillende grenstoestanden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogen'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -32,9 +32,9 @@ class AxiaalDraagvermogen(ABC):
 
         self._ontwerpnorm = OTLAttribuut(field=DtcDocument,
                                          naam='ontwerpnorm',
-                                         label='ontwerpnorm',
+                                         label='ontwerpnota',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogen.ontwerpnorm',
-                                         definition='Document dat de eurocode en norm toelicht dat gebruikt is voor het draagvermogen te berekenen.',
+                                         definition='Nota dat de belangrijkste ontwerpbeslissingen, overwegingen, specificaties en andere relevante informatie documenteert die betrekking heeft op een specifiek ontwerpproject..',
                                          owner=self)
 
         self._trekdraagvermorgenGGT = OTLAttribuut(field=KwantWrdInKiloNewton,
@@ -71,7 +71,7 @@ class AxiaalDraagvermogen(ABC):
 
     @property
     def ontwerpnorm(self) -> DtcDocumentWaarden:
-        """Document dat de eurocode en norm toelicht dat gebruikt is voor het draagvermogen te berekenen."""
+        """Nota dat de belangrijkste ontwerpbeslissingen, overwegingen, specificaties en andere relevante informatie documenteert die betrekking heeft op een specifiek ontwerpproject.."""
         return self._ontwerpnorm.get_waarde()
 
     @ontwerpnorm.setter

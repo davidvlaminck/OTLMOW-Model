@@ -26,7 +26,9 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Waarschuwingslantaarn')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ZenderOntvangerToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0')
 
         self._beschermlaag = OTLAttribuut(field=KlDraagConstrBeschermlaag,
@@ -42,6 +44,13 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast.dwarsdoorsnede',
                                             definition='De vorm van de dwarsdoorsnede van de lichtmast.',
                                             owner=self)
+
+        self._heeftAntiVandalismeBeugel = OTLAttribuut(field=BooleanField,
+                                                       naam='heeftAntiVandalismeBeugel',
+                                                       label='heeft anti-vandalisme beugel',
+                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast.heeftAntiVandalismeBeugel',
+                                                       definition='Aanduiding of een specifieke beugel is bevestigd aan de lichtmast om vandalisme en schade te voorkomen.',
+                                                       owner=self)
 
         self._heeftStopcontact = OTLAttribuut(field=BooleanField,
                                               naam='heeftStopcontact',
@@ -109,6 +118,15 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
     @dwarsdoorsnede.setter
     def dwarsdoorsnede(self, value):
         self._dwarsdoorsnede.set_waarde(value, owner=self)
+
+    @property
+    def heeftAntiVandalismeBeugel(self) -> bool:
+        """Aanduiding of een specifieke beugel is bevestigd aan de lichtmast om vandalisme en schade te voorkomen."""
+        return self._heeftAntiVandalismeBeugel.get_waarde()
+
+    @heeftAntiVandalismeBeugel.setter
+    def heeftAntiVandalismeBeugel(self, value):
+        self._heeftAntiVandalismeBeugel.set_waarde(value, owner=self)
 
     @property
     def heeftStopcontact(self) -> bool:

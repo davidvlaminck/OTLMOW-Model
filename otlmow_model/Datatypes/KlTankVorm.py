@@ -15,14 +15,12 @@ class KlTankVorm(KeuzelijstField):
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTankVorm'
     options = {
         'parabolische-cilinder': KeuzelijstWaarde(invulwaarde='parabolische-cilinder',
-                                                  label='Parabolische cilinder',
+                                                  label='parabolische cilinder',
                                                   status='ingebruik',
-                                                  definitie='Parabolische cilinder',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTankVorm/parabolische-cilinder'),
         'vlakke-cilinder': KeuzelijstWaarde(invulwaarde='vlakke-cilinder',
-                                            label='Vlakke cilinder',
+                                            label='vlakke cilinder',
                                             status='ingebruik',
-                                            definitie='Vlakke cilinder',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTankVorm/vlakke-cilinder')
     }
 

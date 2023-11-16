@@ -2,6 +2,7 @@
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.BaseClasses.ComplexField import ComplexField
+from otlmow_model.Datatypes.DtcKrimpvoegvulling import DtcKrimpvoegvulling, DtcKrimpvoegvullingWaarden
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
@@ -15,6 +16,13 @@ class DtcKrimpvoegWaarden(WaardenObject):
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcKrimpvoeg.krimpvoegFrequentie',
                                                  definition='De afstand tussen de krimpvoegen in meter.',
                                                  owner=self)
+
+        self._krimpvoegvulling = OTLAttribuut(field=DtcKrimpvoegvulling,
+                                              naam='krimpvoegvulling',
+                                              label='krimpvoegvulling',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcKrimpvoeg.krimpvoegvulling',
+                                              definition='Het gebruikte materiaal met zijn technische fiche als krimpvoegvulling.',
+                                              owner=self)
 
         self._totaleLengte = OTLAttribuut(field=KwantWrdInMeter,
                                           naam='totaleLengte',
@@ -31,6 +39,15 @@ class DtcKrimpvoegWaarden(WaardenObject):
     @krimpvoegFrequentie.setter
     def krimpvoegFrequentie(self, value):
         self._krimpvoegFrequentie.set_waarde(value, owner=self._parent)
+
+    @property
+    def krimpvoegvulling(self) -> DtcKrimpvoegvullingWaarden:
+        """Het gebruikte materiaal met zijn technische fiche als krimpvoegvulling."""
+        return self._krimpvoegvulling.get_waarde()
+
+    @krimpvoegvulling.setter
+    def krimpvoegvulling(self, value):
+        self._krimpvoegvulling.set_waarde(value, owner=self._parent)
 
     @property
     def totaleLengte(self) -> KwantWrdInMeterWaarden:

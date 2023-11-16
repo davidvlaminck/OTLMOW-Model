@@ -14,11 +14,6 @@ class KlIOKaartMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOKaartMerk'
     options = {
-        'dtn': KeuzelijstWaarde(invulwaarde='dtn',
-                                label='DTN',
-                                status='ingebruik',
-                                definitie='DTN',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartMerk/dtn'),
         'phoenix-contact': KeuzelijstWaarde(invulwaarde='phoenix-contact',
                                             label='Phoenix Contact',
                                             status='ingebruik',

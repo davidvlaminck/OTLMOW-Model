@@ -4,11 +4,10 @@ from otlmow_model.Classes.Abstracten.AbstracteAanvullendeGeometrie import Abstra
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KwantWrdInEuro import KwantWrdInEuro, KwantWrdInEuroWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
-from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Onderdoorboring(AbstracteAanvullendeGeometrie, LijnGeometrie, VlakGeometrie):
+class Onderdoorboring(AbstracteAanvullendeGeometrie, LijnGeometrie):
     """Gebruikt voor de registratie van kenmerken en de geometrie van een boring onder een weg of spoorweg."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderdoorboring'

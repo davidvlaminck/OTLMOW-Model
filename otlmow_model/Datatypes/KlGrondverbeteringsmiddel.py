@@ -17,14 +17,17 @@ class KlGrondverbeteringsmiddel(KeuzelijstField):
         'bezanden': KeuzelijstWaarde(invulwaarde='bezanden',
                                      label='bezanden',
                                      status='ingebruik',
+                                     definitie='Natuurlijk zand.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrondverbeteringsmiddel/bezanden'),
         'gft-compost': KeuzelijstWaarde(invulwaarde='gft-compost',
                                         label='GFT-compost',
                                         status='ingebruik',
+                                        definitie='GFT-compost is het product verkregen door een gecontroleerde aÃƒÂ«robe compostering van het gescheiden ingezamelde organische deel van het huishoudelijk afval tot volledige rijping.',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrondverbeteringsmiddel/gft-compost'),
         'groencompost': KeuzelijstWaarde(invulwaarde='groencompost',
                                          label='groencompost',
                                          status='ingebruik',
+                                         definitie='Groencompost is een product verkregen door een gecontroleerde aerobe compostering van groenafval tot volledige rijping, voorafgegaan of gevolgd door mechanische behandelingen.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrondverbeteringsmiddel/groencompost')
     }
 

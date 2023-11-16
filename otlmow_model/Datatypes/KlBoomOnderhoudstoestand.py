@@ -14,11 +14,6 @@ class KlBoomOnderhoudstoestand(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomOnderhoudstoestand'
     options = {
-        'niet': KeuzelijstWaarde(invulwaarde='niet',
-                                 label='niet',
-                                 status='ingebruik',
-                                 definitie='niet',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBoomOnderhoudstoestand/niet'),
         'niet-op-beeld-achterstallig': KeuzelijstWaarde(invulwaarde='niet-op-beeld-achterstallig',
                                                         label='niet op beeld-achterstallig',
                                                         status='ingebruik',
@@ -34,11 +29,6 @@ class KlBoomOnderhoudstoestand(KeuzelijstField):
                                                        status='ingebruik',
                                                        definitie='De boom heeft 2 of meer snoeibeurten nodig om op beeld te komen',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBoomOnderhoudstoestand/niet-op-beeld-verwaarloosd'),
-        'op': KeuzelijstWaarde(invulwaarde='op',
-                               label='op',
-                               status='ingebruik',
-                               definitie='op',
-                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBoomOnderhoudstoestand/op'),
         'op-beeld': KeuzelijstWaarde(invulwaarde='op-beeld',
                                      label='op beeld',
                                      status='ingebruik',

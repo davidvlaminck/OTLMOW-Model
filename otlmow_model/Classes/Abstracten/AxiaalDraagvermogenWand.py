@@ -1,13 +1,14 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KwantWrdInKiloNewtonPerMeter import KwantWrdInKiloNewtonPerMeter, KwantWrdInKiloNewtonPerMeterWaarden
 from otlmow_model.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class AxiaalDraagvermogenWand(LijnGeometrie):
-    """Abstracte voor de bundeling van de axiale druk- en trekdraagvermogens van de totale wand, berekend volgens verschillende grenstoestanden."""
+    """Abstracte voor de bundeling van de axiale druk- en trekdraagvermogens van de totale wand,berekend volgens verschillende grenstoestanden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogenWand'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -29,6 +30,13 @@ class AxiaalDraagvermogenWand(LijnGeometrie):
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogenWand.drukdraagvermogenUGTWand',
                                                       definition='Drukdraagvermogen van de totale wand, uitgedrukt in kilonewton per meter, in uiterste grenstoestand (UGT) design approach DA1/1.',
                                                       owner=self)
+
+        self._ontwerpnota = OTLAttribuut(field=DtcDocument,
+                                         naam='ontwerpnota',
+                                         label='ontwerpnota',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogenWand.ontwerpnota',
+                                         definition='Nota dat de belangrijkste ontwerpbeslissingen, overwegingen, specificaties en andere relevante informatie documenteert die betrekking heeft op een specifiek ontwerpproject..',
+                                         owner=self)
 
         self._trekdraagvermorgenGGTWand = OTLAttribuut(field=KwantWrdInKiloNewtonPerMeter,
                                                        naam='trekdraagvermorgenGGTWand',
@@ -61,6 +69,15 @@ class AxiaalDraagvermogenWand(LijnGeometrie):
     @drukdraagvermogenUGTWand.setter
     def drukdraagvermogenUGTWand(self, value):
         self._drukdraagvermogenUGTWand.set_waarde(value, owner=self)
+
+    @property
+    def ontwerpnota(self) -> DtcDocumentWaarden:
+        """Nota dat de belangrijkste ontwerpbeslissingen, overwegingen, specificaties en andere relevante informatie documenteert die betrekking heeft op een specifiek ontwerpproject.."""
+        return self._ontwerpnota.get_waarde()
+
+    @ontwerpnota.setter
+    def ontwerpnota(self, value):
+        self._ontwerpnota.set_waarde(value, owner=self)
 
     @property
     def trekdraagvermorgenGGTWand(self) -> KwantWrdInKiloNewtonPerMeterWaarden:

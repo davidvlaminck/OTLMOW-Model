@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.LEDBord import LEDBord
+from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KlDynBordZ30Merk import KlDynBordZ30Merk
 from otlmow_model.Datatypes.KlDynBordZ30Modelnaam import KlDynBordZ30Modelnaam
 
@@ -33,6 +34,13 @@ class DynBordZ30(LEDBord):
                                        definition='De modelnaam van het Z30-bord.',
                                        owner=self)
 
+        self._naastGenummerdeWeg = OTLAttribuut(field=BooleanField,
+                                                naam='naastGenummerdeWeg',
+                                                label='langs genummerde weg',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordZ30.naastGenummerdeWeg',
+                                                definition='Aanduiding of het bord naast een genummerde weg of een niet-genummerde weg staat, gericht naar het aankomende verkeer.',
+                                                owner=self)
+
     @property
     def merk(self) -> str:
         """Merk van het dynamisch zone-30 bord."""
@@ -50,3 +58,12 @@ class DynBordZ30(LEDBord):
     @modelnaam.setter
     def modelnaam(self, value):
         self._modelnaam.set_waarde(value, owner=self)
+
+    @property
+    def naastGenummerdeWeg(self) -> bool:
+        """Aanduiding of het bord naast een genummerde weg of een niet-genummerde weg staat, gericht naar het aankomende verkeer."""
+        return self._naastGenummerdeWeg.get_waarde()
+
+    @naastGenummerdeWeg.setter
+    def naastGenummerdeWeg(self, value):
+        self._naastGenummerdeWeg.set_waarde(value, owner=self)

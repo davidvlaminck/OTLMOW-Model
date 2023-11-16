@@ -15,24 +15,20 @@ class KlElektromotorRol(KeuzelijstField):
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElektromotorRol'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',
-                                   label='Andere',
+                                   label='andere',
                                    status='ingebruik',
-                                   definitie='Andere',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorRol/andere'),
         'hoofdmotor': KeuzelijstWaarde(invulwaarde='hoofdmotor',
-                                       label='Hoofdmotor',
+                                       label='hoofdmotor',
                                        status='ingebruik',
-                                       definitie='Hoofdmotor',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorRol/hoofdmotor'),
         'hulpmotor': KeuzelijstWaarde(invulwaarde='hulpmotor',
-                                      label='Hulpmotor',
+                                      label='hulpmotor',
                                       status='ingebruik',
-                                      definitie='Hulpmotor',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorRol/hulpmotor'),
         'noodmotor': KeuzelijstWaarde(invulwaarde='noodmotor',
-                                      label='Noodmotor',
+                                      label='noodmotor',
                                       status='ingebruik',
-                                      definitie='Noodmotor',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorRol/noodmotor')
     }
 

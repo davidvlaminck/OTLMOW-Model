@@ -14,11 +14,6 @@ class KlBrandblusserBlusmiddel(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBrandblusserBlusmiddel'
     options = {
-        'co2': KeuzelijstWaarde(invulwaarde='co2',
-                                label='CO2',
-                                status='ingebruik',
-                                definitie='CO2 als blusmiddel.',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBrandblusserBlusmiddel/co2'),
         'poeder': KeuzelijstWaarde(invulwaarde='poeder',
                                    label='poeder',
                                    status='ingebruik',

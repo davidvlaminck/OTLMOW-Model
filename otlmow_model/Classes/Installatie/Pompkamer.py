@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.Classes.Abstracten.Kokerruimte import Kokerruimte
 from otlmow_model.Classes.Abstracten.PutRelatie import PutRelatie
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -8,11 +9,10 @@ from otlmow_model.Datatypes.KlPompKamerFunctie import KlPompKamerFunctie
 from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 from otlmow_model.Datatypes.KwantWrdInMaand import KwantWrdInMaand, KwantWrdInMaandWaarden
 from otlmow_model.Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
-from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Pompkamer(PutRelatie, VlakGeometrie):
+class Pompkamer(Kokerruimte, PutRelatie):
     """Elk volume,inclusief de bouwkundige elementen die dit volume bepalen,dat deel uitmaakt van het waterbouwkundig systeem van het pompstation en als zodanig onder water kan staan."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompkamer'

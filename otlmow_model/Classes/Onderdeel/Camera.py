@@ -7,6 +7,7 @@ from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.DtcCameraBeeldverwerking import DtcCameraBeeldverwerking, DtcCameraBeeldverwerkingWaarden
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
+from otlmow_model.Datatypes.KlAlgRijrichting import KlAlgRijrichting
 from otlmow_model.Datatypes.KlCameraMerk import KlCameraMerk
 from otlmow_model.Datatypes.KlCameraModelnaam import KlCameraModelnaam
 from otlmow_model.Datatypes.KlSensorOpstelwijze import KlSensorOpstelwijze
@@ -27,10 +28,15 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElement')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ZuilTGC')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Trajectcontrole')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wilddetectiezone')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zoutbijlaadplaats')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang')
@@ -71,6 +77,13 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
                                       deprecated_version='2.3.0',
                                       definition='Een AID-camera is een CCTV-camera met geintegreerde AID-module. Deze camera genereert naast een camerabeeld ook metadata ivm wat zich afspeelt op het beeld. Een voorbeeld hiervan is gestopte voertuigen.',
                                       owner=self)
+
+        self._heeftFlits = OTLAttribuut(field=BooleanField,
+                                        naam='heeftFlits',
+                                        label='heeft flits',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.heeftFlits',
+                                        definition='Geeft aan of de camera een externe infrarood flits heeft.',
+                                        owner=self)
 
         self._heeftSpitsstrook = OTLAttribuut(field=BooleanField,
                                               naam='heeftSpitsstrook',
@@ -122,6 +135,13 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
                                          label='opstelwijze',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.opstelwijze',
                                          definition='De manier waarop de camera is opgesteld, bv. via dwarsligger,...',
+                                         owner=self)
+
+        self._rijrichting = OTLAttribuut(field=KlAlgRijrichting,
+                                         naam='rijrichting',
+                                         label='rijrichting',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.rijrichting',
+                                         definition='De rijrichting van de voertuigen die door de camera geregistreerd worden.',
                                          owner=self)
 
         self._servicePrioriteit = OTLAttribuut(field=KlServicePrioriteit,
@@ -182,6 +202,15 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
     @heeftAid.setter
     def heeftAid(self, value):
         self._heeftAid.set_waarde(value, owner=self)
+
+    @property
+    def heeftFlits(self) -> bool:
+        """Geeft aan of de camera een externe infrarood flits heeft."""
+        return self._heeftFlits.get_waarde()
+
+    @heeftFlits.setter
+    def heeftFlits(self, value):
+        self._heeftFlits.set_waarde(value, owner=self)
 
     @property
     def heeftSpitsstrook(self) -> bool:
@@ -245,6 +274,15 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
     @opstelwijze.setter
     def opstelwijze(self, value):
         self._opstelwijze.set_waarde(value, owner=self)
+
+    @property
+    def rijrichting(self) -> str:
+        """De rijrichting van de voertuigen die door de camera geregistreerd worden."""
+        return self._rijrichting.get_waarde()
+
+    @rijrichting.setter
+    def rijrichting(self, value):
+        self._rijrichting.set_waarde(value, owner=self)
 
     @property
     def servicePrioriteit(self) -> str:

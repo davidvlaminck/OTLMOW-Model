@@ -14,16 +14,6 @@ class KlUPSMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUPSMerk'
     options = {
-        'adelsystems': KeuzelijstWaarde(invulwaarde='adelsystems',
-                                        label='AdelSystems',
-                                        status='ingebruik',
-                                        definitie='AdelSystems',
-                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/adelsystems'),
-        'eaton': KeuzelijstWaarde(invulwaarde='eaton',
-                                  label='Eaton',
-                                  status='ingebruik',
-                                  definitie='Eaton',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/eaton'),
         'phoenix-contact': KeuzelijstWaarde(invulwaarde='phoenix-contact',
                                             label='Phoenix Contact',
                                             status='ingebruik',

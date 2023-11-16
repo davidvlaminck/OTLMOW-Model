@@ -8,7 +8,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Tandwiel(AIMNaamObject, PuntGeometrie):
-    """Een tandwiel, tandrad of kamrad is een getand onderdeel van een machine of constructie in de vorm van een wiel of cilinder.  Het wordt gebruikt om beweging in de vorm van rotatie en koppel over te brengen."""
+    """Een tandwiel, tandrad of kamrad is een getand onderdeel van een machine of constructie in de vorm van een wiel of cilinder. Het wordt gebruikt om beweging in de vorm van rotatie en koppel over te brengen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Tandwiel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

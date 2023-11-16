@@ -14,6 +14,11 @@ class KlZonnepaneelMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZonnepaneelMerk'
     options = {
+        'mobx': KeuzelijstWaarde(invulwaarde='mobx',
+                                 label='MobX',
+                                 status='ingebruik',
+                                 definitie='MobX',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlZonnepaneelMerk/mobx'),
         'solartronics': KeuzelijstWaarde(invulwaarde='solartronics',
                                          label='solartronics',
                                          status='ingebruik',

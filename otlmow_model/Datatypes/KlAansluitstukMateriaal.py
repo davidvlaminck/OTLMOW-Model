@@ -37,7 +37,7 @@ class KlAansluitstukMateriaal(KeuzelijstField):
         'pvc-u-composiet': KeuzelijstWaarde(invulwaarde='pvc-u-composiet',
                                             label='pvc-u-composiet',
                                             status='ingebruik',
-                                            definitie='Pvc-u-composiet',
+                                            definitie='pvc-u-composiet',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/pvc-u-composiet')
     }
 

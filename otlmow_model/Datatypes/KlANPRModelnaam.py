@@ -12,6 +12,7 @@ class KlANPRModelnaam(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlANPRModelnaam'
     definition = 'De modelnaam van de ANPR camera.'
     status = 'ingebruik'
+    deprecated_version = '2.9.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlANPRModelnaam'
     options = {
         'G1': KeuzelijstWaarde(invulwaarde='G1',
@@ -28,7 +29,7 @@ class KlANPRModelnaam(KeuzelijstField):
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/dual'),
         'i-car-cam5': KeuzelijstWaarde(invulwaarde='i-car-cam5',
                                        label='iCar cam5',
-                                       status='ingebruik',
+                                       status='uitgebruik',
                                        definitie='iCar cam5',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/i-car-cam5'),
         'qcam3': KeuzelijstWaarde(invulwaarde='qcam3',

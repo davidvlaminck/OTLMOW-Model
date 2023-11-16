@@ -7,7 +7,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Verluchtingskap(AIMObject, PuntGeometrie):
-    """Onderdeel dat tot doel heeft natuurlijke verluchting te bekomen in een gesloten ruimte zodat er geen opeenstapelingen is van giftige stoffen en bescherming biedt tegen regen en vuil."""
+    """Onderdeel dat tot doel heeft natuurlijke verluchting te bekomen in een gesloten ruimte zodat er geen opeenstapeling is van giftige stoffen en bescherming biedt tegen regen en vuil."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verluchtingskap'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

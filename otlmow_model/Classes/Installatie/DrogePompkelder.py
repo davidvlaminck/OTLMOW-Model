@@ -1,12 +1,12 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.Classes.Abstracten.Kokerruimte import Kokerruimte
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DrogePompkelder(AIMNaamObject, VlakGeometrie):
+class DrogePompkelder(Kokerruimte, AIMNaamObject):
     """Een droge pompkelder is dat gedeelte van een gebouw/kunstwerk dat (meestal) onder het maaiveld is gelegen,veelal om beheersvoorzieningen te herbergen en/of als een technische ruimte dat deel uitmaakt van een pompstation."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DrogePompkelder'

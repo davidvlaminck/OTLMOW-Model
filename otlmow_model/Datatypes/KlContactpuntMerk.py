@@ -18,12 +18,7 @@ class KlContactpuntMerk(KeuzelijstField):
                                    label='Heinen',
                                    status='ingebruik',
                                    definitie='Heinen',
-                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntMerk/heinen'),
-        'locinox': KeuzelijstWaarde(invulwaarde='locinox',
-                                    label='LOCINOX',
-                                    status='ingebruik',
-                                    definitie='LOCINOX',
-                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntMerk/locinox')
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntMerk/heinen')
     }
 
     @classmethod

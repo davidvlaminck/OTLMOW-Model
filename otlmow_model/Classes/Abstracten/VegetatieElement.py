@@ -1,14 +1,14 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
-from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
+from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.DtcVegetatieSoortnaam import DtcVegetatieSoortnaam, DtcVegetatieSoortnaamWaarden
 from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.Datatypes.KlVegetatieelementHoogte import KlVegetatieelementHoogte
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VegetatieElement(AIMObject):
+class VegetatieElement(AIMNaamObject):
     """Abstracte om alle gemeenschappelijke eigenschappen en relaties van de solitaire plant in de ruimte onder 1 noemer te plaatsen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VegetatieElement'

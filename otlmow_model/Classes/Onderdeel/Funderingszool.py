@@ -2,6 +2,7 @@
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.BetonnenConstructieElement import BetonnenConstructieElement
 from otlmow_model.Classes.Abstracten.Fundering import Fundering
+from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -24,14 +25,28 @@ class Funderingszool(BetonnenConstructieElement, Fundering, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#NietWeggebondenDetectie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Seinlantaarn')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Ventilatie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verlichtingstoestel')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Waarschuwingslantaarn')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ZenderOntvangerToegang')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingspaal')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aanvaarbescherming')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kelderlandhoofd')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kelderpijler')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Landhoofd')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pijler')
+
+        self._heeftVariabeleDikte = OTLAttribuut(field=BooleanField,
+                                                 naam='heeftVariabeleDikte',
+                                                 label='heeft variabele dikte',
+                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingszool.heeftVariabeleDikte',
+                                                 definition='Aanduiding of de funderingszool een variabele dikte heeft.',
+                                                 owner=self)
 
         self._volume = OTLAttribuut(field=KwantWrdInKubiekeMeter,
                                     naam='volume',
@@ -44,8 +59,17 @@ class Funderingszool(BetonnenConstructieElement, Fundering, VlakGeometrie):
                                         naam='zoolhoogte',
                                         label='zoolhoogte',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingszool.zoolhoogte',
-                                        definition='De hoogte van de funderingszool in centimeter.',
+                                        definition='De minimum hoogte van de funderingszool in centimeter.',
                                         owner=self)
+
+    @property
+    def heeftVariabeleDikte(self) -> bool:
+        """Aanduiding of de funderingszool een variabele dikte heeft."""
+        return self._heeftVariabeleDikte.get_waarde()
+
+    @heeftVariabeleDikte.setter
+    def heeftVariabeleDikte(self, value):
+        self._heeftVariabeleDikte.set_waarde(value, owner=self)
 
     @property
     def volume(self) -> KwantWrdInKubiekeMeterWaarden:
@@ -58,7 +82,7 @@ class Funderingszool(BetonnenConstructieElement, Fundering, VlakGeometrie):
 
     @property
     def zoolhoogte(self) -> KwantWrdInCentimeterWaarden:
-        """De hoogte van de funderingszool in centimeter."""
+        """De minimum hoogte van de funderingszool in centimeter."""
         return self._zoolhoogte.get_waarde()
 
     @zoolhoogte.setter

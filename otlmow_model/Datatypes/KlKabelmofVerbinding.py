@@ -17,22 +17,18 @@ class KlKabelmofVerbinding(KeuzelijstField):
         'doorverbinding': KeuzelijstWaarde(invulwaarde='doorverbinding',
                                            label='doorverbinding',
                                            status='ingebruik',
-                                           definitie='doorverbinding',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelmofVerbinding/doorverbinding'),
         'eindmof': KeuzelijstWaarde(invulwaarde='eindmof',
                                     label='eindmof',
                                     status='ingebruik',
-                                    definitie='eindmof',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelmofVerbinding/eindmof'),
         't-mof': KeuzelijstWaarde(invulwaarde='t-mof',
                                   label='T-mof',
                                   status='ingebruik',
-                                  definitie='T-mof',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelmofVerbinding/t-mof'),
         'y-mof': KeuzelijstWaarde(invulwaarde='y-mof',
                                   label='Y-mof',
                                   status='ingebruik',
-                                  definitie='Y-mof',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelmofVerbinding/y-mof')
     }
 

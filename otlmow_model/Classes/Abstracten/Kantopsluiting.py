@@ -1,8 +1,11 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from otlmow_model.Classes.Abstracten.LijnvormigElement import LijnvormigElement
 from otlmow_model.BaseClasses.BooleanField import BooleanField
+from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.Datatypes.DtcKrimpvoeg import DtcKrimpvoeg, DtcKrimpvoegWaarden
 from otlmow_model.Datatypes.KlLEKantopsluitingKleur import KlLEKantopsluitingKleur
 from otlmow_model.Datatypes.KlLEKantopsluitingSoort import KlLEKantopsluitingSoort
 from otlmow_model.Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
@@ -51,6 +54,21 @@ class Kantopsluiting(LijnvormigElement, LijnGeometrie):
                                    definition='De kleur van kantopsluiting.',
                                    owner=self)
 
+        self._krimpvoeg = OTLAttribuut(field=DtcKrimpvoeg,
+                                       naam='krimpvoeg',
+                                       label='krimpvoeg',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kantopsluiting.krimpvoeg',
+                                       definition='Een gedeeltelijke insnijding in een constructiedeel die uitzetting en krimp in de constructie toelaat.',
+                                       owner=self)
+
+        self._leveringsbon = OTLAttribuut(field=DtcDocument,
+                                          naam='leveringsbon',
+                                          label='leveringsbon',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kantopsluiting.leveringsbon',
+                                          kardinaliteit_max='*',
+                                          definition='Een bon die informatie bevat zoals : tijdstip aanmaak van het mengsel, tijdstip begin lossen van het mengsel, toevoegingen aan het mengsel, eventuele opmerkingen, vrachtgegevens (chauffeur, kentekenplaat, naam van de werf, ...)',
+                                          owner=self)
+
         self._soort = OTLAttribuut(field=KlLEKantopsluitingSoort,
                                    naam='soort',
                                    label='soort',
@@ -82,6 +100,24 @@ class Kantopsluiting(LijnvormigElement, LijnGeometrie):
     @kleur.setter
     def kleur(self, value):
         self._kleur.set_waarde(value, owner=self)
+
+    @property
+    def krimpvoeg(self) -> DtcKrimpvoegWaarden:
+        """Een gedeeltelijke insnijding in een constructiedeel die uitzetting en krimp in de constructie toelaat."""
+        return self._krimpvoeg.get_waarde()
+
+    @krimpvoeg.setter
+    def krimpvoeg(self, value):
+        self._krimpvoeg.set_waarde(value, owner=self)
+
+    @property
+    def leveringsbon(self) -> List[DtcDocumentWaarden]:
+        """Een bon die informatie bevat zoals : tijdstip aanmaak van het mengsel, tijdstip begin lossen van het mengsel, toevoegingen aan het mengsel, eventuele opmerkingen, vrachtgegevens (chauffeur, kentekenplaat, naam van de werf, ...)"""
+        return self._leveringsbon.get_waarde()
+
+    @leveringsbon.setter
+    def leveringsbon(self, value):
+        self._leveringsbon.set_waarde(value, owner=self)
 
     @property
     def soort(self) -> str:

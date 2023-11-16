@@ -1,19 +1,27 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.ImplementatieElement.AIMObject import AIMObject
+from otlmow_model.Datatypes.KlFunctieRioleringsstelsel import KlFunctieRioleringsstelsel
 from otlmow_model.Datatypes.KlRioleringStelsel import KlRioleringStelsel
 from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Rioleringsstelsel(AIMObject, VlakGeometrie):
-    """De groepering van de objecten die behoren tot de riolering."""
+    """De groepering van de objecten die behoren tot het riolering, aanvoer- of afvoerstelsel."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Rioleringsstelsel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):
         super().__init__()
+
+        self._functie = OTLAttribuut(field=KlFunctieRioleringsstelsel,
+                                     naam='functie',
+                                     label='functie',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Rioleringsstelsel.functie',
+                                     definition='Geeft aan welke functie het rioleringsstelsel vervult,',
+                                     owner=self)
 
         self._rioleringsstelsel = OTLAttribuut(field=KlRioleringStelsel,
                                                naam='rioleringsstelsel',
@@ -30,6 +38,15 @@ class Rioleringsstelsel(AIMObject, VlakGeometrie):
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Rioleringsstelsel.systeemtype',
                                          definition='Geeft aan wat voor afvoerwater er door de riolering afgevoerd wordt.',
                                          owner=self)
+
+    @property
+    def functie(self) -> str:
+        """Geeft aan welke functie het rioleringsstelsel vervult,"""
+        return self._functie.get_waarde()
+
+    @functie.setter
+    def functie(self, value):
+        self._functie.set_waarde(value, owner=self)
 
     @property
     def rioleringsstelsel(self) -> str:

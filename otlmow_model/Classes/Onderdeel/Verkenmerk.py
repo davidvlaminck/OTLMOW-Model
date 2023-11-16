@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.Classes.Abstracten.AanhorighedenBrug import AanhorighedenBrug
+from otlmow_model.Classes.Abstracten.AanhorigheidKoker import AanhorigheidKoker
 from otlmow_model.Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.Datatypes.KlVerkenmerkType import KlVerkenmerkType
@@ -8,7 +9,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Verkenmerk(AanhorighedenBrug, AIMNaamObject, PuntGeometrie):
+class Verkenmerk(AanhorighedenBrug, AanhorigheidKoker, AIMNaamObject, PuntGeometrie):
     """Een (roestvast) verkenmerk is geplaatst op een kunstwerk. Het periodiek opmeten maakt mogelijk de vervormingen van het kunstwerk te bepalen en de evolutie ervan na te gaan t.o.v. de begintoestand."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkenmerk'
@@ -18,6 +19,7 @@ class Verkenmerk(AanhorighedenBrug, AIMNaamObject, PuntGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElement')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kokerruimte')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdek')
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,

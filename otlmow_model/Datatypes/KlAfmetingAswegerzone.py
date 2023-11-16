@@ -1,7 +1,6 @@
 # coding=utf-8
 import random
 from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
-from otlmow_model.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -14,11 +13,6 @@ class KlAfmetingAswegerzone(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfmetingAswegerzone'
     options = {
-        '35': KeuzelijstWaarde(invulwaarde='35',
-                               label='35',
-                               status='ingebruik',
-                               definitie='Een zone met twee aanrijzones van 15 meter en een weegzone van ongeveer 5 meter.',
-                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfmetingAswegerzone/35')
     }
 
     @classmethod

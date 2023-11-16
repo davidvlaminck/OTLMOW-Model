@@ -11,7 +11,7 @@ from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Afsluiter(LinkendElement, PuntGeometrie):
-    """Een afsluiter dient om rioolstrengen af te sluiten bij bv. gebreken."""
+    """Een afsluiter dient om leidingen, verbindingen of strengen van aan- en afvoer stelsels (bv. rioolstrengen) af te sluiten bij bv. gebreken."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afsluiter'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

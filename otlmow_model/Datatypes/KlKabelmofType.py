@@ -25,7 +25,6 @@ class KlKabelmofType(KeuzelijstField):
         'hdpe-mof': KeuzelijstWaarde(invulwaarde='hdpe-mof',
                                      label='HDPE mof',
                                      status='ingebruik',
-                                     definitie='HDPE mof',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelmofType/hdpe-mof')
     }
 

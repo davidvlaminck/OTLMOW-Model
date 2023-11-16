@@ -434,12 +434,7 @@ class KlNetwerkpoortGolflengte(KeuzelijstField):
         'flex': KeuzelijstWaarde(invulwaarde='flex',
                                  label='flex',
                                  status='ingebruik',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/flex'),
-        'itc-3': KeuzelijstWaarde(invulwaarde='itc-3',
-                                  label='ITC-3',
-                                  status='ingebruik',
-                                  definitie='ITC-3',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/itc-3')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/flex')
     }
 
     @classmethod
