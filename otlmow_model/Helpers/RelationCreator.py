@@ -16,7 +16,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
                     target: Optional[RelationInteractor] = None,
                     source_uuid: Optional[str] = None, source_typeURI: Optional[str] = None,
                     target_uuid: Optional[str] = None, target_typeURI: Optional[str] = None,
-                    class_directory: str = None) -> Optional[RelatieObject]:
+                    model_directory: str = None) -> Optional[RelatieObject]:
     """
     Instantiates a relation, if valid, between instantiated objects, given a specific relation type.
     Instead of instantiated objects, valid guids and typeURI's can be provided, for source and/or target.
@@ -35,7 +35,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
     :type: str
     :param target_typeURI: the typeURI of the intended target for the relation
     :type: str
-    :param class_directory: directory where the class modules are located, defaults to OTLMOW.OTLModel.Classes
+    :param model_directory: directory where the model is located, defaults to otlmow-model
     :type: str
 
     :return: Returns the instantiated relation between the given source and target, or None if the relation is invalid.
@@ -66,7 +66,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         source_aim_id = get_aim_id_from_uuid_and_typeURI(source_uuid, source_typeURI)
 
         if not source_is_legacy:
-            source = dynamic_create_instance_from_uri(source_typeURI, directory=class_directory)
+            source = dynamic_create_instance_from_uri(source_typeURI, model_directory=model_directory)
             if source_typeURI == 'http://purl.org/dc/terms/Agent':
                 source.agentId.identificator = source_aim_id
                 source.agentId.toegekendDoor = 'AWV'
@@ -84,7 +84,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
         target_aim_id = get_aim_id_from_uuid_and_typeURI(target_uuid, target_typeURI)
 
         if not target_is_legacy:
-            target = dynamic_create_instance_from_uri(target_typeURI, directory=class_directory)
+            target = dynamic_create_instance_from_uri(target_typeURI, model_directory=model_directory)
             if target_typeURI == 'http://purl.org/dc/terms/Agent':
                 target.agentId.identificator = target_aim_id
                 target.agentId.toegekendDoor = 'AWV'
@@ -98,7 +98,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
             raise CouldNotCreateRelationError("Can't create an invalid relation_type, please validate relations first")
 
     relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI,
-                                                     directory=class_directory)
+                                                     model_directory=model_directory)
 
     if not source_is_legacy:
         if source.typeURI == 'http://purl.org/dc/terms/Agent' and source.agentId.identificator is None:

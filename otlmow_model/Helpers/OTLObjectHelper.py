@@ -41,14 +41,14 @@ def remove_duplicates_in_iterable_based_on_property(iterable: Iterable[OTLObject
     return list(d.values())
 
 
-def compare_two_lists_of_objects_object_level(first_list: List[OTLObject], second_list: List[OTLObject], directory=None
-                                              ) -> List:
+def compare_two_lists_of_objects_object_level(first_list: List[OTLObject], second_list: List[OTLObject],
+                                              model_directory=None) -> List:
     """Given two lists of objects return the differences from the second list compared to the first list.
     Returns full objects from the second list when unmatched with the first list. """
     l1 = list(map(lambda x: create_dict_from_asset(x), first_list))
     l2 = list(map(lambda x: create_dict_from_asset(x), second_list))
     diff_list = [d for d in l2 if d not in l1]
-    return list(map(lambda x: OTLObject.from_dict(x, directory), diff_list))
+    return list(map(lambda x: OTLObject.from_dict(x, model_directory), diff_list))
 
 
 def custom_dict_diff(first_dict, second_dict):
@@ -69,7 +69,7 @@ def custom_dict_diff(first_dict, second_dict):
 
 
 def compare_two_lists_of_objects_attribute_level(first_list: List[OTLObject], second_list: List[OTLObject],
-                                                 directory=None) -> List:
+                                                 model_directory=None) -> List:
     """
     Given two lists of objects return the differences from the second list compared to the first list.
     Assumes both lists have objects with a unique assetId. Returns partial objects (on attribute level)
@@ -99,7 +99,7 @@ def compare_two_lists_of_objects_attribute_level(first_list: List[OTLObject], se
         diff_dict['typeURI'] = orig_dict['typeURI']
         diff_list.append(diff_dict)
 
-    return list(map(lambda x: OTLObject.from_dict(x, directory), diff_list))
+    return list(map(lambda x: OTLObject.from_dict(x, model_directory), diff_list))
 
 
 def verify_asset_id_is_unique_within_list(dict_list) -> bool:

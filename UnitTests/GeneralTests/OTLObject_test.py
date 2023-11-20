@@ -13,7 +13,7 @@ from otlmow_model.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 def test_from_dict_typeURI_in_dict():
     input_dict = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
-    instance = OTLObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    instance = OTLObject.from_dict(input_dict, model_directory='UnitTests.TestClasses')
     assert instance is not None
     assert AllCasesTestClass.typeURI == instance.typeURI
 
@@ -22,7 +22,7 @@ def test_from_dict_rdf_typeURI_in_dict():
     input_dict = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI':
             'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
-    instance = OTLObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+    instance = OTLObject.from_dict(input_dict, model_directory='UnitTests.TestClasses', rdf=True)
     assert instance is not None
     assert AllCasesTestClass.typeURI == instance.typeURI
 
@@ -30,16 +30,16 @@ def test_from_dict_rdf_typeURI_in_dict():
 def test_from_dict_abstract_class_no_typeURI_in_dict():
     input_dict = {}
     with pytest.raises(ValueError):
-        OTLObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+        OTLObject.from_dict(input_dict, model_directory='UnitTests.TestClasses')
     with pytest.raises(ValueError):
-        AIMObject.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+        AIMObject.from_dict(input_dict, model_directory='UnitTests.TestClasses')
 
 
 def test_from_dict_non_standard_attributes():
     with pytest.warns(NonStandardAttributeWarning):
         input_dict = {'testBooleanField': True,
                       'non_standard_attribute': True }
-        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+        instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses')
         assert instance is not None
         assert isinstance(instance, AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
@@ -56,7 +56,7 @@ def test_from_dict_simple_single_attributes():
                   'testDecimalField': 1.2,
                   'testIntegerField': 1,
                   'testStringField': 'test'}
-    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses')
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -80,7 +80,7 @@ def test_from_dict_rdf_simple_single_attributes():
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDecimalField': 1.2,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testIntegerField': 1,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringField': 'test'}
-    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses', rdf=True)
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -99,7 +99,7 @@ def test_from_dict_simple_attributes_with_cardinality():
                   'testIntegerFieldMetKard': [1, 2],
                   'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
                   'testStringFieldMetKard': ['1', '2']}
-    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses')
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -120,7 +120,7 @@ def test_from_dict_rdf_simple_attributes_with_cardinality():
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKeuzelijstMetKard': ['waarde-1',
                                                                                                            'waarde-2'],
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringFieldMetKard': ['1', '2']}
-    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses', rdf=True)
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -140,7 +140,7 @@ def test_from_dict_attributes_with_waarde_shortcut(subtests):
                       'testEenvoudigTypeMetKard': ['1', '2'],
                       'testKwantWrd': 1.2,
                       'testKwantWrdMetKard': [1.2, 2.3]}
-        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes',
+        instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses',
                                                waarde_shortcut=True)
         assert instance is not None
         assert isinstance(instance, AllCasesTestClass)
@@ -157,7 +157,7 @@ def test_from_dict_attributes_with_waarde_shortcut(subtests):
                       'testEenvoudigTypeMetKard': [{'waarde': '1'}, {'waarde': '2'}],
                       'testKwantWrd': {'waarde': 1.2},
                       'testKwantWrdMetKard': [{'waarde': 1.2}, {'waarde': 2.3}]}
-        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+        instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses')
         assert instance is not None
         assert isinstance(instance, AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
@@ -177,7 +177,7 @@ def test_from_dict_rdf_attributes_with_waarde_shortcut(subtests):
                       'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd': 1.2,
                       'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrdMetKard': [
                           1.2, 2.3]}
-        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes',
+        instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses',
                                                waarde_shortcut=True, rdf=True)
         assert instance is not None
         assert isinstance(instance, AllCasesTestClass)
@@ -206,7 +206,7 @@ def test_from_dict_rdf_attributes_with_waarde_shortcut(subtests):
                     'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.2},
                     {
                         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 2.3}]}
-        instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+        instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses', rdf=True)
         assert instance is not None
         assert isinstance(instance, AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
@@ -224,7 +224,7 @@ def test_from_dict_complex_single_attributes():
                                           'testStringField': 'test'},
                                       'testKwantWrd': {'waarde': 1.2}},
                   'testUnionType': {'unionString': 'union_test'}}
-    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses')
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -245,7 +245,7 @@ def test_from_dict_rdf_complex_single_attributes():
                     'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.2}},
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionType': {
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test'}}
-    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses', rdf=True)
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -266,7 +266,7 @@ def test_from_dict_complex_attributes_with_cardinality():
         {'testStringFieldMetKard': ['test5', 'test6']}],
         'testUnionTypeMetKard': [{'unionString': 'union_test'}, {'unionString': 'union_test2'}]
     }
-    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes')
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses')
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -305,7 +305,7 @@ def test_from_dict_rdf_complex_attributes_with_cardinality():
              {
                  'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test2'}]
     }
-    instance = AllCasesTestClass.from_dict(input_dict, directory='UnitTests.TestClasses.Classes', rdf=True)
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory='UnitTests.TestClasses', rdf=True)
     assert instance is not None
     assert isinstance(instance, AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
@@ -837,7 +837,7 @@ def test_to_dict_and_from_dict():
 
     created_dict = create_dict_from_asset(instance)
     with pytest.warns(IncorrectTypeWarning):
-        created_instance = AllCasesTestClass.from_dict(created_dict, directory='UnitTests.TestClasses.Classes')
+        created_instance = AllCasesTestClass.from_dict(created_dict, model_directory='UnitTests.TestClasses')
     assert instance == created_instance
 
 

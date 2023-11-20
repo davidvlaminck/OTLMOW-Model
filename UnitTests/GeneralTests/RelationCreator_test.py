@@ -34,44 +34,44 @@ def test_create_relation_input_parameters(subtests):
         with pytest.raises(ValueError):
             create_relation(source=None, source_typeURI=None, source_uuid='', target=all_cases,
                             relation_type=Bevestiging,
-                            class_directory='UnitTests.TestClasses.Classes')
+                            model_directory='UnitTests.TestClasses')
         with pytest.raises(ValueError):
             create_relation(source=None, source_typeURI='', source_uuid=None, target=all_cases,
                             relation_type=Bevestiging,
-                            class_directory='UnitTests.TestClasses.Classes')
+                            model_directory='UnitTests.TestClasses')
         with pytest.raises(ValueError):
             create_relation(target=None, target_typeURI=None, target_uuid='', source=all_cases,
                             relation_type=Bevestiging,
-                            class_directory='UnitTests.TestClasses.Classes')
+                            model_directory='UnitTests.TestClasses')
         with pytest.raises(ValueError):
             create_relation(target=None, target_typeURI='', target_uuid=None, source=all_cases,
                             relation_type=Bevestiging,
-                            class_directory='UnitTests.TestClasses.Classes')
+                            model_directory='UnitTests.TestClasses')
 
     with subtests.test(msg='testing uuid format'):
         relation = create_relation(source_typeURI=another.typeURI, target=all_cases,
                                    source_uuid='00000000-0000-0000-0000-000000000000',
-                                   relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
+                                   relation_type=Bevestiging, model_directory='UnitTests.TestClasses')
         assert relation is not None
 
         relation = create_relation(target_typeURI=another.typeURI, source=all_cases,
                                    target_uuid='00000000-0000-0000-0000-000000000000',
-                                   relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
+                                   relation_type=Bevestiging, model_directory='UnitTests.TestClasses')
         assert relation is not None
 
         with pytest.raises(ValueError):
             create_relation(source_typeURI=another.typeURI, source_uuid='', target=all_cases,
-                            relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
+                            relation_type=Bevestiging, model_directory='UnitTests.TestClasses')
 
         with pytest.raises(ValueError):
             create_relation(target_typeURI=another.typeURI, target_uuid='', source=all_cases,
-                            relation_type=Bevestiging, class_directory='UnitTests.TestClasses.Classes')
+                            relation_type=Bevestiging, model_directory='UnitTests.TestClasses')
 
     with subtests.test(msg='testing for warning if there are too many not None parameters'):
         with pytest.warns(RuntimeWarning):
             create_relation(source=another, source_typeURI=another.typeURI, source_uuid='', target=all_cases,
                             relation_type=Bevestiging,
-                            class_directory='UnitTests.TestClasses.Classes')
+                            model_directory='UnitTests.TestClasses')
         with pytest.warns(RuntimeWarning):
             create_relation(source=another, target=all_cases, target_typeURI=all_cases.typeURI,
                             relation_type=Bevestiging)
@@ -79,7 +79,7 @@ def test_create_relation_input_parameters(subtests):
     with subtests.test(msg='creating relations using uuid and typeURI'):
         relation = create_relation(source_typeURI=another.typeURI, source_uuid='00000000-0000-0000-0000-000000000000',
                                    target=all_cases, relation_type=Bevestiging,
-                                   class_directory='UnitTests.TestClasses.Classes')
+                                   model_directory='UnitTests.TestClasses')
         assert relation is not None
         assert relation.typeURI == Bevestiging.typeURI
         assert relation.bronAssetId.identificator == '00000000-0000-0000-0000-000000000000' \
@@ -88,7 +88,7 @@ def test_create_relation_input_parameters(subtests):
 
         relation = create_relation(target_typeURI=another.typeURI, target_uuid='00000000-0000-0000-0000-000000000000',
                                    source=all_cases, relation_type=Bevestiging,
-                                   class_directory='UnitTests.TestClasses.Classes')
+                                   model_directory='UnitTests.TestClasses')
         assert relation is not None
         assert relation.typeURI == Bevestiging.typeURI
         assert relation.doelAssetId.identificator == '00000000-0000-0000-0000-000000000000' \
@@ -97,7 +97,7 @@ def test_create_relation_input_parameters(subtests):
 
     with subtests.test(msg='creating relations using instances of objects'):
         relation = create_relation(source=another, target=all_cases, relation_type=Bevestiging,
-                                   class_directory='UnitTests.TestClasses.Classes')
+                                   model_directory='UnitTests.TestClasses')
         assert relation is not None
         assert relation.typeURI == Bevestiging.typeURI
         assert relation.bronAssetId.identificator == another.assetId.identificator

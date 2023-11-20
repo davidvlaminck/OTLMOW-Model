@@ -317,14 +317,14 @@ class OTLObject(object):
         return create_dict_from_asset(self) == create_dict_from_asset(other)
 
     @classmethod
-    def from_dict(cls, input_dict: Dict, directory: str = 'otlmow_model.Classes', rdf: bool = False,
+    def from_dict(cls, input_dict: Dict, model_directory: str = 'otlmow_model', rdf: bool = False,
                   waarde_shortcut: bool = False) -> object:
         """Alternative constructor. Allows the instantiation of an object using a dictionary. Either start from the
         appropriate class or add a typeURI entry to the dictionary to get an instance of that type.
 
         :param input_dict: input dictionary, containing key value pairs for the attributes of the instance
         :type: dict
-        :param directory: directory where the class modules are located, defaults to otlmow_model.Classes
+        :param model_directory: directory where the model is located, defaults to otlmow_model
         :type: str
         :param rdf: whether to use uri's as keys instead of the names, defaults to False
         :type: bool
@@ -344,7 +344,7 @@ class OTLObject(object):
                 'typeURI is None. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
 
         try:
-            o = dynamic_create_instance_from_uri(type_uri, directory=directory)
+            o = dynamic_create_instance_from_uri(type_uri, model_directory=model_directory)
         except TypeError:
             raise ValueError(
                 'typeURI is invalid. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
