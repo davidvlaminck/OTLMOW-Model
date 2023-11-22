@@ -21,7 +21,8 @@ def test_dummy_StringField():
     generated_dummy_waarde = attr.get_waarde()
     assert generated_dummy_waarde is not None
     assert isinstance(generated_dummy_waarde, str)
-    assert 5 <= len(generated_dummy_waarde) <= 15
+    assert generated_dummy_waarde.startswith('dummy_')
+    assert 5 <= len(generated_dummy_waarde) <= 16
 
 
 def test_dummy_StringFieldMetKard():
@@ -33,7 +34,8 @@ def test_dummy_StringFieldMetKard():
     assert isinstance(generated_dummy_waarde, list)
     assert len(generated_dummy_waarde) == 1
     assert isinstance(generated_dummy_waarde[0], str)
-    assert 5 <= len(generated_dummy_waarde[0]) <= 15
+    assert generated_dummy_waarde[0].startswith('dummy_')
+    assert 5 <= len(generated_dummy_waarde[0]) <= 16
 
 
 def test_dummy_FloatOrDecimalField():
