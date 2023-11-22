@@ -1,7 +1,7 @@
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from UnitTests.TestModel.OtlmowModel.Exceptions.RemovedOptionError import RemovedOptionError
+from otlmow_model.OtlmowModel.Exceptions.RemovedOptionError import RemovedOptionError
 
 
 def test_adms_status(subtests):

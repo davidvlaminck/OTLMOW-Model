@@ -3,8 +3,8 @@
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
-from UnitTests.TestModel.OtlmowModel.BaseClasses.MetaInfo import meta_info
-from UnitTests.TestModel.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
+from otlmow_model.OtlmowModel.BaseClasses.MetaInfo import meta_info
+from otlmow_model.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 
 
 def test_meta_info_on_deprecated_attribute():

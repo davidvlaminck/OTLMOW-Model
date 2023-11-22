@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,6 +23,7 @@ def test_instantiate_test_class_with_asset_creator():
         class_uri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass',
         model_directory=model_location)
     assert anothertest_class is not None
+    assert anothertest_class.typeURI == AnotherTestClass.typeURI
     test_class = dynamic_create_instance_from_uri(
         class_uri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         model_directory=model_location)
