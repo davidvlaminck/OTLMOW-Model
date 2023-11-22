@@ -1,2 +1,0 @@
-class MethodNotApplicableError(Exception):
-    pass
