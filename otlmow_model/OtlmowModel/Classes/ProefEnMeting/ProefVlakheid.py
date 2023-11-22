@@ -1,0 +1,44 @@
+# coding=utf-8
+from ...BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.Proef import Proef
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+
+
+# Generated with OTLClassCreator. To modify: extend, do not edit
+class ProefVlakheid(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
+    """Controle van de effenheid van het oppervlak met behulp van een 3 meter lange rei volgens NBN EN 13036-7."""
+
+    typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefVlakheid'
+    """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
+
+    def __init__(self):
+        super().__init__()
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Bestrating')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kantopsluiting')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BitumineuzeLaag')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cementbetonverharding')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dolomietverharding')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderbouw')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Steenslagverharding')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ternairmengselverharding')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Walsbetonverharding')
+
+        self._vlakheid = OTLAttribuut(field=DtcDocument,
+                                      naam='vlakheid',
+                                      label='vlakheid',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefVlakheid.vlakheid',
+                                      definition='Proefresultaten van de vlakheid.',
+                                      owner=self)
+
+    @property
+    def vlakheid(self) -> DtcDocumentWaarden:
+        """Proefresultaten van de vlakheid."""
+        return self._vlakheid.get_waarde()
+
+    @vlakheid.setter
+    def vlakheid(self, value):
+        self._vlakheid.set_waarde(value, owner=self)
