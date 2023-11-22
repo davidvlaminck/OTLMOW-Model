@@ -28,7 +28,6 @@ def dynamic_create_instance_from_ns_and_name(namespace: str, class_name: str,
         namespace = get_titlecase_from_ns(namespace) + '.'
 
     sys.path.insert(1, str(model_directory))
-    print(model_directory)
 
     mod = importlib.import_module(f'OtlmowModel.Classes.{namespace}{class_name}')
     class_ = getattr(mod, class_name)

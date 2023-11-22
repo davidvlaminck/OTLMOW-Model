@@ -1,17 +1,15 @@
 import datetime
-import sys
 
-from otlmow_model.BaseClasses.OTLObject import create_dict_from_asset
-from otlmow_model.Classes.Onderdeel.Bevestiging import Bevestiging
-from otlmow_model.Classes.Onderdeel.Verkeersregelaar import Verkeersregelaar
-from otlmow_model.Classes.Onderdeel.Wegkantkast import Wegkantkast
-
-from otlmow_model.Helpers.RelationCreator import create_relation
-
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import create_dict_from_asset
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Verkeersregelaar import Verkeersregelaar
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Wegkantkast import Wegkantkast
+from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_ns_and_name
+from otlmow_model.OtlmowModel.Helpers.RelationCreator import create_relation
 from pysize import get_size
 
 if __name__ == "__main__":
-    from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_ns_and_name
+
     camera = dynamic_create_instance_from_ns_and_name(namespace='onderdeel', class_name='Camera')
     print(camera)
 

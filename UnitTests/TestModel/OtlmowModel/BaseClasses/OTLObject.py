@@ -370,7 +370,7 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     :type: OTLObject
     :param waarde_shortcut: whether to use the waarde shortcut when processing the dictionary, defaults to False
     :type: bool
-    :param rdf: whether to generate a dictionary where the key's are the URI's of the attributes rather than the names, defaults to False
+    :param rdf: whether to generate a dictionary where the keys are the URI's of the attributes rather than the names, defaults to False
     :type: bool
     :param suppress_warnings_non_standardised_attributes: whether to suppress the warning that are raised because the object has attributes that aren't standardised
     :type: bool
