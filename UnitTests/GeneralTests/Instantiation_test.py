@@ -16,6 +16,14 @@ def test_instantiate_single_class_with_asset_creator():
     assert mof is not None
 
 
+def test_instantiate_test_class_with_asset_creator():
+    model_location = Path(ROOT_DIR).parent / 'TestModel'
+    test_class = dynamic_create_instance_from_uri(
+        class_uri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass',
+        model_directory=model_location)
+    assert test_class is not None
+
+
 @pytest.mark.filterwarnings("ignore::DeprecationWarning")
 def test_instantiate_all_classes(subtests):
     classes_to_instantiate = {}
@@ -50,6 +58,7 @@ def test_instantiate_all_classes(subtests):
     futures = [executor.submit(subtest_instantiate, class_name=class_name, file_path=file_path, subtests=subtests)
                for class_name, file_path in classes_to_instantiate.items()]
     concurrent.futures.wait(futures)
+
 
 def subtest_instantiate(class_name, file_path, subtests):
     with subtests.test(msg=f'Trying to instantiate {class_name}'):

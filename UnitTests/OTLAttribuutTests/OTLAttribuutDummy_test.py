@@ -1,9 +1,9 @@
 from datetime import date, datetime, time
 
-from UnitTests.TestClasses.Datatypes.DtcTestComplexType import DtcTestComplexType
-from UnitTests.TestClasses.Datatypes.DtuTestUnionType import DtuTestUnionType
-from UnitTests.TestClasses.Datatypes.KlTestKeuzelijst import KlTestKeuzelijst
-from UnitTests.TestClasses.Datatypes.KwantWrdTest import KwantWrdTest
+from UnitTests.TestModel.OtlmowModel.Datatypes.DtcTestComplexType import DtcTestComplexType
+from UnitTests.TestModel.OtlmowModel.Datatypes.DtuTestUnionType import DtuTestUnionType
+from UnitTests.TestModel.OtlmowModel.Datatypes.KlTestKeuzelijst import KlTestKeuzelijst
+from UnitTests.TestModel.OtlmowModel.Datatypes.KwantWrdTest import KwantWrdTest
 from otlmow_model.BaseClasses.BooleanField import BooleanField
 from otlmow_model.BaseClasses.DateField import DateField
 from otlmow_model.BaseClasses.DateTimeField import DateTimeField
