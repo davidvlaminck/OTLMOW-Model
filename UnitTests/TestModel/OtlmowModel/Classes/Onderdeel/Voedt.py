@@ -1,7 +1,7 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.DirectioneleRelatie import DirectioneleRelatie
-from OtlmowModel.Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
+from ...Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

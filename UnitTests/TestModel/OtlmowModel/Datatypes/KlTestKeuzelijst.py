@@ -1,7 +1,6 @@
 # coding=utf-8
-import random
-from ...BaseClasses.KeuzelijstField import KeuzelijstField
-from ...BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
+from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit

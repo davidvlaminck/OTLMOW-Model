@@ -4,7 +4,7 @@ from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...BaseClasses.DavieRelatieAttributes import DavieRelatieAttributes
 from ...BaseClasses.OTLObject import OTLObject
-from OtlmowModel.Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
+from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,12 +1,12 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
-from ...BaseClasses.WaardenObject import WaardenObject
-from ...BaseClasses.BooleanField import BooleanField
-from ...BaseClasses.ComplexField import ComplexField
-from ...Datatypes.DtcTestComplexType2 import DtcTestComplexType2, DtcTestComplexType2Waarden
-from ...Datatypes.KwantWrdTest import KwantWrdTest, KwantWrdTestWaarden
-from ...BaseClasses.StringField import StringField
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..BaseClasses.BooleanField import BooleanField
+from ..BaseClasses.ComplexField import ComplexField
+from ..Datatypes.DtcTestComplexType2 import DtcTestComplexType2, DtcTestComplexType2Waarden
+from ..Datatypes.KwantWrdTest import KwantWrdTest, KwantWrdTestWaarden
+from ..BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

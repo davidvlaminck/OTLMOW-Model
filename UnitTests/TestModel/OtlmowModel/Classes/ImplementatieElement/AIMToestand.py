@@ -1,7 +1,7 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
-from OtlmowModel.Datatypes.KlAIMToestand import KlAIMToestand
+from ...Datatypes.KlAIMToestand import KlAIMToestand
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

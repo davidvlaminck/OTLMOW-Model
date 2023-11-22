@@ -1,8 +1,8 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
-from ...BaseClasses.OTLField import OTLField
-from ...BaseClasses.WaardenObject import WaardenObject
-from ...BaseClasses.StringField import StringField
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.OTLField import OTLField
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..BaseClasses.StringField import StringField
 
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit

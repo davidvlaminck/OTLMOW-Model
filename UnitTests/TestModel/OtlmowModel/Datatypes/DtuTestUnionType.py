@@ -1,9 +1,9 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Datatypes.KwantWrdTest import KwantWrdTest, KwantWrdTestWaarden
-from ...BaseClasses.StringField import StringField
-from ...BaseClasses.UnionTypeField import UnionTypeField
-from ...BaseClasses.UnionWaarden import UnionWaarden
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..Datatypes.KwantWrdTest import KwantWrdTest, KwantWrdTestWaarden
+from ..BaseClasses.StringField import StringField
+from ..BaseClasses.UnionTypeField import UnionTypeField
+from ..BaseClasses.UnionWaarden import UnionWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit

@@ -18,8 +18,12 @@ def test_instantiate_single_class_with_asset_creator():
 
 def test_instantiate_test_class_with_asset_creator():
     model_location = Path(ROOT_DIR).parent / 'TestModel'
-    test_class = dynamic_create_instance_from_uri(
+    anothertest_class = dynamic_create_instance_from_uri(
         class_uri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass',
+        model_directory=model_location)
+    assert anothertest_class is not None
+    test_class = dynamic_create_instance_from_uri(
+        class_uri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         model_directory=model_location)
     assert test_class is not None
 

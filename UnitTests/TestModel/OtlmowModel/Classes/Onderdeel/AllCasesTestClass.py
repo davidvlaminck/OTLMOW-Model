@@ -3,18 +3,18 @@ from datetime import date, datetime, time
 from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.BaseClasses.DateTimeField import DateTimeField
-from OtlmowModel.Datatypes.DtcTestComplexType import DtcTestComplexType, DtcTestComplexTypeWaarden
-from OtlmowModel.Datatypes.DteTestEenvoudigType import DteTestEenvoudigType, DteTestEenvoudigTypeWaarden
-from OtlmowModel.Datatypes.DtuTestUnionType import DtuTestUnionType, DtuTestUnionTypeWaarden
-from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
-from otlmow_model.BaseClasses.IntegerField import IntegerField
-from OtlmowModel.Datatypes.KlTestKeuzelijst import KlTestKeuzelijst
-from OtlmowModel.Datatypes.KwantWrdTest import KwantWrdTest, KwantWrdTestWaarden
-from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.BaseClasses.TimeField import TimeField
+from ...BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.DateField import DateField
+from ...BaseClasses.DateTimeField import DateTimeField
+from ...Datatypes.DtcTestComplexType import DtcTestComplexType, DtcTestComplexTypeWaarden
+from ...Datatypes.DteTestEenvoudigType import DteTestEenvoudigType, DteTestEenvoudigTypeWaarden
+from ...Datatypes.DtuTestUnionType import DtuTestUnionType, DtuTestUnionTypeWaarden
+from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
+from ...BaseClasses.IntegerField import IntegerField
+from ...Datatypes.KlTestKeuzelijst import KlTestKeuzelijst
+from ...Datatypes.KwantWrdTest import KwantWrdTest, KwantWrdTestWaarden
+from ...BaseClasses.StringField import StringField
+from ...BaseClasses.TimeField import TimeField
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
