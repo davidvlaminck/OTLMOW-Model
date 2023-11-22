@@ -4,9 +4,9 @@ from datetime import date
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
-from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
-from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
+from UnitTests.TestModel.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+from UnitTests.TestModel.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
+from UnitTests.TestModel.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_from_dict_typeURI_in_dict():

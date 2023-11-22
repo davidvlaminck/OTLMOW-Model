@@ -1,8 +1,8 @@
 import pytest
 
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.OtlmowModel.BaseClasses.URIField import URIField
-from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from UnitTests.TestModel.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from UnitTests.TestModel.OtlmowModel.BaseClasses.URIField import URIField
+from UnitTests.TestModel.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 
 
 class NonStringableObject(object):

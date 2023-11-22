@@ -1,10 +1,10 @@
 import warnings
 from typing import Type, Optional
 
+from ..Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from ..BaseClasses.RelationInteractor import RelationInteractor
 from ..Classes.Agent import Agent
 from ..Classes.ImplementatieElement.RelatieObject import RelatieObject
-from ..Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from ..Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
 from .AssetCreator import dynamic_create_instance_from_uri
 from .GenericHelper import get_ns_and_name_from_uri, validate_guid, encode_short_uri, \

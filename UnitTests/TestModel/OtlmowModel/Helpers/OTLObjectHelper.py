@@ -1,4 +1,5 @@
 from collections import defaultdict
+from pathlib import Path
 from typing import Iterable, List
 
 from ..BaseClasses.OTLObject import OTLObject, create_dict_from_asset
@@ -69,11 +70,15 @@ def custom_dict_diff(first_dict, second_dict):
 
 
 def compare_two_lists_of_objects_attribute_level(first_list: List[OTLObject], second_list: List[OTLObject],
-                                                 model_directory=None) -> List:
+                                                 model_directory: Path = None) -> List:
     """
     Given two lists of objects return the differences from the second list compared to the first list.
     Assumes both lists have objects with a unique assetId. Returns partial objects (on attribute level)
     from the second list when unmatched with the first list. """
+    if model_directory is None:
+        current_file_path = Path(__file__)
+        model_directory = current_file_path.parent.parent.parent
+
     l1 = list(map(lambda x: create_dict_from_asset(x), first_list))
     verify_asset_id_is_unique_within_list(l1)
 

@@ -1,11 +1,15 @@
+from pathlib import Path
+
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
-from otlmow_model.OtlmowModel.Helpers.OTLObjectHelper import count_assets_by_type, remove_duplicates_in_iterable_based_on_property, \
+from UnitTests.TestModel.OtlmowModel.Helpers.OTLObjectHelper import count_assets_by_type, remove_duplicates_in_iterable_based_on_property, \
     compare_two_lists_of_objects_object_level, verify_asset_id_is_unique_within_list, compare_two_lists_of_objects_attribute_level, custom_dict_diff
 
+
+model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
 def test_count_assets_by_type():
     assets = [Bevestiging(), AllCasesTestClass(), AllCasesTestClass(), AnotherTestClass()]
@@ -62,7 +66,7 @@ def test_get_diff_from_two_lists_empty_one():
     list_two = [instance]
 
     expected = [instance]
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
@@ -72,17 +76,17 @@ def test_get_diff_from_two_lists_one_one():
     list_two = [instance]
 
     expected = []
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
 def test_get_diff_from_two_lists_one_one_using_dict():
     d = {'toestand': 'in-gebruik'}
-    list_one = [AllCasesTestClass.from_dict(d, model_directory='UnitTests.TestClasses')]
-    list_two = [AllCasesTestClass.from_dict(d, model_directory='UnitTests.TestClasses')]
+    list_one = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
+    list_two = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
 
     expected = []
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
@@ -92,7 +96,7 @@ def test_get_diff_from_two_lists_one_two():
     list_two = [instance, instance]
 
     expected = []
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
@@ -102,7 +106,7 @@ def test_get_diff_from_two_lists_one_empty():
     list_two = []
 
     expected = []
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
@@ -114,8 +118,8 @@ def test_get_diff_from_two_lists_one_one_different():
     list_two = [instance2]
 
     expected = [instance2]
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory='UnitTests.TestClasses')
-    assert result == expected
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
+    assert result[0].create_dict_from_asset() == expected[0].create_dict_from_asset()
 
 
 def test_verify_asset_id_is_unique_correct_dict_list():
@@ -134,47 +138,47 @@ def test_verify_asset_id_is_unique_incorrect_dict_lists(subtests):
 
 def test_compare_two_lists_return_minimal_identical_objects():
     d = {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}}
-    list_one = [AllCasesTestClass.from_dict(d, model_directory='UnitTests.TestClasses')]
-    list_two = [AllCasesTestClass.from_dict(d, model_directory='UnitTests.TestClasses')]
+    list_one = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
+    list_two = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
 
     expected = []
-    result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+    result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
 def test_compare_two_lists_return_minimal_missing_object():
     d = {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}}
     list_one = []
-    list_two = [AllCasesTestClass.from_dict(d, model_directory='UnitTests.TestClasses')]
+    list_two = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
 
-    expected = [AllCasesTestClass.from_dict(d, model_directory='UnitTests.TestClasses')]
-    result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+    expected = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
+    result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
 def test_compare_two_lists_return_minimal_changed_attribute():
     d1 = {'toestand': 'gepland', 'geometry': 'POINT Z (200000 200000 0)', 'assetId': {'identificator': '1'}}
-    list_one = [AllCasesTestClass.from_dict(d1, model_directory='UnitTests.TestClasses')]
+    list_one = [AllCasesTestClass.from_dict(d1, model_directory=model_directory_path)]
     d2 = {'toestand': 'in-gebruik', 'geometry': 'POINT Z (200000 200000 0)', 'assetId': {'identificator': '1'}}
-    list_two = [AllCasesTestClass.from_dict(d2, model_directory='UnitTests.TestClasses')]
+    list_two = [AllCasesTestClass.from_dict(d2, model_directory=model_directory_path)]
 
     expected = [AllCasesTestClass.from_dict(
         {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}},
-        model_directory='UnitTests.TestClasses')]
-    result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+        model_directory=model_directory_path)]
+    result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
 def test_compare_two_lists_return_minimal_missing_attribute():
     d1 = {'geometry': 'POINT Z (200000 200000 0)', 'assetId': {'identificator': '1'}}
-    list_one = [AllCasesTestClass.from_dict(d1, model_directory='UnitTests.TestClasses')]
+    list_one = [AllCasesTestClass.from_dict(d1, model_directory=model_directory_path)]
     d2 = {'toestand': 'in-gebruik', 'geometry': 'POINT Z (200000 200000 0)', 'assetId': {'identificator': '1'}}
-    list_two = [AllCasesTestClass.from_dict(d2, model_directory='UnitTests.TestClasses')]
+    list_two = [AllCasesTestClass.from_dict(d2, model_directory=model_directory_path)]
 
     expected = [AllCasesTestClass.from_dict(
         {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}},
-        model_directory='UnitTests.TestClasses')]
-    result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory='UnitTests.TestClasses')
+        model_directory=model_directory_path)]
+    result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
