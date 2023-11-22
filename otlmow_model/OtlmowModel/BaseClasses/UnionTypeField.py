@@ -1,4 +1,4 @@
-﻿from OTLField import OTLField
+﻿from .OTLField import OTLField
 from ..Exceptions.UnionTypeError import UnionTypeError
 
 

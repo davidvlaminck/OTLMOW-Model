@@ -1,8 +1,8 @@
 import pytest
 
-from otlmow_model.BaseClasses.NonNegIntegerField import NonNegIntegerField
-from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 
 
 def test_validate():

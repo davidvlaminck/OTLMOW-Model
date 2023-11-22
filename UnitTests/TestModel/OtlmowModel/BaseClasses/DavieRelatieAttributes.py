@@ -1,8 +1,8 @@
 # coding=utf-8
 from abc import abstractmethod
 
-from otlmow_model.BaseClasses.DteAssetType import DteAssetType
-from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
+from .DteAssetType import DteAssetType
+from .OTLObject import OTLAttribuut
 
 
 class DavieRelatieAttributes:

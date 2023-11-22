@@ -1,5 +1,5 @@
 ﻿from abc import ABC
-from OTLField import OTLField
+from .OTLField import OTLField
 
 
 class ComplexField(OTLField, ABC):

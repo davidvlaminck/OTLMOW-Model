@@ -1,6 +1,6 @@
 import pytest
 
-from otlmow_model.Helpers.GenericHelper import get_titlecase_from_ns, get_aim_id_from_uuid_and_typeURI
+from otlmow_model.OtlmowModel.Helpers.GenericHelper import get_titlecase_from_ns, get_aim_id_from_uuid_and_typeURI
 
 
 def test_get_titlecase_from_ns(subtests):

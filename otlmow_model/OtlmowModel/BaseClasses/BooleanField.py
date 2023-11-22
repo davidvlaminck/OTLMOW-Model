@@ -1,7 +1,7 @@
 import logging
 import random
 
-from OTLField import OTLField
+from .OTLField import OTLField
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 
 

@@ -2,8 +2,8 @@
 import logging
 import random
 
-from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from otlmow_model.BaseClasses.OTLField import OTLField
+from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from .OTLField import OTLField
 
 
 class FloatOrDecimalField(OTLField):

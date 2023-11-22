@@ -6,8 +6,8 @@ from typing import Dict
 
 from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from ..Exceptions.RemovedOptionError import RemovedOptionError
-from OTLField import OTLField
-from KeuzelijstWaarde import KeuzelijstWaarde
+from .OTLField import OTLField
+from .KeuzelijstWaarde import KeuzelijstWaarde
 
 
 class KeuzelijstField(OTLField):

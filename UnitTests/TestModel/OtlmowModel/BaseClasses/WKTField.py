@@ -1,8 +1,8 @@
 import warnings
 
-from otlmow_model.BaseClasses.OTLField import OTLField
-from otlmow_model.BaseClasses.WKTValidator import WKTValidator
-from otlmow_model.Exceptions.WrongGeometryWarning import WrongGeometryWarning
+from .OTLField import OTLField
+from .WKTValidator import WKTValidator
+from ..Exceptions.WrongGeometryWarning import WrongGeometryWarning
 
 
 class WKTField(OTLField):
@@ -40,5 +40,3 @@ class WKTField(OTLField):
     @classmethod
     def create_dummy_data(cls):
         return 'POINT Z (200000 200000 0)'
-
-

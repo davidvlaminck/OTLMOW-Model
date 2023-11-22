@@ -1,8 +1,8 @@
 import datetime
 import pytest
 
-from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from otlmow_model.warnings.IncorrectTypeWarning import IncorrectTypeWarning
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_datefield_with_correct_input(subtests):

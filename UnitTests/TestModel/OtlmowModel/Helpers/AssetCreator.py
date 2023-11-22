@@ -1,4 +1,4 @@
-from otlmow_model.Helpers.GenericHelper import get_titlecase_from_ns, get_ns_and_name_from_uri
+from .GenericHelper import get_titlecase_from_ns, get_ns_and_name_from_uri
 
 
 def dynamic_create_instance_from_ns_and_name(namespace: str, class_name: str,

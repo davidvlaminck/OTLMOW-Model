@@ -1,7 +1,8 @@
 import pytest
 
-from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from UnitTests.TestClasses.Datatypes.DtcTestComplexType import DtcTestComplexTypeWaarden
+
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from UnitTests.TestModel.OtlmowModel.Datatypes.DtcTestComplexType import DtcTestComplexTypeWaarden
 
 
 def test_full_test_on_testclass_kard_1(subtests):

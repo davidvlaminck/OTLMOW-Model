@@ -4,14 +4,14 @@ from UnitTests.TestModel.OtlmowModel.Datatypes.DtcTestComplexType import DtcTest
 from UnitTests.TestModel.OtlmowModel.Datatypes.DtuTestUnionType import DtuTestUnionType
 from UnitTests.TestModel.OtlmowModel.Datatypes.KlTestKeuzelijst import KlTestKeuzelijst
 from UnitTests.TestModel.OtlmowModel.Datatypes.KwantWrdTest import KwantWrdTest
-from otlmow_model.BaseClasses.BooleanField import BooleanField
-from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.BaseClasses.DateTimeField import DateTimeField
-from otlmow_model.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
-from otlmow_model.BaseClasses.IntegerField import IntegerField
-from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.BaseClasses.StringField import StringField
-from otlmow_model.BaseClasses.TimeField import TimeField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from otlmow_model.OtlmowModel.BaseClasses.DateTimeField import DateTimeField
+from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
+from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.BaseClasses.TimeField import TimeField
 
 
 def test_dummy_StringField():

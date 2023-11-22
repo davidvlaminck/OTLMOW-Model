@@ -1,8 +1,9 @@
 import random
 import string
 
-from otlmow_model.BaseClasses.StringField import StringField
+from .StringField import StringField
 import re
+
 
 class URIField(StringField):
     """Een tekstwaarde die een verwijzing naar meer informatie van het element bevat volgens http://www.w3.org/2001/XMLSchema#anyURI ."""
@@ -38,5 +39,4 @@ class URIField(StringField):
 
     @classmethod
     def create_dummy_data(cls):
-        return 'http://' + ''.join(random.choice(string.ascii_letters) for i in range(random.randint(5, 15))) + '.dummy'
-
+        return 'http://' + ''.join(random.choice(string.ascii_letters) for _ in range(random.randint(5, 15))) + '.dummy'

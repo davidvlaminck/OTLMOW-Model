@@ -1,7 +1,7 @@
 import random
 
-from OTLField import OTLField
-from IntegerField import IntegerField
+from .OTLField import OTLField
+from .IntegerField import IntegerField
 
 
 class NonNegIntegerField(IntegerField):

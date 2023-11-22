@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
+from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -32,7 +32,7 @@ def test_instantiate_test_class_with_asset_creator():
 def test_instantiate_all_classes(subtests):
     classes_to_instantiate = {}
 
-    class_location = Path(ROOT_DIR) / '../../otlmow_model/Classes/'
+    class_location = Path(ROOT_DIR) / '../../otlmow_model/OtlmowModel/Classes/'
     installatie_location = class_location / 'Installatie'
     onderdeel_location = class_location / 'Onderdeel'
     levenscyclus_location = class_location / 'Levenscyclus'
@@ -69,7 +69,8 @@ def subtest_instantiate(class_name, file_path, subtests):
         try:
             import_path = f'{file_path.parts[-3]}.{file_path.parts[-2]}.{file_path.parts[-1]}'
             if 'otlmow_model' not in import_path:
-                import_path = 'otlmow_model.' + import_path
+                import_path = 'otlmow_model.OtlmowModel.' + import_path
+            import_path = import_path.replace('otlmow_model.OtlmowModel.OtlmowModel', 'otlmow_model.OtlmowModel')
             py_mod = __import__(name=import_path, fromlist=f'{class_name}')
         except ModuleNotFoundError:
             raise ModuleNotFoundError(f'Could not import the module for {import_path}')

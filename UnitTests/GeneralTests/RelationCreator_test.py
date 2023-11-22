@@ -1,14 +1,14 @@
 import pytest
 
-from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
-from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
-from UnitTests.TestClasses.Classes.Onderdeel.Voedt import Voedt
-from otlmow_model.Classes.Onderdeel.HoortBij import HoortBij
-from otlmow_model.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
-from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
-from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_ns_and_name
-from otlmow_model.Helpers.RelationCreator import create_relation
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
+from otlmow_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
+from otlmow_model.OtlmowModel.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
+from otlmow_model.OtlmowModel.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
+from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_ns_and_name
+from otlmow_model.OtlmowModel.Helpers.RelationCreator import create_relation
 
 
 def test_create_valid_relation():

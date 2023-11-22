@@ -1,4 +1,4 @@
-﻿from otlmow_model.BaseClasses.WKTValidator import WKTValidator
+﻿from otlmow_model.OtlmowModel.BaseClasses.WKTValidator import WKTValidator
 
 
 def test_WKT_valid(subtests):

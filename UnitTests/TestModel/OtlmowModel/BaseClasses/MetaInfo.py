@@ -1,7 +1,7 @@
-﻿from typing import Union, Generator
+﻿from typing import Union
 
-from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
-from otlmow_model.BaseClasses.OTLObject import OTLObject, OTLAttribuut
+from .KeuzelijstField import KeuzelijstField
+from .OTLObject import OTLObject, OTLAttribuut
 
 
 def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = ''):

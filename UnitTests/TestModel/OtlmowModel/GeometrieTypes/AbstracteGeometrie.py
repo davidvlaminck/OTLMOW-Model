@@ -1,7 +1,7 @@
 from abc import abstractmethod, ABC
 
-from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.BaseClasses.WKTField import WKTField
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WKTField import WKTField
 
 
 class AbstracteGeometrie(ABC):

@@ -1,7 +1,7 @@
 import random
 import string
 
-from StringField import StringField
+from .StringField import StringField
 import re
 
 

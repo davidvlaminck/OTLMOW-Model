@@ -1,9 +1,9 @@
 import pytest
 
-from UnitTests.TestClasses.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
-from UnitTests.TestClasses.Classes.ImplementatieElement.AIMObject import AIMObject
-from UnitTests.TestClasses.Classes.ImplementatieElement.AIMToestand import AIMToestand
-from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
+from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMObject import AIMObject
+from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMToestand import AIMToestand
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 
 
 def test_ErrorsOnInstantiateAbstractClasses():

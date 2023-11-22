@@ -1,7 +1,7 @@
 from collections import defaultdict
 from typing import Iterable, List
 
-from otlmow_model.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+from ..BaseClasses.OTLObject import OTLObject, create_dict_from_asset
 
 
 def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict:

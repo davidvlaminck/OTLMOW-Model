@@ -5,19 +5,19 @@ from datetime import date, time
 from datetime import datetime
 from typing import Union, Dict, List, Generator
 
-from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.BaseClasses.DateTimeField import DateTimeField
-from otlmow_model.BaseClasses.KeuzelijstField import KeuzelijstField
-from otlmow_model.BaseClasses.OTLField import OTLField
-from otlmow_model.BaseClasses.TimeField import TimeField
-from otlmow_model.BaseClasses.URIField import URIField
-from otlmow_model.BaseClasses.UnionTypeField import UnionTypeField
-from otlmow_model.BaseClasses.UnionWaarden import UnionWaarden
-from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
-from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
-from otlmow_model.Exceptions.MethodNotApplicableError import MethodNotApplicableError
-from otlmow_model.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
-from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
+from .DateField import DateField
+from .DateTimeField import DateTimeField
+from .KeuzelijstField import KeuzelijstField
+from .OTLField import OTLField
+from .TimeField import TimeField
+from .URIField import URIField
+from .UnionTypeField import UnionTypeField
+from .UnionWaarden import UnionWaarden
+from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
+from ..Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
+from ..Exceptions.MethodNotApplicableError import MethodNotApplicableError
+from ..Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
+from ..Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 
 class OTLAttribuut:

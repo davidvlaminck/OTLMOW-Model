@@ -1,8 +1,8 @@
 # coding=utf-8
-from otlmow_model.BaseClasses.ComplexField import ComplexField
-from otlmow_model.BaseClasses.WaardenObject import WaardenObject
-from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.BaseClasses.StringField import StringField
+from .ComplexField import ComplexField
+from .WaardenObject import WaardenObject
+from .OTLObject import OTLAttribuut
+from .StringField import StringField
 
 
 class DteAssetTypeWaarden(WaardenObject):

@@ -3,7 +3,7 @@ import string
 import random
 
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from OTLField import OTLField
+from .OTLField import OTLField
 
 
 class StringField(OTLField):

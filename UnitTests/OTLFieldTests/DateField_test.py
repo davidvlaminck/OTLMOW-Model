@@ -2,10 +2,10 @@ import datetime
 
 import pytest
 
-from otlmow_model.BaseClasses.DateField import DateField
-from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from otlmow_model.warnings.IncorrectTypeWarning import IncorrectTypeWarning
+from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_validate():

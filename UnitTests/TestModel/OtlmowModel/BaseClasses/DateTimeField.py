@@ -3,8 +3,8 @@ import logging
 from datetime import timedelta
 from random import randrange
 
-from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from otlmow_model.BaseClasses.OTLField import OTLField
+from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from .OTLField import OTLField
 
 
 class DateTimeField(OTLField):

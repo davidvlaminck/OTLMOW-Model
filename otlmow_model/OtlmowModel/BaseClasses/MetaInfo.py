@@ -1,7 +1,7 @@
 ﻿from typing import Union
 
-from KeuzelijstField import KeuzelijstField
-from OTLObject import OTLObject, OTLAttribuut
+from .KeuzelijstField import KeuzelijstField
+from .OTLObject import OTLObject, OTLAttribuut
 
 
 def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = ''):

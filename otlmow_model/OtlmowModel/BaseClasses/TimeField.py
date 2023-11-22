@@ -3,7 +3,7 @@ import random
 from datetime import time, datetime, date, timezone
 
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from OTLField import OTLField
+from .OTLField import OTLField
 
 
 class TimeField(OTLField):

@@ -5,14 +5,14 @@ from datetime import date, time
 from datetime import datetime
 from typing import Union, Dict, List, Generator
 
-from DateField import DateField
-from DateTimeField import DateTimeField
-from KeuzelijstField import KeuzelijstField
-from OTLField import OTLField
-from TimeField import TimeField
-from URIField import URIField
-from UnionTypeField import UnionTypeField
-from UnionWaarden import UnionWaarden
+from .DateField import DateField
+from .DateTimeField import DateTimeField
+from .KeuzelijstField import KeuzelijstField
+from .OTLField import OTLField
+from .TimeField import TimeField
+from .URIField import URIField
+from .UnionTypeField import UnionTypeField
+from .UnionWaarden import UnionWaarden
 from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from ..Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from ..Exceptions.MethodNotApplicableError import MethodNotApplicableError

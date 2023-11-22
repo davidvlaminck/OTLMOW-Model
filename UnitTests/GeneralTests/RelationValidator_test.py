@@ -1,15 +1,15 @@
 import pytest
 
-from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
-from otlmow_model.BaseClasses.RelationInteractor import RelationInteractor
-from otlmow_model.Classes.Onderdeel.Bevestiging import Bevestiging
-from otlmow_model.Classes.Onderdeel.Laagspanningsbord import Laagspanningsbord
-from otlmow_model.Classes.Onderdeel.Stroomkring import Stroomkring
-from otlmow_model.Classes.Onderdeel.Voedt import Voedt
-from otlmow_model.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
-from otlmow_model.Helpers.RelationValidator import is_valid_relation_instance, is_valid_relation
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
+from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Laagspanningsbord import Laagspanningsbord
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Stroomkring import Stroomkring
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
+from otlmow_model.OtlmowModel.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.Helpers.RelationValidator import is_valid_relation_instance, is_valid_relation
 
 
 class A(RelationInteractor):

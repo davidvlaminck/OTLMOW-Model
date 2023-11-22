@@ -1,11 +1,10 @@
-import logging
 import warnings
 from datetime import date, datetime, timedelta
 from random import randrange
 
-from otlmow_model.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from otlmow_model.BaseClasses.OTLField import OTLField
-from otlmow_model.warnings.IncorrectTypeWarning import IncorrectTypeWarning
+from .OTLField import OTLField
+from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class DateField(OTLField):

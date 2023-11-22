@@ -2,7 +2,7 @@ import warnings
 from datetime import date, datetime, timedelta
 from random import randrange
 
-from OTLField import OTLField
+from .OTLField import OTLField
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 

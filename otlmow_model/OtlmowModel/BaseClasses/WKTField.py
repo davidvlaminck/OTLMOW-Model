@@ -1,7 +1,7 @@
 import warnings
 
-from OTLField import OTLField
-from WKTValidator import WKTValidator
+from .OTLField import OTLField
+from .WKTValidator import WKTValidator
 from ..Exceptions.WrongGeometryWarning import WrongGeometryWarning
 
 

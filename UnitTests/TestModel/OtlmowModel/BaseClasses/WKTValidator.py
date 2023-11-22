@@ -88,7 +88,7 @@ class WKTValidator:
 
             val_0 = point[0]
             if val_0 < 14637.2 or val_0 > 291015.3:
-               return False
+                return False
             val_1 = point[1]
             if val_1 < 22608.2 or val_1 > 246424.3:
                 return False

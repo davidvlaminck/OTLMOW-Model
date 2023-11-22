@@ -2,11 +2,11 @@
 
 import pytest
 
-from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
-from UnitTests.TestClasses.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
-from UnitTests.TestClasses.Classes.Onderdeel.Voedt import Voedt
-from otlmow_model.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
-from otlmow_model.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
+from UnitTests.TestModel.OtlmowModel.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
+from UnitTests.TestModel.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
 
 
 def test_use_regular_class():

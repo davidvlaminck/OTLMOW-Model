@@ -1,4 +1,4 @@
-﻿from StringField import StringField
+﻿from .StringField import StringField
 
 
 class LiteralField(StringField):

@@ -3,7 +3,7 @@ import logging
 import random
 
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from OTLField import OTLField
+from .OTLField import OTLField
 
 
 class FloatOrDecimalField(OTLField):

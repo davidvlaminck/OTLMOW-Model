@@ -1,8 +1,6 @@
-from abc import abstractmethod, ABC
+from abc import abstractmethod
 
-from otlmow_model.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.BaseClasses.WKTField import WKTField
-from otlmow_model.GeometrieTypes.AbstracteGeometrie import AbstracteGeometrie
+from ..GeometrieTypes.AbstracteGeometrie import AbstracteGeometrie
 
 
 class VlakGeometrie(AbstracteGeometrie):

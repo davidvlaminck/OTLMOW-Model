@@ -1,9 +1,9 @@
 import pytest
 
-from otlmow_model.BaseClasses.OTLAsset import OTLAsset
-from otlmow_model.Exceptions.WrongGeometryWarning import WrongGeometryWarning
-from otlmow_model.GeometrieTypes.PuntGeometrie import PuntGeometrie
-from otlmow_model.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.OTLAsset import OTLAsset
+from otlmow_model.OtlmowModel.Exceptions.WrongGeometryWarning import WrongGeometryWarning
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 class PointTestClass(PuntGeometrie, OTLAsset):
