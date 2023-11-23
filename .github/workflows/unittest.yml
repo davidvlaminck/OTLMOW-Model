@@ -30,7 +30,7 @@ jobs:
           path: "requirements.txt"
       - name: Run unittests with pytest
         run: python -m pytest -v
-        working-directory: ./UnitTests
+        working-directory: .
       - name: Install nbmake
         run: python -m pip install nbmake
       - name: pytest notebooks
