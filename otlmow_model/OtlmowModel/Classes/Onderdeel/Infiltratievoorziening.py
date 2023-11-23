@@ -1,7 +1,7 @@
 # coding=utf-8
 from ...Classes.Abstracten.Put import Put
 from ...Classes.Abstracten.PutRelatie import PutRelatie
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

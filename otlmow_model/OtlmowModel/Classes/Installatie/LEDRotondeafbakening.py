@@ -1,12 +1,12 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.EMAfbakening import EMAfbakening
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
 from ...Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
-from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.NietGedragenSensor import NietGedragenSensor
 from ...Datatypes.KlWegdeksensorMerk import KlWegdeksensorMerk
 from ...Datatypes.KlWegdeksensorModelnaam import KlWegdeksensorModelnaam

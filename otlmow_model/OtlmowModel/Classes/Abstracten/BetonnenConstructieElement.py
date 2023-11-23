@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
 from ...Datatypes.DtcBetonspecificaties import DtcBetonspecificaties, DtcBetonspecificatiesWaarden
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden

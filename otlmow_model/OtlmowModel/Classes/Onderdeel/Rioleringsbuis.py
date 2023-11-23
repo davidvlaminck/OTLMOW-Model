@@ -1,7 +1,7 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Buis import Buis
-from ...BaseClasses.IntegerField import IntegerField
+from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlRioleringsbuisFunctie import KlRioleringsbuisFunctie
 from ...Datatypes.KlRioleringsbuisMateriaal import KlRioleringsbuisMateriaal
 from ...Datatypes.KlSterktereeks import KlSterktereeks

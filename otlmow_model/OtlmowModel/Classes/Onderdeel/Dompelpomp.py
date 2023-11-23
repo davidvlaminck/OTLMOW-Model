@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LinkendElement import LinkendElement
 from ...Datatypes.KlDompelpompMerk import KlDompelpompMerk
 from ...Datatypes.KlDompelpompModelnaam import KlDompelpompModelnaam
@@ -8,7 +8,7 @@ from ...Datatypes.KwantWrdInLiterPerMinuut import KwantWrdInLiterPerMinuut, Kwan
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,11 +1,11 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ComplexeGeleiding import ComplexeGeleiding
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlEcoPaalmateriaal import KlEcoPaalmateriaal
 from ...Datatypes.KlRasterMazen import KlRasterMazen
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

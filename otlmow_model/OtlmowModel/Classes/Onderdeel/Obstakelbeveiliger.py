@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AfschermendeConstructie import AfschermendeConstructie
 from ...Classes.Abstracten.SchokindexVoertuigkering import SchokindexVoertuigkering
 from ...Datatypes.KlLEACObstakelbeveiligerType import KlLEACObstakelbeveiligerType
 from ...Datatypes.KlLEACPerformantieniveau import KlLEACPerformantieniveau
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

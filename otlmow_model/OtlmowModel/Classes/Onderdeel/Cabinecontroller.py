@@ -1,8 +1,8 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Controller import Controller
 from ...Datatypes.KlControllerBeveiligingssleutel import KlControllerBeveiligingssleutel
-from ...BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

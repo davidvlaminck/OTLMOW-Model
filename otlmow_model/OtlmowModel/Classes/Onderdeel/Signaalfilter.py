@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.RHZModule import RHZModule
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -7,7 +7,7 @@ from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlSignaalfilterMerk import KlSignaalfilterMerk
 from ...Datatypes.KlSignaalfilterModelnaam import KlSignaalfilterModelnaam
 from ...Datatypes.KlSignaalfilterType import KlSignaalfilterType
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

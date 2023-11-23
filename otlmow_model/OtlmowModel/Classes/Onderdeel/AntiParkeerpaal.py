@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Straatmeubilair import Straatmeubilair
 from ...Datatypes.AntiParkeerpaalType import AntiParkeerpaalType
 from ...Datatypes.KlAntiparkeerpaalMateriaal import KlAntiparkeerpaalMateriaal
 from ...Datatypes.KlPlaatsingswijze import KlPlaatsingswijze
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

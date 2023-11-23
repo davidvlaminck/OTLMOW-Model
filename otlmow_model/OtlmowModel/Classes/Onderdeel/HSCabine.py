@@ -1,8 +1,8 @@
 # coding=utf-8
 from datetime import date
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.Cabine import Cabine
-from ...BaseClasses.DateField import DateField
+from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlCabineLokaalKlasse import KlCabineLokaalKlasse
 

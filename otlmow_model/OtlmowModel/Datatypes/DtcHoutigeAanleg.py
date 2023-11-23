@@ -1,8 +1,8 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
-from ..BaseClasses.BooleanField import BooleanField
-from ..BaseClasses.ComplexField import ComplexField
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.WaardenObject import WaardenObject
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.ComplexField import ComplexField
 from ..Datatypes.DtcBeschermingVraatschade import DtcBeschermingVraatschade, DtcBeschermingVraatschadeWaarden
 from ..Datatypes.KlBeschermingMaaischade import KlBeschermingMaaischade
 from ..Datatypes.KlMateriaalBeschermingVraatschade import KlMateriaalBeschermingVraatschade
@@ -11,7 +11,7 @@ from ..Datatypes.KlPlantmaatOmtrek import KlPlantmaatOmtrek
 from ..Datatypes.KlVegetatiePlantverband import KlVegetatiePlantverband
 from ..Datatypes.KlVegetatieWortel import KlVegetatieWortel
 from ..Datatypes.KlVormAanleveringHoutigeVegetatie import KlVormAanleveringHoutigeVegetatie
-from ..BaseClasses.NonNegIntegerField import NonNegIntegerField
+from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

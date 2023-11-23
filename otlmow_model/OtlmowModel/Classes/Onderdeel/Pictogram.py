@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BevestigingGC import BevestigingGC
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlPictogramSymbool import KlPictogramSymbool
 from ...Datatypes.KwantWrdInMinuut import KwantWrdInMinuut, KwantWrdInMinuutWaarden
-from ...BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

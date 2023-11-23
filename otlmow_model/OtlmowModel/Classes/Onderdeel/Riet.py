@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.Ruigte import Ruigte
 from ...Datatypes.KlNSB import KlNSB
 

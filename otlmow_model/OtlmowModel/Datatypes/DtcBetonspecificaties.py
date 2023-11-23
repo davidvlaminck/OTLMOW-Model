@@ -1,9 +1,9 @@
 # coding=utf-8
 from typing import List
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
-from ..BaseClasses.BooleanField import BooleanField
-from ..BaseClasses.ComplexField import ComplexField
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.WaardenObject import WaardenObject
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.ComplexField import ComplexField
 from ..Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ..Datatypes.KlBetonmilieuklasse import KlBetonmilieuklasse
 from ..Datatypes.KlBetonomgevingsklasse import KlBetonomgevingsklasse

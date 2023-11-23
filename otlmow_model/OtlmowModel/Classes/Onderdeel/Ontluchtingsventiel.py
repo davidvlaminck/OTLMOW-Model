@@ -1,6 +1,6 @@
 # coding=utf-8
 from ...Classes.Abstracten.LinkendElement import LinkendElement
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

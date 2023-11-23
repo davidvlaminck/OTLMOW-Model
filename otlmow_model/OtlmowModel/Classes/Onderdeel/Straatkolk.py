@@ -1,8 +1,8 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Put import Put
 from ...Classes.Abstracten.PutRelatie import PutRelatie
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
 from ...Datatypes.KlPutRooster import KlPutRooster
 from ...Datatypes.KlRoosterIndeling import KlRoosterIndeling
@@ -10,7 +10,7 @@ from ...Datatypes.KlRoosterOpeningswijze import KlRoosterOpeningswijze
 from ...Datatypes.KlStraatkolkBakType import KlStraatkolkBakType
 from ...Datatypes.KlStraatkolkType import KlStraatkolkType
 from ...Datatypes.KlStraatkolkTypeUitlaat import KlStraatkolkTypeUitlaat
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

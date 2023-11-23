@@ -1,13 +1,13 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ...BaseClasses.IntegerField import IntegerField
+from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlRackMerk import KlRackMerk
 from ...Datatypes.KlRackModelnaam import KlRackModelnaam
 from ...Datatypes.KlRackType import KlRackType
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,14 +1,14 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...Datatypes.KlPDUMerk import KlPDUMerk
 from ...Datatypes.KlPDUModelnaam import KlPDUModelnaam
-from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

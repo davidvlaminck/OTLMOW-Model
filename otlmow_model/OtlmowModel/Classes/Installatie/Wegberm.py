@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.TerreinDeel import TerreinDeel
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlWegbermBIO import KlWegbermBIO

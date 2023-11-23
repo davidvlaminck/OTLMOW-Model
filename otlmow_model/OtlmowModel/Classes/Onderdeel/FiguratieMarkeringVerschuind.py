@@ -1,12 +1,12 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.FiguratieMarkeringToegang import FiguratieMarkeringToegang
 from ...Datatypes.KlFiguratieCodeVerschuind import KlFiguratieCodeVerschuind
 from ...Datatypes.KlFiguratieSoortVerschuind import KlFiguratieSoortVerschuind
 from ...Datatypes.KlFiguratieTypeVerschuind import KlFiguratieTypeVerschuind
 from ...Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

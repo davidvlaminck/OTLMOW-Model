@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Controller import Controller
 from ...Datatypes.KlToegangscontrollerMerk import KlToegangscontrollerMerk
 from ...Datatypes.KlToegangscontrollerModelnaam import KlToegangscontrollerModelnaam

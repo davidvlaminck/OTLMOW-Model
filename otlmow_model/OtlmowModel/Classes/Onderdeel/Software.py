@@ -1,13 +1,13 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SoftwareToegang import SoftwareToegang
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcSoftwarePoortconfiguratie import DtcSoftwarePoortconfiguratie, DtcSoftwarePoortconfiguratieWaarden
 from ...Datatypes.KlSoftwareLicentie import KlSoftwareLicentie
-from ...BaseClasses.StringField import StringField
-from ...BaseClasses.URIField import URIField
-from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.BaseClasses.URIField import URIField
+from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

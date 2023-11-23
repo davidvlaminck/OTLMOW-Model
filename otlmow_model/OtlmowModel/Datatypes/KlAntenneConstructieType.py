@@ -1,5 +1,5 @@
 # coding=utf-8
-from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit

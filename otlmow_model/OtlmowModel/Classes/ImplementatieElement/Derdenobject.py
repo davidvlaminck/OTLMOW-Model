@@ -1,17 +1,17 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
-from ...BaseClasses.OTLAsset import OTLAsset
-from ...BaseClasses.RelationInteractor import RelationInteractor
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.OTLAsset import OTLAsset
+from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
-from ...BaseClasses.StringField import StringField
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

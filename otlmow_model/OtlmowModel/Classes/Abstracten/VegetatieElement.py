@@ -1,9 +1,9 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcVegetatieSoortnaam import DtcVegetatieSoortnaam, DtcVegetatieSoortnaamWaarden
-from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
+from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlVegetatieelementHoogte import KlVegetatieelementHoogte
 
 

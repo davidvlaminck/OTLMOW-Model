@@ -1,11 +1,11 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlWeergegevenVervoersmodiOpKaart import KlWeergegevenVervoersmodiOpKaart
-from ...BaseClasses.StringField import StringField
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlBouwmethode import KlBouwmethode
 from ...Datatypes.KlGebruikersType import KlGebruikersType
 from ...Datatypes.KlTypeOndergrond import KlTypeOndergrond
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

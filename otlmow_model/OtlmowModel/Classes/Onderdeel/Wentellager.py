@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Lager import Lager
 from ...Datatypes.KlWentellagerMerk import KlWentellagerMerk
 from ...Datatypes.KlWentellagerModelnaam import KlWentellagerModelnaam

@@ -1,9 +1,9 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Leiding import Leiding
 from ...Classes.Abstracten.OmhullendeInrichting import OmhullendeInrichting
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from ...Datatypes.KlBeschermbuisKleur import KlBeschermbuisKleur
 from ...Datatypes.KlBeschermbuisMateriaal import KlBeschermbuisMateriaal

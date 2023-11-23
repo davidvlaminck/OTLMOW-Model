@@ -1,9 +1,9 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlPadNetwerkprotectie import KlPadNetwerkprotectie
-from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

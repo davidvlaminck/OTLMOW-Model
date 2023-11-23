@@ -1,9 +1,9 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.HardwareToegang import HardwareToegang
 from ...Datatypes.KlVirtueleServerMerk import KlVirtueleServerMerk
 from ...Datatypes.KlVirtueleServerModelnaam import KlVirtueleServerModelnaam
-from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,8 +1,8 @@
 # coding=utf-8
 from datetime import date
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Brandvoorziening import Brandvoorziening
-from ...BaseClasses.DateField import DateField
+from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.KlBrandhaspelMerk import KlBrandhaspelMerk
 from ...Datatypes.KlBrandhaspelModelnaam import KlBrandhaspelModelnaam
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden

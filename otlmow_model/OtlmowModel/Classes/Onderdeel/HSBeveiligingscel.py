@@ -1,7 +1,7 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlHSBeveiligingscelHoogspanningszekering import KlHSBeveiligingscelHoogspanningszekering
 from ...Datatypes.KlHSBeveiligingscelMerk import KlHSBeveiligingscelMerk
@@ -12,8 +12,8 @@ from ...Datatypes.KlHSBeveiligingscelSchakelmateriaalType import KlHSBeveiliging
 from ...Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
 from ...Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden
 from ...Datatypes.KwantWrdInKiloAmpere import KwantWrdInKiloAmpere, KwantWrdInKiloAmpereWaarden
-from ...BaseClasses.StringField import StringField
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

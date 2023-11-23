@@ -1,9 +1,9 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.Signalisatie import Signalisatie
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcMarkeringOpvatting import DtcMarkeringOpvatting, DtcMarkeringOpvattingWaarden
 from ...Datatypes.DtcProductidentificatiecode import DtcProductidentificatiecode, DtcProductidentificatiecodeWaarden
 from ...Datatypes.KlKleurMarkering import KlKleurMarkering

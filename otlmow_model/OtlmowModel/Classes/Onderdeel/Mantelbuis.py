@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Buis import Buis
 from ...Classes.Abstracten.ContainerBuis import ContainerBuis
 from ...Datatypes.KlRioleringsbuisMateriaal import KlRioleringsbuisMateriaal

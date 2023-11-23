@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Kast import Kast
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 

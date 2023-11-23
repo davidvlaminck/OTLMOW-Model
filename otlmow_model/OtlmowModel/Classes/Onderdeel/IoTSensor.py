@@ -1,14 +1,14 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcCompacteBatterij import DtcCompacteBatterij, DtcCompacteBatterijWaarden
 from ...Datatypes.KlIoTSensorMerk import KlIoTSensorMerk
 from ...Datatypes.KlIoTSensorModelnaam import KlIoTSensorModelnaam
 from ...Datatypes.KlIoTSensorParameter import KlIoTSensorParameter
 from ...Datatypes.KlIoTSensorVerbindingstype import KlIoTSensorVerbindingstype
-from ...BaseClasses.StringField import StringField
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

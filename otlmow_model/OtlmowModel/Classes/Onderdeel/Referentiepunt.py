@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BevestigingGC import BevestigingGC
 from ...Classes.Abstracten.Signalisatie import Signalisatie
 from ...Classes.ImplementatieElement.AIMObject import AIMObject

@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlAflsuitingType import KlAflsuitingType
@@ -7,7 +7,7 @@ from ...Datatypes.KlAfsluitingMateriaal import KlAfsluitingMateriaal
 from ...Datatypes.KlAfsluitingMerk import KlAfsluitingMerk
 from ...Datatypes.KlAfsluitingModelnaam import KlAfsluitingModelnaam
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LEDBord import LEDBord
 from ...Datatypes.KlDynBordPKMerk import KlDynBordPKMerk
 from ...Datatypes.KlDynBordPKModelnaam import KlDynBordPKModelnaam

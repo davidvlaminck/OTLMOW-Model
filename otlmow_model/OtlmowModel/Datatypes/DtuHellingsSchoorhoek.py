@@ -1,9 +1,9 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ..Datatypes.KlSchoorhoek import KlSchoorhoek
 from ..Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
-from ..BaseClasses.UnionTypeField import UnionTypeField
-from ..BaseClasses.UnionWaarden import UnionWaarden
+from otlmow_model.OtlmowModel.BaseClasses.UnionTypeField import UnionTypeField
+from otlmow_model.OtlmowModel.BaseClasses.UnionWaarden import UnionWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit

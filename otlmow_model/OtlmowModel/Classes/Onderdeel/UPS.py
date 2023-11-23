@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.RHZModule import RHZModule
 from ...Classes.Abstracten.Voedingspunt import Voedingspunt
 from ...Datatypes.KlUPSMerk import KlUPSMerk
@@ -8,8 +8,8 @@ from ...Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaar
 from ...Datatypes.KwantWrdInHerz import KwantWrdInHerz, KwantWrdInHerzWaarden
 from ...Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
 from ...Datatypes.KwantWrdInkWh import KwantWrdInkWh, KwantWrdInkWhWaarden
-from ...BaseClasses.StringField import StringField
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

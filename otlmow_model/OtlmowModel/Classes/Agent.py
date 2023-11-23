@@ -1,11 +1,11 @@
 # coding=utf-8
 from typing import List
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.OTLObject import OTLObject
-from ..BaseClasses.RelationInteractor import RelationInteractor
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
+from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from ..Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
 from ..Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
-from ..BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

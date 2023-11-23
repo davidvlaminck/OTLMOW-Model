@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Kabel import Kabel
 from ...Datatypes.KlNominaleSpanning import KlNominaleSpanning
 from ...Datatypes.KlVoedingskabelAdersEnSectie import KlVoedingskabelAdersEnSectie

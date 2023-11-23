@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ZenderOntvangerToegang import ZenderOntvangerToegang
 from ...Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from ...Datatypes.KlRepeaterMerk import KlRepeaterMerk

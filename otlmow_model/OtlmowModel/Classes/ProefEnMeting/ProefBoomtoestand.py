@@ -1,11 +1,11 @@
 # coding=utf-8
 from datetime import datetime
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Proef import Proef
-from ...BaseClasses.DateTimeField import DateTimeField
+from otlmow_model.OtlmowModel.BaseClasses.DateTimeField import DateTimeField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
+from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlBoomConditiebeoordeling import KlBoomConditiebeoordeling
 from ...Datatypes.KlBoomConditiewaarde import KlBoomConditiewaarde
 from ...Datatypes.KlBoomConflicten import KlBoomConflicten
@@ -17,9 +17,9 @@ from ...Datatypes.KlBoomtoestandMeerwaardefactor import KlBoomtoestandMeerwaarde
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from ...Datatypes.KwantWrdInEuro import KwantWrdInEuro, KwantWrdInEuroWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

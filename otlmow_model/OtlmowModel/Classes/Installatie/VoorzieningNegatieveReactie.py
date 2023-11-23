@@ -1,7 +1,7 @@
 # coding=utf-8
 from ...Classes.Abstracten.AanhorighedenBrug import AanhorighedenBrug
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

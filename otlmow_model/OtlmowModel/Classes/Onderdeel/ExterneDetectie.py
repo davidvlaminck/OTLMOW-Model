@@ -1,12 +1,12 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Detectie import Detectie
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcNatuurlijkPersoon import DtcNatuurlijkPersoon, DtcNatuurlijkPersoonWaarden
 from ...Datatypes.DtcRechtspersoon import DtcRechtspersoon, DtcRechtspersoonWaarden
 from ...Datatypes.KlExternedetectieAangeslotentoestel import KlExternedetectieAangeslotentoestel
 from ...Datatypes.KlExternedetectieCommunicatiewijze import KlExternedetectieCommunicatiewijze
-from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

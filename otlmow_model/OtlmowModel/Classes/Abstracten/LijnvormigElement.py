@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden

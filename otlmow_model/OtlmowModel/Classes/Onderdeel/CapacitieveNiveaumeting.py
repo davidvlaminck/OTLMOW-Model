@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Niveaumeting import Niveaumeting
 from ...Datatypes.KlCapacitieveNiveaumetingMerk import KlCapacitieveNiveaumetingMerk
 from ...Datatypes.KlCapacitieveNiveaumetingModelnaam import KlCapacitieveNiveaumetingModelnaam

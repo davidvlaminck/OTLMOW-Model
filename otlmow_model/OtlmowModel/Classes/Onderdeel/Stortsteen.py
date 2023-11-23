@@ -1,15 +1,15 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereLaag import AndereLaag
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlHechtspecie import KlHechtspecie
 from ...Datatypes.KlStortsteenKaliber import KlStortsteenKaliber
 from ...Datatypes.KlStortsteenPlaatsingswijze import KlStortsteenPlaatsingswijze
 from ...Datatypes.KlStortsteenType import KlStortsteenType
 from ...Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

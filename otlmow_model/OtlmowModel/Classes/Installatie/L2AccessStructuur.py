@@ -1,6 +1,6 @@
 # coding=utf-8
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

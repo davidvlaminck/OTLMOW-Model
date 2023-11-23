@@ -1,9 +1,9 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AansluitendeConstructie import AansluitendeConstructie
 from ...Classes.Abstracten.EigenschappenVoertuigkering import EigenschappenVoertuigkering
 from ...Classes.Abstracten.SchokindexVoertuigkering import SchokindexVoertuigkering
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlLEACWerkingsbreedte import KlLEACWerkingsbreedte
 
 

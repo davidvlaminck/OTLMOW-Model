@@ -1,5 +1,5 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.DwarseMarkeringToegang import DwarseMarkeringToegang
 from ...Datatypes.KlDwarseMarkeringVerschuindCode import KlDwarseMarkeringVerschuindCode
 from ...Datatypes.KlDwarseMarkeringVerschuindSoort import KlDwarseMarkeringVerschuindSoort

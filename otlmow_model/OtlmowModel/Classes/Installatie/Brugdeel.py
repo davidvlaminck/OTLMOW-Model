@@ -1,8 +1,8 @@
 # coding=utf-8
 from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...BaseClasses.BooleanField import BooleanField
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlGraadVanBeweegbaarheid import KlGraadVanBeweegbaarheid
 from ...Datatypes.KlGraadVanStatischeBepaaldheid import KlGraadVanStatischeBepaaldheid
 from ...Datatypes.KlMateriaalDragendeStructuurBrugdeel import KlMateriaalDragendeStructuurBrugdeel
@@ -11,8 +11,8 @@ from ...Datatypes.KlTypeBrugdeel import KlTypeBrugdeel
 from ...Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, KwantWrdInKiloNewtonWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
+from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
