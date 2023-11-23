@@ -21,8 +21,7 @@ def is_valid_relation_instance(source: RelationInteractor, relation_instance: Re
     :type: RelationInteractor
     :return: 'True' if the relation would be valid, 'False' otherwise
     """
-    return is_valid_relation(source=source, target=target,
-                                               relation_type=type(relation_instance))
+    return is_valid_relation(source=source, target=target, relation_type=type(relation_instance))
 
 
 def is_valid_relation(relation_type: Type[RelatieObject], source: Optional[RelationInteractor] = None,
