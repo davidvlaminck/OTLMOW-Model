@@ -54,8 +54,8 @@
             </div>
         </aside>
         <h2>
-            <span class="text">554 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">554<span class="text"> run</span></button>
+            <span class="text">557 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">557<span class="text"> run</span></button>
             <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">0<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_ee2cc0d27e44a038_RelationCreator_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.2">coverage.py v7.3.2</a>,
-            created at 2023-11-23 14:46 +0000
+            created at 2023-11-23 15:25 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -1079,9 +1079,15 @@
     <p class="run"><span class="n"><a id="t997" href="#t997">997</a></span><span class="t">    <span class="key">assert</span> <span class="nam">dynamically_created_instance</span><span class="op">.</span><span class="nam">is_instance_of</span><span class="op">(</span><span class="nam">AllCasesTestClass</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t998" href="#t998">998</a></span><span class="t">    <span class="key">assert</span> <span class="key">not</span> <span class="nam">dynamically_created_instance</span><span class="op">.</span><span class="nam">is_instance_of</span><span class="op">(</span><span class="nam">str</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t999" href="#t999">999</a></span><span class="t">    <span class="key">assert</span> <span class="nam">dynamically_created_instance</span><span class="op">.</span><span class="nam">is_instance_of</span><span class="op">(</span><span class="nam">OTLObject</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t1000" href="#t1000">1000</a></span><span class="t">    <span class="com"># assert dynamically_created_instance.is_instance_of(AIMObject)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t1001" href="#t1001">1001</a></span><span class="t">    <span class="com"># TODO isinstance does not work for other classes</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t1002" href="#t1002">1002</a></span><span class="t">    <span class="com">#  within the same model</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t1000" href="#t1000">1000</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t1001" href="#t1001">1001</a></span><span class="t">    <span class="nam">dynamic_aim_object_type</span> <span class="op">=</span> <span class="nam">AssetCreator</span><span class="op">.</span><span class="nam">dynamic_create_type_from_uri</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t1002" href="#t1002">1002</a></span><span class="t">        <span class="nam">AIMObject</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">,</span> <span class="nam">model_directory</span><span class="op">=</span><span class="nam">model_directory_path</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t1003" href="#t1003">1003</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t1004" href="#t1004">1004</a></span><span class="t">    <span class="key">assert</span> <span class="nam">dynamically_created_instance</span><span class="op">.</span><span class="nam">is_instance_of</span><span class="op">(</span><span class="nam">dynamic_aim_object_type</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t1005" href="#t1005">1005</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t1006" href="#t1006">1006</a></span><span class="t">    <span class="key">assert</span> <span class="nam">dynamically_created_instance</span><span class="op">.</span><span class="nam">is_instance_of</span><span class="op">(</span><span class="nam">AIMObject</span><span class="op">,</span> <span class="nam">dynamic_created</span><span class="op">=</span><span class="key">True</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t1007" href="#t1007">1007</a></span><span class="t">                                                       <span class="nam">model_directory</span><span class="op">=</span><span class="nam">model_directory_path</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t1008" href="#t1008">1008</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -1091,7 +1097,7 @@
             <a id="nextFileLink" class="nav" href="d_ee2cc0d27e44a038_RelationCreator_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.2">coverage.py v7.3.2</a>,
-            created at 2023-11-23 14:46 +0000
+            created at 2023-11-23 15:25 +0000
         </p>
     </div>
 </footer>
