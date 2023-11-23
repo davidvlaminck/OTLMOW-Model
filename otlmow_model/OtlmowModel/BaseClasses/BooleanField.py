@@ -1,8 +1,9 @@
 import logging
 import random
+import warnings
 
-from .OTLField import OTLField
-from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
 
 
 class BooleanField(OTLField):

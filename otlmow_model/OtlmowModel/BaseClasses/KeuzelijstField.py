@@ -4,10 +4,10 @@ import random
 
 from typing import Dict
 
-from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
-from ..Exceptions.RemovedOptionError import RemovedOptionError
-from .OTLField import OTLField
-from .KeuzelijstWaarde import KeuzelijstWaarde
+from otlmow_model.OtlmowModel.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
+from otlmow_model.OtlmowModel.Exceptions.RemovedOptionError import RemovedOptionError
+from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 class KeuzelijstField(OTLField):

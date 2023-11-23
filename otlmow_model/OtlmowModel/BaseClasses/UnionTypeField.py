@@ -1,5 +1,7 @@
-﻿from .OTLField import OTLField
-from ..Exceptions.UnionTypeError import UnionTypeError
+﻿import random
+
+from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.Exceptions.UnionTypeError import UnionTypeError
 
 
 class UnionTypeField(OTLField):

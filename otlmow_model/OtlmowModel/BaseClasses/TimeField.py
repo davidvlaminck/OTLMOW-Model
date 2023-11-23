@@ -2,8 +2,8 @@ import logging
 import random
 from datetime import time, datetime, date, timezone
 
-from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from .OTLField import OTLField
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
 
 
 class TimeField(OTLField):

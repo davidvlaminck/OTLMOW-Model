@@ -1,4 +1,4 @@
-﻿from .WaardenObject import WaardenObject
+﻿from otlmow_model.OtlmowModel.BaseClasses.WaardenObject import WaardenObject
 
 
 class UnionWaarden(WaardenObject):

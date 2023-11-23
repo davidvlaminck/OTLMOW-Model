@@ -2,7 +2,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Iterable, List
 
-from ..BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
 
 
 def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict:

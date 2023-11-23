@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 
-from .GenericHelper import get_titlecase_from_ns, get_ns_and_name_from_uri
+from otlmow_model.OtlmowModel.Helpers.GenericHelper import get_titlecase_from_ns, get_ns_and_name_from_uri
 
 
 def dynamic_create_instance_from_ns_and_name(namespace: str, class_name: str,

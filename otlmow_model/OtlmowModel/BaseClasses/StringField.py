@@ -2,8 +2,8 @@
 import string
 import random
 
-from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from .OTLField import OTLField
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
 
 
 class StringField(OTLField):
@@ -43,5 +43,5 @@ class StringField(OTLField):
 
     @classmethod
     def create_dummy_data(cls):
-        return ''.join(random.choice(string.ascii_letters) for _ in range(random.randint(5, 15)))
+        return ''.join(random.choice(string.ascii_letters) for i in range(random.randint(5, 15)))
 

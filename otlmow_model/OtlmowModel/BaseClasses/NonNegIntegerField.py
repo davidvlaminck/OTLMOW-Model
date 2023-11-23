@@ -1,7 +1,7 @@
 import random
 
-from .OTLField import OTLField
-from .IntegerField import IntegerField
+from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 
 
 class NonNegIntegerField(IntegerField):

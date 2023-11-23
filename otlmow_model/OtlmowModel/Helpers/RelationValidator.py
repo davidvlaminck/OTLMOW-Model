@@ -2,10 +2,10 @@ import inspect
 import warnings
 from typing import Type, Optional
 
-from ..BaseClasses.RelationInteractor import RelationInteractor
-from ..Classes.ImplementatieElement.RelatieObject import RelatieObject
-from ..Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
-from .AssetCreator import dynamic_create_instance_from_uri
+from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
+from otlmow_model.OtlmowModel.Classes.ImplementatieElement.RelatieObject import RelatieObject
+from otlmow_model.OtlmowModel.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
+from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 
 def is_valid_relation_instance(source: RelationInteractor, relation_instance: RelatieObject,

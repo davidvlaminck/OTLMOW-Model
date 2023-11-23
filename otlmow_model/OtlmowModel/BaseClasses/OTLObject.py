@@ -3,22 +3,21 @@ import random
 import warnings
 from datetime import date, time
 from datetime import datetime
-from pathlib import Path
 from typing import Union, Dict, List, Generator
 
-from .DateField import DateField
-from .DateTimeField import DateTimeField
-from .KeuzelijstField import KeuzelijstField
-from .OTLField import OTLField
-from .TimeField import TimeField
-from .URIField import URIField
-from .UnionTypeField import UnionTypeField
-from .UnionWaarden import UnionWaarden
-from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
-from ..Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
-from ..Exceptions.MethodNotApplicableError import MethodNotApplicableError
-from ..Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
-from ..Helpers.AssetCreator import dynamic_create_instance_from_uri
+from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from otlmow_model.OtlmowModel.BaseClasses.DateTimeField import DateTimeField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.BaseClasses.TimeField import TimeField
+from otlmow_model.OtlmowModel.BaseClasses.URIField import URIField
+from otlmow_model.OtlmowModel.BaseClasses.UnionTypeField import UnionTypeField
+from otlmow_model.OtlmowModel.BaseClasses.UnionWaarden import UnionWaarden
+from otlmow_model.OtlmowModel.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
+from otlmow_model.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
+from otlmow_model.OtlmowModel.Exceptions.MethodNotApplicableError import MethodNotApplicableError
+from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
+from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 
 class OTLAttribuut:
@@ -318,14 +317,14 @@ class OTLObject(object):
         return create_dict_from_asset(self) == create_dict_from_asset(other)
 
     @classmethod
-    def from_dict(cls, input_dict: Dict, model_directory: Path = None, rdf: bool = False,
+    def from_dict(cls, input_dict: Dict, model_directory: str = 'otlmow_model', rdf: bool = False,
                   waarde_shortcut: bool = False) -> object:
         """Alternative constructor. Allows the instantiation of an object using a dictionary. Either start from the
         appropriate class or add a typeURI entry to the dictionary to get an instance of that type.
 
         :param input_dict: input dictionary, containing key value pairs for the attributes of the instance
         :type: dict
-        :param model_directory: directory where the model is located, defaults to otlmow_model's model directory
+        :param model_directory: directory where the model is located, defaults to otlmow_model
         :type: str
         :param rdf: whether to use uri's as keys instead of the names, defaults to False
         :type: bool
@@ -333,7 +332,6 @@ class OTLObject(object):
         :type: bool
         :return: returns an instance where the values of the attributes matches the given dictionary
         :rtype: OTLObject"""
-
         if not rdf and 'typeURI' in input_dict:
             type_uri = input_dict['typeURI']
         elif rdf and 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI' in input_dict:
@@ -344,10 +342,6 @@ class OTLObject(object):
         if type_uri is None:
             raise ValueError(
                 'typeURI is None. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
-
-        if model_directory is None:
-            current_file_path = Path(__file__)
-            model_directory = current_file_path.parent.parent.parent
 
         try:
             o = dynamic_create_instance_from_uri(type_uri, model_directory=model_directory)
