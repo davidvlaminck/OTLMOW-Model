@@ -997,6 +997,12 @@ def test_isinstance_checks():
     assert dynamically_created_instance.is_instance_of(AllCasesTestClass)
     assert not dynamically_created_instance.is_instance_of(str)
     assert dynamically_created_instance.is_instance_of(OTLObject)
-    # assert dynamically_created_instance.is_instance_of(AIMObject)
-    # TODO isinstance does not work for other classes
-    #  within the same model
+
+    dynamic_aim_object_type = AssetCreator.dynamic_create_type_from_uri(
+        AIMObject.typeURI, model_directory=model_directory_path)
+
+    assert dynamically_created_instance.is_instance_of(dynamic_aim_object_type)
+
+    assert dynamically_created_instance.is_instance_of(AIMObject, dynamic_created=True,
+                                                       model_directory=model_directory_path)
+

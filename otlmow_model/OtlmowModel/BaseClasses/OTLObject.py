@@ -19,7 +19,7 @@ from otlmow_model.OtlmowModel.Exceptions.AttributeDeprecationWarning import Attr
 from otlmow_model.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from otlmow_model.OtlmowModel.Exceptions.MethodNotApplicableError import MethodNotApplicableError
 from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
-from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_uri
+from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_uri, dynamic_create_type_from_uri
 
 
 class OTLAttribuut:
@@ -319,7 +319,18 @@ class OTLObject(object):
     def __eq__(self, other):
         return create_dict_from_asset(self) == create_dict_from_asset(other)
 
-    def is_instance_of(self, otl_type: type):
+    def is_instance_of(self, otl_type: type, dynamic_created: bool = False, model_directory: Path = None):
+        if dynamic_created:
+            if model_directory is None:
+                current_file_path = Path(__file__)
+                model_directory = current_file_path.parent.parent.parent
+            try:
+                otl_type_typeURI = getattr(otl_type, 'typeURI')
+            except AttributeError:
+                return False
+            dynamic_created_type = dynamic_create_type_from_uri(otl_type_typeURI, model_directory=model_directory)
+            return isinstance(self, dynamic_created_type)
+
         check = isinstance(self, otl_type)
         if check:
             return True
