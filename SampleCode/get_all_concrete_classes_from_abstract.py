@@ -2,8 +2,8 @@ import os
 from os.path import isfile
 from pathlib import Path
 
-from otlmow_model.Classes.Abstracten.HoutenConstructieElement import HoutenConstructieElement
-from otlmow_model.Helpers.AssetCreator import dynamic_create_instance_from_uri
+from otlmow_model.OtlmowModel.Classes.Abstracten.HoutenConstructieElement import HoutenConstructieElement
+from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_uri
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 

@@ -9,7 +9,6 @@ from otlmow_model.OtlmowModel.Helpers.RelationCreator import create_relation
 from pysize import get_size
 
 if __name__ == "__main__":
-
     camera = dynamic_create_instance_from_ns_and_name(namespace='onderdeel', class_name='Camera')
     print(camera)
 
@@ -18,7 +17,7 @@ if __name__ == "__main__":
     vr.toestand = 'in-gebruik'
     vr.theoretischeLevensduur.waarde = 360
     vr.isActief = True
-    vr.datumOprichtingObject = datetime.datetime(2022, 12, 12)
+    vr.datumOprichtingObject = datetime.date(2022, 12, 12)
 
     d = create_dict_from_asset(vr)
 
