@@ -1,5 +1,7 @@
 import warnings
+from pathlib import Path
 from typing import Type, Optional
+
 
 from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.OtlmowModel.Classes.Agent import Agent
@@ -16,7 +18,7 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
                     target: Optional[RelationInteractor] = None,
                     source_uuid: Optional[str] = None, source_typeURI: Optional[str] = None,
                     target_uuid: Optional[str] = None, target_typeURI: Optional[str] = None,
-                    model_directory: str = None) -> Optional[RelatieObject]:
+                    model_directory: Path = None) -> Optional[RelatieObject]:
     """
     Instantiates a relation, if valid, between instantiated objects, given a specific relation type.
     Instead of instantiated objects, valid guids and typeURI's can be provided, for source and/or target.
@@ -35,12 +37,17 @@ def create_relation(relation_type: Type[RelatieObject], source: Optional[Relatio
     :type: str
     :param target_typeURI: the typeURI of the intended target for the relation
     :type: str
-    :param model_directory: directory where the model is located, defaults to otlmow-model
+    :param model_directory: directory where the model is located, defaults to otlmow_model's own model
     :type: str
 
     :return: Returns the instantiated relation between the given source and target, or None if the relation is invalid.
     :rtype: RelatieObject or None
     """
+
+    if model_directory is None:
+        current_file_path = Path(__file__)
+        model_directory = current_file_path.parent.parent.parent
+
     if source is None and (source_typeURI is None or source_uuid is None):
         raise ValueError('Exactly one of source or (source_typeURI + source_uuid) needs to be not None.')
     if target is None and (target_typeURI is None or target_uuid is None):
@@ -161,9 +168,9 @@ def create_betrokkenerelation(rol: str, source: Optional[RelationInteractor] = N
                               target: Optional[Agent] = None,
                               source_uuid: Optional[str] = None, source_typeURI: Optional[str] = None,
                               target_uuid: Optional[str] = None, target_typeURI: Optional[str] = None,
-                              class_directory: str = None) -> Optional[HeeftBetrokkene]:
+                              model_directory: Path = None) -> Optional[HeeftBetrokkene]:
     relation = create_relation(source=source, target=target, source_uuid=source_uuid, source_typeURI=source_typeURI,
-                               target_uuid=target_uuid, target_typeURI=target_typeURI, class_directory=class_directory,
+                               target_uuid=target_uuid, target_typeURI=target_typeURI, model_directory=model_directory,
                                relation_type=HeeftBetrokkene)
     relation.rol = rol
     return relation
