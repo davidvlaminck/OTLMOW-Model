@@ -22,11 +22,9 @@ jobs:
         with:
           path: "requirements.txt"
       - name: Run unittests with pytest and coverage
-        run: python -m pytest --cov -v --cov-report=html --cache-clear
+        run: python -m pytest --cov -v --cov-report=html:UnitTests/htmlcov --cache-clear
       - name: Coverage Badge.
         uses: tj-actions/coverage-badge-py@v2
-        with:
-          working-directory: ./UnitTests
       - name: Remove .gitignore from htmlcov
         run: rm -f ./UnitTests/htmlcov/.gitignore
       - name: Commit files
