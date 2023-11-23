@@ -5,9 +5,11 @@ import pytest
 
 from UnitTests.TestClasses.Classes.ImplementatieElement.AIMObject import AIMObject
 from UnitTests.TestClasses.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from UnitTests.TestClasses.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestClasses.Classes.Onderdeel.Bevestiging import Bevestiging
 from otlmow_model.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
 from otlmow_model.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
+from otlmow_model.Helpers import AssetCreator
 from otlmow_model.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
@@ -975,3 +977,20 @@ def test_raise_value_errors_in_set_waarde_with_cardinality():
     instance = AllCasesTestClass()
     with pytest.raises(ValueError):
         instance.testKeuzelijstMetKard = ['1']
+
+
+def test_isinstance_checks():
+    instance = AllCasesTestClass()
+    dynamically_created_instance = AssetCreator.dynamic_create_instance_from_uri(
+        AllCasesTestClass.typeURI, model_directory='UnitTests.TestClasses')
+    assert isinstance(instance, AllCasesTestClass)
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert isinstance(instance, AIMObject)
+    assert not isinstance(instance, AnotherTestClass)
+
+    assert dynamically_created_instance.typeURI == AllCasesTestClass.typeURI
+    assert isinstance(dynamically_created_instance, AllCasesTestClass)
+    assert isinstance(dynamically_created_instance, AIMObject)
+    assert not isinstance(dynamically_created_instance, AnotherTestClass)
+
+    # TODO if fails: implement class.__instancecheck__(self, instance)
