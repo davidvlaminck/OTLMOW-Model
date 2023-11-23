@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./UnitTests
+        working-directory: .
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.11
@@ -28,7 +28,7 @@ jobs:
         with:
           working-directory: ./UnitTests
       - name: Remove .gitignore from htmlcov
-        run: rm -f ./htmlcov/.gitignore
+        run: rm -f ./UnitTests/htmlcov/.gitignore
       - name: Commit files
         run: |
           git pull
