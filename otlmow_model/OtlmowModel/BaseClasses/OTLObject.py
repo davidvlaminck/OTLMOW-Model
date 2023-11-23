@@ -1,8 +1,10 @@
 ﻿import math
 import random
 import warnings
+from abc import ABC, ABCMeta
 from datetime import date, time
 from datetime import datetime
+from pathlib import Path
 from typing import Union, Dict, List, Generator
 
 from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
@@ -285,6 +287,7 @@ class OTLObject(object):
 
     def __init__(self):
         super().__init__()
+
         if hasattr(self, 'deprecated_version'):
             if self.deprecated_version is not None:
                 try:
@@ -316,15 +319,30 @@ class OTLObject(object):
     def __eq__(self, other):
         return create_dict_from_asset(self) == create_dict_from_asset(other)
 
+    def is_instance_of(self, otl_type: type):
+        check = isinstance(self, otl_type)
+        if check:
+            return True
+
+        try:
+            otl_type_typeURI = getattr(otl_type, 'typeURI')
+        except AttributeError:
+            return False
+
+        t = type(self)
+        if t.typeURI == otl_type_typeURI:
+            return True
+        return issubclass(self.__class__, otl_type)
+
     @classmethod
-    def from_dict(cls, input_dict: Dict, model_directory: str = 'otlmow_model', rdf: bool = False,
+    def from_dict(cls, input_dict: Dict, model_directory: Path = None, rdf: bool = False,
                   waarde_shortcut: bool = False) -> object:
         """Alternative constructor. Allows the instantiation of an object using a dictionary. Either start from the
         appropriate class or add a typeURI entry to the dictionary to get an instance of that type.
 
         :param input_dict: input dictionary, containing key value pairs for the attributes of the instance
         :type: dict
-        :param model_directory: directory where the model is located, defaults to otlmow_model
+        :param model_directory: directory where the model is located, defaults to otlmow_model's own model
         :type: str
         :param rdf: whether to use uri's as keys instead of the names, defaults to False
         :type: bool
@@ -342,6 +360,10 @@ class OTLObject(object):
         if type_uri is None:
             raise ValueError(
                 'typeURI is None. Add a valid typeURI to the input dictionary or change the class you are using "from_dict" from.')
+
+        if model_directory is None:
+            current_file_path = Path(__file__)
+            model_directory = current_file_path.parent.parent.parent
 
         try:
             o = dynamic_create_instance_from_uri(type_uri, model_directory=model_directory)
@@ -390,7 +412,8 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
 
 
 def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list, dict], waarde_shortcut: bool = False,
-                                      suppress_warnings_non_standardised_attributes: bool = False) -> Union[Dict, List[Dict]]:
+                                      suppress_warnings_non_standardised_attributes: bool = False) -> Union[
+    Dict, List[Dict]]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         l = []
         for item in asset:
@@ -440,9 +463,10 @@ def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list
             else:
                 if not attr_key.startswith('_'):
                     if not suppress_warnings_non_standardised_attributes:
-                        warnings.warn(message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
-                                              f'The attribute will be added on the instance', stacklevel=2,
-                                      category=NonStandardAttributeWarning)
+                        warnings.warn(
+                            message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                    f'The attribute will be added on the instance', stacklevel=2,
+                            category=NonStandardAttributeWarning)
                     d[attr_key] = attr
 
         if len(d.items()) > 0:
@@ -499,7 +523,8 @@ def _recursive_create_rdf_dict_from_asset(
                             if attr.waarde == [None]:
                                 d[attr.objectUri] = []
                             else:
-                                d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in attr.waarde]
+                                d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in
+                                                     attr.waarde]
                         else:
                             d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
                     else:
@@ -507,9 +532,10 @@ def _recursive_create_rdf_dict_from_asset(
             else:
                 if not attr_key.startswith('_'):
                     if not suppress_warnings_non_standardised_attributes:
-                        warnings.warn(message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
-                                              f'The attribute will be added on the instance',
-                                      category=NonStandardAttributeWarning)
+                        warnings.warn(
+                            message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                    f'The attribute will be added on the instance',
+                            category=NonStandardAttributeWarning)
                     d[attr_key] = attr
 
         if len(d.items()) > 0:
@@ -602,9 +628,10 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
         attribute_to_set = get_attribute_by_name(instance_or_attribute, key)
 
     if attribute_to_set is None:
-        warnings.warn(message=f'Attribute with name "{key}" can not be found on the given instance or attribute. Assume this is '
-                              f'a non standardized attribute. Setting the attribute with setattr',
-                      category=NonStandardAttributeWarning)
+        warnings.warn(
+            message=f'Attribute with name "{key}" can not be found on the given instance or attribute. Assume this is '
+                    f'a non standardized attribute. Setting the attribute with setattr',
+            category=NonStandardAttributeWarning)
         setattr(instance_or_attribute, key, value)
         return
 

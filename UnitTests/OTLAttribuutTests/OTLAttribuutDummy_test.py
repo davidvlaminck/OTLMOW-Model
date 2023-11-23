@@ -35,7 +35,7 @@ def test_dummy_StringFieldMetKard():
     assert len(generated_dummy_waarde) == 1
     assert isinstance(generated_dummy_waarde[0], str)
     assert generated_dummy_waarde[0].startswith('dummy_')
-    assert 5 <= len(generated_dummy_waarde[0]) <= 16
+    assert 6 <= len(generated_dummy_waarde[0]) <= 16
 
 
 def test_dummy_FloatOrDecimalField():

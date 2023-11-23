@@ -1,4 +1,5 @@
 ﻿import datetime
+import unittest
 from datetime import date
 from pathlib import Path
 
@@ -6,9 +7,11 @@ import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMObject import AIMObject
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
+from otlmow_model.OtlmowModel.Helpers import AssetCreator
 from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
@@ -979,3 +982,21 @@ def test_raise_value_errors_in_set_waarde_with_cardinality():
     instance = AllCasesTestClass()
     with pytest.raises(ValueError):
         instance.testKeuzelijstMetKard = ['1']
+
+
+def test_isinstance_checks():
+    instance = AllCasesTestClass()
+    dynamically_created_instance = AssetCreator.dynamic_create_instance_from_uri(
+        AllCasesTestClass.typeURI, model_directory=model_directory_path)
+    assert instance.is_instance_of(AllCasesTestClass)
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.is_instance_of(AIMObject)
+    assert not instance.is_instance_of(AnotherTestClass)
+
+    assert dynamically_created_instance.typeURI == AllCasesTestClass.typeURI
+    assert dynamically_created_instance.is_instance_of(AllCasesTestClass)
+    assert not dynamically_created_instance.is_instance_of(str)
+    assert dynamically_created_instance.is_instance_of(OTLObject)
+    # assert dynamically_created_instance.is_instance_of(AIMObject)
+    # TODO isinstance does not work for other classes
+    #  within the same model
