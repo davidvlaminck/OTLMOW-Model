@@ -344,6 +344,7 @@ def test_fill_with_dummy_data():
     assert instance.assetId.identificator is not None
     assert instance.testKeuzelijst is not None
     assert instance.testComplexTypeMetKard[0].testStringField is not None
+    assert instance.geometry is not None
 
 
 def test_fill_with_dummy_data_keuzelijsten(subtests):
