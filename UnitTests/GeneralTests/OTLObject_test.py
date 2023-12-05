@@ -634,7 +634,7 @@ def test_create_dict_from_asset_testclass(subtests):
         d = instance.create_dict_from_asset()
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
-                    'testDateField': '2022-02-02',
+                    'testDateField': date(year=2022, month=2, day=2),
                     'testDecimalField': 1.5,
                     'testKeuzelijst': 'waarde-2',
                     'testStringField': 'string'}
@@ -844,8 +844,7 @@ def test_to_dict_and_from_dict():
     instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
 
     created_dict = create_dict_from_asset(instance)
-    with pytest.warns(IncorrectTypeWarning):
-        created_instance = AllCasesTestClass.from_dict(created_dict, model_directory=model_directory_path)
+    created_instance = AllCasesTestClass.from_dict(created_dict, model_directory=model_directory_path)
     assert instance == created_instance
 
 

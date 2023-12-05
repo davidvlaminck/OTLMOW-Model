@@ -1,7 +1,6 @@
 ﻿import math
 import random
 import warnings
-from abc import ABC, ABCMeta
 from datetime import date, time
 from datetime import datetime
 from pathlib import Path
@@ -298,11 +297,11 @@ class OTLObject(object):
                         message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
                         category=ClassDeprecationWarning)
 
-    def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False,
+    def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False,
                                suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
         """Converts this asset into a dictionary representation"""
         return create_dict_from_asset(
-            otl_object=self, waarde_shortcut=waarde_shortcut, rdf=rdf,
+            otl_object=self, waarde_shortcut=waarde_shortcut, rdf=rdf, datetime_as_string=datetime_as_string,
             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
 
     def fill_with_dummy_data(self):
@@ -390,6 +389,7 @@ class OTLObject(object):
 
 
 def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bool = False,
+                           datetime_as_string: bool = False,
                            suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
     """Creates a dictionary from an OTLObject with key value pairs for attributes and their values. Saves the type of the object in typeURI (or @type for the RDF dict)
 
@@ -399,6 +399,8 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     :type: bool
     :param rdf: whether to generate a dictionary where the key's are the URI's of the attributes rather than the names, defaults to False
     :type: bool
+    :param datetime_as_string: whether to convert dates, times and datetimes to strings, defaults to False
+    :type: bool
     :param suppress_warnings_non_standardised_attributes: whether to suppress the warning that are raised because the object has attributes that aren't standardised
     :type: bool
 
@@ -406,11 +408,11 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     :rtype: OTLObject"""
     if rdf:
         d = _recursive_create_rdf_dict_from_asset(
-            asset=otl_object, waarde_shortcut=waarde_shortcut,
+            asset=otl_object, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
     else:
         d = _recursive_create_dict_from_asset(
-            asset=otl_object, waarde_shortcut=waarde_shortcut,
+            asset=otl_object, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
 
     if d is None:
@@ -422,14 +424,15 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     return d
 
 
-def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list, dict], waarde_shortcut: bool = False,
-                                      suppress_warnings_non_standardised_attributes: bool = False) -> Union[
-    Dict, List[Dict]]:
+def _recursive_create_dict_from_asset(
+        asset: Union[OTLObject, OTLAttribuut, list, dict], waarde_shortcut: bool = False,
+        datetime_as_string: bool=False, suppress_warnings_non_standardised_attributes: bool = False
+) -> Union[Dict, List[Dict]]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         l = []
         for item in asset:
             dict_item = _recursive_create_dict_from_asset(
-                asset=item, waarde_shortcut=waarde_shortcut,
+                asset=item, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
                 suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
             if dict_item is not None:
                 l.append(dict_item)
@@ -458,17 +461,20 @@ def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list
                                 d[attr.naam] = dict_item
                     else:
                         dict_item = _recursive_create_dict_from_asset(
-                            asset=attr.waarde, waarde_shortcut=waarde_shortcut,
+                            asset=attr.waarde, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
                             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
                         if dict_item is not None:
                             d[attr.naam] = dict_item
                 else:
-                    if attr.field == TimeField:
-                        d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
-                    elif attr.field == DateField:
-                        d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
-                    elif attr.field == DateTimeField:
-                        d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                    if datetime_as_string:
+                        if attr.field == TimeField:
+                            d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
+                        elif attr.field == DateField:
+                            d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
+                        elif attr.field == DateTimeField:
+                            d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                        else:
+                            d[attr.naam] = attr.waarde
                     else:
                         d[attr.naam] = attr.waarde
             else:
@@ -486,12 +492,13 @@ def _recursive_create_dict_from_asset(asset: Union[OTLObject, OTLAttribuut, list
 
 def _recursive_create_rdf_dict_from_asset(
         asset: Union[OTLObject, OTLAttribuut, list, dict], waarde_shortcut: bool = False,
+        datetime_as_string: bool = False,
         suppress_warnings_non_standardised_attributes: bool = False) -> Union[Dict, List[Dict]]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         l = []
         for item in asset:
             dict_item = _recursive_create_rdf_dict_from_asset(
-                asset=item, waarde_shortcut=waarde_shortcut,
+                asset=item, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
                 suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
             if dict_item is not None:
                 l.append(dict_item)
@@ -518,16 +525,16 @@ def _recursive_create_rdf_dict_from_asset(
                                 d[attr.objectUri] = dict_item
                     else:
                         dict_item = _recursive_create_rdf_dict_from_asset(
-                            asset=attr.waarde, waarde_shortcut=waarde_shortcut,
+                            asset=attr.waarde, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
                             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
                         if dict_item is not None:
                             d[attr.objectUri] = dict_item
                 else:
-                    if attr.field == TimeField:
-                        d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
-                    elif attr.field == DateField:
+                    if datetime_as_string and attr.field == TimeField:
+                            d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
+                    elif datetime_as_string and attr.field == DateField:
                         d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
-                    elif attr.field == DateTimeField:
+                    elif datetime_as_string and attr.field == DateTimeField:
                         d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
                     elif issubclass(attr.field, KeuzelijstField):
                         if isinstance(attr.waarde, list):
