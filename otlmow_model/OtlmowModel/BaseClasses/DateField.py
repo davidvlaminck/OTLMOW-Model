@@ -29,23 +29,26 @@ class DateField(OTLField):
         if isinstance(value, date):
             return value
         if isinstance(value, int):
-            warnings.warn(category=IncorrectTypeWarning, message=
-                'Assigned a int to a date datatype. Automatically converted to the correct type. Please change the type')
-            timestamp = datetime.utcfromtimestamp(value)
+            if log_warnings:
+                warnings.warn(category=IncorrectTypeWarning, message=
+                    'Assigned a int to a date datatype. Automatically converted to the correct type. Please change the type')
+            timestamp = datetime.fromtimestamp(value, UTC)
 
             return date(timestamp.year, timestamp.month, timestamp.day)
 
         if isinstance(value, str):
             try:
                 dt = datetime.strptime(value, "%Y-%m-%d")
-                warnings.warn(category=IncorrectTypeWarning, message=
-                    'Assigned a string to a date datatype. Automatically converted to the correct type. Please change the type')
+                if log_warnings:
+                    warnings.warn(category=IncorrectTypeWarning, message=
+                        'Assigned a string to a date datatype. Automatically converted to the correct type. Please change the type')
                 return date(dt.year, dt.month, dt.day)
             except ValueError:
                 try:
                     dt = datetime.strptime(value, "%d/%m/%Y")
-                    warnings.warn(category=IncorrectTypeWarning, message=
-                        'Assigned a string to a date datatype. Automatically converted to the correct type. Please change the type')
+                    if log_warnings:
+                        warnings.warn(category=IncorrectTypeWarning, message=
+                            'Assigned a string to a date datatype. Automatically converted to the correct type. Please change the type')
                     return date(dt.year, dt.month, dt.day)
                 except ValueError:
                     raise CouldNotConvertToCorrectTypeError(
