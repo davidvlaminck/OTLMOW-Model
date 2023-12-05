@@ -346,7 +346,7 @@ class OTLObject(object):
 
     @classmethod
     def from_dict(cls, input_dict: Dict, model_directory: Path = None, rdf: bool = False,
-                  waarde_shortcut: bool = False) -> object:
+                  datetime_as_string: bool = False, waarde_shortcut: bool = False) -> object:
         """Alternative constructor. Allows the instantiation of an object using a dictionary. Either start from the
         appropriate class or add a typeURI entry to the dictionary to get an instance of that type.
 
@@ -357,6 +357,8 @@ class OTLObject(object):
         :param rdf: whether to use uri's as keys instead of the names, defaults to False
         :type: bool
         :param waarde_shortcut: whether to use the waarde shortcut when processing the dictionary, defaults to False
+        :type: bool
+        :param datetime_as_string: whether to convert dates, times and datetimes to strings, defaults to False
         :type: bool
         :return: returns an instance where the values of the attributes matches the given dictionary
         :rtype: OTLObject"""
@@ -384,7 +386,8 @@ class OTLObject(object):
         for k, v in input_dict.items():
             if k == 'typeURI' or k == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI':
                 continue
-            set_value_by_dictitem(o, k, v, waarde_shortcut=waarde_shortcut, rdf=rdf)
+            set_value_by_dictitem(o, k, v, waarde_shortcut=waarde_shortcut, rdf=rdf,
+                                  datetime_as_string=datetime_as_string)
         return o
 
 
@@ -634,7 +637,7 @@ def get_attribute_by_name(instance_or_attribute, key: str) -> Union[OTLAttribuut
 # dict decoder = dict to asset object
 
 def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value,
-                          waarde_shortcut: bool = False, rdf: bool = False):
+                          waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False):
     if instance_or_attribute is None:
         raise ValueError('instance_or_attribute cannot be None')
     if key is None or key == '':
@@ -663,7 +666,8 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
                     attribute_to_set.waarde[index]._waarde.set_waarde(list_item)
                 else:  # complex / union
                     for k, v in list_item.items():
-                        set_value_by_dictitem(attribute_to_set.waarde[index], k, v, waarde_shortcut, rdf=rdf)
+                        set_value_by_dictitem(attribute_to_set.waarde[index], k, v, waarde_shortcut, rdf=rdf,
+                                              datetime_as_string=datetime_as_string)
 
         elif isinstance(value, dict):  # only complex / union possible
             if attribute_to_set.waarde is None:
@@ -671,14 +675,20 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
 
             if attribute_to_set.kardinaliteit_max != '1':
                 for k, v in value.items():
-                    set_value_by_dictitem(attribute_to_set.waarde[0], k, v, waarde_shortcut, rdf=rdf)
+                    set_value_by_dictitem(attribute_to_set.waarde[0], k, v, waarde_shortcut, rdf=rdf,
+                                          datetime_as_string=datetime_as_string)
             else:
                 for k, v in value.items():
-                    set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut, rdf=rdf)
+                    set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut, rdf=rdf,
+                                          datetime_as_string=datetime_as_string)
         else:  # must be a dte / kwantWrd
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()
 
+            if datetime_as_string and attribute_to_set.waarde._waarde.field in [TimeField, DateField, DateTimeField]:
+                value = attribute_to_set.waarde._waarde.field.convert_to_correct_type(value=value, log_warnings=False)
             attribute_to_set.waarde._waarde.set_waarde(value)
     else:
+        if datetime_as_string and attribute_to_set.field in [TimeField, DateField, DateTimeField]:
+           value = attribute_to_set.field.convert_to_correct_type(value=value, log_warnings=False)
         attribute_to_set.set_waarde(value)

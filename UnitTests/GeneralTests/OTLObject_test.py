@@ -1,6 +1,4 @@
-﻿import datetime
-import unittest
-from datetime import date
+﻿from datetime import date, datetime, time
 from pathlib import Path
 
 import pytest
@@ -8,11 +6,10 @@ import pytest
 from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMObject import AIMObject
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
 from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 from otlmow_model.OtlmowModel.Helpers import AssetCreator
-from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
@@ -56,9 +53,9 @@ def test_from_dict_non_standard_attributes():
 def test_from_dict_simple_single_attributes():
     input_dict = {'testBooleanField': True,
                   'testKeuzelijst': 'waarde-2',
-                  'testDateField': datetime.date(2023, 1, 1),
-                  'testDateTimeField': datetime.datetime(2023,1,1,10,11,12),
-                  'testTimeField': datetime.time(10, 11, 12),
+                  'testDateField': date(2023, 1, 1),
+                  'testDateTimeField': datetime(2023,1,1,10,11,12),
+                  'testTimeField': time(10, 11, 12),
                   'testDecimalField': 1.2,
                   'testIntegerField': 1,
                   'testStringField': 'test'}
@@ -68,9 +65,9 @@ def test_from_dict_simple_single_attributes():
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testBooleanField
     assert instance.testKeuzelijst == 'waarde-2'
-    assert instance.testDateField == datetime.date(2023, 1, 1)
-    assert instance.testDateTimeField == datetime.datetime(2023, 1, 1, 10, 11, 12)
-    assert instance.testTimeField == datetime.time(10, 11, 12)
+    assert instance.testDateField == date(2023, 1, 1)
+    assert instance.testDateTimeField == datetime(2023, 1, 1, 10, 11, 12)
+    assert instance.testTimeField == time(10, 11, 12)
     assert instance.testDecimalField == 1.2
     assert instance.testIntegerField == 1
     assert instance.testStringField == 'test'
@@ -80,9 +77,9 @@ def test_from_dict_rdf_simple_single_attributes():
     input_dict = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testBooleanField': True,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKeuzelijst': 'waarde-2',
-        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateField': datetime.date(2023, 1, 1),
-        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateTimeField': datetime.datetime(2023,1,1,10,11,12),
-        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testTimeField': datetime.time(10, 11, 12),
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateField': date(2023, 1, 1),
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateTimeField': datetime(2023,1,1,10,11,12),
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testTimeField': time(10, 11, 12),
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDecimalField': 1.2,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testIntegerField': 1,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringField': 'test'}
@@ -92,9 +89,9 @@ def test_from_dict_rdf_simple_single_attributes():
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testBooleanField
     assert instance.testKeuzelijst == 'waarde-2'
-    assert instance.testDateField == datetime.date(2023, 1, 1)
-    assert instance.testDateTimeField == datetime.datetime(2023, 1, 1, 10, 11, 12)
-    assert instance.testTimeField == datetime.time(10, 11, 12)
+    assert instance.testDateField == date(2023, 1, 1)
+    assert instance.testDateTimeField == datetime(2023, 1, 1, 10, 11, 12)
+    assert instance.testTimeField == time(10, 11, 12)
     assert instance.testDecimalField == 1.2
     assert instance.testIntegerField == 1
     assert instance.testStringField == 'test'
@@ -948,6 +945,62 @@ def test_create_ld_dict_from_asset_cardinality():
     }
 
     assert rdf_dict == expected
+
+
+def test_create_dict_from_asset_datetimes(recwarn):
+    instance = AllCasesTestClass()
+    instance.testDateField = date(year=2022, month=2, day=2)
+    instance.testDateTimeField = datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30)
+    instance.testTimeField = time(hour=12, minute=30, second=30)
+
+    d = create_dict_from_asset(instance)
+    expected = {
+        'testDateField': date(year=2022, month=2, day=2),
+        'testDateTimeField': datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30),
+        'testTimeField': time(hour=12, minute=30, second=30),
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+
+    assert d == expected
+
+    d = create_dict_from_asset(instance, datetime_as_string=True)
+    expected = {
+        'testDateField': '2022-02-02',
+        'testDateTimeField': '2022-02-02 12:30:30',
+        'testTimeField': '12:30:30',
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+
+    assert d == expected
+
+    assert len(recwarn) == 0
+
+
+def test_from_dict_datetimes(recwarn):
+    d = {
+        'testDateField': date(year=2022, month=2, day=2),
+        'testDateTimeField': datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30),
+        'testTimeField': time(hour=12, minute=30, second=30),
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+    instance = AllCasesTestClass.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testDateField == date(year=2022, month=2, day=2)
+    assert instance.testDateTimeField == datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30)
+    assert instance.testTimeField == time(hour=12, minute=30, second=30)
+
+    d = {
+        'testDateField': '2022-02-02',
+        'testDateTimeField': '2022-02-02 12:30:30',
+        'testTimeField': '12:30:30',
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+    instance = AllCasesTestClass.from_dict(d, model_directory=model_directory_path, datetime_as_string=True)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testDateField == date(year=2022, month=2, day=2)
+    assert instance.testDateTimeField == datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30)
+    assert instance.testTimeField == time(hour=12, minute=30, second=30)
+
+    assert len(recwarn) == 0
+
 
 
 def test_create_ld_dict_from_asset_ComplexTypeMetKard():
