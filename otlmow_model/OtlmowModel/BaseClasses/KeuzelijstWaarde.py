@@ -6,7 +6,7 @@ class KeuzelijstWaarde:
         self.objectUri = objectUri
         self.status = status
 
-    def print(self):
+    def __str__(self) -> str:
         if self.status == '' or self.status == 'ingebruik':
             return self.invulwaarde
 

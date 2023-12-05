@@ -70,6 +70,8 @@ def test_full_test_on_test_class_kard_more(subtests):
 
 def test_print_keuzelijstwaarde():
     instance = AllCasesTestClass()
-    assert instance._testKeuzelijst.field.options['waarde-4'].print() == 'waarde-4'
-    assert instance._testKeuzelijst.field.options['waarde-5'].print() == 'waarde-5 (uitgebruik)'
-    assert instance._testKeuzelijst.field.options['waarde-6'].print() == 'waarde-6 (verwijderd)'
+    instance.testKeuzelijst = 'waarde-5'
+    assert str(instance._testKeuzelijst.field.options['waarde-4']) == 'waarde-4'
+    assert instance.testKeuzelijst == 'waarde-5'
+    assert str(instance._testKeuzelijst.field.options['waarde-5']) == 'waarde-5 (uitgebruik)'
+    assert str(instance._testKeuzelijst.field.options['waarde-6']) == 'waarde-6 (verwijderd)'
