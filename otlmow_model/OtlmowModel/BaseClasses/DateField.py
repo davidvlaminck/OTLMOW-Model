@@ -1,5 +1,5 @@
 import warnings
-from datetime import date, datetime, timedelta, UTC
+from datetime import date, datetime, timedelta, timezone
 from random import randrange
 from typing import Optional, Any
 
@@ -35,7 +35,7 @@ class DateField(OTLField):
                 warnings.warn(category=IncorrectTypeWarning,
                               message='Assigned a int to a date datatype. '
                                       'Automatically converted to the correct type. Please change the type')
-            timestamp = datetime.fromtimestamp(value, UTC)
+            timestamp = datetime.fromtimestamp(value, timezone.utc)
 
             return date(timestamp.year, timestamp.month, timestamp.day)
 
