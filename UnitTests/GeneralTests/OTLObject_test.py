@@ -640,6 +640,15 @@ def test_create_dict_from_asset_testclass(subtests):
                     'testStringField': 'string'}
         assert d == expected
 
+        d = instance.create_dict_from_asset(datetime_as_string=True)
+        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+                    'testBooleanField': True,
+                    'testDateField': '2022-02-02',
+                    'testDecimalField': 1.5,
+                    'testKeuzelijst': 'waarde-2',
+                    'testStringField': 'string'}
+        assert d == expected
+
     with subtests.test(msg='simple attributes with cardinality'):
         instance = AllCasesTestClass()
         instance._testStringFieldMetKard.add_value('string')
