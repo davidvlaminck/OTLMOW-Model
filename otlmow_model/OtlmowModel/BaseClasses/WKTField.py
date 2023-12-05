@@ -1,4 +1,5 @@
 import warnings
+from typing import Any
 
 from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
 from otlmow_model.OtlmowModel.BaseClasses.WKTValidator import WKTValidator
@@ -14,12 +15,13 @@ class WKTField(OTLField):
     usagenote = ''
 
     @classmethod
-    def convert_to_correct_type(cls, value, log_warnings=True) -> object:
-        value = value.replace(' Z(', ' Z (').replace('T(', 'T (').replace('G(', 'G (').replace('N(', 'N (')
+    def convert_to_correct_type(cls, value: str, log_warnings: bool = True) -> str:
+        value = (value.replace(' Z(', ' Z (').replace('T(', 'T (')
+                 .replace('G(', 'G (').replace('N(', 'N ('))
         return value
 
     @classmethod
-    def validate(cls, value, attribuut):
+    def validate(cls, value: Any, attribuut) -> bool:
         if value is not None:
             if not isinstance(value, str):
                 raise TypeError(f'expecting string in {attribuut.naam}')
@@ -34,11 +36,9 @@ class WKTField(OTLField):
                 warnings.warn(message=error_msg, category=WrongGeometryWarning)
         return True
 
-    def __str__(self):
+    def __str__(self) -> str:
         return OTLField.__str__(self)
 
     @classmethod
-    def create_dummy_data(cls):
+    def create_dummy_data(cls) -> str:
         return 'POINT Z (200000 200000 0)'
-
-

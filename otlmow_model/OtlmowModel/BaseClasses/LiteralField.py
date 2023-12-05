@@ -2,4 +2,8 @@
 
 
 class LiteralField(StringField):
-    pass
+    def __init__(self):
+        StringField.__init__(self)
+
+    def __str__(self) -> str:
+        return StringField.__str__(self)

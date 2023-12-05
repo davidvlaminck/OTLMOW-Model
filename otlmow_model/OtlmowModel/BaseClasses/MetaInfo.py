@@ -1,10 +1,10 @@
-﻿from typing import Union, Generator
+﻿from typing import Union
 
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, OTLAttribuut
 
 
-def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = ''):
+def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = '') -> str:
     """Returns metadata of the object or attribute"""
     if attribute != '':
         if '.' in attribute:
@@ -27,7 +27,7 @@ def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = ''):
         return _meta_info_attribute(obj)
 
 
-def _meta_info_otl_object(otl_object: OTLObject):
+def _meta_info_otl_object(otl_object: OTLObject) -> str:
     object_string = f'Showing metadata of {otl_object.__class__.__name__}:\n' \
                     f'typeURI: {otl_object.typeURI}\n' \
                     f'definition: {otl_object.__doc__}\n'
@@ -47,7 +47,7 @@ def _meta_info_otl_object(otl_object: OTLObject):
     return object_string[:-1]
 
 
-def _meta_info_attribute(attribute: OTLAttribuut):
+def _meta_info_attribute(attribute: OTLAttribuut) -> str:
     object_string = f'Showing metadata of {attribute.naam}:\n' \
                     f'typeURI: {attribute.objectUri}\n' \
                     f'definition: {attribute.definition}\n'
@@ -61,7 +61,8 @@ def _meta_info_attribute(attribute: OTLAttribuut):
         for i, k in enumerate(attribute.field.options.keys()):
             object_string += '    ' + k + '\n'
             if i >= 9:
-                object_string += f'    ...\nFor the full list, review the class {attribute.field.naam} or go to {attribute.field.codelist}\n'
+                object_string += (f'    ...\nFor the full list, review the '
+                                  f'class {attribute.field.naam} or go to {attribute.field.codelist}\n')
                 break
 
     if attribute.field.waardeObject is not None:

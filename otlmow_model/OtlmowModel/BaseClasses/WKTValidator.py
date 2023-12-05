@@ -1,3 +1,6 @@
+from typing import List
+
+
 class WKTValidator:
     coord_params = {
         'POINT': {'level': 1, 'min': 1, 'len_point': 2},
@@ -66,7 +69,7 @@ class WKTValidator:
             return True
 
     @classmethod
-    def get_coords_list_from_wkt_string(cls, input_string):
+    def get_coords_list_from_wkt_string(cls, input_string) -> List:
         coords_string = input_string.split(' (')[1][:-1].replace(', ', ',').replace(' ,', ',')
         coords_list = []
         cls.split_and_add_to_list(coords_list, coords_string)

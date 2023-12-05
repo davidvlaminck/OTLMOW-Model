@@ -1,4 +1,6 @@
 _missing = object()
+
+
 class cached_property(object):
     """A decorator that converts a function into a lazy property.  The
     function wrapped is called the first time to retrieve the result

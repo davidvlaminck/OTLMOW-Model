@@ -1,6 +1,7 @@
 ﻿import decimal
 import logging
 import random
+from typing import Optional, Any
 
 from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
@@ -15,13 +16,13 @@ class FloatOrDecimalField(OTLField):
     usagenote = 'https://www.w3.org/TR/xmlschema-2/#decimal'
 
     @classmethod
-    def convert_to_correct_type(cls, value, log_warnings=True):
+    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[float]:
         if value is None:
             return None
         if isinstance(value, bool):
             if log_warnings:
-                logging.warning(
-                    'Assigned a boolean to a decimal datatype. Automatically converted to the correct type. Please change the type')
+                logging.warning('Assigned a boolean to a decimal datatype. '
+                                'Automatically converted to the correct type. Please change the type')
             return value
         if isinstance(value, float):
             return value
@@ -30,16 +31,18 @@ class FloatOrDecimalField(OTLField):
         try:
             float_value = float(value)
             if log_warnings:
-                logging.warning(
-                    'Assigned a string to a decimal datatype. Automatically converted to the correct type. Please change the type')
+                logging.warning('Assigned a string to a decimal datatype. '
+                                'Automatically converted to the correct type. Please change the type')
             return float_value
         except ValueError:
-            raise CouldNotConvertToCorrectTypeError(f'"{value}" could not be converted to correct type (implied by {cls.__name__})')
+            raise CouldNotConvertToCorrectTypeError(
+                f'"{value}" could not be converted to correct type (implied by {cls.__name__})')
         except TypeError:
-            raise CouldNotConvertToCorrectTypeError(f'"{value}" could not be converted to correct type (implied by {cls.__name__})')
+            raise CouldNotConvertToCorrectTypeError(
+                f'"{value}" could not be converted to correct type (implied by {cls.__name__})')
 
     @classmethod
-    def validate(cls, value, attribuut):
+    def validate(cls, value: Any, attribuut) -> bool:
         if value is not None:
             if isinstance(value, bool) or isinstance(value, float):
                 return True
@@ -47,8 +50,8 @@ class FloatOrDecimalField(OTLField):
         return True
 
     @classmethod
-    def create_dummy_data(cls):
+    def create_dummy_data(cls) -> float:
         return round(random.random() * 100, 2)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return OTLField.__str__(self)

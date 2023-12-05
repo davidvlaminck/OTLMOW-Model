@@ -8,12 +8,13 @@ from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 class DteAssetTypeWaarden(WaardenObject):
     def __init__(self):
         WaardenObject.__init__(self)
-        self._typeURI = OTLAttribuut(field=StringField,
-                                     naam='typeURI',
-                                     label='typeURI',
-                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.typeURI',
-                                     definition='De uri van het assettype.',
-                                     owner=self)
+        self._typeURI = OTLAttribuut(
+            field=StringField,
+            naam='typeURI',
+            label='typeURI',
+            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.typeURI',
+            definition='De uri van het assettype.',
+            owner=self)
 
     @property
     def typeURI(self):
@@ -33,5 +34,5 @@ class DteAssetType(ComplexField):
     definition = 'Complex datatype om het assettype te benoemen.'
     waardeObject = DteAssetTypeWaarden
 
-    def __str__(self):
+    def __str__(self) -> str:
         return ComplexField.__str__(self)
