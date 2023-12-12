@@ -57,10 +57,10 @@ class WKTValidator:
         if level == 1:
             return cls.validate_coords_list(coords_list, geo_type)
         elif level == 2:
-            for coords in coords_list:
-                if not cls.validate_coords_list(coords, geo_type):
-                    return False
-            return True
+            return all(
+                cls.validate_coords_list(coords, geo_type)
+                for coords in coords_list
+            )
         elif level == 3:
             for coords in coords_list:
                 for coords2 in coords:
@@ -91,12 +91,11 @@ class WKTValidator:
 
             val_0 = point[0]
             if val_0 < 14637.2 or val_0 > 291015.3:
-               return False
+                return False
             val_1 = point[1]
             if val_1 < 22608.2 or val_1 > 246424.3:
                 return False
-            if len_point == 3:
-                if point[2] > 700:
-                    return False
+            if len_point == 3 and point[2] > 700:
+                return False
 
         return True
