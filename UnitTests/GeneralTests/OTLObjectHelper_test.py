@@ -5,10 +5,11 @@ import pytest
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
 from otlmow_model.OtlmowModel.Helpers.OTLObjectHelper import count_assets_by_type, \
     remove_duplicates_in_iterable_based_on_property, \
     compare_two_lists_of_objects_object_level, verify_asset_id_is_unique_within_list, \
-    compare_two_lists_of_objects_attribute_level, custom_dict_diff, is_relation
+    compare_two_lists_of_objects_attribute_level, custom_dict_diff, is_relation, is_directional_relation
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
@@ -235,3 +236,9 @@ def test_custom_dict_diff():
 def test_is_relation():
     assert not is_relation(AllCasesTestClass(), model_directory=model_directory_path)
     assert is_relation(Bevestiging(), model_directory=model_directory_path)
+
+
+def test_is_directional_relation():
+    assert not is_directional_relation(AllCasesTestClass(), model_directory=model_directory_path)
+    assert not is_directional_relation(Bevestiging(), model_directory=model_directory_path)
+    assert is_directional_relation(Voedt(), model_directory=model_directory_path)

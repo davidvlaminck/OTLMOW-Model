@@ -3,7 +3,8 @@ from pathlib import Path
 from typing import Iterable, List
 
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
-from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_relation_list
+from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_relation_list, \
+    get_hardcoded_directional_relation_list
 
 
 def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict:
@@ -126,3 +127,11 @@ def is_relation(otl_object: OTLObject, model_directory=Path(__file__).parent.par
     relation_list = get_hardcoded_relation_list()
     if type_uri in relation_list:
         return True
+
+
+def is_directional_relation(otl_object: OTLObject, model_directory=Path(__file__).parent.parent.parent) -> bool:
+    type_uri = otl_object.typeURI
+    relation_list = get_hardcoded_directional_relation_list()
+    if type_uri in relation_list:
+        return True
+
