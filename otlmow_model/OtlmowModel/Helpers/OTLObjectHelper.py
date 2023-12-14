@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Iterable, List
 
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_relation_list
 
 
 def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict:
@@ -118,3 +119,10 @@ def verify_asset_id_is_unique_within_list(dict_list) -> bool:
         return True
     except Exception as ex:
         raise ex
+
+
+def is_relation(otl_object: OTLObject, model_directory=Path(__file__).parent.parent.parent) -> bool:
+    type_uri = otl_object.typeURI
+    relation_list = get_hardcoded_relation_list()
+    if type_uri in relation_list:
+        return True
