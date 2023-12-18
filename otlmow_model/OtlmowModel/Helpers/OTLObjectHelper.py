@@ -1,6 +1,6 @@
 from collections import defaultdict
 from pathlib import Path
-from typing import Iterable, List
+from typing import Iterable, List, Dict
 
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
 from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_relation_list, \
@@ -109,17 +109,18 @@ def compare_two_lists_of_objects_attribute_level(first_list: List[OTLObject], se
     return list(map(lambda x: OTLObject.from_dict(x, model_directory), diff_list))
 
 
-def verify_asset_id_is_unique_within_list(dict_list) -> bool:
-    try:
-        asset_ids_list_1 = list(map(lambda x: x['assetId']['identificator'], dict_list))
-        asset_ids_set_1 = set(asset_ids_list_1)
-        if None in asset_ids_set_1:
-            raise ValueError('This list has a None value for assetId for at least one asset in this list')
-        if len(asset_ids_list_1) != len(asset_ids_set_1):
-            raise ValueError("There are non-unique assetId's in assets in this list")
-        return True
-    except Exception as ex:
-        raise ex
+def verify_asset_id_is_unique_within_list(dict_list: List[Dict]) -> bool:
+    d = {}
+    for asset_dict in dict_list:
+        asset_id = asset_dict['assetId']['identificator']
+        if asset_id is None:
+            raise ValueError(f'This list has a None value for assetId for at least one asset in this list:\n'
+                             f'{asset_dict}')
+        asset_d = d.get(asset_id)
+        if asset_d is not None:
+            raise ValueError(f"There are non-unique assetId's in assets in this list: {asset_id}")
+        d[asset_dict['assetId']['identificator']] = asset_dict
+    return True
 
 
 def is_relation(otl_object: OTLObject, model_directory=Path(__file__).parent.parent.parent) -> bool:
