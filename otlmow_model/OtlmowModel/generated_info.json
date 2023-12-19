@@ -1,0 +1,78 @@
+{
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VoedtAangestuurd":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftNetwerkProtectie":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsNetwerkECC":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsAdmOnderdeelVan":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftNetwerktoegang":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging":
+    {
+        "directional": false
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing":
+    {
+        "directional": false
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftToegangsprocedure":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsSWOnderdeelVan":
+    {
+        "directional": true
+    },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsSWGehostOp":
+    {
+        "directional": true
+    }
+}

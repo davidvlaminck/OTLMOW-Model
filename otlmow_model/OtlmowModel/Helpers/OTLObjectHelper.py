@@ -3,8 +3,7 @@ from pathlib import Path
 from typing import Iterable, List, Dict
 
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
-from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_relation_list, \
-    get_hardcoded_directional_relation_list
+from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_relation_dict
 
 
 def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict:
@@ -125,14 +124,15 @@ def verify_asset_id_is_unique_within_list(dict_list: List[Dict]) -> bool:
 
 def is_relation(otl_object: OTLObject, model_directory=Path(__file__).parent.parent.parent) -> bool:
     type_uri = otl_object.typeURI
-    relation_list = get_hardcoded_relation_list()
-    if type_uri in relation_list:
+    relation_dict = get_hardcoded_relation_dict()
+    if type_uri in relation_dict:
         return True
 
 
 def is_directional_relation(otl_object: OTLObject, model_directory=Path(__file__).parent.parent.parent) -> bool:
     type_uri = otl_object.typeURI
-    relation_list = get_hardcoded_directional_relation_list()
-    if type_uri in relation_list:
-        return True
-
+    relation_dict = get_hardcoded_relation_dict()
+    relation_info = relation_dict.get(type_uri)
+    if relation_info is None:
+        return False
+    return relation_dict[type_uri]['directional']
