@@ -18,7 +18,7 @@ def get_ns_and_name_from_uri(object_uri):
 
 
 def get_class_directory_from_ns(ns):
-    return 'Classes/' + get_titlecase_from_ns(ns)
+    return f'Classes/{get_titlecase_from_ns(ns)}'
 
 
 def get_titlecase_from_ns(ns: str) -> str:
@@ -54,7 +54,7 @@ def get_aim_id_from_uuid_and_typeURI(uuid: str, type_uri: str):
             encoded_uri = encode_short_uri(f'lgc:{ns}#{name}')
         else:
             encoded_uri = encode_short_uri(f'{ns}#{name}')
-    return uuid + '-' + encoded_uri
+    return f'{uuid}-{encoded_uri}'
 
 
 def validate_guid(uuid: str) -> Optional[Match]:
