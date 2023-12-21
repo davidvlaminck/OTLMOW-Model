@@ -1,14 +1,7 @@
 ﻿import json
 from pathlib import Path
 
-import pytest
-
-from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
-from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
 from model_update.ModelUpdater import ModelUpdater
-from otlmow_model.OtlmowModel.BaseClasses.MetaInfo import meta_info
-from otlmow_model.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 
 fake_github_root_path = Path(__file__).parent / 'FakeGitHubRoot'
 
@@ -47,7 +40,8 @@ def test_update_model_new_version():
     generate_version_info(version_info_file_path)
 
     ModelUpdater(github_root=fake_github_root_path).update_model(
-        model_version='2.9.6.0', otl_version='2.9.0', created_by='david.vlaminck')
+        model_version='2.9.6.0', otl_version='2.9.0', created_by='david.vlaminck', updated_class_model=False,
+        updated_enums=False, enums_updated=[])
 
     with open(version_info_file_path, encoding='utf-8') as file:
         written_data = json.load(file)
@@ -59,3 +53,21 @@ def test_update_model_new_version():
 
     version_info_file_path.unlink()
 
+
+def test_find_changed_enums():
+    kl_dir_path = Path(__file__).parent.parent.parent / 'otlmow_model' / 'OtlmowModel' / 'Datatypes'
+    toestand_file_path = kl_dir_path / 'KlAIMToestand.py'
+    new_file_path = kl_dir_path / 'KlNew.py'
+    toestand_orig_file_contents = toestand_file_path.read_text(encoding='utf-8')
+
+    toestand_file_path.write_text(f'{toestand_orig_file_contents}edited this file', encoding='utf-8')
+    new_file_path.write_text('new file', encoding='utf-8')
+    cmd = 'git add ./../../otlmow_model/OtlmowModel/Datatypes/KlNew.py'
+    from subprocess import Popen, PIPE
+    Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True).communicate()
+
+    changed_enums = ModelUpdater(github_root=fake_github_root_path).find_changed_enums()
+    assert changed_enums == ['KlAIMToestand', 'KlNew']
+
+    toestand_file_path.write_text(toestand_orig_file_contents, encoding='utf-8')
+    new_file_path.unlink()
