@@ -12,7 +12,7 @@ class DteAssetTypeWaarden(WaardenObject):
             field=StringField,
             naam='typeURI',
             label='typeURI',
-            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.typeURI',
+            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI',
             definition='De uri van het assettype.',
             owner=self)
 
