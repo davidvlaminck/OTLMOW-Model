@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
-from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_uri
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import dynamic_create_instance_from_uri
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 

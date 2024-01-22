@@ -6,10 +6,10 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import dynamic_create_instance_from_ns_and_name
 from otlmow_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
 from otlmow_model.OtlmowModel.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
 from otlmow_model.OtlmowModel.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
-from otlmow_model.OtlmowModel.Helpers.AssetCreator import dynamic_create_instance_from_ns_and_name
 from otlmow_model.OtlmowModel.Helpers.RelationCreator import create_relation
 
 

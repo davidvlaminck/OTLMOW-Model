@@ -7,9 +7,9 @@ from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMObject impo
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, \
+    dynamic_create_instance_from_uri, dynamic_create_type_from_uri
 from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
-from otlmow_model.OtlmowModel.Helpers import AssetCreator
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
@@ -1047,7 +1047,7 @@ def test_raise_value_errors_in_set_waarde_with_cardinality():
 
 def test_isinstance_checks():
     instance = AllCasesTestClass()
-    dynamically_created_instance = AssetCreator.dynamic_create_instance_from_uri(
+    dynamically_created_instance = dynamic_create_instance_from_uri(
         AllCasesTestClass.typeURI, model_directory=model_directory_path)
     assert instance.is_instance_of(AllCasesTestClass)
     assert instance.typeURI == AllCasesTestClass.typeURI
@@ -1059,7 +1059,7 @@ def test_isinstance_checks():
     assert not dynamically_created_instance.is_instance_of(str)
     assert dynamically_created_instance.is_instance_of(OTLObject)
 
-    dynamic_aim_object_type = AssetCreator.dynamic_create_type_from_uri(
+    dynamic_aim_object_type = dynamic_create_type_from_uri(
         AIMObject.typeURI, model_directory=model_directory_path)
 
     assert dynamically_created_instance.is_instance_of(dynamic_aim_object_type)
