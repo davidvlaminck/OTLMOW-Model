@@ -8,7 +8,7 @@ class KeuzelijstWaarde:
         self.status: str = status
 
     def __str__(self) -> str:
-        if self.status == '' or self.status == 'ingebruik':
+        if self.status in {'', 'ingebruik'}:
             return self.invulwaarde
 
-        return self.invulwaarde + ' (' + self.status + ')'
+        return f'{self.invulwaarde} ({self.status})'

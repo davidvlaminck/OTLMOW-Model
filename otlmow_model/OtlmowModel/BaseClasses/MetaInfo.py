@@ -32,9 +32,8 @@ def _meta_info_otl_object(otl_object: OTLObject) -> str:
                     f'typeURI: {otl_object.typeURI}\n' \
                     f'definition: {otl_object.__doc__}\n'
 
-    if hasattr(otl_object, 'deprecated_version'):
-        if otl_object.deprecated_version is not None:
-            object_string += f'deprecated since {otl_object.deprecated_version}\n'
+    if hasattr(otl_object, 'deprecated_version') and otl_object.deprecated_version is not None:
+        object_string += f'deprecated since {otl_object.deprecated_version}\n'
 
     object_string += 'attributes:\n'
 
@@ -52,14 +51,13 @@ def _meta_info_attribute(attribute: OTLAttribuut) -> str:
                     f'typeURI: {attribute.objectUri}\n' \
                     f'definition: {attribute.definition}\n'
 
-    if hasattr(attribute, 'deprecated_version'):
-        if attribute.deprecated_version != '':
-            object_string += f'deprecated since {attribute.deprecated_version}\n'
+    if hasattr(attribute, 'deprecated_version') and attribute.deprecated_version != '':
+        object_string += f'deprecated since {attribute.deprecated_version}\n'
 
     if isinstance(attribute.field(), KeuzelijstField):
         object_string += f'valid values:\n'
         for i, k in enumerate(attribute.field.options.keys()):
-            object_string += '    ' + k + '\n'
+            object_string += f'    {k}' + '\n'
             if i >= 9:
                 object_string += (f'    ...\nFor the full list, review the '
                                   f'class {attribute.field.naam} or go to {attribute.field.codelist}\n')
