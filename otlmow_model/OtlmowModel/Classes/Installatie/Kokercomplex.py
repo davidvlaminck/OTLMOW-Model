@@ -8,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Kokercomplex(AIMNaamObject, LijnGeometrie, VlakGeometrie):
-    """Een constructie met een gesloten doorsnede dat over de hele lengte doorloopt, continu ondersteund, bestaande uit 1 of meerdere kokercellen die 2 of meer locaties verbindt, met 1 of meerdere in- en uitgangen, ongeacht de toepassing."""
+    """Een constructie met een gesloten doorsnede dat over de hele lengte doorloopt, continu ondersteund, bestaande uit 1 of meerdere kokers die 2 of meer locaties verbindt, met 1 of meerdere in- en uitgangen, ongeacht de toepassing."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokercomplex'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

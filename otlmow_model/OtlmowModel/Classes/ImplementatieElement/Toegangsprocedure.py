@@ -3,6 +3,8 @@ from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
+from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
 from ...Datatypes.DtcToegangsprocedureBijlage import DtcToegangsprocedureBijlage, DtcToegangsprocedureBijlageWaarden
 from ...Datatypes.DtcToegangsprocedureToegangstijden import DtcToegangsprocedureToegangstijden, DtcToegangsprocedureToegangstijdenWaarden
@@ -14,7 +16,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Toegangsprocedure(AIMDBStatus, AIMToestand, PuntGeometrie):
+class Toegangsprocedure(AIMDBStatus, AIMToestand, OTLObject, RelationInteractor, PuntGeometrie):
     """De procedure die gevolgd moet worden om toegang te verkrijgen tot een object."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure'

@@ -11,8 +11,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
-    """Een kokercel is een opdeling van het kokercomplex in de lengte richting, het heeft een doorvoerende functie met een in- en uitgang en eventuele zijgangen, die met een gesloten doorsnede verbonden zijn.
-"""
+    """Een koker is een opdeling van het kokercomplex in de lengte richting, het heeft een doorvoerende functie met een in- en uitgang en eventuele zijgangen, die met een gesloten doorsnede verbonden zijn. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koker'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

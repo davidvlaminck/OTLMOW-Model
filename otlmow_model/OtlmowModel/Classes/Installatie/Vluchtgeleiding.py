@@ -4,10 +4,10 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kokerafsluiting(AIMNaamObject, VlakGeometrie):
-    """Het geheel van o.a. slagbomen,verkeerslichten en detectielussen in functie van de afsluiting van een koker."""
+class Vluchtgeleiding(AIMNaamObject, VlakGeometrie):
+    """Het geheel van componenten die ontworpen zijn om snel en effectief de evacuatie van mensen te faciliteren vanuit de voertuigkoker/rijwegkoker tot een veilige ruimte"""
 
-    typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokerafsluiting'
+    typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Vluchtgeleiding'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __init__(self):

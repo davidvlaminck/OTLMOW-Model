@@ -1,7 +1,9 @@
 # coding=utf-8
+from datetime import date
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.OtlmowModel.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.OtlmowModel.BaseClasses.ComplexField import ComplexField
+from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ..Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from ..Datatypes.KlAlgMimeType import KlAlgMimeType
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
@@ -32,6 +34,13 @@ class DtcDocumentWaarden(WaardenObject):
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcDocument.omschrijving',
                                           definition='Een korte toelichting over waar het document juist voor dient.',
                                           owner=self)
+
+        self._opmaakdatum = OTLAttribuut(field=DateField,
+                                         naam='opmaakdatum',
+                                         label='opmaakdatum',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcDocument.opmaakdatum',
+                                         definition='De datum waarop het document is opgemaakt.',
+                                         owner=self)
 
         self._uri = OTLAttribuut(field=URIField,
                                  naam='uri',
@@ -66,6 +75,15 @@ class DtcDocumentWaarden(WaardenObject):
     @omschrijving.setter
     def omschrijving(self, value):
         self._omschrijving.set_waarde(value, owner=self._parent)
+
+    @property
+    def opmaakdatum(self) -> date:
+        """De datum waarop het document is opgemaakt."""
+        return self._opmaakdatum.get_waarde()
+
+    @opmaakdatum.setter
+    def opmaakdatum(self, value):
+        self._opmaakdatum.set_waarde(value, owner=self._parent)
 
     @property
     def uri(self) -> str:

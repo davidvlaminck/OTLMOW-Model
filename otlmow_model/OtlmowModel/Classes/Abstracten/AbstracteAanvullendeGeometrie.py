@@ -3,7 +3,7 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
-from otlmow_model.OtlmowModel.BaseClasses.OTLAsset import OTLAsset
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
@@ -11,7 +11,7 @@ from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor):
+class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLObject, RelationInteractor):
     """Abstracte om de eigenschappen en relaties van AanvullendeGeometrie te bundelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie'
@@ -44,6 +44,13 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, Relation
                                   definition='De mensleesbare naam van een aanvullende geometrie. De beheerder kent deze naam toe of geeft de opdracht om deze toe te kennen.',
                                   owner=self)
 
+        self._notitie = OTLAttribuut(field=StringField,
+                                     naam='notitie',
+                                     label='notitie',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie.notitie',
+                                     definition='Extra notitie voor het object.',
+                                     owner=self)
+
     @property
     def assetId(self) -> DtcIdentificatorWaarden:
         """Unieke identificatie van de aanvullende geometrie zoals toegekend door de beheerder of n.a.v. eerste aanlevering door de leverancier."""
@@ -70,3 +77,12 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLAsset, Relation
     @naam.setter
     def naam(self, value):
         self._naam.set_waarde(value, owner=self)
+
+    @property
+    def notitie(self) -> str:
+        """Extra notitie voor het object."""
+        return self._notitie.get_waarde()
+
+    @notitie.setter
+    def notitie(self, value):
+        self._notitie.set_waarde(value, owner=self)

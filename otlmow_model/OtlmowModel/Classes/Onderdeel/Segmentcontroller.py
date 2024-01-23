@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Controller import Controller
 from ...Datatypes.KlControllerBeveiligingssleutel import KlControllerBeveiligingssleutel
 from ...Datatypes.KlSegmentcontrollerMerk import KlSegmentcontrollerMerk
 from ...Datatypes.KlSegmentcontrollerModelnaam import KlSegmentcontrollerModelnaam
-from ...BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -23,9 +23,9 @@ class Segmentcontroller(Controller):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Armatuurcontroller')
 
         self._beveil_igingssleutel = OTLAttribuut(field=KlControllerBeveiligingssleutel,
-                                                  naam='beveil?igingssleutel',
+                                                  naam='beveil_igingssleutel',
                                                   label='beveiligingssleutel',
-                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.beveil?igingssleutel',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.beveil_igingssleutel',
                                                   usagenote='Attribuut uit gebruik sinds versie 2.0.0 ',
                                                   deprecated_version='2.0.0',
                                                   definition='De encryptie die wordt toegepast om de verbinding tussen lokaal en centraal te beveiligen.',

@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,11 @@ class KlSegmentcontrollerMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSegmentcontrollerMerk'
     options = {
+        'smartnodes': KeuzelijstWaarde(invulwaarde='smartnodes',
+                                       label='SmartNodes',
+                                       status='ingebruik',
+                                       definitie='SmartNodes',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSegmentcontrollerMerk/smartnodes')
     }
 
     @classmethod

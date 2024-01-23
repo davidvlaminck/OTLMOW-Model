@@ -97,7 +97,12 @@ class KlStortsteenKaliber(KeuzelijstField):
                                                label='korrelmaat 31.5/63',
                                                status='ingebruik',
                                                definitie='korrelmaat 31.5/63',
-                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStortsteenKaliber/korrelmaat-31.5-63')
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStortsteenKaliber/korrelmaat-31.5-63'),
+        'korrelmaat-40-80': KeuzelijstWaarde(invulwaarde='korrelmaat-40-80',
+                                             label='korrelmaat 40/80',
+                                             status='ingebruik',
+                                             definitie='korrelmaat 40/80',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStortsteenKaliber/korrelmaat-40-80')
     }
 
     @classmethod

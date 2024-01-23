@@ -44,6 +44,7 @@ class AIMObject(AIMDBStatus, AIMToestand, OTLAsset, RelationInteractor):
                                               naam='bestekPostNummer',
                                               label='bestekpostnummer',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.bestekPostNummer',
+                                              usagenote='Bevat de specifieke identificatie binnen een bestek van een post in de meetstaat. De notatie kan eender welke codering aannemen, bv. in de vorm van een nummer, id of tekst naargelang de notatie in het specifieke bestek.',
                                               kardinaliteit_max='*',
                                               definition='Een verwijzing naar een postnummer uit het specifieke bestek waar het object mee verband houdt.',
                                               owner=self)

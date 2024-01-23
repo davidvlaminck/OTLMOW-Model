@@ -52,7 +52,7 @@ class StalenSchroefpaal(Fundering, PuntGeometrie):
                                         naam='paallengte',
                                         label='paallengte',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenSchroefpaal.paallengte',
-                                        definition='De afstand, gemeten in millimeter, volgens de as van de stalen schroefpaal tussen de bovenkant  en het aanzetpeil.',
+                                        definition='De afstand, gemeten in millimeter, volgens de as van de stalen schroefpaal tussen de bovenkant en het aanzetpeil.',
                                         owner=self)
 
         self._staalspecificaties = OTLAttribuut(field=DtcConstructiestaalspecificaties,
@@ -89,7 +89,7 @@ class StalenSchroefpaal(Fundering, PuntGeometrie):
 
     @property
     def paallengte(self) -> KwantWrdInMillimeterWaarden:
-        """De afstand, gemeten in millimeter, volgens de as van de stalen schroefpaal tussen de bovenkant  en het aanzetpeil."""
+        """De afstand, gemeten in millimeter, volgens de as van de stalen schroefpaal tussen de bovenkant en het aanzetpeil."""
         return self._paallengte.get_waarde()
 
     @paallengte.setter

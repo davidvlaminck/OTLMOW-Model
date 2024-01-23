@@ -2,6 +2,7 @@
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.PutRelatie import PutRelatie
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlKamerKlasse import KlKamerKlasse
 from ...Datatypes.KlPutMateriaal import KlPutMateriaal
@@ -40,6 +41,20 @@ class Kamer(PutRelatie, VlakGeometrie):
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer.diepte',
                                     definition='De diepte van de putkamer in meter.',
                                     owner=self)
+
+        self._heeftOlieAfscheidendeKamer = OTLAttribuut(field=BooleanField,
+                                                        naam='heeftOlieAfscheidendeKamer',
+                                                        label='heeft olieafscheidende kamer',
+                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer.heeftOlieAfscheidendeKamer',
+                                                        definition='Geeft aan of er een olie afscheidende kamer aanwezig is',
+                                                        owner=self)
+
+        self._heeftZandvang = OTLAttribuut(field=BooleanField,
+                                           naam='heeftZandvang',
+                                           label='heeft zandvang',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer.heeftZandvang',
+                                           definition='Geeft aan of er een zandvang aanwezig is',
+                                           owner=self)
 
         self._hoogte = OTLAttribuut(field=KwantWrdInMillimeter,
                                     naam='hoogte',
@@ -95,6 +110,24 @@ class Kamer(PutRelatie, VlakGeometrie):
     @diepte.setter
     def diepte(self, value):
         self._diepte.set_waarde(value, owner=self)
+
+    @property
+    def heeftOlieAfscheidendeKamer(self) -> bool:
+        """Geeft aan of er een olie afscheidende kamer aanwezig is"""
+        return self._heeftOlieAfscheidendeKamer.get_waarde()
+
+    @heeftOlieAfscheidendeKamer.setter
+    def heeftOlieAfscheidendeKamer(self, value):
+        self._heeftOlieAfscheidendeKamer.set_waarde(value, owner=self)
+
+    @property
+    def heeftZandvang(self) -> bool:
+        """Geeft aan of er een zandvang aanwezig is"""
+        return self._heeftZandvang.get_waarde()
+
+    @heeftZandvang.setter
+    def heeftZandvang(self, value):
+        self._heeftZandvang.set_waarde(value, owner=self)
 
     @property
     def hoogte(self) -> KwantWrdInMillimeterWaarden:

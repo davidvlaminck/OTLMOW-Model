@@ -31,6 +31,7 @@ class Laagspanningsbord(AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Veiligheidsrelais')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedingskeuzeschakelaar')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LEDBord')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#MotorVermogenskring')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor')
@@ -109,6 +110,13 @@ class Laagspanningsbord(AIMNaamObject, PuntGeometrie):
                                               definition='Het elektrisch aansluitschema van het laagspanningsbord.',
                                               owner=self)
 
+        self._kabelberekeningsnota = OTLAttribuut(field=DtcDocument,
+                                                  naam='kabelberekeningsnota',
+                                                  label='kabelberekeningsnota',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord.kabelberekeningsnota',
+                                                  definition='De verzameling van alle berekeningen uitgevoerd om de secties en maximale lengtes van de kabels, gebruikt in de installatie, te bepalen.',
+                                                  owner=self)
+
         self._kortsluitVermogen = OTLAttribuut(field=KwantWrdInKiloAmpere,
                                                naam='kortsluitVermogen',
                                                label='kortsluitvermogen',
@@ -149,6 +157,15 @@ class Laagspanningsbord(AIMNaamObject, PuntGeometrie):
     @elektrischSchema.setter
     def elektrischSchema(self, value):
         self._elektrischSchema.set_waarde(value, owner=self)
+
+    @property
+    def kabelberekeningsnota(self) -> DtcDocumentWaarden:
+        """De verzameling van alle berekeningen uitgevoerd om de secties en maximale lengtes van de kabels, gebruikt in de installatie, te bepalen."""
+        return self._kabelberekeningsnota.get_waarde()
+
+    @kabelberekeningsnota.setter
+    def kabelberekeningsnota(self, value):
+        self._kabelberekeningsnota.set_waarde(value, owner=self)
 
     @property
     def kortsluitVermogen(self) -> KwantWrdInKiloAmpereWaarden:

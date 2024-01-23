@@ -11,7 +11,7 @@ from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrd
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Onderbouw(Laag, LaagDikte):
-    """Gedeelte van het baanlichaam dat tussen het baanbed en de verharding ligt. Deze omvat onderfundering,fundering en de straatlaag."""
+    """Gedeelte dat onder de verhardingslagen ligt. Deze omvat de aanvulling, omhulling, onderfundering, fundering en de straatlaag."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderbouw'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

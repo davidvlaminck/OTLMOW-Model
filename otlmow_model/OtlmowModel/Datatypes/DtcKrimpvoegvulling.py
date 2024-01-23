@@ -21,7 +21,7 @@ class DtcKrimpvoegvullingWaarden(WaardenObject):
                                              naam='technischeFiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcKrimpvoegvulling.technischeFiche',
-                                             definition='De technische fiche van het product  waarmee de krimpvoeg is gevuld.',
+                                             definition='De technische fiche van het product waarmee de krimpvoeg is gevuld.',
                                              owner=self)
 
     @property
@@ -35,7 +35,7 @@ class DtcKrimpvoegvullingWaarden(WaardenObject):
 
     @property
     def technischeFiche(self) -> DtcDocumentWaarden:
-        """De technische fiche van het product  waarmee de krimpvoeg is gevuld."""
+        """De technische fiche van het product waarmee de krimpvoeg is gevuld."""
         return self._technischeFiche.get_waarde()
 
     @technischeFiche.setter

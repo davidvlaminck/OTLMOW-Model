@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,16 @@ class KlTypeLandhoofd(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeLandhoofd'
     options = {
+        'hoog-gefundeerd': KeuzelijstWaarde(invulwaarde='hoog-gefundeerd',
+                                            label='hoog gefundeerd',
+                                            status='ingebruik',
+                                            definitie='hoog gefundeerd',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeLandhoofd/hoog-gefundeerd'),
+        'laag-gefundeerd': KeuzelijstWaarde(invulwaarde='laag-gefundeerd',
+                                            label='laag gefundeerd',
+                                            status='ingebruik',
+                                            definitie='laag gefundeerd',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeLandhoofd/laag-gefundeerd')
     }
 
     @classmethod

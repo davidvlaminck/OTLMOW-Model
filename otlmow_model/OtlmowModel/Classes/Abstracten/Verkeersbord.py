@@ -106,8 +106,8 @@ class Verkeersbord(PuntGeometrie):
                                       naam='aanzicht',
                                       label='aanzicht',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord.aanzicht',
-                                      usagenote='In radialen of graden ten opzichte van het noorden in wijzerzin.',
-                                      definition='De hoek waarin het fysiek bord gepositioneerd is ten opzichte van een vooropgestelde as (het ware noorden). De hoek wordt gemeten in radialen of graden ten opzichte van het noorden in wijzerzin.',
+                                      usagenote='In graden ten opzichte van het noorden in wijzerzin.',
+                                      definition='De hoek waarin het fysiek bord gepositioneerd is ten opzichte van een vooropgestelde as (het ware noorden). De hoek wordt gemeten in graden ten opzichte van het noorden in wijzerzin.',
                                       owner=self)
 
         self._afbeelding = OTLAttribuut(field=DtcDocument,
@@ -149,7 +149,7 @@ class Verkeersbord(PuntGeometrie):
 
     @property
     def aanzicht(self) -> KwantWrdInDecimaleGradenWaarden:
-        """De hoek waarin het fysiek bord gepositioneerd is ten opzichte van een vooropgestelde as (het ware noorden). De hoek wordt gemeten in radialen of graden ten opzichte van het noorden in wijzerzin."""
+        """De hoek waarin het fysiek bord gepositioneerd is ten opzichte van een vooropgestelde as (het ware noorden). De hoek wordt gemeten in graden ten opzichte van het noorden in wijzerzin."""
         return self._aanzicht.get_waarde()
 
     @aanzicht.setter

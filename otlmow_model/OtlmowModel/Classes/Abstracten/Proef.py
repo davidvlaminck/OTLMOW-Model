@@ -1,10 +1,10 @@
 # coding=utf-8
 from abc import abstractmethod
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Proef(AIMObject):
+class Proef(AIMNaamObject):
     """Abstracte voor de gemeenschappelijke eigenschappen en relaties alle proeven."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Proef'

@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LinkendElement import LinkendElement
 from ...Classes.Abstracten.OmhullendeInrichting import OmhullendeInrichting
@@ -25,6 +26,7 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
                                                naam='inwendigeDiameter',
                                                label='inwendige diameter',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hulpstuk.inwendigeDiameter',
+                                               kardinaliteit_max='*',
                                                definition='De diameter van de binnenzijde van het hulpstuk in millimeter.',
                                                owner=self)
 
@@ -46,11 +48,12 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
                                                 naam='uitwendigeDiameter',
                                                 label='uitwendige diameter',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hulpstuk.uitwendigeDiameter',
+                                                kardinaliteit_max='*',
                                                 definition='De diameter van de buitenzijde van het hulpstuk in millimeter.',
                                                 owner=self)
 
     @property
-    def inwendigeDiameter(self) -> KwantWrdInMillimeterWaarden:
+    def inwendigeDiameter(self) -> List[KwantWrdInMillimeterWaarden]:
         """De diameter van de binnenzijde van het hulpstuk in millimeter."""
         return self._inwendigeDiameter.get_waarde()
 
@@ -77,7 +80,7 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
         self._type.set_waarde(value, owner=self)
 
     @property
-    def uitwendigeDiameter(self) -> KwantWrdInMillimeterWaarden:
+    def uitwendigeDiameter(self) -> List[KwantWrdInMillimeterWaarden]:
         """De diameter van de buitenzijde van het hulpstuk in millimeter."""
         return self._uitwendigeDiameter.get_waarde()
 
