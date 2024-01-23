@@ -1,8 +1,8 @@
 {
   "current": {
-    "model_version": "2.9.5.0",
-    "otl_version": "2.9.0",
-    "created_at": "2023-12-14T16:05:00",
+    "model_version": "2.9.10.0",
+    "otl_version": "2.10.0",
+    "created_at": "2024-01-23T16:00:00",
     "created_by": "david.vlaminck"
   },
   "history": {
@@ -29,6 +29,16 @@
       "updated_class_model": false,
       "updated_enums": false,
       "enums_updated": []
+    },
+    "2.10.0.0": {
+      "previous_version": "2.9.5.0",
+      "updated_class_model": true,
+      "updated_enums": true,
+      "enums_updated": ['KlAlgSnelheidsregime', 'KlBewegingsvrijheidInVlakBijOplegging', 'KlDeurType',
+        'KlGrachtdoorsnede', 'KlLaagRol', 'KlMateriaalStraatkap', 'KlMateriaalVentilatiekanaal', 'KlOmvormerModelnaam',
+        'KlSegmentcontrollerMerk', 'KlSegmentcontrollerModelnaam', 'KlSeinbrugType', 'KlStortsteenKaliber',
+        'KlToegangsprocedureAandachtspunt', 'KlTypeBrugdeel', 'KlTypeLandhoofd', 'KlTypeNutsvoorziening',
+        'KlTypeSchanskorf', 'KlTypeVerankeringBrugdekvoeg', 'KlWvLedLichtpunthoogte', 'KlWvLedOverhang']
     }
   }
 }
