@@ -1,13 +1,12 @@
-﻿import math
+﻿import importlib
+import math
 import random
+import sys
 import warnings
 from datetime import date, time
 from datetime import datetime
 from pathlib import Path
-from typing import Union, Dict, List, Generator
-import importlib
-import sys
-from pathlib import Path
+from typing import Union, Dict, List, Generator, TypeVar
 
 from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from otlmow_model.OtlmowModel.BaseClasses.DateTimeField import DateTimeField
@@ -267,6 +266,7 @@ class OTLAttribuut:
             self.set_waarde(new_value_object)
 
 
+T = TypeVar('T', bound='OTLObject')
 class OTLObject(object):
     typeURI: str = None
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -345,8 +345,10 @@ class OTLObject(object):
         return issubclass(self.__class__, otl_type)
 
     @classmethod
-    def from_dict(cls, input_dict: Dict, model_directory: Path = None, rdf: bool = False,
-                  datetime_as_string: bool = False, waarde_shortcut: bool = False) -> object:
+    def from_dict(cls: T, input_dict: Dict, model_directory: Path = None, rdf: bool = False,
+                  datetime_as_string: bool = False, waarde_shortcut: bool = False,
+                  allow_non_otl_conform_attributes: bool = True, warn_for_non_otl_conform_attributes: bool = True
+                  ) -> T:
         """Alternative constructor. Allows the instantiation of an object using a dictionary. Either start from the
         appropriate class or add a typeURI entry to the dictionary to get an instance of that type.
 
@@ -359,6 +361,10 @@ class OTLObject(object):
         :param waarde_shortcut: whether to use the waarde shortcut when processing the dictionary, defaults to False
         :type: bool
         :param datetime_as_string: whether to convert dates, times and datetimes to strings, defaults to False
+        :type: bool
+        :param allow_non_otl_conform_attributes: whether to allow non OTL conform attributes. Raising ValueError if not, Defaults to True
+        :type: bool
+        :param warn_for_non_otl_conform_attributes: whether to generate warnings when using non OTL conform attributes. Defaults to True
         :type: bool
         :return: returns an instance where the values of the attributes matches the given dictionary
         :rtype: OTLObject"""
@@ -387,7 +393,9 @@ class OTLObject(object):
             if k in {'typeURI', 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI'}:
                 continue
             set_value_by_dictitem(o, k, v, waarde_shortcut=waarde_shortcut, rdf=rdf,
-                                  datetime_as_string=datetime_as_string)
+                                  datetime_as_string=datetime_as_string,
+                                  allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
+                                  warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
         return o
 
 
@@ -407,8 +415,8 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     :param suppress_warnings_non_standardised_attributes: whether to suppress the warning that are raised because the object has attributes that aren't standardised
     :type: bool
 
-    :return: returns an instance where the values of the attributes matches the given dictionary
-    :rtype: OTLObject"""
+    :return: returns an dictionary where the values of the dictionary matches the given input object
+    :rtype: dict"""
     if rdf:
         d = _recursive_create_rdf_dict_from_asset(
             asset=otl_object, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
@@ -510,7 +518,7 @@ def _recursive_create_rdf_dict_from_asset(
     else:
         d = {}
         for attr_key, attr in vars(asset).items():
-            if attr_key == '_parent' or attr_key == '_valid_relations':
+            if attr_key in {'_parent', '_valid_relations'}:
                 continue
             if isinstance(attr, OTLAttribuut):
                 if attr.waarde is None or attr.waarde == []:
@@ -629,14 +637,15 @@ def get_attribute_by_uri(instance_or_attribute, key: str) -> Union[OTLAttribuut,
 
 
 def get_attribute_by_name(instance_or_attribute, key: str) -> Union[OTLAttribuut, None]:
-    return getattr(instance_or_attribute, '_' + key, None)
+    return getattr(instance_or_attribute, f'_{key}', None)
 
 
 # dict encoder = asset object to dict
 # dict decoder = dict to asset object
 
 def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value,
-                          waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False):
+                          waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False,
+                          allow_non_otl_conform_attributes: bool = True, warn_for_non_otl_conform_attributes: bool = True):
     if instance_or_attribute is None:
         raise ValueError('instance_or_attribute cannot be None')
     if key is None or key == '':
@@ -648,12 +657,18 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
         attribute_to_set = get_attribute_by_name(instance_or_attribute, key)
 
     if attribute_to_set is None:
-        warnings.warn(
-            message=f'Attribute with name "{key}" can not be found on the given instance or attribute. Assume this is '
-                    f'a non standardized attribute. Setting the attribute with setattr',
-            category=NonStandardAttributeWarning)
-        setattr(instance_or_attribute, key, value)
-        return
+        if allow_non_otl_conform_attributes:
+            if warn_for_non_otl_conform_attributes:
+                warnings.warn(
+                    message=f'Attribute with name "{key}" can not be found on the given instance or attribute. '
+                            'Assuming this is a non standardized attribute. Setting the attribute with setattr',
+                    category=NonStandardAttributeWarning)
+            setattr(instance_or_attribute, key, value)
+            return
+        else:
+            raise ValueError(f'Attribute with name "{key}" can not be found on the given instance or attribute. '
+                             'Assuming this is a non standardized attribute. If you want to allow this, set '
+                             'allow_non_otl_conform_attributes to True.')
 
     if attribute_to_set.field.waardeObject is not None:  # complex / union / KwantWrd / dte
         if isinstance(value, list):
@@ -666,7 +681,8 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
                 else:  # complex / union
                     for k, v in list_item.items():
                         set_value_by_dictitem(attribute_to_set.waarde[index], k, v, waarde_shortcut, rdf=rdf,
-                                              datetime_as_string=datetime_as_string)
+                                              datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
+                                              warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
 
         elif isinstance(value, dict):  # only complex / union possible
             if attribute_to_set.waarde is None:
@@ -675,11 +691,13 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
             if attribute_to_set.kardinaliteit_max != '1':
                 for k, v in value.items():
                     set_value_by_dictitem(attribute_to_set.waarde[0], k, v, waarde_shortcut, rdf=rdf,
-                                          datetime_as_string=datetime_as_string)
+                                          datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
+                                          warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
             else:
                 for k, v in value.items():
                     set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut, rdf=rdf,
-                                          datetime_as_string=datetime_as_string)
+                                          datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
+                                          warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
         else:  # must be a dte / kwantWrd
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()
