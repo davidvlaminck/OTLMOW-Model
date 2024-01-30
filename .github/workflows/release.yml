@@ -3,7 +3,7 @@ run-name: Automatic release
 on:
   push:
     tags:
-      - v**
+      - 'v*'
   workflow_dispatch:
 
 jobs:
