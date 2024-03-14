@@ -242,7 +242,7 @@ class OTLAttribuut:
                 elif first_geom_type == 'LINESTRING Z':
                     self.set_waarde('LINESTRING Z (200000 200000 0, 200001 200001 1)')
                 elif first_geom_type == 'POLYGON Z':
-                    self.set_waarde('POLYGON Z ((200000 200000 0, 200001 200001 1, 200002 200002 2))')
+                    self.set_waarde('POLYGON Z ((200000 200000 0, 200001 200001 1, 200002 200002 2, 200000 200000 0))')
             else:
                 data = self.field.create_dummy_data()
                 if self.kardinaliteit_max != '1':
