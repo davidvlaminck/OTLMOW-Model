@@ -1,10 +1,11 @@
 ﻿import decimal
-import logging
 import random
+import warnings
 from typing import Optional, Any
 
-from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class FloatOrDecimalField(OTLField):
@@ -21,30 +22,30 @@ class FloatOrDecimalField(OTLField):
             return None
         if isinstance(value, bool):
             if log_warnings:
-                logging.warning('Assigned a boolean to a decimal datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a boolean to a decimal datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return value
         if isinstance(value, float):
             return value
-        if isinstance(value, int) or isinstance(value, decimal.Decimal):
+        if isinstance(value, (int, decimal.Decimal)):
             return float(value)
         try:
             float_value = float(value)
             if log_warnings:
-                logging.warning('Assigned a string to a decimal datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a string to a decimal datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return float_value
-        except ValueError:
+        except (ValueError, TypeError) as e:
             raise CouldNotConvertToCorrectTypeError(
-                f'"{value}" could not be converted to correct type (implied by {cls.__name__})')
-        except TypeError:
-            raise CouldNotConvertToCorrectTypeError(
-                f'"{value}" could not be converted to correct type (implied by {cls.__name__})')
+                f'"{value}" could not be converted to correct type (implied by {cls.__name__})'
+            ) from e
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
         if value is not None:
-            if isinstance(value, bool) or isinstance(value, float):
+            if isinstance(value, (bool, float)):
                 return True
             raise TypeError(f'expecting a number (int, float or Decimal) in {attribuut.naam}')
         return True

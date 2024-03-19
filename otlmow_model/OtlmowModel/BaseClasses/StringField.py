@@ -1,10 +1,11 @@
-﻿import logging
+﻿import random
 import string
-import random
+import warnings
 from typing import Optional, Any
 
-from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class StringField(OTLField):
@@ -21,18 +22,21 @@ class StringField(OTLField):
             return None
         if isinstance(value, str):
             return value
-        if isinstance(value, list) or isinstance(value, dict):
+        if isinstance(value, (list, dict)):
             raise CouldNotConvertToCorrectTypeError(f'The given value of object of type {type(value)} could not be '
                                                     f'converted to string (implied by {cls.__name__})')
         try:
             str_val = str(value)
             if log_warnings:
-                logging.warning('Assigned a non-string to a boolean datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a non-string to a string datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return str_val
-        except TypeError:
-            raise CouldNotConvertToCorrectTypeError(f'The given value of object of type {type(value)} could not be '
-                                                    f'converted to string (implied by {cls.__name__})')
+        except TypeError as e:
+            raise CouldNotConvertToCorrectTypeError(
+                f'The given value of object of type {type(value)} could not be '
+                f'converted to string (implied by {cls.__name__})'
+            ) from e
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:

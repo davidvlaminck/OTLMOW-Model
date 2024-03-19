@@ -2,6 +2,7 @@ import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_full_test_on_testclass_kard_1(subtests):
@@ -45,7 +46,9 @@ def test_full_test_on_testclass_kard_more(subtests, caplog):
         assert instance.testDecimalFieldMetKard[1] == 2
 
     with subtests.test(msg='assign good and bad typed value directly to DecimalField with kard *'):
-        instance.testDecimalFieldMetKard = [1.0, '2']
-        assert instance.testDecimalFieldMetKard[0] == 1.0
-        assert instance.testDecimalFieldMetKard[1] == 2
-        assert len(caplog.records) == 1
+        with pytest.raises(CouldNotConvertToCorrectTypeError):
+            instance.testDecimalFieldMetKard = ['a']
+        with pytest.warns(IncorrectTypeWarning):
+            instance.testDecimalFieldMetKard = [1.0, '2']
+            assert instance.testDecimalFieldMetKard[0] == 1.0
+            assert instance.testDecimalFieldMetKard[1] == 2

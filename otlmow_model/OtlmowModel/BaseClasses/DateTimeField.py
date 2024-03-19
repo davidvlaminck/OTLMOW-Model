@@ -1,11 +1,13 @@
 import datetime
 import logging
+import warnings
 from datetime import timedelta
 from random import randrange
 from typing import Optional, Any
 
 from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class DateTimeField(OTLField):
@@ -33,13 +35,15 @@ class DateTimeField(OTLField):
             return value
         if isinstance(value, datetime.date):
             if log_warnings:
-                logging.warning('Assigned a date to a datetime datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a date to a datetime datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return datetime.datetime(year=value.year, month=value.month, day=value.day)
         if isinstance(value, int):
             if log_warnings:
-                logging.warning('Assigned a int to a datetime datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a int to a datetime datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             timestamp = datetime.datetime.fromtimestamp(value, datetime.timezone.utc)
             return datetime.datetime(timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute,
                                      timestamp.second)
@@ -50,8 +54,9 @@ class DateTimeField(OTLField):
                 else:
                     dt = datetime.datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
                 if log_warnings:
-                    logging.warning('Assigned a string to a datetime datatype. '
-                                    'Automatically converted to the correct type. Please change the type')
+                    warnings.warn(category=IncorrectTypeWarning,
+                                  message='Assigned a string to a datetime datatype. '
+                                          'Automatically converted to the correct type. Please change the type')
                 return dt
             except ValueError:
                 try:
@@ -60,17 +65,20 @@ class DateTimeField(OTLField):
                     else:
                         dt = datetime.datetime.strptime(value, "%d/%m/%Y %H:%M:%S")
                     if log_warnings:
-                        logging.warning('Assigned a string to a datetime datatype. '
-                                        'Automatically converted to the correct type. Please change the type')
+                        warnings.warn(category=IncorrectTypeWarning,
+                                      message='Assigned a string to a datetime datatype. '
+                                              'Automatically converted to the correct type. Please change the type')
                     return dt
-                except Exception:
+                except Exception as e:
                     raise CouldNotConvertToCorrectTypeError(
-                        f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                        f'{value} could not be converted to correct type (implied by {cls.__name__})'
+                    ) from e
         try:
             return datetime.datetime(value)
-        except Exception:
+        except Exception as exc:
             raise CouldNotConvertToCorrectTypeError(
-                f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                f'{value} could not be converted to correct type (implied by {cls.__name__})'
+            ) from exc
 
     @classmethod
     def value_default(cls, value: datetime.datetime) -> str:

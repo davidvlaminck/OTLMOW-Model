@@ -1,10 +1,11 @@
-import logging
 import random
+import warnings
 from datetime import time, datetime, date, timezone
 from typing import Optional, Any
 
-from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class TimeField(OTLField):
@@ -19,25 +20,28 @@ class TimeField(OTLField):
     def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[time]:
         if value is None:
             return None
+        if isinstance(value, time):
+            return value
         if isinstance(value, bool):
             raise CouldNotConvertToCorrectTypeError(
                 f'{value} could not be converted to correct type (implied by {cls.__name__})')
-        if isinstance(value, time):
-            return value
         if isinstance(value, datetime):
             if log_warnings:
-                logging.warning('Assigned a datetime to a time datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a datetime to a time datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return time(value.hour, value.minute, value.second)
         if isinstance(value, date):
             if log_warnings:
-                logging.warning('Assigned a date to a time datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a date to a time datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return time()
         if isinstance(value, int):
             if log_warnings:
-                logging.warning('Assigned a int to a date datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned an integer to a time datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             timestamp = datetime.fromtimestamp(value, timezone.utc)
 
             return time(timestamp.hour, timestamp.minute, timestamp.second)
@@ -45,26 +49,30 @@ class TimeField(OTLField):
             try:
                 dt = datetime.strptime(value, "%H:%M:%S")
                 if log_warnings:
-                    logging.warning('Assigned a string to a time datatype. '
-                                    'Automatically converted to the correct type. Please change the type')
+                    warnings.warn(category=IncorrectTypeWarning,
+                                  message='Assigned a string to a time datatype. '
+                                          'Automatically converted to the correct type. Please change the type')
                 return time(dt.hour, dt.minute, dt.second)
             except ValueError:
                 try:
                     dt = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
                     if log_warnings:
-                        logging.warning('Assigned a string to a time datatype. '
-                                        'Automatically converted to the correct type. Please change the type')
+                        warnings.warn(category=IncorrectTypeWarning,
+                                      message='Assigned a string to a time datatype. '
+                                              'Automatically converted to the correct type. Please change the type')
                     return time(dt.hour, dt.minute, dt.second)
                 except ValueError:
                     try:
                         dt = datetime.strptime(value, "%d/%m/%Y %H:%M:%S")
                         if log_warnings:
-                            logging.warning('Assigned a string to a time datatype. '
-                                            'Automatically converted to the correct type. Please change the type')
+                            warnings.warn(category=IncorrectTypeWarning,
+                                          message='Assigned a string to a time datatype. '
+                                                  'Automatically converted to the correct type. Please change the type')
                         return time(dt.hour, dt.minute, dt.second)
-                    except Exception:
+                    except Exception as e:
                         raise CouldNotConvertToCorrectTypeError(
-                            f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                            f'{value} could not be converted to correct type (implied by {cls.__name__})'
+                        ) from e
         raise CouldNotConvertToCorrectTypeError(
             f'{value} could not be converted to correct type (implied by {cls.__name__})')
 
@@ -76,9 +84,7 @@ class TimeField(OTLField):
 
     @classmethod
     def value_default(cls, value: time) -> Optional[str]:
-        if value is None:
-            return None
-        return value.strftime("%H:%M:%S")
+        return None if value is None else value.strftime("%H:%M:%S")
 
     def __str__(self) -> str:
         return OTLField.__str__(self)

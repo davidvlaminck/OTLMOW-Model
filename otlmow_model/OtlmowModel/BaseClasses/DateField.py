@@ -24,9 +24,10 @@ class DateField(OTLField):
             raise CouldNotConvertToCorrectTypeError(
                 f'{value} could not be converted to correct type (implied by {cls.__name__})')
         if isinstance(value, datetime):
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a datetime to a date datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            if log_warnings:
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a datetime to a date datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return date(value.year, value.month, value.day)
         if isinstance(value, date):
             return value
@@ -55,9 +56,10 @@ class DateField(OTLField):
                                       message='Assigned a string to a date datatype. '
                                               'Automatically converted to the correct type. Please change the type')
                     return date(dt.year, dt.month, dt.day)
-                except ValueError:
+                except ValueError as e:
                     raise CouldNotConvertToCorrectTypeError(
-                        f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                        f'{value} could not be converted to correct type (implied by {cls.__name__})'
+                    ) from e
         raise CouldNotConvertToCorrectTypeError(
             f'{value} could not be converted to correct type (implied by {cls.__name__})')
 

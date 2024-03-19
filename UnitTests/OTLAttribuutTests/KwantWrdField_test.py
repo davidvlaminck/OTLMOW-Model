@@ -2,6 +2,7 @@ import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class NonStringableObject(object):
@@ -40,8 +41,9 @@ def test_full_test_on_testclass_kard_more(subtests):
     with subtests.test(msg='assign value to kwantWrdField with kard * by using add_empty_value method'):
         instance._testKwantWrdMetKard.add_empty_value()
         assert instance.testKwantWrdMetKard[0].waarde == 1
-        instance.testKwantWrdMetKard[1].waarde = '2.5'
-        assert instance.testKwantWrdMetKard[1].waarde == 2.5
+        with pytest.warns(IncorrectTypeWarning):
+            instance.testKwantWrdMetKard[1].waarde = '2.5'
+            assert instance.testKwantWrdMetKard[1].waarde == 2.5
 
     with subtests.test(msg='assign bad value to kwantWrdField with kard *'):
         with pytest.raises(CouldNotConvertToCorrectTypeError):

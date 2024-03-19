@@ -4,6 +4,7 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import 
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_full_test_on_testclass():
@@ -31,42 +32,32 @@ def test_validate():
         BooleanField.validate(1.0, boolean_attribute)
 
 
-def test_convert_to_correct_type(subtests):
+@pytest.mark.parametrize("value, expected", [
+    (None, None),
+    (True, True),
+    (False, False)
+])
+def test_convert_to_correct_type(subtests, value, expected):
     with subtests.test(msg='Correct values'):
-        assert BooleanField.convert_to_correct_type(None) is None
-        assert BooleanField.convert_to_correct_type(True)
-        assert not BooleanField.convert_to_correct_type(False)
-        assert not BooleanField.convert_to_correct_type(0)
-        assert BooleanField.convert_to_correct_type(1)
-
-    incorrect_values = ['a', '1', 'y', 'Y', object(), [], {}]
-    for value in incorrect_values:
-        with subtests.test(msg=f'Could not perform conversion: value = {value}'):
-            with pytest.raises(CouldNotConvertToCorrectTypeError):
-                BooleanField.convert_to_correct_type(value)
+        assert BooleanField.convert_to_correct_type(value) == expected
 
 
-def test_convert_to_correct_type_with_warning(subtests, caplog):
-    convertable_values_dict = {'true': True, 'True': True, 'false': False, 'False': False}
-    for value, expected in convertable_values_dict.items():
-        with subtests.test(msg=f'Test correct value after conversion for value = {value}'):
-            caplog.records.clear()
-            assert BooleanField.convert_to_correct_type(value) == expected
-            assert len(caplog.records) == 1
-            assert 'Assigned a string to a boolean datatype. Automatically converted to the correct type. Please ' \
-                   'change the type' in caplog.text
-            caplog.records.clear()
+@pytest.mark.parametrize("value", [
+    'a', '1', 'y', 'Y', object(), [], {}
+])
+def test_convert_to_incorrect_type(value):
+    with pytest.raises(CouldNotConvertToCorrectTypeError):
+        BooleanField.convert_to_correct_type(value)
 
-    with subtests.test(msg=f'Test correct value after conversion for value = 0'):
-        assert not BooleanField.convert_to_correct_type(0)
-        assert len(caplog.records) == 1
-        assert 'Assigned an integer to a boolean datatype. Automatically converted to the correct type. Please ' \
-               'change the type' in caplog.text
-        caplog.records.clear()
 
-    with subtests.test(msg=f'Test correct value after conversion for value = 1'):
-        assert BooleanField.convert_to_correct_type(1)
-        assert len(caplog.records) == 1
-        assert 'Assigned an integer to a boolean datatype. Automatically converted to the correct type. Please ' \
-               'change the type' in caplog.text
-        caplog.records.clear()
+@pytest.mark.parametrize("value, expected", [
+    ('true', True),
+    ('True', True),
+    ('false', False),
+    ('False', False),
+    (1, True),
+    (0, False)
+])
+def test_convert_to_correct_type_with_warning(subtests, value, expected, caplog):
+    with pytest.warns(IncorrectTypeWarning):
+        assert BooleanField.convert_to_correct_type(value) == expected
