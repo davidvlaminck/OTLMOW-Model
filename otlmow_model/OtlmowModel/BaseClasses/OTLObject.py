@@ -299,7 +299,21 @@ class OTLObject(object):
 
     def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False,
                                suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
-        """Converts this asset into a dictionary representation"""
+        """Converts this asset into a dictionary representation
+
+        :param waarde_shortcut: whether to use the waarde shortcut when processing the dictionary, defaults to False
+        :type: bool
+        :param rdf: whether to generate a dictionary where the keys are the URI's of the attributes
+        rather than the names, defaults to False
+        :type: bool
+        :param datetime_as_string: whether to convert dates, times and datetimes to strings, defaults to False
+        :type: bool
+        :param suppress_warnings_non_standardised_attributes: whether to suppress the warnings that are raised
+        because the object has attributes that aren't standardised
+        :type: bool
+
+        :return: returns a dictionary representation of this asset
+        :rtype: dict"""
         return create_dict_from_asset(
             otl_object=self, waarde_shortcut=waarde_shortcut, rdf=rdf, datetime_as_string=datetime_as_string,
             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
