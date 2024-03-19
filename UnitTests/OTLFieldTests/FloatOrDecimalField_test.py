@@ -5,6 +5,7 @@ import pytest
 from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_validate():
@@ -22,24 +23,36 @@ def test_validate():
         FloatOrDecimalField.validate(object(), float_attribute)
 
 
-def test_convert_to_correct_type(subtests, caplog):
+@pytest.mark.parametrize("value, expected", [
+    (None, None),
+    (1.0, 1),
+    (-2, -2),
+    (decimal.Decimal(1), 1.0),
+    (-2.345, -2.345)
+])
+def test_convert_to_correct_type(subtests, value, expected, caplog):
     with subtests.test(msg='Correct values'):
-        assert FloatOrDecimalField.convert_to_correct_type(None) is None
-        assert FloatOrDecimalField.convert_to_correct_type(1.0) == 1
-        assert FloatOrDecimalField.convert_to_correct_type(-2) == -2
-        assert FloatOrDecimalField.convert_to_correct_type(decimal.Decimal(1)) == 1.0
-        assert FloatOrDecimalField.convert_to_correct_type(-2.345) == -2.345
+        assert FloatOrDecimalField.convert_to_correct_type(value) == expected
+        assert len(caplog.records) == 0
 
-    convertable_values_list = [(True, 1.0), (False, 0.0), ('-1', -1.0), ('2.0000', 2.0)]
-    for value, expected in convertable_values_list:
-        with subtests.test(msg=f'Correct value after conversion: value = {value}'):
-            caplog.records.clear()
-            assert FloatOrDecimalField.convert_to_correct_type(value) == expected
-            assert len(caplog.records) == 1
-            caplog.records.clear()
 
-    incorrect_values = ['a', object(), [], {}]
-    for value in incorrect_values:
-        with subtests.test(msg=f'Could not perform conversion: value = {value}'):
-            with pytest.raises(CouldNotConvertToCorrectTypeError):
-                FloatOrDecimalField.convert_to_correct_type(value)
+@pytest.mark.parametrize("value, expected", [
+    (True, 1.0),
+    (False, 0.0),
+    ('-1', -1.0),
+    ('2.0000', 2.0)
+])
+def test_convert_to_correct_type_with_warning(subtests, value, expected, caplog):
+    with pytest.warns(IncorrectTypeWarning):
+        assert FloatOrDecimalField.convert_to_correct_type(value) == expected
+
+@pytest.mark.parametrize("value", [
+    'a', object(), [], {}
+])
+def test_convert_to_incorrect_type(subtests, value):
+    with subtests.test(msg='Incorrect values'):
+        with pytest.raises(CouldNotConvertToCorrectTypeError):
+            FloatOrDecimalField.convert_to_correct_type(value)
+
+
+

@@ -1,9 +1,10 @@
-import logging
 import random
+import warnings
 from typing import Optional, Any
 
 from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
 from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class BooleanField(OTLField):
@@ -23,24 +24,25 @@ class BooleanField(OTLField):
         if isinstance(value, str):
             if value.lower() == 'false':
                 if log_warnings:
-                    logging.warning('Assigned a string to a boolean datatype. '
-                                    'Automatically converted to the correct type. Please change the type')
+                    warnings.warn(category=IncorrectTypeWarning,
+                                  message='Assigned a string to a boolean datatype. '
+                                          'Automatically converted to the correct type. Please change the type')
                 return False
             elif value.lower() == 'true':
                 if log_warnings:
-                    logging.warning('Assigned a string to a boolean datatype. '
-                                    'Automatically converted to the correct type. Please change the type')
+                    warnings.warn(category=IncorrectTypeWarning,
+                                  message='Assigned a string to a boolean datatype. '
+                                          'Automatically converted to the correct type. Please change the type')
                 return True
             else:
                 raise CouldNotConvertToCorrectTypeError(
                     f'{value} could not be converted to correct type (implied by {cls.__name__})')
         elif isinstance(value, int):
             if log_warnings:
-                logging.warning('Assigned an integer to a boolean datatype. '
-                                'Automatically converted to the correct type. Please change the type')
-            if value == 0:
-                return False
-            return True
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned an integer to a boolean datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
+            return value != 0
         raise CouldNotConvertToCorrectTypeError(
             f'{value} could not be converted to correct type (implied by {cls.__name__})')
 

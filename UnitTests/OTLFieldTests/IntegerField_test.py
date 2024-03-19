@@ -3,6 +3,7 @@ import pytest
 from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_validate():
@@ -23,22 +24,31 @@ def test_validate():
         IntegerField.validate(1.0, integer_attribute)
 
 
-def test_convert_to_correct_type(subtests, caplog):
-    with subtests.test(msg='Correct values'):
-        assert IntegerField.convert_to_correct_type(None) is None
-        assert IntegerField.convert_to_correct_type(1) == 1
-        assert IntegerField.convert_to_correct_type(-2) == -2
+@pytest.mark.parametrize("value, expected", [
+    (None, None),
+    (1, 1),
+    (-2, -2)
+])
+def test_convert_to_correct_type_no_warnings(value, expected, caplog):
+    assert IntegerField.convert_to_correct_type(value) == expected
+    assert len(caplog.records) == 0
 
-    convertable_values_list = [(True, 1), (1.0, 1), (False, 0), ('-1', -1), ('2.0000', 2)]
-    for value, expected in convertable_values_list:
-        with subtests.test(msg=f'Correct value after conversion: value = {value}'):
-            caplog.records.clear()
-            assert IntegerField.convert_to_correct_type(value) == expected
-            assert len(caplog.records) == 1
-            caplog.records.clear()
 
-    incorrect_values = ['a', 0.1, '0.1', object(), [], {}]
-    for value in incorrect_values:
-        with subtests.test(msg=f'Could not perform conversion: value = {value}'):
-            with pytest.raises(CouldNotConvertToCorrectTypeError):
-                IntegerField.convert_to_correct_type(value)
+@pytest.mark.parametrize("value, expected", [
+    (True, 1),
+    (1.0, 1),
+    (False, 0),
+    ('-1', -1),
+    ('2.0000', 2)
+])
+def test_convert_to_correct_type_with_warnings(value, expected, caplog):
+    with pytest.warns(IncorrectTypeWarning):
+        assert IntegerField.convert_to_correct_type(value) == expected
+
+
+@pytest.mark.parametrize("value", [
+    'a', 0.1, '0.1', object(), [], {}
+])
+def test_convert_to_incorrect_type(value):
+    with pytest.raises(CouldNotConvertToCorrectTypeError):
+        IntegerField.convert_to_correct_type(value)

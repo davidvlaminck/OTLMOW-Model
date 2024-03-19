@@ -1,10 +1,11 @@
 import decimal
-import logging
 import random
+import warnings
 from typing import Optional, Any
 
-from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from otlmow_model.OtlmowModel.BaseClasses.OTLField import OTLField
+from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 class IntegerField(OTLField):
@@ -21,19 +22,21 @@ class IntegerField(OTLField):
             return None
         if isinstance(value, bool):
             if log_warnings:
-                logging.warning('Assigned a boolean to an integer datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a boolean to a integer datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return value
         if isinstance(value, int):
             return value
-        if isinstance(value, float) or isinstance(value, decimal.Decimal):
+        if isinstance(value, (float, decimal.Decimal)):
             i = int(value)
             if value - i != 0:
                 raise CouldNotConvertToCorrectTypeError(
                     f'{value} could not be converted to correct type (implied by {cls.__name__})')
             if log_warnings:
-                logging.warning('Assigned a float/decimal to an integer datatype. '
-                                'Automatically converted to the correct type. Please change the type')
+                warnings.warn(category=IncorrectTypeWarning,
+                              message='Assigned a float/decimal to a integer datatype. '
+                                      'Automatically converted to the correct type. Please change the type')
             return i
         try:
             if isinstance(value, str):
@@ -43,13 +46,15 @@ class IntegerField(OTLField):
                     raise CouldNotConvertToCorrectTypeError(
                         f'{value} could not be converted to correct type (implied by {cls.__name__})')
                 if log_warnings:
-                    logging.warning('Assigned a string to an integer datatype. '
-                                    'Automatically converted to the correct type. Please change the type')
+                    warnings.warn(category=IncorrectTypeWarning,
+                                  message='Assigned a string to a integer datatype. '
+                                          'Automatically converted to the correct type. Please change the type')
                 return int_value
             return int(value)
-        except Exception:
+        except Exception as e:
             raise CouldNotConvertToCorrectTypeError(
-                f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                f'{value} could not be converted to correct type (implied by {cls.__name__})'
+            ) from e
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
