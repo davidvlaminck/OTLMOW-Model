@@ -17,6 +17,7 @@ from otlmow_model.OtlmowModel.BaseClasses.URIField import URIField
 from otlmow_model.OtlmowModel.BaseClasses.UnionTypeField import UnionTypeField
 from otlmow_model.OtlmowModel.BaseClasses.UnionWaarden import UnionWaarden
 from otlmow_model.OtlmowModel.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
+from otlmow_model.OtlmowModel.Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
 from otlmow_model.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from otlmow_model.OtlmowModel.Exceptions.MethodNotApplicableError import MethodNotApplicableError
 from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
@@ -41,6 +42,7 @@ class OTLAttribuut:
         self._dotnotation = ''
         self.owner = owner
         self.readonlyValue = None
+        self.mark_to_be_cleared: bool = False
         self.waarde = None
         self.field = field
 
@@ -267,6 +269,8 @@ class OTLAttribuut:
 
 
 T = TypeVar('T', bound='OTLObject')
+
+
 class OTLObject(object):
     typeURI: str = None
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -296,6 +300,30 @@ class OTLObject(object):
                     warnings.warn(
                         message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
                         category=ClassDeprecationWarning)
+
+    def clear_value(self, attribute_name: str) -> None:
+        if attribute_name is None:
+            raise ValueError('attribute_name is None')
+        attr = get_attribute_by_name(self, attribute_name)
+        if attr is None:
+            raise ValueError(f'attribute {attribute_name} does not exist')
+        if attr.readonly:
+            raise ValueError(f'attribute {attribute_name} is readonly')
+        if attr.objectUri in {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMDBStatus.isActief',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMNaamObject.naam',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand'
+        } or attr.field.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator':
+            raise CanNotClearAttributeError(f'attribute {attribute_name} can not be cleared')
+
+        if attr.field.waardeObject is None:
+            attr.set_waarde(None)
+            attr.mark_to_be_cleared = True
+        else:
+            attr.waarde.mark_to_be_cleared = True
+            for a in attr.waarde:
+                if isinstance(a, OTLAttribuut):
+                    attr.waarde.clear_value(attribute_name=a.naam)
 
     def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False,
                                suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
@@ -468,36 +496,49 @@ def _recursive_create_dict_from_asset(
             if attr_key in {'_parent', '_valid_relations'}:
                 continue
             if isinstance(attr, OTLAttribuut):
-                if attr.waarde is None:
-                    continue
-                if attr.waarde == []:
-                    d[attr.naam] = []
-                    continue
+                if not attr.mark_to_be_cleared:
+                    if attr.waarde is None:
+                        continue
+                    if attr.waarde == []:
+                        d[attr.naam] = []
+                        continue
 
                 if attr.field.waardeObject is not None:  # complex
                     if waarde_shortcut and attr.field.waarde_shortcut_applicable:
                         if isinstance(attr.waarde, list):
-                            dict_item = [item.waarde for item in attr.waarde]
+                            if attr.waarde.mark_to_be_cleared:
+                                dict_item = [attr.field.clearing_value]
+                            else:
+                                dict_item = [item.waarde for item in attr.waarde]
                             if len(dict_item) > 0:
                                 d[attr.naam] = dict_item
                         else:
-                            dict_item = attr.waarde.waarde
+                            if attr.waarde.mark_to_be_cleared:
+                                dict_item = attr.waarde.field.clearing_value
+                            else:
+                                dict_item = attr.waarde.waarde
                             if dict_item is not None:
                                 d[attr.naam] = dict_item
                     else:
+                        if attr.mark_to_be_cleared:
+                            for a in attr.waarde:
+                                a.mark_to_be_cleared = True
+
                         dict_item = _recursive_create_dict_from_asset(
                             asset=attr.waarde, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
                             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
                         if dict_item is not None:
                             d[attr.naam] = dict_item
                 else:
-                    if datetime_as_string:
+                    if attr.mark_to_be_cleared:
+                        d[attr.naam] = attr.field.clearing_value
+                    elif datetime_as_string:
                         if attr.field == TimeField:
-                            d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
+                            d[attr.naam] = time.strftime(attr.waarde, format="%H:%M:%S")
                         elif attr.field == DateField:
-                            d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
+                            d[attr.naam] = date.strftime(attr.waarde, format="%Y-%m-%d")
                         elif attr.field == DateTimeField:
-                            d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                            d[attr.naam] = datetime.strftime(attr.waarde, format="%Y-%m-%d %H:%M:%S")
                         else:
                             d[attr.naam] = attr.waarde
                     else:
@@ -555,7 +596,9 @@ def _recursive_create_rdf_dict_from_asset(
                         if dict_item is not None:
                             d[attr.objectUri] = dict_item
                 else:
-                    if datetime_as_string and attr.field == TimeField:
+                    if attr.mark_to_be_cleared:
+                        d[attr.objectUri] = attr.field.clearing_value
+                    elif datetime_as_string and attr.field == TimeField:
                         d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
                     elif datetime_as_string and attr.field == DateField:
                         d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
@@ -659,7 +702,8 @@ def get_attribute_by_name(instance_or_attribute, key: str) -> Union[OTLAttribuut
 
 def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut], key: str, value,
                           waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False,
-                          allow_non_otl_conform_attributes: bool = True, warn_for_non_otl_conform_attributes: bool = True):
+                          allow_non_otl_conform_attributes: bool = True,
+                          warn_for_non_otl_conform_attributes: bool = True):
     if instance_or_attribute is None:
         raise ValueError('instance_or_attribute cannot be None')
     if key is None or key == '':
@@ -695,7 +739,8 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
                 else:  # complex / union
                     for k, v in list_item.items():
                         set_value_by_dictitem(attribute_to_set.waarde[index], k, v, waarde_shortcut, rdf=rdf,
-                                              datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
+                                              datetime_as_string=datetime_as_string,
+                                              allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
                                               warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
 
         elif isinstance(value, dict):  # only complex / union possible
@@ -705,12 +750,14 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
             if attribute_to_set.kardinaliteit_max != '1':
                 for k, v in value.items():
                     set_value_by_dictitem(attribute_to_set.waarde[0], k, v, waarde_shortcut, rdf=rdf,
-                                          datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
+                                          datetime_as_string=datetime_as_string,
+                                          allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
                                           warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
             else:
                 for k, v in value.items():
                     set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut, rdf=rdf,
-                                          datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
+                                          datetime_as_string=datetime_as_string,
+                                          allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
                                           warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
         else:  # must be a dte / kwantWrd
             if attribute_to_set.waarde is None:

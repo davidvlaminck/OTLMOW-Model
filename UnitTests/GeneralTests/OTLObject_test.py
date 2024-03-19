@@ -7,8 +7,12 @@ from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMObject impo
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, \
     dynamic_create_instance_from_uri, dynamic_create_type_from_uri
+from otlmow_model.OtlmowModel.Classes.Installatie.Gebouw import Gebouw
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Verkeersregelaar import Verkeersregelaar
+from otlmow_model.OtlmowModel.Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
 from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
@@ -1088,4 +1092,165 @@ def test_isinstance_checks():
 
     assert dynamically_created_instance.is_instance_of(AIMObject, dynamic_created=True,
                                                        model_directory=model_directory_path)
+
+
+def test_clear_value():
+    instance = AllCasesTestClass()
+    instance.testComplexType.testStringField = 'a'
+    instance.testIntegerField = 1
+    assert instance.testComplexType.testStringField == 'a'
+    assert instance.testIntegerField == 1
+    assert not instance._testIntegerField.mark_to_be_cleared
+    assert not instance.testComplexType._testStringField.mark_to_be_cleared
+
+    instance.clear_value('testIntegerField')
+    assert instance.testIntegerField is None
+    assert instance._testIntegerField.mark_to_be_cleared
+
+    instance.testComplexType.clear_value('testStringField')
+    assert instance.testComplexType.testStringField is None
+    assert instance.testComplexType._testStringField.mark_to_be_cleared
+
+
+def test_create_dict_from_asset_clear_value_complex():
+    instance = AllCasesTestClass()
+    instance.testComplexType.testStringField = 'a'
+    instance.testComplexType.clear_value('testStringField')
+
+    assert instance.testComplexType.testStringField is None
+    assert instance.testComplexType._testStringField.mark_to_be_cleared
+
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testComplexType': {'testStringField': '88888888'}
+        }
+    assert d == expected
+
+
+def test_create_dict_from_asset_clear_value_complex_on_prim_attribute():
+    instance = AllCasesTestClass()
+    instance.testComplexType.testStringField = 'a'
+    instance.clear_value('testComplexType')
+
+    assert instance.testComplexType.testStringField is None
+    assert instance.testComplexType._testStringField.mark_to_be_cleared
+    assert instance.testComplexType._testBooleanField.mark_to_be_cleared
+
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testComplexType': {'testStringField': '88888888'}
+        }
+    assert d == expected
+
+
+def test_create_dict_from_asset_clear_value_kard():
+    instance = AllCasesTestClass()
+    instance.testStringFieldMetKard = ['clear this value']
+    instance.clear_value('testStringFieldMetKard')
+
+    assert instance.testStringFieldMetKard is None
+    assert instance._testStringFieldMetKard.mark_to_be_cleared
+
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testStringFieldMetKard': '88888888'}
+    assert d == expected
+
+
+def test_create_dict_from_asset_clear_value_complex_kard():
+    instance = AllCasesTestClass()
+    instance.testComplexTypeMetKard[0].testStringField = 'clear this value'
+    instance.testComplexTypeMetKard[0].clear_value('testStringField')
+
+    assert instance.testComplexTypeMetKard[0].testStringField is None
+    assert instance.testComplexTypeMetKard[0]._testStringField.mark_to_be_cleared
+
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testComplexTypeMetKard': [{'testStringField': '88888888'}]
+    }
+    assert d == expected
+
+
+def test_create_dict_from_asset_clear_value_int():
+    instance = AllCasesTestClass()
+    instance.testIntegerField = 1
+    instance.clear_value('testIntegerField')
+    assert instance.testIntegerField is None
+    assert instance._testIntegerField.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testIntegerField': 88888888}
+    assert d == expected
+
+
+def test_create_dict_from_asset_clear_value_str():
+    instance = AllCasesTestClass()
+    instance.testStringField = 'clear this value'
+    instance.clear_value('testStringField')
+    assert instance.testStringField is None
+    assert instance._testStringField.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testStringField': '88888888'}
+    assert d == expected
+
+
+def test_create_dict_from_asset_clear_value_decimal():
+    instance = AllCasesTestClass()
+    instance.testDecimalField = -1.0
+    instance.clear_value('testDecimalField')
+    assert instance.testDecimalField is None
+    assert instance._testDecimalField.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testDecimalField': 88888888}
+    assert d == expected
+
+
+def test_create_dict_from_asset_clear_value_illegal_attributes():
+    instance = AllCasesTestClass()
+    relatie = Voedt()
+    with pytest.raises(ValueError):
+        instance.clear_value('typeURI')
+    with pytest.raises(CanNotClearAttributeError):
+        instance.clear_value('isActief')
+    with pytest.raises(CanNotClearAttributeError):
+        instance.clear_value('toestand')
+    with pytest.raises(CanNotClearAttributeError):
+        instance.clear_value('assetId')
+    with pytest.raises(CanNotClearAttributeError):
+        instance.assetId.clear_value('identificator')
+    with pytest.raises(CanNotClearAttributeError):
+        instance.assetId.clear_value('toegekendDoor')
+    with pytest.raises(CanNotClearAttributeError):
+        relatie.clear_value('bronAssetId')
+    with pytest.raises(CanNotClearAttributeError):
+        relatie.bronAssetId.clear_value('identificator')
+    with pytest.raises(CanNotClearAttributeError):
+        relatie.bronAssetId.clear_value('toegekendDoor')
+    with pytest.raises(CanNotClearAttributeError):
+        relatie.clear_value('doelAssetId')
+    with pytest.raises(CanNotClearAttributeError):
+        relatie.doelAssetId.clear_value('identificator')
+    with pytest.raises(CanNotClearAttributeError):
+        relatie.doelAssetId.clear_value('toegekendDoor')
+
+
+def test_from_dict_clear_value():
+    input_dict = {
+        'testComplexType': {'testStringField': '88888888'},
+        'testIntegerField': 88888888}
+    instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
+    assert instance.testIntegerField is None
+    assert instance._testIntegerField.mark_to_be_cleared
+    assert instance.testComplexType.testStringField is None
+    assert instance.testComplexType._testStringField.mark_to_be_cleared
 
