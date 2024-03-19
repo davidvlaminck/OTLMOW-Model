@@ -1215,6 +1215,19 @@ def test_create_dict_from_asset_clear_value_decimal():
     assert d == expected
 
 
+def test_create_dict_from_asset_clear_value_bool():
+    instance = AllCasesTestClass()
+    instance.testBooleanField = False
+    instance.clear_value('testBooleanField')
+    assert instance.testBooleanField is None
+    assert instance._testBooleanField.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testBooleanField': 88888888}
+    assert d == expected
+
+
 def test_create_dict_from_asset_clear_value_illegal_attributes():
     instance = AllCasesTestClass()
     relatie = Voedt()
