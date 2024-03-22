@@ -84,7 +84,7 @@ def test_from_dict_simple_single_attributes():
                   'testStringField': 'test'}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testBooleanField
     assert instance.testKeuzelijst == 'waarde-2'
@@ -110,7 +110,7 @@ def test_from_dict_rdf_simple_single_attributes():
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringField': 'test'}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testBooleanField
     assert instance.testKeuzelijst == 'waarde-2'
@@ -129,7 +129,7 @@ def test_from_dict_simple_attributes_with_cardinality():
                   'testStringFieldMetKard': ['1', '2']}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testDecimalFieldMetKard[0] == 1.2
     assert instance.testDecimalFieldMetKard[1] == 2.3
@@ -150,7 +150,7 @@ def test_from_dict_rdf_simple_attributes_with_cardinality():
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringFieldMetKard': ['1', '2']}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testDecimalFieldMetKard[0] == 1.2
     assert instance.testDecimalFieldMetKard[1] == 2.3
@@ -171,7 +171,7 @@ def test_from_dict_attributes_with_waarde_shortcut(subtests):
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path,
                                                waarde_shortcut=True)
         assert instance is not None
-        # assert isinstance(instance, AllCasesTestClass) # TODO
+        assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testEenvoudigType.waarde == '1'
         assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
@@ -187,7 +187,7 @@ def test_from_dict_attributes_with_waarde_shortcut(subtests):
                       'testKwantWrdMetKard': [{'waarde': 1.2}, {'waarde': 2.3}]}
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
         assert instance is not None
-        # assert isinstance(instance, AllCasesTestClass) # TODO
+        assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testEenvoudigType.waarde == '1'
         assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
@@ -208,7 +208,7 @@ def test_from_dict_rdf_attributes_with_waarde_shortcut(subtests):
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path,
                                                waarde_shortcut=True, rdf=True)
         assert instance is not None
-        # assert isinstance(instance, AllCasesTestClass) # TODO
+        assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testEenvoudigType.waarde == '1'
         assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
@@ -231,7 +231,7 @@ def test_from_dict_rdf_attributes_with_waarde_shortcut(subtests):
                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 2.3}]}
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
         assert instance is not None
-        # assert isinstance(instance, AllCasesTestClass) # TODO
+        assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testEenvoudigType.waarde == '1'
         assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
@@ -249,7 +249,7 @@ def test_from_dict_complex_single_attributes():
                   'testUnionType': {'unionString': 'union_test'}}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testComplexType.testBooleanField
     assert instance.testComplexType.testComplexType2.testStringField == 'test'
@@ -270,7 +270,7 @@ def test_from_dict_rdf_complex_single_attributes():
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test'}}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testComplexType.testBooleanField
     assert instance.testComplexType.testComplexType2.testStringField == 'test'
@@ -291,7 +291,7 @@ def test_from_dict_complex_attributes_with_cardinality():
     }
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testComplexTypeMetKard[0].testBooleanField
     assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField == 'test2.1'
@@ -332,7 +332,7 @@ def test_from_dict_rdf_complex_attributes_with_cardinality():
     }
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testComplexTypeMetKard[0].testBooleanField
     assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField == 'test2.1'
