@@ -354,7 +354,7 @@ def test_create_dict_from_asset_non_standard_attributes_warnings_suppressed(subt
         instance.testBooleanField = True
         instance.non_standard_attribute_no_warning = 'waarde-2'
 
-        d = instance.create_dict_from_asset(suppress_warnings_non_standardised_attributes=True)
+        d = instance.create_dict_from_asset(warn_for_non_otl_conform_attributes=False)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testStringField': 'string',
@@ -530,7 +530,7 @@ def test_from_dict_with_non_standardised_attributes(subtests, caplog):
         instance = AllCasesTestClass()
         instance.testStringField = 'string'
         instance.non_standardized_attribute = 'random'
-        d = create_dict_from_asset(instance, suppress_warnings_non_standardised_attributes=True)
+        d = create_dict_from_asset(instance, warn_for_non_otl_conform_attributes=False)
         assert len(caplog.records) == 0
 
     with subtests.test(msg='non-standard simple attribute, warnings not suppressed and not allowed'):
@@ -656,7 +656,7 @@ def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes(sub
         instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
         instance.non_standard_attribute = 'waarde-2'
 
-        rdf_dict = create_dict_from_asset(instance, rdf=True, suppress_warnings_non_standardised_attributes=True)
+        rdf_dict = create_dict_from_asset(instance, rdf=True, warn_for_non_otl_conform_attributes=False)
         expected = {
             '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
