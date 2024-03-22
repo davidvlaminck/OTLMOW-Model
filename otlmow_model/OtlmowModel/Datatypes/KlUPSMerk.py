@@ -22,7 +22,12 @@ class KlUPSMerk(KeuzelijstField):
                                     label='Prostar',
                                     status='ingebruik',
                                     definitie='Prostar',
-                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/prostar')
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/prostar'),
+        'pulse-dimension': KeuzelijstWaarde(invulwaarde='pulse-dimension',
+                                            label='Pulse Dimension',
+                                            status='ingebruik',
+                                            definitie='Pulse Dimension',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/pulse-dimension')
     }
 
     @classmethod

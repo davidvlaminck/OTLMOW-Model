@@ -13,6 +13,11 @@ class KlSegmentcontrollerMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSegmentcontrollerMerk'
     options = {
+        'lacroix': KeuzelijstWaarde(invulwaarde='lacroix',
+                                    label='Lacroix',
+                                    status='ingebruik',
+                                    definitie='Lacroix',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSegmentcontrollerMerk/lacroix'),
         'smartnodes': KeuzelijstWaarde(invulwaarde='smartnodes',
                                        label='SmartNodes',
                                        status='ingebruik',
