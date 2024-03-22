@@ -414,7 +414,7 @@ class OTLObject(object):
 
 
 def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bool = False,
-                           datetime_as_string: bool = False,
+                           datetime_as_string: bool = False, allow_non_otl_conform_attributes: bool = True,
                            suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
     """Creates a dictionary from an OTLObject with key value pairs for attributes and their values. Saves the type of the object in typeURI (or @type for the RDF dict)
 
@@ -426,7 +426,9 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     :type: bool
     :param datetime_as_string: whether to convert dates, times and datetimes to strings, defaults to False
     :type: bool
-    :param suppress_warnings_non_standardised_attributes: whether to suppress the warning that are raised because the object has attributes that aren't standardised
+    :param suppress_warnings_non_standardised_attributes: whether to suppress the warning that are raised because the object has attributes that aren't standardised, defaults to False
+    :type: bool
+    :param allow_non_otl_conform_attributes: whether to allow non OTL conform attributes. Raising ValueError if not, Defaults to True
     :type: bool
 
     :return: returns an dictionary where the values of the dictionary matches the given input object
@@ -434,11 +436,13 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     if rdf:
         d = _recursive_create_rdf_dict_from_asset(
             asset=otl_object, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
-            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
+            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes,
+            allow_non_otl_conform_attributes=allow_non_otl_conform_attributes)
     else:
         d = _recursive_create_dict_from_asset(
             asset=otl_object, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
-            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
+            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes,
+            allow_non_otl_conform_attributes=allow_non_otl_conform_attributes)
 
     if d is None:
         d = {}
@@ -451,14 +455,16 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
 
 def _recursive_create_dict_from_asset(
         asset: Union[OTLObject, OTLAttribuut, list, dict], waarde_shortcut: bool = False,
-        datetime_as_string: bool = False, suppress_warnings_non_standardised_attributes: bool = False
+        datetime_as_string: bool = False, suppress_warnings_non_standardised_attributes: bool = False,
+        allow_non_otl_conform_attributes: bool = True
 ) -> Union[Dict, List[Dict]]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         l = []
         for item in asset:
             dict_item = _recursive_create_dict_from_asset(
                 asset=item, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
-                suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
+                suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes,
+                allow_non_otl_conform_attributes=allow_non_otl_conform_attributes)
             if dict_item is not None:
                 l.append(dict_item)
         return l
@@ -487,7 +493,8 @@ def _recursive_create_dict_from_asset(
                     else:
                         dict_item = _recursive_create_dict_from_asset(
                             asset=attr.waarde, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
-                            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
+                            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes,
+                            allow_non_otl_conform_attributes=allow_non_otl_conform_attributes)
                         if dict_item is not None:
                             d[attr.naam] = dict_item
                 else:
@@ -504,12 +511,17 @@ def _recursive_create_dict_from_asset(
                         d[attr.naam] = attr.waarde
             else:
                 if not attr_key.startswith('_'):
-                    if not suppress_warnings_non_standardised_attributes:
-                        warnings.warn(
-                            message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
-                                    f'The attribute will be added on the instance', stacklevel=2,
-                            category=NonStandardAttributeWarning)
-                    d[attr_key] = attr
+                    if allow_non_otl_conform_attributes:
+                        if not suppress_warnings_non_standardised_attributes:
+                            warnings.warn(
+                                message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                        f'The attribute will be added on the instance.', stacklevel=2,
+                                category=NonStandardAttributeWarning)
+                        d[attr_key] = attr
+                    else:
+                        raise ValueError(f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                         f'If you want to allow this, set allow_non_otl_conform_attributes to True.')
+
 
         if len(d.items()) > 0:
             return d
@@ -517,14 +529,15 @@ def _recursive_create_dict_from_asset(
 
 def _recursive_create_rdf_dict_from_asset(
         asset: Union[OTLObject, OTLAttribuut, list, dict], waarde_shortcut: bool = False,
-        datetime_as_string: bool = False,
+        datetime_as_string: bool = False, allow_non_otl_conform_attributes: bool = True,
         suppress_warnings_non_standardised_attributes: bool = False) -> Union[Dict, List[Dict]]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         l = []
         for item in asset:
             dict_item = _recursive_create_rdf_dict_from_asset(
                 asset=item, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
-                suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
+                suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes,
+                allow_non_otl_conform_attributes=allow_non_otl_conform_attributes)
             if dict_item is not None:
                 l.append(dict_item)
         if len(l) > 0:
@@ -551,7 +564,8 @@ def _recursive_create_rdf_dict_from_asset(
                     else:
                         dict_item = _recursive_create_rdf_dict_from_asset(
                             asset=attr.waarde, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
-                            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
+                            suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes,
+                            allow_non_otl_conform_attributes=allow_non_otl_conform_attributes)
                         if dict_item is not None:
                             d[attr.objectUri] = dict_item
                 else:
@@ -574,12 +588,16 @@ def _recursive_create_rdf_dict_from_asset(
                         d[attr.objectUri] = attr.waarde
             else:
                 if not attr_key.startswith('_'):
-                    if not suppress_warnings_non_standardised_attributes:
-                        warnings.warn(
-                            message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
-                                    f'The attribute will be added on the instance',
-                            category=NonStandardAttributeWarning)
-                    d[attr_key] = attr
+                    if allow_non_otl_conform_attributes:
+                        if not suppress_warnings_non_standardised_attributes:
+                            warnings.warn(
+                                message=f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                        f'The attribute will be added on the instance.', stacklevel=2,
+                                category=NonStandardAttributeWarning)
+                        d[attr_key] = attr
+                    else:
+                        raise ValueError(f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                                         f'If you want to allow this, set allow_non_otl_conform_attributes to True.')
 
         if len(d.items()) > 0:
             return d
@@ -702,16 +720,10 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()
 
-            if attribute_to_set.kardinaliteit_max != '1':
-                for k, v in value.items():
-                    set_value_by_dictitem(attribute_to_set.waarde[0], k, v, waarde_shortcut, rdf=rdf,
-                                          datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
-                                          warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
-            else:
-                for k, v in value.items():
-                    set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut, rdf=rdf,
-                                          datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
-                                          warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
+            for k, v in value.items():
+                set_value_by_dictitem(attribute_to_set.waarde, k, v, waarde_shortcut, rdf=rdf,
+                                      datetime_as_string=datetime_as_string, allow_non_otl_conform_attributes=allow_non_otl_conform_attributes,
+                                      warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes)
         else:  # must be a dte / kwantWrd
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()
