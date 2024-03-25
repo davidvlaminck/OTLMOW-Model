@@ -474,7 +474,7 @@ def _recursive_create_dict_from_asset(
     else:
         d = {}
         for attr_key, attr in vars(asset).items():
-            if attr_key in {'_parent', '_valid_relations'}:
+            if attr_key in {'_parent', '_valid_relations', '_geometry_types'}:
                 continue
             if isinstance(attr, OTLAttribuut):
                 if attr.waarde is None:
@@ -524,6 +524,10 @@ def _recursive_create_dict_from_asset(
                     else:
                         raise ValueError(f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
                                          f'If you want to allow this, set allow_non_otl_conform_attributes to True.')
+                else:
+                    raise ValueError(
+                        f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                        f'While this is supported, the key can not start with "_".')
 
 
         if len(d.items()) > 0:
@@ -548,7 +552,7 @@ def _recursive_create_rdf_dict_from_asset(
     else:
         d = {}
         for attr_key, attr in vars(asset).items():
-            if attr_key in {'_parent', '_valid_relations'}:
+            if attr_key in {'_parent', '_valid_relations', '_geometry_types'}:
                 continue
             if isinstance(attr, OTLAttribuut):
                 if attr.waarde is None or attr.waarde == []:
@@ -601,6 +605,10 @@ def _recursive_create_rdf_dict_from_asset(
                     else:
                         raise ValueError(f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
                                          f'If you want to allow this, set allow_non_otl_conform_attributes to True.')
+                else:
+                    raise ValueError(
+                        f'{attr_key} is a non standardized attribute of {asset.__class__.__name__}. '
+                        f'While this is supported, the key can not start with "_".')
 
         if len(d.items()) > 0:
             return d
