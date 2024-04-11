@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "otlmow_model"
-version = "2.10.1.0"
+version = "2.10.2.0"
 authors = [{name = "David Vlaminck", email = "david.vlaminck@mow.vlaanderen.be"}]
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -25,17 +25,13 @@ classifiers = [
     "Natural Language :: Dutch",
     "Topic :: Software Development",
     "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Software Development :: Quality Assurance",
-
+    "Topic :: Software Development :: Quality Assurance"
 ]
 requires-python = ">=3.6"
 dependencies = []
 
 [tool.setuptools.packages.find]
-include = ["otlmow_model*"]
-
-[tool.setuptools.package-data]
-OtlmowModel = ["generated_info.json"]
+where = ["otlmow_model"]
 
 [project.urls]
 "Homepage" = "https://github.com/davidvlaminck/OTLMOW-Model"
