@@ -34,6 +34,9 @@ dependencies = []
 [tool.setuptools.packages.find]
 include = ["otlmow_model*"]
 
+[tool.setuptools.package-data]
+OtlmowModel = ["generated_info.json"]
+
 [project.urls]
 "Homepage" = "https://github.com/davidvlaminck/OTLMOW-Model"
 "Bug Tracker" = "https://github.com/davidvlaminck/OTLMOW-Model/issues"
