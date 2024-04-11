@@ -1,4 +1,5 @@
 import concurrent
+import multiprocessing
 import os
 from concurrent.futures import ThreadPoolExecutor
 from os.path import isfile
@@ -32,7 +33,7 @@ def test_instantiate_test_class_with_asset_creator():
 
 
 @pytest.mark.filterwarnings("ignore::DeprecationWarning")
-@pytest.mark.timeout(120)
+@pytest.mark.timeout(300)
 def test_instantiate_all_classes(subtests):
     classes_to_instantiate = {}
 
@@ -58,11 +59,15 @@ def test_instantiate_all_classes(subtests):
     classes_to_instantiate['TelecommunicationsAppurtenance'] = ('ImplementatieElement', 'TelecommunicationsAppurtenance')
     classes_to_instantiate['TelecommunicationsCable'] = ('ImplementatieElement', 'TelecommunicationsCable')
 
-    # use multithreading
-    executor = ThreadPoolExecutor(8)
-    futures = [executor.submit(subtest_instantiate, namespace=namespace, class_name=class_name, subtests=subtests)
-               for namespace, class_name in classes_to_instantiate.values()]
-    concurrent.futures.wait(futures)
+
+    # # use multithreading
+    # executor = ThreadPoolExecutor(8)
+    # futures = [executor.submit(subtest_instantiate, namespace=namespace, class_name=class_name, subtests=subtests)
+    #            for namespace, class_name in classes_to_instantiate.values()]
+    # concurrent.futures.wait(futures)
+
+    for namespace, class_name in classes_to_instantiate.values():
+        subtest_instantiate(namespace, class_name, subtests)
 
 
 def subtest_instantiate(namespace, class_name, subtests):
