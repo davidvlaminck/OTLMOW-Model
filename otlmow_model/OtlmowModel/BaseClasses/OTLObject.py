@@ -425,7 +425,7 @@ def create_dict_from_asset(otl_object: OTLObject, waarde_shortcut=False, rdf: bo
     :type: OTLObject
     :param waarde_shortcut: whether to use the waarde shortcut when processing the dictionary, defaults to False
     :type: bool
-    :param rdf: whether to generate a dictionary where the key's are the URI's of the attributes rather than the names, defaults to False
+    :param rdf: whether to generate a dictionary where the keys are the URI's of the attributes rather than the names, defaults to False
     :type: bool
     :param datetime_as_string: whether to convert dates, times and datetimes to strings, defaults to False
     :type: bool
