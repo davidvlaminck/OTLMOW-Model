@@ -49,6 +49,18 @@
         "KlTypeNutsvoorziening", "KlTypeWand", "KlUPSMerk", "KlUPSModelnaam", "KlWvLedLichtpunthoogte",
         "KlWvLedOverhang", "KlVerlichtingstoestelMerk"
       ]
+    },
+    "2.10.2.0": {
+      "previous_version": "2.10.1.0",
+      "updated_class_model": false,
+      "updated_enums": false,
+      "enums_updated": []
+    },
+    "2.10.3.0": {
+      "previous_version": "2.10.2.0",
+      "updated_class_model": false,
+      "updated_enums": false,
+      "enums_updated": []
     }
   }
 }
