@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_ee2cc0d27e44a038_OTLObject_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.4.4">coverage.py v7.4.4</a>,
-            created at 2024-03-22 09:48 +0000
+            created at 2024-04-15 20:58 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -513,7 +513,7 @@
     <p class="pln"><span class="n"><a id="t431" href="#t431">431</a></span><span class="t">                    <span class="str">'testStringField'</span><span class="op">:</span> <span class="str">'string'</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t432" href="#t432">432</a></span><span class="t">        <span class="key">assert</span> <span class="nam">d</span> <span class="op">==</span> <span class="nam">expected</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t433" href="#t433">433</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t434" href="#t434">434</a></span><span class="t">        <span class="nam">d</span> <span class="op">=</span> <span class="nam">instance</span><span class="op">.</span><span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">datetime_as_string</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t434" href="#t434">434</a></span><span class="t">        <span class="nam">d</span> <span class="op">=</span> <span class="nam">instance</span><span class="op">.</span><span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">cast_datetime</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t435" href="#t435">435</a></span><span class="t">        <span class="nam">expected</span> <span class="op">=</span> <span class="op">{</span><span class="str">'typeURI'</span><span class="op">:</span> <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t436" href="#t436">436</a></span><span class="t">                    <span class="str">'testBooleanField'</span><span class="op">:</span> <span class="key">True</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t437" href="#t437">437</a></span><span class="t">                    <span class="str">'testDateField'</span><span class="op">:</span> <span class="str">'2022-02-02'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
@@ -808,7 +808,7 @@
     <p class="pln"><span class="n"><a id="t726" href="#t726">726</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t727" href="#t727">727</a></span><span class="t">    <span class="key">assert</span> <span class="nam">d</span> <span class="op">==</span> <span class="nam">expected</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t728" href="#t728">728</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t729" href="#t729">729</a></span><span class="t">    <span class="nam">d</span> <span class="op">=</span> <span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">instance</span><span class="op">,</span> <span class="nam">datetime_as_string</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t729" href="#t729">729</a></span><span class="t">    <span class="nam">d</span> <span class="op">=</span> <span class="nam">create_dict_from_asset</span><span class="op">(</span><span class="nam">instance</span><span class="op">,</span> <span class="nam">cast_datetime</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t730" href="#t730">730</a></span><span class="t">    <span class="nam">expected</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t731" href="#t731">731</a></span><span class="t">        <span class="str">'testDateField'</span><span class="op">:</span> <span class="str">'2022-02-02'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t732" href="#t732">732</a></span><span class="t">        <span class="str">'testDateTimeField'</span><span class="op">:</span> <span class="str">'2022-02-02 12:30:30'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
@@ -838,7 +838,7 @@
     <p class="pln"><span class="n"><a id="t756" href="#t756">756</a></span><span class="t">        <span class="str">'testDateTimeField'</span><span class="op">:</span> <span class="str">'2022-02-02 12:30:30'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t757" href="#t757">757</a></span><span class="t">        <span class="str">'testTimeField'</span><span class="op">:</span> <span class="str">'12:30:30'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t758" href="#t758">758</a></span><span class="t">        <span class="str">'typeURI'</span><span class="op">:</span> <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t759" href="#t759">759</a></span><span class="t">    <span class="nam">instance</span> <span class="op">=</span> <span class="nam">AllCasesTestClass</span><span class="op">.</span><span class="nam">from_dict</span><span class="op">(</span><span class="nam">d</span><span class="op">,</span> <span class="nam">model_directory</span><span class="op">=</span><span class="nam">model_directory_path</span><span class="op">,</span> <span class="nam">datetime_as_string</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t759" href="#t759">759</a></span><span class="t">    <span class="nam">instance</span> <span class="op">=</span> <span class="nam">AllCasesTestClass</span><span class="op">.</span><span class="nam">from_dict</span><span class="op">(</span><span class="nam">d</span><span class="op">,</span> <span class="nam">model_directory</span><span class="op">=</span><span class="nam">model_directory_path</span><span class="op">,</span> <span class="nam">cast_datetime</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t760" href="#t760">760</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t761" href="#t761">761</a></span><span class="t">    <span class="key">assert</span> <span class="nam">instance</span><span class="op">.</span><span class="nam">typeURI</span> <span class="op">==</span> <span class="nam">AllCasesTestClass</span><span class="op">.</span><span class="nam">typeURI</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t762" href="#t762">762</a></span><span class="t">    <span class="key">assert</span> <span class="nam">instance</span><span class="op">.</span><span class="nam">testDateField</span> <span class="op">==</span> <span class="nam">date</span><span class="op">(</span><span class="nam">year</span><span class="op">=</span><span class="num">2022</span><span class="op">,</span> <span class="nam">month</span><span class="op">=</span><span class="num">2</span><span class="op">,</span> <span class="nam">day</span><span class="op">=</span><span class="num">2</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -891,7 +891,7 @@
             <a id="nextFileLink" class="nav" href="d_ee2cc0d27e44a038_OTLObject_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.4.4">coverage.py v7.4.4</a>,
-            created at 2024-03-22 09:48 +0000
+            created at 2024-04-15 20:58 +0000
         </p>
     </div>
 </footer>
