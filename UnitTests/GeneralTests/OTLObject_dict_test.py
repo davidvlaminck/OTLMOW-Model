@@ -431,7 +431,7 @@ def test_create_dict_from_asset_testclass(subtests):
                     'testStringField': 'string'}
         assert d == expected
 
-        d = instance.create_dict_from_asset(datetime_as_string=True)
+        d = instance.create_dict_from_asset(cast_datetime=True)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': '2022-02-02',
@@ -726,7 +726,7 @@ def test_create_dict_from_asset_datetimes(recwarn):
 
     assert d == expected
 
-    d = create_dict_from_asset(instance, datetime_as_string=True)
+    d = create_dict_from_asset(instance, cast_datetime=True)
     expected = {
         'testDateField': '2022-02-02',
         'testDateTimeField': '2022-02-02 12:30:30',
@@ -756,7 +756,7 @@ def test_from_dict_datetimes(recwarn):
         'testDateTimeField': '2022-02-02 12:30:30',
         'testTimeField': '12:30:30',
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
-    instance = AllCasesTestClass.from_dict(d, model_directory=model_directory_path, datetime_as_string=True)
+    instance = AllCasesTestClass.from_dict(d, model_directory=model_directory_path, cast_datetime=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testDateField == date(year=2022, month=2, day=2)

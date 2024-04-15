@@ -61,6 +61,12 @@
       "updated_class_model": false,
       "updated_enums": false,
       "enums_updated": []
+    },
+    "2.10.4.0": {
+      "previous_version": "2.10.3.0",
+      "updated_class_model": false,
+      "updated_enums": false,
+      "enums_updated": []
     }
   }
 }
