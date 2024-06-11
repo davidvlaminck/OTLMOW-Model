@@ -1,5 +1,5 @@
-name: Create release
-run-name: Automatic release
+name: Automatic update
+run-name: Automatic update of class model
 on:
   workflow_dispatch:
 
