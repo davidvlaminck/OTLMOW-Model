@@ -22,7 +22,7 @@ jobs:
         with:
           path: "requirements.txt"
       - name: Run automatic update
-        run: python3 -m automatic_update.py
+        run: python3 automatic_update.py
         working-directory: ./model_update
       - name: Commit files
         working-directory: .
