@@ -76,7 +76,7 @@ def test_find_changed_enums():
 
     toestand_file_path.write_text(f'{toestand_orig_file_contents}edited this file', encoding='utf-8')
     new_file_path.write_text('new file', encoding='utf-8')
-    cmd = 'git add ./../TestModel/OtlmowModel/Datatypes/KlNew.py'
+    cmd = 'git add ./UnitTests/TestModel/OtlmowModel/Datatypes/KlNew.py'
     from subprocess import Popen, PIPE
     Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True).communicate()
 
