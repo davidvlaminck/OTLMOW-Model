@@ -69,18 +69,19 @@ def test_update_model_new_version():
 
 
 def test_find_changed_enums():
-    kl_dir_path = Path(__file__).parent.parent.parent / 'otlmow_model' / 'OtlmowModel' / 'Datatypes'
+    kl_dir_path = Path(__file__).parent.parent / 'TestModel' / 'OtlmowModel' / 'Datatypes'
     toestand_file_path = kl_dir_path / 'KlAIMToestand.py'
     new_file_path = kl_dir_path / 'KlNew.py'
     toestand_orig_file_contents = toestand_file_path.read_text(encoding='utf-8')
 
     toestand_file_path.write_text(f'{toestand_orig_file_contents}edited this file', encoding='utf-8')
     new_file_path.write_text('new file', encoding='utf-8')
-    cmd = 'git add ./../../otlmow_model/OtlmowModel/Datatypes/KlNew.py'
+    cmd = 'git add ./../TestModel/OtlmowModel/Datatypes/KlNew.py'
     from subprocess import Popen, PIPE
     Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True).communicate()
 
-    changed_enums = ModelUpdater(github_root=fake_github_root_path).find_changed_enums()
+    changed_enums = ModelUpdater(github_root=fake_github_root_path).find_changed_enums(
+        model_path='UnitTests/TestModel/OtlmowModel')
     assert changed_enums == ['KlAIMToestand', 'KlNew']
 
     toestand_file_path.write_text(toestand_orig_file_contents, encoding='utf-8')
