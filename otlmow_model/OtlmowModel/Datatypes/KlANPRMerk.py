@@ -11,7 +11,7 @@ class KlANPRMerk(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlANPRMerk'
     definition = 'Het merk van de ANPR-camera.'
     status = 'ingebruik'
-    deprecated_version = '2.9.0'
+    deprecated_version = '2.9.0-RC3'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlANPRMerk'
     options = {
         'Macq': KeuzelijstWaarde(invulwaarde='Macq',

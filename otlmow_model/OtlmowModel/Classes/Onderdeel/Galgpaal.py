@@ -53,6 +53,13 @@ class Galgpaal(VRIDraagconstructie, PuntGeometrie):
                                             definition='De vorm van de dwarsdoorsnede van het opstaande deel van de galgpaal.',
                                             owner=self)
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Galgpaal.technischeFiche',
+                                             definition='Een bijlage waarin de detailtekeningen van de galgpaal zijn opgenomen.',
+                                             owner=self)
+
     @property
     def aantalLiggers(self) -> float:
         """Het aantal liggers waarmee de arm van de galgpaal is uitgevoerd."""
@@ -88,3 +95,12 @@ class Galgpaal(VRIDraagconstructie, PuntGeometrie):
     @dwarsdoorsnede.setter
     def dwarsdoorsnede(self, value):
         self._dwarsdoorsnede.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> DtcDocumentWaarden:
+        """Een bijlage waarin de detailtekeningen van de galgpaal zijn opgenomen."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)

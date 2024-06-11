@@ -12,7 +12,7 @@ class Mantelbuis(Buis, ContainerBuis):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Mantelbuis'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    deprecated_version = '2.8.0'
+    deprecated_version = '2.8.0-RC1'
 
     def __init__(self):
         super().__init__()
@@ -21,8 +21,8 @@ class Mantelbuis(Buis, ContainerBuis):
                                        naam='materiaal',
                                        label='materiaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Mantelbuis.materiaal',
-                                       usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
-                                       deprecated_version='2.8.0',
+                                       usagenote='Klasse uit gebruik sinds versie 2.8.0-RC1',
+                                       deprecated_version='2.8.0-RC1',
                                        definition='Bepaalt het materiaal van de mantelbuis.',
                                        owner=self)
 
