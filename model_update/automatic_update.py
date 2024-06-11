@@ -6,7 +6,7 @@ from subprocess import Popen, PIPE
 from otlmow_modelbuilder.ModelBuilder import ModelBuilder
 from otlmow_modelbuilder.OSLOInMemoryCreator import OSLOInMemoryCreator
 
-from model_update.ModelUpdater import ModelUpdater
+from ModelUpdater import ModelUpdater
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
