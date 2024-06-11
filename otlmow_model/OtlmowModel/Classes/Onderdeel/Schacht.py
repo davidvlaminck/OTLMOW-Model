@@ -22,7 +22,7 @@ class Schacht(PutRelatie, VlakGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompkamer')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bovenbouw', deprecated='2.1.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bovenbouw', deprecated='2.1.0-RC2')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pomphuis')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PutBovenbouw')
@@ -53,7 +53,7 @@ class Schacht(PutRelatie, VlakGeometrie):
                                     naam='hoogte',
                                     label='hoogte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Schacht.hoogte',
-                                    definition='De afmeting 2 (hoogte) van het grondplan van de schacht in millimeter.',
+                                    definition='De hoogte tussen de bovenkant van de binnenkant van de Kamer (onderkant van de reductieplaat) en het maaiveld.',
                                     owner=self)
 
         self._materiaal = OTLAttribuut(field=KlPutMateriaal,
@@ -108,7 +108,7 @@ class Schacht(PutRelatie, VlakGeometrie):
 
     @property
     def hoogte(self) -> KwantWrdInMillimeterWaarden:
-        """De afmeting 2 (hoogte) van het grondplan van de schacht in millimeter."""
+        """De hoogte tussen de bovenkant van de binnenkant van de Kamer (onderkant van de reductieplaat) en het maaiveld."""
         return self._hoogte.get_waarde()
 
     @hoogte.setter

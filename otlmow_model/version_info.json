@@ -1,72 +1,134 @@
 {
-  "current": {
-    "model_version": "2.10.4.0",
-    "otl_version": "2.10.0",
-    "created_at": "2024-01-23T16:00:00",
-    "created_by": "david.vlaminck"
-  },
-  "history": {
-    "2.9.2.1": {
-      "previous_version": null,
-      "updated_class_model": true,
-      "updated_enums": false,
-      "enums_updated": []
+    "current": {
+        "model_version": "2.11.0.0",
+        "otl_version": "2.11.0-RC1",
+        "created_at": "2024-06-11T21:53:42",
+        "created_by": "david.vlaminck"
     },
-    "2.9.3.0": {
-      "previous_version": "2.9.2.1",
-      "updated_class_model": false,
-      "updated_enums": false,
-      "enums_updated": []
-    },
-    "2.9.4.0": {
-      "previous_version": "2.9.3.0",
-      "updated_class_model": false,
-      "updated_enums": false,
-      "enums_updated": []
-    },
-    "2.9.5.0": {
-      "previous_version": "2.9.4.0",
-      "updated_class_model": false,
-      "updated_enums": false,
-      "enums_updated": []
-    },
-    "2.10.0.0": {
-      "previous_version": "2.9.5.0",
-      "updated_class_model": true,
-      "updated_enums": true,
-      "enums_updated": ["KlAlgSnelheidsregime", "KlBewegingsvrijheidInVlakBijOplegging", "KlDeurType",
-        "KlGrachtdoorsnede", "KlLaagRol", "KlMateriaalStraatkap", "KlMateriaalVentilatiekanaal", "KlOmvormerModelnaam",
-        "KlSegmentcontrollerMerk", "KlSegmentcontrollerModelnaam", "KlSeinbrugType", "KlStortsteenKaliber",
-        "KlToegangsprocedureAandachtspunt", "KlTypeBrugdeel", "KlTypeLandhoofd", "KlTypeNutsvoorziening",
-        "KlTypeSchanskorf", "KlTypeVerankeringBrugdekvoeg", "KlWvLedLichtpunthoogte", "KlWvLedOverhang"]
-    },
-    "2.10.1.0": {
-      "previous_version": "2.10.0.0",
-      "updated_class_model": false,
-      "updated_enums": true,
-      "enums_updated": ["KlAIMToestand", "KlCameraModelnaam", "KlConstructiestaalsoort", "KlDatakabelType",
-        "KlDynBordExternePUModelnaam", "KlLEDDriverModelnaam", "KlPictogramSymbool", "KlSegmentcontrollerMerk",
-        "KlTypeNutsvoorziening", "KlTypeWand", "KlUPSMerk", "KlUPSModelnaam", "KlWvLedLichtpunthoogte",
-        "KlWvLedOverhang", "KlVerlichtingstoestelMerk"
-      ]
-    },
-    "2.10.2.0": {
-      "previous_version": "2.10.1.0",
-      "updated_class_model": false,
-      "updated_enums": false,
-      "enums_updated": []
-    },
-    "2.10.3.0": {
-      "previous_version": "2.10.2.0",
-      "updated_class_model": false,
-      "updated_enums": false,
-      "enums_updated": []
-    },
-    "2.10.4.0": {
-      "previous_version": "2.10.3.0",
-      "updated_class_model": false,
-      "updated_enums": false,
-      "enums_updated": []
+    "history": {
+        "2.9.2.1": {
+            "previous_version": null,
+            "updated_class_model": true,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.9.3.0": {
+            "previous_version": "2.9.2.1",
+            "updated_class_model": false,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.9.4.0": {
+            "previous_version": "2.9.3.0",
+            "updated_class_model": false,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.9.5.0": {
+            "previous_version": "2.9.4.0",
+            "updated_class_model": false,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.10.0.0": {
+            "previous_version": "2.9.5.0",
+            "updated_class_model": true,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlAlgSnelheidsregime",
+                "KlBewegingsvrijheidInVlakBijOplegging",
+                "KlDeurType",
+                "KlGrachtdoorsnede",
+                "KlLaagRol",
+                "KlMateriaalStraatkap",
+                "KlMateriaalVentilatiekanaal",
+                "KlOmvormerModelnaam",
+                "KlSegmentcontrollerMerk",
+                "KlSegmentcontrollerModelnaam",
+                "KlSeinbrugType",
+                "KlStortsteenKaliber",
+                "KlToegangsprocedureAandachtspunt",
+                "KlTypeBrugdeel",
+                "KlTypeLandhoofd",
+                "KlTypeNutsvoorziening",
+                "KlTypeSchanskorf",
+                "KlTypeVerankeringBrugdekvoeg",
+                "KlWvLedLichtpunthoogte",
+                "KlWvLedOverhang"
+            ]
+        },
+        "2.10.1.0": {
+            "previous_version": "2.10.0.0",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlAIMToestand",
+                "KlCameraModelnaam",
+                "KlConstructiestaalsoort",
+                "KlDatakabelType",
+                "KlDynBordExternePUModelnaam",
+                "KlLEDDriverModelnaam",
+                "KlPictogramSymbool",
+                "KlSegmentcontrollerMerk",
+                "KlTypeNutsvoorziening",
+                "KlTypeWand",
+                "KlUPSMerk",
+                "KlUPSModelnaam",
+                "KlWvLedLichtpunthoogte",
+                "KlWvLedOverhang",
+                "KlVerlichtingstoestelMerk"
+            ]
+        },
+        "2.10.2.0": {
+            "previous_version": "2.10.1.0",
+            "updated_class_model": false,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.10.3.0": {
+            "previous_version": "2.10.2.0",
+            "updated_class_model": false,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.10.4.0": {
+            "previous_version": "2.10.3.0",
+            "updated_class_model": false,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.11.0.0": {
+            "previous_version": "2.10.4.0",
+            "updated_class_model": true,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlANPRMerk",
+                "KlANPRModelnaam",
+                "KlAanvaarbeschermingType",
+                "KlAutoOmschakelaarWerking",
+                "KlCBVAardVerharding",
+                "KlFunderingBetonkwaliteit",
+                "KlLEDDriverMerk",
+                "KlLEDDriverModelnaam",
+                "KlLEDDriverProtocol",
+                "KlLEGCOpeningType",
+                "KlLEGCOpstelling",
+                "KlLEGCSchermelementType",
+                "KlLumenOutput",
+                "KlMIVLusZichtbaarheid",
+                "KlOntvangerToepassing",
+                "KlPTRegelaarModuleMerk",
+                "KlPTRegelaarModuleModelnaam",
+                "KlPtKARModemProtocol",
+                "KlPutRooster",
+                "KlSchoorhoek",
+                "KlSegmentcontrollerModelnaam",
+                "KlVerlichtingstoestelconnectorBesturingsconnector",
+                "KlWegbermBIO",
+                "KlWegbermType",
+                "KlWvLedTussenafstand",
+                "KlWvLedVerlNiveau"
+            ]
+        }
     }
-  }
 }

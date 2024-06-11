@@ -24,10 +24,10 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Fundering')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0-RC3')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Referentiepunt')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WegbebakeningAfschermendeConstructies')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0-RC3')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VoertuigkerendGeluidsschermelement')
 
         self._certificaathouder = OTLAttribuut(field=StringField,
@@ -76,8 +76,8 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
                                          naam='testrapport',
                                          label='testrapport',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AfschermendeConstructie.testrapport',
-                                         usagenote='Attribuut uit gebruik sinds versie 2.0.0 ',
-                                         deprecated_version='2.0.0',
+                                         usagenote='Attribuut uit gebruik sinds versie 2.0.0-RC3',
+                                         deprecated_version='2.0.0-RC3',
                                          kardinaliteit_max='*',
                                          definition='De testresultaten van een afschermende constructie.',
                                          owner=self)
@@ -94,8 +94,8 @@ class AfschermendeConstructie(BijlageVoertuigkering, LijnvormigElement):
                                    naam='video',
                                    label='video',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AfschermendeConstructie.video',
-                                   usagenote='Attribuut uit gebruik sinds versie 2.0.0 ',
-                                   deprecated_version='2.0.0',
+                                   usagenote='Attribuut uit gebruik sinds versie 2.0.0-RC3 .Enkel videobestanden zijn toegelaten.',
+                                   deprecated_version='2.0.0-RC3',
                                    kardinaliteit_max='*',
                                    definition='Video van de testen op afschermende constructies.',
                                    owner=self)
