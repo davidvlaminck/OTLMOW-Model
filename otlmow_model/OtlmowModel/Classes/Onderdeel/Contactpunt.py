@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlContactpuntMerk import KlContactpuntMerk
 from ...Datatypes.KlContactpuntModelnaam import KlContactpuntModelnaam
@@ -10,7 +10,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Contactpunt(SerienummerObject, AIMObject, PuntGeometrie):
+class Contactpunt(SerienummerObject, AIMNaamObject, PuntGeometrie):
     """Techniek voor het meten van een aan- of afwezigheid van contact tussen de onderdelen waaraan deze bevestigd is."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactpunt'

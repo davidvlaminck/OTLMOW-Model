@@ -17,7 +17,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Brugdeel(AIMNaamObject, VlakGeometrie):
-    """Het deel dat je kan wegnemen van een brug in zijn geheel. Dit kan ook meerdere overspanningen hebben."""
+    """Het deel dat je kan wegnemen van een brug in zijn geheel. Dit kan ook meerdere overspanningen hebben. In het geval van beweegbare bruggen worden de onderdelen die de beweging mogelijk maken zoals balansarmen, tegengewicht, hameipoort,..etc ook gevat in het object brugdeel."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdeel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

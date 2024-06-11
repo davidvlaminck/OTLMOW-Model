@@ -37,7 +37,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
 
         self._basiswaarde = OTLAttribuut(field=KwantWrdInEuro,
                                          naam='basiswaarde',
-                                         label='rapportage onderzoek',
+                                         label='basiswaarde',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.basiswaarde',
                                          definition='Het schriftelijk verslag dat na onderzoek of visuele controle wordt opgemaakt.',
                                          owner=self)

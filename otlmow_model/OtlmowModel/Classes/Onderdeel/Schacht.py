@@ -53,7 +53,7 @@ class Schacht(PutRelatie, VlakGeometrie):
                                     naam='hoogte',
                                     label='hoogte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Schacht.hoogte',
-                                    definition='De afmeting 2 (hoogte) van het grondplan van de schacht in millimeter.',
+                                    definition='De hoogte tussen de bovenkant van de binnenkant van de Kamer (onderkant van de reductieplaat) en het maaiveld.',
                                     owner=self)
 
         self._materiaal = OTLAttribuut(field=KlPutMateriaal,
@@ -108,7 +108,7 @@ class Schacht(PutRelatie, VlakGeometrie):
 
     @property
     def hoogte(self) -> KwantWrdInMillimeterWaarden:
-        """De afmeting 2 (hoogte) van het grondplan van de schacht in millimeter."""
+        """De hoogte tussen de bovenkant van de binnenkant van de Kamer (onderkant van de reductieplaat) en het maaiveld."""
         return self._hoogte.get_waarde()
 
     @hoogte.setter
