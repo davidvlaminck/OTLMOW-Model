@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  release:
+  auto_update:
     runs-on: ubuntu-latest
     concurrency: release
     timeout-minutes: 10
