@@ -1,0 +1,26 @@
+name: Create release
+run-name: Automatic release
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    concurrency: release
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m automatic_update.py
+        working-directory: ./model_update
+      - name: Commit files
+        working-directory: .
+        run: |
+          git pull
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "auto updated class model"
+          git push
