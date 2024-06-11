@@ -6,7 +6,10 @@ on:
 jobs:
   auto_update:
     runs-on: ubuntu-latest
-    concurrency: release
+    defaults:
+      run:
+        working-directory: .
+    concurrency: auto_update
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
