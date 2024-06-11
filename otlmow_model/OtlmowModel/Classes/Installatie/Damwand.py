@@ -17,7 +17,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Damwand(ConstructieElement, Grondkeringen, WaterremmendeFunctie, LijnGeometrie):
-    """Een grond- en/of waterkerende constructie,die bestaat uit een verticaal in de grond geplaatste wand."""
+    """Een grond- en/of waterkerende constructie, die bestaat uit een verticaal in de grond geplaatste wand."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Damwand'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -38,7 +38,6 @@ class Damwand(ConstructieElement, Grondkeringen, WaterremmendeFunctie, LijnGeome
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Waarschuwingslantaarn')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ZenderOntvangerToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grond')
 
         self._aansluitingBestaandeConstructie = OTLAttribuut(field=KlAansluitingDamwandBestaandeConstructie,
                                                              naam='aansluitingBestaandeConstructie',

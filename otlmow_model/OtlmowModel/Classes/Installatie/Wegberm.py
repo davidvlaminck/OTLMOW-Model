@@ -13,20 +13,16 @@ class Wegberm(TerreinDeel, AIMObject):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    deprecated_version = '2.11.0-RC1'
-
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BegroeidVoorkomen', deprecated='2.11.0-RC1')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LijnvormigElement', deprecated='2.11.0-RC1')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BegroeidVoorkomen')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LijnvormigElement')
 
         self._bijzonderIngerichteOnderdelen = OTLAttribuut(field=KlWegbermBIO,
                                                            naam='bijzonderIngerichteOnderdelen',
                                                            label='bijzonder ingerichte onderdelen van de wegberm',
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm.bijzonderIngerichteOnderdelen',
-                                                           usagenote='Klasse uit gebruik sinds versie 2.11.0-RC1',
-                                                           deprecated_version='2.11.0-RC1',
                                                            definition='De bijzonder ingerichte onderdelen van de wegberm.',
                                                            owner=self)
 
@@ -34,8 +30,6 @@ class Wegberm(TerreinDeel, AIMObject):
                                   naam='type',
                                   label='type',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm.type',
-                                  usagenote='Klasse uit gebruik sinds versie 2.11.0-RC1',
-                                  deprecated_version='2.11.0-RC1',
                                   definition='Het type van wegberm.',
                                   owner=self)
 

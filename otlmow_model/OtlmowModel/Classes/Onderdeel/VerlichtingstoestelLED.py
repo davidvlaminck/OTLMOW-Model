@@ -28,7 +28,6 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#EMDraagconstructie')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver')
@@ -44,8 +43,8 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
                                            naam='armatuurkleur',
                                            label='armatuurkleur',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.armatuurkleur',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0-RC1',
-                                           deprecated_version='2.3.0-RC1',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
+                                           deprecated_version='2.3.0',
                                            definition='De kleur van de zichtbare buitenkant van het verlichtingstoestel.',
                                            owner=self)
 
@@ -123,8 +122,8 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
                                            naam='tussenAfstand',
                                            label='tussen afstand',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.tussenAfstand',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.4.0-RC1',
-                                           deprecated_version='2.4.0-RC1',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.4.0 ',
+                                           deprecated_version='2.4.0',
                                            definition='Afstand tussen de verschillende LED verlichtingstoestellen.',
                                            owner=self)
 

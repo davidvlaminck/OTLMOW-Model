@@ -14,19 +14,19 @@ class ProefPerformantieniveau(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefPerformantieniveau'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    deprecated_version = '2.0.0-RC3'
+    deprecated_version = '2.0.0'
 
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Obstakelbeveiliger', deprecated='2.0.0-RC3')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Obstakelbeveiliger', deprecated='2.0.0')
 
         self._performantieniveau = OTLAttribuut(field=KlLEACPerformantieniveau,
                                                 naam='performantieniveau',
                                                 label='performantieniveau',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefPerformantieniveau.performantieniveau',
-                                                usagenote='Klasse uit gebruik sinds versie 2.0.0-RC3',
-                                                deprecated_version='2.0.0-RC3',
+                                                usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                                deprecated_version='2.0.0',
                                                 definition='Het niveau waarop de obstakelbeveiliger is getest.',
                                                 owner=self)
 

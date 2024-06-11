@@ -20,8 +20,6 @@ class Signaalfilter(RHZModule, SerienummerObject, AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort')
-
         self._merk = OTLAttribuut(field=KlSignaalfilterMerk,
                                   naam='merk',
                                   label='merk',

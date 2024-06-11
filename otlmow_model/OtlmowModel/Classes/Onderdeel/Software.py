@@ -58,8 +58,8 @@ class Software(SoftwareToegang, GeenGeometrie):
                                           naam='documentatie',
                                           label='documentatie',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Software.documentatie',
-                                          usagenote='Attribuut uit gebruik sinds versie 2.1.0-RC2',
-                                          deprecated_version='2.1.0-RC2',
+                                          usagenote='Attribuut uit gebruik sinds versie 2.1.0 ',
+                                          deprecated_version='2.1.0',
                                           definition='Link naar documentatie over de software.',
                                           owner=self)
 

@@ -14,10 +14,10 @@ class KwantWrdInLiterWaarden(WaardenObject):
                                               naam='standaardEenheid',
                                               label='standaard eenheid',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInLiter.standaardEenheid',
-                                              usagenote='"L"^^cdt:ucumunit',
+                                              usagenote='"A"^^cdt:ucumunit',
                                               readonly=True,
                                               constraints='"L"^^cdt:ucumunit',
-                                              definition='De standaard eenheid bij dit datatype is uitgedrukt in liter.',
+                                              definition='De standaard eenheid bij dit datatype is uitgedrukt in ampere.',
                                               owner=self)
 
         self._waarde = OTLAttribuut(field=FloatOrDecimalField,
@@ -29,7 +29,7 @@ class KwantWrdInLiterWaarden(WaardenObject):
 
     @property
     def standaardEenheid(self) -> str:
-        """De standaard eenheid bij dit datatype is uitgedrukt in liter."""
+        """De standaard eenheid bij dit datatype is uitgedrukt in ampere."""
         return self._standaardEenheid.usagenote.split('"')[1]
 
     @property
@@ -44,11 +44,11 @@ class KwantWrdInLiterWaarden(WaardenObject):
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
 class KwantWrdInLiter(OTLField):
-    """Een kwantitatieve waarde die een getal in liter uitdrukt."""
+    """Een kwantitatieve waarde die een getal in ampere uitdrukt."""
     naam = 'KwantWrdInLiter'
-    label = 'Kwantitatieve waarde in liter'
+    label = 'Kwantitatieve waarde in Ampere'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInLiter'
-    definition = 'Een kwantitatieve waarde die een getal in liter uitdrukt.'
+    definition = 'Een kwantitatieve waarde die een getal in ampere uitdrukt.'
     waarde_shortcut_applicable = True
     waardeObject = KwantWrdInLiterWaarden
 

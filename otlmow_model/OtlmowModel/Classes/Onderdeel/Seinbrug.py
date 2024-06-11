@@ -13,7 +13,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
-    """Metalen constructie bestaande uit twee of meer verticale steunen met voetplaat en uit een enkele of een dubbel uitgevoerde horizontale dwarsverbinding,allen kokervormig met rechthoekige doorsnede. Ook wel portiek of portaal genoemd."""
+    """Metalen constructie bestaande uit twee of meer verticale steunen met voetplaat en uit een enkele of een dubbel uitgevoerde horizontale dwarsverbinding, allen kokervormig met rechthoekige doorsnede. Ook wel portiek of portaal genoemd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -61,7 +61,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
                                                naam='heeftLooproosters',
                                                label='heeft looproosters',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug.heeftLooproosters',
-                                               definition='Geeft aan of de seinbrug is uitgerust met een loopinrichting en beloopbaar is.',
+                                               definition='Geeft aan of de seinbrug is uitgerust met looproosters.',
                                                owner=self)
 
         self._hoogteVerticaleSteun = OTLAttribuut(field=KwantWrdInMeter,
@@ -144,7 +144,7 @@ class Seinbrug(VRIDraagconstructie, LijnGeometrie, VlakGeometrie):
 
     @property
     def heeftLooproosters(self) -> bool:
-        """Geeft aan of de seinbrug is uitgerust met een loopinrichting en beloopbaar is."""
+        """Geeft aan of de seinbrug is uitgerust met looproosters."""
         return self._heeftLooproosters.get_waarde()
 
     @heeftLooproosters.setter
