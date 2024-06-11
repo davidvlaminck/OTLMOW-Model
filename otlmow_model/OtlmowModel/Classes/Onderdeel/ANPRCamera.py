@@ -19,25 +19,25 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    deprecated_version = '2.9.0-RC3'
+    deprecated_version = '2.9.0'
 
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', deprecated='2.9.0-RC3')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel', deprecated='2.9.0-RC3')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0-RC1')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ZuilTGC', deprecated='2.9.0-RC3')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Trajectcontrole', deprecated='2.9.0-RC3')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang', deprecated='2.9.0-RC3')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', deprecated='2.9.0-RC3')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ZuilTGC', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Trajectcontrole', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', deprecated='2.9.0')
 
         self._dnsNaam = OTLAttribuut(field=StringField,
                                      naam='dnsNaam',
                                      label='DNS naam',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera.dnsNaam',
-                                     usagenote='Klasse uit gebruik sinds versie 2.9.0-RC3',
-                                     deprecated_version='2.9.0-RC3',
+                                     usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                     deprecated_version='2.9.0',
                                      definition='De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be.',
                                      owner=self)
 
@@ -45,8 +45,8 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
                                         naam='heeftFlits',
                                         label='heeft flits',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera.heeftFlits',
-                                        usagenote='Klasse uit gebruik sinds versie 2.9.0-RC3',
-                                        deprecated_version='2.9.0-RC3',
+                                        usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                        deprecated_version='2.9.0',
                                         definition='Geeft aan of de camera een externe infrarood flits heeft.',
                                         owner=self)
 
@@ -54,8 +54,8 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
                                      naam='ipAdres',
                                      label='ip adres',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera.ipAdres',
-                                     usagenote='Klasse uit gebruik sinds versie 2.9.0-RC3',
-                                     deprecated_version='2.9.0-RC3',
+                                     usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                     deprecated_version='2.9.0',
                                      definition='IP-adres van de ANPR-camera.',
                                      owner=self)
 
@@ -63,8 +63,8 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
                                   naam='merk',
                                   label='merk',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera.merk',
-                                  usagenote='Klasse uit gebruik sinds versie 2.9.0-RC3',
-                                  deprecated_version='2.9.0-RC3',
+                                  usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                  deprecated_version='2.9.0',
                                   definition='Het merk van de ANPR-camera.',
                                   owner=self)
 
@@ -72,8 +72,8 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
                                        naam='modelnaam',
                                        label='modelnaam',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera.modelnaam',
-                                       usagenote='Klasse uit gebruik sinds versie 2.9.0-RC3',
-                                       deprecated_version='2.9.0-RC3',
+                                       usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                       deprecated_version='2.9.0',
                                        definition='De modelnaam van de ANPR-camera.',
                                        owner=self)
 
@@ -81,8 +81,8 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
                                           naam='opstelhoogte',
                                           label='opstelhoogte',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera.opstelhoogte',
-                                          usagenote='Klasse uit gebruik sinds versie 2.9.0-RC3 .NOTE',
-                                          deprecated_version='2.9.0-RC3',
+                                          usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                          deprecated_version='2.9.0',
                                           definition='De hoogte waarop de camera bevestigd is, gemeten ten opzichte van het maaiveld waarin de draagconstructie voor de camera verankerd is.',
                                           owner=self)
 
@@ -90,8 +90,8 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
                                          naam='rijrichting',
                                          label='rijrichting',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera.rijrichting',
-                                         usagenote='Klasse uit gebruik sinds versie 2.9.0-RC3',
-                                         deprecated_version='2.9.0-RC3',
+                                         usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                         deprecated_version='2.9.0',
                                          definition='De rijrichting van de voertuigen die door de camera geregistreerd worden.',
                                          owner=self)
 
@@ -99,8 +99,8 @@ class ANPRCamera(AIMNaamObject, PuntGeometrie):
                                              naam='technischeFiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera.technischeFiche',
-                                             usagenote='Klasse uit gebruik sinds versie 2.9.0-RC3 .Bestanden van het type pdf.',
-                                             deprecated_version='2.9.0-RC3',
+                                             usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                             deprecated_version='2.9.0',
                                              definition='Technische fiche van dit element.',
                                              owner=self)
 

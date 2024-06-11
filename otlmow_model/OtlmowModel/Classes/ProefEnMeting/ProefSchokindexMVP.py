@@ -14,19 +14,19 @@ class ProefSchokindexMVP(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefSchokindexMVP'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    deprecated_version = '2.0.0-RC3'
+    deprecated_version = '2.0.0'
 
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Motorvangplank', deprecated='2.0.0-RC3')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Motorvangplank', deprecated='2.0.0')
 
         self._schokindexMvp = OTLAttribuut(field=KlLEACSchokindexMVP,
                                            naam='schokindexMvp',
                                            label='schokindex mvp',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefSchokindexMVP.schokindexMvp',
-                                           usagenote='Klasse uit gebruik sinds versie 2.0.0-RC3',
-                                           deprecated_version='2.0.0-RC3',
+                                           usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                           deprecated_version='2.0.0',
                                            definition='Head Injury Criterium (HIC) van een motorvangplank.',
                                            owner=self)
 

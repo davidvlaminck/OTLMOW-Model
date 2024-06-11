@@ -33,7 +33,7 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0-RC1')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FieldOfView', deprecated='2.4.0')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ZuilTGC')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Trajectcontrole')
@@ -57,8 +57,8 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
                                               naam='configBestandAid',
                                               label='configuratie bestand AID',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.configBestandAid',
-                                              usagenote='Attribuut uit gebruik sinds versie 2.3.0-RC1',
-                                              deprecated_version='2.3.0-RC1',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
+                                              deprecated_version='2.3.0',
                                               definition='Het bestand met de configuratie van de AID component die deel is van de camera.',
                                               owner=self)
 
@@ -73,8 +73,8 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
                                       naam='heeftAid',
                                       label='heeft AID',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.heeftAid',
-                                      usagenote='Attribuut uit gebruik sinds versie 2.3.0-RC1',
-                                      deprecated_version='2.3.0-RC1',
+                                      usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
+                                      deprecated_version='2.3.0',
                                       definition='Een AID-camera is een CCTV-camera met geintegreerde AID-module. Deze camera genereert naast een camerabeeld ook metadata ivm wat zich afspeelt op het beeld. Een voorbeeld hiervan is gestopte voertuigen.',
                                       owner=self)
 
@@ -89,8 +89,8 @@ class Camera(SerienummerObject, AIMNaamObject, PuntGeometrie):
                                               naam='heeftSpitsstrook',
                                               label='heeft spitsstrook',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.heeftSpitsstrook',
-                                              usagenote='Attribuut uit gebruik sinds versie 2.3.0-RC1',
-                                              deprecated_version='2.3.0-RC1',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
+                                              deprecated_version='2.3.0',
                                               definition='Locatie-eigenschap van een camera. Dit attribuut geeft aan of de camera ingezet wordt om een spitsstrook te schouwen.',
                                               owner=self)
 
