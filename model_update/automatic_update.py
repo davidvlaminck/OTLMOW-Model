@@ -35,6 +35,6 @@ print(current_dir.parent)
 enums_updated = updater.find_changed_enums()
 updater.update_model(otl_version=version, created_by='david.vlaminck', enums_updated=enums_updated)
 
-cmd = "git add ./../otlmow_model/OtlmowModel"
+cmd = "git add ./../otlmow_model"
 p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
 stdout, stderr = p.communicate()
