@@ -14,7 +14,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python3 -m automatic_update.py
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v4
+        with:
+          path: "requirements.txt"
+      - name: Run automatic update
+        run: python3 -m automatic_update.py
         working-directory: ./model_update
       - name: Commit files
         working-directory: .
