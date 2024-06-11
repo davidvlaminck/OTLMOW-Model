@@ -45,7 +45,7 @@ class ModelUpdater:
             json.dump(version_info, file, indent=4)
 
     @classmethod
-    def find_changed_enums(cls) -> List:
+    def find_changed_enums(cls, model_path: str = 'otlmow_model/OtlmowModel') -> List:
         from subprocess import Popen, PIPE
         cmd = 'git status --porcelain'
         p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
@@ -56,9 +56,9 @@ class ModelUpdater:
             xy = entry[:2]
             if 'M' in xy or 'A' in xy:
                 path = entry[3:]
-                if (path.startswith('otlmow_model/OtlmowModel/Datatypes/Kl') or path ==
-                        'otlmow_model/OtlmowModel/Datatypes/AntiParkeerpaalType.py'):
-                    enums_changed.append(path[35:-3])
+                if (path.startswith(f'{model_path}/Datatypes/Kl') or path ==
+                        f'{model_path}/Datatypes/AntiParkeerpaalType.py'):
+                    enums_changed.append(path[(len(model_path) + 11):-3])
         return enums_changed
 
     @staticmethod
