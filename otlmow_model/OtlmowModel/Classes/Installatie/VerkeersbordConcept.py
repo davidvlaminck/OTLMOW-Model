@@ -1,7 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from ...Datatypes.KlVerkeersbordCategorie import KlVerkeersbordCategorie
@@ -12,7 +12,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VerkeersbordConcept(AIMNaamObject, GeenGeometrie):
+class VerkeersbordConcept(AIMObject, GeenGeometrie):
     """Inhoudelijke definitie van de betekenis van een verkeersbord zoals opgenomen in de wegcode."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VerkeersbordConcept'

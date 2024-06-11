@@ -13,22 +13,22 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    deprecated_version = '2.9.0-RC4'
+    deprecated_version = '2.9.0'
 
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVCommunicatiekaart', deprecated='2.9.0-RC4')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVVoedingsmodule', deprecated='2.9.0-RC4')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie', deprecated='2.9.0-RC4')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVVoedingsmodule', deprecated='2.9.0-RC4')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVCommunicatiekaart', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVVoedingsmodule', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie', deprecated='2.9.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVVoedingsmodule', deprecated='2.9.0')
 
         self._lusConfig = OTLAttribuut(field=DtcDocument,
                                        naam='lusConfig',
                                        label='lus config',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie.lusConfig',
-                                       usagenote='Klasse uit gebruik sinds versie 2.9.0-RC4 .Bestanden van het type xlsx.',
-                                       deprecated_version='2.9.0-RC4',
+                                       usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                       deprecated_version='2.9.0',
                                        definition='Een definierende tabel die relatie legt tussen meetpuntnummer lusvolgorde nummer en de GPS locatie.',
                                        owner=self)
 
@@ -36,8 +36,8 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
                                                     naam='technischeDocumentatie',
                                                     label='technische documentatie',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie.technischeDocumentatie',
-                                                    usagenote='Klasse uit gebruik sinds versie 2.9.0-RC4 .Bestanden van het type pdf.',
-                                                    deprecated_version='2.9.0-RC4',
+                                                    usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                                    deprecated_version='2.9.0',
                                                     definition='Documentatie van de onderdelen: LVE / luskaart / communicatiekaart, configurator, ...',
                                                     owner=self)
 
@@ -45,8 +45,8 @@ class MIVInstallatie(NaampadObject, VlakGeometrie):
                                   naam='type',
                                   label='type MIV installatie',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie.type',
-                                  usagenote='Klasse uit gebruik sinds versie 2.9.0-RC4',
-                                  deprecated_version='2.9.0-RC4',
+                                  usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                  deprecated_version='2.9.0',
                                   definition='Het type volgens de gebruikte technologie en inzet in een groter geheel.',
                                   owner=self)
 

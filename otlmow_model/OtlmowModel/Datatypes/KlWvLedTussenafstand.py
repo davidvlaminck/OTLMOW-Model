@@ -11,7 +11,7 @@ class KlWvLedTussenafstand(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLedTussenafstand'
     definition = 'Afstand tussen de verschillende LED verlichtingstoestellen.'
     status = 'ingebruik'
-    deprecated_version = '2.4.0-RC1'
+    deprecated_version = '2.4.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedTussenafstand'
     options = {
         'S015': KeuzelijstWaarde(invulwaarde='S015',

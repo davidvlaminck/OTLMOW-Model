@@ -11,7 +11,7 @@ class KlLEGCOpeningType(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEGCOpeningType'
     definition = 'Types van opening.'
     status = 'ingebruik'
-    deprecated_version = '2.1.0-RC2'
+    deprecated_version = '2.1.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEGCOpeningType'
     options = {
         'dienstopening': KeuzelijstWaarde(invulwaarde='dienstopening',

@@ -22,12 +22,7 @@ class KlSchoorhoek(KeuzelijstField):
                                 label='1/4',
                                 status='ingebruik',
                                 definitie='Een schoorhoek van 1 op 4.',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSchoorhoek/1-4'),
-        '1-5': KeuzelijstWaarde(invulwaarde='1-5',
-                                label='1/5',
-                                status='ingebruik',
-                                definitie='Een schoorhoek van 1 op 5.',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSchoorhoek/1-5')
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSchoorhoek/1-4')
     }
 
     @classmethod
