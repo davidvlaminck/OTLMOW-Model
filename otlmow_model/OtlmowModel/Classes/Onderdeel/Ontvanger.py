@@ -38,8 +38,8 @@ class Ontvanger(ZenderOntvangerToegang):
                                         naam='toepassing',
                                         label='toepassing',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ontvanger.toepassing',
-                                        usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
-                                        deprecated_version='2.8.0',
+                                        usagenote='Attribuut uit gebruik sinds versie 2.8.0-RC1',
+                                        deprecated_version='2.8.0-RC1',
                                         definition='De techniek of standaard waarmee signalen over het netwerk verstuurd worden.',
                                         owner=self)
 

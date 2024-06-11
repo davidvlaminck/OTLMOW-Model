@@ -11,6 +11,7 @@ from ...Datatypes.KlDekselRegeling import KlDekselRegeling
 from ...Datatypes.KlDekselVergrendeling import KlDekselVergrendeling
 from ...Datatypes.KlRioleringVorm import KlRioleringVorm
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
@@ -65,6 +66,27 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PutBovenbouw.hoogte',
                                     definition='Hoogte-afmeting van het deksel in centimeter. Bij vierkante en cirkelvormige deksels is deze waarde gelijk aan de breedte.',
                                     owner=self)
+
+        self._hoogteAfdekkingsinrichting = OTLAttribuut(field=KwantWrdInMillimeter,
+                                                        naam='hoogteAfdekkingsinrichting',
+                                                        label='hoogte afdekkingsinrichting',
+                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PutBovenbouw.hoogteAfdekkingsinrichting',
+                                                        definition='De afstand in millimeter gemeten tussen de bovenkant van het deksel en de bovenkant van de regeling.',
+                                                        owner=self)
+
+        self._hoogteBovenbouw = OTLAttribuut(field=KwantWrdInMillimeter,
+                                             naam='hoogteBovenbouw',
+                                             label='hoogte bovenbouw',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PutBovenbouw.hoogteBovenbouw',
+                                             definition='De afstand in millimeter gemeten tussen de bovenkant van het deksel en de bovenkant van de regeling.',
+                                             owner=self)
+
+        self._hoogteRegeling = OTLAttribuut(field=KwantWrdInMillimeter,
+                                            naam='hoogteRegeling',
+                                            label='hoogte regeling',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PutBovenbouw.hoogteRegeling',
+                                            definition='De afstand in millimeter gemeten tussen de onderkant van de afdekkingsinrichting tot aan de bovenkant van de afdekplaat.',
+                                            owner=self)
 
         self._isAfgesloten = OTLAttribuut(field=BooleanField,
                                           naam='isAfgesloten',
@@ -166,6 +188,33 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
     @hoogte.setter
     def hoogte(self, value):
         self._hoogte.set_waarde(value, owner=self)
+
+    @property
+    def hoogteAfdekkingsinrichting(self) -> KwantWrdInMillimeterWaarden:
+        """De afstand in millimeter gemeten tussen de bovenkant van het deksel en de bovenkant van de regeling."""
+        return self._hoogteAfdekkingsinrichting.get_waarde()
+
+    @hoogteAfdekkingsinrichting.setter
+    def hoogteAfdekkingsinrichting(self, value):
+        self._hoogteAfdekkingsinrichting.set_waarde(value, owner=self)
+
+    @property
+    def hoogteBovenbouw(self) -> KwantWrdInMillimeterWaarden:
+        """De afstand in millimeter gemeten tussen de bovenkant van het deksel en de bovenkant van de regeling."""
+        return self._hoogteBovenbouw.get_waarde()
+
+    @hoogteBovenbouw.setter
+    def hoogteBovenbouw(self, value):
+        self._hoogteBovenbouw.set_waarde(value, owner=self)
+
+    @property
+    def hoogteRegeling(self) -> KwantWrdInMillimeterWaarden:
+        """De afstand in millimeter gemeten tussen de onderkant van de afdekkingsinrichting tot aan de bovenkant van de afdekplaat."""
+        return self._hoogteRegeling.get_waarde()
+
+    @hoogteRegeling.setter
+    def hoogteRegeling(self, value):
+        self._hoogteRegeling.set_waarde(value, owner=self)
 
     @property
     def isAfgesloten(self) -> bool:

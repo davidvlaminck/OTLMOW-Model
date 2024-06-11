@@ -27,7 +27,12 @@ class KlLEDDriverMerk(KeuzelijstField):
                                     label='PHILIPS',
                                     status='ingebruik',
                                     definitie='PHILIPS',
-                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverMerk/philips')
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverMerk/philips'),
+        'signify': KeuzelijstWaarde(invulwaarde='signify',
+                                    label='Signify',
+                                    status='ingebruik',
+                                    definitie='Signify',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverMerk/signify')
     }
 
     @classmethod

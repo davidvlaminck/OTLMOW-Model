@@ -14,10 +14,10 @@ class KwantWrdInLiterWaarden(WaardenObject):
                                               naam='standaardEenheid',
                                               label='standaard eenheid',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInLiter.standaardEenheid',
-                                              usagenote='"A"^^cdt:ucumunit',
+                                              usagenote='"L"^^cdt:ucumunit',
                                               readonly=True,
                                               constraints='"L"^^cdt:ucumunit',
-                                              definition='De standaard eenheid bij dit datatype is uitgedrukt in ampere.',
+                                              definition='De standaard eenheid bij dit datatype is uitgedrukt in liter.',
                                               owner=self)
 
         self._waarde = OTLAttribuut(field=FloatOrDecimalField,
@@ -29,7 +29,7 @@ class KwantWrdInLiterWaarden(WaardenObject):
 
     @property
     def standaardEenheid(self) -> str:
-        """De standaard eenheid bij dit datatype is uitgedrukt in ampere."""
+        """De standaard eenheid bij dit datatype is uitgedrukt in liter."""
         return self._standaardEenheid.usagenote.split('"')[1]
 
     @property
@@ -44,11 +44,11 @@ class KwantWrdInLiterWaarden(WaardenObject):
 
 # Generated with OTLPrimitiveDatatypeCreator. To modify: extend, do not edit
 class KwantWrdInLiter(OTLField):
-    """Een kwantitatieve waarde die een getal in ampere uitdrukt."""
+    """Een kwantitatieve waarde die een getal in liter uitdrukt."""
     naam = 'KwantWrdInLiter'
-    label = 'Kwantitatieve waarde in Ampere'
+    label = 'Kwantitatieve waarde in liter'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInLiter'
-    definition = 'Een kwantitatieve waarde die een getal in ampere uitdrukt.'
+    definition = 'Een kwantitatieve waarde die een getal in liter uitdrukt.'
     waarde_shortcut_applicable = True
     waardeObject = KwantWrdInLiterWaarden
 

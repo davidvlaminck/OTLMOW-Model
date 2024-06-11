@@ -102,8 +102,8 @@ class Boom(VegetatieElement, PuntGeometrie):
                                            naam='kroonDiameter',
                                            label='kroon diameter',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.kroonDiameter',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
-                                           deprecated_version='2.8.0',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.8.0-RC1',
+                                           deprecated_version='2.8.0-RC1',
                                            definition='Diameter van de kroonprojectie in meter.',
                                            owner=self)
 
