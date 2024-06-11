@@ -1,6 +1,8 @@
 name: Automatic update
 run-name: Automatic update of class model
 on:
+  schedule:
+    - cron: "0 4 * * *" # every day at 4am
   workflow_dispatch:
 
 jobs:
