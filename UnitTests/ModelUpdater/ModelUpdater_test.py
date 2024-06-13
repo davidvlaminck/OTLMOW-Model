@@ -1,6 +1,6 @@
 ﻿import json
-import os
 from pathlib import Path
+from subprocess import Popen, PIPE
 
 import pytest
 
@@ -86,8 +86,7 @@ def test_find_changed_enums(manage_kl_files):
     toestand_file_path, new_file_path = manage_kl_files
     toestand_file_path.write_text('edited this file', encoding='utf-8')
     new_file_path.write_text('new file', encoding='utf-8')
-    cmd = 'git add ./../TestModel/OtlmowModel/Datatypes/KlNew.py'
-    from subprocess import Popen, PIPE
+    cmd = f'git add {new_file_path.absolute()}'
     Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True).communicate()
 
     changed_enums = ModelUpdater.find_changed_enums(model_path='UnitTests/TestModel/OtlmowModel')
