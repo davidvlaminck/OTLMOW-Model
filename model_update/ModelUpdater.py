@@ -7,12 +7,9 @@ GITHUB_ROOT = Path(__file__).parent.parent
 
 
 class ModelUpdater:
-    def __init__(self, github_root: Path = GITHUB_ROOT):
-        self.github_root = github_root
-
-    def update_model(self, otl_version: str, created_by: str, enums_updated: list):
-        version_info_file_path = self.github_root / 'otlmow_model' / 'version_info.json'
-        with open(version_info_file_path, 'r', encoding='utf-8') as file:
+    @classmethod
+    def update_model(cls, version_info_file_path: Path, otl_version: str, created_by: str, enums_updated: list):
+        with open(version_info_file_path, encoding='utf-8') as file:
             version_info = json.load(file)
 
         current_otl_version = version_info['current']['otl_version']
@@ -20,7 +17,7 @@ class ModelUpdater:
         updated_enums = len(enums_updated) > 0
 
         current_model_version = version_info['current']['model_version']
-        model_version = self.update_model_version(updated_class_model=updated_class_model, updated_enums=updated_enums,
+        model_version = cls.update_model_version(updated_class_model=updated_class_model, updated_enums=updated_enums,
                                                   model_version=current_model_version, otl_version=otl_version)
 
         if current_model_version == model_version:
@@ -61,8 +58,8 @@ class ModelUpdater:
                     enums_changed.append(path[(len(model_path) + 11):-3])
         return enums_changed
 
-    @staticmethod
-    def update_model_version(updated_class_model: bool, updated_enums: bool, model_version: str,
+    @classmethod
+    def update_model_version(cls, updated_class_model: bool, updated_enums: bool, model_version: str,
                              otl_version: str) -> str:
         major, minor, build, enum = model_version.split('.')
         otl_major, otl_minor, otl_patch = otl_version.split('.')

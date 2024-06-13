@@ -1,4 +1,5 @@
 ﻿import json
+import os
 from pathlib import Path
 
 import pytest
@@ -42,8 +43,8 @@ def test_update_model_same_version():
     generate_version_info(version_info_file_path)
 
     with pytest.raises(ValueError):
-        ModelUpdater(github_root=fake_github_root_path).update_model(
-            otl_version='2.9.0', created_by='david.vlaminck', enums_updated=[])
+        ModelUpdater.update_model(version_info_file_path=version_info_file_path,
+                                  otl_version='2.9.0', created_by='david.vlaminck', enums_updated=[])
 
     version_info_file_path.unlink()
 
@@ -52,8 +53,8 @@ def test_update_model_new_version():
     version_info_file_path = fake_github_root_path / 'otlmow_model' / 'version_info.json'
     generate_version_info(version_info_file_path)
 
-    ModelUpdater(github_root=fake_github_root_path).update_model(
-        otl_version='2.10.0', created_by='david.vlaminck', enums_updated=[])
+    ModelUpdater.update_model(version_info_file_path=version_info_file_path,
+                              otl_version='2.10.0', created_by='david.vlaminck', enums_updated=[])
 
     with open(version_info_file_path, encoding='utf-8') as file:
         written_data = json.load(file)
@@ -68,24 +69,29 @@ def test_update_model_new_version():
     version_info_file_path.unlink()
 
 
-def test_find_changed_enums():
+@pytest.fixture
+def manage_kl_files():
     kl_dir_path = Path(__file__).parent.parent / 'TestModel' / 'OtlmowModel' / 'Datatypes'
     toestand_file_path = kl_dir_path / 'KlAIMToestand.py'
     new_file_path = kl_dir_path / 'KlNew.py'
     toestand_orig_file_contents = toestand_file_path.read_text(encoding='utf-8')
 
-    toestand_file_path.write_text(f'{toestand_orig_file_contents}edited this file', encoding='utf-8')
-    new_file_path.write_text('new file', encoding='utf-8')
-    cmd = 'git add ./UnitTests/TestModel/OtlmowModel/Datatypes/KlNew.py'
-    from subprocess import Popen, PIPE
-    Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True).communicate()
-
-    changed_enums = ModelUpdater(github_root=fake_github_root_path).find_changed_enums(
-        model_path='UnitTests/TestModel/OtlmowModel')
-    assert changed_enums == ['KlAIMToestand', 'KlNew']
+    yield toestand_file_path, new_file_path
 
     toestand_file_path.write_text(toestand_orig_file_contents, encoding='utf-8')
     new_file_path.unlink()
+
+
+def test_find_changed_enums(manage_kl_files):
+    toestand_file_path, new_file_path = manage_kl_files
+    toestand_file_path.write_text('edited this file', encoding='utf-8')
+    new_file_path.write_text('new file', encoding='utf-8')
+    cmd = 'git add ./../TestModel/OtlmowModel/Datatypes/KlNew.py'
+    from subprocess import Popen, PIPE
+    Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True).communicate()
+
+    changed_enums = ModelUpdater.find_changed_enums(model_path='UnitTests/TestModel/OtlmowModel')
+    assert changed_enums == ['KlAIMToestand', 'KlNew']
 
 
 @pytest.mark.parametrize(
@@ -102,4 +108,3 @@ def test_update_model_version(model_version, otl_version, updated_class_model, u
     result = ModelUpdater.update_model_version(model_version=model_version, otl_version=otl_version,
                                                updated_class_model=updated_class_model, updated_enums=updated_enums)
     assert result == expected
-

@@ -30,10 +30,11 @@ ModelBuilder.build_otl_datamodel(otl_subset_location=otl_subset_path, geometry_a
                                  directory=model_directory, settings_path=settings_path,
                                  environment='prd')
 
-updater = ModelUpdater(github_root=current_dir.parent)
+version_info_file_path = current_dir.parent / 'otlmow_model' / 'version_info.json'
 print(current_dir.parent)
-enums_updated = updater.find_changed_enums()
-updater.update_model(otl_version=version, created_by='automatic_update.py', enums_updated=enums_updated)
+enums_updated = ModelUpdater.find_changed_enums()
+ModelUpdater.update_model(version_info_file_path=version_info_file_path, otl_version=version,
+                          created_by='automatic_update.py', enums_updated=enums_updated)
 
 cmd = "git add ./../otlmow_model"
 p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
