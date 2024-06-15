@@ -107,7 +107,12 @@ class KlBeschermbuisKleur(KeuzelijstField):
                                                     label='zwart-met-groene-streep',
                                                     status='ingebruik',
                                                     definitie='zwart-met-groene-streep',
-                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeschermbuisKleur/zwart-met-groene-streep')
+                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeschermbuisKleur/zwart-met-groene-streep'),
+        'zwart-met-rode-streep': KeuzelijstWaarde(invulwaarde='zwart-met-rode-streep',
+                                                  label='zwart-met-rode-streep',
+                                                  status='ingebruik',
+                                                  definitie='zwart-met-rode-streep',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeschermbuisKleur/zwart-met-rode-streep')
     }
 
     @classmethod

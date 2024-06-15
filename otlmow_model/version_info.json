@@ -1,9 +1,9 @@
 {
     "current": {
-        "model_version": "2.11.0.0",
+        "model_version": "2.11.0.1",
         "otl_version": "2.11.0",
-        "created_at": "2024-06-11T22:02:53",
-        "created_by": "david.vlaminck"
+        "created_at": "2024-06-15T04:01:33",
+        "created_by": "automatic_update.py"
     },
     "history": {
         "2.9.2.1": {
@@ -118,6 +118,14 @@
                 "KlWegbermBIO",
                 "KlWegbermType",
                 "KlWvLedVerlNiveau"
+            ]
+        },
+        "2.11.0.1": {
+            "previous_version": "2.11.0.0",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlBeschermbuisKleur"
             ]
         }
     }
