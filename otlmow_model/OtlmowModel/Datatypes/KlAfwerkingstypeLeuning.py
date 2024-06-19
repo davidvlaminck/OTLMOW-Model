@@ -20,7 +20,12 @@ class KlAfwerkingstypeLeuning(KeuzelijstField):
         'geverfd': KeuzelijstWaarde(invulwaarde='geverfd',
                                     label='Geverfd',
                                     status='ingebruik',
-                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfwerkingstypeLeuning/geverfd')
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfwerkingstypeLeuning/geverfd'),
+        'roestvrij-cortenstaal': KeuzelijstWaarde(invulwaarde='roestvrij-cortenstaal',
+                                                  label='Roestvrij cortenstaal',
+                                                  status='ingebruik',
+                                                  definitie='roestvrij cortenstaal',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfwerkingstypeLeuning/roestvrij-cortenstaal')
     }
 
     @classmethod
