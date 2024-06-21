@@ -22,7 +22,7 @@ jobs:
       - name: Install Python dependencies
         uses: py-actions/py-dependency-install@v4
         with:
-          path: "requirements.txt"
+          path: "requirements_update.txt"
       - name: Run automatic update
         run: python3 automatic_update.py
         working-directory: ./model_update
