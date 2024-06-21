@@ -1,4 +1,6 @@
+import json
 import logging
+import toml
 import urllib.request
 from pathlib import Path
 from subprocess import Popen, PIPE
@@ -36,6 +38,22 @@ enums_updated = ModelUpdater.find_changed_enums()
 ModelUpdater.update_model(version_info_file_path=version_info_file_path, otl_version=version,
                           created_by='automatic_update.py', enums_updated=enums_updated)
 
-cmd = "git add ./../otlmow_model"
+with open(version_info_file_path, encoding='utf-8') as file:
+    version_info = json.load(file)
+
+current_model_version = version_info['current']['model_version']
+
+data = toml.load(current_dir.parent / 'pyproject.toml')
+
+data['project']['version'] = current_model_version
+
+with open(current_dir.parent / 'pyproject.toml', 'w') as f:
+    toml.dump(data, f)
+
+cmd = 'git add ./../otlmow_model'
+p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
+stdout, stderr = p.communicate()
+
+cmd = 'git add ./pyproject.toml'
 p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
 stdout, stderr = p.communicate()
