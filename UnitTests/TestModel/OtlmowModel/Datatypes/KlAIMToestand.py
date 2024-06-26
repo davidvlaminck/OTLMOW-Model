@@ -58,3 +58,4 @@ class KlAIMToestand(KeuzelijstField):
     @classmethod
     def create_dummy_data(cls):
         return cls.create_dummy_data_keuzelijst(cls.options)
+
