@@ -54,6 +54,6 @@ cmd = 'git add ./../otlmow_model'
 p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
 stdout, stderr = p.communicate()
 
-cmd = 'git add ./pyproject.toml'
+cmd = 'git add ./../pyproject.toml'
 p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
 stdout, stderr = p.communicate()
