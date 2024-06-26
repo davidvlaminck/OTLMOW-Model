@@ -1,6 +1,10 @@
 name: Create release
 run-name: Automatic release
 on:
+  workflow_run:
+    workflows: [Automatic update]
+    types:
+      - completed
   push:
     tags:
       - 'v*'
