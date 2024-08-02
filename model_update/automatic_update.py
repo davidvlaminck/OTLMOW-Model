@@ -12,8 +12,20 @@ from ModelUpdater import ModelUpdater
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
-urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder"
-                           "/InputFiles/latest/OTL.db", 'OTL.db')
+
+download_otl_from_github = False
+
+try:
+    urllib.request.urlretrieve('https://wegenenverkeer.data.vlaanderen.be/doc/implementatiemodel/master/html/OTL.db',
+                           'OTL.db')
+    if not Path('OTL.db').exists():
+        download_otl_from_github = True
+except:
+    download_otl_from_github = True
+
+if download_otl_from_github:
+    urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder"
+                               "/InputFiles/latest/OTL.db", 'OTL.db')
 urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder"
                            "/InputFiles/latest/Geometrie_Artefact.db", 'Geometrie_Artefact.db')
 urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder"
