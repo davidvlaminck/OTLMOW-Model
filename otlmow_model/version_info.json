@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.11.0.3",
+        "model_version": "2.11.0.4",
         "otl_version": "2.11.0",
-        "created_at": "2024-06-25T04:01:32",
+        "created_at": "2024-07-02T04:01:13",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -142,6 +142,14 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlDynBordRSSMerk"
+            ]
+        },
+        "2.11.0.4": {
+            "previous_version": "2.11.0.3",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlWvLedOverhang"
             ]
         }
     }
