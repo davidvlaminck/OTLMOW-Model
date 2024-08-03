@@ -5,6 +5,7 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcVegetatieSoortnaam import DtcVegetatieSoortnaam, DtcVegetatieSoortnaamWaarden
 from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlVegetatieelementHoogte import KlVegetatieelementHoogte
+from ...Datatypes.KlVegetatieelementStandplaats import KlVegetatieelementStandplaats
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -31,6 +32,7 @@ class VegetatieElement(AIMNaamObject):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LaagBouwklasse')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afdichting')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Asfaltmat')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BeschermingWapening')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Beschermlaag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BestratingVanBetonstraatsteen')
@@ -41,10 +43,13 @@ class VegetatieElement(AIMNaamObject):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BestratingVanMozaiekkei')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BestratingVanNatuursteentegel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bestrijking')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Betonmat')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Betonmatras')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BitumineuzeLaag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cementbetonverharding')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ColloidaalBeton')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dolomietverharding')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Draineerlaag')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DunneOverlaging')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeexpandeerdPolystyreen')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geotextiel')
@@ -62,10 +67,11 @@ class VegetatieElement(AIMNaamObject):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerhardingGrasKunststofplaat')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Walsbetonverharding')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WaterdoorlatendeBestrating')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wiepenmat')
 
         self._hoogte = OTLAttribuut(field=KlVegetatieelementHoogte,
                                     naam='hoogte',
-                                    label='hoogte',
+                                    label='hoogteklasse',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VegetatieElement.hoogte',
                                     definition='De hoogteklasse van het vegetatie-element.',
                                     owner=self)
@@ -83,6 +89,13 @@ class VegetatieElement(AIMNaamObject):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VegetatieElement.soortnaam',
                                        definition='Met deze eigenschap worden de Nederlandse soortnaam, wetenschappelijke soortnaam en de soortcode van de plantensoort weergegeven.',
                                        owner=self)
+
+        self._standplaats = OTLAttribuut(field=KlVegetatieelementStandplaats,
+                                         naam='standplaats',
+                                         label='standplaats',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VegetatieElement.standplaats',
+                                         definition='De plek of locatie waar het vegetatieelement groeit.',
+                                         owner=self)
 
     @property
     def hoogte(self) -> str:
@@ -110,3 +123,12 @@ class VegetatieElement(AIMNaamObject):
     @soortnaam.setter
     def soortnaam(self, value):
         self._soortnaam.set_waarde(value, owner=self)
+
+    @property
+    def standplaats(self) -> str:
+        """De plek of locatie waar het vegetatieelement groeit."""
+        return self._standplaats.get_waarde()
+
+    @standplaats.setter
+    def standplaats(self, value):
+        self._standplaats.set_waarde(value, owner=self)

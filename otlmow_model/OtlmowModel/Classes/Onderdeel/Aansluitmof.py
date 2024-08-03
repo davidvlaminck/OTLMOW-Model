@@ -8,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Aansluitmof(LinkendElement, PuntGeometrie):
-    """Aansluitingsstuk tussen 2 buizen."""
+    """Een aansluitmof wordt gebruikt om een buis-, huis- of straatkolkaansluiting te maken op een riolering, toegangs- of verbindingsput."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

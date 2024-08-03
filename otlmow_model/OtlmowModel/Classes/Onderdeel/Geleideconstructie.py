@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.Abstracten.AansluitendeConstructie import AansluitendeConstructie
 from ...Classes.Abstracten.EigenschappenVoertuigkering import EigenschappenVoertuigkering
 from ...Classes.Abstracten.SchokindexVoertuigkering import SchokindexVoertuigkering
@@ -8,7 +9,7 @@ from ...Datatypes.KlLEACWerkingsbreedte import KlLEACWerkingsbreedte
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Geleideconstructie(AansluitendeConstructie, EigenschappenVoertuigkering, SchokindexVoertuigkering):
+class Geleideconstructie(AanhorigheidSluisStuw, AansluitendeConstructie, EigenschappenVoertuigkering, SchokindexVoertuigkering):
     """Een doorlopende afschermende constructie voor voertuigen geïnstalleerd langs de weg of in de middenberm."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie'

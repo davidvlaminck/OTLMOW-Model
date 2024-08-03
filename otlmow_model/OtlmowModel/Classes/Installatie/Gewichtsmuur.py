@@ -5,10 +5,11 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Gewichtsmuur(Grondkeringen, AIMNaamObject, LijnGeometrie):
+class Gewichtsmuur(Grondkeringen, AIMNaamObject, LijnGeometrie, VlakGeometrie):
     """Kerende constructie die stabiliteit ontleent aan zijn eigen gewicht. Onder stabiliteit dient verstaan te worden: glijden, omkantelen en verticaal draagvermogen. De muur is (meestal) onderaan breder dan bovenaan."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gewichtsmuur'

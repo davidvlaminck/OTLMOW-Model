@@ -2,6 +2,7 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.OtlmowModel.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.OtlmowModel.BaseClasses.ComplexField import ComplexField
+from ..Datatypes.KlWetenschappelijkeSoortnaam import KlWetenschappelijkeSoortnaam
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
@@ -28,8 +29,17 @@ class DtcVegetatieSoortnaamWaarden(WaardenObject):
                                                        naam='soortnaamWetenschappelijk',
                                                        label='soortnaam wetenschappelijk',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcVegetatieSoortnaam.soortnaamWetenschappelijk',
+                                                       usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
+                                                       deprecated_version='2.12.0',
                                                        definition='De wetenschappelijke soortnaam van de beplanting.',
                                                        owner=self)
+
+        self._wetenschappelijkeSoortnaam = OTLAttribuut(field=KlWetenschappelijkeSoortnaam,
+                                                        naam='wetenschappelijkeSoortnaam',
+                                                        label='wetenschappelijke soortnaam',
+                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcVegetatieSoortnaam.wetenschappelijkeSoortnaam',
+                                                        definition='De wetenschappelijke soortnaam van de vegetatie.',
+                                                        owner=self)
 
     @property
     def code(self) -> str:
@@ -57,6 +67,15 @@ class DtcVegetatieSoortnaamWaarden(WaardenObject):
     @soortnaamWetenschappelijk.setter
     def soortnaamWetenschappelijk(self, value):
         self._soortnaamWetenschappelijk.set_waarde(value, owner=self._parent)
+
+    @property
+    def wetenschappelijkeSoortnaam(self) -> str:
+        """De wetenschappelijke soortnaam van de vegetatie."""
+        return self._wetenschappelijkeSoortnaam.get_waarde()
+
+    @wetenschappelijkeSoortnaam.setter
+    def wetenschappelijkeSoortnaam(self, value):
+        self._wetenschappelijkeSoortnaam.set_waarde(value, owner=self._parent)
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

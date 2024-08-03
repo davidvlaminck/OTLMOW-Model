@@ -1,12 +1,13 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LEDBord import LEDBord
+from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Datatypes.KlDynBordRSSMerk import KlDynBordRSSMerk
 from ...Datatypes.KlDynBordRSSModelnaam import KlDynBordRSSModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DynBordRSS(LEDBord):
+class DynBordRSS(LEDBord, SerienummerObject):
     """Dynamisch verkeersbord voor rijstrooksignalisatie (RSS)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRSS'

@@ -5,10 +5,11 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Lmuur(Grondkeringen, AIMNaamObject, LijnGeometrie):
+class Lmuur(Grondkeringen, AIMNaamObject, LijnGeometrie, VlakGeometrie):
     """Grond- en/of waterkerend betonnen element bedoeld om een niveauverschil in het maaiveld op te vangen met een teen of voet aan de basis waaraan het zijn stabiliteit ontleent."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lmuur'

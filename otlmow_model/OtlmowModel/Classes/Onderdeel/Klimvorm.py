@@ -32,7 +32,7 @@ class Klimvorm(VegetatieElement, PuntGeometrie):
 
         self._heeftBevestigingconstructie = OTLAttribuut(field=BooleanField,
                                                          naam='heeftBevestigingconstructie',
-                                                         label='Heeft bevestigingsconstructie',
+                                                         label='heeft bevestigingsconstructie',
                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimvorm.heeftBevestigingconstructie',
                                                          definition='Aanduiding of de klimvorm een bevestigingsconstructie heeft om aan bv een geluidswerende constructie vastgemaakt te worden.',
                                                          owner=self)

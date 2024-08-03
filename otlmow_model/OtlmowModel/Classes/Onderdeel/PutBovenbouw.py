@@ -104,7 +104,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
 
         self._isWaterdichtVergrendeld = OTLAttribuut(field=BooleanField,
                                                      naam='isWaterdichtVergrendeld',
-                                                     label='Is waterdicht vergrendeld',
+                                                     label='is waterdicht vergrendeld',
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PutBovenbouw.isWaterdichtVergrendeld',
                                                      definition='Geeft aan of de bovenbouw al dan niet waterdicht vergrendeld is zodat het water zich niet boven de bovenbouw kan begeven.',
                                                      owner=self)

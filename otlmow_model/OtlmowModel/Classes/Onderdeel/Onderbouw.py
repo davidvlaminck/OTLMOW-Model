@@ -34,7 +34,7 @@ class Onderbouw(Laag, LaagDikte, LaagProductidentificatiecode):
 
         self._krimpvoegen = OTLAttribuut(field=DtcKrimpvoeg,
                                          naam='krimpvoegen',
-                                         label='Krimpvoegen',
+                                         label='krimpvoegen',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderbouw.krimpvoegen',
                                          definition='Een gedeeltelijke insnijding in een constructiedeel die uitzetting en krimp in de constructie toelaat.',
                                          owner=self)

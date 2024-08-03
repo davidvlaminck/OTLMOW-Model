@@ -11,6 +11,7 @@ class KlBoomGebreken(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomGebreken'
     definition = 'De verschillende mogelijke gebreken bij een boom.'
     status = 'ingebruik'
+    deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomGebreken'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

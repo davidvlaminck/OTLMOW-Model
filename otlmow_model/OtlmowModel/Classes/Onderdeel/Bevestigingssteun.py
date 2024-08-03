@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Datatypes.DtcBeschermendeLaag import DtcBeschermendeLaag, DtcBeschermendeLaagWaarden
 from ...Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from ...Datatypes.KlBevestigingssteunMerk import KlBevestigingssteunMerk
 from ...Datatypes.KlBevestigingssteunModelnaam import KlBevestigingssteunModelnaam
@@ -26,10 +27,19 @@ class Bevestigingssteun(AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Zendmast')
 
+        self._beschermendeLaag = OTLAttribuut(field=DtcBeschermendeLaag,
+                                              naam='beschermendeLaag',
+                                              label='beschermende laag',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingssteun.beschermendeLaag',
+                                              definition='Het type van bescherming van de constructie of steun met de corresponderende corrosieklasse.',
+                                              owner=self)
+
         self._beschermlaag = OTLAttribuut(field=KlDraagConstrBeschermlaag,
                                           naam='beschermlaag',
                                           label='beschermlaag',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingssteun.beschermlaag',
+                                          usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
+                                          deprecated_version='2.12.0',
                                           definition='Type bescherming van de steun, bv. geschilderd, gegalvaniseerd, ....',
                                           owner=self)
 
@@ -74,6 +84,15 @@ class Bevestigingssteun(AIMNaamObject, PuntGeometrie):
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingssteun.type',
                                   definition='Typering van de bevestigingssteun.',
                                   owner=self)
+
+    @property
+    def beschermendeLaag(self) -> DtcBeschermendeLaagWaarden:
+        """Het type van bescherming van de constructie of steun met de corresponderende corrosieklasse."""
+        return self._beschermendeLaag.get_waarde()
+
+    @beschermendeLaag.setter
+    def beschermendeLaag(self, value):
+        self._beschermendeLaag.set_waarde(value, owner=self)
 
     @property
     def beschermlaag(self) -> str:

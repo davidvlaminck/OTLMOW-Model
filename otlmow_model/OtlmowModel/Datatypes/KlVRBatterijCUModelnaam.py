@@ -10,6 +10,7 @@ class KlVRBatterijCUModelnaam(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVRBatterijCUModelnaam'
     definition = 'Keuzelijst met modelnamen voor VRBatterijCU.'
     status = 'ingebruik'
+    deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVRBatterijCUModelnaam'
     options = {
     }

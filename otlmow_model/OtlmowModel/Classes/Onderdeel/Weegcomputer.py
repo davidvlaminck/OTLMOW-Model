@@ -44,7 +44,7 @@ class Weegcomputer(AIMObject, PuntGeometrie):
 
         self._serienummer = OTLAttribuut(field=StringField,
                                          naam='serienummer',
-                                         label='Serienummer',
+                                         label='serienummer',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Weegcomputer.serienummer',
                                          definition='Unieke identificatie van het toestel, toegekend door de fabrikant.',
                                          owner=self)

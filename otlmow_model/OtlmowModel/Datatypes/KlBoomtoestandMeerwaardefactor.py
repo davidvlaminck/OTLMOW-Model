@@ -11,6 +11,7 @@ class KlBoomtoestandMeerwaardefactor(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomtoestandMeerwaardefactor'
     definition = 'De meerwaarde (ecologisch,erfgoed) van de boom.'
     status = 'ingebruik'
+    deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomtoestandMeerwaardefactor'
     options = {
         '1': KeuzelijstWaarde(invulwaarde='1',

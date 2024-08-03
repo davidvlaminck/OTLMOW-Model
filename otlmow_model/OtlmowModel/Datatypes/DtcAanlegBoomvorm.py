@@ -12,6 +12,7 @@ from ..Datatypes.KlGroeiplaatsverbetering import KlGroeiplaatsverbetering
 from ..Datatypes.KlMateriaalBeschermingVraatschade import KlMateriaalBeschermingVraatschade
 from ..Datatypes.KlPlantmaatHoogte import KlPlantmaatHoogte
 from ..Datatypes.KlPlantmaatOmtrek import KlPlantmaatOmtrek
+from ..Datatypes.KlPlantwijze import KlPlantwijze
 from ..Datatypes.KlVegetatieWortel import KlVegetatieWortel
 from ..Datatypes.KlVormAanleveringHoutigeVegetatie import KlVormAanleveringHoutigeVegetatie
 
@@ -77,6 +78,13 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcAanlegBoomvorm.plantmaatOmtrek',
                                              definition='De stamomtrek in centimeter (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde.',
                                              owner=self)
+
+        self._plantwijze = OTLAttribuut(field=KlPlantwijze,
+                                        naam='plantwijze',
+                                        label='plantwijze',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcAanlegBoomvorm.plantwijze',
+                                        definition='De manier van (aan)planten.',
+                                        owner=self)
 
         self._verankering = OTLAttribuut(field=KlBoomVerankering,
                                          naam='verankering',
@@ -184,6 +192,15 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
     @plantmaatOmtrek.setter
     def plantmaatOmtrek(self, value):
         self._plantmaatOmtrek.set_waarde(value, owner=self._parent)
+
+    @property
+    def plantwijze(self) -> str:
+        """De manier van (aan)planten."""
+        return self._plantwijze.get_waarde()
+
+    @plantwijze.setter
+    def plantwijze(self, value):
+        self._plantwijze.set_waarde(value, owner=self._parent)
 
     @property
     def verankering(self) -> str:

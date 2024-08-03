@@ -8,6 +8,9 @@
     "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene": {
         "directional": true
     },
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage": {
+        "directional": true
+    },
     "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftNetwerkProtectie": {
         "directional": true
     },

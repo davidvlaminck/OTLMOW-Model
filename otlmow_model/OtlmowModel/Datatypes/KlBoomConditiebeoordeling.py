@@ -5,12 +5,13 @@ from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaar
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlBoomConditiebeoordeling(KeuzelijstField):
-    """De conditie beoordeeld volgens de kronenstructuur van Dr. A. Roloff, gelet op de scheutlengte ontwikkeling en vorming van dood hout."""
+    """De conditie beoordeeld volgens de kronenstructuur van Dr. A. Roloff,gelet op de scheutlengte ontwikkeling en vorming van dood hout."""
     naam = 'KlBoomConditiebeoordeling'
     label = 'Boom conditiebeoordeling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomConditiebeoordeling'
-    definition = 'De conditie beoordeeld volgens de kronenstructuur van Dr. A. Roloff, gelet op de scheutlengte ontwikkeling en vorming van dood hout.'
+    definition = 'De conditie beoordeeld volgens de kronenstructuur van Dr. A. Roloff,gelet op de scheutlengte ontwikkeling en vorming van dood hout.'
     status = 'ingebruik'
+    deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomConditiebeoordeling'
     options = {
         '0': KeuzelijstWaarde(invulwaarde='0',

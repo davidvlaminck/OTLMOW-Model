@@ -26,7 +26,7 @@ class TGCUitbreidingsModule(AIMNaamObject, PuntGeometrie):
 
         self._merk = OTLAttribuut(field=KlTGCUitbreidingsModuleMerk,
                                   naam='merk',
-                                  label='Toegangscontroller uitbreidingsmodule',
+                                  label='merk',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#TGCUitbreidingsModule.merk',
                                   definition='De merknaam van de uitbreidingsmodule van een toegangscontroller.',
                                   owner=self)

@@ -81,7 +81,7 @@ class Rack(AIMNaamObject, PuntGeometrie):
 
         self._rackType = OTLAttribuut(field=KlRackType,
                                       naam='rackType',
-                                      label='Rack type',
+                                      label='rack type',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rack.rackType',
                                       definition='Geeft het type aan voor een rack volgens een keuzelijst van beschikbare types.',
                                       owner=self)

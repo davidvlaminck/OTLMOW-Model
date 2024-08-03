@@ -1,8 +1,10 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.Abstracten.Toegangselement import Toegangselement
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcAfmetingBxhInM import DtcAfmetingBxhInM, DtcAfmetingBxhInMWaarden
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlDeurFabrikant import KlDeurFabrikant
@@ -16,7 +18,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Deur(Toegangselement, AIMNaamObject, PuntGeometrie):
+class Deur(AanhorigheidSluisStuw, Toegangselement, AIMNaamObject, PuntGeometrie):
     """Een beweegbaar element ter afsluiting van een ruimte. In een gebouw is een deur meestal bevestigd in een kozijn,dat weer in een muur of wand is aangebracht."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Deur'
@@ -81,6 +83,13 @@ class Deur(Toegangselement, AIMNaamObject, PuntGeometrie):
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Deur.hoogte',
                                     definition='De afmeting van de rechtopstaande deur gemeten van de onderkant tot de bovenkant.',
                                     owner=self)
+
+        self._isWaterdicht = OTLAttribuut(field=BooleanField,
+                                          naam='isWaterdicht',
+                                          label='is waterdicht',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Deur.isWaterdicht',
+                                          definition='Geeft aan of de deur al dan niet waterdicht is.',
+                                          owner=self)
 
         self._ophangconstructie = OTLAttribuut(field=DtcDocument,
                                                naam='ophangconstructie',
@@ -173,6 +182,15 @@ class Deur(Toegangselement, AIMNaamObject, PuntGeometrie):
     @hoogte.setter
     def hoogte(self, value):
         self._hoogte.set_waarde(value, owner=self)
+
+    @property
+    def isWaterdicht(self) -> bool:
+        """Geeft aan of de deur al dan niet waterdicht is."""
+        return self._isWaterdicht.get_waarde()
+
+    @isWaterdicht.setter
+    def isWaterdicht(self, value):
+        self._isWaterdicht.set_waarde(value, owner=self)
 
     @property
     def ophangconstructie(self) -> DtcDocumentWaarden:

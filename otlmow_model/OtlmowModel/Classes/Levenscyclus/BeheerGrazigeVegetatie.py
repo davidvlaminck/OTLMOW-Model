@@ -36,7 +36,7 @@ class BeheerGrazigeVegetatie(AIMObject):
 
         self._lengte = OTLAttribuut(field=KwantWrdInMeter,
                                     naam='lengte',
-                                    label='Lengte',
+                                    label='lengte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerGrazigeVegetatie.lengte',
                                     definition='De lengte in meter van de te behandelen grazige vegetatie.',
                                     owner=self)

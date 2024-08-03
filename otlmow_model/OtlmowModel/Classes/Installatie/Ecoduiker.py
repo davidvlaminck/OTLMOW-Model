@@ -2,11 +2,12 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlEcoLooprichelType import KlEcoLooprichelType
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ecoduiker(AIMObject, VlakGeometrie):
+class Ecoduiker(AIMObject, LijnGeometrie, VlakGeometrie):
     """Buis- of tunnelvormige doorgang voor water onder een weg, die is voorzien van een oeverstrook of van looprichels zodat kleinere diersoorten beschermd voor het verkeer kunnen doorsteken."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ecoduiker'

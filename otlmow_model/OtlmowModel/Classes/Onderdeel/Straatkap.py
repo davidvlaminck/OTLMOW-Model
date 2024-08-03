@@ -18,14 +18,14 @@ class Straatkap(AIMNaamObject, PuntGeometrie):
 
         self._materiaalstraatkap = OTLAttribuut(field=KlMateriaalStraatkap,
                                                 naam='materiaalstraatkap',
-                                                label='Materiaal straatkap',
+                                                label='materiaal straatkap',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkap.materiaalstraatkap',
                                                 definition='Het materiaal van een straatkap verwijst naar de specifieke bouwstof of samenstelling waaruit het deksel bestaat.',
                                                 owner=self)
 
         self._typenutsvoorziening = OTLAttribuut(field=KlTypeNutsvoorziening,
                                                  naam='typenutsvoorziening',
-                                                 label='Type nutsvoorziening',
+                                                 label='type nutsvoorziening',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkap.typenutsvoorziening',
                                                  definition='Het type nutsvoorziening van een straatkap verwijst naar de specifieke aard van de nutsinfrastructuur waartoe het deksel toegang biedt.',
                                                  owner=self)

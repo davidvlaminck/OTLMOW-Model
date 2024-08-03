@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.11.0.4",
-        "otl_version": "2.11.0",
-        "created_at": "2024-07-02T04:01:13",
+        "model_version": "2.12.0.0",
+        "otl_version": "2.12.0",
+        "created_at": "2024-08-03T04:01:30",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -150,6 +150,28 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlWvLedOverhang"
+            ]
+        },
+        "2.12.0.0": {
+            "previous_version": "2.11.0.4",
+            "updated_class_model": true,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlBoomConditiebeoordeling",
+                "KlBoomConditiewaarde",
+                "KlBoomConflicten",
+                "KlBoomGebreken",
+                "KlBoomOnderhoudstoestand",
+                "KlBoomPlantwijzewaarde",
+                "KlBoomStandplaatswaarde",
+                "KlBoomtoestandMeerwaardefactor",
+                "KlKokerTypeFundering",
+                "KlVRBAZMerk",
+                "KlVRBAZModelnaam",
+                "KlVRBatterijCUMerk",
+                "KlVRBatterijCUModelnaam",
+                "KlVRModuleMetFirmwareMerk",
+                "KlVrComKaartTypeOpslaggeheugen"
             ]
         }
     }

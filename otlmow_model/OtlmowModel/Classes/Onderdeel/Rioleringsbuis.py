@@ -22,7 +22,7 @@ class Rioleringsbuis(Buis):
 
         self._aantalAfgedichteAansluitingen = OTLAttribuut(field=IntegerField,
                                                            naam='aantalAfgedichteAansluitingen',
-                                                           label='Aantal afgedichte aansluitingen',
+                                                           label='aantal afgedichte aansluitingen',
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rioleringsbuis.aantalAfgedichteAansluitingen',
                                                            definition='De afgedichte verlaten aansluitingsopeningen van straatkolken en/of huisaansluitingen in de rioleringsbuis.',
                                                            owner=self)

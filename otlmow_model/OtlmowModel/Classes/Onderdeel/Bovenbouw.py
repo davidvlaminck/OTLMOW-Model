@@ -90,7 +90,7 @@ class Bovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
 
         self._isWaterdichtVergrendeld = OTLAttribuut(field=BooleanField,
                                                      naam='isWaterdichtVergrendeld',
-                                                     label='Is waterdicht vergrendeld',
+                                                     label='is waterdicht vergrendeld',
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bovenbouw.isWaterdichtVergrendeld',
                                                      usagenote='Klasse uit gebruik sinds versie 2.1.0 ',
                                                      deprecated_version='2.1.0',

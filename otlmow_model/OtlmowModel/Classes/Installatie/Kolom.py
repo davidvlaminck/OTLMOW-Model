@@ -1,5 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.ConstructieElementAanvaarbeschermingGeleidewerk import ConstructieElementAanvaarbeschermingGeleidewerk
+from ...Classes.Abstracten.ConstructieElementSluisStuw import ConstructieElementSluisStuw
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from ...Datatypes.KlZijdenType import KlZijdenType
 from ...Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
@@ -7,7 +9,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kolom(ConstructiefObject, PuntGeometrie):
+class Kolom(ConstructieElementAanvaarbeschermingGeleidewerk, ConstructieElementSluisStuw, ConstructiefObject, PuntGeometrie):
     """Een verticale constructie die dient als drager en bestaat uit een zuil of pilaar."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kolom'
@@ -30,6 +32,7 @@ class Kolom(ConstructiefObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kokerruimte')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdeel')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdek')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kelderlandhoofd')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kelderpijler')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koker')

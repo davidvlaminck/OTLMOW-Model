@@ -2,6 +2,7 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorighedenBrug import AanhorighedenBrug
 from ...Classes.Abstracten.AanhorigheidKoker import AanhorigheidKoker
+from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -13,7 +14,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Leuning(AanhorighedenBrug, AanhorigheidKoker, AIMNaamObject, LijnGeometrie):
+class Leuning(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, AIMNaamObject, LijnGeometrie):
     """Een leuning is een constructie waaraan men met een hand steun of stabiliteit kan vinden om niet in de diepte te vallen. Ze kan bestaan uit een stevige balk, strip of touw maar ook uit een boven- en onderregel en stijlen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning'
@@ -23,6 +24,7 @@ class Leuning(AanhorighedenBrug, AanhorigheidKoker, AIMNaamObject, LijnGeometrie
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kokerruimte')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Loopvloer')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED')
 
         self._afwerkingstype = OTLAttribuut(field=KlAfwerkingstypeLeuning,
@@ -69,7 +71,7 @@ class Leuning(AanhorighedenBrug, AanhorigheidKoker, AIMNaamObject, LijnGeometrie
 
         self._vorm = OTLAttribuut(field=KlVormLeuning,
                                   naam='vorm',
-                                  label='Vorm',
+                                  label='vorm',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning.vorm',
                                   definition='De vorm van de leuning',
                                   owner=self)

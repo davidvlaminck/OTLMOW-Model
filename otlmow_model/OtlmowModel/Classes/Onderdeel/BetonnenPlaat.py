@@ -7,7 +7,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class BetonnenPlaat(BetonnenConstructieObject, VlakGeometrie):
-    """Een vlak, plat betonnen enkelvoudig constructie-element."""
+    """Een vlak en plat enkelvoudig betonnen constructie-element dat zowel horizontaal als verticaal geplaatst kan worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BetonnenPlaat'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
