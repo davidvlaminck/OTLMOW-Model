@@ -1,7 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
+from ..Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from ..Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden

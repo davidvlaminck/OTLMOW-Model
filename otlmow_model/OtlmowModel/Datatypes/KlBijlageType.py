@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,11 @@ class KlBijlageType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBijlageType'
     options = {
+        'foto': KeuzelijstWaarde(invulwaarde='foto',
+                                 label='foto',
+                                 status='ingebruik',
+                                 definitie='foto',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/foto')
     }
 
     @classmethod
