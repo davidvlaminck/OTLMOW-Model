@@ -22,6 +22,8 @@ class WaardenObject:
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.toegekendDoor',
         }:
             raise CanNotClearAttributeError(f'attribute {attribute_name} can not be cleared')
+        if attr.waarde is None:
+            return
         attr.set_waarde(None)
         attr.mark_to_be_cleared = True
 

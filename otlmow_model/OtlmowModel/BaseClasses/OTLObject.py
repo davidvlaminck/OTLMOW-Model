@@ -317,12 +317,13 @@ class OTLObject(object):
             raise CanNotClearAttributeError(f'attribute {attribute_name} can not be cleared')
 
         if attr.field.waardeObject is None:
+            if attr.waarde is None:
+                return
             attr.set_waarde(None)
             attr.mark_to_be_cleared = True
         else:
-            attr.waarde.mark_to_be_cleared = True
             for a in attr.waarde:
-                if isinstance(a, OTLAttribuut):
+                if isinstance(a, OTLAttribuut) and not a.readonly:
                     attr.waarde.clear_value(attribute_name=a.naam)
 
     def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False,
@@ -504,7 +505,7 @@ def _recursive_create_dict_from_asset(
                         continue
 
                 if attr.field.waardeObject is not None:  # complex
-                    if waarde_shortcut and attr.field.waarde_shortcut_applicable:
+                    if waarde_shortcut and attr.field.waarde_shortcut_applicable:  # waarde shortcut
                         if isinstance(attr.waarde, list):
                             if attr.waarde.mark_to_be_cleared:
                                 dict_item = [attr.field.clearing_value]
@@ -513,13 +514,13 @@ def _recursive_create_dict_from_asset(
                             if len(dict_item) > 0:
                                 d[attr.naam] = dict_item
                         else:
-                            if attr.waarde.mark_to_be_cleared:
-                                dict_item = attr.waarde.field.clearing_value
+                            if attr.waarde._waarde.mark_to_be_cleared:
+                                dict_item = attr.waarde._waarde.field.clearing_value
                             else:
-                                dict_item = attr.waarde.waarde
+                                dict_item = attr.waarde
                             if dict_item is not None:
                                 d[attr.naam] = dict_item
-                    else:
+                    else:  # regular complex or union
                         if attr.mark_to_be_cleared:
                             for a in attr.waarde:
                                 a.mark_to_be_cleared = True

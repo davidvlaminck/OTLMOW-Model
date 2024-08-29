@@ -1131,16 +1131,19 @@ def test_create_dict_from_asset_clear_value_complex():
 def test_create_dict_from_asset_clear_value_complex_on_prim_attribute():
     instance = AllCasesTestClass()
     instance.testComplexType.testStringField = 'a'
-    instance.clear_value('testComplexType')
+    instance.testComplexType.testBooleanField = True
+    instance.clear_value(attribute_name='testComplexType')
 
     assert instance.testComplexType.testStringField is None
     assert instance.testComplexType._testStringField.mark_to_be_cleared
     assert instance.testComplexType._testBooleanField.mark_to_be_cleared
+    assert not instance.testComplexType._testKwantWrd.mark_to_be_cleared
 
     d = instance.create_dict_from_asset()
     expected = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testComplexType': {'testStringField': '88888888'}
+        'testComplexType': {'testBooleanField': 88888888,
+                            'testStringField': '88888888'}
         }
     assert d == expected
 
@@ -1226,6 +1229,42 @@ def test_create_dict_from_asset_clear_value_bool():
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testBooleanField': 88888888}
     assert d == expected
+
+
+def test_create_dict_from_asset_clear_value_kwant_wrd():
+    instance = AllCasesTestClass()
+    instance.testKwantWrd.waarde = 2.0
+    instance.clear_value('testKwantWrd')
+    assert instance.testKwantWrd.waarde is None
+    assert instance._testKwantWrd.waarde._waarde.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKwantWrd': {'waarde': 88888888}}
+    assert d == expected
+    d2 = instance.create_dict_from_asset(waarde_shortcut=True)
+    expected2 = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKwantWrd': 88888888}
+    assert d2 == expected2
+
+
+def test_create_dict_from_asset_clear_value_kwant_wrd_kard():
+    instance = AllCasesTestClass()
+    instance.testKwantWrdMetKard[0].waarde = 2.0
+    instance.clear_value('testKwantWrdMetKard')
+    assert instance.testKwantWrdMetKard[0].waarde is None
+    assert instance._testKwantWrdMetKard[0].waarde.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKwantWrdMetKard': [{'waarde': 88888888}]}
+    assert d == expected
+    d2 = instance.create_dict_from_asset(waarde_shortcut=True)
+    expected2 = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKwantWrdMetKard': 88888888}
+    assert d2 == expected2
 
 
 def test_create_dict_from_asset_clear_value_illegal_attributes():
