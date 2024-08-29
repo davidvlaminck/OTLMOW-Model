@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.12.0.3",
+        "model_version": "2.12.0.4",
         "otl_version": "2.12.0",
-        "created_at": "2024-08-21T04:01:23",
+        "created_at": "2024-08-29T04:01:19",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -197,6 +197,14 @@
             "enums_updated": [
                 "KlUPSMerk",
                 "KlUPSModelnaam"
+            ]
+        },
+        "2.12.0.4": {
+            "previous_version": "2.12.0.3",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlOmvormerType"
             ]
         }
     }
