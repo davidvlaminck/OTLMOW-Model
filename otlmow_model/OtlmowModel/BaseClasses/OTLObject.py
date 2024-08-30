@@ -556,11 +556,21 @@ def _recursive_create_dict_from_asset(
                         d[attr.naam] = attr.field.clearing_value
                     elif datetime_as_string:
                         if attr.field == TimeField:
-                            d[attr.naam] = time.strftime(attr.waarde, format="%H:%M:%S")
+                            if isinstance(attr.waarde, list):
+                                d[attr.naam] = [time.strftime(list_item, "%H:%M:%S") for list_item in attr.waarde]
+                            else:
+                                d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
                         elif attr.field == DateField:
-                            d[attr.naam] = date.strftime(attr.waarde, format="%Y-%m-%d")
+                            if isinstance(attr.waarde, list):
+                                d[attr.naam] = [date.strftime(list_item, "%Y-%m-%d") for list_item in attr.waarde]
+                            else:
+                                d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
                         elif attr.field == DateTimeField:
-                            d[attr.naam] = datetime.strftime(attr.waarde, format="%Y-%m-%d %H:%M:%S")
+                            if isinstance(attr.waarde, list):
+                                d[attr.naam] = [datetime.strftime(list_item, "%Y-%m-%d %H:%M:%S")
+                                                     for list_item in attr.waarde]
+                            else:
+                                d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
                         else:
                             d[attr.naam] = attr.waarde
                     else:
@@ -620,12 +630,23 @@ def _recursive_create_rdf_dict_from_asset(
                 else:
                     if attr.mark_to_be_cleared:
                         d[attr.objectUri] = attr.field.clearing_value
-                    elif datetime_as_string and attr.field == TimeField:
-                        d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
-                    elif datetime_as_string and attr.field == DateField:
-                        d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
-                    elif datetime_as_string and attr.field == DateTimeField:
-                        d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                    elif datetime_as_string:
+                        if attr.field == TimeField:
+                            if isinstance(attr.waarde, list):
+                                d[attr.objectUri] = [time.strftime(list_item, "%H:%M:%S") for list_item in attr.waarde]
+                            else:
+                                d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
+                        elif attr.field == DateField:
+                            if isinstance(attr.waarde, list):
+                                d[attr.objectUri] = [date.strftime(list_item, "%Y-%m-%d") for list_item in attr.waarde]
+                            else:
+                                d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
+                        elif attr.field == DateTimeField:
+                            if isinstance(attr.waarde, list):
+                                d[attr.objectUri] = [datetime.strftime(list_item, "%Y-%m-%d %H:%M:%S")
+                                                     for list_item in attr.waarde]
+                            else:
+                                d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
                     elif issubclass(attr.field, KeuzelijstField):
                         if isinstance(attr.waarde, list):
                             if attr.waarde == [None]:
