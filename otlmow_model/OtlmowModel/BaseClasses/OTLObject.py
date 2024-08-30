@@ -97,6 +97,42 @@ class OTLAttribuut:
                 "In order to use this method this object must be one of these types: UnionType, ComplexType, KwantWrd, "
                 "Dte")
 
+    def clear_value(self) -> None:
+        if self.readonly:
+            raise ValueError(f'attribute {self.naam} is readonly')
+        if self.objectUri in {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMDBStatus.isActief',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMNaamObject.naam',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand'
+        } or self.field.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator':
+            raise CanNotClearAttributeError(f'attribute {self.naam} can not be cleared')
+        if (self.owner is not None and hasattr(self.owner, '_parent') and self.owner._parent.field.objectUri ==
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator'):
+            raise CanNotClearAttributeError(f'attribute {self.naam} can not be cleared')
+
+        # complex takes precedence over cardinality
+        # => complex + kard means clearing the value of each sub attribute of each item in the list
+        # => complex means clearing the value of each sub attribute
+        # => list means clearing the value
+
+        if self.field.waardeObject is not None:
+            if self.kardinaliteit_max != '1':
+                if self.waarde is None:
+                    self.add_empty_value()
+                for item in self.waarde:
+                    for sub_attr in item:
+                        if not sub_attr.readonly:
+                            sub_attr.clear_value()
+            else:
+                if self.waarde is None:
+                    self.add_empty_value()
+                for sub_attr in self.waarde:
+                    if not sub_attr.readonly:
+                        sub_attr.clear_value()
+        else:
+            self.waarde = None
+            self.mark_to_be_cleared = True
+
     def default(self):
         if self.waarde is not dict and isinstance(self.waarde, list):
             value_list = []
@@ -307,24 +343,7 @@ class OTLObject(object):
         attr = get_attribute_by_name(self, attribute_name)
         if attr is None:
             raise ValueError(f'attribute {attribute_name} does not exist')
-        if attr.readonly:
-            raise ValueError(f'attribute {attribute_name} is readonly')
-        if attr.objectUri in {
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMDBStatus.isActief',
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMNaamObject.naam',
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand'
-        } or attr.field.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator':
-            raise CanNotClearAttributeError(f'attribute {attribute_name} can not be cleared')
-
-        if attr.field.waardeObject is None:
-            if attr.waarde is None:
-                return
-            attr.set_waarde(None)
-            attr.mark_to_be_cleared = True
-        else:
-            for a in attr.waarde:
-                if isinstance(a, OTLAttribuut) and not a.readonly:
-                    attr.waarde.clear_value(attribute_name=a.naam)
+        attr.clear_value()
 
     def create_dict_from_asset(self, waarde_shortcut: bool = False, rdf: bool = False, datetime_as_string: bool = False,
                                suppress_warnings_non_standardised_attributes: bool = False) -> Dict:
@@ -507,17 +526,19 @@ def _recursive_create_dict_from_asset(
                 if attr.field.waardeObject is not None:  # complex
                     if waarde_shortcut and attr.field.waarde_shortcut_applicable:  # waarde shortcut
                         if isinstance(attr.waarde, list):
-                            if attr.waarde.mark_to_be_cleared:
-                                dict_item = [attr.field.clearing_value]
-                            else:
-                                dict_item = [item.waarde for item in attr.waarde]
-                            if len(dict_item) > 0:
-                                d[attr.naam] = dict_item
+                            item_list = []
+                            for item in attr.waarde:
+                                if item._waarde.mark_to_be_cleared:
+                                    item_list.append(item._waarde.field.clearing_value)
+                                else:
+                                    item_list.append(item._waarde.waarde)
+                            if len(item_list) > 0:
+                                d[attr.naam] = item_list
                         else:
                             if attr.waarde._waarde.mark_to_be_cleared:
                                 dict_item = attr.waarde._waarde.field.clearing_value
                             else:
-                                dict_item = attr.waarde
+                                dict_item = attr.waarde.waarde
                             if dict_item is not None:
                                 d[attr.naam] = dict_item
                     else:  # regular complex or union

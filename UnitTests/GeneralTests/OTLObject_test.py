@@ -45,13 +45,14 @@ def test_from_dict_abstract_class_no_typeURI_in_dict():
 def test_from_dict_non_standard_attributes_default_func():
     with pytest.warns(NonStandardAttributeWarning):
         input_dict = {'testBooleanField': True,
-                      'non_standard_attribute': True }
+                      'non_standard_attribute': True}
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
         assert instance is not None
         assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testBooleanField
         assert instance.non_standard_attribute
+
 
 def test_from_dict_non_standard_attributes_all_cases(subtests):
     input_dict = {'testBooleanField': True,
@@ -73,21 +74,18 @@ def test_from_dict_non_standard_attributes_all_cases(subtests):
                                         allow_non_otl_conform_attributes=False)
 
 
-
-
-
 def test_from_dict_simple_single_attributes():
     input_dict = {'testBooleanField': True,
                   'testKeuzelijst': 'waarde-2',
                   'testDateField': date(2023, 1, 1),
-                  'testDateTimeField': datetime(2023,1,1,10,11,12),
+                  'testDateTimeField': datetime(2023, 1, 1, 10, 11, 12),
                   'testTimeField': time(10, 11, 12),
                   'testDecimalField': 1.2,
                   'testIntegerField': 1,
                   'testStringField': 'test'}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testBooleanField
     assert instance.testKeuzelijst == 'waarde-2'
@@ -104,14 +102,16 @@ def test_from_dict_rdf_simple_single_attributes():
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testBooleanField': True,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKeuzelijst': 'waarde-2',
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateField': date(2023, 1, 1),
-        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateTimeField': datetime(2023,1,1,10,11,12),
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDateTimeField': datetime(2023, 1,
+                                                                                                               1, 10,
+                                                                                                               11, 12),
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testTimeField': time(10, 11, 12),
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testDecimalField': 1.2,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testIntegerField': 1,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringField': 'test'}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testBooleanField
     assert instance.testKeuzelijst == 'waarde-2'
@@ -130,7 +130,7 @@ def test_from_dict_simple_attributes_with_cardinality():
                   'testStringFieldMetKard': ['1', '2']}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testDecimalFieldMetKard[0] == 1.2
     assert instance.testDecimalFieldMetKard[1] == 2.3
@@ -151,7 +151,7 @@ def test_from_dict_rdf_simple_attributes_with_cardinality():
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testStringFieldMetKard': ['1', '2']}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testDecimalFieldMetKard[0] == 1.2
     assert instance.testDecimalFieldMetKard[1] == 2.3
@@ -172,7 +172,7 @@ def test_from_dict_attributes_with_waarde_shortcut(subtests):
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path,
                                                waarde_shortcut=True)
         assert instance is not None
-        #assert isinstance(instance, AllCasesTestClass) # TODO
+        assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testEenvoudigType.waarde == '1'
         assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
@@ -188,7 +188,7 @@ def test_from_dict_attributes_with_waarde_shortcut(subtests):
                       'testKwantWrdMetKard': [{'waarde': 1.2}, {'waarde': 2.3}]}
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
         assert instance is not None
-        # assert isinstance(instance, AllCasesTestClass) # TODO
+        assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testEenvoudigType.waarde == '1'
         assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
@@ -209,7 +209,7 @@ def test_from_dict_rdf_attributes_with_waarde_shortcut(subtests):
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path,
                                                waarde_shortcut=True, rdf=True)
         assert instance is not None
-        # assert isinstance(instance, AllCasesTestClass) # TODO
+        assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testEenvoudigType.waarde == '1'
         assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
@@ -237,7 +237,7 @@ def test_from_dict_rdf_attributes_with_waarde_shortcut(subtests):
                         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 2.3}]}
         instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
         assert instance is not None
-        # assert isinstance(instance, AllCasesTestClass) # TODO
+        assert instance.is_instance_of(AllCasesTestClass)
         assert AllCasesTestClass.typeURI == instance.typeURI
         assert instance.testEenvoudigType.waarde == '1'
         assert instance.testEenvoudigTypeMetKard[0].waarde == '1'
@@ -255,7 +255,7 @@ def test_from_dict_complex_single_attributes():
                   'testUnionType': {'unionString': 'union_test'}}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testComplexType.testBooleanField
     assert instance.testComplexType.testComplexType2.testStringField == 'test'
@@ -276,7 +276,7 @@ def test_from_dict_rdf_complex_single_attributes():
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test'}}
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testComplexType.testBooleanField
     assert instance.testComplexType.testComplexType2.testStringField == 'test'
@@ -297,7 +297,7 @@ def test_from_dict_complex_attributes_with_cardinality():
     }
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testComplexTypeMetKard[0].testBooleanField
     assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField == 'test2.1'
@@ -316,27 +316,29 @@ def test_from_dict_rdf_complex_attributes_with_cardinality():
     input_dict = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard':
             [{
-                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testBooleanField': True,
-                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2MetKard':
-                     [{'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'test2.1'},
-                      {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'test2.2'}],
-                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrdMetKard':
-                     [{'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.2},
-                      {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 2.3}],
-                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard': [
-                     'test3', 'test4']},
-             {
-                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard': [
-                     'test5', 'test6']}],
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testBooleanField': True,
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2MetKard':
+                    [{
+                        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'test2.1'},
+                        {
+                            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'test2.2'}],
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrdMetKard':
+                    [{'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 1.2},
+                     {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 2.3}],
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard': [
+                    'test3', 'test4']},
+                {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard': [
+                        'test5', 'test6']}],
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionTypeMetKard':
             [{
-                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test'},
-             {
-                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test2'}]
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test'},
+                {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuTestUnionType.unionString': 'union_test2'}]
     }
     instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
-    # assert isinstance(instance, AllCasesTestClass) # TODO
+    assert instance.is_instance_of(AllCasesTestClass)
     assert AllCasesTestClass.typeURI == instance.typeURI
     assert instance.testComplexTypeMetKard[0].testBooleanField
     assert instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testStringField == 'test2.1'
@@ -1028,7 +1030,6 @@ def test_from_dict_datetimes(recwarn):
     assert len(recwarn) == 0
 
 
-
 def test_create_ld_dict_from_asset_ComplexTypeMetKard():
     instance = AllCasesTestClass()
     instance.toestand = 'in-gebruik'
@@ -1107,24 +1108,27 @@ def test_clear_value():
     assert instance.testIntegerField is None
     assert instance._testIntegerField.mark_to_be_cleared
 
-    instance.testComplexType.clear_value('testStringField')
-    assert instance.testComplexType.testStringField is None
-    assert instance.testComplexType._testStringField.mark_to_be_cleared
+    instance.testComplexType._testComplexType2.clear_value()
+    assert instance.testComplexType.testComplexType2.testStringField is None
+    assert instance.testComplexType.testComplexType2._testStringField.mark_to_be_cleared
 
 
 def test_create_dict_from_asset_clear_value_complex():
     instance = AllCasesTestClass()
     instance.testComplexType.testStringField = 'a'
-    instance.testComplexType.clear_value('testStringField')
+    instance.testComplexType.testBooleanField = True
+    instance.testComplexType._testStringField.clear_value()
 
     assert instance.testComplexType.testStringField is None
     assert instance.testComplexType._testStringField.mark_to_be_cleared
+    assert instance.testComplexType.testBooleanField
+    assert not instance.testComplexType._testBooleanField.mark_to_be_cleared
 
     d = instance.create_dict_from_asset()
     expected = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testComplexType': {'testStringField': '88888888'}
-        }
+        'testComplexType': {'testBooleanField': True, 'testStringField': '88888888'}
+    }
     assert d == expected
 
 
@@ -1136,15 +1140,21 @@ def test_create_dict_from_asset_clear_value_complex_on_prim_attribute():
 
     assert instance.testComplexType.testStringField is None
     assert instance.testComplexType._testStringField.mark_to_be_cleared
+    assert instance.testComplexType.testBooleanField is None
     assert instance.testComplexType._testBooleanField.mark_to_be_cleared
-    assert not instance.testComplexType._testKwantWrd.mark_to_be_cleared
+    assert instance.testComplexType.testKwantWrd._waarde.mark_to_be_cleared
 
     d = instance.create_dict_from_asset()
-    expected = {
-        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testComplexType': {'testBooleanField': 88888888,
-                            'testStringField': '88888888'}
-        }
+    expected = {'testComplexType': {'testBooleanField': '88888888',
+                     'testComplexType2': {'testKwantWrd': {'waarde': 88888888},
+                                          'testStringField': '88888888'},
+                     'testComplexType2MetKard': [{'testKwantWrd': {'waarde': 88888888},
+                                                  'testStringField': '88888888'}],
+                     'testKwantWrd': {'waarde': 88888888},
+                     'testKwantWrdMetKard': [{'waarde': 88888888}],
+                     'testStringField': '88888888',
+                     'testStringFieldMetKard': '88888888'},
+ 'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
     assert d == expected
 
 
@@ -1163,19 +1173,45 @@ def test_create_dict_from_asset_clear_value_kard():
     assert d == expected
 
 
-def test_create_dict_from_asset_clear_value_complex_kard():
+def test_create_dict_from_asset_clear_value_complex_kard_on_prim_attribute():
     instance = AllCasesTestClass()
     instance.testComplexTypeMetKard[0].testStringField = 'clear this value'
-    instance.testComplexTypeMetKard[0].clear_value('testStringField')
+    instance.testComplexTypeMetKard[0].testBooleanField = True
+    instance._testComplexTypeMetKard.add_empty_value()
+    instance.testComplexTypeMetKard[1].testStringField = 'this too'
+    instance.clear_value('testComplexTypeMetKard')
 
     assert instance.testComplexTypeMetKard[0].testStringField is None
     assert instance.testComplexTypeMetKard[0]._testStringField.mark_to_be_cleared
+    assert instance.testComplexTypeMetKard[0].testBooleanField is None
+    assert instance.testComplexTypeMetKard[0]._testBooleanField.mark_to_be_cleared
+    assert instance.testComplexTypeMetKard[1].testStringField is None
+    assert instance.testComplexTypeMetKard[1]._testStringField.mark_to_be_cleared
+    assert instance.testComplexTypeMetKard[1].testBooleanField is None
+    assert instance.testComplexTypeMetKard[1]._testBooleanField.mark_to_be_cleared
 
     d = instance.create_dict_from_asset()
-    expected = {
-        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testComplexTypeMetKard': [{'testStringField': '88888888'}]
-    }
+    expected = {'testComplexTypeMetKard':
+                    [{'testBooleanField': '88888888',
+                      'testComplexType2': {'testKwantWrd': {'waarde': 88888888},
+                                           'testStringField': '88888888'},
+                      'testComplexType2MetKard': [
+                          {'testKwantWrd': {'waarde': 88888888},
+                           'testStringField': '88888888'}],
+                      'testKwantWrd': {'waarde': 88888888},
+                      'testKwantWrdMetKard': [{'waarde': 88888888}],
+                      'testStringField': '88888888',
+                      'testStringFieldMetKard': '88888888'},
+                     {'testBooleanField': '88888888',
+                      'testComplexType2': {'testKwantWrd': {'waarde': 88888888},
+                                           'testStringField': '88888888'},
+                      'testComplexType2MetKard': [{'testKwantWrd': {'waarde': 88888888},
+                                                   'testStringField': '88888888'}],
+                      'testKwantWrd': {'waarde': 88888888},
+                      'testKwantWrdMetKard': [{'waarde': 88888888}],
+                      'testStringField': '88888888',
+                      'testStringFieldMetKard': '88888888'}],
+                'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
     assert d == expected
 
 
@@ -1205,6 +1241,19 @@ def test_create_dict_from_asset_clear_value_str():
     assert d == expected
 
 
+def test_create_dict_from_asset_clear_value_str_kard():
+    instance = AllCasesTestClass()
+    instance.testStringFieldMetKard = ['clear this value', 'this too']
+    instance.clear_value('testStringFieldMetKard')
+    assert instance.testStringFieldMetKard is None
+    assert instance._testStringFieldMetKard.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testStringFieldMetKard': '88888888'}
+    assert d == expected
+
+
 def test_create_dict_from_asset_clear_value_decimal():
     instance = AllCasesTestClass()
     instance.testDecimalField = -1.0
@@ -1218,6 +1267,33 @@ def test_create_dict_from_asset_clear_value_decimal():
     assert d == expected
 
 
+def test_create_dict_from_asset_clear_value_datetime_types():
+    instance = AllCasesTestClass()
+    instance.testDateField = date(year=2022, month=2, day=2)
+    instance.testDateTimeField = datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30)
+    instance.testTimeField = time(hour=12, minute=30, second=30)
+
+    instance.clear_value('testDateField')
+    assert instance.testDateField is None
+    assert instance._testDateField.mark_to_be_cleared
+
+    instance.clear_value('testDateTimeField')
+    assert instance.testDateTimeField is None
+    assert instance._testDateTimeField.mark_to_be_cleared
+
+    instance.clear_value('testTimeField')
+    assert instance.testTimeField is None
+    assert instance._testTimeField.mark_to_be_cleared
+
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testDateField': '88888888',
+        'testTimeField': '88888888',
+        'testDateTimeField': '88888888'}
+    assert d == expected
+
+
 def test_create_dict_from_asset_clear_value_bool():
     instance = AllCasesTestClass()
     instance.testBooleanField = False
@@ -1227,7 +1303,7 @@ def test_create_dict_from_asset_clear_value_bool():
     d = instance.create_dict_from_asset()
     expected = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testBooleanField': 88888888}
+        'testBooleanField': '88888888'}
     assert d == expected
 
 
@@ -1236,12 +1312,14 @@ def test_create_dict_from_asset_clear_value_kwant_wrd():
     instance.testKwantWrd.waarde = 2.0
     instance.clear_value('testKwantWrd')
     assert instance.testKwantWrd.waarde is None
-    assert instance._testKwantWrd.waarde._waarde.mark_to_be_cleared
+    assert instance.testKwantWrd._waarde.mark_to_be_cleared
+
     d = instance.create_dict_from_asset()
     expected = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testKwantWrd': {'waarde': 88888888}}
     assert d == expected
+
     d2 = instance.create_dict_from_asset(waarde_shortcut=True)
     expected2 = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
@@ -1252,18 +1330,23 @@ def test_create_dict_from_asset_clear_value_kwant_wrd():
 def test_create_dict_from_asset_clear_value_kwant_wrd_kard():
     instance = AllCasesTestClass()
     instance.testKwantWrdMetKard[0].waarde = 2.0
+    instance._testKwantWrdMetKard.add_empty_value()
+    instance.testKwantWrdMetKard[1].waarde = 3.0
     instance.clear_value('testKwantWrdMetKard')
     assert instance.testKwantWrdMetKard[0].waarde is None
-    assert instance._testKwantWrdMetKard[0].waarde.mark_to_be_cleared
+    assert instance.testKwantWrdMetKard[0]._waarde.mark_to_be_cleared
+    assert not instance.testKwantWrdMetKard[0]._standaardEenheid.mark_to_be_cleared
+
     d = instance.create_dict_from_asset()
     expected = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testKwantWrdMetKard': [{'waarde': 88888888}]}
+        'testKwantWrdMetKard': [{'waarde': 88888888}, {'waarde': 88888888}]}
     assert d == expected
+
     d2 = instance.create_dict_from_asset(waarde_shortcut=True)
     expected2 = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testKwantWrdMetKard': 88888888}
+        'testKwantWrdMetKard': [88888888, 88888888]}
     assert d2 == expected2
 
 
@@ -1279,21 +1362,21 @@ def test_create_dict_from_asset_clear_value_illegal_attributes():
     with pytest.raises(CanNotClearAttributeError):
         instance.clear_value('assetId')
     with pytest.raises(CanNotClearAttributeError):
-        instance.assetId.clear_value('identificator')
+        instance.assetId._identificator.clear_value()
     with pytest.raises(CanNotClearAttributeError):
-        instance.assetId.clear_value('toegekendDoor')
+        instance.assetId._toegekendDoor.clear_value()
     with pytest.raises(CanNotClearAttributeError):
         relatie.clear_value('bronAssetId')
     with pytest.raises(CanNotClearAttributeError):
-        relatie.bronAssetId.clear_value('identificator')
+        relatie.bronAssetId._identificator.clear_value()
     with pytest.raises(CanNotClearAttributeError):
-        relatie.bronAssetId.clear_value('toegekendDoor')
+        relatie.bronAssetId._toegekendDoor.clear_value()
     with pytest.raises(CanNotClearAttributeError):
         relatie.clear_value('doelAssetId')
     with pytest.raises(CanNotClearAttributeError):
-        relatie.doelAssetId.clear_value('identificator')
+        relatie.doelAssetId._identificator.clear_value()
     with pytest.raises(CanNotClearAttributeError):
-        relatie.doelAssetId.clear_value('toegekendDoor')
+        relatie.doelAssetId._toegekendDoor.clear_value()
 
 
 def test_from_dict_clear_value():
@@ -1305,4 +1388,3 @@ def test_from_dict_clear_value():
     assert instance._testIntegerField.mark_to_be_cleared
     assert instance.testComplexType.testStringField is None
     assert instance.testComplexType._testStringField.mark_to_be_cleared
-
