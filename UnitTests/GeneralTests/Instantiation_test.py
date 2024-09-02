@@ -9,23 +9,56 @@ import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import dynamic_create_instance_from_uri, \
-    dynamic_create_instance_from_ns_and_name
+    dynamic_create_instance_from_ns_and_name, dynamic_create_type_from_uri, dynamic_create_type_from_ns_and_name
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
-def test_instantiate_single_class_with_asset_creator():
+def test_dynamic_create_instance_from_uri():
     mof = dynamic_create_instance_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof')
     assert mof is not None
+
+    agent = dynamic_create_instance_from_uri('http://purl.org/dc/terms/Agent')
+    assert agent is not None
+
+    with pytest.raises(ModuleNotFoundError):
+        dynamic_create_instance_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NotAValidClassName')
+
+
+def test_dynamic_create_instance_from_ns_and_name():
+    mof = dynamic_create_instance_from_ns_and_name('onderdeel', 'Aansluitmof')
+    assert mof is not None
+
+    with pytest.raises(ModuleNotFoundError):
+        dynamic_create_instance_from_ns_and_name('onderdeel', 'NotAValidClassName')
+
+
+def test_dynamic_create_type_from_uri():
+    mof_type = dynamic_create_type_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof')
+    assert mof_type is not None
+
+    agent_type = dynamic_create_type_from_uri('http://purl.org/dc/terms/Agent')
+    assert agent_type is not None
+
+    with pytest.raises(ModuleNotFoundError):
+        dynamic_create_type_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NotAValidClassName')
+
+
+def test_dynamic_create_type_from_ns_and_name():
+    mof_type = dynamic_create_type_from_ns_and_name('onderdeel', 'Aansluitmof')
+    assert mof_type is not None
+
+    with pytest.raises(ModuleNotFoundError):
+        dynamic_create_type_from_ns_and_name('onderdeel', 'NotAValidClassName')
 
 
 def test_instantiate_test_class_with_asset_creator():
     model_location = Path(ROOT_DIR).parent / 'TestModel'
-    anothertest_class = dynamic_create_instance_from_uri(
+    another_test_class = dynamic_create_instance_from_uri(
         class_uri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass',
         model_directory=model_location)
-    assert anothertest_class is not None
-    assert anothertest_class.typeURI == AnotherTestClass.typeURI
+    assert another_test_class is not None
+    assert another_test_class.typeURI == AnotherTestClass.typeURI
     test_class = dynamic_create_instance_from_uri(
         class_uri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         model_directory=model_location)
