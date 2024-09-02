@@ -495,10 +495,6 @@ def _recursive_create_dict_from_asset(
                             if dict_item is not None:
                                 d[attr.naam] = dict_item
                     else:  # regular complex or union
-                        if attr.mark_to_be_cleared:
-                            for a in attr.waarde:
-                                a.mark_to_be_cleared = True
-
                         dict_item = _recursive_create_dict_from_asset(
                             asset=attr.waarde, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
                             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
@@ -561,20 +557,36 @@ def _recursive_create_rdf_dict_from_asset(
             if attr_key in {'_parent', '_valid_relations'}:
                 continue
             if isinstance(attr, OTLAttribuut):
-                if attr.waarde is None or attr.waarde == []:
-                    continue
+                if not attr.mark_to_be_cleared:
+                    if attr.waarde is None:
+                        continue
+                    if attr.waarde == []:
+                        d[attr.naam] = []
+                        continue
 
                 if attr.field.waardeObject is not None:  # complex
                     if waarde_shortcut and attr.field.waarde_shortcut_applicable:
                         if isinstance(attr.waarde, list):
-                            dict_item = [item.waarde for item in attr.waarde]
-                            if len(dict_item) > 0:
-                                d[attr.objectUri] = dict_item
+                            item_list = []
+                            for item in attr.waarde:
+                                if item._waarde.mark_to_be_cleared:
+                                    item_list.append(item._waarde.field.clearing_value)
+                                else:
+                                    item_list.append(item._waarde.waarde)
+                            if len(item_list) > 0:
+                                d[attr.objectUri] = item_list
                         else:
-                            dict_item = attr.waarde.waarde
+                            if attr.waarde._waarde.mark_to_be_cleared:
+                                dict_item = attr.waarde._waarde.field.clearing_value
+                            else:
+                                dict_item = attr.waarde.waarde
                             if dict_item is not None:
                                 d[attr.objectUri] = dict_item
                     else:
+                        if attr.mark_to_be_cleared:
+                            for a in attr.waarde:
+                                a.mark_to_be_cleared = True
+
                         dict_item = _recursive_create_rdf_dict_from_asset(
                             asset=attr.waarde, waarde_shortcut=waarde_shortcut, datetime_as_string=datetime_as_string,
                             suppress_warnings_non_standardised_attributes=suppress_warnings_non_standardised_attributes)
@@ -735,7 +747,11 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
                     attribute_to_set.add_empty_value()
 
                 if attribute_to_set.field.waarde_shortcut_applicable and waarde_shortcut:  # dte / kwantWrd
+                    if list_item == attribute_to_set.waarde[index]._waarde.field.clearing_value:
+                        attribute_to_set.waarde[index]._waarde.clear_value()
+                        continue
                     attribute_to_set.waarde[index]._waarde.set_waarde(list_item)
+
                 else:  # complex / union
                     for k, v in list_item.items():
                         set_value_by_dictitem(attribute_to_set.waarde[index], k, v, waarde_shortcut, rdf=rdf,
