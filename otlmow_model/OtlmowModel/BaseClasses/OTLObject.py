@@ -841,10 +841,7 @@ def dynamic_create_instance_from_uri(class_uri: str, model_directory: Path = Non
         ns, name = None, 'Agent'
     else:
         ns, name = get_ns_and_name_from_uri(class_uri)
-    created = dynamic_create_instance_from_ns_and_name(ns, name, model_directory=model_directory)
-    if created is None:
-        raise ValueError(f'{class_uri} is likely not a valid uri, it does not result in a created instance')
-    return created
+    return dynamic_create_instance_from_ns_and_name(ns, name, model_directory=model_directory)
 
 
 def dynamic_create_type_from_uri(class_uri: str, model_directory: Path = None) -> type:
@@ -856,7 +853,4 @@ def dynamic_create_type_from_uri(class_uri: str, model_directory: Path = None) -
         ns, name = None, 'Agent'
     else:
         ns, name = get_ns_and_name_from_uri(class_uri)
-    created = dynamic_create_type_from_ns_and_name(ns, name, model_directory=model_directory)
-    if created is None:
-        raise ValueError(f'{class_uri} is likely not a valid uri, it does not result in a created instance')
-    return created
+    return dynamic_create_type_from_ns_and_name(ns, name, model_directory=model_directory)
