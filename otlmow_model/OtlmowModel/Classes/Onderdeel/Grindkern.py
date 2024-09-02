@@ -35,7 +35,7 @@ class Grindkern(Funderingspaal):
 
         self._hOhAfstand = OTLAttribuut(field=KwantWrdInMeter,
                                         naam='hOhAfstand',
-                                        label='H.o.h. afstand',
+                                        label='h.o.h. afstand',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grindkern.hOhAfstand',
                                         definition='Hart op hart afstand tussen elementen',
                                         owner=self)

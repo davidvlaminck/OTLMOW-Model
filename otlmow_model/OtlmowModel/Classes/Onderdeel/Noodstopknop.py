@@ -38,7 +38,7 @@ class Noodstopknop(ElektrischComponentennummerObject, SerienummerObject, AIMNaam
 
         self._uitvoering = OTLAttribuut(field=KlNoodstopknopUitvoering,
                                         naam='uitvoering',
-                                        label='Noodstop uitvoering',
+                                        label='uitvoering',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Noodstopknop.uitvoering',
                                         definition='Type volgens het werkingsprincipe van de knop of schakelaar.',
                                         owner=self)

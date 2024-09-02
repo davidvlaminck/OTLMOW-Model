@@ -7,10 +7,11 @@ from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class SecansTangenspalenwand(Grondkeringen, WaterremmendeFunctie, AIMNaamObject, LijnGeometrie):
+class SecansTangenspalenwand(Grondkeringen, WaterremmendeFunctie, AIMNaamObject, LijnGeometrie, VlakGeometrie):
     """Een secans- of tangenspalenwand bestaat uit betonnen boorpalen. Bij de secanspalenwand zijn dit primaire en secundaire, in elkaar oversneden palen. Bij de tangenspalenwand snijden de boorpalen niet in elkaar in (geen overlap). De wand heeft tot doel een bouwputbeschoeiing te realiseren. De stabiliteit van de grondkering wordt verzekerd door verankeringen en/of schoringen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#SecansTangenspalenwand'

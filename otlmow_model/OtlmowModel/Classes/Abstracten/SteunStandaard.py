@@ -3,6 +3,7 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.EMDraagconstructie import EMDraagconstructie
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Datatypes.DtcBeschermendeLaag import DtcBeschermendeLaag, DtcBeschermendeLaagWaarden
 from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.KlDraagConstrBeschermlaag import KlDraagConstrBeschermlaag
 from ...Datatypes.KlDraagConstrBijzondertransport import KlDraagConstrBijzondertransport
@@ -62,10 +63,19 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenSchroefpaal')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verankeringsmassief')
 
+        self._beschermendeLaag = OTLAttribuut(field=DtcBeschermendeLaag,
+                                              naam='beschermendeLaag',
+                                              label='beschermende laag',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard.beschermendeLaag',
+                                              definition='Het type van bescherming van de constructie of steun met de corresponderende corrosieklasse.',
+                                              owner=self)
+
         self._beschermlaag = OTLAttribuut(field=KlDraagConstrBeschermlaag,
                                           naam='beschermlaag',
                                           label='beschermlaag',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard.beschermlaag',
+                                          usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
+                                          deprecated_version='2.12.0',
                                           definition='Type bescherming van de steun, bv. geschilderd of gegalvaniseerd.',
                                           owner=self)
 
@@ -96,6 +106,15 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard.kleur',
                                    definition='De RAL kleur van het uitwendig zichtbare gedeelte.',
                                    owner=self)
+
+    @property
+    def beschermendeLaag(self) -> DtcBeschermendeLaagWaarden:
+        """Het type van bescherming van de constructie of steun met de corresponderende corrosieklasse."""
+        return self._beschermendeLaag.get_waarde()
+
+    @beschermendeLaag.setter
+    def beschermendeLaag(self, value):
+        self._beschermendeLaag.set_waarde(value, owner=self)
 
     @property
     def beschermlaag(self) -> str:

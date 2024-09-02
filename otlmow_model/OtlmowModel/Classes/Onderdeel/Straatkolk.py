@@ -4,6 +4,7 @@ from ...Classes.Abstracten.Put import Put
 from ...Classes.Abstracten.PutRelatie import PutRelatie
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlPutRooster import KlPutRooster
 from ...Datatypes.KlRoosterIndeling import KlRoosterIndeling
 from ...Datatypes.KlRoosterOpeningswijze import KlRoosterOpeningswijze
@@ -22,6 +23,13 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
 
     def __init__(self):
         super().__init__()
+
+        self._aansluitingsfiche = OTLAttribuut(field=DtcDocument,
+                                               naam='aansluitingsfiche',
+                                               label='aansluitingsfiche',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkolk.aansluitingsfiche',
+                                               definition='De aansluitingsfiche van de straatkolk.',
+                                               owner=self)
 
         self._bakAfmetingen = OTLAttribuut(field=DtcAfmetingBxlxhInMm,
                                            naam='bakAfmetingen',
@@ -87,6 +95,15 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkolk.typeUitlaat',
                                          definition='Het type van uitlaat van de straatkolk.',
                                          owner=self)
+
+    @property
+    def aansluitingsfiche(self) -> DtcDocumentWaarden:
+        """De aansluitingsfiche van de straatkolk."""
+        return self._aansluitingsfiche.get_waarde()
+
+    @aansluitingsfiche.setter
+    def aansluitingsfiche(self, value):
+        self._aansluitingsfiche.set_waarde(value, owner=self)
 
     @property
     def bakAfmetingen(self) -> DtcAfmetingBxlxhInMmWaarden:

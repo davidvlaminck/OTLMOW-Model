@@ -1,15 +1,14 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.AanvaarbeschermingGeleidewerk import AanvaarbeschermingGeleidewerk
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlAanvaarbeschermingType import KlAanvaarbeschermingType
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Aanvaarbescherming(AIMNaamObject, PuntGeometrie, LijnGeometrie):
-    """Constructie om schepen te geleiden en/of te verhinderen dat ze ergens tegenaan botsen."""
+class Aanvaarbescherming(AanvaarbeschermingGeleidewerk, AIMNaamObject):
+    """Constructie om te verhinderen dat schepen ergens tegenaan botsen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aanvaarbescherming'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -17,6 +16,7 @@ class Aanvaarbescherming(AIMNaamObject, PuntGeometrie, LijnGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Fuik')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kelderlandhoofd')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kelderpijler')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Landhoofd')
@@ -31,7 +31,7 @@ class Aanvaarbescherming(AIMNaamObject, PuntGeometrie, LijnGeometrie):
 
         self._typeAanvaarbescherming = OTLAttribuut(field=KlAanvaarbeschermingType,
                                                     naam='typeAanvaarbescherming',
-                                                    label='Type aanvaarbescherming',
+                                                    label='type aanvaarbescherming',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aanvaarbescherming.typeAanvaarbescherming',
                                                     definition='De soort van aanvaarbescherming.',
                                                     owner=self)

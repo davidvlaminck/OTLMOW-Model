@@ -1,4 +1,4 @@
-﻿from datetime import date, datetime, time
+﻿from datetime import datetime, date, time
 from pathlib import Path
 
 import pytest
@@ -431,18 +431,6 @@ def test_fill_with_dummy_data_through_attributes(subtests):
         instance.testComplexTypeMetKard[0]._testStringFieldMetKard.fill_with_dummy_data()
         assert instance.testComplexTypeMetKard[0].testStringFieldMetKard[0] is not None
 
-    # with self.subTest("attribute 3 levels deep"):
-    #     dotnotation = DotnotationHelper().get_dotnotation(instance.testComplexType.testComplexType2._testStringField)
-    #     self.assertEqual('testComplexType.testComplexType2.testStringField', dotnotation)
-    #
-    # with self.subTest("attribute 3 levels deep with cardinality > 1"):
-    #     dotnotation = DotnotationHelper().get_dotnotation(instance.testComplexTypeMetKard[0].testComplexType2MetKard[0]._testStringFieldMetKard)
-    #     self.assertEqual('testComplexTypeMetKard[].testComplexType2MetKard[].testStringFieldMetKard[]', dotnotation)
-    #
-    # with self.subTest("attribute 4 levels deep with waarde shortcut disabled"):
-    #     dotnotation = DotnotationHelper().get_dotnotation(instance.testComplexType.testComplexType2.testKwantWrd._waarde)
-    #     self.assertEqual('testComplexType.testComplexType2.testKwantWrd.waarde', dotnotation)
-
 
 def test_build_string_version_empty_class():
     info_string = str(AllCasesTestClass())
@@ -586,7 +574,7 @@ def test_create_dict_from_asset_non_standard_attributes_warnings_suppressed(subt
         instance.testBooleanField = True
         instance.non_standard_attribute_no_warning = 'waarde-2'
 
-        d = instance.create_dict_from_asset(suppress_warnings_non_standardised_attributes=True)
+        d = instance.create_dict_from_asset(warn_for_non_otl_conform_attributes=False)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testStringField': 'string',
@@ -663,7 +651,7 @@ def test_create_dict_from_asset_testclass(subtests):
                     'testStringField': 'string'}
         assert d == expected
 
-        d = instance.create_dict_from_asset(datetime_as_string=True)
+        d = instance.create_dict_from_asset(cast_datetime=True)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': '2022-02-02',
@@ -918,7 +906,7 @@ def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes(sub
         instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
         instance.non_standard_attribute = 'waarde-2'
 
-        rdf_dict = create_dict_from_asset(instance, rdf=True, suppress_warnings_non_standardised_attributes=True)
+        rdf_dict = create_dict_from_asset(instance, rdf=True, warn_for_non_otl_conform_attributes=False)
         expected = {
             '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
@@ -988,7 +976,7 @@ def test_create_dict_from_asset_datetimes(recwarn):
 
     assert d == expected
 
-    d = create_dict_from_asset(instance, datetime_as_string=True)
+    d = create_dict_from_asset(instance, cast_datetime=True)
     expected = {
         'testDateField': '2022-02-02',
         'testDateTimeField': '2022-02-02 12:30:30',
@@ -1018,7 +1006,7 @@ def test_from_dict_datetimes(recwarn):
         'testDateTimeField': '2022-02-02 12:30:30',
         'testTimeField': '12:30:30',
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
-    instance = AllCasesTestClass.from_dict(d, model_directory=model_directory_path, datetime_as_string=True)
+    instance = AllCasesTestClass.from_dict(d, model_directory=model_directory_path, cast_datetime=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testDateField == date(year=2022, month=2, day=2)

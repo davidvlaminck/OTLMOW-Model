@@ -47,7 +47,7 @@ class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
                                            naam='typeFundering',
                                            label='type fundering',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koker.typeFundering',
-                                           definition='Het type fundering dat gebruikt wordt voor de kokercel',
+                                           definition='Het type fundering dat gebruikt wordt voor de koker.',
                                            owner=self)
 
     @property
@@ -79,7 +79,7 @@ class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
 
     @property
     def typeFundering(self) -> str:
-        """Het type fundering dat gebruikt wordt voor de kokercel"""
+        """Het type fundering dat gebruikt wordt voor de koker."""
         return self._typeFundering.get_waarde()
 
     @typeFundering.setter

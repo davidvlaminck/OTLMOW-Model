@@ -20,7 +20,12 @@ class KlVerlichtingstoestelconnectorBesturingsconnector(KeuzelijstField):
         'SR': KeuzelijstWaarde(invulwaarde='SR',
                                label='SR',
                                status='ingebruik',
-                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelconnectorBesturingsconnector/SR')
+                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelconnectorBesturingsconnector/SR'),
+        'nema-7-pin': KeuzelijstWaarde(invulwaarde='nema-7-pin',
+                                       label='NEMA 7 PIN',
+                                       status='ingebruik',
+                                       definitie='Nema 7 pins connector',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelconnectorBesturingsconnector/nema-7-pin')
     }
 
     @classmethod

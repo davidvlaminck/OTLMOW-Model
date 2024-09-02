@@ -7,7 +7,7 @@ from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaar
 class KlKokerTypeFundering(KeuzelijstField):
     """Keuzelijst om aan te geven welk type fundering gebruikt is in de kokercel."""
     naam = 'KlKokerTypeFundering'
-    label = 'Kokercel type fundering'
+    label = 'Koker type fundering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlKokerTypeFundering'
     definition = 'Keuzelijst om aan te geven welk type fundering gebruikt is in de kokercel.'
     status = 'ingebruik'

@@ -40,7 +40,7 @@ class HSBeveiligingscel(AIMNaamObject, PuntGeometrie):
 
         self._heeftAardingsschakelaar = OTLAttribuut(field=BooleanField,
                                                      naam='heeftAardingsschakelaar',
-                                                     label='Aardingsschakelaar',
+                                                     label='heeft aardingsschakelaar',
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel.heeftAardingsschakelaar',
                                                      definition='Geeft aan of er al dan niet een aardingsschakelaar aanwezig is.',
                                                      owner=self)

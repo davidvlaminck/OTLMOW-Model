@@ -20,14 +20,14 @@ class Ventilatiekanaal(AIMObject, LijnGeometrie):
 
         self._materiaal = OTLAttribuut(field=KlMateriaalVentilatiekanaal,
                                        naam='materiaal',
-                                       label='Materiaal ventilatiekanaal',
+                                       label='materiaal ventilatiekanaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ventilatiekanaal.materiaal',
                                        definition='Het materiaal van een ventilatiekanaal verwijst naar de substantie waaruit het kanaal is vervaardigd.',
                                        owner=self)
 
         self._oppervlakte = OTLAttribuut(field=KwantWrdInVierkanteMeter,
                                          naam='oppervlakte',
-                                         label='Oppervlakte ventilatiekanaal',
+                                         label='oppervlakte ventilatiekanaal',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ventilatiekanaal.oppervlakte',
                                          definition='De oppervlakte van het ventilatiekanaal is de totale doorsnede van het kanaal en vertegenwoordigt het gebied dat beschikbaar is voor de luchtstroom binnenin.',
                                          owner=self)

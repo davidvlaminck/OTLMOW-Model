@@ -13,6 +13,16 @@ class KlKabelFabrikant(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelFabrikant'
     options = {
+        'eldra': KeuzelijstWaarde(invulwaarde='eldra',
+                                  label='Eldra',
+                                  status='ingebruik',
+                                  definitie='Eldra',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelFabrikant/eldra'),
+        'eupen': KeuzelijstWaarde(invulwaarde='eupen',
+                                  label='Eupen',
+                                  status='ingebruik',
+                                  definitie='Eupen',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelFabrikant/eupen'),
         'stl': KeuzelijstWaarde(invulwaarde='stl',
                                 label='STL',
                                 status='ingebruik',

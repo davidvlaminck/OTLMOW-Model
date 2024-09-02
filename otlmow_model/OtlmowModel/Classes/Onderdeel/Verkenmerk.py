@@ -2,6 +2,7 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorighedenBrug import AanhorighedenBrug
 from ...Classes.Abstracten.AanhorigheidKoker import AanhorigheidKoker
+from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlVerkenmerkType import KlVerkenmerkType
@@ -9,7 +10,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Verkenmerk(AanhorighedenBrug, AanhorigheidKoker, AIMNaamObject, PuntGeometrie):
+class Verkenmerk(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, AIMNaamObject, PuntGeometrie):
     """Een (roestvast) verkenmerk is geplaatst op een kunstwerk. Het periodiek opmeten maakt mogelijk de vervormingen van het kunstwerk te bepalen en de evolutie ervan na te gaan t.o.v. de begintoestand."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkenmerk'

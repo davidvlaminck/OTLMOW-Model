@@ -6,10 +6,11 @@ from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from ...Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VernageldeWand(Grondkeringen, AIMNaamObject, LijnGeometrie):
+class VernageldeWand(Grondkeringen, AIMNaamObject, LijnGeometrie, VlakGeometrie):
     """Versteviging van de grond door een rooster van ankers (nagels), waarbij de oppervlakte tussen de ankers gestabiliseerd wordt door middel van gewapend spuitbeton."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VernageldeWand'

@@ -7,10 +7,12 @@ from ...Datatypes.KlVRBatterijCUModelnaam import KlVRBatterijCUModelnaam
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class VRBatterijICU(VRModuleZFirmware):
-    """Batterij die zorgt dat de primaire melding "spanning afwezig", in het geval van een spanningsuitval, nog kan doorgestuurd worden naar het afstandsbewakingssysteem."""
+    """Batterij die zorgt dat de primaire melding "spanning afwezig",in het geval van een spanningsuitval,nog kan doorgestuurd worden naar het afstandsbewakingssysteem."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRBatterijICU'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
+
+    deprecated_version = '2.12.0'
 
     def __init__(self):
         super().__init__()
@@ -19,6 +21,8 @@ class VRBatterijICU(VRModuleZFirmware):
                                   naam='merk',
                                   label='merk',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRBatterijICU.merk',
+                                  usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                  deprecated_version='2.12.0',
                                   definition='De merknaam van de VR-batterij ICU.',
                                   owner=self)
 
@@ -26,6 +30,8 @@ class VRBatterijICU(VRModuleZFirmware):
                                        naam='modelnaam',
                                        label='modelnaam',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRBatterijICU.modelnaam',
+                                       usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                       deprecated_version='2.12.0',
                                        definition='De modelnaam van de VR-batterij ICU.',
                                        owner=self)
 

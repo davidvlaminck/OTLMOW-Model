@@ -19,7 +19,7 @@ class Dilatatie(AIMObject, PuntGeometrie):
 
         self._uitzettingswaarde = OTLAttribuut(field=KlLEACUitzettingswaardeDilatatie,
                                                naam='uitzettingswaarde',
-                                               label='Uitzettingswaarde',
+                                               label='uitzettingswaarde',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dilatatie.uitzettingswaarde',
                                                definition='De grootst mogelijke uitzetting die mogelijk is voor een bepaalde dilatatieoplossing.',
                                                owner=self)

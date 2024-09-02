@@ -46,7 +46,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
 
         self._materiaal = OTLAttribuut(field=KlDamwandMateriaal,
                                        naam='materiaal',
-                                       label='Damwand materiaal',
+                                       label='materiaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.materiaal',
                                        usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
                                        deprecated_version='2.8.0',

@@ -11,7 +11,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class OpgaandeHoutigeVegetatie(HoutigeVegetatie, LijnGeometrie, VlakGeometrie):
-    """Een houtkant of een bos."""
+    """Dichte houtgewassen, meestal breder dan 1 bomenrij die als hakhout worden beheerd (houtkant) of een begroeiing met bomen in een dominante boomlaag, of meerdere boomlagen (bos)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeHoutigeVegetatie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

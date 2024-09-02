@@ -6,7 +6,7 @@ from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMi
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class StalenPlaat(StalenConstructieObject):
-    """Een vlak, plat stalen enkelvoudig constructie-element."""
+    """Een stalen enkelvoudig constructie-element dat zowel horizontaal geplaatst kan worden, in het geval van een plaat, alsook verticaal in het geval van een wand."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenPlaat'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

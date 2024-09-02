@@ -1,7 +1,9 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.ArtificieleLaag import ArtificieleLaag
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlBestratingSteenverband import KlBestratingSteenverband
 from ...Datatypes.KlBestratingVoegvulling import KlBestratingVoegvulling
 from ...Datatypes.KlKleurSupp import KlKleurSupp
@@ -38,6 +40,14 @@ class Bestrating(ArtificieleLaag):
                                           definition='Het patroon waarin de bestrating gelegd werd.',
                                           owner=self)
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Bestrating.technischeFiche',
+                                             kardinaliteit_max='*',
+                                             definition='De technische fiche van de bestrating.',
+                                             owner=self)
+
         self._voegvulling = OTLAttribuut(field=KlBestratingVoegvulling,
                                          naam='voegvulling',
                                          label='voegvulling',
@@ -62,6 +72,15 @@ class Bestrating(ArtificieleLaag):
     @steenverband.setter
     def steenverband(self, value):
         self._steenverband.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+        """De technische fiche van de bestrating."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def voegvulling(self) -> str:

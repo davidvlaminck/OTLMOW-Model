@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.IVRIComponent import IVRIComponent
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlIVRIMerkRIS import KlIVRIMerkRIS
 from ...Datatypes.KlIVRIModelRIS import KlIVRIModelRIS
 
@@ -18,6 +19,13 @@ class RIS(IVRIComponent):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Detectielus')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor')
 
+        self._isLokaalGehost = OTLAttribuut(field=BooleanField,
+                                            naam='isLokaalGehost',
+                                            label='is lokaal gehost',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RIS.isLokaalGehost',
+                                            definition='Geeft aan of de RIS lokaal wordt gehost in plaats van op een virtuele server.',
+                                            owner=self)
+
         self._merk = OTLAttribuut(field=KlIVRIMerkRIS,
                                   naam='merk',
                                   label='merk',
@@ -31,6 +39,15 @@ class RIS(IVRIComponent):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RIS.modelnaam',
                                        definition='De modelnaam/product range van de RIS.',
                                        owner=self)
+
+    @property
+    def isLokaalGehost(self) -> bool:
+        """Geeft aan of de RIS lokaal wordt gehost in plaats van op een virtuele server."""
+        return self._isLokaalGehost.get_waarde()
+
+    @isLokaalGehost.setter
+    def isLokaalGehost(self, value):
+        self._isLokaalGehost.set_waarde(value, owner=self)
 
     @property
     def merk(self) -> str:

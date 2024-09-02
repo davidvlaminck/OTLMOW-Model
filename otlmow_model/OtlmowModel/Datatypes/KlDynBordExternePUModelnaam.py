@@ -24,7 +24,12 @@ class KlDynBordExternePUModelnaam(KeuzelijstField):
         'moxa': KeuzelijstWaarde(invulwaarde='moxa',
                                  label='moxa',
                                  status='ingebruik',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordExternePUModelnaam/moxa')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordExternePUModelnaam/moxa'),
+        'techbase': KeuzelijstWaarde(invulwaarde='techbase',
+                                     label='techbase',
+                                     status='ingebruik',
+                                     definitie='techbase',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordExternePUModelnaam/techbase')
     }
 
     @classmethod

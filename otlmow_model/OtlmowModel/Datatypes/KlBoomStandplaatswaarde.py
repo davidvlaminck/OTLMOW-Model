@@ -11,6 +11,7 @@ class KlBoomStandplaatswaarde(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomStandplaatswaarde'
     definition = 'De verschillende opties van de standplaatswaarde voor een boom.'
     status = 'ingebruik'
+    deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomStandplaatswaarde'
     options = {
         '0.6': KeuzelijstWaarde(invulwaarde='0.6',

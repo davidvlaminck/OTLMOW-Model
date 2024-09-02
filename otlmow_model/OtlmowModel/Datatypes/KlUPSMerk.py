@@ -13,6 +13,16 @@ class KlUPSMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUPSMerk'
     options = {
+        'apc': KeuzelijstWaarde(invulwaarde='apc',
+                                label='APC',
+                                status='ingebruik',
+                                definitie='APC',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/apc'),
+        'delta': KeuzelijstWaarde(invulwaarde='delta',
+                                  label='Delta',
+                                  status='ingebruik',
+                                  definitie='Delta',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/delta'),
         'phoenix-contact': KeuzelijstWaarde(invulwaarde='phoenix-contact',
                                             label='Phoenix Contact',
                                             status='ingebruik',
@@ -22,7 +32,12 @@ class KlUPSMerk(KeuzelijstField):
                                     label='Prostar',
                                     status='ingebruik',
                                     definitie='Prostar',
-                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/prostar')
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/prostar'),
+        'pulse-dimension': KeuzelijstWaarde(invulwaarde='pulse-dimension',
+                                            label='Pulse Dimension',
+                                            status='ingebruik',
+                                            definitie='Pulse Dimension',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/pulse-dimension')
     }
 
     @classmethod

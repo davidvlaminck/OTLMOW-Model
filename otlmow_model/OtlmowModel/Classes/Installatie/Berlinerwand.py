@@ -4,10 +4,11 @@ from ...Classes.Abstracten.Grondkeringen import Grondkeringen
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Berlinerwand(Grondkeringen, AIMNaamObject, LijnGeometrie):
+class Berlinerwand(Grondkeringen, AIMNaamObject, LijnGeometrie, VlakGeometrie):
     """Een damwandconstructie, opgebouwd uit stalen H-profielen en (stalen)planken. De berlinerwand wordt vooral toegepast als grondkering bij bouwputten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Berlinerwand'

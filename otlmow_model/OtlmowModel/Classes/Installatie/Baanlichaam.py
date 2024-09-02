@@ -12,18 +12,21 @@ class Baanlichaam(AIMObject, VlakGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Baanlichaam'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    deprecated_version = '2.11.0'
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LijnvormigElement')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Signalisatie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', deprecated='2.11.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LijnvormigElement', deprecated='2.11.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Signalisatie', deprecated='2.11.0')
 
         self._dwarsprofiel = OTLAttribuut(field=DtcDocument,
                                           naam='dwarsprofiel',
                                           label='dwarsprofiel',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Baanlichaam.dwarsprofiel',
-                                          usagenote='Bestanden van het type xlsx, dwg of pdf.',
+                                          usagenote='Klasse uit gebruik sinds versie 2.11.0 ',
+                                          deprecated_version='2.11.0',
                                           definition='Een dwarsprofiel is een doorsnijding van een terrein of constructie met een verticaal vlak, aangebracht loodrecht op de as ervan.',
                                           owner=self)
 
@@ -31,7 +34,8 @@ class Baanlichaam(AIMObject, VlakGeometrie):
                                                 naam='horizontaleLigging',
                                                 label='horizontale ligging',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Baanlichaam.horizontaleLigging',
-                                                usagenote='Bestanden van het type xlsx, dwg of pdf.',
+                                                usagenote='Klasse uit gebruik sinds versie 2.11.0 ',
+                                                deprecated_version='2.11.0',
                                                 definition='De horizontale ligging van het baanlichaam als document bijlage.',
                                                 owner=self)
 
@@ -39,7 +43,8 @@ class Baanlichaam(AIMObject, VlakGeometrie):
                                           naam='langsprofiel',
                                           label='langsprofiel',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Baanlichaam.langsprofiel',
-                                          usagenote='Bestanden van het type xlsx, dwg of pdf.',
+                                          usagenote='Klasse uit gebruik sinds versie 2.11.0 ',
+                                          deprecated_version='2.11.0',
                                           definition='Een langsprofiel is een doorsnijding van een terrein of constructie met een verticaal vlak, aangebracht in de lengterichting van de as ervan.',
                                           owner=self)
 

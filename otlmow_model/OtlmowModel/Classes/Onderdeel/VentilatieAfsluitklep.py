@@ -19,7 +19,7 @@ class VentilatieAfsluitklep(AIMObject, PuntGeometrie):
 
         self._heeftManueleBediening = OTLAttribuut(field=BooleanField,
                                                    naam='heeftManueleBediening',
-                                                   label='Heeft manuele bediening',
+                                                   label='heeft manuele bediening',
                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VentilatieAfsluitklep.heeftManueleBediening',
                                                    definition='Geeft aan of de afsluitklep manueel kan bediend worden.',
                                                    owner=self)

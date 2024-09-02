@@ -13,6 +13,11 @@ class KlConstructiestaalsoort(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlConstructiestaalsoort'
     options = {
+        'rvs-316-brut': KeuzelijstWaarde(invulwaarde='rvs-316-brut',
+                                         label='RVS 316 brut',
+                                         status='ingebruik',
+                                         definitie='Een staalsoort met een kwaliteit die beter bestand is tegen zouten en zuren.',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/rvs-316-brut'),
         's-235-j-0': KeuzelijstWaarde(invulwaarde='s-235-j-0',
                                       label='S235J0',
                                       status='ingebruik',

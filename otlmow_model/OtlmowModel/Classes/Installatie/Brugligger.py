@@ -8,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Brugligger(ConstructiefObject, VlakGeometrie):
-    """Ondersteunende balkstructuur van een brug onder het brugdek."""
+    """Ondersteunende balkstructuur van een brug onder, boven of aansluitend op het brugdek."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -29,6 +29,7 @@ class Brugligger(ConstructiefObject, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ZenderOntvangerToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdeel')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdek')
 
         self._detailplanBrugligger = OTLAttribuut(field=DtcDocument,
                                                   naam='detailplanBrugligger',

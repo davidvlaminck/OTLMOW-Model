@@ -2,6 +2,7 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Laag import Laag
 from ...Classes.Abstracten.LaagDikte import LaagDikte
+from ...Classes.Abstracten.LaagProductidentificatiecode import LaagProductidentificatiecode
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcKrimpvoeg import DtcKrimpvoeg, DtcKrimpvoegWaarden
 from ...Datatypes.KlGewaarborgdeWrijvingshoek import KlGewaarborgdeWrijvingshoek
@@ -10,8 +11,8 @@ from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrd
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Onderbouw(Laag, LaagDikte):
-    """Gedeelte dat onder de verhardingslagen ligt. Deze omvat de aanvulling, omhulling, onderfundering, fundering en de straatlaag."""
+class Onderbouw(Laag, LaagDikte, LaagProductidentificatiecode):
+    """Gedeelte dat onder de verhardingslagen ligt. Deze omvat de aanvulling,omhulling,onderfundering,fundering en de straatlaag."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderbouw'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -33,7 +34,7 @@ class Onderbouw(Laag, LaagDikte):
 
         self._krimpvoegen = OTLAttribuut(field=DtcKrimpvoeg,
                                          naam='krimpvoegen',
-                                         label='Krimpvoegen',
+                                         label='krimpvoegen',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderbouw.krimpvoegen',
                                          definition='Een gedeeltelijke insnijding in een constructiedeel die uitzetting en krimp in de constructie toelaat.',
                                          owner=self)
