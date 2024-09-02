@@ -11,6 +11,7 @@ class OTLField:
     usagenote = ''
     deprecated_version = ''
     waardeObject = None
+    clearing_value = None
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
