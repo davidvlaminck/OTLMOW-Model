@@ -728,7 +728,7 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
                              'allow_non_otl_conform_attributes to True.')
 
     if value == attribute_to_set.field.clearing_value or value == [attribute_to_set.field.clearing_value]:
-        attribute_to_set.mark_to_be_cleared = True
+        attribute_to_set.clear_value()
         return
 
     if attribute_to_set.field.waardeObject is not None:  # complex / union / KwantWrd / dte

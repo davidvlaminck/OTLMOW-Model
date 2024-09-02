@@ -10,8 +10,6 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevest
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, \
     dynamic_create_instance_from_uri, dynamic_create_type_from_uri
-from otlmow_model.OtlmowModel.Classes.Installatie.Gebouw import Gebouw
-from otlmow_model.OtlmowModel.Classes.Onderdeel.Verkeersregelaar import Verkeersregelaar
 from otlmow_model.OtlmowModel.Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
 from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 
@@ -1240,6 +1238,18 @@ def test_create_dict_from_asset_clear_value_str():
         'testStringField': '88888888'}
     assert d == expected
 
+# from dict str
+def test_from_dict_clear_value_str():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testStringField': '88888888'}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testStringField is None
+    assert instance._testStringField.mark_to_be_cleared
+
+
 
 def test_create_dict_from_asset_clear_value_str_kard():
     instance = AllCasesTestClass()
@@ -1254,6 +1264,17 @@ def test_create_dict_from_asset_clear_value_str_kard():
     assert d == expected
 
 
+def test_from_dict_clear_value_str_kard():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testStringFieldMetKard': '88888888'}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testStringFieldMetKard is None
+    assert instance._testStringFieldMetKard.mark_to_be_cleared
+
+
 def test_create_dict_from_asset_clear_value_decimal():
     instance = AllCasesTestClass()
     instance.testDecimalField = -1.0
@@ -1265,6 +1286,17 @@ def test_create_dict_from_asset_clear_value_decimal():
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testDecimalField': 88888888}
     assert d == expected
+
+
+def test_from_dict_clear_value_decimal():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testDecimalField': 88888888}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testDecimalField is None
+    assert instance._testDecimalField.mark_to_be_cleared
 
 
 def test_create_dict_from_asset_clear_value_datetime_types():
@@ -1305,6 +1337,17 @@ def test_create_dict_from_asset_clear_value_bool():
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testBooleanField': '88888888'}
     assert d == expected
+
+
+def test_from_dict_clear_value_bool():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testBooleanField': '88888888'}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testBooleanField is None
+    assert instance._testBooleanField.mark_to_be_cleared
 
 
 def test_create_dict_from_asset_clear_value_kwant_wrd():
@@ -1379,12 +1422,9 @@ def test_create_dict_from_asset_clear_value_illegal_attributes():
         relatie.doelAssetId._toegekendDoor.clear_value()
 
 
-def test_from_dict_clear_value():
-    input_dict = {
-        'testComplexType': {'testStringField': '88888888'},
-        'testIntegerField': 88888888}
-    instance = AllCasesTestClass.from_dict(input_dict, model_directory=model_directory_path)
-    assert instance.testIntegerField is None
-    assert instance._testIntegerField.mark_to_be_cleared
-    assert instance.testComplexType.testStringField is None
-    assert instance.testComplexType._testStringField.mark_to_be_cleared
+def test_from_dict_illegal_attributes():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'assetId': {'identificator': '88888888'}}
+    with pytest.raises(CanNotClearAttributeError):
+        instance = OTLObject.from_dict(d, model_directory=model_directory_path)
