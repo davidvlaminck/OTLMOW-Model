@@ -197,19 +197,18 @@ class OTLAttribuut:
             if owner.naam == 'waarde':
                 owner = owner.owner._parent
 
-            if hasattr(owner, 'deprecated_version'):
-                if owner.deprecated_version != '':
-                    if hasattr(owner, 'objectUri'):
-                        warnings.warn(
-                            message=f'{owner.objectUri} is deprecated since version {owner.deprecated_version}',
-                            category=AttributeDeprecationWarning)
-                    elif hasattr(owner, 'typeURI'):
-                        warnings.warn(message=f'{owner.typeURI} is deprecated since version {owner.deprecated_version}',
-                                      category=AttributeDeprecationWarning)
-                    else:
-                        warnings.warn(
-                            message=f'used a class that is deprecated since version {owner.deprecated_version}',
-                            category=AttributeDeprecationWarning)
+            if hasattr(owner, 'deprecated_version') and owner.deprecated_version != '':
+                if hasattr(owner, 'objectUri'):
+                    warnings.warn(
+                        message=f'{owner.objectUri} is deprecated since version {owner.deprecated_version}',
+                        category=AttributeDeprecationWarning)
+                elif hasattr(owner, 'typeURI'):
+                    warnings.warn(message=f'{owner.typeURI} is deprecated since version {owner.deprecated_version}',
+                                  category=AttributeDeprecationWarning)
+                else:
+                    warnings.warn(
+                        message=f'used a class that is deprecated since version {owner.deprecated_version}',
+                        category=AttributeDeprecationWarning)
 
     def __str__(self):
         return (f'information about {self.naam}:\n'
@@ -274,24 +273,22 @@ class OTLObject(object):
             if hasattr(self, 'typeURI') and (value is not None or self.typeURI is not None):
                 raise ValueError("The typeURI is an OSLOAttribute that indicates the class of the instance. "
                                  "Within a class this value is predefined and cannot be changed.")
+            if URIField.validate(value, OTLAttribuut(naam='typeURI')):
+                self.__dict__['value'] = value
             else:
-                if URIField.validate(value, OTLAttribuut(naam='typeURI')):
-                    self.__dict__['value'] = value
-                else:
-                    raise ValueError(f'{value} is not a valid value for typeURI.')
+                raise ValueError(f'{value} is not a valid value for typeURI.')
 
     def __init__(self):
         super().__init__()
 
-        if hasattr(self, 'deprecated_version'):
-            if self.deprecated_version is not None:
-                try:
-                    warnings.warn(message=f'{self.typeURI} is deprecated since version {self.deprecated_version}',
-                                  category=ClassDeprecationWarning)
-                except KeyError:
-                    warnings.warn(
-                        message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
-                        category=ClassDeprecationWarning)
+        if hasattr(self, 'deprecated_version') and self.deprecated_version is not None:
+            try:
+                warnings.warn(message=f'{self.typeURI} is deprecated since version {self.deprecated_version}',
+                              category=ClassDeprecationWarning)
+            except KeyError:
+                warnings.warn(
+                    message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
+                    category=ClassDeprecationWarning)
 
     def clear_value(self, attribute_name: str) -> None:
         if attribute_name is None:
@@ -664,17 +661,17 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
             continue
         value = d[key]
         if isinstance(value, dict):
-            lines.append(prefix + f'{key} :')
+            lines.append(f'{prefix}{key} :')
             lines.extend(_make_string_version_from_dict(value, level=level + 1, indent=indent,
                                                         prefix=prefix + ' ' * indent * level))
         elif isinstance(value, list):
-            lines.append(prefix + f'{key} :')
+            lines.append(f'{prefix}{key} :')
             for index, item in enumerate(value):
                 if index == 10:
                     if len(value) == 11:
-                        lines.append(prefix + '...(1 more item)')
+                        lines.append(f'{prefix}...(1 more item)')
                     else:
-                        lines.append(prefix + f'...({len(value) - 10} more items)')
+                        lines.append(f'{prefix}...({len(value) - 10} more items)')
                     break
                 if isinstance(item, dict):
                     lines.extend(_make_string_version_from_dict(item, level=level, indent=indent, list_index=index,
@@ -684,7 +681,7 @@ def _make_string_version_from_dict(d, level: int = 0, indent: int = 4, list_inde
                     index_string += ' ' * (indent - len(index_string))
                     lines.append(prefix + index_string + f'{item}')
         else:
-            lines.append(prefix + f'{key} : {value}')
+            lines.append(f'{prefix}{key} : {value}')
     return lines
 
 
