@@ -133,50 +133,6 @@ class OTLAttribuut:
             self.waarde = None
             self.mark_to_be_cleared = True
 
-    def default(self):
-        if self.waarde is not dict and isinstance(self.waarde, list):
-            value_list = []
-            for item in self.waarde:
-                if self.field.waardeObject is not None:
-                    waarde_dict = vars(item)
-                    value_dict = {}
-                    for k, v in waarde_dict.items():
-                        if v.default() is not None:
-                            value_dict[k[1:]] = v.default()
-                    if len(value_dict) != 0:
-                        value_list.append(value_dict)
-                else:
-                    value_list.append(item)
-            return value_list
-        if self.field.waardeObject is not None:
-            if self.field.waarde_shortcut_applicable:
-                waarde_dict = vars(self.waarde)
-                value_dict = {}
-                for k, v in waarde_dict.items():
-                    if v.default() is not None:
-                        value_dict[k[1:]] = v.default()
-                if len(value_dict) == 0:
-                    return None
-                return value_dict
-            else:
-                if self.waarde.waarde is not None:
-                    if hasattr(self.waarde.waarde, 'default'):
-                        return self.waarde.waarde.default()
-                    else:
-                        return self.waarde.waarde
-                return None
-        else:
-            if isinstance(self.waarde, datetime):
-                if self.waarde.hour == 0 and self.waarde.minute == 0 and self.waarde.second == 0:
-                    return self.waarde.strftime("%Y-%m-%d")
-                else:
-                    return self.waarde.strftime("%Y-%m-%d %H:%M:%S")
-            else:
-                if hasattr(self.waarde, 'default'):
-                    return self.waarde.default()
-                else:
-                    return self.waarde
-
     def _perform_cardinality_check(self, owner, value, kardinaliteit_max):
         kardinaliteit_min = int(self.kardinaliteit_min)
         if not isinstance(value, list):
