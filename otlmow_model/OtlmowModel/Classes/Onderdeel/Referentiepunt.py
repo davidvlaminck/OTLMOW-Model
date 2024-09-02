@@ -9,7 +9,7 @@ from ...Datatypes.KlSignalisatieReferentiepuntType import KlSignalisatieReferent
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Referentiepunt(BevestigingGC, Signalisatie, AIMObject):
-    """Een kilometer- of hectometerpaal."""
+    """Een duidelijk herkenbaar punt langs een weg dat wordt gebruikt als een vaste referentie in kilometer of hectometer."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Referentiepunt'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

@@ -4,10 +4,11 @@ from abc import abstractmethod
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInKiloNewtonPerMeter import KwantWrdInKiloNewtonPerMeter, KwantWrdInKiloNewtonPerMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AxiaalDraagvermogenWand(LijnGeometrie):
+class AxiaalDraagvermogenWand(LijnGeometrie, VlakGeometrie):
     """Abstracte voor de bundeling van de axiale druk- en trekdraagvermogens van de totale wand,berekend volgens verschillende grenstoestanden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogenWand'

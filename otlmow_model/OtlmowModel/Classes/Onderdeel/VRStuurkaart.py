@@ -11,6 +11,8 @@ class VRStuurkaart(VRModuleMetFirmware):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRStuurkaart'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    deprecated_version = '2.12.0'
+
     def __init__(self):
         super().__init__()
 
@@ -18,6 +20,8 @@ class VRStuurkaart(VRModuleMetFirmware):
                                                   naam='communicatieprotocol',
                                                   label='communicatieprotocol',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRStuurkaart.communicatieprotocol',
+                                                  usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                                  deprecated_version='2.12.0',
                                                   definition='Gebruikte communicatieprotocol voor de stuurkaart.',
                                                   owner=self)
 

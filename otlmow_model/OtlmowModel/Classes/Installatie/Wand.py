@@ -1,5 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.ConstructieElementAanvaarbeschermingGeleidewerk import ConstructieElementAanvaarbeschermingGeleidewerk
+from ...Classes.Abstracten.ConstructieElementSluisStuw import ConstructieElementSluisStuw
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlTypeWand import KlTypeWand
@@ -8,7 +10,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Wand(ConstructiefObject, LijnGeometrie):
+class Wand(ConstructieElementAanvaarbeschermingGeleidewerk, ConstructieElementSluisStuw, ConstructiefObject, LijnGeometrie):
     """Een verticaal constructiedeel,vrijstaand of omsluitend die een afscheiding vormt,bv. tussen 2 ruimtes."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wand'
@@ -19,6 +21,7 @@ class Wand(ConstructiefObject, LijnGeometrie):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElementAanvaarbeschermingGeleidewerk')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KabelgeleidingEnLeidingBevestiging')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast')

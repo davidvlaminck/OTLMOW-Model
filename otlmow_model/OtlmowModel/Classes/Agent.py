@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ..Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from ..Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
@@ -9,7 +10,7 @@ from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Agent(OTLObject, RelationInteractor):
+class Agent(AIMDBStatus, OTLObject, RelationInteractor):
     """Iemand die of iets dat kan handelen of een effect kan teweeg brengen."""
 
     typeURI = 'http://purl.org/dc/terms/Agent'
@@ -29,7 +30,7 @@ class Agent(OTLObject, RelationInteractor):
 
         self._contactinfo = OTLAttribuut(field=DtcContactinfo,
                                          naam='contactinfo',
-                                         label='Contactinfo',
+                                         label='contactinfo',
                                          objectUri='http://purl.org/dc/terms/Agent.contactinfo',
                                          kardinaliteit_max='*',
                                          definition='Algemene contactgegevens voor de agent.',

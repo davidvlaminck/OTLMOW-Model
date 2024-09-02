@@ -1,13 +1,14 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.ConstructieElementAanvaarbeschermingGeleidewerk import ConstructieElementAanvaarbeschermingGeleidewerk
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from ...Datatypes.KlTypeVakwerkElement import KlTypeVakwerkElement
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VakwerkElement(ConstructiefObject, VlakGeometrie):
-    """Element dat deel uitmaakt van een constructie waarbij balken en staven, volgens een stelsel van rechthoeken en/of driehoeken, aan de uiteinden en/of kruiselings verbonden worden tot een onwrikbaar geheel."""
+class VakwerkElement(ConstructieElementAanvaarbeschermingGeleidewerk, ConstructiefObject, VlakGeometrie):
+    """Element dat deel uitmaakt van een constructie waarbij balken en staven,volgens een stelsel van rechthoeken en/of driehoeken,aan de uiteinden en/of kruiselings verbonden worden tot een onwrikbaar geheel."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VakwerkElement'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -29,7 +30,12 @@ class VakwerkElement(ConstructiefObject, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Balk')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdeel')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugdek')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Hameipoort')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Hameistijl')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Hefportiek')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Heftoren')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kolom')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Windverband')
 

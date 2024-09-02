@@ -23,14 +23,14 @@ class Buisbekleding(AIMObject, LijnGeometrie):
 
         self._laagdikte = OTLAttribuut(field=KwantWrdInMillimeter,
                                        naam='laagdikte',
-                                       label='Laagdikte',
+                                       label='laagdikte',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Buisbekleding.laagdikte',
                                        definition='De dikte van de bekledingslaag in millimeter.',
                                        owner=self)
 
         self._lengte = OTLAttribuut(field=KwantWrdInMeter,
                                     naam='lengte',
-                                    label='Lengte',
+                                    label='lengte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Buisbekleding.lengte',
                                     definition='De totale lengte van de buisbekleding in lopende meter.',
                                     owner=self)

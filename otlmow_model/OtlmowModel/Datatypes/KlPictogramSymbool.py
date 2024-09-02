@@ -46,7 +46,12 @@ class KlPictogramSymbool(KeuzelijstField):
         'vluchtend-persoon': KeuzelijstWaarde(invulwaarde='vluchtend-persoon',
                                               label='vluchtend persoon',
                                               status='ingebruik',
-                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPictogramSymbool/vluchtend-persoon')
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPictogramSymbool/vluchtend-persoon'),
+        'vluchtroute': KeuzelijstWaarde(invulwaarde='vluchtroute',
+                                        label='vluchtroute',
+                                        status='ingebruik',
+                                        definitie='Aankondiging van de dichtstbijzijnde nooduitgang, in de aangeduide richting. De afstand in meter is aangeduid op het pictogram (F52bis).',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPictogramSymbool/vluchtroute')
     }
 
     @classmethod

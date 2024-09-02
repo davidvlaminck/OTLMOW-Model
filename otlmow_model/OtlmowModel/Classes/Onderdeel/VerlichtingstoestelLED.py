@@ -3,6 +3,7 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Verlichtingstoestel import Verlichtingstoestel
 from ...Classes.Abstracten.VerlichtingstoestelConnector import VerlichtingstoestelConnector
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.KlArmatuurkleur import KlArmatuurkleur
 from ...Datatypes.KlLumenOutput import KlLumenOutput
@@ -28,6 +29,7 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#EMDraagconstructie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver')
@@ -99,7 +101,7 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
 
         self._lumenOutput = OTLAttribuut(field=KlLumenOutput,
                                          naam='lumenOutput',
-                                         label='Lumen output',
+                                         label='lumen output',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.lumenOutput',
                                          definition='De totale hoeveelheid licht dat de lamp in het verlichtingstoestel uitstraalt.',
                                          owner=self)
@@ -117,6 +119,13 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.protector',
                                        definition="Type doorschijnende kap ter bescherming van de LED's (vlak glas, polycarbonaat,...).",
                                        owner=self)
+
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.technischeFiche',
+                                             definition='De technische fiche van het verlichtingstoestel LED.',
+                                             owner=self)
 
         self._tussenAfstand = OTLAttribuut(field=KlWvLedTussenafstand,
                                            naam='tussenAfstand',
@@ -249,6 +258,15 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
     @protector.setter
     def protector(self, value):
         self._protector.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> DtcDocumentWaarden:
+        """De technische fiche van het verlichtingstoestel LED."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def tussenAfstand(self) -> str:

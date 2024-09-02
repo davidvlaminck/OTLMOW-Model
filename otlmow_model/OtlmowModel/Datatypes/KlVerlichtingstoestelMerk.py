@@ -44,7 +44,12 @@ class KlVerlichtingstoestelMerk(KeuzelijstField):
                                       label='Lightwell',
                                       status='ingebruik',
                                       definitie='Lightwell',
-                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelMerk/lightwell')
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelMerk/lightwell'),
+        'signify': KeuzelijstWaarde(invulwaarde='signify',
+                                    label='Signify',
+                                    status='ingebruik',
+                                    definitie='Signify',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelMerk/signify')
     }
 
     @classmethod

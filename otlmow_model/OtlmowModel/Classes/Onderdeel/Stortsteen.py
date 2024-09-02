@@ -2,6 +2,7 @@
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereLaag import AndereLaag
+from ...Classes.Abstracten.LaagDikte import LaagDikte
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlHechtspecie import KlHechtspecie
@@ -9,11 +10,10 @@ from ...Datatypes.KlStortsteenKaliber import KlStortsteenKaliber
 from ...Datatypes.KlStortsteenPlaatsingswijze import KlStortsteenPlaatsingswijze
 from ...Datatypes.KlStortsteenType import KlStortsteenType
 from ...Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Stortsteen(AndereLaag, VlakGeometrie):
+class Stortsteen(AndereLaag, LaagDikte):
     """Natuursteen van onregelmatige vorm,meestal gebruikt voor verstevigings- en beschermingsdoeleinden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stortsteen'
@@ -27,6 +27,8 @@ class Stortsteen(AndereLaag, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SelNietSelLus')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Straatmeubilair')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Schanskorf')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kolkvloer')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Bodembescherming')
 
         self._gewicht = OTLAttribuut(field=KwantWrdInTon,
                                      naam='gewicht',

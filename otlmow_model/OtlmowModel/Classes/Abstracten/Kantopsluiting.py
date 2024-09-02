@@ -2,6 +2,7 @@
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+from ...Classes.Abstracten.LaagProductidentificatiecode import LaagProductidentificatiecode
 from ...Classes.Abstracten.LijnvormigElement import LijnvormigElement
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -13,7 +14,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kantopsluiting(LijnvormigElement, LijnGeometrie):
+class Kantopsluiting(LaagProductidentificatiecode, LijnvormigElement, LijnGeometrie):
     """Abstracte voor de gemeenschappelijke eigenschappen en relaties voor de kantopsluiting."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kantopsluiting'

@@ -4,14 +4,14 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.DtcMeteoFoto import DtcMeteoFoto, DtcMeteoFotoWaarden
 from ...Datatypes.KlLokaalTerreinType import KlLokaalTerreinType
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Meetstation(AIMNaamObject, PuntGeometrie, VlakGeometrie):
+class Meetstation(AIMNaamObject, PuntGeometrie):
     """De plaats waar verschillende sensoren samen 1 meetstation vormen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation'
@@ -22,11 +22,19 @@ class Meetstation(AIMNaamObject, PuntGeometrie, VlakGeometrie):
 
         self._beoordelingLokaleTerrein = OTLAttribuut(field=KlLokaalTerreinType,
                                                       naam='beoordelingLokaleTerrein',
-                                                      label='Beoordeling lokale terrein',
+                                                      label='beoordeling lokale terrein',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.beoordelingLokaleTerrein',
                                                       kardinaliteit_max='*',
                                                       definition='Het soort terrein waarin het meetstation staat met betrekking tot het reliëf en de vegetatie.',
                                                       owner=self)
+
+        self._foto = OTLAttribuut(field=DtcMeteoFoto,
+                                  naam='foto',
+                                  label='foto',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.foto',
+                                  kardinaliteit_max='*',
+                                  definition="De verschillende foto's van het meetstation.",
+                                  owner=self)
 
         self._keuringsrapport = OTLAttribuut(field=DtcDocument,
                                              naam='keuringsrapport',
@@ -38,14 +46,14 @@ class Meetstation(AIMNaamObject, PuntGeometrie, VlakGeometrie):
 
         self._masterOfBridgeSensor = OTLAttribuut(field=BooleanField,
                                                   naam='masterOfBridgeSensor',
-                                                  label='Master of bridge sensor',
+                                                  label='master of bridge sensor',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.masterOfBridgeSensor',
                                                   definition='Geeft aan of het meetstation ingeplant is ter hoogte van een brug.',
                                                   owner=self)
 
         self._nabijheidVanHindernissen = OTLAttribuut(field=KwantWrdInMeter,
                                                       naam='nabijheidVanHindernissen',
-                                                      label='Nabijheid van hindernissen',
+                                                      label='nabijheid van hindernissen',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.nabijheidVanHindernissen',
                                                       kardinaliteit_max='*',
                                                       definition='De afstand tot een hindernis in de nabijheid.',
@@ -53,7 +61,7 @@ class Meetstation(AIMNaamObject, PuntGeometrie, VlakGeometrie):
 
         self._nabijheidVanWaterlopen = OTLAttribuut(field=KwantWrdInMeter,
                                                     naam='nabijheidVanWaterlopen',
-                                                    label='Nabijheid van waterlopen',
+                                                    label='nabijheid van waterlopen',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.nabijheidVanWaterlopen',
                                                     kardinaliteit_max='*',
                                                     definition='De afstand tot een waterloop in de nabijheid.',
@@ -83,6 +91,15 @@ class Meetstation(AIMNaamObject, PuntGeometrie, VlakGeometrie):
     @beoordelingLokaleTerrein.setter
     def beoordelingLokaleTerrein(self, value):
         self._beoordelingLokaleTerrein.set_waarde(value, owner=self)
+
+    @property
+    def foto(self) -> List[DtcMeteoFotoWaarden]:
+        """De verschillende foto's van het meetstation."""
+        return self._foto.get_waarde()
+
+    @foto.setter
+    def foto(self, value):
+        self._foto.set_waarde(value, owner=self)
 
     @property
     def keuringsrapport(self) -> List[DtcDocumentWaarden]:

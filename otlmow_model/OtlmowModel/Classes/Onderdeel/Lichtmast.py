@@ -3,6 +3,7 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.EMDraagconstructie import EMDraagconstructie
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...Datatypes.DtcBeschermendeLaag import DtcBeschermendeLaag, DtcBeschermendeLaagWaarden
 from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.DtuLichtmastMasthoogte import DtuLichtmastMasthoogte, DtuLichtmastMasthoogteWaarden
 from ...Datatypes.KlDraagConstrBeschermlaag import KlDraagConstrBeschermlaag
@@ -31,10 +32,19 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ZenderOntvangerToegang')
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', deprecated='2.0.0')
 
+        self._beschermendeLaag = OTLAttribuut(field=DtcBeschermendeLaag,
+                                              naam='beschermendeLaag',
+                                              label='beschermende laag',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast.beschermendeLaag',
+                                              definition='Het type van bescherming van de constructie of steun met de corresponderende corrosieklasse.',
+                                              owner=self)
+
         self._beschermlaag = OTLAttribuut(field=KlDraagConstrBeschermlaag,
                                           naam='beschermlaag',
                                           label='beschermlaag',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast.beschermlaag',
+                                          usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
+                                          deprecated_version='2.12.0',
                                           definition='Beschermlaag van de lichtmast.',
                                           owner=self)
 
@@ -100,6 +110,15 @@ class Lichtmast(EMDraagconstructie, AIMNaamObject, PuntGeometrie):
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast.specialeUitvoeringswijze',
                                                       definition='Omschrijving van de speciale uitvoeringswijze van de lichtmast indien van toepassing.',
                                                       owner=self)
+
+    @property
+    def beschermendeLaag(self) -> DtcBeschermendeLaagWaarden:
+        """Het type van bescherming van de constructie of steun met de corresponderende corrosieklasse."""
+        return self._beschermendeLaag.get_waarde()
+
+    @beschermendeLaag.setter
+    def beschermendeLaag(self, value):
+        self._beschermendeLaag.set_waarde(value, owner=self)
 
     @property
     def beschermlaag(self) -> str:

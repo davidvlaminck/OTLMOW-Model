@@ -10,6 +10,7 @@ class KlVRModuleMetFirmwareMerk(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlVRModuleMetFirmwareMerk'
     definition = 'Lijst met merken van VR-modules met firmware.'
     status = 'ingebruik'
+    deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVRModuleMetFirmwareMerk'
     options = {
     }

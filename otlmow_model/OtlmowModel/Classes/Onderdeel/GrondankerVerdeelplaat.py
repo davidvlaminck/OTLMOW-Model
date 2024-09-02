@@ -35,7 +35,7 @@ class GrondankerVerdeelplaat(AIMObject, PuntGeometrie):
 
         self._staalspecificaties = OTLAttribuut(field=DtcConstructiestaalspecificaties,
                                                 naam='staalspecificaties',
-                                                label='Type plank',
+                                                label='staalspecificaties',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GrondankerVerdeelplaat.staalspecificaties',
                                                 definition='Specificaties van het staal.',
                                                 owner=self)
