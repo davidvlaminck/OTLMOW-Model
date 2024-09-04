@@ -117,16 +117,14 @@ class OTLAttribuut:
         # => list means clearing the value
 
         if self.field.waardeObject is not None:
+            if self.waarde is None:
+                self.add_empty_value()
             if self.kardinaliteit_max != '1':
-                if self.waarde is None:
-                    self.add_empty_value()
                 for item in self.waarde:
                     for sub_attr in item:
                         if not sub_attr.readonly:
                             sub_attr.clear_value()
             else:
-                if self.waarde is None:
-                    self.add_empty_value()
                 for sub_attr in self.waarde:
                     if not sub_attr.readonly:
                         sub_attr.clear_value()
@@ -187,10 +185,10 @@ class OTLAttribuut:
                         f'Could not assign the best effort converted value to {owner.__class__.__name__}.{self.naam}')
 
         # check if kwant Wrd inside a union type, if so, call clear_props
-        if owner is not None and value is not None and hasattr(owner, 'field') and owner.field.waardeObject is not None:
-            if owner.field.waarde_shortcut_applicable and not isinstance(
-                    owner.field, UnionTypeField) and owner.owner is not None and isinstance(owner.owner, UnionWaarden):
-                owner.owner.clear_other_props(f'_{owner.naam}')
+        if (owner is not None and value is not None and hasattr(owner, 'field') and owner.field.waardeObject is not None
+                and (owner.field.waarde_shortcut_applicable and not isinstance(owner.field, UnionTypeField)
+                     and owner.owner is not None and isinstance(owner.owner, UnionWaarden))):
+            owner.owner.clear_other_props(f'_{owner.naam}')
 
     @staticmethod
     def _perform_deprecation_check(owner):
@@ -529,7 +527,7 @@ def _recursive_create_dict_from_asset(
                         elif attr.field == DateTimeField:
                             if isinstance(attr.waarde, list):
                                 d[attr.naam] = [datetime.strftime(list_item, "%Y-%m-%d %H:%M:%S")
-                                                     for list_item in attr.waarde]
+                                                for list_item in attr.waarde]
                             else:
                                 d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
                         else:
