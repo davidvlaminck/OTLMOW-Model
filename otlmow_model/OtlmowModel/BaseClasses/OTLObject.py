@@ -633,6 +633,17 @@ def _recursive_create_rdf_dict_from_asset(
                                                      for list_item in attr.waarde]
                             else:
                                 d[attr.objectUri] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                        elif issubclass(attr.field, KeuzelijstField):
+                            if isinstance(attr.waarde, list):
+                                if attr.waarde == [None]:
+                                    d[attr.objectUri] = []
+                                else:
+                                    d[attr.objectUri] = [attr.field.options[list_item].objectUri for list_item in
+                                                         attr.waarde]
+                            else:
+                                d[attr.objectUri] = attr.field.options[attr.waarde].objectUri
+                        else:
+                            d[attr.objectUri] = attr.waarde
                     elif issubclass(attr.field, KeuzelijstField):
                         if isinstance(attr.waarde, list):
                             if attr.waarde == [None]:

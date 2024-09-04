@@ -822,7 +822,7 @@ def test_rdf_dict_complex():
     instance.testComplexTypeMetKard[0].testComplexType2.testStringField = 'string3'
     instance.testComplexTypeMetKard[1].testComplexType2.testStringField = 'string4'
 
-    reg_dict = create_dict_from_asset(instance, waarde_shortcut=True)
+    reg_dict = create_dict_from_asset(instance, waarde_shortcut=True, cast_datetime=True)
     expected_reg = {'assetId': {'identificator': '0000-0000'},
         'testComplexType': {
             'testComplexType2': {'testKwantWrd': 76.8, 'testStringField': 'GZBzgRhOrQvfZaN'},
@@ -835,7 +835,7 @@ def test_rdf_dict_complex():
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
     assert reg_dict == expected_reg
 
-    rdf_dict_waarde = create_dict_from_asset(instance, rdf=True, waarde_shortcut=True)
+    rdf_dict_waarde = create_dict_from_asset(instance, rdf=True, waarde_shortcut=True, cast_datetime=True)
     rdf_waarde_expected = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId':
             {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
@@ -860,7 +860,7 @@ def test_rdf_dict_complex():
 
     assert rdf_dict_waarde == rdf_waarde_expected
 
-    rdf_dict = create_dict_from_asset(instance, rdf=True)
+    rdf_dict = create_dict_from_asset(instance, rdf=True, cast_datetime=True)
     rdf_expected = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId':
             {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
