@@ -27,8 +27,8 @@ from otlmow_model.OtlmowModel.Helpers.GenericHelper import get_titlecase_from_ns
 class OTLAttribuut:
     def __init__(self, naam: str = '', label: str = '', objectUri: str = '', definition: str = '',
                  constraints: str = '', usagenote: str = '', deprecated_version: str = '', kardinaliteit_min: str = '1',
-                 kardinaliteit_max: str = '1', field: Type[OTLField] = OTLField, readonly: bool = False, readonlyValue=None,
-                 owner=None):
+                 kardinaliteit_max: str = '1', field: Type[OTLField] = OTLField, readonly: bool = False,
+                 readonlyValue=None, owner=None):
         super().__init__()
         self.naam: str = naam
         self.label: str = label
@@ -150,6 +150,10 @@ class OTLAttribuut:
 
         if value is None:
             self.waarde = None
+            return
+
+        if value == self.field.clearing_value or (self.kardinaliteit_max != '1' and value == '88888888'):
+            self.clear_value()
             return
 
         if self.kardinaliteit_max != '1':
