@@ -800,3 +800,94 @@ def test_create_ld_dict_from_asset_ComplexTypeMetKard():
     }
 
     assert json_ld_dict == expected
+
+
+def test_rdf_dict_complex():
+    instance = AllCasesTestClass()
+    instance.assetId.identificator = '0000-0000'
+
+    instance.testComplexType.testComplexType2.testKwantWrd.waarde = 76.8
+    instance.testComplexType.testComplexType2.testStringField = 'GZBzgRhOrQvfZaN'
+    instance.testComplexType._testComplexType2MetKard.add_empty_value()
+    instance.testComplexType._testComplexType2MetKard.add_empty_value()
+    instance.testComplexType.testComplexType2MetKard[0].testKwantWrd.waarde = 10.0
+    instance.testComplexType.testComplexType2MetKard[1].testKwantWrd.waarde = 20.0
+    instance.testComplexType.testComplexType2MetKard[0].testStringField = 'string1'
+    instance.testComplexType.testComplexType2MetKard[1].testStringField = 'string2'
+
+    instance._testComplexTypeMetKard.add_empty_value()
+    instance._testComplexTypeMetKard.add_empty_value()
+    instance.testComplexTypeMetKard[0].testComplexType2.testKwantWrd.waarde = 30.0
+    instance.testComplexTypeMetKard[1].testComplexType2.testKwantWrd.waarde = 40.0
+    instance.testComplexTypeMetKard[0].testComplexType2.testStringField = 'string3'
+    instance.testComplexTypeMetKard[1].testComplexType2.testStringField = 'string4'
+
+    reg_dict = create_dict_from_asset(instance, waarde_shortcut=True)
+    expected_reg = {'assetId': {'identificator': '0000-0000'},
+        'testComplexType': {
+            'testComplexType2': {'testKwantWrd': 76.8, 'testStringField': 'GZBzgRhOrQvfZaN'},
+            'testComplexType2MetKard': [
+                {'testKwantWrd': 10.0, 'testStringField': 'string1'},
+                {'testKwantWrd': 20.0, 'testStringField': 'string2'}]},
+        'testComplexTypeMetKard': [
+            {'testComplexType2': {'testKwantWrd': 30.0, 'testStringField': 'string3'}},
+            {'testComplexType2': {'testKwantWrd': 40.0, 'testStringField': 'string4'}}],
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+    assert reg_dict == expected_reg
+
+    rdf_dict_waarde = create_dict_from_asset(instance, rdf=True, waarde_shortcut=True)
+    rdf_waarde_expected = {
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId':
+            {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                 '0000-0000'},
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexType': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': 76.8,
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'GZBzgRhOrQvfZaN'},
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2MetKard': [
+                {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': 10.0,
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'string1'},
+                {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': 20.0,
+                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'string2'}]},
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard': [
+            {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': 30.0,
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'string3'}},
+            {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': 40.0,
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'string4'}}],
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+
+    assert rdf_dict_waarde == rdf_waarde_expected
+
+    rdf_dict = create_dict_from_asset(instance, rdf=True)
+    rdf_expected = {
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId':
+            {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                 '0000-0000'},
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexType': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd':
+                    {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 76.8},
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'GZBzgRhOrQvfZaN'},
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2MetKard': [
+                {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd':
+                        {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 10.0},
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'string1'},
+                {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd':
+                        {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 20.0},
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'string2'}]},
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard': [
+            {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd':
+                    {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 30.0},
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'string3'}},
+            {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd':
+                    {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 40.0},
+                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': 'string4'}}],
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+
+    assert rdf_dict == rdf_expected
