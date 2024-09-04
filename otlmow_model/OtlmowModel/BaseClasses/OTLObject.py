@@ -6,7 +6,7 @@ import warnings
 from datetime import date, time
 from datetime import datetime
 from pathlib import Path
-from typing import Union, Dict, List, Generator, TypeVar
+from typing import Union, Dict, List, Generator, TypeVar, Type
 
 from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from otlmow_model.OtlmowModel.BaseClasses.DateTimeField import DateTimeField
@@ -25,26 +25,27 @@ from otlmow_model.OtlmowModel.Helpers.GenericHelper import get_titlecase_from_ns
 
 
 class OTLAttribuut:
-    def __init__(self, naam='', label='', objectUri='', definition='', constraints='', usagenote='',
-                 deprecated_version='', kardinaliteit_min='1', kardinaliteit_max='1', field=OTLField, readonly=False,
-                 readonlyValue=None, owner=None):
+    def __init__(self, naam: str = '', label: str = '', objectUri: str = '', definition: str = '',
+                 constraints: str = '', usagenote: str = '', deprecated_version: str = '', kardinaliteit_min: str = '1',
+                 kardinaliteit_max: str = '1', field: Type[OTLField] = OTLField, readonly: bool = False, readonlyValue=None,
+                 owner=None):
         super().__init__()
-        self.naam = naam
-        self.label = label
-        self.objectUri = objectUri
-        self.definition = definition
-        self.constraints = constraints
-        self.usagenote = usagenote
-        self.deprecated_version = deprecated_version
-        self.readonly = readonly
-        self.kardinaliteit_min = kardinaliteit_min
-        self.kardinaliteit_max = kardinaliteit_max
-        self._dotnotation = ''
+        self.naam: str = naam
+        self.label: str = label
+        self.objectUri: str = objectUri
+        self.definition: str = definition
+        self.constraints: str = constraints
+        self.usagenote: str = usagenote
+        self.deprecated_version: str = deprecated_version
+        self.readonly: bool = readonly
+        self.kardinaliteit_min: str = kardinaliteit_min
+        self.kardinaliteit_max: str = kardinaliteit_max
+        self._dotnotation: str  = ''
         self.owner = owner
         self.readonlyValue = None
         self.mark_to_be_cleared: bool = False
         self.waarde = None
-        self.field = field
+        self.field: Type[OTLField] = field
 
         if self.field.waardeObject:
             def add_empty_value():
