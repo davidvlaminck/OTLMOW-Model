@@ -3,15 +3,15 @@ from typing import Any
 
 
 class OTLField:
-    waarde_shortcut_applicable = False
-    naam = ''
-    label = ''
-    objectUri = ''
-    definition = ''
-    usagenote = ''
-    deprecated_version = ''
-    waardeObject = None
-    clearing_value = None
+    waarde_shortcut_applicable: bool = False
+    naam: str = ''
+    label: str = ''
+    objectUri: str = ''
+    definition: str = ''
+    usagenote: str = ''
+    deprecated_version: str = ''
+    waardeObject: Any = None
+    clearing_value: Any = None
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
