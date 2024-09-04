@@ -15,33 +15,31 @@ class OTLField:
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
-        if attribuut.field.waardeObject:
-            if isinstance(value, list):
-                for list_item in value:
-                    if not isinstance(list_item, attribuut.field.waardeObject):
-                        raise ValueError(
-                            f'{attribuut.objectUri} is a complex datatype. Set the values through the attributes. '
-                            f'Use .attr_type_info() for more info')
-            else:
-                if not isinstance(value, attribuut.field.waardeObject):
+        if not attribuut.field.waardeObject:
+            return
+        if isinstance(value, list):
+            for list_item in value:
+                if not isinstance(list_item, attribuut.field.waardeObject):
                     raise ValueError(
                         f'{attribuut.objectUri} is a complex datatype. Set the values through the attributes. '
                         f'Use .attr_type_info() for more info')
-            validation = True
-            for attr in value:
-                if attr.waarde is None:
-                    continue
-                if attr.kardinaliteit_max != '1':
-                    for value_item in attr.waarde:
-                        if not attr.field.validate(value_item, attr):
-                            validation = False
-                            break
-                else:
-                    if not attr.field.validate(attr.waarde, attr):
+        elif not isinstance(value, attribuut.field.waardeObject):
+            raise ValueError(
+                f'{attribuut.objectUri} is a complex datatype. Set the values through the attributes. '
+                f'Use .attr_type_info() for more info')
+        validation = True
+        for attr in value:
+            if attr.waarde is None:
+                continue
+            if attr.kardinaliteit_max != '1':
+                for value_item in attr.waarde:
+                    if not attr.field.validate(value_item, attr):
                         validation = False
                         break
-            return validation
-        pass
+            elif not attr.field.validate(attr.waarde, attr):
+                validation = False
+                break
+        return validation
 
     @classmethod
     def value_default(cls, value: Any) -> Any:
