@@ -439,6 +439,42 @@ def test_build_string_version_empty_class():
     assert info_string == expected
 
 
+def test_make_string_version_cleared_value_str():
+    instance = AllCasesTestClass()
+    instance.notitie = 'test'
+    instance.clear_value('notitie')
+    info_string = str(instance)
+    expected = '<AllCasesTestClass> object\n' \
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+               '    notitie : 88888888 <value_marked_to_be_cleared>'
+
+    assert info_string == expected
+
+
+def test_make_string_version_cleared_value_number():
+    instance = AllCasesTestClass()
+    instance.testDecimalField = 1.0
+    instance.clear_value('testDecimalField')
+    info_string = str(instance)
+    expected = '<AllCasesTestClass> object\n' \
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+               '    testDecimalField : 88888888 <value_marked_to_be_cleared>'
+
+    assert info_string == expected
+
+
+def test_make_string_version_cleared_value_int():
+    instance = AllCasesTestClass()
+    instance.testIntegerField = 1
+    instance.clear_value('testIntegerField')
+    info_string = str(instance)
+    expected = '<AllCasesTestClass> object\n' \
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+               '    testIntegerField : 88888888 <value_marked_to_be_cleared>'
+
+    assert info_string == expected
+
+
 def test_make_string_version_StringField():
     instance = AllCasesTestClass()
     instance.isActief = True
