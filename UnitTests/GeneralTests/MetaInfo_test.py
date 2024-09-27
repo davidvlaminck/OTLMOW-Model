@@ -119,7 +119,7 @@ attributes:
     assert result == expected
 
 
-def test_meta_info_on_otl_attribute_Dtc_by_dotnotation():
+def test_meta_info_on_otl_attribute_in_Dtc_by_dotnotation():
     instance = AllCasesTestClass()
 
     result = meta_info(instance, attribute='testComplexType.testStringField')
