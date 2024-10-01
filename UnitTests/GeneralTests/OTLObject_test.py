@@ -1321,7 +1321,31 @@ def test_create_dict_from_asset_clear_value_str():
     assert d == expected
 
 
+def test_create_dict_from_asset_clear_value_enum():
+    instance = AllCasesTestClass()
+    instance.testKeuzelijst = 'waarde-1'
+    instance.clear_value('testKeuzelijst')
+    assert instance.testKeuzelijst is None
+    assert instance._testKeuzelijst.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKeuzelijst': '88888888'}
+    assert d == expected
+
+
 # from dict str
+def test_from_dict_clear_value_enum():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKeuzelijst': '88888888'}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testKeuzelijst is None
+    assert instance._testKeuzelijst.mark_to_be_cleared
+
+
 def test_from_dict_clear_value_str():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
@@ -1355,6 +1379,30 @@ def test_from_dict_clear_value_str_kard():
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testStringFieldMetKard is None
     assert instance._testStringFieldMetKard.mark_to_be_cleared
+
+
+def test_create_dict_from_asset_clear_value_enum_kard():
+    instance = AllCasesTestClass()
+    instance.testKeuzelijstMetKard = ['waarde-1', 'waarde-2']
+    instance.clear_value('testKeuzelijstMetKard')
+    assert instance.testKeuzelijstMetKard is None
+    assert instance._testKeuzelijstMetKard.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKeuzelijstMetKard': '88888888'}
+    assert d == expected
+
+
+def test_from_dict_clear_value_enum_kard():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKeuzelijstMetKard': '88888888'}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testKeuzelijstMetKard is None
+    assert instance._testKeuzelijstMetKard.mark_to_be_cleared
 
 
 def test_create_dict_from_asset_clear_value_decimal():
