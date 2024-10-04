@@ -1563,6 +1563,14 @@ def test_from_dict_clear_value_kwant_wrd_kard():
     assert instance.testKwantWrdMetKard[1].waarde is None
     assert instance.testKwantWrdMetKard[1]._waarde.mark_to_be_cleared
 
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKwantWrdMetKard': [88888888.0]}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testKwantWrdMetKard[0]._waarde.mark_to_be_cleared
+
 
 def test_create_dict_from_asset_clear_value_illegal_attributes():
     instance = AllCasesTestClass()
