@@ -10,7 +10,6 @@ class KlRioleringsbuisMateriaal(KeuzelijstField):
     label = 'Rioleringsbuis materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRioleringsbuisMateriaal'
     definition = 'Materialen van de rioleringbuis.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRioleringsbuisMateriaal'
     options = {
         'PP-buizen': KeuzelijstWaarde(invulwaarde='PP-buizen',

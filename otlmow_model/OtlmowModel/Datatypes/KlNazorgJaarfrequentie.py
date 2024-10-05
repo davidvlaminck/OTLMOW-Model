@@ -10,7 +10,6 @@ class KlNazorgJaarfrequentie(KeuzelijstField):
     label = 'Nazorg jaarfrequentie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlNazorgJaarfrequentie'
     definition = 'Aantal keer dat jaarlijks de behandelde zone dient te worden gecontroleerd.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNazorgJaarfrequentie'
     options = {
         '1': KeuzelijstWaarde(invulwaarde='1',

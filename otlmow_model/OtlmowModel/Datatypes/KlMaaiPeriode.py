@@ -10,7 +10,6 @@ class KlMaaiPeriode(KeuzelijstField):
     label = 'Maaiperiode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlMaaiPeriode'
     definition = 'De maand waarin het maaien wordt uitgevoerd.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMaaiPeriode'
     options = {
         'april': KeuzelijstWaarde(invulwaarde='april',

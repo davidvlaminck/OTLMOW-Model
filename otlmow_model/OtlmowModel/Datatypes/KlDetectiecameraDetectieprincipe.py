@@ -10,7 +10,6 @@ class KlDetectiecameraDetectieprincipe(KeuzelijstField):
     label = 'Detectiecamera detectieprincipe'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDetectiecameraDetectieprincipe'
     definition = 'Keuzelijst met detectieprincipes voor Detectiecamera.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDetectiecameraDetectieprincipe'
     options = {
         'optisch': KeuzelijstWaarde(invulwaarde='optisch',

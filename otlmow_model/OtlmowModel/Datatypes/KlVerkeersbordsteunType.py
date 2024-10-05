@@ -10,7 +10,6 @@ class KlVerkeersbordsteunType(KeuzelijstField):
     label = 'Verkeersbordsteuntype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersbordsteunType'
     definition = 'Types voor een verkeersbordsteun.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersbordsteunType'
     options = {
         'botsvriendelijke-steun': KeuzelijstWaarde(invulwaarde='botsvriendelijke-steun',

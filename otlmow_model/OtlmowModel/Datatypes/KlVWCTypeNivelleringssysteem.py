@@ -10,7 +10,6 @@ class KlVWCTypeNivelleringssysteem(KeuzelijstField):
     label = 'Type nivelleringssysteem'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlVWCTypeNivelleringssysteem'
     definition = 'De mogelijke typen van het nivelleringssysteem van een vaste waterbouwkundige constructie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVWCTypeNivelleringssysteem'
     options = {
         'door-de-deur': KeuzelijstWaarde(invulwaarde='door-de-deur',

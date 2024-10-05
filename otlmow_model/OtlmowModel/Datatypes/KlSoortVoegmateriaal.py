@@ -10,7 +10,6 @@ class KlSoortVoegmateriaal(KeuzelijstField):
     label = 'Soort voegmateriaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSoortVoegmateriaal'
     definition = 'De mogelijke soorten van voegmateriaal.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSoortVoegmateriaal'
     options = {
         'asfalt': KeuzelijstWaarde(invulwaarde='asfalt',

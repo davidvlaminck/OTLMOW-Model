@@ -10,7 +10,6 @@ class KlTelecomCableMateriaalType(KeuzelijstField):
     label = 'Datakabel materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlTelecomCableMateriaalType'
     definition = 'Codelijst met waardes voor het type materiaal van een telecomkabel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTelecomCableMateriaalType'
     options = {
         'coaxial': KeuzelijstWaarde(invulwaarde='coaxial',

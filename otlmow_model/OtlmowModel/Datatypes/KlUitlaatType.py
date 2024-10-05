@@ -10,7 +10,6 @@ class KlUitlaatType(KeuzelijstField):
     label = 'Uitlaat type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlUitlaatType'
     definition = 'De verschillende types van uitlaat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUitlaatType'
     options = {
         'inlaat': KeuzelijstWaarde(invulwaarde='inlaat',

@@ -10,7 +10,6 @@ class KlLEACUitzettingswaardeDilatatie(KeuzelijstField):
     label = 'Uitzetttingswaarde dilatatie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACUitzettingswaardeDilatatie'
     definition = 'De grootst mogelijke uitzetting die mogelijk is voor een bepaalde dilatatieoplossing.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACUitzettingswaardeDilatatie'
     options = {
         '10-cm': KeuzelijstWaarde(invulwaarde='10-cm',

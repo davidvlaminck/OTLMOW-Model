@@ -10,7 +10,6 @@ class KlWvLichtmastBevsToestel(KeuzelijstField):
     label = 'Bevestiging voor wegverlichtingstoestellen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLichtmastBevsToestel'
     definition = 'De standaard bevestigingen van verlichtingstoestellen aan lichtmasten.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLichtmastBevsToestel'
     options = {
         'arm-60mm': KeuzelijstWaarde(invulwaarde='arm-60mm',

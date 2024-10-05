@@ -10,7 +10,6 @@ class KlPlaatsingswijze(KeuzelijstField):
     label = 'Plaatsingswijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPlaatsingswijze'
     definition = 'Mogelijke manieren van plaatsing van het straatmeubilair.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlaatsingswijze'
     options = {
         'vast': KeuzelijstWaarde(invulwaarde='vast',

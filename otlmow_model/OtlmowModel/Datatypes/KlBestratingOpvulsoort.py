@@ -10,7 +10,6 @@ class KlBestratingOpvulsoort(KeuzelijstField):
     label = 'Bestrating opvulsoort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBestratingOpvulsoort'
     definition = 'De mogelijke opvulsoorten van de grasbetontegel en graskunststofplaat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestratingOpvulsoort'
     options = {
         'bodemsubstraat': KeuzelijstWaarde(invulwaarde='bodemsubstraat',

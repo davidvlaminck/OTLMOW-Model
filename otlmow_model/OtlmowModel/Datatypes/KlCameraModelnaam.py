@@ -10,7 +10,6 @@ class KlCameraModelnaam(KeuzelijstField):
     label = 'Camera modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCameraModelnaam'
     definition = 'De modelnaam van de camera.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCameraModelnaam'
     options = {
         'b95a': KeuzelijstWaarde(invulwaarde='b95a',

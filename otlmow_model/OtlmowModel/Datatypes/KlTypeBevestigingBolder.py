@@ -10,7 +10,6 @@ class KlTypeBevestigingBolder(KeuzelijstField):
     label = 'Type bevestiging bolder'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeBevestigingBolder'
     definition = 'De mogelijke bevestigingstypes van een bolder.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBevestigingBolder'
     options = {
         'breekbout-op-onderlegplaat': KeuzelijstWaarde(invulwaarde='breekbout-op-onderlegplaat',

@@ -10,7 +10,6 @@ class KlAfwerkingstypeLeuning(KeuzelijstField):
     label = 'Afwerkingstype leuning'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlAfwerkingstypeLeuning'
     definition = 'Geeft de afwerking van de leuning weer.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfwerkingstypeLeuning'
     options = {
         'gegalvaniseerd': KeuzelijstWaarde(invulwaarde='gegalvaniseerd',

@@ -10,7 +10,6 @@ class KlWeggebondendetectorDetectieprincipe(KeuzelijstField):
     label = 'Weggebondendetector detectieprincipe'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWeggebondendetectorDetectieprincipe'
     definition = 'Keuzelijst met de verschillende gangbare manieren waarop een weggebonden detector voertuigen detecteert, bv. door gebruik te maken van inductie of doppler.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWeggebondendetectorDetectieprincipe'
     options = {
         'doppler': KeuzelijstWaarde(invulwaarde='doppler',

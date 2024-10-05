@@ -10,7 +10,6 @@ class KlToegankelijkheid(KeuzelijstField):
     label = 'Toegankelijkheid'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlToegankelijkheid'
     definition = 'De mogelijke opties die de toegankelijkheid van een object aanduiden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegankelijkheid'
     options = {
         'is-bereikbaar-voor-inspectie': KeuzelijstWaarde(invulwaarde='is-bereikbaar-voor-inspectie',

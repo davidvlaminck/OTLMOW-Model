@@ -10,7 +10,6 @@ class KlBevestigingssteunType(KeuzelijstField):
     label = 'Bevestigingssteun type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBevestigingssteunType'
     definition = 'De mogelijk types van een bevestigingssteun.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBevestigingssteunType'
     options = {
         'baar': KeuzelijstWaarde(invulwaarde='baar',

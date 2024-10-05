@@ -10,7 +10,6 @@ class KlBoomConditiewaarde(KeuzelijstField):
     label = 'Boom conditiewaarde'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomConditiewaarde'
     definition = 'De verschillende conditiewaardes voor een boom.'
-    status = 'ingebruik'
     deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomConditiewaarde'
     options = {

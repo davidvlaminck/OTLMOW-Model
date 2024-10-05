@@ -10,7 +10,6 @@ class KlBestratingAfwerking(KeuzelijstField):
     label = 'Bestrating afwerking'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBestratingAfwerking'
     definition = 'De manieren van afwerking van de bestrating.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestratingAfwerking'
     options = {
         'afwerking-volgens-de-opdrachtdocumenten': KeuzelijstWaarde(invulwaarde='afwerking-volgens-de-opdrachtdocumenten',

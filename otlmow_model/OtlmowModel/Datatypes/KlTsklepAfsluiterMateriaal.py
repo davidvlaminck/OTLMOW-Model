@@ -10,7 +10,6 @@ class KlTsklepAfsluiterMateriaal(KeuzelijstField):
     label = 'Terugslagklep afsluiter materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTsklepAfsluiterMateriaal'
     definition = 'Materialen van de terugslagklep.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTsklepAfsluiterMateriaal'
     options = {
         'am---Gietijzer': KeuzelijstWaarde(invulwaarde='am---Gietijzer',

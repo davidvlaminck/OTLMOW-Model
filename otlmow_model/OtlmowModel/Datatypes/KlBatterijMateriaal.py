@@ -10,7 +10,6 @@ class KlBatterijMateriaal(KeuzelijstField):
     label = 'Batterij materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBatterijMateriaal'
     definition = 'Keuzelijst voor de verschillende materialen waaruit een batterij gemaakt kan zijn.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBatterijMateriaal'
     options = {
         'lithium-ion-(li-ion)': KeuzelijstWaarde(invulwaarde='lithium-ion-(li-ion)',

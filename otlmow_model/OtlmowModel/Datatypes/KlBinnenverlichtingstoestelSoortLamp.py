@@ -10,7 +10,6 @@ class KlBinnenverlichtingstoestelSoortLamp(KeuzelijstField):
     label = 'Binnenverlichtingstoestel soort lamp'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBinnenverlichtingstoestelSoortLamp'
     definition = 'Lijst van mogelijke soorten lampen voor binnenverlichtingstoestellen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBinnenverlichtingstoestelSoortLamp'
     options = {
         'LED': KeuzelijstWaarde(invulwaarde='LED',

@@ -10,7 +10,6 @@ class KlPompKamerFunctie(KeuzelijstField):
     label = 'Kamer functie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlPompKamerFunctie'
     definition = 'De mogelijke functies die een pompkamer kan invullen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPompKamerFunctie'
     options = {
         'natte-pompkelder': KeuzelijstWaarde(invulwaarde='natte-pompkelder',

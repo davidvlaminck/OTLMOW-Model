@@ -10,7 +10,6 @@ class KlIVRIModelTLCfi(KeuzelijstField):
     label = 'iVRIModelTLCfi'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIVRIModelTLCfi'
     definition = 'De modelnaam van de TLC-fi poort.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIModelTLCfi'
     options = {
         'civa-2020': KeuzelijstWaarde(invulwaarde='civa-2020',

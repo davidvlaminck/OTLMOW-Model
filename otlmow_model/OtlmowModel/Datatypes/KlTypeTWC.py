@@ -10,7 +10,6 @@ class KlTypeTWC(KeuzelijstField):
     label = 'Type tijdelijke waterkerende constructie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeTWC'
     definition = 'De mogelijke types van een tijdelijke waterkerende constructie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeTWC'
     options = {
         'afsluitcaisson': KeuzelijstWaarde(invulwaarde='afsluitcaisson',

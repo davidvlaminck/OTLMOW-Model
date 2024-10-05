@@ -10,7 +10,6 @@ class KlLEACObstakelbeveiligerType(KeuzelijstField):
     label = 'Obstakelbeveiliger type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACObstakelbeveiligerType'
     definition = 'De verschillende types van obstakelbeveiliger.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACObstakelbeveiligerType'
     options = {
         'afstoppend-(NR)': KeuzelijstWaarde(invulwaarde='afstoppend-(NR)',

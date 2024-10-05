@@ -10,7 +10,6 @@ class KlMIVComkaartType(KeuzelijstField):
     label = 'MIV comkaart type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMIVComkaartType'
     definition = 'Mogelijke opties van Com-kaart types.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMIVComkaartType'
     options = {
         '19-inch': KeuzelijstWaarde(invulwaarde='19-inch',

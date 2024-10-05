@@ -10,7 +10,6 @@ class KlLichtzuilSoortLamp(KeuzelijstField):
     label = 'Lichtzuil soort lamp'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLichtzuilSoortLamp'
     definition = 'Soort lamp voor de lichtzuilen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtzuilSoortLamp'
     options = {
         'gloeilamp': KeuzelijstWaarde(invulwaarde='gloeilamp',

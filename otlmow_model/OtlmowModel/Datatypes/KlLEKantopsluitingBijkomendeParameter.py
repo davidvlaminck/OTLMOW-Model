@@ -10,7 +10,6 @@ class KlLEKantopsluitingBijkomendeParameter(KeuzelijstField):
     label = 'Kantopsluiting bijkomende parameter'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEKantopsluitingBijkomendeParameter'
     definition = 'Gedetailleerder typeren van de kantopsluiting.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEKantopsluitingBijkomendeParameter'
     options = {
         'eindschikking-voor-schampkant': KeuzelijstWaarde(invulwaarde='eindschikking-voor-schampkant',

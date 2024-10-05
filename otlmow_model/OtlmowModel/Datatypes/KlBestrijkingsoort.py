@@ -10,7 +10,6 @@ class KlBestrijkingsoort(KeuzelijstField):
     label = 'Bestrijkingsoort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBestrijkingsoort'
     definition = 'Soorten van bestrijking.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestrijkingsoort'
     options = {
         'eenlaagse-met-dubbele-begrinding-(EBDB)': KeuzelijstWaarde(invulwaarde='eenlaagse-met-dubbele-begrinding-(EBDB)',

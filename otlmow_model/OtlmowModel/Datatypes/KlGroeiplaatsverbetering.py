@@ -10,7 +10,6 @@ class KlGroeiplaatsverbetering(KeuzelijstField):
     label = 'Groeiplaatsverbetering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGroeiplaatsverbetering'
     definition = 'De techniek waarmee de groeiplaats wordt verbeterd met als doel de levensverwachting en de conditie van de vegetatie te verbeteren.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGroeiplaatsverbetering'
     options = {
         'aanleg-drainagebuis': KeuzelijstWaarde(invulwaarde='aanleg-drainagebuis',

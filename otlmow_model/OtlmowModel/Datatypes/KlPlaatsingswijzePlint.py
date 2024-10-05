@@ -10,7 +10,6 @@ class KlPlaatsingswijzePlint(KeuzelijstField):
     label = 'Plaatsingswijze plint'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPlaatsingswijzePlint'
     definition = 'De manier waarop de plint geplaatst is ten opzichte van de profielen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlaatsingswijzePlint'
     options = {
         'bevestigd-tegen-de-profielen': KeuzelijstWaarde(invulwaarde='bevestigd-tegen-de-profielen',

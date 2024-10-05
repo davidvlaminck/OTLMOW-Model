@@ -10,7 +10,6 @@ class KlDekselVergrendeling(KeuzelijstField):
     label = 'Dekselvergrendeling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDekselVergrendeling'
     definition = 'Manieren waarop het deksel is vergrendeld.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDekselVergrendeling'
     options = {
         'bouten': KeuzelijstWaarde(invulwaarde='bouten',

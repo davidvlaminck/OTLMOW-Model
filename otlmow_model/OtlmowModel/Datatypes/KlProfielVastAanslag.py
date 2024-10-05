@@ -10,7 +10,6 @@ class KlProfielVastAanslag(KeuzelijstField):
     label = 'Materiaal aanslagprofiel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlProfielVastAanslag'
     definition = 'De mogelijke materialen van een aanslagprofiel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlProfielVastAanslag'
     options = {
         'constructiestaal': KeuzelijstWaarde(invulwaarde='constructiestaal',

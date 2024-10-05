@@ -10,7 +10,6 @@ class KlTypeBetonnenProfiel(KeuzelijstField):
     label = 'Type betonnen profiel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeBetonnenProfiel'
     definition = 'Het type betonnen profiel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBetonnenProfiel'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

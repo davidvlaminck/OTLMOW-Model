@@ -10,7 +10,6 @@ class KlElectricitySubthema(KeuzelijstField):
     label = 'Electricity subthema'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlElectricitySubthema'
     definition = 'Lijst voor classificatie van elektrische kabels en appurtenances.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElectricitySubthema'
     options = {
         'elektriciteitdistributiehoogspanning': KeuzelijstWaarde(invulwaarde='elektriciteitdistributiehoogspanning',

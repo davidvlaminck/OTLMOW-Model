@@ -10,7 +10,6 @@ class KlVerlichtingstoestelconnectorBesturingsconnector(KeuzelijstField):
     label = 'WV-besturingsconnector'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlVerlichtingstoestelconnectorBesturingsconnector'
     definition = 'Type van connector verwerkt in de behuizing van het verlichtingstoestel voor de aansluiting van de module voor lokale afstandsbediening en -bewaking.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerlichtingstoestelconnectorBesturingsconnector'
     options = {
         'NEMA': KeuzelijstWaarde(invulwaarde='NEMA',

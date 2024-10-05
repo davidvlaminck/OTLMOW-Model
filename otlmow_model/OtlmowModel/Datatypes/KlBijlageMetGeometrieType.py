@@ -10,7 +10,6 @@ class KlBijlageMetGeometrieType(KeuzelijstField):
     label = 'Bijlage met geometrie type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBijlageMetGeometrieType'
     definition = 'De mogelijke opties als type van een bijlage met geometrie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBijlageMetGeometrieType'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

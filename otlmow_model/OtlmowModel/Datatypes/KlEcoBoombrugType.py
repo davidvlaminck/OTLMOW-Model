@@ -10,7 +10,6 @@ class KlEcoBoombrugType(KeuzelijstField):
     label = 'Boombrug type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEcoBoombrugType'
     definition = 'Types van boombrug.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoBoombrugType'
     options = {
         'ladderbrug': KeuzelijstWaarde(invulwaarde='ladderbrug',

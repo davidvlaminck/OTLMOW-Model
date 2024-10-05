@@ -10,7 +10,6 @@ class KlNetwerkTechnologie(KeuzelijstField):
     label = 'Netwerk technologie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkTechnologie'
     definition = 'Lijst van mogelijke intern gebruikte netwerk protocollen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkTechnologie'
     options = {
         'CEN': KeuzelijstWaarde(invulwaarde='CEN',

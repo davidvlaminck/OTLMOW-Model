@@ -10,7 +10,6 @@ class KlVastTegengewichtMateriaal(KeuzelijstField):
     label = 'Vast tegengewicht materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlVastTegengewichtMateriaal'
     definition = 'De mogelijke materialen van een vast tegengewicht.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVastTegengewichtMateriaal'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

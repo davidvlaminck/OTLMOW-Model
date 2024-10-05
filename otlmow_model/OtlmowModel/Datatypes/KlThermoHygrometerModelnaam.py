@@ -10,7 +10,6 @@ class KlThermoHygrometerModelnaam(KeuzelijstField):
     label = 'Thermo- hygrometer modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlThermoHygrometerModelnaam'
     definition = 'Thermo- hygrometer modelnamen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlThermoHygrometerModelnaam'
     options = {
         'hmp155': KeuzelijstWaarde(invulwaarde='hmp155',

@@ -10,7 +10,6 @@ class KlVirtueleServerModelnaam(KeuzelijstField):
     label = 'Virtuele server modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVirtueleServerModelnaam'
     definition = 'De modelnaam van de virtuele server.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVirtueleServerModelnaam'
     options = {
         'boxedacu': KeuzelijstWaarde(invulwaarde='boxedacu',

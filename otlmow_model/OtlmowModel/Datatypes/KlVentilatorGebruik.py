@@ -10,7 +10,6 @@ class KlVentilatorGebruik(KeuzelijstField):
     label = 'Gebruikstypes ventilator'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVentilatorGebruik'
     definition = 'Keuzelijst die de types van gebruik voor de ventilator aangeeft.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVentilatorGebruik'
     options = {
         'dwarsventilatie-aanzuigunit': KeuzelijstWaarde(invulwaarde='dwarsventilatie-aanzuigunit',

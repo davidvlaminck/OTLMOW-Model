@@ -10,7 +10,6 @@ class KlEcoLooprichelType(KeuzelijstField):
     label = 'Looprichel type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEcoLooprichelType'
     definition = 'Types van looprichel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoLooprichelType'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

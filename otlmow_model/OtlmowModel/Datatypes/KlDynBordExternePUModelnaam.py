@@ -10,7 +10,6 @@ class KlDynBordExternePUModelnaam(KeuzelijstField):
     label = 'Keuzelijst met modellen van Externe PU'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDynBordExternePUModelnaam'
     definition = 'De modelnaam van externe processing unit voor dynamische verkeersborden. Wordt bepaald door de lverancier.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordExternePUModelnaam'
     options = {
         'diamond': KeuzelijstWaarde(invulwaarde='diamond',

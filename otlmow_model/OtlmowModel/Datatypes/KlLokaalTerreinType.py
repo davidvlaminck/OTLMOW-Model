@@ -10,7 +10,6 @@ class KlLokaalTerreinType(KeuzelijstField):
     label = 'Lokaal terreintype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlLokaalTerreinType'
     definition = 'Lokale terrein types.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLokaalTerreinType'
     options = {
         'andere-gelieve-te-omschrijven-in-extra-notitie-voor-het-object': KeuzelijstWaarde(invulwaarde='andere-gelieve-te-omschrijven-in-extra-notitie-voor-het-object',

@@ -10,7 +10,6 @@ class KlLEACTypeEindstuk(KeuzelijstField):
     label = 'Type eindstuk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACTypeEindstuk'
     definition = 'De verschillende types eindstukken.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACTypeEindstuk'
     options = {
         'naar-beneden-afgebogen': KeuzelijstWaarde(invulwaarde='naar-beneden-afgebogen',

@@ -10,7 +10,6 @@ class KlMateriaalStormraam(KeuzelijstField):
     label = 'Materiaal Stormraam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMateriaalStormraam'
     definition = 'De mogelijke materialen van een stormraam.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalStormraam'
     options = {
         'hout': KeuzelijstWaarde(invulwaarde='hout',

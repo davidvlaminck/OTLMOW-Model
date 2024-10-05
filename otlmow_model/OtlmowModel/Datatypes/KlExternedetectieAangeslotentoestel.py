@@ -10,7 +10,6 @@ class KlExternedetectieAangeslotentoestel(KeuzelijstField):
     label = 'Externedetectie aangeslotentoestel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlExternedetectieAangeslotentoestel'
     definition = 'Keuzelijst met de voorkomende types van aangesloten toestellen (trein, brug, FCD) aan een externe detectie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlExternedetectieAangeslotentoestel'
     options = {
         'MIVB': KeuzelijstWaarde(invulwaarde='MIVB',

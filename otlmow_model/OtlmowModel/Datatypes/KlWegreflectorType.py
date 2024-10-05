@@ -10,7 +10,6 @@ class KlWegreflectorType(KeuzelijstField):
     label = 'Wegreflector type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWegreflectorType'
     definition = 'De vormen van een wegreflector.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegreflectorType'
     options = {
         'glasbolreflector-100-mm-diameter': KeuzelijstWaarde(invulwaarde='glasbolreflector-100-mm-diameter',

@@ -10,7 +10,6 @@ class KlBoogpaalType(KeuzelijstField):
     label = 'Type boogpaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoogpaalType'
     definition = 'Draagwijdte van de boogpaal.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoogpaalType'
     options = {
         '3.50': KeuzelijstWaarde(invulwaarde='3.50',

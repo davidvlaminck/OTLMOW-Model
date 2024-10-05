@@ -10,7 +10,6 @@ class KlMateriaalTrap(KeuzelijstField):
     label = 'keuzelijst materialen trap'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMateriaalTrap'
     definition = 'De keuzelijst die de verschillende mogelijke materialen voor een trap bevat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalTrap'
     options = {
         'aluminium': KeuzelijstWaarde(invulwaarde='aluminium',

@@ -10,7 +10,6 @@ class KlLEDDriverProtocol(KeuzelijstField):
     label = 'LED stuurprotocol'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEDDriverProtocol'
     definition = "Protocol gebruikt door de LED driver voor het aansturen van de LED's."
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEDDriverProtocol'
     options = {
         '1-10v': KeuzelijstWaarde(invulwaarde='1-10v',

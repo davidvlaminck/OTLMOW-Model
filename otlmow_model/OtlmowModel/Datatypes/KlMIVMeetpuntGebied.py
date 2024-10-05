@@ -10,7 +10,6 @@ class KlMIVMeetpuntGebied(KeuzelijstField):
     label = 'MIV meetpuntgebied'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlMIVMeetpuntGebied'
     definition = 'Mogelijke MIV meetpuntgebieden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMIVMeetpuntGebied'
     options = {
         'afrit': KeuzelijstWaarde(invulwaarde='afrit',

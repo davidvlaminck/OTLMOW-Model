@@ -10,7 +10,6 @@ class KlWindmeterType(KeuzelijstField):
     label = 'Windmeter type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWindmeterType'
     definition = 'Types van windmeters.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWindmeterType'
     options = {
         'ultrasoon': KeuzelijstWaarde(invulwaarde='ultrasoon',

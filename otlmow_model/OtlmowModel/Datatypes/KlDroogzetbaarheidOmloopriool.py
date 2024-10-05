@@ -10,7 +10,6 @@ class KlDroogzetbaarheidOmloopriool(KeuzelijstField):
     label = 'Keuzelijst droogzetbaarheid omloopriool'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlDroogzetbaarheidOmloopriool'
     definition = 'De keuzelijst die de verschillende manieren van droogzetbaarheid van de omloopriool bevat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDroogzetbaarheidOmloopriool'
     options = {
         'gedeeltelijke-droogzetbaar-enkel-t.p.v.-schuif': KeuzelijstWaarde(invulwaarde='gedeeltelijke-droogzetbaar-enkel-t.p.v.-schuif',

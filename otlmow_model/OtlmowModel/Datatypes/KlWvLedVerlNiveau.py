@@ -10,7 +10,6 @@ class KlWvLedVerlNiveau(KeuzelijstField):
     label = 'WV LED verlichtingsniveau'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLedVerlNiveau'
     definition = 'Een set van verlichtingstechnische eisen zoals gemiddelde luminantie, verlichtingsterkte, uniformeiten.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedVerlNiveau'
     options = {
         'C1': KeuzelijstWaarde(invulwaarde='C1',

@@ -10,7 +10,6 @@ class KlTypeDrempel(KeuzelijstField):
     label = 'Keuzelijst type drempel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeDrempel'
     definition = 'De keuzelijst die de verschillende type van drempels bevat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeDrempel'
     options = {
         'gelijkliggende-drempel': KeuzelijstWaarde(invulwaarde='gelijkliggende-drempel',

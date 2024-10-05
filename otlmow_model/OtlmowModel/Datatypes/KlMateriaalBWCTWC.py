@@ -10,7 +10,6 @@ class KlMateriaalBWCTWC(KeuzelijstField):
     label = 'Materiaal BWC TWC'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlMateriaalBWCTWC'
     definition = 'De mogelijke materialen voor een beweegbare waterkerende constructie of een tijdelijke waterkerende constructie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalBWCTWC'
     options = {
         'aluminium': KeuzelijstWaarde(invulwaarde='aluminium',

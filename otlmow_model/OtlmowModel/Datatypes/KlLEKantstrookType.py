@@ -10,7 +10,6 @@ class KlLEKantstrookType(KeuzelijstField):
     label = 'Kantstrook type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEKantstrookType'
     definition = 'Types van kantstrook.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEKantstrookType'
     options = {
         'type-II-A-1': KeuzelijstWaarde(invulwaarde='type-II-A-1',

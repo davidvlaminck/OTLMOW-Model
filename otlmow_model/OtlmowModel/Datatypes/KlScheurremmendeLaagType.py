@@ -10,7 +10,6 @@ class KlScheurremmendeLaagType(KeuzelijstField):
     label = 'Scheurremmende laag type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlScheurremmendeLaagType'
     definition = 'Types van scheurremmende laag.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlScheurremmendeLaagType'
     options = {
         'bitumineus-membraan-(SAMI)': KeuzelijstWaarde(invulwaarde='bitumineus-membraan-(SAMI)',

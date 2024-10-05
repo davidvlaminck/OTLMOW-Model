@@ -10,7 +10,6 @@ class KlTypeFendering(KeuzelijstField):
     label = 'Keuzelijst type fendering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeFendering'
     definition = 'De keuzelijst die de verschillende types van fendering bevat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeFendering'
     options = {
         'arch-(vb.-pi.-omega...)': KeuzelijstWaarde(invulwaarde='arch-(vb.-pi.-omega...)',

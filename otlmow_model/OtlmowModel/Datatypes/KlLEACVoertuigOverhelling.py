@@ -10,7 +10,6 @@ class KlLEACVoertuigOverhelling(KeuzelijstField):
     label = 'Voertuig overhelling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACVoertuigOverhelling'
     definition = 'De verschillende maten van voertuigoverhelling.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACVoertuigOverhelling'
     options = {
         'vIn1': KeuzelijstWaarde(invulwaarde='vIn1',

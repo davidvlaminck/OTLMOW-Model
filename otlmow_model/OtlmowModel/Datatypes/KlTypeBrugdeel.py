@@ -10,7 +10,6 @@ class KlTypeBrugdeel(KeuzelijstField):
     label = 'Type brugdeel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeBrugdeel'
     definition = 'Het soort brugdeel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBrugdeel'
     options = {
         'baileybrug': KeuzelijstWaarde(invulwaarde='baileybrug',

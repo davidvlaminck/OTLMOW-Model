@@ -10,7 +10,6 @@ class KlTypeSchanskorf(KeuzelijstField):
     label = 'Type schanskorf'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeSchanskorf'
     definition = 'Keuzelijst met de verschillende types schanskorven.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeSchanskorf'
     options = {
         '4-5-x-4-5': KeuzelijstWaarde(invulwaarde='4-5-x-4-5',

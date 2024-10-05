@@ -10,7 +10,6 @@ class KlZpadType(KeuzelijstField):
     label = 'Z-pad type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlZpadType'
     definition = 'De soort verbinding, gebaseerd op het gebruikte protocol.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZpadType'
     options = {
         'E1': KeuzelijstWaarde(invulwaarde='E1',

@@ -10,7 +10,6 @@ class KlWildreflectorDrager(KeuzelijstField):
     label = 'Wildreflector drager'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWildreflectorDrager'
     definition = 'Mogelijke dragers van een wildreflector.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWildreflectorDrager'
     options = {
         'houten-paal': KeuzelijstWaarde(invulwaarde='houten-paal',

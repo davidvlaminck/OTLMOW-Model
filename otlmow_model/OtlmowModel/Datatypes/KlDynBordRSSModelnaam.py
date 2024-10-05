@@ -10,7 +10,6 @@ class KlDynBordRSSModelnaam(KeuzelijstField):
     label = 'Dyn bord RSS modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDynBordRSSModelnaam'
     definition = 'Keuzelijst met de gangbare modelnamen van RSS borden. De modelnamen worden meestal door de leverancier of fabrikant bepaald.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordRSSModelnaam'
     options = {
         'RSS-02E01': KeuzelijstWaarde(invulwaarde='RSS-02E01',

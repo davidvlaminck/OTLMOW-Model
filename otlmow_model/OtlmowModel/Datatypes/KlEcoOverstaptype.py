@@ -10,7 +10,6 @@ class KlEcoOverstaptype(KeuzelijstField):
     label = 'Overstaptype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEcoOverstaptype'
     definition = 'Types van terugkeer voor wild.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoOverstaptype'
     options = {
         'dassenpoort': KeuzelijstWaarde(invulwaarde='dassenpoort',

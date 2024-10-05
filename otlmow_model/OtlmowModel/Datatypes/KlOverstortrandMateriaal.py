@@ -10,7 +10,6 @@ class KlOverstortrandMateriaal(KeuzelijstField):
     label = 'Overstortrand materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOverstortrandMateriaal'
     definition = 'De materialen van de overstortrand.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOverstortrandMateriaal'
     options = {
         'hout': KeuzelijstWaarde(invulwaarde='hout',

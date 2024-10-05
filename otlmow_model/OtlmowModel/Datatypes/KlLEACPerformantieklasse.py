@@ -10,7 +10,6 @@ class KlLEACPerformantieklasse(KeuzelijstField):
     label = 'Performantieklasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACPerformantieklasse'
     definition = 'De verschillende performantieklasses van de geteste beginconstructie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACPerformantieklasse'
     options = {
         'P1': KeuzelijstWaarde(invulwaarde='P1',

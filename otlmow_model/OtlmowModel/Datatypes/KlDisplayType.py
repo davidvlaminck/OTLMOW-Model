@@ -10,7 +10,6 @@ class KlDisplayType(KeuzelijstField):
     label = 'Display type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDisplayType'
     definition = 'Keuzelijst voor de verschillende technologieën voor displays.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDisplayType'
     options = {
         'lcd': KeuzelijstWaarde(invulwaarde='lcd',

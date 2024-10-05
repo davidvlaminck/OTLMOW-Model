@@ -10,7 +10,6 @@ class KlOmegaElementMateriaal(KeuzelijstField):
     label = 'Omega element materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOmegaElementMateriaal'
     definition = 'De gebruikte materialen van het omega-element.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOmegaElementMateriaal'
     options = {
         'aluminium': KeuzelijstWaarde(invulwaarde='aluminium',

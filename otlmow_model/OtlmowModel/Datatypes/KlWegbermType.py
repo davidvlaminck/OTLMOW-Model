@@ -10,7 +10,6 @@ class KlWegbermType(KeuzelijstField):
     label = 'Wegberm type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlWegbermType'
     definition = 'Types van wegberm die de plaats ten opzichte van de weg aangeven.'
-    status = 'ingebruik'
     deprecated_version = '2.11.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegbermType'
     options = {

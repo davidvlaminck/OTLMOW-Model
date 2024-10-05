@@ -10,7 +10,6 @@ class KlLuchtkwaliteitOpstellingModelnaam(KeuzelijstField):
     label = 'Luchtkwaliteitsopstelling modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlLuchtkwaliteitOpstellingModelnaam'
     definition = 'De modelnaam van een onderdeel uit een luchtkwaliteitsinstallatie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLuchtkwaliteitOpstellingModelnaam'
     options = {
         'VICOTEC321': KeuzelijstWaarde(invulwaarde='VICOTEC321',

@@ -10,7 +10,6 @@ class KlVerkeersregelaarMerk(KeuzelijstField):
     label = 'verkeersregelaar merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersregelaarMerk'
     definition = 'Keuzelijst met merknamen voor Verkeersregelaar.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersregelaarMerk'
     options = {
         'dynniq': KeuzelijstWaarde(invulwaarde='dynniq',

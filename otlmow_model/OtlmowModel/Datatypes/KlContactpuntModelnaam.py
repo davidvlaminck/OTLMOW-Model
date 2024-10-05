@@ -10,7 +10,6 @@ class KlContactpuntModelnaam(KeuzelijstField):
     label = 'Modelnamen contactpunten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlContactpuntModelnaam'
     definition = 'Lijst van modelnamen van contactpunten volgens de fabrikant.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlContactpuntModelnaam'
     options = {
         'aritech-dc-107': KeuzelijstWaarde(invulwaarde='aritech-dc-107',

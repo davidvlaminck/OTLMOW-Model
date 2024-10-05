@@ -10,7 +10,6 @@ class KlAlgMimeType(KeuzelijstField):
     label = 'Mimetype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlAlgMimeType'
     definition = 'De mime types van bestanden (AWVDocument) beperkt tot mime types voor toegelaten bestandstypen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgMimeType'
     options = {
         'application-acad': KeuzelijstWaarde(invulwaarde='application-acad',

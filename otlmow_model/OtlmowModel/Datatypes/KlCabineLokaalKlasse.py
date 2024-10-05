@@ -10,7 +10,6 @@ class KlCabineLokaalKlasse(KeuzelijstField):
     label = 'Cabine lokaal klasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCabineLokaalKlasse'
     definition = 'Lijst van waarden voor de classificatie van de hoogspanningscabine als lokaal volgens Synergrid.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCabineLokaalKlasse'
     options = {
         'BB00': KeuzelijstWaarde(invulwaarde='BB00',

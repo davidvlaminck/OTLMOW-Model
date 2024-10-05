@@ -10,7 +10,6 @@ class KlTypeBeweegbaarBrugdeel(KeuzelijstField):
     label = 'Type beweegbaar brugdeel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeBeweegbaarBrugdeel'
     definition = 'Het type van het beweegbaar brugdeel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBeweegbaarBrugdeel'
     options = {
         'basculebrug': KeuzelijstWaarde(invulwaarde='basculebrug',

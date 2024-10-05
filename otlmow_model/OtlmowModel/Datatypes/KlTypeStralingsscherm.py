@@ -10,7 +10,6 @@ class KlTypeStralingsscherm(KeuzelijstField):
     label = 'Type stralingsscherm'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeStralingsscherm'
     definition = 'Types van stralingsschermen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeStralingsscherm'
     options = {
         'vaisala-dtr13': KeuzelijstWaarde(invulwaarde='vaisala-dtr13',

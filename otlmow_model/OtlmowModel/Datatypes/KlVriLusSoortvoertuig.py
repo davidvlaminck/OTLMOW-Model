@@ -10,7 +10,6 @@ class KlVriLusSoortvoertuig(KeuzelijstField):
     label = 'VRI-lus soort voertuig'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVriLusSoortvoertuig'
     definition = 'Keuzelijst met verschillende types voertuigen die een detectielus volgens diens instellingen kan detecteren.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVriLusSoortvoertuig'
     options = {
         'fiets': KeuzelijstWaarde(invulwaarde='fiets',

@@ -10,7 +10,6 @@ class KlLEACPerformantieniveau(KeuzelijstField):
     label = 'Performantieniveau'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACPerformantieniveau'
     definition = 'De verschillende performantieniveaus van de afschermende constructies.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACPerformantieniveau'
     options = {
         '100': KeuzelijstWaarde(invulwaarde='100',

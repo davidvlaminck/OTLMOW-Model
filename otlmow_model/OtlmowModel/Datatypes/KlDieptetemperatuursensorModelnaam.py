@@ -10,7 +10,6 @@ class KlDieptetemperatuursensorModelnaam(KeuzelijstField):
     label = 'Dieptetemperatuursensor modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDieptetemperatuursensorModelnaam'
     definition = 'Dieptetemperatuursensor modelnamen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDieptetemperatuursensorModelnaam'
     options = {
         'dts12g': KeuzelijstWaarde(invulwaarde='dts12g',

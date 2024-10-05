@@ -10,7 +10,6 @@ class KlVGSchermelementtype(KeuzelijstField):
     label = 'Vlak geluidsschermelementtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVGSchermelementtype'
     definition = 'Het type vlak-schermelement.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVGSchermelementtype'
     options = {
         'schermelement-bevestigd-tegen-de-profielen': KeuzelijstWaarde(invulwaarde='schermelement-bevestigd-tegen-de-profielen',

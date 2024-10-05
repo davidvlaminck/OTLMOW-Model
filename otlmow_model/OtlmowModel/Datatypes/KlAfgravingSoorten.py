@@ -10,7 +10,6 @@ class KlAfgravingSoorten(KeuzelijstField):
     label = 'Afgraving soorten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlAfgravingSoorten'
     definition = 'De specificatie van type handeling bij afgraving.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfgravingSoorten'
     options = {
         '20-cm': KeuzelijstWaarde(invulwaarde='20-cm',

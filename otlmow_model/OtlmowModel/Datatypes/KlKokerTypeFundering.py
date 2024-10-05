@@ -10,7 +10,6 @@ class KlKokerTypeFundering(KeuzelijstField):
     label = 'Koker type fundering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlKokerTypeFundering'
     definition = 'Keuzelijst om aan te geven welk type fundering gebruikt is in de kokercel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKokerTypeFundering'
     options = {
         'niet-gekend': KeuzelijstWaarde(invulwaarde='niet-gekend',

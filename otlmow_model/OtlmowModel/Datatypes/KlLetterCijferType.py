@@ -10,7 +10,6 @@ class KlLetterCijferType(KeuzelijstField):
     label = 'Type van de letter of het cijfer'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLetterCijferType'
     definition = 'De mogelijke types van een individuele letter- of cijfermarkering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLetterCijferType'
     options = {
         'normaal---Cijfers-(basishoogte)': KeuzelijstWaarde(invulwaarde='normaal---Cijfers-(basishoogte)',

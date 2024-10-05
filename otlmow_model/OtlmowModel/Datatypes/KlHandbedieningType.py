@@ -10,7 +10,6 @@ class KlHandbedieningType(KeuzelijstField):
     label = 'Handbediening type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHandbedieningType'
     definition = 'Types van handbediening voor toestellen bevestigd aan een kast.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHandbedieningType'
     options = {
         'drukknop': KeuzelijstWaarde(invulwaarde='drukknop',

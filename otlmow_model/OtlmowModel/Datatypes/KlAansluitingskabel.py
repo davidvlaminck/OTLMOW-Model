@@ -10,7 +10,6 @@ class KlAansluitingskabel(KeuzelijstField):
     label = 'Aansluitingskabel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAansluitingskabel'
     definition = 'Keuzelijst voor de types van aansluitingskabel volgens de gebruikte verbinding.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAansluitingskabel'
     options = {
         'alarmkabel-2-10': KeuzelijstWaarde(invulwaarde='alarmkabel-2-10',

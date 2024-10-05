@@ -10,7 +10,6 @@ class KlPutType(KeuzelijstField):
     label = 'Put type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPutType'
     definition = 'Types van put.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPutType'
     options = {
         'aansluitingstoegangsput-(ATP)': KeuzelijstWaarde(invulwaarde='aansluitingstoegangsput-(ATP)',

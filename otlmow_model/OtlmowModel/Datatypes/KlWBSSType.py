@@ -10,7 +10,6 @@ class KlWBSSType(KeuzelijstField):
     label = 'WBSS type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWBSSType'
     definition = 'Types van waterdoorlatende betonstraatstenen en betontegels.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWBSSType'
     options = {
         'gekleurde-met-anorganische-pigmenten': KeuzelijstWaarde(invulwaarde='gekleurde-met-anorganische-pigmenten',

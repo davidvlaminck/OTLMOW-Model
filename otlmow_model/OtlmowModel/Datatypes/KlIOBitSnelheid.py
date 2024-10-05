@@ -10,7 +10,6 @@ class KlIOBitSnelheid(KeuzelijstField):
     label = 'IO bit snelheid'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIOBitSnelheid'
     definition = 'Lijst met mogelijke bitsnelheden voor een invoer-uitvoer kaart of module.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOBitSnelheid'
     options = {
         '16': KeuzelijstWaarde(invulwaarde='16',

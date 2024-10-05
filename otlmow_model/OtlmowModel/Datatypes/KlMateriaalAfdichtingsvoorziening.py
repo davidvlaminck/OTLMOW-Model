@@ -10,7 +10,6 @@ class KlMateriaalAfdichtingsvoorziening(KeuzelijstField):
     label = 'Materiaal afdichtingsvoorziening'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMateriaalAfdichtingsvoorziening'
     definition = 'De mogelijke materialen waaruit een afdichtingsvoorziening bestaat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalAfdichtingsvoorziening'
     options = {
         'hout': KeuzelijstWaarde(invulwaarde='hout',

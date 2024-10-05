@@ -10,7 +10,6 @@ class KlConstructiestaalsoort(KeuzelijstField):
     label = 'Constructiestaalsoort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlConstructiestaalsoort'
     definition = 'De soort van het constructiestaal.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlConstructiestaalsoort'
     options = {
         'rvs-316-brut': KeuzelijstWaarde(invulwaarde='rvs-316-brut',

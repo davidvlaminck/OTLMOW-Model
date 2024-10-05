@@ -10,7 +10,6 @@ class KlEindbeeldOpgaandeBoom(KeuzelijstField):
     label = 'Eindbeeld opgaande boom'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEindbeeldOpgaandeBoom'
     definition = 'Het nagestreefde beeld van de volgroeide boom of struik op deze specifieke standplaats.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEindbeeldOpgaandeBoom'
     options = {
         'gekandelaarde-boom': KeuzelijstWaarde(invulwaarde='gekandelaarde-boom',

@@ -10,7 +10,6 @@ class KlDekselMateriaal(KeuzelijstField):
     label = 'Dekselmateriaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDekselMateriaal'
     definition = 'Het materiaal waaruit het deksel bestaat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDekselMateriaal'
     options = {
         'anders': KeuzelijstWaarde(invulwaarde='anders',

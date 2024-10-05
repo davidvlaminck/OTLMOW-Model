@@ -10,7 +10,6 @@ class KlPoEInjectorMerk(KeuzelijstField):
     label = 'Power over ethernet injector merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPoEInjectorMerk'
     definition = 'Het merk van de PoE-injector.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPoEInjectorMerk'
     options = {
         'bosch': KeuzelijstWaarde(invulwaarde='bosch',

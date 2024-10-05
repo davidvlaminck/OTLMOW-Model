@@ -10,7 +10,6 @@ class KlKabelmofType(KeuzelijstField):
     label = 'Kabelmof type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKabelmofType'
     definition = 'Types voor kabel- en leidingmoffen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelmofType'
     options = {
         'geldoos': KeuzelijstWaarde(invulwaarde='geldoos',

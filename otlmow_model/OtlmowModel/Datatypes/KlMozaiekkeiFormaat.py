@@ -10,7 +10,6 @@ class KlMozaiekkeiFormaat(KeuzelijstField):
     label = 'Mozaiekkei formaat'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMozaiekkeiFormaat'
     definition = 'Formaten van de mozaïekkei.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMozaiekkeiFormaat'
     options = {
         'bestratingen-van-mozaïekkeien-van-het-1ste-formaat': KeuzelijstWaarde(invulwaarde='bestratingen-van-mozaïekkeien-van-het-1ste-formaat',

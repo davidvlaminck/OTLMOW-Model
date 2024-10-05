@@ -10,7 +10,6 @@ class KlVerkenmerkType(KeuzelijstField):
     label = 'Verkenmerk type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkenmerkType'
     definition = 'Het type verkenmerk.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkenmerkType'
     options = {
         'type-i': KeuzelijstWaarde(invulwaarde='type-i',

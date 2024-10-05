@@ -10,7 +10,6 @@ class KlMateriaalBolder(KeuzelijstField):
     label = 'Materiaal bolder.'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMateriaalBolder'
     definition = 'De mogelijke materialen van een bolder.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalBolder'
     options = {
         'gietijzer': KeuzelijstWaarde(invulwaarde='gietijzer',

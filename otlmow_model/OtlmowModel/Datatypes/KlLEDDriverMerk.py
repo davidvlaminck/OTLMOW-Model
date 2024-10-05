@@ -10,7 +10,6 @@ class KlLEDDriverMerk(KeuzelijstField):
     label = 'LED-driver merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEDDriverMerk'
     definition = 'Het merk van de LED-driver.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEDDriverMerk'
     options = {
         'mean-well': KeuzelijstWaarde(invulwaarde='mean-well',

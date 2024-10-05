@@ -10,7 +10,6 @@ class KlDraagstructuurBWCTWC(KeuzelijstField):
     label = 'Draagstructuur BWCTWC'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlDraagstructuurBWCTWC'
     definition = 'Type van draagstructuur gebruikt in beweegbare waterkerende constructies en tijdelijke waterkerende constructies.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDraagstructuurBWCTWC'
     options = {
         'achterhar': KeuzelijstWaarde(invulwaarde='achterhar',

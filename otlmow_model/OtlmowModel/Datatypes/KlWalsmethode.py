@@ -10,7 +10,6 @@ class KlWalsmethode(KeuzelijstField):
     label = 'Walsmethode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlWalsmethode'
     definition = 'De manier waarop het staal is gewalst.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWalsmethode'
     options = {
         'koud': KeuzelijstWaarde(invulwaarde='koud',

@@ -10,7 +10,6 @@ class KlGrondbewerking(KeuzelijstField):
     label = 'Grondbewerkingen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlGrondbewerking'
     definition = 'Lijst van mogelijke grondbewerkingen die uitgevoerd kunnen worden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrondbewerking'
     options = {
         'diepscheuren': KeuzelijstWaarde(invulwaarde='diepscheuren',

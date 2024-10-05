@@ -10,7 +10,6 @@ class KlDraagconstructieDwarsdoorsnede(KeuzelijstField):
     label = 'Draagconstructie dwarsdoorsnede'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDraagconstructieDwarsdoorsnede'
     definition = 'Lijst van mogelijke vormen van dwarsdoorsnedes van een draagconstructie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDraagconstructieDwarsdoorsnede'
     options = {
         'heptagonaal': KeuzelijstWaarde(invulwaarde='heptagonaal',

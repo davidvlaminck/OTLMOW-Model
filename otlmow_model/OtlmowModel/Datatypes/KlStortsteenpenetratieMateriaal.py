@@ -10,7 +10,6 @@ class KlStortsteenpenetratieMateriaal(KeuzelijstField):
     label = 'Stortsteenpenetratiemateriaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStortsteenpenetratieMateriaal'
     definition = 'Het materiaal met welk de stortstenen worden gepenetreerd.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStortsteenpenetratieMateriaal'
     options = {
         'asfalt': KeuzelijstWaarde(invulwaarde='asfalt',

@@ -10,7 +10,6 @@ class KlWvLedLichtpunthoogte(KeuzelijstField):
     label = 'WV LED lichtpunthoogte'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLedLichtpunthoogte'
     definition = 'Hoogte van het lichtpunt ten opzichte van de rijweg.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedLichtpunthoogte'
     options = {
         '10': KeuzelijstWaarde(invulwaarde='10',

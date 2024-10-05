@@ -10,7 +10,6 @@ class KlVriBewaking(KeuzelijstField):
     label = 'VRI bewaking'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVriBewaking'
     definition = 'Keuzelijst met verschillende soorten bewaking of detectie bij een VRI.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVriBewaking'
     options = {
         'bewaakt-primair-alarm': KeuzelijstWaarde(invulwaarde='bewaakt-primair-alarm',

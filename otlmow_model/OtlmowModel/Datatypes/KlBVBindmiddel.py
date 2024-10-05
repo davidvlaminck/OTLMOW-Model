@@ -10,7 +10,6 @@ class KlBVBindmiddel(KeuzelijstField):
     label = 'BV bindmiddel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBVBindmiddel'
     definition = 'De mogelijke bindmiddelen bij de bitumineuze verharding.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBVBindmiddel'
     options = {
         'bindmiddel-met-additieven': KeuzelijstWaarde(invulwaarde='bindmiddel-met-additieven',

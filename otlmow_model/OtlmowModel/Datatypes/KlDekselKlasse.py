@@ -10,7 +10,6 @@ class KlDekselKlasse(KeuzelijstField):
     label = 'Dekselklasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDekselKlasse'
     definition = 'Klassen van het deksel van de bovenbouw.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDekselKlasse'
     options = {
         'C250-(voetpad)': KeuzelijstWaarde(invulwaarde='C250-(voetpad)',

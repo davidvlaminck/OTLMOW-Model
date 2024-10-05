@@ -10,7 +10,6 @@ class KlAfdichtingsvoorzieningtype(KeuzelijstField):
     label = 'Afdichtingsvoorzieningtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAfdichtingsvoorzieningtype'
     definition = 'De mogelijke types van een afdichtingsvoorziening.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfdichtingsvoorzieningtype'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

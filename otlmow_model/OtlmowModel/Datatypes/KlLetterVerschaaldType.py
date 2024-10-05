@@ -10,7 +10,6 @@ class KlLetterVerschaaldType(KeuzelijstField):
     label = 'Type van de verschaalde letter'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLetterVerschaaldType'
     definition = 'De mogelijke types van een individueel verschaalde lettermarkering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLetterVerschaaldType'
     options = {
         'versmald---Hoofdletters-(basishoogte-0.4-meter)': KeuzelijstWaarde(invulwaarde='versmald---Hoofdletters-(basishoogte-0.4-meter)',

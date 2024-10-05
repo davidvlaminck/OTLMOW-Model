@@ -10,7 +10,6 @@ class KlKleurMarkering(KeuzelijstField):
     label = 'Kleur markering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKleurMarkering'
     definition = 'De mogeglijke markeringskleuren.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKleurMarkering'
     options = {
         'geel-(Y1)': KeuzelijstWaarde(invulwaarde='geel-(Y1)',

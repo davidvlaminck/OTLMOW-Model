@@ -10,7 +10,6 @@ class KlAardWBSS(KeuzelijstField):
     label = 'Aard van waterdoorlatende betonstraatsteen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAardWBSS'
     definition = 'De mogelijke vormen die ervoor zorgen dat hemelwater infiltreert langs de waterdoorlatende betonstraatsteen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAardWBSS'
     options = {
         'met-drainageopeningen': KeuzelijstWaarde(invulwaarde='met-drainageopeningen',

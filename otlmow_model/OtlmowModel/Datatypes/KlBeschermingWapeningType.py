@@ -10,7 +10,6 @@ class KlBeschermingWapeningType(KeuzelijstField):
     label = 'Bescherming wapening type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBeschermingWapeningType'
     definition = 'De mogelijke wapeningen gebruikt bij de oa. fundering (wapeningsnet,geotextiel,geogrids).'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeschermingWapeningType'
     options = {
         'gelast-geplastificeerd-gaas': KeuzelijstWaarde(invulwaarde='gelast-geplastificeerd-gaas',

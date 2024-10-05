@@ -10,7 +10,6 @@ class KlAansluitstukMateriaal(KeuzelijstField):
     label = 'Aansluitstuk materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAansluitstukMateriaal'
     definition = 'Het materiaal van het aansluitstuk.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAansluitstukMateriaal'
     options = {
         'gres': KeuzelijstWaarde(invulwaarde='gres',

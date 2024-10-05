@@ -10,7 +10,6 @@ class KlFiguratieSoortVerschuind(KeuzelijstField):
     label = 'Figuratie soort verschuind'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlFiguratieSoortVerschuind'
     definition = 'Soorten van verschuinde figuratie markering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFiguratieSoortVerschuind'
     options = {
         'letterfiguratiemarkering(schuin)': KeuzelijstWaarde(invulwaarde='letterfiguratiemarkering(schuin)',

@@ -10,7 +10,6 @@ class KlWvLedLichtkleur(KeuzelijstField):
     label = 'WV LED lichtkleur'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLedLichtkleur'
     definition = 'Beschrijving van de kleur van het licht adhv de naam van de kleur.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedLichtkleur'
     options = {
         'amber': KeuzelijstWaarde(invulwaarde='amber',

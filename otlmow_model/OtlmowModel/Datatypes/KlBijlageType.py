@@ -10,7 +10,6 @@ class KlBijlageType(KeuzelijstField):
     label = 'Bijlage type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlBijlageType'
     definition = 'De mogelijke types of categorieën van het document.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBijlageType'
     options = {
         'foto': KeuzelijstWaarde(invulwaarde='foto',

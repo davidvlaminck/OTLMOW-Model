@@ -10,7 +10,6 @@ class KlStopcontactAantalPolen(KeuzelijstField):
     label = 'stopcontact aantal polen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStopcontactAantalPolen'
     definition = 'Mogelijke waarden voor het aantal polen van een stopcontact.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStopcontactAantalPolen'
     options = {
         '3P': KeuzelijstWaarde(invulwaarde='3P',

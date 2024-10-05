@@ -10,7 +10,6 @@ class KlGrachtFunctie(KeuzelijstField):
     label = 'Gracht functie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGrachtFunctie'
     definition = 'Mogelijke functies van de gracht.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrachtFunctie'
     options = {
         'baangracht': KeuzelijstWaarde(invulwaarde='baangracht',

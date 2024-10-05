@@ -10,7 +10,6 @@ class KlKerendeKarakterSluis(KeuzelijstField):
     label = 'Kerende karakter van een sluis'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlKerendeKarakterSluis'
     definition = 'De verschillende kerende karakters van een sluis.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKerendeKarakterSluis'
     options = {
         'dubbel': KeuzelijstWaarde(invulwaarde='dubbel',

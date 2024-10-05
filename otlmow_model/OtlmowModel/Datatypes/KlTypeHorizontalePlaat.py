@@ -10,7 +10,6 @@ class KlTypeHorizontalePlaat(KeuzelijstField):
     label = 'Type horizontale plaat'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeHorizontalePlaat'
     definition = 'Het type horizontale plaat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeHorizontalePlaat'
     options = {
         'dakplaat': KeuzelijstWaarde(invulwaarde='dakplaat',

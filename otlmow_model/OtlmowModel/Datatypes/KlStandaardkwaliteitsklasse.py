@@ -10,7 +10,6 @@ class KlStandaardkwaliteitsklasse(KeuzelijstField):
     label = 'Standaardkwaliteitsklasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStandaardkwaliteitsklasse'
     definition = 'De mogelijke tandaardkwaliteitsklassen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStandaardkwaliteitsklasse'
     options = {
         'a': KeuzelijstWaarde(invulwaarde='a',

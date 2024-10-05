@@ -10,7 +10,6 @@ class KlKlassePlantjaar(KeuzelijstField):
     label = 'Klasse plantjaar'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKlassePlantjaar'
     definition = 'Het geschatte tijdsinterval waarin de boom is aangeplant.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKlassePlantjaar'
     options = {
         '1860-1880': KeuzelijstWaarde(invulwaarde='1860-1880',

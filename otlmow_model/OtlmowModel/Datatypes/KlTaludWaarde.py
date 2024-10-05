@@ -10,7 +10,6 @@ class KlTaludWaarde(KeuzelijstField):
     label = 'Talud waarde'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTaludWaarde'
     definition = 'De verschillende mogelijke waardes voor de hellingsgraad van de talud.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTaludWaarde'
     options = {
         'tot-1-3': KeuzelijstWaarde(invulwaarde='tot-1-3',

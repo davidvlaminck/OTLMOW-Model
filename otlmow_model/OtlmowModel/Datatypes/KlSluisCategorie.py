@@ -10,7 +10,6 @@ class KlSluisCategorie(KeuzelijstField):
     label = 'Sluiscategorie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSluisCategorie'
     definition = 'De mogelijke categorieën van een sluis.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSluisCategorie'
     options = {
         'binnenvaartsluis': KeuzelijstWaarde(invulwaarde='binnenvaartsluis',

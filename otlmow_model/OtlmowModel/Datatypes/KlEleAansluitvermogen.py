@@ -10,7 +10,6 @@ class KlEleAansluitvermogen(KeuzelijstField):
     label = 'Elektrisch aansluitvermogen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEleAansluitvermogen'
     definition = 'Keuzelijst met gangbare waarden voor elektrisch aansluitvermogen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEleAansluitvermogen'
     options = {
         '16A-230Vdriefasig-6.4kVA': KeuzelijstWaarde(invulwaarde='16A-230Vdriefasig-6.4kVA',

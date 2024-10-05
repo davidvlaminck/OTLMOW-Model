@@ -10,7 +10,6 @@ class KlTypeBrugligger(KeuzelijstField):
     label = 'Type brugligger'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeBrugligger'
     definition = 'Het type van de brugligger.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBrugligger'
     options = {
         'dwarsdrager': KeuzelijstWaarde(invulwaarde='dwarsdrager',

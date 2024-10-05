@@ -10,7 +10,6 @@ class KlTelecommunicationsAppurtenanceType(KeuzelijstField):
     label = 'Telecommunications appurtenance type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlTelecommunicationsAppurtenanceType'
     definition = 'Lijst van types voor telecommunications appurtenance.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTelecommunicationsAppurtenanceType'
     options = {
         'spliceclosure': KeuzelijstWaarde(invulwaarde='spliceclosure',

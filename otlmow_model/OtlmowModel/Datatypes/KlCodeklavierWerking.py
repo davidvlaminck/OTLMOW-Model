@@ -10,7 +10,6 @@ class KlCodeklavierWerking(KeuzelijstField):
     label = 'Codeklavier werking'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCodeklavierWerking'
     definition = 'Een keuzelijst met werkingsprincipes van een codeklavier.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCodeklavierWerking'
     options = {
         'cijfercodeslot': KeuzelijstWaarde(invulwaarde='cijfercodeslot',

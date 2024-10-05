@@ -10,7 +10,6 @@ class KlHuisaansluitputMateriaal(KeuzelijstField):
     label = 'Huisaansluitput materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHuisaansluitputMateriaal'
     definition = 'Materialen voor een huisaansluitput.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHuisaansluitputMateriaal'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

@@ -10,7 +10,6 @@ class KlVastAanslagmateriaal(KeuzelijstField):
     label = 'Aanslagprofiel materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlVastAanslagmateriaal'
     definition = 'De mogelijke materialen voor een aanslagprofiel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVastAanslagmateriaal'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

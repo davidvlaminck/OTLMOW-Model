@@ -10,7 +10,6 @@ class KlGebruiksdomein(KeuzelijstField):
     label = 'Gebruiksdomein'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlGebruiksdomein'
     definition = 'De omstandigheden waarin het beton gebruikt zal worden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGebruiksdomein'
     options = {
         'gb-gewapend': KeuzelijstWaarde(invulwaarde='gb-gewapend',

@@ -10,7 +10,6 @@ class KlMIVLuskaartType(KeuzelijstField):
     label = 'MIV luskaart type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMIVLuskaartType'
     definition = 'Mogelijke types voor de uitvoering van luskaarten van Meten In Vlaanderen'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMIVLuskaartType'
     options = {
         '19-inch': KeuzelijstWaarde(invulwaarde='19-inch',

@@ -10,7 +10,6 @@ class KlVerlichtingstoestelVerlichtGebied(KeuzelijstField):
     label = 'Verlichtingstoestel verlicht gebied.'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlVerlichtingstoestelVerlichtGebied'
     definition = 'Het gebied op de wegbaan of het object dat verlicht wordt door het verlichtingstoestel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerlichtingstoestelVerlichtGebied'
     options = {
         'afrit': KeuzelijstWaarde(invulwaarde='afrit',

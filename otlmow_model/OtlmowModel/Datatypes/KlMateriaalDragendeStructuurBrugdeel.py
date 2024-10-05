@@ -10,7 +10,6 @@ class KlMateriaalDragendeStructuurBrugdeel(KeuzelijstField):
     label = 'Materiaal dragende structuur brugdeel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlMateriaalDragendeStructuurBrugdeel'
     definition = 'Het materiaal waaruit de dragende structuur van het brugdeel is opgebouwd.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalDragendeStructuurBrugdeel'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

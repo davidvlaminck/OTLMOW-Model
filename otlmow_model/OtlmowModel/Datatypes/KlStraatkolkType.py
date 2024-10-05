@@ -10,7 +10,6 @@ class KlStraatkolkType(KeuzelijstField):
     label = 'Straatkolk type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStraatkolkType'
     definition = 'Types van straatkolk.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStraatkolkType'
     options = {
         'geisoleerd': KeuzelijstWaarde(invulwaarde='geisoleerd',

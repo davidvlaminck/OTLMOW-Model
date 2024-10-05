@@ -10,7 +10,6 @@ class KlPMUMerk(KeuzelijstField):
     label = 'Power management unit merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPMUMerk'
     definition = 'Power management unit merken.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPMUMerk'
     options = {
         'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',

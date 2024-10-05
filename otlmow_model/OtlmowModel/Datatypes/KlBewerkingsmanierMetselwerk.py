@@ -10,7 +10,6 @@ class KlBewerkingsmanierMetselwerk(KeuzelijstField):
     label = 'Bewerkingsmanier metselwerk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBewerkingsmanierMetselwerk'
     definition = 'De manier waarop het metselwerk bewerkt wordt.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBewerkingsmanierMetselwerk'
     options = {
         'bezet': KeuzelijstWaarde(invulwaarde='bezet',

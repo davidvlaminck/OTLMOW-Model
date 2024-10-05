@@ -10,7 +10,6 @@ class KlFormaatGebakkenStraatsteen(KeuzelijstField):
     label = 'Formaat gebakken straatsteen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlFormaatGebakkenStraatsteen'
     definition = 'De formaten van gebakken straatsteen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFormaatGebakkenStraatsteen'
     options = {
         'dikformaat-(ca.-200-x-ca.-65-mm)': KeuzelijstWaarde(invulwaarde='dikformaat-(ca.-200-x-ca.-65-mm)',

@@ -10,7 +10,6 @@ class KlVerkeersbordCode(KeuzelijstField):
     label = 'Verkeersbordcode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersbordCode'
     definition = 'De code van het verkeersbord volgens de wegcode.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersbordCode'
     options = {
         'A11': KeuzelijstWaarde(invulwaarde='A11',

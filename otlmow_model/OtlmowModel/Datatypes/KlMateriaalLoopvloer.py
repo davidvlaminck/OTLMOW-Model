@@ -10,7 +10,6 @@ class KlMateriaalLoopvloer(KeuzelijstField):
     label = 'Keuzelijst materiaal loopvloer'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlMateriaalLoopvloer'
     definition = 'De keuzelijst die de verschillende type van materialen van de loopvloer bevat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalLoopvloer'
     options = {
         'aluminium': KeuzelijstWaarde(invulwaarde='aluminium',

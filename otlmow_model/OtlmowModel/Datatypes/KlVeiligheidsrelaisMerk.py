@@ -10,7 +10,6 @@ class KlVeiligheidsrelaisMerk(KeuzelijstField):
     label = 'Veiligheidsrelais merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVeiligheidsrelaisMerk'
     definition = 'Een lijst met merknamen van veiligheidsrelais volgens de fabrikant.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVeiligheidsrelaisMerk'
     options = {
         'isotron': KeuzelijstWaarde(invulwaarde='isotron',

@@ -10,7 +10,6 @@ class KlMateriaalStenen(KeuzelijstField):
     label = 'Materiaal stenen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMateriaalStenen'
     definition = 'Het materiaal van de stenen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalStenen'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

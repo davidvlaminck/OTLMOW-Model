@@ -10,7 +10,6 @@ class KlPlaatsingsmethodeTWC(KeuzelijstField):
     label = 'Plaatsingsmethode TWC'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlPlaatsingsmethodeTWC'
     definition = 'De mogelijke manieren of methodes om een tijdelijke waterkerende constrcutie te plaatsen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlaatsingsmethodeTWC'
     options = {
         'invaren': KeuzelijstWaarde(invulwaarde='invaren',

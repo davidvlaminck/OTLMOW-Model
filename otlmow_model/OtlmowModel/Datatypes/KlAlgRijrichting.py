@@ -10,7 +10,6 @@ class KlAlgRijrichting(KeuzelijstField):
     label = 'Rijrichting'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAlgRijrichting'
     definition = 'De mogelijke rijrichtingen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgRijrichting'
     options = {
         'aflopend': KeuzelijstWaarde(invulwaarde='aflopend',

@@ -10,7 +10,6 @@ class KlMeetcelVeiligheidsfactor(KeuzelijstField):
     label = 'Meetcel veiligheidsfactor'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMeetcelVeiligheidsfactor'
     definition = 'Verhouding tussen de toegekende primaire limietstroom van de meetcel en de toegekende primaire stroom.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMeetcelVeiligheidsfactor'
     options = {
         'fS-5': KeuzelijstWaarde(invulwaarde='fS-5',

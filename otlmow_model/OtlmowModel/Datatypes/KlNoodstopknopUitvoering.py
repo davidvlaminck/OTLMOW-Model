@@ -10,7 +10,6 @@ class KlNoodstopknopUitvoering(KeuzelijstField):
     label = 'Noodstopknop uitvoering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNoodstopknopUitvoering'
     definition = 'Verschillende types voor de uitvoering van een noodstopknop of -schakelaarvolgens zijn werkingsprincipe.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNoodstopknopUitvoering'
     options = {
         'draaischakelaar': KeuzelijstWaarde(invulwaarde='draaischakelaar',

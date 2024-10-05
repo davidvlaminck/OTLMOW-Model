@@ -10,7 +10,6 @@ class KlBestrijkingProductfamilie(KeuzelijstField):
     label = 'Productfamilies'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBestrijkingProductfamilie'
     definition = 'De mogelijke productfamiles.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestrijkingProductfamilie'
     options = {
         '1': KeuzelijstWaarde(invulwaarde='1',

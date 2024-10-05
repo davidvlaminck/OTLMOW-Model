@@ -10,7 +10,6 @@ class KlLEGCSchermtype(KeuzelijstField):
     label = 'Schermtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEGCSchermtype'
     definition = 'De mogelijke schermtypes (vlak, niet-vlak).'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEGCSchermtype'
     options = {
         'niet-vlak': KeuzelijstWaarde(invulwaarde='niet-vlak',

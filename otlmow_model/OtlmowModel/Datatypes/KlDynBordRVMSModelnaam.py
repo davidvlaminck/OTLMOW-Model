@@ -10,7 +10,6 @@ class KlDynBordRVMSModelnaam(KeuzelijstField):
     label = 'Dyn bord RVMS modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDynBordRVMSModelnaam'
     definition = 'Keuzelijst met de gangbare modelnamen van RVMS borden. De modelnamen worden meestal door de leverancier of fabrikant bepaald.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordRVMSModelnaam'
     options = {
         'RVMS-06I04': KeuzelijstWaarde(invulwaarde='RVMS-06I04',

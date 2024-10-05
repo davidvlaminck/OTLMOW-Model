@@ -10,7 +10,6 @@ class KlWvLedKleurTemp(KeuzelijstField):
     label = 'WV LED kleurtemperatuur'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLedKleurTemp'
     definition = "Kleurtemperatuur van de LED's."
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedKleurTemp'
     options = {
         '1700': KeuzelijstWaarde(invulwaarde='1700',

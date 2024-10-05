@@ -10,7 +10,6 @@ class KlDeurType(KeuzelijstField):
     label = 'Deurtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDeurType'
     definition = 'De mogelijke types van een deur.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDeurType'
     options = {
         'branddeur': KeuzelijstWaarde(invulwaarde='branddeur',

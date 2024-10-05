@@ -10,7 +10,6 @@ class KlSeinlantaarnDiameter(KeuzelijstField):
     label = 'Seinlantaarn diameter'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlSeinlantaarnDiameter'
     definition = 'Keuzelijst met de verschillende voorkomende diameter-waarden voor Seinlantaarn.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSeinlantaarnDiameter'
     options = {
         '100': KeuzelijstWaarde(invulwaarde='100',

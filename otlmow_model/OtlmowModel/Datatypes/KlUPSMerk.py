@@ -10,7 +10,6 @@ class KlUPSMerk(KeuzelijstField):
     label = 'UPS merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlUPSMerk'
     definition = 'Het merk van de UPS.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUPSMerk'
     options = {
         'apc': KeuzelijstWaarde(invulwaarde='apc',

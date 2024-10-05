@@ -10,7 +10,6 @@ class KlPtRegelaarCommunicatiewijze(KeuzelijstField):
     label = 'Ptregelaar communicatiewijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPtRegelaarCommunicatiewijze'
     definition = 'Keuzelijst met de verschillende manieren waarop een PT_Regelaar communiceert met de Verkeersregelaar.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPtRegelaarCommunicatiewijze'
     options = {
         'VR-PT-kaart': KeuzelijstWaarde(invulwaarde='VR-PT-kaart',

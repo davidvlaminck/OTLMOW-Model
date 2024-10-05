@@ -10,7 +10,6 @@ class KlLichtsensorMerk(KeuzelijstField):
     label = 'Lichtsensor merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLichtsensorMerk'
     definition = 'Lichtsensor merken.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtsensorMerk'
     options = {
         'schreder': KeuzelijstWaarde(invulwaarde='schreder',

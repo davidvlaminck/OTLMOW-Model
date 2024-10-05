@@ -10,7 +10,6 @@ class KlStortsteenType(KeuzelijstField):
     label = 'Stortsteen type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStortsteenType'
     definition = 'Stortsteen types.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStortsteenType'
     options = {
         'brokken-van-betonpuin': KeuzelijstWaarde(invulwaarde='brokken-van-betonpuin',

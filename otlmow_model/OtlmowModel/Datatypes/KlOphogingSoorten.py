@@ -10,7 +10,6 @@ class KlOphogingSoorten(KeuzelijstField):
     label = 'Ophoging soorten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlOphogingSoorten'
     definition = 'De specificatie van type grond bij ophoging.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOphogingSoorten'
     options = {
         'in-den-droge': KeuzelijstWaarde(invulwaarde='in-den-droge',

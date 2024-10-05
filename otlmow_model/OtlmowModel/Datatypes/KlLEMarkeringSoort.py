@@ -10,7 +10,6 @@ class KlLEMarkeringSoort(KeuzelijstField):
     label = 'Soort markering van lijnvormig element'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEMarkeringSoort'
     definition = 'Mogelijke markeringsoorten op een lijvormig element.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEMarkeringSoort'
     options = {
         'biggenrug': KeuzelijstWaarde(invulwaarde='biggenrug',

@@ -10,7 +10,6 @@ class KlMateriaalToegangsluik(KeuzelijstField):
     label = 'Keuzelijst materiaal toegangsluik'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlMateriaalToegangsluik'
     definition = 'De keuzelijst die de verschillende type van materialen van de toegangsluik bevat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalToegangsluik'
     options = {
         'aluminium': KeuzelijstWaarde(invulwaarde='aluminium',

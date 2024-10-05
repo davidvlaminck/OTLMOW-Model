@@ -10,7 +10,6 @@ class KlRetroreflecterendVerkeersbordGrootteorde(KeuzelijstField):
     label = 'Retroreflecterend verkeersbord grootteorde'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRetroreflecterendVerkeersbordGrootteorde'
     definition = 'Opties om de grootteorde van een RetroreflecterendVerkeersbord aan te geven zoals gedefinieerd in SB250.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRetroreflecterendVerkeersbordGrootteorde'
     options = {
         'groot': KeuzelijstWaarde(invulwaarde='groot',

@@ -10,7 +10,6 @@ class KlWaterloopCategorie(KeuzelijstField):
     label = 'Waterloop categorieën'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlWaterloopCategorie'
     definition = 'De verschillende categorieën van een waterloop.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWaterloopCategorie'
     options = {
         'onbevaarbaar-cat1': KeuzelijstWaarde(invulwaarde='onbevaarbaar-cat1',

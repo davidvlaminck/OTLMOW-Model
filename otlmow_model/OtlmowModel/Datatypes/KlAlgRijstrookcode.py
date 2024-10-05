@@ -10,7 +10,6 @@ class KlAlgRijstrookcode(KeuzelijstField):
     label = 'Algemeen rijstrookcode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlAlgRijstrookcode'
     definition = 'Lijst van rijstrookcodes.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgRijstrookcode'
     options = {
         '0': KeuzelijstWaarde(invulwaarde='0',

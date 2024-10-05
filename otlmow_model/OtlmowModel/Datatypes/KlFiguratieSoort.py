@@ -10,7 +10,6 @@ class KlFiguratieSoort(KeuzelijstField):
     label = 'Figuratie soort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlFiguratieSoort'
     definition = 'Soorten van figuratie markering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFiguratieSoort'
     options = {
         'aanduiding-bebouwde-kom---snelheidsbeperking-(50)': KeuzelijstWaarde(invulwaarde='aanduiding-bebouwde-kom---snelheidsbeperking-(50)',

@@ -10,7 +10,6 @@ class KlVrStuurkaartCommunicatieprotocol(KeuzelijstField):
     label = 'VRI-communicatieprotocol'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVrStuurkaartCommunicatieprotocol'
     definition = 'Keuzelist met de voorkomende communicatieprotocollen voor VRIstuurkaarten.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVrStuurkaartCommunicatieprotocol'
     options = {
         'canto': KeuzelijstWaarde(invulwaarde='canto',

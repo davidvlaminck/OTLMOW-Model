@@ -10,7 +10,6 @@ class KlEcoPaalmateriaal(KeuzelijstField):
     label = 'Paalmateriaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEcoPaalmateriaal'
     definition = 'Materialen van de paal in het ecoraster.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoPaalmateriaal'
     options = {
         'hout-Kastanje': KeuzelijstWaarde(invulwaarde='hout-Kastanje',

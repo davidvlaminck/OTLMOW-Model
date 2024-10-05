@@ -10,7 +10,6 @@ class KlIoTSensorModelnaam(KeuzelijstField):
     label = 'IoT-sensor modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIoTSensorModelnaam'
     definition = 'IoT-sensor modelnamen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIoTSensorModelnaam'
     options = {
         'cs-ext': KeuzelijstWaarde(invulwaarde='cs-ext',

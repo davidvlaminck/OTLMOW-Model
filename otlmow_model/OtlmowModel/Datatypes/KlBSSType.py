@@ -10,7 +10,6 @@ class KlBSSType(KeuzelijstField):
     label = 'BSS type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBSSType'
     definition = 'Types van betonstraatsteen en betontegel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBSSType'
     options = {
         'gekleurde-met-anorganische-pigmenten': KeuzelijstWaarde(invulwaarde='gekleurde-met-anorganische-pigmenten',

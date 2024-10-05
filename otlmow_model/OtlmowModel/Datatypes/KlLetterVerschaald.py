@@ -10,7 +10,6 @@ class KlLetterVerschaald(KeuzelijstField):
     label = 'Letter verschaald'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLetterVerschaald'
     definition = 'De mogelijke letters voor een verschaalde lettermarkering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLetterVerschaald'
     options = {
         'A': KeuzelijstWaarde(invulwaarde='A',

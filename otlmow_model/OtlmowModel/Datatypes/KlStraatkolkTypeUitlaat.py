@@ -10,7 +10,6 @@ class KlStraatkolkTypeUitlaat(KeuzelijstField):
     label = 'straatkolk type uitlaat'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStraatkolkTypeUitlaat'
     definition = 'Het type van uitlaat van de straatkolk.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStraatkolkTypeUitlaat'
     options = {
         'kop-uitlaat': KeuzelijstWaarde(invulwaarde='kop-uitlaat',

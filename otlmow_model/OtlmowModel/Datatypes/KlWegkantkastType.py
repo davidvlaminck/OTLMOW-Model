@@ -10,7 +10,6 @@ class KlWegkantkastType(KeuzelijstField):
     label = 'Wegkantkast type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWegkantkastType'
     definition = 'Keuzelijst voor gangbare types voor wegkantkasten.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegkantkastType'
     options = {
         'A': KeuzelijstWaarde(invulwaarde='A',

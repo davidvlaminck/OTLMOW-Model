@@ -10,7 +10,6 @@ class KlLEACSnelheidsklasse(KeuzelijstField):
     label = 'Snelheidsklasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACSnelheidsklasse'
     definition = 'De verschillende snelheidsklasses van afschermende constructies.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACSnelheidsklasse'
     options = {
         'C60': KeuzelijstWaarde(invulwaarde='C60',

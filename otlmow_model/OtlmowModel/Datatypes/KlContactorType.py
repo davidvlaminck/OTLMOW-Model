@@ -10,7 +10,6 @@ class KlContactorType(KeuzelijstField):
     label = 'contactor type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlContactorType'
     definition = 'Geeft aan of het een K of Q contactor betreft.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlContactorType'
     options = {
         'K': KeuzelijstWaarde(invulwaarde='K',

@@ -10,7 +10,6 @@ class KlToegangspoortMerk(KeuzelijstField):
     label = 'Toegangspoort merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlToegangspoortMerk'
     definition = 'Lijst met merknamen voor allerlei types van toegangspoorten volgens de fabrikant'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangspoortMerk'
     options = {
         'bm-technics': KeuzelijstWaarde(invulwaarde='bm-technics',

@@ -10,7 +10,6 @@ class KlDikteBetonnenPlaat(KeuzelijstField):
     label = 'Dikte betonnen plaat'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDikteBetonnenPlaat'
     definition = 'De dikte van de betonnen plaat, opgedeeld in categorieën.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDikteBetonnenPlaat'
     options = {
         'groter-dan-1000mm': KeuzelijstWaarde(invulwaarde='groter-dan-1000mm',

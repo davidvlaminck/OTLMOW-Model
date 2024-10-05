@@ -10,7 +10,6 @@ class KlFiguratieCodeVerschuind(KeuzelijstField):
     label = 'Figuratie code verschuind'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlFiguratieCodeVerschuind'
     definition = 'Codes voor de verschuinde figuratie markering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFiguratieCodeVerschuind'
     options = {
         'STOP-SmSc': KeuzelijstWaarde(invulwaarde='STOP-SmSc',

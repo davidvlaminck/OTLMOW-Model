@@ -10,7 +10,6 @@ class KlLEGCTestType(KeuzelijstField):
     label = 'Test type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEGCTestType'
     definition = 'Het test type van het geluidswerend scherm.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEGCTestType'
     options = {
         'geluidsabsorptie': KeuzelijstWaarde(invulwaarde='geluidsabsorptie',

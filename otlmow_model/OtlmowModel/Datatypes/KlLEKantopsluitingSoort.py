@@ -10,7 +10,6 @@ class KlLEKantopsluitingSoort(KeuzelijstField):
     label = 'Kantopsluiting soort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEKantopsluitingSoort'
     definition = 'Soorten van kantopsluiting.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEKantopsluitingSoort'
     options = {
         'betonnen-kantstroken': KeuzelijstWaarde(invulwaarde='betonnen-kantstroken',

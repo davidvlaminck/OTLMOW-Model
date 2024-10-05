@@ -10,7 +10,6 @@ class KlNominaleSpanning(KeuzelijstField):
     label = 'Nominale spanning'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNominaleSpanning'
     definition = 'Keuzelijst voor de nominale spanning van een elektrische installatie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNominaleSpanning'
     options = {
         '110v': KeuzelijstWaarde(invulwaarde='110v',

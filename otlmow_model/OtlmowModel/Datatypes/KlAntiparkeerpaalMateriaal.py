@@ -10,7 +10,6 @@ class KlAntiparkeerpaalMateriaal(KeuzelijstField):
     label = 'Antiparkeerpaal materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAntiparkeerpaalMateriaal'
     definition = 'Bepaling van het vervaardigingsmateriaal van de antiparkeerpaal.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAntiparkeerpaalMateriaal'
     options = {
         'hout': KeuzelijstWaarde(invulwaarde='hout',

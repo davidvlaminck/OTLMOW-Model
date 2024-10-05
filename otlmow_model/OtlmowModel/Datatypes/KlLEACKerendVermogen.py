@@ -10,7 +10,6 @@ class KlLEACKerendVermogen(KeuzelijstField):
     label = 'Kerend vermogen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACKerendVermogen'
     definition = 'De verschillende niveaus van kerend vermogen gedefinieerd : van T1 (laagste niveau) tot H4b (hoogste niveau) Voor elk kerend vermogen wordt in de norm precies vastgelegd welke botsproeven moeten uitgevoerd worden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACKerendVermogen'
     options = {
         'H1': KeuzelijstWaarde(invulwaarde='H1',

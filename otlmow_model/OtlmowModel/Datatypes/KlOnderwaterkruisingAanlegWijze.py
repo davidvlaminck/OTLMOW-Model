@@ -10,7 +10,6 @@ class KlOnderwaterkruisingAanlegWijze(KeuzelijstField):
     label = 'Onderwaterkruising aanleg wijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOnderwaterkruisingAanlegWijze'
     definition = 'Lijst met mogelijke manieren van aanleg waarmee onderwaterkruisingen kunnen gerealiseerd worden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOnderwaterkruisingAanlegWijze'
     options = {
         'ingegoten-in-sluis': KeuzelijstWaarde(invulwaarde='ingegoten-in-sluis',

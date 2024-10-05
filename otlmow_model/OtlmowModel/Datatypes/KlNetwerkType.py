@@ -10,7 +10,6 @@ class KlNetwerkType(KeuzelijstField):
     label = 'Netwerk type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkType'
     definition = 'Zie ook http://inspire.ec.europa.eu/codelist/UtilityNetworkTypeExtendedValue. Codelijst van types voor nutsvoorzieningennetwerken volgens IMKL.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkType'
     options = {
         'crosstheme': KeuzelijstWaarde(invulwaarde='crosstheme',

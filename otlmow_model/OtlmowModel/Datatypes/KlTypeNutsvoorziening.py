@@ -10,7 +10,6 @@ class KlTypeNutsvoorziening(KeuzelijstField):
     label = 'Keuzelijst type nutsvoorziening'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeNutsvoorziening'
     definition = 'Het type nutsvoorziening van een straatkap verwijst naar de specifieke aard van de nutsinfrastructuur waartoe het deksel toegang biedt.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeNutsvoorziening'
     options = {
         'brandkraan': KeuzelijstWaarde(invulwaarde='brandkraan',

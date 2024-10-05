@@ -10,7 +10,6 @@ class KlVormLeuning(KeuzelijstField):
     label = 'Vorm leuning'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlVormLeuning'
     definition = 'De keuzelijst die de verschillende opties van vormen voor een leuning bevat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVormLeuning'
     options = {
         'getrapt': KeuzelijstWaarde(invulwaarde='getrapt',

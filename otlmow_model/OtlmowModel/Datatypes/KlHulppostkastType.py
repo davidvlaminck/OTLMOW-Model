@@ -10,7 +10,6 @@ class KlHulppostkastType(KeuzelijstField):
     label = 'Hulppostkast type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHulppostkastType'
     definition = 'Lijst met al dan niet gestandaardiseerde types voor hulppostkasten.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHulppostkastType'
     options = {
         'a': KeuzelijstWaarde(invulwaarde='a',

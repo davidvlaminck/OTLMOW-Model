@@ -10,7 +10,6 @@ class KlFiguratieCode(KeuzelijstField):
     label = 'Figuratie code'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlFiguratieCode'
     definition = 'Codes voor de figuratie markering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFiguratieCode'
     options = {
         'BBK-50': KeuzelijstWaarde(invulwaarde='BBK-50',

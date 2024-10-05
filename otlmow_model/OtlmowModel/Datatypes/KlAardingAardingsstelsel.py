@@ -10,7 +10,6 @@ class KlAardingAardingsstelsel(KeuzelijstField):
     label = 'Aardingsinstallatie aardingsstelsel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlAardingAardingsstelsel'
     definition = 'Lijst van mogelijke aardinggsstelsels.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAardingAardingsstelsel'
     options = {
         'gemeenschappelijk': KeuzelijstWaarde(invulwaarde='gemeenschappelijk',

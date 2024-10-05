@@ -10,7 +10,6 @@ class KlBeheerHoutigeVegetatie(KeuzelijstField):
     label = 'Beheer houtige vegetatie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBeheerHoutigeVegetatie'
     definition = 'De verschillende beheersopties voor houtige vegetatie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeheerHoutigeVegetatie'
     options = {
         'afpalingswerken': KeuzelijstWaarde(invulwaarde='afpalingswerken',

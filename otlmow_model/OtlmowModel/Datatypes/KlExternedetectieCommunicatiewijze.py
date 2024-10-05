@@ -10,7 +10,6 @@ class KlExternedetectieCommunicatiewijze(KeuzelijstField):
     label = 'Externedetectie communicatiewijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlExternedetectieCommunicatiewijze'
     definition = 'Keuzelijst met de verschillende manieren waarop een externe detectie communiceert met een verkeersregelaar.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlExternedetectieCommunicatiewijze'
     options = {
         'contact': KeuzelijstWaarde(invulwaarde='contact',

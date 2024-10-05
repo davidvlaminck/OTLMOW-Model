@@ -10,7 +10,6 @@ class KlTaludgootType(KeuzelijstField):
     label = 'Taludgoot type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTaludgootType'
     definition = 'Het type van taludgoot.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTaludgootType'
     options = {
         'Beginstuk-taludgoten-type-A-met-twee-openingen': KeuzelijstWaarde(invulwaarde='Beginstuk-taludgoten-type-A-met-twee-openingen',

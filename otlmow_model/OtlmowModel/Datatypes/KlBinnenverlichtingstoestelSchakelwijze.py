@@ -10,7 +10,6 @@ class KlBinnenverlichtingstoestelSchakelwijze(KeuzelijstField):
     label = 'Binnenverlichtingstoestel schakelwijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBinnenverlichtingstoestelSchakelwijze'
     definition = 'Lijst met schakelwijzen voor een binnenverlichtingstoestel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBinnenverlichtingstoestelSchakelwijze'
     options = {
         'continu': KeuzelijstWaarde(invulwaarde='continu',

@@ -10,7 +10,6 @@ class KlControlepaneelMerk(KeuzelijstField):
     label = 'Controlepaneel merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlControlepaneelMerk'
     definition = 'Het merk van het controlepaneel'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlControlepaneelMerk'
     options = {
         'phoenix-contact': KeuzelijstWaarde(invulwaarde='phoenix-contact',

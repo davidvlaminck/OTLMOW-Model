@@ -10,7 +10,6 @@ class KlAfmetingsensorModelnaam(KeuzelijstField):
     label = 'Afmetingsensor modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAfmetingsensorModelnaam'
     definition = 'De modelnaam van de afmetingsensor.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfmetingsensorModelnaam'
     options = {
         'FPS': KeuzelijstWaarde(invulwaarde='FPS',

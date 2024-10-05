@@ -10,7 +10,6 @@ class KlDatakabelAdersEnSectie(KeuzelijstField):
     label = 'Datakabel aders en sectie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDatakabelAdersEnSectie'
     definition = 'Lijst van mogelijke waarden volgens de catalogusposten van het standaardbestek voor de samenstelling van een datakabel volgens het aantal aders en in voorkomende gevallen, hun dikte in vierkante millimeter.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDatakabelAdersEnSectie'
     options = {
         '100-x-2-x-1-mm2': KeuzelijstWaarde(invulwaarde='100-x-2-x-1-mm2',

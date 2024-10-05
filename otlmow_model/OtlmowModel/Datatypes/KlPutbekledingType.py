@@ -10,7 +10,6 @@ class KlPutbekledingType(KeuzelijstField):
     label = 'Putbekleding type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPutbekledingType'
     definition = 'Types van putbekleding.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPutbekledingType'
     options = {
         'solventvrije-kunsthars': KeuzelijstWaarde(invulwaarde='solventvrije-kunsthars',

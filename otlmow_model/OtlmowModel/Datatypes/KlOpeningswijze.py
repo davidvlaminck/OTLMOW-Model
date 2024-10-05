@@ -10,7 +10,6 @@ class KlOpeningswijze(KeuzelijstField):
     label = 'Openingswijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOpeningswijze'
     definition = 'De mogelijke manieren om een object te openen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOpeningswijze'
     options = {
         'demonterend': KeuzelijstWaarde(invulwaarde='demonterend',

@@ -10,7 +10,6 @@ class KlBuitenkastVerfraaid(KeuzelijstField):
     label = 'Verfraaiing buitenkast'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlBuitenkastVerfraaid'
     definition = 'Mogelijke types voor verfraaiing als combinatie van aan- en afwezigheid en al dan niet vegund.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBuitenkastVerfraaid'
     options = {
         'ja': KeuzelijstWaarde(invulwaarde='ja',

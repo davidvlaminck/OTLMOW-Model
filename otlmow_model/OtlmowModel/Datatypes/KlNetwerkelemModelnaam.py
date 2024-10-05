@@ -10,7 +10,6 @@ class KlNetwerkelemModelnaam(KeuzelijstField):
     label = 'Netwerkelement modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkelemModelnaam'
     definition = 'Modelnamen voor Netwerkelementen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkelemModelnaam'
     options = {
         '1322VD': KeuzelijstWaarde(invulwaarde='1322VD',

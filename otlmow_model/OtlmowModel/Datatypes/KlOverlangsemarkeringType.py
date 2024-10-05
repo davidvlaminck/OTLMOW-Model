@@ -10,7 +10,6 @@ class KlOverlangsemarkeringType(KeuzelijstField):
     label = 'Overlangse markering type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOverlangsemarkeringType'
     definition = 'Mogelijke types van de overlangse markering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOverlangsemarkeringType'
     options = {
         'doorlopend': KeuzelijstWaarde(invulwaarde='doorlopend',

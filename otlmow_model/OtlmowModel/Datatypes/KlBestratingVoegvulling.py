@@ -10,7 +10,6 @@ class KlBestratingVoegvulling(KeuzelijstField):
     label = 'Bestrating voegvulling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBestratingVoegvulling'
     definition = 'De voegvullingen van de bestrating.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestratingVoegvulling'
     options = {
         'granulaatmengsel-0-4': KeuzelijstWaarde(invulwaarde='granulaatmengsel-0-4',

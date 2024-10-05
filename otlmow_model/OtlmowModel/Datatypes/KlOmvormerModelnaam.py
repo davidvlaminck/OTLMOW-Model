@@ -10,7 +10,6 @@ class KlOmvormerModelnaam(KeuzelijstField):
     label = 'Omvormer modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOmvormerModelnaam'
     definition = 'De modelnaam van de omvormer.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOmvormerModelnaam'
     options = {
         'c4l6400-eoc-p': KeuzelijstWaarde(invulwaarde='c4l6400-eoc-p',

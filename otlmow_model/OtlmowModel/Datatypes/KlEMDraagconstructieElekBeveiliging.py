@@ -10,7 +10,6 @@ class KlEMDraagconstructieElekBeveiliging(KeuzelijstField):
     label = 'EM-draagconstructie elektrische beveiliging'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlEMDraagconstructieElekBeveiliging'
     definition = 'Type elektrische beveiliging aanwezig in de draagconstructie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEMDraagconstructieElekBeveiliging'
     options = {
         'automaat': KeuzelijstWaarde(invulwaarde='automaat',

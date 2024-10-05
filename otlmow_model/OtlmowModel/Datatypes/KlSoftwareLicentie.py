@@ -10,7 +10,6 @@ class KlSoftwareLicentie(KeuzelijstField):
     label = 'Software licentie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSoftwareLicentie'
     definition = 'De licentievorm van de software.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSoftwareLicentie'
     options = {
         'commercieel': KeuzelijstWaarde(invulwaarde='commercieel',

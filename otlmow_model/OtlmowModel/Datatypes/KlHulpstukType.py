@@ -10,7 +10,6 @@ class KlHulpstukType(KeuzelijstField):
     label = 'Hulpstuk type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHulpstukType'
     definition = 'Het type van het hulpstuk.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHulpstukType'
     options = {
         'T-stuk': KeuzelijstWaarde(invulwaarde='T-stuk',

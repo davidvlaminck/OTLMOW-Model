@@ -10,7 +10,6 @@ class KlIoTSensorParameter(KeuzelijstField):
     label = 'IoT-sensor parameter'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIoTSensorParameter'
     definition = 'IoT-sensor parameters.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIoTSensorParameter'
     options = {
         'hoekverdraaiing': KeuzelijstWaarde(invulwaarde='hoekverdraaiing',

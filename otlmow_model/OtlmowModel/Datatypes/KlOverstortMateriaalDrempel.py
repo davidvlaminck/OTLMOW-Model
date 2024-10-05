@@ -10,7 +10,6 @@ class KlOverstortMateriaalDrempel(KeuzelijstField):
     label = 'Overstort materiaal drempel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOverstortMateriaalDrempel'
     definition = 'De materialen van vervaardiging van de overstort.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOverstortMateriaalDrempel'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

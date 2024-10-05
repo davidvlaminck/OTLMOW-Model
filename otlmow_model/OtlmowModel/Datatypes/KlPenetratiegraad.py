@@ -10,7 +10,6 @@ class KlPenetratiegraad(KeuzelijstField):
     label = 'Penetratiegraad'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPenetratiegraad'
     definition = 'De graad van penetratie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPenetratiegraad'
     options = {
         'half-gepenetreerd': KeuzelijstWaarde(invulwaarde='half-gepenetreerd',

@@ -10,7 +10,6 @@ class KlCameraMerk(KeuzelijstField):
     label = 'Camera merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCameraMerk'
     definition = 'Het merk van de camera.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCameraMerk'
     options = {
         'acti': KeuzelijstWaarde(invulwaarde='acti',

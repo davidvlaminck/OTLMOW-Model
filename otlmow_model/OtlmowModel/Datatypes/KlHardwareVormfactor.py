@@ -10,7 +10,6 @@ class KlHardwareVormfactor(KeuzelijstField):
     label = 'Hardware vormfactor'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHardwareVormfactor'
     definition = 'Het soort toestel waarin de fysieke componenten of onderdelen worden vormgegeven.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHardwareVormfactor'
     options = {
         'desktop': KeuzelijstWaarde(invulwaarde='desktop',

@@ -10,7 +10,6 @@ class KlPompSoort(KeuzelijstField):
     label = 'Pomp soort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPompSoort'
     definition = 'Soorten pomp.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPompSoort'
     options = {
         'LPR-pomp-(luchtpersriolering)': KeuzelijstWaarde(invulwaarde='LPR-pomp-(luchtpersriolering)',

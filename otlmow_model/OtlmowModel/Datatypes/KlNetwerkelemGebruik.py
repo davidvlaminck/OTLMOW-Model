@@ -10,7 +10,6 @@ class KlNetwerkelemGebruik(KeuzelijstField):
     label = 'Netwerkelement gebruik'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkelemGebruik'
     definition = 'Keuzelijst met de verschillende mogelijke netwerkstructuren waarbinnen een netwerkelement kan ingezet worden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkelemGebruik'
     options = {
         '4g-wireless-router': KeuzelijstWaarde(invulwaarde='4g-wireless-router',

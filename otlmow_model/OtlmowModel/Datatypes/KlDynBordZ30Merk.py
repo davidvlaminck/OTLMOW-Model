@@ -10,7 +10,6 @@ class KlDynBordZ30Merk(KeuzelijstField):
     label = 'Z30 merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDynBordZ30Merk'
     definition = 'Keuzelijst met de gangbare merken van dynamische zone 30 borden. De merken verwijzen doorgaans naar de fabrikant of leverancier.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordZ30Merk'
     options = {
         'Futurit': KeuzelijstWaarde(invulwaarde='Futurit',

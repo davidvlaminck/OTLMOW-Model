@@ -10,7 +10,6 @@ class KlRegelaarRegelaartype(KeuzelijstField):
     label = 'Regelaar regelaartype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRegelaarRegelaartype'
     definition = 'Keuzelijst met verschillende types verkeersregelaars.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRegelaarRegelaartype'
     options = {
         'type-0': KeuzelijstWaarde(invulwaarde='type-0',

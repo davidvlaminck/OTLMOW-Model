@@ -10,7 +10,6 @@ class KlSignalisatieReferentiepuntType(KeuzelijstField):
     label = 'Signalisatie referentiepunt type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSignalisatieReferentiepuntType'
     definition = 'Een keuzelijst om het referentiepunt type te bepalen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignalisatieReferentiepuntType'
     options = {
         'hectometerpalen-in-kunststof': KeuzelijstWaarde(invulwaarde='hectometerpalen-in-kunststof',

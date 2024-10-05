@@ -10,7 +10,6 @@ class KlNetwerkpoortType(KeuzelijstField):
     label = 'Netwerkpoort type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkpoortType'
     definition = 'Lijst van types voor Netwerkpoort.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkpoortType'
     options = {
         'NNI': KeuzelijstWaarde(invulwaarde='NNI',

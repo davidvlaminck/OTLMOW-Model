@@ -10,7 +10,6 @@ class KlPutRooster(KeuzelijstField):
     label = 'Putrooster'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPutRooster'
     definition = 'Types rooster van de put.'
-    status = 'ingebruik'
     deprecated_version = '2.1.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPutRooster'
     options = {

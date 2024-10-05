@@ -10,7 +10,6 @@ class KlLetterCijfer(KeuzelijstField):
     label = 'Letter-cijfer'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLetterCijfer'
     definition = 'De mogelijke letters en cijfers voor een letter- of cijfermarkering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLetterCijfer'
     options = {
         '-': KeuzelijstWaarde(invulwaarde='-',

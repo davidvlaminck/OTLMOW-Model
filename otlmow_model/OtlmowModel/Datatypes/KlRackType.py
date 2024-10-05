@@ -10,7 +10,6 @@ class KlRackType(KeuzelijstField):
     label = 'rack type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRackType'
     definition = 'Lijst met gestandaardiseerde en niet-gestandaardiseerde types rack in gebruik bij de assetbeheerder.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRackType'
     options = {
         '19-inch': KeuzelijstWaarde(invulwaarde='19-inch',

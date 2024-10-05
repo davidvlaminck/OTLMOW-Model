@@ -10,7 +10,6 @@ class KlWegdeksensorMerk(KeuzelijstField):
     label = 'Wegdeksensor merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWegdeksensorMerk'
     definition = 'Wegdeksensor merken.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegdeksensorMerk'
     options = {
         'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',

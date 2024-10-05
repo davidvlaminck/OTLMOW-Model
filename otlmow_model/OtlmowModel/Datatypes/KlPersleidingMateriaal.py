@@ -10,7 +10,6 @@ class KlPersleidingMateriaal(KeuzelijstField):
     label = 'Persleiding materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPersleidingMateriaal'
     definition = 'Materialen van de persleiding.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPersleidingMateriaal'
     options = {
         'buizen-van-PVC-voor-drukleidingen.-PN-10': KeuzelijstWaarde(invulwaarde='buizen-van-PVC-voor-drukleidingen.-PN-10',

@@ -10,7 +10,6 @@ class KlDamwandMateriaal(KeuzelijstField):
     label = 'Damwand materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDamwandMateriaal'
     definition = 'Het materiaal waaruit de damwand bestaat.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDamwandMateriaal'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

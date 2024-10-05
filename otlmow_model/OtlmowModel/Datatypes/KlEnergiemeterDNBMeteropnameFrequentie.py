@@ -10,7 +10,6 @@ class KlEnergiemeterDNBMeteropnameFrequentie(KeuzelijstField):
     label = 'Energiemeter DNB meteropname frequentie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEnergiemeterDNBMeteropnameFrequentie'
     definition = 'Frequentie waarmee de meterstand opgenomen wordt door de netbeheerder.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEnergiemeterDNBMeteropnameFrequentie'
     options = {
         'AMR': KeuzelijstWaarde(invulwaarde='AMR',

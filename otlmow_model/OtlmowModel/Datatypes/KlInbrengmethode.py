@@ -10,7 +10,6 @@ class KlInbrengmethode(KeuzelijstField):
     label = 'Inbrengmethode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlInbrengmethode'
     definition = 'Manier waarop het object wordt ingebracht.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlInbrengmethode'
     options = {
         'inbrengen-d-m-v-combinatie-van-meerdere-technieken': KeuzelijstWaarde(invulwaarde='inbrengen-d-m-v-combinatie-van-meerdere-technieken',

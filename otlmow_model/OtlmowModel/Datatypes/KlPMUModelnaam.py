@@ -10,7 +10,6 @@ class KlPMUModelnaam(KeuzelijstField):
     label = 'Power management unit modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPMUModelnaam'
     definition = 'Power management unit modelnamen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPMUModelnaam'
     options = {
         'pmu701': KeuzelijstWaarde(invulwaarde='pmu701',

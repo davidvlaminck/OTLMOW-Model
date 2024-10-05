@@ -10,7 +10,6 @@ class KlSlemProductfamilie(KeuzelijstField):
     label = 'Productfamilies'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSlemProductfamilie'
     definition = 'De mogelijke productfamiles.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSlemProductfamilie'
     options = {
         '1': KeuzelijstWaarde(invulwaarde='1',

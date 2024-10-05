@@ -10,7 +10,6 @@ class KlRioleringsbuisFunctie(KeuzelijstField):
     label = 'Rioleringsbuis functie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRioleringsbuisFunctie'
     definition = 'Mogelijke functies van de riolering.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRioleringsbuisFunctie'
     options = {
         'bufferleiding': KeuzelijstWaarde(invulwaarde='bufferleiding',

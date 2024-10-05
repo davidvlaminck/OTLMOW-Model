@@ -10,7 +10,6 @@ class KlNatuursteentegelGebruiksklasse(KeuzelijstField):
     label = 'Natuursteentegel gebruiksklasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNatuursteentegelGebruiksklasse'
     definition = 'Mogelijke waarden voor de gebruiksklasse, vorm en afwerking van de natuursteentegel.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNatuursteentegelGebruiksklasse'
     options = {
         '0': KeuzelijstWaarde(invulwaarde='0',

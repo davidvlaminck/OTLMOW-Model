@@ -10,7 +10,6 @@ class KlVerkeerslichtMasker(KeuzelijstField):
     label = 'Verkeerslicht masker'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlVerkeerslichtMasker'
     definition = 'Keuzelijst met de gangbare types masker die op een verkeerslicht zijn aangebracht.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeerslichtMasker'
     options = {
         'driehoek': KeuzelijstWaarde(invulwaarde='driehoek',

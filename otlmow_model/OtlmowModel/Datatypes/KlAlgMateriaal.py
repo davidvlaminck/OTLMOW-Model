@@ -10,7 +10,6 @@ class KlAlgMateriaal(KeuzelijstField):
     label = 'Materiaal soorten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAlgMateriaal'
     definition = 'Het materiaal waaruit een object voornamelijk gebouwd is.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgMateriaal'
     options = {
         'aluminium': KeuzelijstWaarde(invulwaarde='aluminium',

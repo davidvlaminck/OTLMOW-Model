@@ -10,7 +10,6 @@ class KlEcoAfschermingtype(KeuzelijstField):
     label = 'Afschermingtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEcoAfschermingtype'
     definition = 'Types van afscherming.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoAfschermingtype'
     options = {
         'heidematten': KeuzelijstWaarde(invulwaarde='heidematten',

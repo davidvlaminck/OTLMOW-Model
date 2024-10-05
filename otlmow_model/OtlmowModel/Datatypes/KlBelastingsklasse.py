@@ -10,7 +10,6 @@ class KlBelastingsklasse(KeuzelijstField):
     label = 'Belastingsklasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBelastingsklasse'
     definition = 'De mogelijke belastingsklassen.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBelastingsklasse'
     options = {
         'a15': KeuzelijstWaarde(invulwaarde='a15',

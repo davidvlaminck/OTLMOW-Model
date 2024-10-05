@@ -10,7 +10,6 @@ class KlTypeBeschoeiing(KeuzelijstField):
     label = 'Type beschoeiing'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeBeschoeiing'
     definition = 'Type beschoeiing.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBeschoeiing'
     options = {
         'Berliner': KeuzelijstWaarde(invulwaarde='Berliner',

@@ -10,7 +10,6 @@ class KlNetwerkpoortConfig(KeuzelijstField):
     label = 'Netwerkpoort configuratie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkpoortConfig'
     definition = 'Lijst van mogelijke soort verbindingen aangeboden aan de klant van Netwerkpoorten.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkpoortConfig'
     options = {
         '100GE': KeuzelijstWaarde(invulwaarde='100GE',

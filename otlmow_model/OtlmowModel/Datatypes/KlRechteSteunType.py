@@ -10,7 +10,6 @@ class KlRechteSteunType(KeuzelijstField):
     label = 'Rechte steun type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRechteSteunType'
     definition = 'Keuzelijst die de verschillende types rechte steunen aanduidt.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRechteSteunType'
     options = {
         'VRI-met-zwanehals': KeuzelijstWaarde(invulwaarde='VRI-met-zwanehals',

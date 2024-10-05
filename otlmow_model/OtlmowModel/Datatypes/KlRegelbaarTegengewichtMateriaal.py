@@ -10,7 +10,6 @@ class KlRegelbaarTegengewichtMateriaal(KeuzelijstField):
     label = 'Regelbaar tegengewicht materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlRegelbaarTegengewichtMateriaal'
     definition = 'De mogelijke materialen als regelbaar tegengewicht.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRegelbaarTegengewichtMateriaal'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

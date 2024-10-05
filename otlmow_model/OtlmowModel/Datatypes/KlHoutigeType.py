@@ -10,7 +10,6 @@ class KlHoutigeType(KeuzelijstField):
     label = 'Type houtige vegetatie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHoutigeType'
     definition = 'Types van houtige vegetatie.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHoutigeType'
     options = {
         'bomen---bos': KeuzelijstWaarde(invulwaarde='bomen---bos',

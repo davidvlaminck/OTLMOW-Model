@@ -10,7 +10,6 @@ class KlBoomGroeifase(KeuzelijstField):
     label = 'Groeifasen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomGroeifase'
     definition = 'De verschillende fases van beheer volgens de verschillende levensfases.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomGroeifase'
     options = {
         'dood': KeuzelijstWaarde(invulwaarde='dood',

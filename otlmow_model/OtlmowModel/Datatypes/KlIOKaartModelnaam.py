@@ -10,7 +10,6 @@ class KlIOKaartModelnaam(KeuzelijstField):
     label = 'IO-kaart modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIOKaartModelnaam'
     definition = 'Lijst van mogelijke modelnamen voor IO-kaarten.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOKaartModelnaam'
     options = {
         'dri701': KeuzelijstWaarde(invulwaarde='dri701',

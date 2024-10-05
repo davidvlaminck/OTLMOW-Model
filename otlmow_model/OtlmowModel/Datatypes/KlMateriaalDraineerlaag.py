@@ -10,7 +10,6 @@ class KlMateriaalDraineerlaag(KeuzelijstField):
     label = 'Materiaal draineerlaag'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMateriaalDraineerlaag'
     definition = 'De mogelijke materialen waaruit een draineerlaag is opgebouwd.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalDraineerlaag'
     options = {
         'breuksteen': KeuzelijstWaarde(invulwaarde='breuksteen',

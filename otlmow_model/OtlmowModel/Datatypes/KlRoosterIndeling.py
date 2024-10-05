@@ -10,7 +10,6 @@ class KlRoosterIndeling(KeuzelijstField):
     label = 'Rooster indeling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRoosterIndeling'
     definition = 'Deze keuzelijst geeft aan hoe het rooster ingedeeld is: met zijdelingse opvang of dat er sprake is van een 1-delig of 2-delig rooster.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRoosterIndeling'
     options = {
         '1-delig': KeuzelijstWaarde(invulwaarde='1-delig',

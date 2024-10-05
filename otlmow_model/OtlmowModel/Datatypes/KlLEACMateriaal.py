@@ -10,7 +10,6 @@ class KlLEACMateriaal(KeuzelijstField):
     label = 'Materiaal afschermende constructie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACMateriaal'
     definition = 'De verschillende materialen voor afschermende constructies.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACMateriaal'
     options = {
         'geprefabriceerde-beton': KeuzelijstWaarde(invulwaarde='geprefabriceerde-beton',

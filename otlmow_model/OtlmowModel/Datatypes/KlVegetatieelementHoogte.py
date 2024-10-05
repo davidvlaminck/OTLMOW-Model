@@ -10,7 +10,6 @@ class KlVegetatieelementHoogte(KeuzelijstField):
     label = 'Vegetatieelement hoogte'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVegetatieelementHoogte'
     definition = 'De orde van hoogte van een vegetatie-element.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVegetatieelementHoogte'
     options = {
         '0--7-meter': KeuzelijstWaarde(invulwaarde='0--7-meter',

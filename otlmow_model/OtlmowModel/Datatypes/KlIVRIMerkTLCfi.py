@@ -10,7 +10,6 @@ class KlIVRIMerkTLCfi(KeuzelijstField):
     label = 'iVRIMerkTLCfi'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIVRIMerkTLCfi'
     definition = 'Het merk van de TLC-fi poort.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIMerkTLCfi'
     options = {
         'dynniq': KeuzelijstWaarde(invulwaarde='dynniq',

@@ -10,7 +10,6 @@ class KlSpectrum(KeuzelijstField):
     label = 'Spectrum'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSpectrum'
     definition = 'Mogelijke spectra'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSpectrum'
     options = {
         'dag': KeuzelijstWaarde(invulwaarde='dag',

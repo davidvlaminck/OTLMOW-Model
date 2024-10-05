@@ -10,7 +10,6 @@ class KlSterktereeks(KeuzelijstField):
     label = 'Sterktereeks'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSterktereeks'
     definition = 'De stabiliteitklasse van de buis.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSterktereeks'
     options = {
         'GVP-SN10000-N-M2': KeuzelijstWaarde(invulwaarde='GVP-SN10000-N-M2',

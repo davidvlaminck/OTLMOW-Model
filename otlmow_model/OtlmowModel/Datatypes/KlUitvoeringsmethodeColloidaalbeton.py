@@ -10,7 +10,6 @@ class KlUitvoeringsmethodeColloidaalbeton(KeuzelijstField):
     label = 'Uitvoeringsmethode colloïdaal beton'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlUitvoeringsmethodeColloidaalbeton'
     definition = 'De mogelijke uitvoeringsmethoden van colloïdaal beton.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUitvoeringsmethodeColloidaalbeton'
     options = {
         'hop-dobber': KeuzelijstWaarde(invulwaarde='hop-dobber',

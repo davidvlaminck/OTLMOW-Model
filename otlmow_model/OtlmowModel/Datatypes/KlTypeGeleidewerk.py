@@ -10,7 +10,6 @@ class KlTypeGeleidewerk(KeuzelijstField):
     label = 'Types geleidewerk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeGeleidewerk'
     definition = 'De verschillende types van geleidewerk.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeGeleidewerk'
     options = {
         'drijvend': KeuzelijstWaarde(invulwaarde='drijvend',

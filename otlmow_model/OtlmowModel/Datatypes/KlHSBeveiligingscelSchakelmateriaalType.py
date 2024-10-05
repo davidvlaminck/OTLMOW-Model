@@ -10,7 +10,6 @@ class KlHSBeveiligingscelSchakelmateriaalType(KeuzelijstField):
     label = 'HS-beveiligingscel schakelmateriaal type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHSBeveiligingscelSchakelmateriaalType'
     definition = 'Type van schakelmateriaal.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHSBeveiligingscelSchakelmateriaalType'
     options = {
         'RMU-2KT': KeuzelijstWaarde(invulwaarde='RMU-2KT',

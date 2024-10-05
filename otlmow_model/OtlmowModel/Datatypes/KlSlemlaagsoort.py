@@ -10,7 +10,6 @@ class KlSlemlaagsoort(KeuzelijstField):
     label = 'Slemlaagsoort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSlemlaagsoort'
     definition = 'Soorten van slemlaag.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSlemlaagsoort'
     options = {
         '0-10': KeuzelijstWaarde(invulwaarde='0-10',

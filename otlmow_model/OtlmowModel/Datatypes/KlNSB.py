@@ -10,7 +10,6 @@ class KlNSB(KeuzelijstField):
     label = 'Natuurstreefbeeld'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNSB'
     definition = 'Het mogelijke huidige natuurbeelden of natuurstreefbeelden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNSB'
     options = {
         '2130': KeuzelijstWaarde(invulwaarde='2130',

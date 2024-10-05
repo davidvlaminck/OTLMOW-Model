@@ -10,7 +10,6 @@ class KlTransformatorIsolatiemedium(KeuzelijstField):
     label = 'Transformator isolatiemedium'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTransformatorIsolatiemedium'
     definition = 'Wijze van onderdompeling van de magnetische kring en van de wikkelingen van de transformator.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTransformatorIsolatiemedium'
     options = {
         'droog': KeuzelijstWaarde(invulwaarde='droog',

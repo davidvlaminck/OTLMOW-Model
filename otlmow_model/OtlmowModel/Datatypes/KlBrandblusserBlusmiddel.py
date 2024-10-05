@@ -10,7 +10,6 @@ class KlBrandblusserBlusmiddel(KeuzelijstField):
     label = 'Brandblusser blusmiddel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBrandblusserBlusmiddel'
     definition = 'Keuzelijst met de verschillende mogelijke blusmiddelen voor een brandblusser.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBrandblusserBlusmiddel'
     options = {
         'poeder': KeuzelijstWaarde(invulwaarde='poeder',

@@ -10,7 +10,6 @@ class KlToegangscontrollerMerk(KeuzelijstField):
     label = 'Toegangscontroller merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlToegangscontrollerMerk'
     definition = 'Lijst met merknamen voor toegangscontrollers volgens de fabrikant'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangscontrollerMerk'
     options = {
         'aeos': KeuzelijstWaarde(invulwaarde='aeos',

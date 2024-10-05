@@ -10,7 +10,6 @@ class KlVWCDroogzetbaarheid(KeuzelijstField):
     label = 'Droogzetbaarheidtypes'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlVWCDroogzetbaarheid'
     definition = 'Geeft aan of het constructiefhoofd al dan niet droog gezet kan worden.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVWCDroogzetbaarheid'
     options = {
         'enkel-deurkamer-droogzetbaar': KeuzelijstWaarde(invulwaarde='enkel-deurkamer-droogzetbaar',

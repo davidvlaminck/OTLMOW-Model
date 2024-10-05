@@ -10,7 +10,6 @@ class KlBekledingPlaats(KeuzelijstField):
     label = 'Bekleding plaats'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBekledingPlaats'
     definition = 'Mogelijke locaties van de bekleding op de buis of put.'
-    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBekledingPlaats'
     options = {
         'inwendig': KeuzelijstWaarde(invulwaarde='inwendig',
