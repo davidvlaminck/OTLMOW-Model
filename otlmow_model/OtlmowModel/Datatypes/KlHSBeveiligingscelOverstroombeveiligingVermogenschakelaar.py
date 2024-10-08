@@ -10,6 +10,7 @@ class KlHSBeveiligingscelOverstroombeveiligingVermogenschakelaar(KeuzelijstField
     label = 'HS-beveiligingscel overstroombeveiliging vermogenschakelaar'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHSBeveiligingscelOverstroombeveiligingVermogenschakelaar'
     definition = 'Directe of indirecte overstroombeveiliging van de vermogenschakelaar.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHSBeveiligingscelOverstroombeveiligingVermogenschakelaar'
     options = {
         'direct': KeuzelijstWaarde(invulwaarde='direct',

@@ -10,6 +10,7 @@ class KlAfdichtingType(KeuzelijstField):
     label = 'Afdichting type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAfdichtingType'
     definition = 'De verschillende types afdichtingen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfdichtingType'
     options = {
         'gietasfalt': KeuzelijstWaarde(invulwaarde='gietasfalt',

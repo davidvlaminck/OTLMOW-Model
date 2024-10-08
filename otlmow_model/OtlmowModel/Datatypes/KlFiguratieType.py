@@ -10,6 +10,7 @@ class KlFiguratieType(KeuzelijstField):
     label = 'Figuratie type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlFiguratieType'
     definition = 'Types van figuratiemarkering.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFiguratieType'
     options = {
         '2e-afslag-links-(5m)': KeuzelijstWaarde(invulwaarde='2e-afslag-links-(5m)',

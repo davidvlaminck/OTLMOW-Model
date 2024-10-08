@@ -10,6 +10,7 @@ class KlWijzeGeleiding(KeuzelijstField):
     label = 'Wijze geleiding'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlWijzeGeleiding'
     definition = 'De mogelijke wijzen van geleiding.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWijzeGeleiding'
     options = {
         'continu': KeuzelijstWaarde(invulwaarde='continu',

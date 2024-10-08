@@ -10,6 +10,7 @@ class KlEcoEcokokerType(KeuzelijstField):
     label = 'Ecokoker type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEcoEcokokerType'
     definition = 'Types van ecokoker.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoEcokokerType'
     options = {
         'amfibieenkoker': KeuzelijstWaarde(invulwaarde='amfibieenkoker',

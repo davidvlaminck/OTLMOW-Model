@@ -10,6 +10,7 @@ class KlTypeSchachtHeipaal(KeuzelijstField):
     label = 'Type schacht van de heipaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeSchachtHeipaal'
     definition = 'Het type van de schacht van de heipaal.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeSchachtHeipaal'
     options = {
         'aardvochtig-gestampt-beton': KeuzelijstWaarde(invulwaarde='aardvochtig-gestampt-beton',

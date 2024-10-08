@@ -10,6 +10,7 @@ class KlDolomietType(KeuzelijstField):
     label = 'Dolomiet type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDolomietType'
     definition = 'Types van dolomiet.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDolomietType'
     options = {
         '0-15': KeuzelijstWaarde(invulwaarde='0-15',

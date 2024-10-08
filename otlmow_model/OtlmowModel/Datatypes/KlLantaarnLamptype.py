@@ -10,6 +10,7 @@ class KlLantaarnLamptype(KeuzelijstField):
     label = 'Lantaarn lamptype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlLantaarnLamptype'
     definition = 'Keuzelijst met LantaarnLamp types.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLantaarnLamptype'
     options = {
         'LED': KeuzelijstWaarde(invulwaarde='LED',

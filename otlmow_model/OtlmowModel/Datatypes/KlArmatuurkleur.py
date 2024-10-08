@@ -10,6 +10,7 @@ class KlArmatuurkleur(KeuzelijstField):
     label = 'Armatuurkleur'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlArmatuurkleur'
     definition = 'De kleur van de zichtbare buitenkant van een verlichtingstoestel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlArmatuurkleur'
     options = {
         'ral-1023': KeuzelijstWaarde(invulwaarde='ral-1023',

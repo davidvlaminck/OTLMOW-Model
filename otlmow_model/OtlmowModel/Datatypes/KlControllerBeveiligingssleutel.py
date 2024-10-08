@@ -10,6 +10,7 @@ class KlControllerBeveiligingssleutel(KeuzelijstField):
     label = 'Controller beveiligingssleutel.'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlControllerBeveiligingssleutel'
     definition = 'De encryptie die wordt toegepast om de verbinding tussen lokaal en centraal te beveiligen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlControllerBeveiligingssleutel'
     options = {
         'AES-256': KeuzelijstWaarde(invulwaarde='AES-256',

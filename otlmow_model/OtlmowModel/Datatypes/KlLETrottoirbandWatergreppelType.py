@@ -10,6 +10,7 @@ class KlLETrottoirbandWatergreppelType(KeuzelijstField):
     label = 'Trottoirband watergreppel type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLETrottoirbandWatergreppelType'
     definition = 'De vormen van een trottoirband_watergreppel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLETrottoirbandWatergreppelType'
     options = {
         'type-III-A': KeuzelijstWaarde(invulwaarde='type-III-A',

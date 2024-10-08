@@ -10,6 +10,7 @@ class KlAudioTransportType(KeuzelijstField):
     label = 'Audio transport type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAudioTransportType'
     definition = 'Lijst met mogelijke types voor transport van audio over een medium.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAudioTransportType'
     options = {
         'analoog': KeuzelijstWaarde(invulwaarde='analoog',

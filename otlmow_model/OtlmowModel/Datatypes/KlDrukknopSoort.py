@@ -10,6 +10,7 @@ class KlDrukknopSoort(KeuzelijstField):
     label = 'Drukknop soort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDrukknopSoort'
     definition = 'Keuzelijst met verschillende soorten drukknoppen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDrukknopSoort'
     options = {
         'WV-drukknop': KeuzelijstWaarde(invulwaarde='WV-drukknop',

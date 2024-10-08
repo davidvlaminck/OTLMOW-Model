@@ -10,6 +10,7 @@ class KlTankOpstelling(KeuzelijstField):
     label = 'Tank opstelling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTankOpstelling'
     definition = 'De opstelling van de tank.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTankOpstelling'
     options = {
         'liggend': KeuzelijstWaarde(invulwaarde='liggend',

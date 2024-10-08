@@ -10,6 +10,7 @@ class KlHechtspecie(KeuzelijstField):
     label = 'Hecht specie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHechtspecie'
     definition = 'Keuzelijst met hecht specie van gestapelde ruwe steen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHechtspecie'
     options = {
         'gebiedseigen-grond': KeuzelijstWaarde(invulwaarde='gebiedseigen-grond',

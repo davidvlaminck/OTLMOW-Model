@@ -10,6 +10,7 @@ class KlGekleurdWVSoort(KeuzelijstField):
     label = 'Gekleurd WV type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGekleurdWVSoort'
     definition = 'Types van gekleurd wegvlak.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGekleurdWVSoort'
     options = {
         'OFOS-(Opgeblazen-fietsopstelstrook)': KeuzelijstWaarde(invulwaarde='OFOS-(Opgeblazen-fietsopstelstrook)',

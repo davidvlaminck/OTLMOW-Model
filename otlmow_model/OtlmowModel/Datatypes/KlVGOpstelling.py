@@ -10,6 +10,7 @@ class KlVGOpstelling(KeuzelijstField):
     label = 'Vlak geluidschermelement opstelling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVGOpstelling'
     definition = 'Beschrijft de oriëntatie van het geplaatste schermelement tov de weg. De oriëntatie van vlakke schermen kan naast loodrecht op het maaiveld ook schuin naar achter hellend of schuin naar voor hellend zijn.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVGOpstelling'
     options = {
         'gebogen': KeuzelijstWaarde(invulwaarde='gebogen',

@@ -10,6 +10,7 @@ class KlTGCUitbreidingsModuleType(KeuzelijstField):
     label = 'TGC uitbreidingsmodule type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTGCUitbreidingsModuleType'
     definition = 'Keuzelijst om het type uitbreidingsmodule van een toeganscontroller te specifiëren.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTGCUitbreidingsModuleType'
     options = {
         'deurmodule': KeuzelijstWaarde(invulwaarde='deurmodule',

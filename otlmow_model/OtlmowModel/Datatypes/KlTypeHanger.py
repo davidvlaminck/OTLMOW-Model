@@ -10,6 +10,7 @@ class KlTypeHanger(KeuzelijstField):
     label = 'Type hanger'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeHanger'
     definition = 'Het type hanger'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeHanger'
     options = {
         'kabel': KeuzelijstWaarde(invulwaarde='kabel',

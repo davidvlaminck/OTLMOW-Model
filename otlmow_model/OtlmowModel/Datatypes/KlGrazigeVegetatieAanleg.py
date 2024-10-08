@@ -10,6 +10,7 @@ class KlGrazigeVegetatieAanleg(KeuzelijstField):
     label = 'Grazige vegetatie aanleg'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGrazigeVegetatieAanleg'
     definition = 'Types van aanleg voor de grazige vegetatie.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrazigeVegetatieAanleg'
     options = {
         'aanplanting-container-planten': KeuzelijstWaarde(invulwaarde='aanplanting-container-planten',

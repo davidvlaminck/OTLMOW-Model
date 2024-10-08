@@ -10,6 +10,7 @@ class KlBouwputType(KeuzelijstField):
     label = 'Bouwput type.'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBouwputType'
     definition = 'Het type van bouwput.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBouwputType'
     options = {
         'bouwput': KeuzelijstWaarde(invulwaarde='bouwput',

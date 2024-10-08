@@ -10,6 +10,7 @@ class KlLichtmastBotsNormering(KeuzelijstField):
     label = 'Lichtmast botsnormering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLichtmastBotsNormering'
     definition = 'Lijst van mogelijke waarden voor botsnormering van lichtmasten.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtmastBotsNormering'
     options = {
         '100HE1': KeuzelijstWaarde(invulwaarde='100HE1',

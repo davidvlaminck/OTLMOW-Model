@@ -10,6 +10,7 @@ class KlSegmentcontrollerModelnaam(KeuzelijstField):
     label = 'Segmentcontroller modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSegmentcontrollerModelnaam'
     definition = 'De mogelijke modelnamen voor een segmentcontroller.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSegmentcontrollerModelnaam'
     options = {
         'aps-g3-eth-ea': KeuzelijstWaarde(invulwaarde='aps-g3-eth-ea',

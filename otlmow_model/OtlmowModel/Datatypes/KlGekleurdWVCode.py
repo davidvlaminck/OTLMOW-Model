@@ -10,6 +10,7 @@ class KlGekleurdWVCode(KeuzelijstField):
     label = 'Gekleurd WV code'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGekleurdWVCode'
     definition = 'Codes voor een gekleurd wegvlak.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGekleurdWVCode'
     options = {
         'GW-FOP': KeuzelijstWaarde(invulwaarde='GW-FOP',

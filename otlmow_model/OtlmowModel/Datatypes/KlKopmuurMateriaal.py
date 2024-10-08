@@ -10,6 +10,7 @@ class KlKopmuurMateriaal(KeuzelijstField):
     label = 'Kopmuur materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKopmuurMateriaal'
     definition = 'Materialen van de kopmuur.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKopmuurMateriaal'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

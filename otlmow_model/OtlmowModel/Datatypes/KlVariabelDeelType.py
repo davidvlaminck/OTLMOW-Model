@@ -10,6 +10,7 @@ class KlVariabelDeelType(KeuzelijstField):
     label = 'Variabel deel type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVariabelDeelType'
     definition = 'Types van het variabel deel van een overstortrand.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVariabelDeelType'
     options = {
         'overstortplaat': KeuzelijstWaarde(invulwaarde='overstortplaat',

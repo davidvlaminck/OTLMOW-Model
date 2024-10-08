@@ -10,6 +10,7 @@ class KlGPUMerk(KeuzelijstField):
     label = 'GPU merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGPUMerk'
     definition = 'Het merk van de GPU.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGPUMerk'
     options = {
         'nvidia': KeuzelijstWaarde(invulwaarde='nvidia',

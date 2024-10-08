@@ -10,6 +10,7 @@ class KlMarkeringSoort(KeuzelijstField):
     label = 'Soort markeringsproduct'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMarkeringSoort'
     definition = 'De soorten van markingsproduct. Afgeleid van de COPRO_code.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMarkeringSoort'
     options = {
         'geprefabriceerd': KeuzelijstWaarde(invulwaarde='geprefabriceerd',

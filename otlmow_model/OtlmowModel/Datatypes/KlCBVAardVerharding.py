@@ -10,6 +10,7 @@ class KlCBVAardVerharding(KeuzelijstField):
     label = 'CBV aard verharding'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCBVAardVerharding'
     definition = 'Mogelijke waarden voor de aard van de cement/beton verharding.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCBVAardVerharding'
     options = {
         'doorgaand-gewapend-beton': KeuzelijstWaarde(invulwaarde='doorgaand-gewapend-beton',

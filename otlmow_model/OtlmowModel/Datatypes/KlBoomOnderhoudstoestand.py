@@ -10,6 +10,7 @@ class KlBoomOnderhoudstoestand(KeuzelijstField):
     label = 'Boom onderhoudstoestand'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomOnderhoudstoestand'
     definition = 'De verschillende mogelijke onderhoudstoestanden.'
+    status = 'ingebruik'
     deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomOnderhoudstoestand'
     options = {

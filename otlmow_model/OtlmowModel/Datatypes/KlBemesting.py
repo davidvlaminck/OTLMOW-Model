@@ -10,6 +10,7 @@ class KlBemesting(KeuzelijstField):
     label = 'Bemesting'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBemesting'
     definition = 'Het toevoegen van en verwerken van meststoffen zowel bij aanleg alsook bij beheer.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBemesting'
     options = {
         'meststoffen': KeuzelijstWaarde(invulwaarde='meststoffen',

@@ -10,6 +10,7 @@ class KlDwarseMarkeringSoort(KeuzelijstField):
     label = 'Dwarse markering soort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDwarseMarkeringSoort'
     definition = 'Soorten van dwarse markering.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDwarseMarkeringSoort'
     options = {
         'afremmingsstreep': KeuzelijstWaarde(invulwaarde='afremmingsstreep',

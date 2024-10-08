@@ -10,6 +10,7 @@ class KlBuisbekledingUitvoeringswijze(KeuzelijstField):
     label = 'uitvoeringswijze buisbekleding'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBuisbekledingUitvoeringswijze'
     definition = 'Materiaal en manier van aanbrengen van de buisbekleding.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBuisbekledingUitvoeringswijze'
     options = {
         'bouwput-voor-rioolrenovatie-dmv-buis-in-buissysteem-met-glasvezelversterkte-polyesterelementen': KeuzelijstWaarde(invulwaarde='bouwput-voor-rioolrenovatie-dmv-buis-in-buissysteem-met-glasvezelversterkte-polyesterelementen',

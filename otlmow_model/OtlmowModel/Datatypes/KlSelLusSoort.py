@@ -10,6 +10,7 @@ class KlSelLusSoort(KeuzelijstField):
     label = 'Selectieve lus soort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSelLusSoort'
     definition = 'Keuzelijst met verschillende soorten selectieve lussen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSelLusSoort'
     options = {
         'buslus': KeuzelijstWaarde(invulwaarde='buslus',

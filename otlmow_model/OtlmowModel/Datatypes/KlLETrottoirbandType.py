@@ -10,6 +10,7 @@ class KlLETrottoirbandType(KeuzelijstField):
     label = 'Trottoirband type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLETrottoirbandType'
     definition = 'Types van trottoirband.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLETrottoirbandType'
     options = {
         'beton-type-I-A': KeuzelijstWaarde(invulwaarde='beton-type-I-A',

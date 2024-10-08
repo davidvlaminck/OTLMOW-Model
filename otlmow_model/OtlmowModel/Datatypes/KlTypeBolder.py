@@ -10,6 +10,7 @@ class KlTypeBolder(KeuzelijstField):
     label = 'Type bolder'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeBolder'
     definition = 'De mogelijke typen van een bolder.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBolder'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

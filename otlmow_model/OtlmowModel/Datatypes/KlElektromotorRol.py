@@ -10,6 +10,7 @@ class KlElektromotorRol(KeuzelijstField):
     label = 'Elektromotor rol'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlElektromotorRol'
     definition = 'Keuzelijst voor de rol van de elektromotor in de aandrijflijn.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElektromotorRol'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

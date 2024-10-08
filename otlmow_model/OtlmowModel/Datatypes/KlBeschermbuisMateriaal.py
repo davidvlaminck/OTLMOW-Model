@@ -10,6 +10,7 @@ class KlBeschermbuisMateriaal(KeuzelijstField):
     label = 'Beschermbuis materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBeschermbuisMateriaal'
     definition = 'Keuzelijst voor het bepalen van het materiaal van de beschermbuis.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeschermbuisMateriaal'
     options = {
         'hdpe': KeuzelijstWaarde(invulwaarde='hdpe',

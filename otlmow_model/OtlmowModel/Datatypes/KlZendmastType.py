@@ -10,6 +10,7 @@ class KlZendmastType(KeuzelijstField):
     label = 'Zendmast type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlZendmastType'
     definition = 'Keuzelijst voor de types zendmast.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZendmastType'
     options = {
         'conische-mast': KeuzelijstWaarde(invulwaarde='conische-mast',

@@ -10,6 +10,7 @@ class KlBestratingSteenverband(KeuzelijstField):
     label = 'Bestrating steenverband'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBestratingSteenverband'
     definition = 'De steenverbanden van de bestrating.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestratingSteenverband'
     options = {
         'blokverband': KeuzelijstWaarde(invulwaarde='blokverband',

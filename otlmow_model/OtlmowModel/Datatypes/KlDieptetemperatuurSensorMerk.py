@@ -10,6 +10,7 @@ class KlDieptetemperatuurSensorMerk(KeuzelijstField):
     label = 'Dieptetemperatuursensor merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDieptetemperatuurSensorMerk'
     definition = 'Dieptetemperatuursensor merken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDieptetemperatuurSensorMerk'
     options = {
         'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',

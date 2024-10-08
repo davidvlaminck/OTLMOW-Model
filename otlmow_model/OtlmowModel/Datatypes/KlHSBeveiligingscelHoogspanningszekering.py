@@ -10,6 +10,7 @@ class KlHSBeveiligingscelHoogspanningszekering(KeuzelijstField):
     label = 'HS-beveiligingscel hoogspanningszekering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHSBeveiligingscelHoogspanningszekering'
     definition = 'Waarde van de hoogspanningszekering.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHSBeveiligingscelHoogspanningszekering'
     options = {
         '10': KeuzelijstWaarde(invulwaarde='10',

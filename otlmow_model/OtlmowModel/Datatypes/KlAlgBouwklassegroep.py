@@ -10,6 +10,7 @@ class KlAlgBouwklassegroep(KeuzelijstField):
     label = 'Alg bouwklassegroep'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAlgBouwklassegroep'
     definition = 'De bouwklassegroepen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgBouwklassegroep'
     options = {
         'B1': KeuzelijstWaarde(invulwaarde='B1',

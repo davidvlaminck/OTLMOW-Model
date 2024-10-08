@@ -10,6 +10,7 @@ class KlDeurHandgreeptype(KeuzelijstField):
     label = 'Deur handgreeptype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlDeurHandgreeptype'
     definition = 'Types handgrepen van deuren.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDeurHandgreeptype'
     options = {
         'handvat': KeuzelijstWaarde(invulwaarde='handvat',

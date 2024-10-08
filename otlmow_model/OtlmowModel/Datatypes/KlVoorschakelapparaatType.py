@@ -10,6 +10,7 @@ class KlVoorschakelapparaatType(KeuzelijstField):
     label = 'Voorschakelapparaat type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVoorschakelapparaatType'
     definition = 'Type van het voorschakelapparaat.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVoorschakelapparaatType'
     options = {
         'elektromechanisch': KeuzelijstWaarde(invulwaarde='elektromechanisch',

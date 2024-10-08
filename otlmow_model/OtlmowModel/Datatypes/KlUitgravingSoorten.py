@@ -10,6 +10,7 @@ class KlUitgravingSoorten(KeuzelijstField):
     label = 'Uitgraving soorten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlUitgravingSoorten'
     definition = 'De specificatie van type grond bij uitgraving.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUitgravingSoorten'
     options = {
         'compacte-grond': KeuzelijstWaarde(invulwaarde='compacte-grond',

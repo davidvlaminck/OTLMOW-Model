@@ -10,6 +10,7 @@ class KlDynBordZ30Modelnaam(KeuzelijstField):
     label = 'Z30 modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDynBordZ30Modelnaam'
     definition = 'Keuzelijst met de gangbare modelnamen van dynamische zone 30 borden. De modelnamen worden meestal door de leverancier of fabrikant bepaald.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordZ30Modelnaam'
     options = {
         'C31-pijl-links': KeuzelijstWaarde(invulwaarde='C31-pijl-links',

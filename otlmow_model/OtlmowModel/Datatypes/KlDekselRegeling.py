@@ -10,6 +10,7 @@ class KlDekselRegeling(KeuzelijstField):
     label = 'Dekselregeling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDekselRegeling'
     definition = 'Mogelijke regelingen van het deksel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDekselRegeling'
     options = {
         'Traploos-instelbare-afdekkingsinrichting': KeuzelijstWaarde(invulwaarde='Traploos-instelbare-afdekkingsinrichting',

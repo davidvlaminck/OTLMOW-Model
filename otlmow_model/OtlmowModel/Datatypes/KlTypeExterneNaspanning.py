@@ -10,6 +10,7 @@ class KlTypeExterneNaspanning(KeuzelijstField):
     label = 'Type externe naspanning'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeExterneNaspanning'
     definition = 'Het type externe naspanning.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeExterneNaspanning'
     options = {
         'voorspanning-met-aanhechting': KeuzelijstWaarde(invulwaarde='voorspanning-met-aanhechting',

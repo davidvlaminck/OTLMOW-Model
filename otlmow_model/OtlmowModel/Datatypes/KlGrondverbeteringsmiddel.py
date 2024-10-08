@@ -10,6 +10,7 @@ class KlGrondverbeteringsmiddel(KeuzelijstField):
     label = 'Grondverbeteringsmiddel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlGrondverbeteringsmiddel'
     definition = 'Het verwerken van bodemverbeteringsmiddelen omvat het gelijkmatig spreiden ervan op bepaalde grondoppervlakken en/of het verwerken in plantputten.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrondverbeteringsmiddel'
     options = {
         'bezanden': KeuzelijstWaarde(invulwaarde='bezanden',

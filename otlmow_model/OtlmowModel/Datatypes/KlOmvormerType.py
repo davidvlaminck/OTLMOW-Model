@@ -10,6 +10,7 @@ class KlOmvormerType(KeuzelijstField):
     label = 'Omvormer type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOmvormerType'
     definition = 'De soort omvorming die gebeurt er in de omvormer.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOmvormerType'
     options = {
         'Coax-UTP': KeuzelijstWaarde(invulwaarde='Coax-UTP',

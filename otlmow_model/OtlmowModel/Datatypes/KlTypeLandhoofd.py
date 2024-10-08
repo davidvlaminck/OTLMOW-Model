@@ -10,6 +10,7 @@ class KlTypeLandhoofd(KeuzelijstField):
     label = 'Type landhoofd'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeLandhoofd'
     definition = 'Het type landhoofd.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeLandhoofd'
     options = {
         'hoog-gefundeerd': KeuzelijstWaarde(invulwaarde='hoog-gefundeerd',

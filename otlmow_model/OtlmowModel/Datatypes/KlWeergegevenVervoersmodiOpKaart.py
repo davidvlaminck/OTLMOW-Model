@@ -10,6 +10,7 @@ class KlWeergegevenVervoersmodiOpKaart(KeuzelijstField):
     label = 'Weergegeven vervoersmodi op kaart'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWeergegevenVervoersmodiOpKaart'
     definition = 'De verschillende beschikbare vervoersmodi die op de bijhorende kaart worden meegegeven.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWeergegevenVervoersmodiOpKaart'
     options = {
         'bus': KeuzelijstWaarde(invulwaarde='bus',
@@ -120,7 +121,7 @@ class KlWeergegevenVervoersmodiOpKaart(KeuzelijstField):
         'treinnet': KeuzelijstWaarde(invulwaarde='treinnet',
                                      label='Treinnet',
                                      status='ingebruik',
-                                     definitie='TODO',
+                                     definitie='Treinnet',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWeergegevenVervoersmodiOpKaart/treinnet'),
         'vast-en-semiflex': KeuzelijstWaarde(invulwaarde='vast-en-semiflex',
                                              label='Vast en semiflex',

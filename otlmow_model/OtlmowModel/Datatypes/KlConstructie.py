@@ -10,6 +10,7 @@ class KlConstructie(KeuzelijstField):
     label = 'Beweegbaar deel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlConstructie'
     definition = 'De mogelijke beweegbare delen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlConstructie'
     options = {
         'deur': KeuzelijstWaarde(invulwaarde='deur',

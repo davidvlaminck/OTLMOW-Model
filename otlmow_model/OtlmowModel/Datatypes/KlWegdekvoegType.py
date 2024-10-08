@@ -10,6 +10,7 @@ class KlWegdekvoegType(KeuzelijstField):
     label = 'Voeg type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWegdekvoegType'
     definition = 'Vormen van wegdekvoeg.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegdekvoegType'
     options = {
         'DGB-compoundvoeg': KeuzelijstWaarde(invulwaarde='DGB-compoundvoeg',

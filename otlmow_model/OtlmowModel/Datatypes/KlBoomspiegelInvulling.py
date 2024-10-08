@@ -10,6 +10,7 @@ class KlBoomspiegelInvulling(KeuzelijstField):
     label = 'Boomspiegel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomspiegelInvulling'
     definition = 'Keuzelijst, die de manieren om de boomspiegel in te vullen, oplijst.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomspiegelInvulling'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

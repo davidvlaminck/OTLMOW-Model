@@ -10,6 +10,7 @@ class KlEcoEcoductType(KeuzelijstField):
     label = 'Ecoduct type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEcoEcoductType'
     definition = 'Types van ecoduct.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoEcoductType'
     options = {
         'bermbrug': KeuzelijstWaarde(invulwaarde='bermbrug',

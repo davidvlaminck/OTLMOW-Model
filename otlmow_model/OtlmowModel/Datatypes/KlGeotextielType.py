@@ -10,6 +10,7 @@ class KlGeotextielType(KeuzelijstField):
     label = 'Geotextiel type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGeotextielType'
     definition = 'Types van geotextiel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGeotextielType'
     options = {
         'anti-vraatdoek': KeuzelijstWaarde(invulwaarde='anti-vraatdoek',

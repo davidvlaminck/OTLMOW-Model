@@ -10,6 +10,7 @@ class KlRasterMazen(KeuzelijstField):
     label = 'Rastermazen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRasterMazen'
     definition = 'Types van de mazen in het ecoraster.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRasterMazen'
     options = {
         'fijnmazig': KeuzelijstWaarde(invulwaarde='fijnmazig',

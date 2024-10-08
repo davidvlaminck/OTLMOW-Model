@@ -10,6 +10,7 @@ class KlSegmentcontrollerMerk(KeuzelijstField):
     label = 'Segmentcontroller merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSegmentcontrollerMerk'
     definition = 'De mogelijke merken voor een segmentcontroller.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSegmentcontrollerMerk'
     options = {
         'lacroix': KeuzelijstWaarde(invulwaarde='lacroix',

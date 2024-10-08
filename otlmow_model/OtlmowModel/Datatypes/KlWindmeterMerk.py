@@ -10,6 +10,7 @@ class KlWindmeterMerk(KeuzelijstField):
     label = 'Windmeter merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWindmeterMerk'
     definition = 'Windmeter merken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWindmeterMerk'
     options = {
         'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',

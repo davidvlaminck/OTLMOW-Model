@@ -10,6 +10,7 @@ class KlLichtmastMasttype(KeuzelijstField):
     label = 'lichtmast type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLichtmastMasttype'
     definition = 'Lijst van mogelijke types voor lichtmasten.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtmastMasttype'
     options = {
         'B': KeuzelijstWaarde(invulwaarde='B',

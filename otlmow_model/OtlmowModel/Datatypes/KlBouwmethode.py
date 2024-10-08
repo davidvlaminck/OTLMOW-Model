@@ -10,6 +10,7 @@ class KlBouwmethode(KeuzelijstField):
     label = 'type bouwmethode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlBouwmethode'
     definition = 'Keuzelijst om aan te geven welke bouwmethode gebruikt is om het koker element tot stand te brengen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBouwmethode'
     options = {
         'box-in-box': KeuzelijstWaarde(invulwaarde='box-in-box',

@@ -10,6 +10,7 @@ class KlDekselKaderType(KeuzelijstField):
     label = 'Dekselkader type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDekselKaderType'
     definition = 'Types van dekselkader.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDekselKaderType'
     options = {
         'enkelvoudig-gietijzeren-controleluik': KeuzelijstWaarde(invulwaarde='enkelvoudig-gietijzeren-controleluik',

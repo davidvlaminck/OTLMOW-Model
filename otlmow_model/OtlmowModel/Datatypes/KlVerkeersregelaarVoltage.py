@@ -10,6 +10,7 @@ class KlVerkeersregelaarVoltage(KeuzelijstField):
     label = 'Verkeersregelaar voltage'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersregelaarVoltage'
     definition = 'Keuzelijst met de voorkomende voltages gebruikt voor verkeersregelaars.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersregelaarVoltage'
     options = {
         '230': KeuzelijstWaarde(invulwaarde='230',

@@ -10,6 +10,7 @@ class KlSlotcilinderBeveiligingsfactor(KeuzelijstField):
     label = 'Slotcilinder beveiligingsfactor'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSlotcilinderBeveiligingsfactor'
     definition = 'Keuzelijst voor de beveiligingsfactor van de slotcilinder.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSlotcilinderBeveiligingsfactor'
     options = {
         'skg-1-ster': KeuzelijstWaarde(invulwaarde='skg-1-ster',

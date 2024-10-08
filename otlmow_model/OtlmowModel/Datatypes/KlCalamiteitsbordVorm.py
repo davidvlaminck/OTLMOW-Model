@@ -10,6 +10,7 @@ class KlCalamiteitsbordVorm(KeuzelijstField):
     label = 'Calamiteitsbord vorm'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCalamiteitsbordVorm'
     definition = 'Vormen van het calamiteitsbord.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCalamiteitsbordVorm'
     options = {
         'rechthoekig': KeuzelijstWaarde(invulwaarde='rechthoekig',

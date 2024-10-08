@@ -10,6 +10,7 @@ class KlStortsteenPlaatsingswijze(KeuzelijstField):
     label = 'Plaatsingswijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStortsteenPlaatsingswijze'
     definition = 'De manier waarop de stenen worden geplaatst.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStortsteenPlaatsingswijze'
     options = {
         'gestapeld': KeuzelijstWaarde(invulwaarde='gestapeld',

@@ -10,6 +10,7 @@ class KlGraadVanBeweegbaarheid(KeuzelijstField):
     label = 'graad van beweegbaarheid'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlGraadVanBeweegbaarheid'
     definition = 'Op welke manier het brugdeel kan bewegen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGraadVanBeweegbaarheid'
     options = {
         'beweegbaar': KeuzelijstWaarde(invulwaarde='beweegbaar',

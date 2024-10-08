@@ -10,6 +10,7 @@ class KlKabelmantelKleur(KeuzelijstField):
     label = 'Kabelmantel kleur'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlKabelmantelKleur'
     definition = 'Lijst van mogelijke kleuren voor de kabelmantel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelmantelKleur'
     options = {
         '14': KeuzelijstWaarde(invulwaarde='14',

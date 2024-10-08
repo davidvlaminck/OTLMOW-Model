@@ -10,6 +10,7 @@ class KlAardingAardingsnet(KeuzelijstField):
     label = 'Aardingsinstallatie aardingsnet'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlAardingAardingsnet'
     definition = 'Lijst van voorkomende types aardingsnet'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAardingAardingsnet'
     options = {
         'it': KeuzelijstWaarde(invulwaarde='it',

@@ -10,6 +10,7 @@ class KlMaaiFrequentie(KeuzelijstField):
     label = 'Maaifrequentie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlMaaiFrequentie'
     definition = 'Het aantal keer dat er gemaaid wordt per jaar.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMaaiFrequentie'
     options = {
         '1': KeuzelijstWaarde(invulwaarde='1',

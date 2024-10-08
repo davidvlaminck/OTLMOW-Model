@@ -10,6 +10,7 @@ class KlVormTerugslagklep(KeuzelijstField):
     label = 'Vorm terugslagklep'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVormTerugslagklep'
     definition = 'De vorm van opening van de terugslagklep.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVormTerugslagklep'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

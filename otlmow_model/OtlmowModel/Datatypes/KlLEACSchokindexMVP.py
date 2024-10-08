@@ -10,6 +10,7 @@ class KlLEACSchokindexMVP(KeuzelijstField):
     label = 'Schokindex MVP'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACSchokindexMVP'
     definition = 'Head injury criteria (HIC) van een motorvangplank.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACSchokindexMVP'
     options = {
         'level-1': KeuzelijstWaarde(invulwaarde='level-1',

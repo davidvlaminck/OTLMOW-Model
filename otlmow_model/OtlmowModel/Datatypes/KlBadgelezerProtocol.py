@@ -10,6 +10,7 @@ class KlBadgelezerProtocol(KeuzelijstField):
     label = 'Badgelezer protocollen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBadgelezerProtocol'
     definition = 'Lijst van protocollen gebruikt door badgelezers.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBadgelezerProtocol'
     options = {
         'rs485': KeuzelijstWaarde(invulwaarde='rs485',

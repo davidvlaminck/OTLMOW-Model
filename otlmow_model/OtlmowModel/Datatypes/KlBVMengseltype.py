@@ -10,6 +10,7 @@ class KlBVMengseltype(KeuzelijstField):
     label = 'BV mengseltype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBVMengseltype'
     definition = 'het mengseltype van de butimineuze verharding.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBVMengseltype'
     options = {
         'AB-1B': KeuzelijstWaarde(invulwaarde='AB-1B',

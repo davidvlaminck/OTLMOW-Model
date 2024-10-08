@@ -10,6 +10,7 @@ class KlSchakelaarUitvoering(KeuzelijstField):
     label = 'Uitvoering schakelaar'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSchakelaarUitvoering'
     definition = 'Keuzelijst voor de uitvoering van een schakelaar.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSchakelaarUitvoering'
     options = {
         'binaire-draaischakelaar': KeuzelijstWaarde(invulwaarde='binaire-draaischakelaar',

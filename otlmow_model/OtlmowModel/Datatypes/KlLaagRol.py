@@ -10,6 +10,7 @@ class KlLaagRol(KeuzelijstField):
     label = 'Laag rol'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLaagRol'
     definition = 'De mogelijke rollen van de laag.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLaagRol'
     options = {
         'aanvulling': KeuzelijstWaarde(invulwaarde='aanvulling',

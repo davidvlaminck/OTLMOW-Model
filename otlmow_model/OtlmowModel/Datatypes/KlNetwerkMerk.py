@@ -10,6 +10,7 @@ class KlNetwerkMerk(KeuzelijstField):
     label = 'Netwerkelement merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkMerk'
     definition = 'Merknamen voor Netwerkelementen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkMerk'
     options = {
         'ABB': KeuzelijstWaarde(invulwaarde='ABB',

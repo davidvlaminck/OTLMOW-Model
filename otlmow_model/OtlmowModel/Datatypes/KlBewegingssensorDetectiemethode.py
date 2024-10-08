@@ -10,6 +10,7 @@ class KlBewegingssensorDetectiemethode(KeuzelijstField):
     label = 'Bewegingssensor detectiemethode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBewegingssensorDetectiemethode'
     definition = 'De methode waarvolgens de detectie gebeurt.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBewegingssensorDetectiemethode'
     options = {
         'actief-infrarood-(air)': KeuzelijstWaarde(invulwaarde='actief-infrarood-(air)',

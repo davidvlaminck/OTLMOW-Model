@@ -10,6 +10,7 @@ class KlLEACSchokindex(KeuzelijstField):
     label = 'Schokindex'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACSchokindex'
     definition = 'De verschillende schokindices.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACSchokindex'
     options = {
         'a': KeuzelijstWaarde(invulwaarde='a',

@@ -10,6 +10,7 @@ class KlGebruikersType(KeuzelijstField):
     label = 'Koker element gebruikers type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlGebruikersType'
     definition = 'Geeft weer welke gebruikers op elk element van de koker.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGebruikersType'
     options = {
         'autosnelweg': KeuzelijstWaarde(invulwaarde='autosnelweg',

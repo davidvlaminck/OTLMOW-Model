@@ -10,6 +10,7 @@ class KlSlotGebruik(KeuzelijstField):
     label = 'Slot gebruik'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSlotGebruik'
     definition = 'Keuzelijst voor de kant langs dewelke het slot geïnstalleerd kan worden. Je kijkt hierbij naar de deur vanuit de kant dat je de deur openduwt (en niet de kant waarlangs je zou moeten trekken).'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSlotGebruik'
     options = {
         'links': KeuzelijstWaarde(invulwaarde='links',

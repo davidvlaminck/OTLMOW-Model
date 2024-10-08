@@ -10,6 +10,7 @@ class KlOnderbouwType(KeuzelijstField):
     label = 'Onderbouw type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOnderbouwType'
     definition = 'Types van onderbouw.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOnderbouwType'
     options = {
         'bodemsubstraat': KeuzelijstWaarde(invulwaarde='bodemsubstraat',

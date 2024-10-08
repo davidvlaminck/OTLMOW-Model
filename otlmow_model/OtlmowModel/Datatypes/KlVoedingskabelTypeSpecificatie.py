@@ -10,6 +10,7 @@ class KlVoedingskabelTypeSpecificatie(KeuzelijstField):
     label = 'Voedingskabel type specificatie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVoedingskabelTypeSpecificatie'
     definition = 'Lijst met mogelijke specificaties van het type van de voedingskabel volgens een vaste lijst om bv. de brandklasse mee te geven.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVoedingskabelTypeSpecificatie'
     options = {
         'cca': KeuzelijstWaarde(invulwaarde='cca',

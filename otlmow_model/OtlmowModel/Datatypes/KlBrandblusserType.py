@@ -10,6 +10,7 @@ class KlBrandblusserType(KeuzelijstField):
     label = 'Brandblusser type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBrandblusserType'
     definition = 'Keuzelijst met verschillende types van brandblussers volgens de algemene classificatie van brandblussers.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBrandblusserType'
     options = {
         'a': KeuzelijstWaarde(invulwaarde='a',

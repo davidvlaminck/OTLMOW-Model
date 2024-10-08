@@ -10,6 +10,7 @@ class KlVirtueleServerMerk(KeuzelijstField):
     label = 'Virtuele server merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVirtueleServerMerk'
     definition = 'Het merk van de virtuele server.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVirtueleServerMerk'
     options = {
         'dell': KeuzelijstWaarde(invulwaarde='dell',

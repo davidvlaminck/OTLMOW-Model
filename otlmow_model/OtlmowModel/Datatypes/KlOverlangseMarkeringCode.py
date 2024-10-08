@@ -10,6 +10,7 @@ class KlOverlangseMarkeringCode(KeuzelijstField):
     label = 'Overlangse markering code'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOverlangseMarkeringCode'
     definition = 'Codes van de overlangse markering.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOverlangseMarkeringCode'
     options = {
         'BAD-0.20': KeuzelijstWaarde(invulwaarde='BAD-0.20',

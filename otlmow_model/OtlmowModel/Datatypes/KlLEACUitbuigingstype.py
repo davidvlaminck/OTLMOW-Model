@@ -10,6 +10,7 @@ class KlLEACUitbuigingstype(KeuzelijstField):
     label = 'Uitbuigingstype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACUitbuigingstype'
     definition = 'De mogelijke uitbuigingstypes.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACUitbuigingstype'
     options = {
         'type-1': KeuzelijstWaarde(invulwaarde='type-1',

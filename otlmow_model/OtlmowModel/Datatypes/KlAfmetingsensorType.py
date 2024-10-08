@@ -10,6 +10,7 @@ class KlAfmetingsensorType(KeuzelijstField):
     label = 'Afmetingsensor type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAfmetingsensorType'
     definition = 'Het type van de afmetingsensor.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfmetingsensorType'
     options = {
         '2D-LIDAR': KeuzelijstWaarde(invulwaarde='2D-LIDAR',

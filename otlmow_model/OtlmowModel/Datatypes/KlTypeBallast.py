@@ -10,6 +10,7 @@ class KlTypeBallast(KeuzelijstField):
     label = 'Type ballast'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeBallast'
     definition = 'De mogelijke types van balast.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBallast'
     options = {
         'lucht': KeuzelijstWaarde(invulwaarde='lucht',

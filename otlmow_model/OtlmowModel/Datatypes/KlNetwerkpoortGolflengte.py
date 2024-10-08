@@ -10,6 +10,7 @@ class KlNetwerkpoortGolflengte(KeuzelijstField):
     label = 'Netwerkpoort golflengte'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkpoortGolflengte'
     definition = 'Lijst van mogelijke golflengten waarop een Netwerkpoort kan communiceren.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkpoortGolflengte'
     options = {
         'C1310': KeuzelijstWaarde(invulwaarde='C1310',

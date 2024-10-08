@@ -10,6 +10,7 @@ class KlKamerKlasse(KeuzelijstField):
     label = 'Kamer klasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKamerKlasse'
     definition = 'De stabiliteitsklasse van de kamer.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKamerKlasse'
     options = {
         'klasse-1': KeuzelijstWaarde(invulwaarde='klasse-1',

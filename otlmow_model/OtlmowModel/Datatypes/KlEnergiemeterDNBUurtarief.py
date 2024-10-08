@@ -10,6 +10,7 @@ class KlEnergiemeterDNBUurtarief(KeuzelijstField):
     label = 'Energiemeter DNB uurtarief'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEnergiemeterDNBUurtarief'
     definition = 'Type uurtarief vb enkelvoudig, dubbelvoudig,...'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEnergiemeterDNBUurtarief'
     options = {
         'dubbelvoudig': KeuzelijstWaarde(invulwaarde='dubbelvoudig',

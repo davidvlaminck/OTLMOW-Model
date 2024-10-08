@@ -10,6 +10,7 @@ class KlVegetatieDrassigheid(KeuzelijstField):
     label = 'Vegetatie drassigheid'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVegetatieDrassigheid'
     definition = 'De mate van drassigheid..'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVegetatieDrassigheid'
     options = {
         'matig-drassig': KeuzelijstWaarde(invulwaarde='matig-drassig',

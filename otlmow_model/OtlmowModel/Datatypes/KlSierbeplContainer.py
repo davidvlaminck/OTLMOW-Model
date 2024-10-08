@@ -10,6 +10,7 @@ class KlSierbeplContainer(KeuzelijstField):
     label = 'Sierbeplanting container'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSierbeplContainer'
     definition = 'Verschillende mogeliike pot- en containermaten voor de sierbeplanting.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSierbeplContainer'
     options = {
         'C10': KeuzelijstWaarde(invulwaarde='C10',

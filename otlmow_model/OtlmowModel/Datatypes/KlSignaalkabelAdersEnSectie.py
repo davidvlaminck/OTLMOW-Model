@@ -10,6 +10,7 @@ class KlSignaalkabelAdersEnSectie(KeuzelijstField):
     label = 'Voedingskabel aders specificaties'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSignaalkabelAdersEnSectie'
     definition = 'Lijst van mogelijke waarden volgens de catalogusposten van het standaardbestek voor de samenstelling van een signalisatiekabel volgens het aantal aders en hun sectie in vierkante millimeter.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignaalkabelAdersEnSectie'
     options = {
         '1.5': KeuzelijstWaarde(invulwaarde='1.5',

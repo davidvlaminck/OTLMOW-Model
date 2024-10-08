@@ -10,6 +10,7 @@ class KlSchanskorfVorm(KeuzelijstField):
     label = 'Schanskorf vorm'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSchanskorfVorm'
     definition = 'Vormen van schanskorven.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSchanskorfVorm'
     options = {
         'in-blokvorm': KeuzelijstWaarde(invulwaarde='in-blokvorm',

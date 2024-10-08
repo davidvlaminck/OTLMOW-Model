@@ -10,6 +10,7 @@ class KlTelecomkabelAdersEnSectie(KeuzelijstField):
     label = 'Telecomkabel aders en sectie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTelecomkabelAdersEnSectie'
     definition = 'Lijst van mogelijke waarden volgens de catalogusposten van het standaardbestek voor de samenstelling van een telecomkabel volgens het aantal aders en hun dikte in vierkante millimeter.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTelecomkabelAdersEnSectie'
     options = {
         '100-x-2-x-1-mm2': KeuzelijstWaarde(invulwaarde='100-x-2-x-1-mm2',

@@ -10,6 +10,7 @@ class KlBoomConflicten(KeuzelijstField):
     label = 'Boom conflicten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomConflicten'
     definition = 'De verschillende mogelijke conflicten van een boom.'
+    status = 'ingebruik'
     deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomConflicten'
     options = {

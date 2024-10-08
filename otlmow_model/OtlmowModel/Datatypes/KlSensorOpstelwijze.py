@@ -10,6 +10,7 @@ class KlSensorOpstelwijze(KeuzelijstField):
     label = 'Sensor opstelwijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlSensorOpstelwijze'
     definition = 'Senor opstelwijzen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSensorOpstelwijze'
     options = {
         'rechtstreeks-op-rechte-steun': KeuzelijstWaarde(invulwaarde='rechtstreeks-op-rechte-steun',

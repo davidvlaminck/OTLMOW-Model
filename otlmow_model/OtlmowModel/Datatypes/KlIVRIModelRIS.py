@@ -10,6 +10,7 @@ class KlIVRIModelRIS(KeuzelijstField):
     label = 'iVRIModelRIS'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIVRIModelRIS'
     definition = 'De modelnaam van de RIS.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIModelRIS'
     options = {
         'cloudris': KeuzelijstWaarde(invulwaarde='cloudris',

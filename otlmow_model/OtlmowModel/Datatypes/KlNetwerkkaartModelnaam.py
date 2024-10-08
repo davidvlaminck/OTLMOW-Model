@@ -10,6 +10,7 @@ class KlNetwerkkaartModelnaam(KeuzelijstField):
     label = 'Netwerkkaart modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerkkaartModelnaam'
     definition = 'Modelnamen voor Netwerkkaarten.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkkaartModelnaam'
     options = {
         'ASC105': KeuzelijstWaarde(invulwaarde='ASC105',

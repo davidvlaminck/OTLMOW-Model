@@ -10,6 +10,7 @@ class KlPutMateriaal(KeuzelijstField):
     label = 'Put materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPutMateriaal'
     definition = 'Vervaardigingsmaterialen van de put.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPutMateriaal'
     options = {
         'PE-of-PP': KeuzelijstWaarde(invulwaarde='PE-of-PP',

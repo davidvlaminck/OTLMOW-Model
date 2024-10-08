@@ -10,6 +10,7 @@ class KlBetrokkenheidRol(KeuzelijstField):
     label = 'Betrokkenheid rol'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBetrokkenheidRol'
     definition = 'Keuzelijst met mogelijke waarden voor de rol waarmee een agent betrokken is bij een object.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBetrokkenheidRol'
     options = {
         'beheerder': KeuzelijstWaarde(invulwaarde='beheerder',

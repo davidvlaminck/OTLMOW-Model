@@ -10,6 +10,7 @@ class KlTypeOplegging(KeuzelijstField):
     label = 'Type oplegging'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeOplegging'
     definition = 'De soort van oplegging.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeOplegging'
     options = {
         'betonnen-oplegging-freyssinetscharnier': KeuzelijstWaarde(invulwaarde='betonnen-oplegging-freyssinetscharnier',

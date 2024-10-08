@@ -10,6 +10,7 @@ class KlGewaarborgdeWrijvingshoek(KeuzelijstField):
     label = 'Gewaarborgde wrijvingshoek'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlGewaarborgdeWrijvingshoek'
     definition = 'De hoek van inwendige wrijving geeft een aanwijzing omtrent de afschuifkarakteristieken en wordt dan ook gebruikt bij berekening van afschuiving, gronddruk en draagvermogen van paalfunderingen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGewaarborgdeWrijvingshoek'
     options = {
         '25-graden': KeuzelijstWaarde(invulwaarde='25-graden',

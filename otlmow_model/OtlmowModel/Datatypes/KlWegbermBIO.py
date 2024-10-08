@@ -10,6 +10,7 @@ class KlWegbermBIO(KeuzelijstField):
     label = 'Wegberm BIO'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlWegbermBIO'
     definition = 'Bijzonder ingerichte onderdelen van de wegbermen.'
+    status = 'ingebruik'
     deprecated_version = '2.11.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegbermBIO'
     options = {

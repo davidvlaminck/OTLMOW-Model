@@ -10,6 +10,7 @@ class KlElectricityAppurtenanceType(KeuzelijstField):
     label = 'Electricity appurtenance type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlElectricityAppurtenanceType'
     definition = 'Lijst voor types van de ElectricityAppurtenance.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElectricityAppurtenanceType'
     options = {
         'aarding': KeuzelijstWaarde(invulwaarde='aarding',

@@ -10,6 +10,7 @@ class KlAlgInspecteerbaarheid(KeuzelijstField):
     label = 'Inspecteerbaarheid van een element'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAlgInspecteerbaarheid'
     definition = 'De mogelijke opties van inspecteerbaarheid.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgInspecteerbaarheid'
     options = {
         'gedeeltelijk': KeuzelijstWaarde(invulwaarde='gedeeltelijk',

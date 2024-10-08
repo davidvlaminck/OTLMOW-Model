@@ -10,6 +10,7 @@ class KlGrondherkomst(KeuzelijstField):
     label = 'Grondherkomst'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlGrondherkomst'
     definition = 'De herkomst van de grond.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrondherkomst'
     options = {
         'aanbestedende-overheid': KeuzelijstWaarde(invulwaarde='aanbestedende-overheid',

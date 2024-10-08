@@ -10,6 +10,7 @@ class KlSignaalkabelType(KeuzelijstField):
     label = 'Signalisatiekabel types'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSignaalkabelType'
     definition = 'Lijst met types voor signalisatiekabels volgens de gebruikte materialen zoals opgenomen in het Standaarbestek 270.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignaalkabelType'
     options = {
         'coax': KeuzelijstWaarde(invulwaarde='coax',

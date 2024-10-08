@@ -10,6 +10,7 @@ class KlOnbegroeidVoorkomenType(KeuzelijstField):
     label = 'Onbegroeid voorkomen type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOnbegroeidVoorkomenType'
     definition = 'De mogelijke afwerkingen van het onbegroeide voorkomen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOnbegroeidVoorkomenType'
     options = {
         'gesloten-kunststofverharding': KeuzelijstWaarde(invulwaarde='gesloten-kunststofverharding',

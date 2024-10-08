@@ -10,6 +10,7 @@ class KlTypeVakwerkElement(KeuzelijstField):
     label = 'Type vakwerk-element'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeVakwerkElement'
     definition = 'Het type van vakwerk-element.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeVakwerkElement'
     options = {
         'bovenregel': KeuzelijstWaarde(invulwaarde='bovenregel',

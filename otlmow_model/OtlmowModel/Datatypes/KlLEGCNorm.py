@@ -10,6 +10,7 @@ class KlLEGCNorm(KeuzelijstField):
     label = 'Norm'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEGCNorm'
     definition = 'De mogelijke normen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEGCNorm'
     options = {
         'NBN-EN-1793-1': KeuzelijstWaarde(invulwaarde='NBN-EN-1793-1',

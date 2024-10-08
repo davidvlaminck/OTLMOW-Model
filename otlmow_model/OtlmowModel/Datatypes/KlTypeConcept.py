@@ -10,6 +10,7 @@ class KlTypeConcept(KeuzelijstField):
     label = 'type beweging'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeConcept'
     definition = 'De mogelijke types van concepten van een beweegbare waterkerende constructie.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeConcept'
     options = {
         'cilinder': KeuzelijstWaarde(invulwaarde='cilinder',

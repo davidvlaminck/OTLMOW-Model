@@ -10,6 +10,7 @@ class KlPositieKolk(KeuzelijstField):
     label = 'Positie kolk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlPositieKolk'
     definition = 'De mogelije posities van een kolk.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPositieKolk'
     options = {
         'afwaarts': KeuzelijstWaarde(invulwaarde='afwaarts',

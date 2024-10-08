@@ -10,6 +10,7 @@ class KlHoppinzuilType(KeuzelijstField):
     label = 'Hoppinzuil type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHoppinzuilType'
     definition = 'De types van een analoge hoppinzuil.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHoppinzuilType'
     options = {
         'analoog-groot': KeuzelijstWaarde(invulwaarde='analoog-groot',

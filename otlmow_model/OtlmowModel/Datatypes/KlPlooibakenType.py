@@ -10,6 +10,7 @@ class KlPlooibakenType(KeuzelijstField):
     label = 'Plooibaken type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPlooibakenType'
     definition = 'vormen van een plooibaken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlooibakenType'
     options = {
         'plooibaken-diameter-130-mm---M24': KeuzelijstWaarde(invulwaarde='plooibaken-diameter-130-mm---M24',

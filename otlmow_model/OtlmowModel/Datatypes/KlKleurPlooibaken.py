@@ -10,6 +10,7 @@ class KlKleurPlooibaken(KeuzelijstField):
     label = 'Kleur plooibaken'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKleurPlooibaken'
     definition = 'Kleuropties voor het plooibaken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKleurPlooibaken'
     options = {
         'blauw': KeuzelijstWaarde(invulwaarde='blauw',

@@ -10,6 +10,7 @@ class KlANPRMerk(KeuzelijstField):
     label = 'ANPR-camera merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlANPRMerk'
     definition = 'Het merk van de ANPR-camera.'
+    status = 'ingebruik'
     deprecated_version = '2.9.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlANPRMerk'
     options = {

@@ -10,6 +10,7 @@ class KlHelling(KeuzelijstField):
     label = 'Helling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHelling'
     definition = 'Kwarten voor het bepalen van de hellingsgraad.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHelling'
     options = {
         '10-4': KeuzelijstWaarde(invulwaarde='10-4',

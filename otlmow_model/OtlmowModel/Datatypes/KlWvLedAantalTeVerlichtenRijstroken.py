@@ -10,6 +10,7 @@ class KlWvLedAantalTeVerlichtenRijstroken(KeuzelijstField):
     label = 'WV LED aantal te verlichten rijstroken'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLedAantalTeVerlichtenRijstroken'
     definition = 'Het aantal rijstroken dat verlicht wordt door het LED verlichtingstoestel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedAantalTeVerlichtenRijstroken'
     options = {
         '1': KeuzelijstWaarde(invulwaarde='1',

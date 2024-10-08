@@ -10,6 +10,7 @@ class KlVerkeersregelaarCoordinatiewijze(KeuzelijstField):
     label = 'Verkeersregelaar coordinatiewijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersregelaarCoordinatiewijze'
     definition = 'Keuzelijst met de voorkomende manieren van coordinate voor verkeersregelaars.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersregelaarCoordinatiewijze'
     options = {
         'centraal': KeuzelijstWaarde(invulwaarde='centraal',

@@ -10,6 +10,7 @@ class KlMateriaalLadder(KeuzelijstField):
     label = 'Materiaal ladder'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMateriaalLadder'
     definition = 'Het materiaal waaruit de ladder is opgebouwd.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalLadder'
     options = {
         'hout': KeuzelijstWaarde(invulwaarde='hout',

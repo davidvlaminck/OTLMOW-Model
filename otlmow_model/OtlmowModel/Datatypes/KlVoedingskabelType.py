@@ -10,6 +10,7 @@ class KlVoedingskabelType(KeuzelijstField):
     label = 'Voedingskabel types'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVoedingskabelType'
     definition = 'Lijst met types voor energie- en installatiekabels volgens de gebruikte materialen zoals opgenomen in het Standaarbestek 270.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVoedingskabelType'
     options = {
         'eaxecwb': KeuzelijstWaarde(invulwaarde='eaxecwb',

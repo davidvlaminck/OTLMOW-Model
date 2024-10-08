@@ -10,6 +10,7 @@ class KlVriLusFunctie(KeuzelijstField):
     label = 'VRI-lus functie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVriLusFunctie'
     definition = 'Keuzelijst met verschillende types detectielussen naar functie.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVriLusFunctie'
     options = {
         'KAR-inmeldlus': KeuzelijstWaarde(invulwaarde='KAR-inmeldlus',

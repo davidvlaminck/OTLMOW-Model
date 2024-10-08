@@ -10,6 +10,7 @@ class KlBeheerExoten(KeuzelijstField):
     label = 'Beheer exoten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBeheerExoten'
     definition = 'Behandelingswijzen van exoten.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeheerExoten'
     options = {
         'afbakenen': KeuzelijstWaarde(invulwaarde='afbakenen',

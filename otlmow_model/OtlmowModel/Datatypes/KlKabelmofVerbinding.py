@@ -10,6 +10,7 @@ class KlKabelmofVerbinding(KeuzelijstField):
     label = 'Kabelmof verbindingtypes'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKabelmofVerbinding'
     definition = 'Lijst van mogelijke types van verbindigen die een kabelmof kan realiseren.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelmofVerbinding'
     options = {
         'doorverbinding': KeuzelijstWaarde(invulwaarde='doorverbinding',

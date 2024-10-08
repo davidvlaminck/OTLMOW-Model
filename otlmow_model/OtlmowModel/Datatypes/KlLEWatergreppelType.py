@@ -10,6 +10,7 @@ class KlLEWatergreppelType(KeuzelijstField):
     label = 'Watergreppel type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEWatergreppelType'
     definition = 'Types van watergreppel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEWatergreppelType'
     options = {
         'type-II-A-2': KeuzelijstWaarde(invulwaarde='type-II-A-2',

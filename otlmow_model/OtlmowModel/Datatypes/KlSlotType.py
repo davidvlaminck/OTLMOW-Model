@@ -10,6 +10,7 @@ class KlSlotType(KeuzelijstField):
     label = 'Slot type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSlotType'
     definition = 'Keuzelijst voor de types sloten volgens de gebruikte uitvoering.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSlotType'
     options = {
         'hangslot': KeuzelijstWaarde(invulwaarde='hangslot',

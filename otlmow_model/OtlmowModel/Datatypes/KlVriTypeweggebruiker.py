@@ -10,6 +10,7 @@ class KlVriTypeweggebruiker(KeuzelijstField):
     label = 'VRI detector typeweggebruiker'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlVriTypeweggebruiker'
     definition = 'Lijst met types van weggebruikers.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVriTypeweggebruiker'
     options = {
         'bus': KeuzelijstWaarde(invulwaarde='bus',

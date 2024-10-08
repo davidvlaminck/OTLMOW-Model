@@ -10,6 +10,7 @@ class KlElektromotorBouwvorm(KeuzelijstField):
     label = 'Elektromotor bouwvorm'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlElektromotorBouwvorm'
     definition = 'Keuzelijst voor de bouwvorm van een elektromotor volgens de IM-code (International Mounting).'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElektromotorBouwvorm'
     options = {
         'im-b14---im-3601': KeuzelijstWaarde(invulwaarde='im-b14---im-3601',

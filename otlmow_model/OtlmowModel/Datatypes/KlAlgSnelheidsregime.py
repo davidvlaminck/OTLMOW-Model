@@ -10,6 +10,7 @@ class KlAlgSnelheidsregime(KeuzelijstField):
     label = 'Snelheidsregime'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAlgSnelheidsregime'
     definition = 'De snelheidsregimes met variabele mogelijkeid.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgSnelheidsregime'
     options = {
         '100': KeuzelijstWaarde(invulwaarde='100',

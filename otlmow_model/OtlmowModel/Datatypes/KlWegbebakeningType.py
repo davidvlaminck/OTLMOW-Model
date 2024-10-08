@@ -10,6 +10,7 @@ class KlWegbebakeningType(KeuzelijstField):
     label = 'Wegbebakening type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWegbebakeningType'
     definition = 'De vormen van wegbebakening.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegbebakeningType'
     options = {
         'type-1-(new-jersey-reclip)': KeuzelijstWaarde(invulwaarde='type-1-(new-jersey-reclip)',

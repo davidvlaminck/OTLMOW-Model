@@ -10,6 +10,7 @@ class KlStraatkolkBakType(KeuzelijstField):
     label = 'Straatkolk bak type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStraatkolkBakType'
     definition = 'Het type van bak van de straatkolk.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStraatkolkBakType'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

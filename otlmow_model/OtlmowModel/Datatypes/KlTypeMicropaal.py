@@ -10,6 +10,7 @@ class KlTypeMicropaal(KeuzelijstField):
     label = 'Type micropaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeMicropaal'
     definition = 'De soort van de micropaal.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeMicropaal'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

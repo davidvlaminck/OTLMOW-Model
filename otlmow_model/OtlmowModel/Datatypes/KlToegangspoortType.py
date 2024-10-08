@@ -10,6 +10,7 @@ class KlToegangspoortType(KeuzelijstField):
     label = 'Toegangspoort type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlToegangspoortType'
     definition = 'Lijst met types voor toegangspoorten volgens de manier waarop de poort opent.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangspoortType'
     options = {
         'draaipoort': KeuzelijstWaarde(invulwaarde='draaipoort',

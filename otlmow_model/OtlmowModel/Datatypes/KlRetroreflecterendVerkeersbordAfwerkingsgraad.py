@@ -10,6 +10,7 @@ class KlRetroreflecterendVerkeersbordAfwerkingsgraad(KeuzelijstField):
     label = 'Keuzelijst afwerkingsgraad retroreflecterend verkeersbord'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRetroreflecterendVerkeersbordAfwerkingsgraad'
     definition = 'Keuzeopties om de afwerkingsgraad van een RetroreflecterendVerkeersbord aan te geven volgens SB250.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRetroreflecterendVerkeersbordAfwerkingsgraad'
     options = {
         'volledig-afgewerkt': KeuzelijstWaarde(invulwaarde='volledig-afgewerkt',

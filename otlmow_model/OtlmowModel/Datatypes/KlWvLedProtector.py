@@ -10,6 +10,7 @@ class KlWvLedProtector(KeuzelijstField):
     label = 'WV protector'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLedProtector'
     definition = "Type doorschijnende kap ter bescherming van de LED's (vlak glas, polycarbonaat,...)."
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedProtector'
     options = {
         'gebogen-glas': KeuzelijstWaarde(invulwaarde='gebogen-glas',

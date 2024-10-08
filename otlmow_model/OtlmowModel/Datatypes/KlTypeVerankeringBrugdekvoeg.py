@@ -10,6 +10,7 @@ class KlTypeVerankeringBrugdekvoeg(KeuzelijstField):
     label = 'Type verankering brugdekvoeg'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeVerankeringBrugdekvoeg'
     definition = 'Het type van de verankering van de brugdekvoeg.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeVerankeringBrugdekvoeg'
     options = {
         'type-2a': KeuzelijstWaarde(invulwaarde='type-2a',

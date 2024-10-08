@@ -10,6 +10,7 @@ class KlCBVOppervlaktebehandeling(KeuzelijstField):
     label = 'CBV oppervlaktebehandeling'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCBVOppervlaktebehandeling'
     definition = 'Oppervalktebehandelingen van de cement/beton verharding.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCBVOppervlaktebehandeling'
     options = {
         'Reinigen-met-water-onder-hoge-druk-(minstens-50-bar)-': KeuzelijstWaarde(invulwaarde='Reinigen-met-water-onder-hoge-druk-(minstens-50-bar)-',

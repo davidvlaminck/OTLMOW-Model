@@ -10,6 +10,7 @@ class KlContactpuntType(KeuzelijstField):
     label = 'Contactpunt type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlContactpuntType'
     definition = 'Keuzelijst voor types van deurcontacten volgens de gebruikte techniek.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlContactpuntType'
     options = {
         'deurcontact': KeuzelijstWaarde(invulwaarde='deurcontact',

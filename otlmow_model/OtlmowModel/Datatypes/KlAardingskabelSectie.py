@@ -10,6 +10,7 @@ class KlAardingskabelSectie(KeuzelijstField):
     label = 'Aardingskabel sectie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlAardingskabelSectie'
     definition = 'Lijst met mogelijke waarden voor de sectie van een aardingskabel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAardingskabelSectie'
     options = {
         '10-mm2': KeuzelijstWaarde(invulwaarde='10-mm2',

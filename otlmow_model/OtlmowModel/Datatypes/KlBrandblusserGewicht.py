@@ -10,6 +10,7 @@ class KlBrandblusserGewicht(KeuzelijstField):
     label = 'Brandblusser gewicht'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBrandblusserGewicht'
     definition = 'Keuzelijst met de mogelijke gewichten van brandblussers.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBrandblusserGewicht'
     options = {
         '6-kg': KeuzelijstWaarde(invulwaarde='6-kg',

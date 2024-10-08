@@ -10,6 +10,7 @@ class KlWvLichtmastArmlengte(KeuzelijstField):
     label = 'WV-mast armlengte'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLichtmastArmlengte'
     definition = 'Lengte van de arm van de lichtmast in meter.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLichtmastArmlengte'
     options = {
         '1.5': KeuzelijstWaarde(invulwaarde='1.5',

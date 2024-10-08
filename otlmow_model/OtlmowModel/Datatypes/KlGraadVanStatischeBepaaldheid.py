@@ -10,6 +10,7 @@ class KlGraadVanStatischeBepaaldheid(KeuzelijstField):
     label = 'Graad van statische bepaaldheid'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlGraadVanStatischeBepaaldheid'
     definition = 'De statische bepaaldheid van het brugdeel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGraadVanStatischeBepaaldheid'
     options = {
         'hyperstatisch': KeuzelijstWaarde(invulwaarde='hyperstatisch',

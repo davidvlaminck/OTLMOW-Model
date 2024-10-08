@@ -10,6 +10,7 @@ class KlAanplantingswijzeSierbeplanting(KeuzelijstField):
     label = 'aanplantingswijze sierbeplanting'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAanplantingswijzeSierbeplanting'
     definition = 'De mogelijke manieren van aanplanten van sierbeplanting.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAanplantingswijzeSierbeplanting'
     options = {
         'aanplanting-bol--en-knolgewassen': KeuzelijstWaarde(invulwaarde='aanplanting-bol--en-knolgewassen',

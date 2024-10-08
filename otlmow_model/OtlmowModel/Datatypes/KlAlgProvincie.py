@@ -10,6 +10,7 @@ class KlAlgProvincie(KeuzelijstField):
     label = 'Provincie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlAlgProvincie'
     definition = 'Lijst van provincies in Vlaanderen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgProvincie'
     options = {
         'antwerpen': KeuzelijstWaarde(invulwaarde='antwerpen',

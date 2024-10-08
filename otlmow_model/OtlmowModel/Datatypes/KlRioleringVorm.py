@@ -10,6 +10,7 @@ class KlRioleringVorm(KeuzelijstField):
     label = 'Riolering vorm'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRioleringVorm'
     definition = 'Vormen van de riolering.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRioleringVorm'
     options = {
         'achthoekig': KeuzelijstWaarde(invulwaarde='achthoekig',

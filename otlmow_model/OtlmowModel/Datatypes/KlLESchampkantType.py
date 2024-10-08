@@ -10,6 +10,7 @@ class KlLESchampkantType(KeuzelijstField):
     label = 'Schampkant type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLESchampkantType'
     definition = 'Types van de schampkant.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLESchampkantType'
     options = {
         'aanrijbescherming': KeuzelijstWaarde(invulwaarde='aanrijbescherming',

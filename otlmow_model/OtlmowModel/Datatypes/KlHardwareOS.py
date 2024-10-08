@@ -10,6 +10,7 @@ class KlHardwareOS(KeuzelijstField):
     label = 'Hardware OS'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlHardwareOS'
     definition = 'vb : Windows 10 SP1, Windows 10 SP2, unix.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHardwareOS'
     options = {
         'cent-os-linux-7-core': KeuzelijstWaarde(invulwaarde='cent-os-linux-7-core',

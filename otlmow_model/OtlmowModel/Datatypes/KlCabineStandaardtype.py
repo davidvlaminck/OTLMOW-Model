@@ -10,6 +10,7 @@ class KlCabineStandaardtype(KeuzelijstField):
     label = 'Cabine standaardtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCabineStandaardtype'
     definition = 'Veel voorkomende types van cabines.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCabineStandaardtype'
     options = {
         'aluminium-betreedbaar': KeuzelijstWaarde(invulwaarde='aluminium-betreedbaar',

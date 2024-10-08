@@ -10,6 +10,7 @@ class KlTerugslagklepType(KeuzelijstField):
     label = 'Terugslagklep type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTerugslagklepType'
     definition = 'Keuzelijst voor het bepalen van Types van terugslagklep.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTerugslagklepType'
     options = {
         'balkeerklep': KeuzelijstWaarde(invulwaarde='balkeerklep',

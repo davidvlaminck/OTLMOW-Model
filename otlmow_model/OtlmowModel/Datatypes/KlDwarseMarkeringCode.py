@@ -10,6 +10,7 @@ class KlDwarseMarkeringCode(KeuzelijstField):
     label = 'Dwarse markering code'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDwarseMarkeringCode'
     definition = 'Codes van de dwarse markering.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDwarseMarkeringCode'
     options = {
         'DAMBRD': KeuzelijstWaarde(invulwaarde='DAMBRD',

@@ -10,6 +10,7 @@ class KlMetselverband(KeuzelijstField):
     label = 'Metselverband'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMetselverband'
     definition = 'De rangschikking waarin stenen worden gemetseld.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMetselverband'
     options = {
         'engels-verband': KeuzelijstWaarde(invulwaarde='engels-verband',

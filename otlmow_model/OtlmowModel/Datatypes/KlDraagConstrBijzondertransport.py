@@ -10,6 +10,7 @@ class KlDraagConstrBijzondertransport(KeuzelijstField):
     label = 'Draagconstructie bijzonder transport'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlDraagConstrBijzondertransport'
     definition = 'De mogelijkheden en manieren waarop een steun geschikt is om bijzonder transport mogelijk te maken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDraagConstrBijzondertransport'
     options = {
         'afkoppelbaar': KeuzelijstWaarde(invulwaarde='afkoppelbaar',

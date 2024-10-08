@@ -10,6 +10,7 @@ class KlBeheerSierbeplanting(KeuzelijstField):
     label = 'Beheer sierbeplanting'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBeheerSierbeplanting'
     definition = 'Verschillende mogelijke beheeropties bij sierbeplanting.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeheerSierbeplanting'
     options = {
         'bodemafdekking-boomschors': KeuzelijstWaarde(invulwaarde='bodemafdekking-boomschors',

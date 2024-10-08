@@ -10,6 +10,7 @@ class KlUitvoeringsmethode(KeuzelijstField):
     label = 'Uitvoeringsmethode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlUitvoeringsmethode'
     definition = 'Manier van uitvoeren en aanbrengen van beton.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUitvoeringsmethode'
     options = {
         'geprefabriceerd': KeuzelijstWaarde(invulwaarde='geprefabriceerd',

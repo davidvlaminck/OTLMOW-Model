@@ -10,6 +10,7 @@ class KlKabelLeidingBescherming(KeuzelijstField):
     label = 'Kabels en Leidingen bescherming'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKabelLeidingBescherming'
     definition = 'Lijst met mogelijke types bijkomende mechanische bescherming van kabels of leidingen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelLeidingBescherming'
     options = {
         'kabeldekband': KeuzelijstWaarde(invulwaarde='kabeldekband',

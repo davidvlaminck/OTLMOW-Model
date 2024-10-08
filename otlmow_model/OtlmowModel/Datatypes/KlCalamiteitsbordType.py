@@ -10,6 +10,7 @@ class KlCalamiteitsbordType(KeuzelijstField):
     label = 'Calamiteitsbord type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlCalamiteitsbordType'
     definition = 'Types van calamiteitsbord.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCalamiteitsbordType'
     options = {
         'draaiend-bord': KeuzelijstWaarde(invulwaarde='draaiend-bord',

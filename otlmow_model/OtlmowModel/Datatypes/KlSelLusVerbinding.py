@@ -10,6 +10,7 @@ class KlSelLusVerbinding(KeuzelijstField):
     label = 'Selectieve lus verbinding'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSelLusVerbinding'
     definition = 'Keuzelijst met soorten verbindingen voor selectieve lussen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSelLusVerbinding'
     options = {
         'contact': KeuzelijstWaarde(invulwaarde='contact',

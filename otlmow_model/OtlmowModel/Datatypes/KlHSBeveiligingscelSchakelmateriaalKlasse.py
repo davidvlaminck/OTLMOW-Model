@@ -10,6 +10,7 @@ class KlHSBeveiligingscelSchakelmateriaalKlasse(KeuzelijstField):
     label = 'HS-beveiligingscel schakelmateriaal klasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlHSBeveiligingscelSchakelmateriaalKlasse'
     definition = 'Klasse van het schakelmateriaal volgens Synergrid.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHSBeveiligingscelSchakelmateriaalKlasse'
     options = {
         'AA10': KeuzelijstWaarde(invulwaarde='AA10',

@@ -10,6 +10,7 @@ class KlTypeBalk(KeuzelijstField):
     label = 'Type balk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeBalk'
     definition = 'De soort balk.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBalk'
     options = {
         'balk-ligger': KeuzelijstWaarde(invulwaarde='balk-ligger',

@@ -10,6 +10,7 @@ class KlWindmeterModelnaam(KeuzelijstField):
     label = 'Windmeter modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWindmeterModelnaam'
     definition = 'Windmeter modelnamen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWindmeterModelnaam'
     options = {
         'wmt700': KeuzelijstWaarde(invulwaarde='wmt700',

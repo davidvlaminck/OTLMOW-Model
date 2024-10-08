@@ -10,6 +10,7 @@ class KlRioleringStelsel(KeuzelijstField):
     label = 'Riolering stelsel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRioleringStelsel'
     definition = 'Stelsels van de riool.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRioleringStelsel'
     options = {
         'drain': KeuzelijstWaarde(invulwaarde='drain',

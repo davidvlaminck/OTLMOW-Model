@@ -10,6 +10,7 @@ class KlLichtmastLeverancier(KeuzelijstField):
     label = 'Lichtmast leverancier'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLichtmastLeverancier'
     definition = 'Lijst van mogelijke leveranciers van lichtmasten.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtmastLeverancier'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

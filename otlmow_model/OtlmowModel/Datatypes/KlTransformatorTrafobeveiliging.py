@@ -10,6 +10,7 @@ class KlTransformatorTrafobeveiliging(KeuzelijstField):
     label = 'Transformator trafobeveiliging'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTransformatorTrafobeveiliging'
     definition = 'Type transformatorbeveiliging.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTransformatorTrafobeveiliging'
     options = {
         'gecombineerd': KeuzelijstWaarde(invulwaarde='gecombineerd',

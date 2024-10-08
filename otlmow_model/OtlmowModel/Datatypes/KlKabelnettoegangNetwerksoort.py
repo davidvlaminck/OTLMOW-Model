@@ -10,6 +10,7 @@ class KlKabelnettoegangNetwerksoort(KeuzelijstField):
     label = 'Kabelnet toegang netwerksoort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKabelnettoegangNetwerksoort'
     definition = 'Lijst van netwerktypes die bereikbaar is via het kabelnet toegangspunt.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelnettoegangNetwerksoort'
     options = {
         'Cu': KeuzelijstWaarde(invulwaarde='Cu',

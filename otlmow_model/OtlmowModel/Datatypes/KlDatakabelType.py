@@ -10,6 +10,7 @@ class KlDatakabelType(KeuzelijstField):
     label = 'Datakabel types'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDatakabelType'
     definition = 'Lijst van types voor datakabels volgens hun constructieve kenmerken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDatakabelType'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

@@ -10,6 +10,7 @@ class KlZijdenType(KeuzelijstField):
     label = 'Zijden type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlZijdenType'
     definition = 'Het type van de zijden.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZijdenType'
     options = {
         'gebogen': KeuzelijstWaarde(invulwaarde='gebogen',

@@ -10,6 +10,7 @@ class KlEnergiemeterMetertype(KeuzelijstField):
     label = 'Elektrisch metertype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlEnergiemeterMetertype'
     definition = 'Type meter (mechanisch, elektronisch).'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEnergiemeterMetertype'
     options = {
         'elektronisch': KeuzelijstWaarde(invulwaarde='elektronisch',

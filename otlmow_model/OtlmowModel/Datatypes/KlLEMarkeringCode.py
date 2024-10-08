@@ -10,6 +10,7 @@ class KlLEMarkeringCode(KeuzelijstField):
     label = 'Markering code'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEMarkeringCode'
     definition = 'Codes van de markering op lijnvormige elementen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEMarkeringCode'
     options = {
         'DIV-BIG': KeuzelijstWaarde(invulwaarde='DIV-BIG',

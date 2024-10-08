@@ -10,6 +10,7 @@ class KlGrachtdoorsnede(KeuzelijstField):
     label = 'Grachtdoorsnede'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGrachtdoorsnede'
     definition = 'De mogelijke doorsnedes van de gracht.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrachtdoorsnede'
     options = {
         'groter-dan-1-5-m': KeuzelijstWaarde(invulwaarde='groter-dan-1-5-m',

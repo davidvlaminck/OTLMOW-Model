@@ -10,6 +10,7 @@ class KlEcoPoorttype(KeuzelijstField):
     label = 'Poorttype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlEcoPoorttype'
     definition = 'Types van de poort.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoPoorttype'
     options = {
         'dubbel': KeuzelijstWaarde(invulwaarde='dubbel',

@@ -10,6 +10,7 @@ class KlLEStandaardFabricageLengte(KeuzelijstField):
     label = 'Standaard frabricage lengte'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEStandaardFabricageLengte'
     definition = 'De lengte van de inviduele kantopsluiting volgens de norm.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEStandaardFabricageLengte'
     options = {
         '0.5-m': KeuzelijstWaarde(invulwaarde='0.5-m',

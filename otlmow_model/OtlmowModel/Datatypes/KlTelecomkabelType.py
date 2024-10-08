@@ -10,6 +10,7 @@ class KlTelecomkabelType(KeuzelijstField):
     label = 'Telecom- en datakabel types'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTelecomkabelType'
     definition = 'Lijst van types voor datakabels en telefoniekabels volgens hun constructieve kenmerken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTelecomkabelType'
     options = {
         'alu-pet': KeuzelijstWaarde(invulwaarde='alu-pet',

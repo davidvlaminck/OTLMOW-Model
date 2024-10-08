@@ -10,6 +10,7 @@ class KlDivergentiepuntbebakeningselementType(KeuzelijstField):
     label = 'Divergentiepuntbebakeningselementtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDivergentiepuntbebakeningselementType'
     definition = 'De vormen van het divergentiepuntbebakeningselement.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDivergentiepuntbebakeningselementType'
     options = {
         'klein-model': KeuzelijstWaarde(invulwaarde='klein-model',

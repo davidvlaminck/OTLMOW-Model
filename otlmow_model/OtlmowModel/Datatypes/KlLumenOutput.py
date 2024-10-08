@@ -10,6 +10,7 @@ class KlLumenOutput(KeuzelijstField):
     label = 'Lumen output'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLumenOutput'
     definition = 'Mogelijke waarden uitgedrukt in Lumens.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLumenOutput'
     options = {
         '1000': KeuzelijstWaarde(invulwaarde='1000',

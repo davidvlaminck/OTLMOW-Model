@@ -10,6 +10,7 @@ class KlMeetcelNauwkeurigheidsklasse(KeuzelijstField):
     label = 'Meetcel nauwkeurigheidsklasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMeetcelNauwkeurigheidsklasse'
     definition = 'Nauwkeurigheidsklasse van de meetcel (vb 0,2; 0,2s; 0,5; ...).'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMeetcelNauwkeurigheidsklasse'
     options = {
         '0.2': KeuzelijstWaarde(invulwaarde='0.2',

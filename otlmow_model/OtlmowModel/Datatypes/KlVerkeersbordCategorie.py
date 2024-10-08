@@ -10,6 +10,7 @@ class KlVerkeersbordCategorie(KeuzelijstField):
     label = 'Verkeersbord categorie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersbordCategorie'
     definition = 'Klassen van een verkeersbord.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersbordCategorie'
     options = {
         'aanwijzingsborden': KeuzelijstWaarde(invulwaarde='aanwijzingsborden',

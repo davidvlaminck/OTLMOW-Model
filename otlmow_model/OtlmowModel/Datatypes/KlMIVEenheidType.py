@@ -10,6 +10,7 @@ class KlMIVEenheidType(KeuzelijstField):
     label = 'MIV eenheid type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlMIVEenheidType'
     definition = 'Mogelijke opties van eenheid types/'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMIVEenheidType'
     options = {
         'compact': KeuzelijstWaarde(invulwaarde='compact',

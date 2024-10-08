@@ -10,6 +10,7 @@ class KlNetwerklinkMediumtype(KeuzelijstField):
     label = 'Netwerklink mediumtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerklinkMediumtype'
     definition = 'Mogelijke waarden voor het type drager waarlangs data door de link getransporteerd wordt.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerklinkMediumtype'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

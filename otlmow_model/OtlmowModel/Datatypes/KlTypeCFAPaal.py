@@ -10,6 +10,7 @@ class KlTypeCFAPaal(KeuzelijstField):
     label = 'Type CFA-paal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeCFAPaal'
     definition = 'De soort van de CFA-paal.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeCFAPaal'
     options = {
         'met-beperkte-grondverdringing-beperkte-grondontspanning': KeuzelijstWaarde(invulwaarde='met-beperkte-grondverdringing-beperkte-grondontspanning',

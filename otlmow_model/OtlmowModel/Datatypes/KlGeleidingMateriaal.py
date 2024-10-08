@@ -10,6 +10,7 @@ class KlGeleidingMateriaal(KeuzelijstField):
     label = 'Geleiding materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGeleidingMateriaal'
     definition = 'Materialen voor de geleidingwand om kleinere wilde dieren te geleiden.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGeleidingMateriaal'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

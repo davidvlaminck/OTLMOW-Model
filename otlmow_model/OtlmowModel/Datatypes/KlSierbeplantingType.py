@@ -10,6 +10,7 @@ class KlSierbeplantingType(KeuzelijstField):
     label = 'Sierbeplanting type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSierbeplantingType'
     definition = 'Verschillende types van sierbeplanting.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSierbeplantingType'
     options = {
         'bodembedekkers': KeuzelijstWaarde(invulwaarde='bodembedekkers',

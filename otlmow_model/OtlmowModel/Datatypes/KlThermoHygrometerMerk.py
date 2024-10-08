@@ -10,6 +10,7 @@ class KlThermoHygrometerMerk(KeuzelijstField):
     label = 'Thermo- hygrometer merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlThermoHygrometerMerk'
     definition = 'Thermo- hygrometer merken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlThermoHygrometerMerk'
     options = {
         'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',

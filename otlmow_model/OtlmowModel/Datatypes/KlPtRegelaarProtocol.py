@@ -10,6 +10,7 @@ class KlPtRegelaarProtocol(KeuzelijstField):
     label = 'PT-regelaar protocol'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPtRegelaarProtocol'
     definition = 'Beschrijft het protocol waarmee de PT-regelaar communiceert.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPtRegelaarProtocol'
     options = {
         'R0916': KeuzelijstWaarde(invulwaarde='R0916',

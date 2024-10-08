@@ -10,6 +10,7 @@ class KlOmvormerMerk(KeuzelijstField):
     label = 'Omvormer merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOmvormerMerk'
     definition = 'Het merk van de omvormer.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOmvormerMerk'
     options = {
         'axis': KeuzelijstWaarde(invulwaarde='axis',

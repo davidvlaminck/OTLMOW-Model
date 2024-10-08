@@ -10,6 +10,7 @@ class KlDraineerbuisMateriaal(KeuzelijstField):
     label = 'Draineerbuis materiaal'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDraineerbuisMateriaal'
     definition = 'Materialen van de draineerbuis.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDraineerbuisMateriaal'
     options = {
         'draineerbuizen-van-beton-volgens-3-26.1.5': KeuzelijstWaarde(invulwaarde='draineerbuizen-van-beton-volgens-3-26.1.5',

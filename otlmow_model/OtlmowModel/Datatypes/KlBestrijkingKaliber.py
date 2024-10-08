@@ -10,6 +10,7 @@ class KlBestrijkingKaliber(KeuzelijstField):
     label = 'kalibers'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBestrijkingKaliber'
     definition = 'De mogelijke kalibers.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestrijkingKaliber'
     options = {
         '2-10': KeuzelijstWaarde(invulwaarde='2-10',

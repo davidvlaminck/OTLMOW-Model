@@ -10,6 +10,7 @@ class KlVerkeersregelaarModelnaam(KeuzelijstField):
     label = 'verkeersregelaar modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersregelaarModelnaam'
     definition = 'Keuzelijst met modelnamen voor Verkeersregelaar.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersregelaarModelnaam'
     options = {
         'c9': KeuzelijstWaarde(invulwaarde='c9',

@@ -10,6 +10,7 @@ class KlDunneOverlagingType(KeuzelijstField):
     label = 'Dunne overlaging type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDunneOverlagingType'
     definition = 'Types van dunne overlaging.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDunneOverlagingType'
     options = {
         'SME-D1': KeuzelijstWaarde(invulwaarde='SME-D1',

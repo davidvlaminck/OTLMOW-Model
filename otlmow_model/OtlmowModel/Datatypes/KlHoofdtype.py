@@ -10,6 +10,7 @@ class KlHoofdtype(KeuzelijstField):
     label = 'Hoofdtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlHoofdtype'
     definition = 'De mogelijke types hoofd van een constructiehoofd.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHoofdtype'
     options = {
         '(afwaarts)benedenhoofd': KeuzelijstWaarde(invulwaarde='(afwaarts)benedenhoofd',

@@ -10,6 +10,7 @@ class KlLEACWerkingsbreedte(KeuzelijstField):
     label = 'Werkingsbreedte'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEACWerkingsbreedte'
     definition = 'De verschillende mogelijke werkingsbreedtes.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACWerkingsbreedte'
     options = {
         'W1': KeuzelijstWaarde(invulwaarde='W1',

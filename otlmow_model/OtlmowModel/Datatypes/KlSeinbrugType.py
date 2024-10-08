@@ -10,6 +10,7 @@ class KlSeinbrugType(KeuzelijstField):
     label = 'Seinbrug type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSeinbrugType'
     definition = 'Types van seinbrug.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSeinbrugType'
     options = {
         'dubbeleligger': KeuzelijstWaarde(invulwaarde='dubbeleligger',

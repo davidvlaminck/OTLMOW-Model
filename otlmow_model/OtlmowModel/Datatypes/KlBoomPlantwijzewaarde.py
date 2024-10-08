@@ -10,6 +10,7 @@ class KlBoomPlantwijzewaarde(KeuzelijstField):
     label = 'Boom plantwijzewaarde'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBoomPlantwijzewaarde'
     definition = 'De verschillende opties van de plantwijzewaarde.'
+    status = 'ingebruik'
     deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomPlantwijzewaarde'
     options = {

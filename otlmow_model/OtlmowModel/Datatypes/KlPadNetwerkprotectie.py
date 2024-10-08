@@ -10,6 +10,7 @@ class KlPadNetwerkprotectie(KeuzelijstField):
     label = 'Pad netwerkprotectie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlPadNetwerkprotectie'
     definition = 'Lijst van referenties van paden die redundantie kunnen leveren aan een Pad.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPadNetwerkprotectie'
     options = {
         'Customer': KeuzelijstWaarde(invulwaarde='Customer',

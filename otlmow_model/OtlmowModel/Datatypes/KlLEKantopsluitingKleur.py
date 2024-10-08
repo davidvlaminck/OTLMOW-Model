@@ -10,6 +10,7 @@ class KlLEKantopsluitingKleur(KeuzelijstField):
     label = 'Kantopsluiting kleur'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLEKantopsluitingKleur'
     definition = 'De kleur van de kantopsluiting.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEKantopsluitingKleur'
     options = {
         'gekleurd': KeuzelijstWaarde(invulwaarde='gekleurd',

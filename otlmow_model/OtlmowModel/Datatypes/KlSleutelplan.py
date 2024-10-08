@@ -10,6 +10,7 @@ class KlSleutelplan(KeuzelijstField):
     label = 'Sleutelplan'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSleutelplan'
     definition = 'Een keuzelijst met verschillende types van sleutel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSleutelplan'
     options = {
         'dender': KeuzelijstWaarde(invulwaarde='dender',

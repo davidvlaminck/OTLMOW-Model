@@ -10,6 +10,7 @@ class KlGCMeetMethode(KeuzelijstField):
     label = 'Meet methode'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlGCMeetMethode'
     definition = 'Locaties van de geluidstestproef.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGCMeetMethode'
     options = {
         'inSitu': KeuzelijstWaarde(invulwaarde='inSitu',

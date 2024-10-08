@@ -10,6 +10,7 @@ class KlNeerslagsensorModelnaam(KeuzelijstField):
     label = 'Neerslagsensor modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNeerslagsensorModelnaam'
     definition = 'De modelnaam van de neerslagsensor.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNeerslagsensorModelnaam'
     options = {
         'WS100': KeuzelijstWaarde(invulwaarde='WS100',

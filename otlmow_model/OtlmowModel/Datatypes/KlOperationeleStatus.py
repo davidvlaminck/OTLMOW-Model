@@ -10,6 +10,7 @@ class KlOperationeleStatus(KeuzelijstField):
     label = 'Keuzelijst operationele status'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOperationeleStatus'
     definition = 'Operationele status codes.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOperationeleStatus'
     options = {
         'actief': KeuzelijstWaarde(invulwaarde='actief',

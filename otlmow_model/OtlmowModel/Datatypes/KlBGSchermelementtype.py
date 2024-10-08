@@ -10,6 +10,7 @@ class KlBGSchermelementtype(KeuzelijstField):
     label = 'Bijzonder geluidsschermelementtype'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBGSchermelementtype'
     definition = 'Het type bijzonder-schermelement.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBGSchermelementtype'
     options = {
         'bloembakelement': KeuzelijstWaarde(invulwaarde='bloembakelement',

@@ -10,6 +10,7 @@ class KlTypeWand(KeuzelijstField):
     label = 'Type wand'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeWand'
     definition = 'De functie die de wand uitoefent.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeWand'
     options = {
         'binnenwand': KeuzelijstWaarde(invulwaarde='binnenwand',

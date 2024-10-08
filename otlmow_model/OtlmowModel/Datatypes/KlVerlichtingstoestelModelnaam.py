@@ -10,6 +10,7 @@ class KlVerlichtingstoestelModelnaam(KeuzelijstField):
     label = 'Verlichtingstoestel modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlVerlichtingstoestelModelnaam'
     definition = 'De modelnaam van het verlichtingstoestel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerlichtingstoestelModelnaam'
     options = {
         'ARC': KeuzelijstWaarde(invulwaarde='ARC',

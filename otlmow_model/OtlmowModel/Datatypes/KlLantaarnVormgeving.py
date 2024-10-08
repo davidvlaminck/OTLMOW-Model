@@ -10,6 +10,7 @@ class KlLantaarnVormgeving(KeuzelijstField):
     label = 'Lantaarn vormgeving'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlLantaarnVormgeving'
     definition = 'Keuzelijst met verschillende types vormgeving voor een seinlantaarn.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLantaarnVormgeving'
     options = {
         'bijzondere-esthetische-vormgeving': KeuzelijstWaarde(invulwaarde='bijzondere-esthetische-vormgeving',

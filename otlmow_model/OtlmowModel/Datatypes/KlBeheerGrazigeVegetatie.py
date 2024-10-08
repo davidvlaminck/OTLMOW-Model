@@ -10,6 +10,7 @@ class KlBeheerGrazigeVegetatie(KeuzelijstField):
     label = 'Beheer grazige vegetatie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBeheerGrazigeVegetatie'
     definition = 'De verschillende soorten van beheer voor grazige vegetatie.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeheerGrazigeVegetatie'
     options = {
         'afboorden': KeuzelijstWaarde(invulwaarde='afboorden',

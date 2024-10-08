@@ -10,6 +10,7 @@ class KlVerkeersspiegelVorm(KeuzelijstField):
     label = 'Verkeersspiegel vorm'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersspiegelVorm'
     definition = 'De vormen van een verkeersspiegel.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersspiegelVorm'
     options = {
         'rechthoekig': KeuzelijstWaarde(invulwaarde='rechthoekig',

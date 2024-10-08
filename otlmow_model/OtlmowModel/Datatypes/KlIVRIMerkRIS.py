@@ -10,6 +10,7 @@ class KlIVRIMerkRIS(KeuzelijstField):
     label = 'iVRIMerkRIS'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIVRIMerkRIS'
     definition = 'Het merk van de RIS.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIMerkRIS'
     options = {
         'peek': KeuzelijstWaarde(invulwaarde='peek',

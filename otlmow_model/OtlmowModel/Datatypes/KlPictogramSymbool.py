@@ -10,6 +10,7 @@ class KlPictogramSymbool(KeuzelijstField):
     label = 'Pictogram symbool'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlPictogramSymbool'
     definition = 'De mogelijke symbolen op het pictogram.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPictogramSymbool'
     options = {
         'halte': KeuzelijstWaarde(invulwaarde='halte',

@@ -10,6 +10,7 @@ class KlAardingsInstallatieType(KeuzelijstField):
     label = 'Type van aardingsinstallatie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlAardingsInstallatieType'
     definition = 'Een keuzelijst waarin aangeduid kan worden over welke aardingsinstallatietype het gaat.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAardingsInstallatieType'
     options = {
         'hoogspanningsinstallatie': KeuzelijstWaarde(invulwaarde='hoogspanningsinstallatie',

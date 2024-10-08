@@ -10,6 +10,7 @@ class KlSleufUitvoering(KeuzelijstField):
     label = 'Sleuf uitvoering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSleufUitvoering'
     definition = 'Uitvoeringen van de sleuf.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSleufUitvoering'
     options = {
         'beschoeide-sleuf': KeuzelijstWaarde(invulwaarde='beschoeide-sleuf',

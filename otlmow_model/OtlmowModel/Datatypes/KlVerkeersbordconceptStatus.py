@@ -10,6 +10,7 @@ class KlVerkeersbordconceptStatus(KeuzelijstField):
     label = 'VerkeersbordconceptStatus'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVerkeersbordconceptStatus'
     definition = 'Keuzelijst met waarden die aangeven of een verkeersbordconcept nog gebruikt wordt.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersbordconceptStatus'
     options = {
         'afgeschaft': KeuzelijstWaarde(invulwaarde='afgeschaft',

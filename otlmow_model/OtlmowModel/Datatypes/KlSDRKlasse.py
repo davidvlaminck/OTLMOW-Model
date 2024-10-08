@@ -10,6 +10,7 @@ class KlSDRKlasse(KeuzelijstField):
     label = 'SDR klasse'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSDRKlasse'
     definition = 'De verhouding tussen de wanddikte en de diameter van de persleiding.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSDRKlasse'
     options = {
         '11': KeuzelijstWaarde(invulwaarde='11',

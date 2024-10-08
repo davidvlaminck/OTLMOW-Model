@@ -10,6 +10,7 @@ class KlWetenschappelijkeSoortnaam(KeuzelijstField):
     label = 'Wetenschappelijke soortnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWetenschappelijkeSoortnaam'
     definition = 'De mogelijke wetenschappelijke soortnamen van de vegetatie.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWetenschappelijkeSoortnaam'
     options = {
         'abies-alba': KeuzelijstWaarde(invulwaarde='abies-alba',

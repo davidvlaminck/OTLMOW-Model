@@ -10,6 +10,7 @@ class KlIntercomUitvoering(KeuzelijstField):
     label = 'Intercom uitvoering'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIntercomUitvoering'
     definition = 'Keuzelijst met types voor intercomtoestellen naargelang hun functie in het gesloten netwerk'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIntercomUitvoering'
     options = {
         'antwoordpost': KeuzelijstWaarde(invulwaarde='antwoordpost',

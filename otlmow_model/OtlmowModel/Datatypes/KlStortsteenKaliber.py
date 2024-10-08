@@ -10,6 +10,7 @@ class KlStortsteenKaliber(KeuzelijstField):
     label = 'Stortsteen kaliber'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlStortsteenKaliber'
     definition = 'Mogelijke kalibers van stortsteen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStortsteenKaliber'
     options = {
         'CP-90-180A': KeuzelijstWaarde(invulwaarde='CP-90-180A',

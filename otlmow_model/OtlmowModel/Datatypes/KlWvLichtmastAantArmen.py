@@ -10,6 +10,7 @@ class KlWvLichtmastAantArmen(KeuzelijstField):
     label = 'WV-mast aantal armen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWvLichtmastAantArmen'
     definition = 'Aantal armen van de lichtmast.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLichtmastAantArmen'
     options = {
         '0': KeuzelijstWaarde(invulwaarde='0',

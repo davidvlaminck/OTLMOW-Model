@@ -10,6 +10,7 @@ class KlBestratingselementAfmetingLxB(KeuzelijstField):
     label = 'Afmeting bestratingselement lengte x breedte'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBestratingselementAfmetingLxB'
     definition = 'De afmetingen of aanduidingen voor bestrating van betonstraatstenen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestratingselementAfmetingLxB'
     options = {
         '1000-x-1000': KeuzelijstWaarde(invulwaarde='1000-x-1000',

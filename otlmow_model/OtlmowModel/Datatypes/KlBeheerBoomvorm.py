@@ -10,6 +10,7 @@ class KlBeheerBoomvorm(KeuzelijstField):
     label = 'Beheer boomvorm'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBeheerBoomvorm'
     definition = 'Behandelingswijzen van bomen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeheerBoomvorm'
     options = {
         'aanpassen-beschermingselementen-tegen-vraatschade': KeuzelijstWaarde(invulwaarde='aanpassen-beschermingselementen-tegen-vraatschade',

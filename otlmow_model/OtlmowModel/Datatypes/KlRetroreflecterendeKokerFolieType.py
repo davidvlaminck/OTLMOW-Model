@@ -10,6 +10,7 @@ class KlRetroreflecterendeKokerFolieType(KeuzelijstField):
     label = 'Retroreflecterende koker folie type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRetroreflecterendeKokerFolieType'
     definition = 'Keuzeijst voor het bepalen van folietype van de retroreflecterende koker.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRetroreflecterendeKokerFolieType'
     options = {
         'type-2': KeuzelijstWaarde(invulwaarde='type-2',

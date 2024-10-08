@@ -10,6 +10,7 @@ class KlRoosterOpeningswijze(KeuzelijstField):
     label = 'Rooster openingswijze'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRoosterOpeningswijze'
     definition = 'Deze keuzelijst geeft de manier aan hoe het rooster geopend kan worden.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRoosterOpeningswijze'
     options = {
         'ovaal-deksel': KeuzelijstWaarde(invulwaarde='ovaal-deksel',

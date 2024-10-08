@@ -10,6 +10,7 @@ class KlVoedingskabelAdersEnSectie(KeuzelijstField):
     label = 'Voedingskabel aders en sectie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlVoedingskabelAdersEnSectie'
     definition = 'Lijst van mogelijke waarden volgens de catalogusposten van het standaardbestek voor de samenstelling van een voedingskabel volgens het aantal aders en hun dikte in vierkante millimeter.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVoedingskabelAdersEnSectie'
     options = {
         '1-x-1.5-mm2': KeuzelijstWaarde(invulwaarde='1-x-1.5-mm2',

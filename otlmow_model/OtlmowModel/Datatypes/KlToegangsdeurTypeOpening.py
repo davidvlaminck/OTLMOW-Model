@@ -10,6 +10,7 @@ class KlToegangsdeurTypeOpening(KeuzelijstField):
     label = 'Toegangsdeur type opening'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlToegangsdeurTypeOpening'
     definition = 'De mogelijke openingtypes van de toegangsdeur.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangsdeurTypeOpening'
     options = {
         'binnendraaiend': KeuzelijstWaarde(invulwaarde='binnendraaiend',

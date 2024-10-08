@@ -10,6 +10,7 @@ class KlKleurReflector(KeuzelijstField):
     label = 'Kleur reflector'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlKleurReflector'
     definition = 'Kleuropties voor de reflector.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKleurReflector'
     options = {
         'amber': KeuzelijstWaarde(invulwaarde='amber',

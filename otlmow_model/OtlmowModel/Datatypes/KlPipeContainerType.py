@@ -10,6 +10,7 @@ class KlPipeContainerType(KeuzelijstField):
     label = 'Pipe container type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlPipeContainerType'
     definition = 'Lijst met types van pies voor het oude AKELA-type Pipe.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPipeContainerType'
     options = {
         'kabelenleidinggoot': KeuzelijstWaarde(invulwaarde='kabelenleidinggoot',

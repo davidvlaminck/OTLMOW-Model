@@ -10,6 +10,7 @@ class KlSteenslagType(KeuzelijstField):
     label = 'Steenslag type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlSteenslagType'
     definition = 'Steenslag types.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSteenslagType'
     options = {
         'type-IA': KeuzelijstWaarde(invulwaarde='type-IA',

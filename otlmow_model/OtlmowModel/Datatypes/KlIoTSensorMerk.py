@@ -10,6 +10,7 @@ class KlIoTSensorMerk(KeuzelijstField):
     label = 'IoT-sensor merk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlIoTSensorMerk'
     definition = 'IoT-senor merken.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIoTSensorMerk'
     options = {
         'com-sens': KeuzelijstWaarde(invulwaarde='com-sens',

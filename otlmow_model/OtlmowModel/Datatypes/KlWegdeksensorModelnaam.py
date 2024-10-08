@@ -10,6 +10,7 @@ class KlWegdeksensorModelnaam(KeuzelijstField):
     label = 'Wegdeksensor modelnaam'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlWegdeksensorModelnaam'
     definition = 'Wegdeksensor modelnamen.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegdeksensorModelnaam'
     options = {
         'drs511': KeuzelijstWaarde(invulwaarde='drs511',

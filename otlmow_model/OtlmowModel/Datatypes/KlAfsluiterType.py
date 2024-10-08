@@ -10,6 +10,7 @@ class KlAfsluiterType(KeuzelijstField):
     label = 'Afsluiter type'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAfsluiterType'
     definition = 'De types van de afsluiter.'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfsluiterType'
     options = {
         'steekschuif': KeuzelijstWaarde(invulwaarde='steekschuif',
