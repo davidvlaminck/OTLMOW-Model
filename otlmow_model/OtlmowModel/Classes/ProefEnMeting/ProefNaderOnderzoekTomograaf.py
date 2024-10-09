@@ -19,8 +19,8 @@ class ProefNaderOnderzoekTomograaf(Proef, PuntGeometrie, LijnGeometrie, VlakGeom
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom', deprecated='2.0.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom', direction='o', deprecated='2.0.0')  # o = direction: outgoing
 
         self._inclusiefElektrisch = OTLAttribuut(field=BooleanField,
                                                  naam='inclusiefElektrisch',

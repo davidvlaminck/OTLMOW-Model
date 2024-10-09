@@ -18,7 +18,7 @@ class Geleidingswand(Geleiding, LijnGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ecoraster')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ecoraster', direction='u')  # u = unidirectional
 
         self._hoogte = OTLAttribuut(field=KwantWrdInMillimeter,
                                     naam='hoogte',

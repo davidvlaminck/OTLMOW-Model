@@ -17,4 +17,4 @@ class ProefWerkingsbreedteGC(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie)
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie', deprecated='2.0.0')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie', direction='o', deprecated='2.0.0')  # o = direction: outgoing

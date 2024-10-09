@@ -15,7 +15,7 @@ class VerankeringsplaatMicropaal(AIMObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Micropaal')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Micropaal', direction='u')  # u = unidirectional
 
         self._afmetingen = OTLAttribuut(field=DtcAfmetingBxlxhInCm,
                                         naam='afmetingen',

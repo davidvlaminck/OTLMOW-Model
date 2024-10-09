@@ -171,7 +171,7 @@ class KlNetwerkelemModelnaam(KeuzelijstField):
         'Other': KeuzelijstWaarde(invulwaarde='Other',
                                   label='Other',
                                   status='ingebruik',
-                                  definitie='Other',
+                                  definitie='Deze optie mag uitsluitend TIJDELIJK worden gebruikt en enkel tot de juiste gegevens beschikbaar zijn. Misbruik van deze optie leidt tot verminderde datakwaliteit.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkelemModelnaam/Other'),
         'air': KeuzelijstWaarde(invulwaarde='air',
                                 label='AIR',

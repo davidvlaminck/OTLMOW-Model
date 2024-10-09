@@ -16,6 +16,8 @@ class Bijlage(AbstracteAanvullendeGeometrie, GeenGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject', direction='i')  # i = direction: incoming
+
         self._type = OTLAttribuut(field=KlBijlageType,
                                   naam='type',
                                   label='type',

@@ -15,7 +15,7 @@ from otlmow_model.OtlmowModel.Helpers.RelationValidator import is_valid_relation
 class A(RelationInteractor):
     def __init__(self):
         super().__init__()
-        self.add_valid_relation('', 'A')
+        self.add_valid_relation('', 'D')
 
 
 class C(PuntGeometrie):
@@ -26,7 +26,7 @@ class C(PuntGeometrie):
 class B(A, C):
     def __init__(self):
         super().__init__()
-        self.add_valid_relation('', 'B')
+        self.add_valid_relation('', 'E')
 
 
 def test_is_valid_relation():

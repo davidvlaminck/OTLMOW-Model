@@ -17,7 +17,7 @@ class Sierbeplanting(BegroeidVoorkomen, VlakGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerSierbeplanting')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerSierbeplanting', direction='o')  # o = direction: outgoing
 
         self._aanleg = OTLAttribuut(field=DtcSierbeplAanleg,
                                     naam='aanleg',

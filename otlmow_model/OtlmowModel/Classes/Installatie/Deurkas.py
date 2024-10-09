@@ -15,6 +15,8 @@ class Deurkas(UitsparingSluisdeur, AIMNaamObject):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElementSluisStuw', direction='i')  # i = direction: incoming
+
         self._afmetingen = OTLAttribuut(field=DtcAfmetingBxhInM,
                                         naam='afmetingen',
                                         label='afmetingen',

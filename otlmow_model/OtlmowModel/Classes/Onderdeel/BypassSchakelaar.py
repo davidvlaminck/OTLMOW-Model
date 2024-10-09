@@ -20,7 +20,7 @@ class BypassSchakelaar(ElektrischComponentennummerObject, SerienummerObject, AIM
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='u')  # u = unidirectional
 
         self._locatie = OTLAttribuut(field=KlBypassSchakelaarLocatie,
                                      naam='locatie',

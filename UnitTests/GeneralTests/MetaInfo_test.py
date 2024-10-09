@@ -13,7 +13,7 @@ def test_meta_info_on_deprecated_attribute():
     expected = """Showing metadata of deprecatedString:
 typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass.deprecatedString
 definition: Tekstveld dat niet meer gebruikt wordt
-deprecated since 2.0.0-RC3"""
+deprecated since 2.0.0"""
     assert result == expected
 
 
@@ -48,7 +48,7 @@ def test_meta_info_on_otl_object():
                '    assetId (type: DtcIdentificator)\n' \
                '    bestekPostNummer (type: String)\n' \
                '    datumOprichtingObject (type: Date)\n' \
-               '    deprecatedString (type: String) <deprecated since 2.0.0-RC3>\n' \
+               '    deprecatedString (type: String) <deprecated since 2.0.0>\n' \
                '    geometry (type: WKT)\n' \
                '    isActief (type: Boolean)\n' \
                '    notitie (type: String)\n' \
@@ -101,7 +101,7 @@ def test_meta_info_on_otl_attribute_Dtc():
     assert result2 == expected
 
 
-def test_meta_info_on_otl_attribute_Dtc_by_dotnotation():
+def test_meta_info_on_otl_attribute_Dtc_test():
     instance = AllCasesTestClass()
 
     result = meta_info(instance, attribute='testComplexType')
@@ -119,7 +119,7 @@ attributes:
     assert result == expected
 
 
-def test_meta_info_on_otl_attribute_in_Dtc_by_dotnotation():
+def test_meta_info_on_otl_attribute_Dtc_by_dotnotation():
     instance = AllCasesTestClass()
 
     result = meta_info(instance, attribute='testComplexType.testStringField')

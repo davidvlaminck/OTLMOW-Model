@@ -17,7 +17,7 @@ class ProefZichtbaarheidBijNachtNatWegdek(Proef, PuntGeometrie, LijnGeometrie, V
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering', direction='o')  # o = direction: outgoing
 
         self._retrotreflectiecoëfficiënt = OTLAttribuut(field=FloatOrDecimalField,
                                                         naam='retrotreflectiecoëfficiënt',
