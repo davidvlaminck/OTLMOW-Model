@@ -12,3 +12,5 @@ class AanvullendeMiddellijn(AbstracteAanvullendeGeometrie, LijnGeometrie):
 
     def __init__(self):
         super().__init__()
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Gracht', direction='i')  # i = direction: incoming

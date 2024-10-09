@@ -16,6 +16,8 @@ class Telecomkabel(Kabel):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#OmhullendeInrichting', direction='i')  # i = direction: incoming
+
         self._aantalAdersEnSectie = OTLAttribuut(field=KlTelecomkabelAdersEnSectie,
                                                  naam='aantalAdersEnSectie',
                                                  label='aantal aders en sectie',

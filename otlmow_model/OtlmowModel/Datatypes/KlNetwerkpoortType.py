@@ -26,7 +26,7 @@ class KlNetwerkpoortType(KeuzelijstField):
         'Other': KeuzelijstWaarde(invulwaarde='Other',
                                   label='Other',
                                   status='ingebruik',
-                                  definitie='Ander, onbekend type interface.',
+                                  definitie='Ander, onbekend type interface. Deze optie mag uitsluitend TIJDELIJK worden gebruikt en enkel tot de juiste gegevens beschikbaar zijn. Misbruik van deze optie leidt tot verminderde datakwaliteit.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortType/Other'),
         'UNI': KeuzelijstWaarde(invulwaarde='UNI',
                                 label='UNI',

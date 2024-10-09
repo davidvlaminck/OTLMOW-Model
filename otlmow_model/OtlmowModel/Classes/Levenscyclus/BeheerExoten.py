@@ -17,6 +17,9 @@ class BeheerExoten(AIMObject):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Exoten', direction='i', deprecated='2.1.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#InvasieveExoten', direction='i')  # i = direction: incoming
+
         self._beheeroptie = OTLAttribuut(field=KlBeheerExoten,
                                          naam='beheeroptie',
                                          label='beheeroptie',

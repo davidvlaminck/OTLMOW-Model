@@ -19,6 +19,8 @@ class Energiemeter(AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#MeteropnameEnergiemeter', direction='i')  # i = direction: incoming
+
         self._aantalTelwerken = OTLAttribuut(field=IntegerField,
                                              naam='aantalTelwerken',
                                              label='aantal telwerken',
