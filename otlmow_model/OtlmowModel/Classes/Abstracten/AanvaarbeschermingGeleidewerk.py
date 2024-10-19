@@ -5,8 +5,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class AanvaarbeschermingGeleidewerk(LijnGeometrie):
-    """Een abstracte om de relaties van aanvaarbescherming en geleidewerk te bundelen.
-"""
+    """Een abstracte om de relaties van aanvaarbescherming en geleidewerk te bundelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AanvaarbeschermingGeleidewerk'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

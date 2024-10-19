@@ -34,14 +34,14 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLObject, Relatio
                                      naam='bijlage',
                                      label='bijlage',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie.bijlage',
-                                     definition='Het document of artefact dat een geometrie heeft.',
+                                     definition='Het document of artefact dat een geometrie heeft of een bijlage is.',
                                      owner=self)
 
         self._naam = OTLAttribuut(field=StringField,
                                   naam='naam',
                                   label='naam',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie.naam',
-                                  definition='De mensleesbare naam van een aanvullende geometrie. De beheerder kent deze naam toe of geeft de opdracht om deze toe te kennen.',
+                                  definition='De mensleesbare naam van een aanvullende geometrie of bijlage. De beheerder kent deze naam toe of geeft de opdracht om deze toe te kennen.',
                                   owner=self)
 
         self._notitie = OTLAttribuut(field=StringField,
@@ -62,7 +62,7 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLObject, Relatio
 
     @property
     def bijlage(self) -> DtcDocumentWaarden:
-        """Het document of artefact dat een geometrie heeft."""
+        """Het document of artefact dat een geometrie heeft of een bijlage is."""
         return self._bijlage.get_waarde()
 
     @bijlage.setter
@@ -71,7 +71,7 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLObject, Relatio
 
     @property
     def naam(self) -> str:
-        """De mensleesbare naam van een aanvullende geometrie. De beheerder kent deze naam toe of geeft de opdracht om deze toe te kennen."""
+        """De mensleesbare naam van een aanvullende geometrie of bijlage. De beheerder kent deze naam toe of geeft de opdracht om deze toe te kennen."""
         return self._naam.get_waarde()
 
     @naam.setter

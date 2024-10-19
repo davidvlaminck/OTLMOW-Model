@@ -4,7 +4,7 @@ from abc import abstractmethod, ABC
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class AanhorigheidKoker(ABC):
-    """Een abstracte klasse die de aanhorigheden bundelt die in een koker kunnen voorkomen zodat de overerving van de bevestigings relatie kan plaatsvinden."""
+    """Een abstracte klasse die de aanhorigheden bundelt die in een koker kunnen voorkomen zodat de overerving van de bevestigingsrelatie kan plaatsvinden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AanhorigheidKoker'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

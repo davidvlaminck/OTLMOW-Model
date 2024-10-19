@@ -30,7 +30,7 @@ class Stuwconstructie(AIMNaamObject, LijnGeometrie):
                                                   naam='diameterKnijpopening',
                                                   label='diameter knijpopening',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stuwconstructie.diameterKnijpopening',
-                                                  definition='De diameter  van de opening onderaan de cascade die zorgt voor een vertraagde waterafvoer bij hevige regenval of overvloedige toevoer van water in millimeter.',
+                                                  definition='De diameter van de opening onderaan de cascade die zorgt voor een vertraagde waterafvoer bij hevige regenval of overvloedige toevoer van water in millimeter.',
                                                   owner=self)
 
         self._overstortpeil = OTLAttribuut(field=KwantWrdInMeterTAW,
@@ -51,7 +51,7 @@ class Stuwconstructie(AIMNaamObject, LijnGeometrie):
 
     @property
     def diameterKnijpopening(self) -> KwantWrdInMillimeterWaarden:
-        """De diameter  van de opening onderaan de cascade die zorgt voor een vertraagde waterafvoer bij hevige regenval of overvloedige toevoer van water in millimeter."""
+        """De diameter van de opening onderaan de cascade die zorgt voor een vertraagde waterafvoer bij hevige regenval of overvloedige toevoer van water in millimeter."""
         return self._diameterKnijpopening.get_waarde()
 
     @diameterKnijpopening.setter

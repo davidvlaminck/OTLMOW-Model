@@ -72,7 +72,12 @@ class KlOnbegroeidVoorkomenType(KeuzelijstField):
                                                  label='tegels met groenvoeg',
                                                  status='ingebruik',
                                                  definitie='Tegels die zo gelegd zijn dat de voeg begroeibaar is en waterdoorlaatbaar.',
-                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOnbegroeidVoorkomenType/tegels-met-groenvoeg')
+                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOnbegroeidVoorkomenType/tegels-met-groenvoeg'),
+        'zand': KeuzelijstWaarde(invulwaarde='zand',
+                                 label='zand',
+                                 status='ingebruik',
+                                 definitie='Bedekkingstype bestaande uit aangevoerd zand (Natuurlijk zand bestaat uit zuiver kwarts in een fractie 0-2 mm)',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOnbegroeidVoorkomenType/zand')
     }
 
     @classmethod

@@ -3,10 +3,11 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Hoppinzuil import Hoppinzuil
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlHoppinzuilType import KlHoppinzuilType
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AnalogeHoppinzuil(Hoppinzuil):
+class AnalogeHoppinzuil(Hoppinzuil, PuntGeometrie):
     """Een hoppinzuil is een informatiezuil, die als doel heeft de reizigers te informeren omtrent de vervoersmogelijkheden en diensten die op de locatie van de zuil voorhanden zijn."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnalogeHoppinzuil'

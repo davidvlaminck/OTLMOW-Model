@@ -193,7 +193,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
 
         self._wortelonderzoek = OTLAttribuut(field=DtcDocument,
                                              naam='wortelonderzoek',
-                                             label='wortelonderzoek',
+                                             label='Wortelonderzoek',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.wortelonderzoek',
                                              usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
                                              deprecated_version='2.12.0',

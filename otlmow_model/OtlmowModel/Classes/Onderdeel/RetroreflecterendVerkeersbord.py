@@ -7,11 +7,10 @@ from ...Datatypes.KlRetroreflecterendVerkeersbordAfwerkingsgraad import KlRetror
 from ...Datatypes.KlRetroreflecterendVerkeersbordGrootteorde import KlRetroreflecterendVerkeersbordGrootteorde
 from ...Datatypes.KlRetroreflecterendVerkeersbordMerk import KlRetroreflecterendVerkeersbordMerk
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class RetroreflecterendVerkeersbord(Verkeersbord, AIMNaamObject, PuntGeometrie):
+class RetroreflecterendVerkeersbord(Verkeersbord, AIMNaamObject):
     """Verkeersbord met op het beeldvlak een tekening en/of tekst die worden weergegeven met een geëigend bekledingsmateriaal."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord'

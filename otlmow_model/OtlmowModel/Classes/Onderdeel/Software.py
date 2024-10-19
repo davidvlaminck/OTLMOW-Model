@@ -2,6 +2,7 @@
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SoftwareToegang import SoftwareToegang
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcSoftwarePoortconfiguratie import DtcSoftwarePoortconfiguratie, DtcSoftwarePoortconfiguratieWaarden
 from ...Datatypes.KlSoftwareLicentie import KlSoftwareLicentie
@@ -11,7 +12,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Software(SoftwareToegang, GeenGeometrie):
+class Software(SoftwareToegang, NaampadObject, GeenGeometrie):
     """Geheel van computerprogramma's met bijbehorende data."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Software'

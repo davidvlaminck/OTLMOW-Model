@@ -8,8 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Hefportiek(ConstructiefObject, VlakGeometrie):
-    """Een hefportiek is een vrijstaand, stijf hoofdconstructieonderdeel. Het bestaat uit minstens twee steunbenen die onderling verbonden zijn en rusten op de onderbouw. Deze steunbenen staan (mede) in voor het verticale steunen en begeleiden van een beweegbaar constructieonderdeel wanneer dit niet rust op zijn vaste steunpunten. Het tilt meestal een brugdeel of beweegbare waterkerende constructie op. Meestal herbergt een hefportiek een mechaniek met ook een tegengewicht en steekt het samen met een tweede, gelijkaardig exemplaar aan de overzijde, hoog boven de rest van het kunstwerk uit.
-"""
+    """Een hefportiek is een vrijstaand, stijf hoofdconstructieonderdeel. Het bestaat uit minstens twee steunbenen die onderling verbonden zijn en rusten op de onderbouw. Deze steunbenen staan (mede) in voor het verticale steunen en begeleiden van een beweegbaar constructieonderdeel wanneer dit niet rust op zijn vaste steunpunten. Het tilt meestal een brugdeel of beweegbare waterkerende constructie op. Meestal herbergt een hefportiek een mechaniek met ook een tegengewicht en steekt het samen met een tweede, gelijkaardig exemplaar aan de overzijde, hoog boven de rest van het kunstwerk uit. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Hefportiek'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

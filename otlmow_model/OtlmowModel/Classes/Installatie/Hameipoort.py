@@ -44,12 +44,12 @@ class Hameipoort(ConstructiefObject, VlakGeometrie):
                                               naam='toegankelijkheid',
                                               label='toegankelijkheid',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Hameipoort.toegankelijkheid',
-                                              definition='Duidt de toegankelijkheid van de hameipoort  aan.',
+                                              definition='Duidt de toegankelijkheid van de hameipoort aan.',
                                               owner=self)
 
     @property
     def toegankelijkheid(self) -> str:
-        """Duidt de toegankelijkheid van de hameipoort  aan."""
+        """Duidt de toegankelijkheid van de hameipoort aan."""
         return self._toegankelijkheid.get_waarde()
 
     @toegankelijkheid.setter

@@ -1,21 +1,23 @@
 # coding=utf-8
 from datetime import date
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.KlAansluitingMIVMeetpunt import KlAansluitingMIVMeetpunt
 from ...Datatypes.KlAlgRijstrookcode import KlAlgRijstrookcode
 from ...Datatypes.KlMIVLusUitslijprichting import KlMIVLusUitslijprichting
 from ...Datatypes.KlMIVMeetpuntAfmetingen import KlMIVMeetpuntAfmetingen
 from ...Datatypes.KlMIVMeetpuntGebied import KlMIVMeetpuntGebied
+from ...Datatypes.KlMIVWegdek import KlMIVWegdek
 from ...Datatypes.KlServicePrioriteit import KlServicePrioriteit
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class MIVMeetpunt(AIMNaamObject, PuntGeometrie):
+class MIVMeetpunt(NaampadObject, PuntGeometrie):
     """Een meetpunt van Meten-In-Vlaanderen als plaats waar beide meetlussen bij benadering in de weg ingeslepen zijn."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt'
@@ -25,9 +27,20 @@ class MIVMeetpunt(AIMNaamObject, PuntGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie', direction='o', deprecated='2.9.0')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Datakabel', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelmof', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus', direction='i', deprecated='2.9.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Signaalkabel', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVModule', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus', direction='u')  # u = unidirectional
+
+        self._aansluiting = OTLAttribuut(field=KlAansluitingMIVMeetpunt,
+                                         naam='aansluiting',
+                                         label='aansluiting',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt.aansluiting',
+                                         usagenote='Deze eigenschap is tijdelijk toegevoegd in het kader van het verweven van Legacy data en OTL data. De informatie in deze eigenschap zal op termijn moeten worden bijgehouden  in het type Datakabel',
+                                         definition='LEGACY-ATTRIBUUT zie usageNote! De aansluiting van de meetlussen op het verwerkingssysteem.',
+                                         owner=self)
 
         self._afmetingen = OTLAttribuut(field=KlMIVMeetpuntAfmetingen,
                                         naam='afmetingen',
@@ -88,12 +101,37 @@ class MIVMeetpunt(AIMNaamObject, PuntGeometrie):
                                                definition='Het prioriteitsniveau dat aangeeft hoe dringend iets moet onderhouden/gerepareerd worden.',
                                                owner=self)
 
+        self._trekput = OTLAttribuut(field=BooleanField,
+                                     naam='trekput',
+                                     label='trekput',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt.trekput',
+                                     usagenote='Deze eigenschap is tijdelijk toegevoegd in het kader van het verweven van Legacy data en OTL data. De informatie in deze eigenschap zal op termijn moeten worden bijgehouden  in het type Technische put.',
+                                     definition='LEGACY-ATTRIBUUT zie usageNote! Een trekput is een ondergrondse put waarin kabels van meetlussen op snelwegen samenkomen voor verbinding en onderhoud, zonder het wegdek open te breken.',
+                                     owner=self)
+
         self._uitslijprichting = OTLAttribuut(field=KlMIVLusUitslijprichting,
                                               naam='uitslijprichting',
                                               label='uitslijprichting',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt.uitslijprichting',
                                               definition='De uitlopers van de lus gaan naar links of naar rechts bekeken ten opzichte van de rijrichting.',
                                               owner=self)
+
+        self._wegdek = OTLAttribuut(field=KlMIVWegdek,
+                                    naam='wegdek',
+                                    label='wegdek',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt.wegdek',
+                                    usagenote='Deze eigenschap is tijdelijk toegevoegd in het kader van het verweven van Legacy data en OTL data. De informatie in deze eigenschap zal op termijn moeten worden bijgehouden  in het type Laag.',
+                                    definition='LEGACY-ATTRIBUUT zie usageNote! Het type wegdek waarin de meetlussen zijn verwerkt.',
+                                    owner=self)
+
+    @property
+    def aansluiting(self) -> str:
+        """LEGACY-ATTRIBUUT zie usageNote! De aansluiting van de meetlussen op het verwerkingssysteem."""
+        return self._aansluiting.get_waarde()
+
+    @aansluiting.setter
+    def aansluiting(self, value):
+        self._aansluiting.set_waarde(value, owner=self)
 
     @property
     def afmetingen(self) -> str:
@@ -168,6 +206,15 @@ class MIVMeetpunt(AIMNaamObject, PuntGeometrie):
         self._servicePrioriteit.set_waarde(value, owner=self)
 
     @property
+    def trekput(self) -> bool:
+        """LEGACY-ATTRIBUUT zie usageNote! Een trekput is een ondergrondse put waarin kabels van meetlussen op snelwegen samenkomen voor verbinding en onderhoud, zonder het wegdek open te breken."""
+        return self._trekput.get_waarde()
+
+    @trekput.setter
+    def trekput(self, value):
+        self._trekput.set_waarde(value, owner=self)
+
+    @property
     def uitslijprichting(self) -> str:
         """De uitlopers van de lus gaan naar links of naar rechts bekeken ten opzichte van de rijrichting."""
         return self._uitslijprichting.get_waarde()
@@ -175,3 +222,12 @@ class MIVMeetpunt(AIMNaamObject, PuntGeometrie):
     @uitslijprichting.setter
     def uitslijprichting(self, value):
         self._uitslijprichting.set_waarde(value, owner=self)
+
+    @property
+    def wegdek(self) -> str:
+        """LEGACY-ATTRIBUUT zie usageNote! Het type wegdek waarin de meetlussen zijn verwerkt."""
+        return self._wegdek.get_waarde()
+
+    @wegdek.setter
+    def wegdek(self, value):
+        self._wegdek.set_waarde(value, owner=self)
