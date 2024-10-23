@@ -13,6 +13,11 @@ class KlDynBordRSSMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordRSSMerk'
     options = {
+        'dms': KeuzelijstWaarde(invulwaarde='dms',
+                                label='DMS',
+                                status='ingebruik',
+                                definitie='DMS',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRSSMerk/dms'),
         'swarco': KeuzelijstWaarde(invulwaarde='swarco',
                                    label='Swarco',
                                    status='ingebruik',

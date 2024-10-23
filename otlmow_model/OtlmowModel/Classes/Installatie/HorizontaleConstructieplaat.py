@@ -4,11 +4,13 @@ from ...Classes.Abstracten.ConstructieElementAanvaarbeschermingGeleidewerk impor
 from ...Classes.Abstracten.ConstructieElementSluisStuw import ConstructieElementSluisStuw
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from ...Datatypes.KlTypeHorizontalePlaat import KlTypeHorizontalePlaat
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class HorizontaleConstructieplaat(ConstructieElementAanvaarbeschermingGeleidewerk, ConstructieElementSluisStuw, ConstructiefObject, VlakGeometrie):
+class HorizontaleConstructieplaat(ConstructieElementAanvaarbeschermingGeleidewerk, ConstructieElementSluisStuw, ConstructiefObject, PuntGeometrie, LijnGeometrie, VlakGeometrie):
     """Een plaat die dient ter constructie en die horizontaal wordt gebruikt. Deze omvat geen platen die met fundering te maken hebben (vb.: funderingsplaat,funderingszool,...)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat'

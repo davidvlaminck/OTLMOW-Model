@@ -3,11 +3,10 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
 from ...Datatypes.KlCalamiteitsbordType import KlCalamiteitsbordType
 from ...Datatypes.KlCalamiteitsbordVorm import KlCalamiteitsbordVorm
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class CalamiteitsBord(RetroreflecterendVerkeersbord, PuntGeometrie):
+class CalamiteitsBord(RetroreflecterendVerkeersbord):
     """De aanwijzingsborden ter plaatse van een startpunt, een aantakpunt, een wissel- of koppelpunt van een omleggingsroute bij calamiteiten zijn geïntegreerd in een één-bordsysteem met een scharnierende plaat."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#CalamiteitsBord'

@@ -2,11 +2,10 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.BetonnenConstructieObject import BetonnenConstructieObject
 from ...Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BetonnenPredal(BetonnenConstructieObject, PuntGeometrie):
+class BetonnenPredal(BetonnenConstructieObject):
     """Betonnen plaat van 15 cm dik met een tralieligger, gebruikt voor de opbouw van een definitieve berlinerwand."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BetonnenPredal'

@@ -5,10 +5,11 @@ from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlWeergegevenVervoersmodiOpKaart import KlWeergegevenVervoersmodiOpKaart
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Hoppinzuil(AIMObject):
+class Hoppinzuil(AIMObject, PuntGeometrie):
     """Abstracte om de gemeenschappelijke eigenschappen van de verschillende hoppinzuilen onder 1 noemer te plaatsen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Hoppinzuil'

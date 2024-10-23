@@ -1,9 +1,10 @@
 # coding=utf-8
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class WazeBeacon(NaampadObject):
+class WazeBeacon(NaampadObject, PuntGeometrie):
     """Een Waze Beacon is een klein apparaat dat GPS-signalen versterkt in omgevingen zoals tunnels of ondergrondse parkeergarages, waar GPS-ontvangst zwak is."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WazeBeacon'

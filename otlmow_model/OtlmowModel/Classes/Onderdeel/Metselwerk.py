@@ -9,11 +9,12 @@ from ...Datatypes.KlMetselverband import KlMetselverband
 from ...Datatypes.KlTypeVoeg import KlTypeVoeg
 from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Metselwerk(ConstructieElement, VlakGeometrie):
+class Metselwerk(ConstructieElement, LijnGeometrie, VlakGeometrie):
     """Bouwconstructie met stenen waarbij metselspecie het verband tussen de stenen verzorgt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Metselwerk'

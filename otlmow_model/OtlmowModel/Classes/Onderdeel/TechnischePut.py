@@ -3,10 +3,11 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Behuizing import Behuizing
 from ...Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class TechnischePut(Behuizing, PuntGeometrie):
+class TechnischePut(Behuizing, PuntGeometrie, VlakGeometrie):
     """Ondergrondse toezichtsput (manhole). Deze kan telecom installaties (glasvezel,koper) of elektriciteitskabels bevatten. Kan uit verschillende materialen bestaan: polycarbonaat,beton,gemetst,of staal."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#TechnischePut'

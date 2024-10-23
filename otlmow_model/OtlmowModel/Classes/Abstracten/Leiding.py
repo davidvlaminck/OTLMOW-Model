@@ -5,11 +5,10 @@ from ...Classes.Abstracten.KabelgeleidingEnLeidingBevestiging import Kabelgeleid
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject, LijnGeometrie):
+class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject):
     """Abstracte om de gemeenschappelijke eigenschappen en relaties van de verschillende soorten leidingen onder één noemer te houden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Leiding'

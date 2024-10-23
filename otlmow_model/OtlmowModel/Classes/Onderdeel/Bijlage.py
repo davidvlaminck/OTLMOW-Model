@@ -3,10 +3,11 @@ from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
 from ...Datatypes.KlBijlageType import KlBijlageType
+from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Bijlage(AbstracteAanvullendeGeometrie):
+class Bijlage(AbstracteAanvullendeGeometrie, GeenGeometrie):
     """Een bestand (document,afbeelding,...) dat behoort tot 1 of meerdere assets."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bijlage'

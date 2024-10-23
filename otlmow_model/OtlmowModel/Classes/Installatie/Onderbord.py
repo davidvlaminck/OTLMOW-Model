@@ -1,10 +1,9 @@
 # coding=utf-8
 from ...Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Onderbord(RetroreflecterendVerkeersbord, PuntGeometrie):
+class Onderbord(RetroreflecterendVerkeersbord):
     """Een bord met een verkeersteken dat als toevoeging onder een verkeersbord is gehangen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Onderbord'

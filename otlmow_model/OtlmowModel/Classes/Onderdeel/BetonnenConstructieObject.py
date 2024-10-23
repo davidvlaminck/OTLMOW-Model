@@ -4,11 +4,12 @@ from ...Classes.Abstracten.BetonnenConstructieElement import BetonnenConstructie
 from ...Classes.Abstracten.ConstructieElement import ConstructieElement
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BetonnenConstructieObject(BetonnenConstructieElement, ConstructieElement, VlakGeometrie):
+class BetonnenConstructieObject(BetonnenConstructieElement, ConstructieElement, LijnGeometrie, VlakGeometrie):
     """Een generiek betonnen constructie-element dat op maat gemaakt is. Dit gaat niet over een (standaard) betonnen profiel of plaat, maar over een specifiek gevormd betonnen object."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BetonnenConstructieObject'

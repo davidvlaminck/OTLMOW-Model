@@ -8,10 +8,11 @@ from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class StalenProfiel(ConstructieElement, ConstructieElementenGC, StalenConstructieElement, PuntGeometrie):
+class StalenProfiel(ConstructieElement, ConstructieElementenGC, StalenConstructieElement, PuntGeometrie, LijnGeometrie):
     """Bundeling van gemeenschappelijke eigenschappen van standaard en niet-standaard stalen profiel."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#StalenProfiel'
