@@ -25,7 +25,18 @@ It is split into different packages to reduce compatibility issues.
 - [otlmow_visuals](https://github.com/davidvlaminck/OTLMOW-Visuals)
 - [otlmow_gui](https://github.com/davidvlaminck/OTLMOW-GUI)
 
-The otlmow-model project is a Python implementation model of the OTL standard. This is a collection of OTL compliant classes, which can be used to create instances of OTL objects. When assigning data to the attributes of the classes, the data is validated and converted to the correct type (if incorrect). There is support for conversion from and to Python dictionaries.
-A few times during a year a new version of the OTL standard is released. The otlmow-modelbuilder project takes an OTL SQLite as input and generates the classes for the new version of the OTL standard. The otlmow-model project is then updated with the new classes. This way the otlmow-model project is always up to date with the latest version of the OTL standard.
-In the otlmow-converter project, the instantiated classes can be converted to and from DAVIE compliant file formats (such as CSV, Excel, ...). They can also be converted to dotnotation dictionaties or a pandas Dataframe.
+The **otlmow-model** project is a Python implementation model of the OTL standard. This is a collection of OTL compliant classes, which can be used to create instances of OTL objects. When assigning data to the attributes of the classes, the data is validated and converted to the correct type (if incorrect). There is support for conversion from and to Python dictionaries.
 
+A few times during a year a new version of the OTL standard is released. The **otlmow-modelbuilder** project takes an OTL SQLite as input and generates the classes for the new version of the OTL standard. The otlmow-model project is then updated with the new classes. This way the otlmow-model project is always up to date with the latest version of the OTL standard.
+
+In the **otlmow-converter** project, the instantiated classes can be converted to and from DAVIE compliant file formats (such as CSV, Excel, ...). There is also support for json-ld files. The objects can also be converted to dotnotation dictionaries or loaded into or from a pandas Dataframe. Because of all these possibilities, the converter has multiple dependencies on other Python packages.
+
+The **otlmow-template** project produces a CSV or Excel template, based on a subset of the OTL. The created template can then be used to input data and upload into the DAVIE platform of AWV.
+
+The **otlmow-postenmapping** project implements the mapping artifact and allow the creation or modification of OTL objects.
+
+The **otlmow-davie** project has a REST client to the DAVIE platform to allow automatisation of deliveries.
+
+The **otlmow-visuals** project provides a way to visualize OTL objects and their relations. The result is an interactive HTML file that can be opened in any browser.
+
+The **otlmow-gui** project is a deployable local application that allows the user to create templates, edit, visualize and export data.
