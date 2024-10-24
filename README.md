@@ -8,11 +8,14 @@
 
 
 ## Summary
-The main use case of otlmow-model is to provide a class model, allowing instances of OTL compliant classes. The classes have data validation and automatic conversion for attributes and relations between objects.
+The main use case of otlmow-model is to provide a class model, allowing instances of OTL compliant classes. The classes have data validation and automatic conversion for attributes. Helper classes assist you to create relations between objects.
 
-## OTLMOW Project 
+## Code examples and usage
+See the [Readme notebook](https://github.com/davidvlaminck/OTLMOW-Model/blob/master/Readme.ipynb). This notebook contains examples on how to use the OTL classes and how to create relations between objects.
+
+## Project overview 
 This project aims to implement the Flemish data standard OTL (https://wegenenverkeer.data.vlaanderen.be/) in Python.
-It is split into different packages to reduce compatibility issues
+It is split into different packages to reduce compatibility issues.
 - [otlmow_model](https://github.com/davidvlaminck/OTLMOW-Model) (you are currently looking at this package)
 - [otlmow_modelbuilder](https://github.com/davidvlaminck/OTLMOW-ModelBuilder)
 - [otlmow_converter](https://github.com/davidvlaminck/OTLMOW-Converter)
@@ -22,6 +25,7 @@ It is split into different packages to reduce compatibility issues
 - [otlmow_visuals](https://github.com/davidvlaminck/OTLMOW-Visuals)
 - [otlmow_gui](https://github.com/davidvlaminck/OTLMOW-GUI)
 
+The otlmow-model project is a Python implementation model of the OTL standard. This is a collection of OTL compliant classes, which can be used to create instances of OTL objects. When assigning data to the attributes of the classes, the data is validated and converted to the correct type (if incorrect). There is support for conversion from and to Python dictionaries.
+A few times during a year a new version of the OTL standard is released. The otlmow-modelbuilder project takes an OTL SQLite as input and generates the classes for the new version of the OTL standard. The otlmow-model project is then updated with the new classes. This way the otlmow-model project is always up to date with the latest version of the OTL standard.
+In the otlmow-converter project, the instantiated classes can be converted to and from DAVIE compliant file formats (such as CSV, Excel, ...). They can also be converted to dotnotation dictionaties or a pandas Dataframe.
 
-## Code examples and usage
-See the [Readme notebook](https://github.com/davidvlaminck/OTLMOW-Model/blob/master/Readme.ipynb)
