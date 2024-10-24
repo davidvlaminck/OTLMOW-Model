@@ -121,7 +121,7 @@ class KlWeergegevenVervoersmodiOpKaart(KeuzelijstField):
         'treinnet': KeuzelijstWaarde(invulwaarde='treinnet',
                                      label='Treinnet',
                                      status='ingebruik',
-                                     definitie='TODO',
+                                     definitie='Treinnet',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWeergegevenVervoersmodiOpKaart/treinnet'),
         'vast-en-semiflex': KeuzelijstWaarde(invulwaarde='vast-en-semiflex',
                                              label='Vast en semiflex',

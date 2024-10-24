@@ -17,7 +17,7 @@ class ProefRetroreflectie(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord', direction='o')  # o = direction: outgoing
 
         self._retroreflectie = OTLAttribuut(field=DtcDocument,
                                             naam='retroreflectie',

@@ -19,6 +19,8 @@ class KabelnetToegang(AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftNetwerktoegang', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing', direction='i')  # i = direction: incoming
+
         self._geschatRUGebruik = OTLAttribuut(field=NonNegIntegerField,
                                               naam='geschatRUGebruik',
                                               label='geschat aantal rack units in gebruik',

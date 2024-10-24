@@ -28,16 +28,17 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#EMDraagconstructie')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver')
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#EMDraagconstructie', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LEDDriver', direction='u')  # u = unidirectional
 
         self._aantalTeVerlichtenRijstroken = OTLAttribuut(field=KlWvLedAantalTeVerlichtenRijstroken,
                                                           naam='aantalTeVerlichtenRijstroken',
                                                           label='aantal te verlichten rijstroken',
                                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.aantalTeVerlichtenRijstroken',
+                                                          usagenote='Bij een kruispunt zijn dit het aantal effectieve rijstroken. Bij een ontdubbeling van de verlichting, de helft ook al is het fotometrisch mogelijk anders. Bij ontdubbelde rijbanen wordt het aantal rijstroken genomen waarvoor de verlichting is bedoeld.',
                                                           definition='Het aantal rijstroken dat verlicht wordt door het LED verlichtingstoestel.',
                                                           owner=self)
 
@@ -140,8 +141,8 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
                                               naam='tussenafstandLED',
                                               label='tussenafstand LED',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.tussenafstandLED',
-                                              usagenote='Maximum 1 cijfer na de komma ingeven.',
-                                              definition='Afstand, uitgedrukt in meter, tussen de verschillende LED verlichtingstoestellen.',
+                                              usagenote='Is het verlicht gebied een kruispunt dan is dit de afstand tussen de masten van het kruispunt. Bij een rotonde is dit de diameter van de rotonde gemeten op de boordsteen van de buitenste kroon.',
+                                              definition='Afstand, uitgedrukt in meter met maximun 1 cijfer na de komma, tussen de verschillende LED verlichtingstoestellen.',
                                               owner=self)
 
         self._verlichtingsNiveau = OTLAttribuut(field=KlWvLedVerlNiveau,
@@ -279,7 +280,7 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
 
     @property
     def tussenafstandLED(self) -> KwantWrdInMeterWaarden:
-        """Afstand, uitgedrukt in meter, tussen de verschillende LED verlichtingstoestellen."""
+        """Afstand, uitgedrukt in meter met maximun 1 cijfer na de komma, tussen de verschillende LED verlichtingstoestellen."""
         return self._tussenafstandLED.get_waarde()
 
     @tussenafstandLED.setter

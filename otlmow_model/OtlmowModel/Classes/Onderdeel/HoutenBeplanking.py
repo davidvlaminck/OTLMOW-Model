@@ -4,11 +4,12 @@ from ...Classes.Abstracten.HoutenConstructieElement import HoutenConstructieElem
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class HoutenBeplanking(HoutenConstructieElement, AIMNaamObject, VlakGeometrie):
+class HoutenBeplanking(HoutenConstructieElement, AIMNaamObject, LijnGeometrie, VlakGeometrie):
     """De beplanking in hout van een waterbouwkundige constructie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoutenBeplanking'
@@ -17,7 +18,7 @@ class HoutenBeplanking(HoutenConstructieElement, AIMNaamObject, VlakGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BeweegbareWaterkerendeConstructie')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BeweegbareWaterkerendeConstructie', direction='o')  # o = direction: outgoing
 
         self._aantalLagen = OTLAttribuut(field=IntegerField,
                                          naam='aantalLagen',

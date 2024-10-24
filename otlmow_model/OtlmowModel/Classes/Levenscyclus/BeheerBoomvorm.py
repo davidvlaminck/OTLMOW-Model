@@ -16,6 +16,9 @@ class BeheerBoomvorm(AIMObject):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom', direction='i', deprecated='2.0.0')  # i = direction: incoming
+
         self._beheeroptie = OTLAttribuut(field=KlBeheerBoomvorm,
                                          naam='beheeroptie',
                                          label='beheeroptie',

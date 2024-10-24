@@ -3,11 +3,10 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Kabelgeleiding import Kabelgeleiding
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlAlgMateriaal import KlAlgMateriaal
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kabelgoot(Kabelgeleiding, VlakGeometrie):
+class Kabelgoot(Kabelgeleiding):
     """Een inrichting die ervoor zorgt dat een kabel beschermd is tegen beschadiging en/of op een gecontroleerde plaats blijft hangen of liggen. Een kabelgoot is doorgaans een halfopen constructie. Er bestaan ook kabelgoten die door een deksel gesloten kunnen worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelgoot'
@@ -15,6 +14,8 @@ class Kabelgoot(Kabelgeleiding, VlakGeometrie):
 
     def __init__(self):
         super().__init__()
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabelgeleiding', direction='i')  # i = direction: incoming
 
         self._isGesloten = OTLAttribuut(field=BooleanField,
                                         naam='isGesloten',

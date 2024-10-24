@@ -3,11 +3,11 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlPenetratiegraad import KlPenetratiegraad
 from ...Datatypes.KlStortsteenpenetratieMateriaal import KlStortsteenpenetratieMateriaal
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Stortsteenpenetratie(AIMNaamObject, PuntGeometrie):
+class Stortsteenpenetratie(AIMNaamObject, VlakGeometrie):
     """Materiaal dat gebruikt wordt om de breuksteen te penetreren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stortsteenpenetratie'
@@ -16,7 +16,7 @@ class Stortsteenpenetratie(AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stortsteen')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stortsteen', direction='o')  # o = direction: outgoing
 
         self._penetratieMateriaal = OTLAttribuut(field=KlStortsteenpenetratieMateriaal,
                                                  naam='penetratieMateriaal',

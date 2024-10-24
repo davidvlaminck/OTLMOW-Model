@@ -439,6 +439,42 @@ def test_build_string_version_empty_class():
     assert info_string == expected
 
 
+def test_make_string_version_cleared_value_str():
+    instance = AllCasesTestClass()
+    instance.notitie = 'test'
+    instance.clear_value('notitie')
+    info_string = str(instance)
+    expected = '<AllCasesTestClass> object\n' \
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+               '    notitie : 88888888 <value_marked_to_be_cleared>'
+
+    assert info_string == expected
+
+
+def test_make_string_version_cleared_value_number():
+    instance = AllCasesTestClass()
+    instance.testDecimalField = 1.0
+    instance.clear_value('testDecimalField')
+    info_string = str(instance)
+    expected = '<AllCasesTestClass> object\n' \
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+               '    testDecimalField : 88888888 <value_marked_to_be_cleared>'
+
+    assert info_string == expected
+
+
+def test_make_string_version_cleared_value_int():
+    instance = AllCasesTestClass()
+    instance.testIntegerField = 1
+    instance.clear_value('testIntegerField')
+    info_string = str(instance)
+    expected = '<AllCasesTestClass> object\n' \
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+               '    testIntegerField : 88888888 <value_marked_to_be_cleared>'
+
+    assert info_string == expected
+
+
 def test_make_string_version_StringField():
     instance = AllCasesTestClass()
     instance.isActief = True
@@ -1285,7 +1321,31 @@ def test_create_dict_from_asset_clear_value_str():
     assert d == expected
 
 
+def test_create_dict_from_asset_clear_value_enum():
+    instance = AllCasesTestClass()
+    instance.testKeuzelijst = 'waarde-1'
+    instance.clear_value('testKeuzelijst')
+    assert instance.testKeuzelijst is None
+    assert instance._testKeuzelijst.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKeuzelijst': '88888888'}
+    assert d == expected
+
+
 # from dict str
+def test_from_dict_clear_value_enum():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKeuzelijst': '88888888'}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testKeuzelijst is None
+    assert instance._testKeuzelijst.mark_to_be_cleared
+
+
 def test_from_dict_clear_value_str():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
@@ -1319,6 +1379,30 @@ def test_from_dict_clear_value_str_kard():
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testStringFieldMetKard is None
     assert instance._testStringFieldMetKard.mark_to_be_cleared
+
+
+def test_create_dict_from_asset_clear_value_enum_kard():
+    instance = AllCasesTestClass()
+    instance.testKeuzelijstMetKard = ['waarde-1', 'waarde-2']
+    instance.clear_value('testKeuzelijstMetKard')
+    assert instance.testKeuzelijstMetKard is None
+    assert instance._testKeuzelijstMetKard.mark_to_be_cleared
+    d = instance.create_dict_from_asset()
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKeuzelijstMetKard': '88888888'}
+    assert d == expected
+
+
+def test_from_dict_clear_value_enum_kard():
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKeuzelijstMetKard': '88888888'}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testKeuzelijstMetKard is None
+    assert instance._testKeuzelijstMetKard.mark_to_be_cleared
 
 
 def test_create_dict_from_asset_clear_value_decimal():
@@ -1478,6 +1562,14 @@ def test_from_dict_clear_value_kwant_wrd_kard():
     assert instance.testKwantWrdMetKard[0]._waarde.mark_to_be_cleared
     assert instance.testKwantWrdMetKard[1].waarde is None
     assert instance.testKwantWrdMetKard[1]._waarde.mark_to_be_cleared
+
+    d = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'testKwantWrdMetKard': [88888888.0]}
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
+
+    assert instance.typeURI == AllCasesTestClass.typeURI
+    assert instance.testKwantWrdMetKard[0]._waarde.mark_to_be_cleared
 
 
 def test_create_dict_from_asset_clear_value_illegal_attributes():

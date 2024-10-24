@@ -5,11 +5,10 @@ from ...Classes.Abstracten.KabelgeleidingEnLeidingBevestiging import Kabelgeleid
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject, LijnGeometrie):
+class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject):
     """Abstracte om de gemeenschappelijke eigenschappen en relaties van de verschillende soorten leidingen onder één noemer te houden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Leiding'
@@ -19,7 +18,8 @@ class Leiding(KabelgeleidingEnLeidingBevestiging, AIMNaamObject, LijnGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderwaterkruising')
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderwaterkruising', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#OmhullendeInrichting', direction='i')  # i = direction: incoming
 
         self._buitendiameter = OTLAttribuut(field=KwantWrdInMillimeter,
                                             naam='buitendiameter',

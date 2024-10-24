@@ -29,6 +29,7 @@ class KlTelecomCableMateriaalType(KeuzelijstField):
         'other': KeuzelijstWaarde(invulwaarde='other',
                                   label='other',
                                   status='ingebruik',
+                                  definitie='Deze optie mag uitsluitend TIJDELIJK worden gebruikt en enkel tot de juiste gegevens beschikbaar zijn. Misbruik van deze optie leidt tot verminderde datakwaliteit.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomCableMateriaalType/other'),
         'sty-sy': KeuzelijstWaarde(invulwaarde='sty-sy',
                                    label='STY SY',

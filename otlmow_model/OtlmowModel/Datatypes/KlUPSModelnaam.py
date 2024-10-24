@@ -13,6 +13,11 @@ class KlUPSModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUPSModelnaam'
     options = {
+        'other': KeuzelijstWaarde(invulwaarde='other',
+                                  label='Other',
+                                  status='ingebruik',
+                                  definitie='Deze optie mag uitsluitend TIJDELIJK worden gebruikt en enkel tot de juiste gegevens beschikbaar zijn. Misbruik van deze optie leidt tot verminderde datakwaliteit.',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSModelnaam/other'),
         'ps15': KeuzelijstWaarde(invulwaarde='ps15',
                                  label='PS15',
                                  status='ingebruik',

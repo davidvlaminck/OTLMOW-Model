@@ -1,10 +1,9 @@
 # coding=utf-8
 from ...Classes.Abstracten.Kabelgeleiding import Kabelgeleiding
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kabelladder(Kabelgeleiding, LijnGeometrie):
+class Kabelladder(Kabelgeleiding):
     """Een inrichting die ervoor zorgt dat een kabel beschermd is tegen beschadiging en/of op een gecontroleerde plaats blijft hangen of liggen. De kabelladder is een gerasterde constructie die doet denken aan een ladder, die toelaat om de kabels langs alle kanten te zien. Slechts langs één kant is de toegang tot de kabels fysiek onbelet."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelladder'
@@ -12,3 +11,5 @@ class Kabelladder(Kabelgeleiding, LijnGeometrie):
 
     def __init__(self):
         super().__init__()
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabelgeleiding', direction='i')  # i = direction: incoming
