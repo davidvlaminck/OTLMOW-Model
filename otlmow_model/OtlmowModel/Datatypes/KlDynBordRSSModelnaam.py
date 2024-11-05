@@ -48,7 +48,12 @@ class KlDynBordRSSModelnaam(KeuzelijstField):
         'RSS3-08J03': KeuzelijstWaarde(invulwaarde='RSS3-08J03',
                                        label='RSS3-08J03',
                                        status='ingebruik',
-                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRSSModelnaam/RSS3-08J03')
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRSSModelnaam/RSS3-08J03'),
+        'rss1-achilles': KeuzelijstWaarde(invulwaarde='rss1-achilles',
+                                          label='RSS1-ACHILLES',
+                                          status='ingebruik',
+                                          definitie='RSS1-ACHILLES',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRSSModelnaam/rss1-achilles')
     }
 
     @classmethod
