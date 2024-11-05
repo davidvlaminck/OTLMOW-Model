@@ -287,6 +287,12 @@
             "enums_updated": [
                 "KlDynBordRSSModelnaam"
             ]
+        },
+        "2.13.1.0": {
+            "previous_version": "2.13.0.2",
+            "updated_class_model": true,
+            "updated_enums": false,
+            "enums_updated": []
         }
     }
 }
