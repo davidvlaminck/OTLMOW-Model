@@ -11,7 +11,7 @@ from otlmow_model.OtlmowModel.Helpers.OTLObjectHelper import count_assets_by_typ
     remove_duplicates_in_iterable_based_on_property, \
     compare_two_lists_of_objects_object_level, verify_asset_id_is_unique_within_list, \
     compare_two_lists_of_objects_attribute_level, custom_dict_diff, is_relation, is_directional_relation, \
-    combine_two_asset_instances, combine_assets
+    combine_two_asset_instances, combine_assets, is_aim_id
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
@@ -364,3 +364,26 @@ def test_combine_assets(subtests):
             'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'
         }
         assert result[1] == asset2_1
+
+
+def test_is_aim_id_valid():
+    aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI1RMQ2ZpUG9vcnQ' # TlCfiPoort
+    assert is_aim_id(aim_id)
+
+    aim_id = '12345678-1234-1234-1234-123456789012-cHVybDpBZ2VudA' # Agent
+    assert is_aim_id(aim_id)
+
+    aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz' # AllCasesTestClass
+    model_path = Path(__file__).parent.parent / 'TestModel'
+    assert is_aim_id(aim_id, model_directory=model_path)
+
+
+@pytest.mark.parametrize('aim_id', [
+    '12345678-1234-1234-1234-123456789012',
+    '12345678-1234-1234-1234-123456789012-',
+    '12345678-1234-1234-1234-123456789012--',
+    '1',
+    '12345678-1234-1234-1234-123456789012-25kZXJkZWVsI1RMQ2ZpUG9vcnQ' # removed one char from valid encoded typeURI
+])
+def test_is_aim_id_invalid(aim_id):
+    assert not is_aim_id(aim_id)
