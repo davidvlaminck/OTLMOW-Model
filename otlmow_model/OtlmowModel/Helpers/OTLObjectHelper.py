@@ -1,8 +1,11 @@
+import base64
 from collections import defaultdict
 from pathlib import Path
 from typing import Iterable, List, Dict
 
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, get_attribute_by_name
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, get_attribute_by_name, \
+    dynamic_create_instance_from_ns_and_name
+from otlmow_model.OtlmowModel.Helpers.GenericHelper import validate_guid
 from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_relation_dict
 
 
@@ -181,3 +184,44 @@ def combine_assets(asset_list: list[OTLObject], allow_attribute_overrides: bool 
         combined_list.append(asset1)
 
     return combined_list
+
+
+def is_aim_id(aim_id: str, model_directory: Path = None) -> bool:
+    """
+    Checks if the aim_id is valid. An aim_id is valid if it is a valid guid followed by a base64 encoded shortened uri.
+    :param aim_id: the aim_id to be validated
+    :type aim_id: str
+    :param model_directory: directory where the model is located, defaults to otlmow_model's own model
+    :type model_directory: Path
+    :return: 'True' if the aim_id is valid, 'False' otherwise
+    :rtype: bool
+    """
+    if not aim_id:
+        return False
+    if len(aim_id) < 38:
+        return False
+
+    uuid = aim_id[:36]
+    short_uri_encoded = aim_id[37:]
+
+    if not validate_guid(uuid):
+        return False
+    if not short_uri_encoded:
+        return False
+
+    if missing_padding := len(short_uri_encoded) % 4:
+        short_uri_encoded += '=' * (4 - missing_padding)
+
+    short_uri_bytes = base64.b64decode(short_uri_encoded)
+    try:
+        short_uri = short_uri_bytes.decode('ascii')
+    except UnicodeDecodeError:
+        return False
+    try:
+        if short_uri == 'purl:Agent':
+            return True
+        ns, name = short_uri.split('#')
+        instance = dynamic_create_instance_from_ns_and_name(ns, name, model_directory=model_directory)
+        return instance is not None
+    except ValueError:
+        return False
