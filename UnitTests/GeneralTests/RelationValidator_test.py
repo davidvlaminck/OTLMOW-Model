@@ -34,6 +34,8 @@ def test_is_valid_relation():
     another = AnotherTestClass()
     assert is_valid_relation_instance(source=another, relation_instance=Bevestiging(), target=all_cases)
     assert is_valid_relation(source=another, relation_type=Bevestiging, target=all_cases)
+    with pytest.warns(DeprecationWarning):
+        assert is_valid_relation(source=all_cases, relation_type=Voedt, target=another)
     assert not is_valid_relation(source=another, relation_type=Voedt, target=all_cases)
     assert not is_valid_relation(source=all_cases, relation_type=Voedt, target=all_cases)
 

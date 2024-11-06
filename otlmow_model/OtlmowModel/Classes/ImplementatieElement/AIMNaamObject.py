@@ -1,8 +1,22 @@
 # coding=utf-8
+import re
+
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+
+
+class NaamField(StringField):
+    def __init__(self, naam: str, label: str, objectUri: str, definition: str, owner):
+        super().__init__(naam, label, objectUri, definition, owner)
+
+    @classmethod
+    def validate(cls, value, attribuut) -> bool:
+        if StringField.validate(value, attribuut):
+            return re.match('^[a-zA-Z0-9.\-_]*$', value) is not None
+        else:
+            return False
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -16,7 +30,7 @@ class AIMNaamObject(AIMObject):
     def __init__(self):
         super().__init__()
 
-        self._naam = OTLAttribuut(field=StringField,
+        self._naam = OTLAttribuut(field=NaamField,
                                   naam='naam',
                                   label='naam',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMNaamObject.naam',
