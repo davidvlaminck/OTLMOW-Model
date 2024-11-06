@@ -14,7 +14,7 @@ class NaamField(StringField):
     @classmethod
     def validate(cls, value, attribuut) -> bool:
         if StringField.validate(value, attribuut):
-            return bool(re.match('^[a-zA-Z0-9.\-_]*$', value))
+            return re.match('^[a-zA-Z0-9.\-_]*$', value) is not None
         else:
             return False
 
