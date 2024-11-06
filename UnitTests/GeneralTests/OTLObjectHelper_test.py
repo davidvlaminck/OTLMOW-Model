@@ -267,10 +267,12 @@ def test_combine_two_asset_instances(subtests):
     two_attributes_2.testStringField = 'naam_2'
     other_type = AnotherTestClass()
     other_type.assetId.identificator = '1'
-    other_type.deprecatedString = 'deprecated'
+    with pytest.warns(DeprecationWarning):
+        other_type.deprecatedString = 'deprecated'
     other_type_2 = AnotherTestClass()
     other_type_2.assetId.identificator = '1'
-    other_type_2.deprecatedString = 'deprecated'
+    with pytest.warns(DeprecationWarning):
+        other_type_2.deprecatedString = 'deprecated'
 
     with subtests.test(msg='empty arguments'):
         with pytest.raises(ValueError):
