@@ -22,7 +22,7 @@ try:
 except:
     download_otl_from_github = True
 if download_otl_from_github:
-    urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder"
+    urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master"
                                "/InputFiles/latest/OTL.db", 'OTL.db')
 
 download_ga_from_github = False
@@ -34,7 +34,7 @@ try:
 except:
     download_ga_from_github = True
 if download_ga_from_github:
-    urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder"
+    urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master"
                                "/InputFiles/latest/Geometrie_Artefact.db", 'Geometrie_Artefact.db')
 
 urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder"
