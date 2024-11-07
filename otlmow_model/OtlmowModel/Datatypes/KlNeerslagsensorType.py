@@ -16,15 +16,17 @@ class KlNeerslagsensorType(KeuzelijstField):
         'capacitief': KeuzelijstWaarde(invulwaarde='capacitief',
                                        label='capacitief',
                                        status='ingebruik',
-                                       definitie='capacitief',
+                                       definitie='Een type sensor dat neerslag (sneeuw, regen, hagel) detecteert door veranderingen in de elektrische capaciteit op te merken. Wanneer neerslag (sneeuw, regen, hagel) op het sensoroppervlak komt, verandert de capaciteit door de aanwezigheid van deze neerslag, wat wordt gedetecteerd door de sensor.',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorType/capacitief'),
         'optisch': KeuzelijstWaarde(invulwaarde='optisch',
                                     label='optisch',
                                     status='ingebruik',
+                                    definitie='Detecteert neerslag (sneeuw, regen, hagel) door licht te gebruiken. Wanneer bv. regendruppels op het oppervlak van de sensor vallen, verstrooien ze het licht, wat de sensor registreert als een verandering in de lichtintensiteit. Deze verstrooiing of vermindering van licht geeft aan dat er neerslag aanwezig is.',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorType/optisch'),
         'radar': KeuzelijstWaarde(invulwaarde='radar',
                                   label='radar',
                                   status='ingebruik',
+                                  definitie='Detecteert neerslag (sneeuw, regen, hagel) door gebruik te maken van radartechnologie. Dit type sensor zendt radargolven uit en analyseert de reflectie van deze golven op vallende neerslag.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorType/radar')
     }
 

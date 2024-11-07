@@ -18,6 +18,11 @@ class KlAansluitstukMateriaal(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Gres',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/gres'),
+        'koolstofstaal': KeuzelijstWaarde(invulwaarde='koolstofstaal',
+                                          label='koolstofstaal',
+                                          status='ingebruik',
+                                          definitie='koolstofstaal',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/koolstofstaal'),
         'polyethyleen': KeuzelijstWaarde(invulwaarde='polyethyleen',
                                          label='polyethyleen',
                                          status='ingebruik',
@@ -37,7 +42,12 @@ class KlAansluitstukMateriaal(KeuzelijstField):
                                             label='pvc-u-composiet',
                                             status='ingebruik',
                                             definitie='pvc-u-composiet',
-                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/pvc-u-composiet')
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/pvc-u-composiet'),
+        'rvs': KeuzelijstWaarde(invulwaarde='rvs',
+                                label='rvs',
+                                status='ingebruik',
+                                definitie='roestvrij staal',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/rvs')
     }
 
     @classmethod
