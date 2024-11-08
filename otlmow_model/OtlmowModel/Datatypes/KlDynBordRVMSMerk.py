@@ -17,7 +17,12 @@ class KlDynBordRVMSMerk(KeuzelijstField):
                                 label='DMS',
                                 status='ingebruik',
                                 definitie='DMS',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRVMSMerk/dms')
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRVMSMerk/dms'),
+        'swarco': KeuzelijstWaarde(invulwaarde='swarco',
+                                   label='Swarco',
+                                   status='ingebruik',
+                                   definitie='Swarco',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRVMSMerk/swarco')
     }
 
     @classmethod

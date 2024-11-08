@@ -30,7 +30,12 @@ class KlDynBordRVMSModelnaam(KeuzelijstField):
                                               label='VMS.G1.RGB.96.64S',
                                               status='ingebruik',
                                               definitie='VMS.G1.RGB.96.64S',
-                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRVMSModelnaam/vms-g1-rgb-96-64s')
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRVMSModelnaam/vms-g1-rgb-96-64s'),
+        'vms1-f-4140x3230-3g-rb-ecofc2': KeuzelijstWaarde(invulwaarde='vms1-f-4140x3230-3g-rb-ecofc2',
+                                                          label='VMS1.F.4140x3230.3G.RB.ECOFC2',
+                                                          status='ingebruik',
+                                                          definitie='VMS1-F-4140x3230-3G-RB-ECOFC2',
+                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRVMSModelnaam/vms1-f-4140x3230-3g-rb-ecofc2')
     }
 
     @classmethod
