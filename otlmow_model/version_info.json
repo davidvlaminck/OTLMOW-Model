@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.13.2.1",
+        "model_version": "2.13.2.2",
         "otl_version": "2.13.0",
-        "created_at": "2024-11-08T04:00:56",
+        "created_at": "2024-11-13T04:00:57",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -317,6 +317,15 @@
             "enums_updated": [
                 "KlDynBordRVMSMerk",
                 "KlDynBordRVMSModelnaam"
+            ]
+        },
+        "2.13.2.2": {
+            "previous_version": "2.13.2.1",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlConstructiestaalsoort",
+                "KlPersleidingMateriaal"
             ]
         }
     }
