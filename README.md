@@ -35,7 +35,7 @@ The **otlmow-template** project produces a CSV or Excel template, based on a sub
 
 The **otlmow-postenmapping** project implements the mapping artifact and allow the creation or modification of OTL objects.
 
-The **otlmow-davie** project has a REST client to the DAVIE platform to allow automatisation of deliveries.
+The **otlmow-davie** project has a REST client to the DAVIE platform to allow automation of deliveries.
 
 The **otlmow-visuals** project provides a way to visualize OTL objects and their relations. The result is an interactive HTML file that can be opened in any browser.
 
