@@ -37,7 +37,6 @@ def get_hardcoded_class_dict(model_directory: Path = None) -> dict:
 
     return global_class_dict
 
-
 def get_concrete_subclasses_from_class_dict(base_uri: str, model_directory: Path = None) -> Iterable[str]:
     class_dict = get_hardcoded_class_dict(model_directory)
     for subclass in class_dict[base_uri]['direct_subclasses']:

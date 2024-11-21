@@ -27,7 +27,6 @@ class RelationInteractor:
             for target in self._valid_relations[relation]:
                 for direction, deprecated in self._valid_relations[relation][target].items():
                     if class_dict[target]['abstract']:
-                        print(f'Abstract class {target} has concrete relation {relation}')
                         for subclass in get_concrete_subclasses_from_class_dict(target, model_directory=model_directory):
                             if direction == 'o':
                                 yield self.typeURI, relation, subclass, '', deprecated
