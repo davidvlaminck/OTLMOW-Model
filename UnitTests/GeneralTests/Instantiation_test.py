@@ -1,7 +1,7 @@
 import concurrent
 import multiprocessing
 import os
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, ALL_COMPLETED
 from os.path import isfile
 from pathlib import Path
 
@@ -81,7 +81,12 @@ def test_instantiate_all_classes_using_class_dict(subtests):
     # use multithreading
     executor = ThreadPoolExecutor(8)
     futures = [executor.submit(subtest_instantiate, uri=uri, subtests=subtests) for uri in classes_to_instantiate]
-    concurrent.futures.wait(futures)
+    attempt = 5
+    while futures and attempt > 0:
+        attempt -= 1
+        done, not_done = concurrent.futures.wait(futures, return_when=ALL_COMPLETED, timeout=60)
+        futures = not_done
+        print(f'{len(done)} done, {len(not_done)} not done')
 
 def subtest_instantiate(uri: str, subtests):
     with subtests.test(msg=uri):
