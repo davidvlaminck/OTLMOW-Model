@@ -2,6 +2,7 @@
 from pathlib import Path
 
 import pytest
+from otlmow_model.OtlmowModel.Classes.Onderdeel.Klimatisatie import Klimatisatie
 
 from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMObject import AIMObject
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
@@ -1176,7 +1177,7 @@ def test_create_dict_from_asset_using_marked_for_clear_does_not_work():
 
     d = instance.create_dict_from_asset()
     expected = {'testComplexType': {'testBooleanField': True, 'testStringField': 'a'},
-        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
+                'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
     assert d == expected
 
 
@@ -1207,23 +1208,24 @@ def test_create_dict_from_asset_clear_value_complex_on_prim_attribute():
 
     d = instance.create_dict_from_asset(rdf=True)
     expected = {'@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexType': {
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testBooleanField': '88888888',
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
-                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': {
-                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0},
-                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': '88888888'},
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2MetKard': [
-                {
-                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': {
+                'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexType': {
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testBooleanField': '88888888',
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2': {
+                        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': {
+                            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0},
+                        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': '88888888'},
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testComplexType2MetKard': [
+                        {
+                            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': {
+                                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0},
+                            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': '88888888'}],
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrd': {
                         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0},
-                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': '88888888'}],
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrd': {
-                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0},
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrdMetKard': [
-                {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0}],
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField': '88888888',
-            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard': '88888888'}}
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrdMetKard': [
+                        {
+                            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0}],
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField': '88888888',
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringFieldMetKard': '88888888'}}
     assert d == expected
 
 
@@ -1607,3 +1609,115 @@ def test_from_dict_illegal_attributes():
         'assetId': {'identificator': '88888888'}}
     with pytest.raises(CanNotClearAttributeError):
         instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+
+
+def test_get_all_concrete_relations_real_class():
+    kl = Klimatisatie()
+    relations = kl._get_all_concrete_relations()
+
+    assert list(relations) == [
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Container', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hulppostkast', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Montagekast', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wegkantkast', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IndoorKast', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lockerkast', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lokaal', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Doorverbinddoos', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#TechnischePut', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AanvullendeGeometrie', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene',
+            'http://purl.org/dc/terms/Agent', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Bijlage', '', '2.13.0'),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bijlage', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftToegangsprocedure',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject',
+            '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart', 'Unspecified', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie', '', '')]
