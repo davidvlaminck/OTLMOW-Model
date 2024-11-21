@@ -10,6 +10,7 @@ import pytest
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import dynamic_create_instance_from_uri, \
     dynamic_create_instance_from_ns_and_name, dynamic_create_type_from_uri, dynamic_create_type_from_ns_and_name
+from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_class_dict
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -75,46 +76,18 @@ def test_instantiate_test_and_real_classes_using_dynamic_import():
 
 @pytest.mark.filterwarnings("ignore::DeprecationWarning")
 @pytest.mark.timeout(300)
-def test_instantiate_all_classes(subtests):
-    classes_to_instantiate = {}
+def test_instantiate_all_classes_using_class_dict(subtests):
+    classes_to_instantiate = [uri for uri, class_dict in get_hardcoded_class_dict().items() if not class_dict['abstract']]
+    # use multithreading
+    executor = ThreadPoolExecutor(8)
+    futures = [executor.submit(subtest_instantiate, uri=uri, subtests=subtests) for uri in classes_to_instantiate]
+    concurrent.futures.wait(futures)
 
-    class_location = Path(ROOT_DIR) / '../../otlmow_model/OtlmowModel/Classes/'
-    installatie_location = class_location / 'Installatie'
-    onderdeel_location = class_location / 'Onderdeel'
-    levenscyclus_location = class_location / 'Levenscyclus'
-    proefenmeting_location = class_location / 'ProefEnMeting'
-
-    for dir_location in {installatie_location, onderdeel_location, levenscyclus_location, proefenmeting_location}:
-        for f in os.listdir(dir_location):
-            if not isfile(dir_location / f):
-                continue
-            class_name = f[:-3]
-            classes_to_instantiate[class_name] = (dir_location.stem, class_name)
-
-    classes_to_instantiate['Agent'] = (None, 'Agent')
-    classes_to_instantiate['ActivityComplex'] = ('ImplementatieElement', 'ActivityComplex')
-    classes_to_instantiate['ElectricityAppurtenance'] = ('ImplementatieElement', 'ElectricityAppurtenance')
-    classes_to_instantiate['Derdenobject'] = ('ImplementatieElement', 'Derdenobject')
-    classes_to_instantiate['ElectricityCable'] = ('ImplementatieElement', 'ElectricityCable')
-    classes_to_instantiate['Pipe'] = ('ImplementatieElement', 'Pipe')
-    classes_to_instantiate['TelecommunicationsAppurtenance'] = ('ImplementatieElement', 'TelecommunicationsAppurtenance')
-    classes_to_instantiate['TelecommunicationsCable'] = ('ImplementatieElement', 'TelecommunicationsCable')
-
-
-    # # use multithreading
-    # executor = ThreadPoolExecutor(8)
-    # futures = [executor.submit(subtest_instantiate, namespace=namespace, class_name=class_name, subtests=subtests)
-    #            for namespace, class_name in classes_to_instantiate.values()]
-    # concurrent.futures.wait(futures)
-
-    for namespace, class_name in classes_to_instantiate.values():
-        subtest_instantiate(namespace, class_name, subtests)
-
-
-def subtest_instantiate(namespace, class_name, subtests):
-    with subtests.test(msg=f'Trying to instantiate {class_name}'):
-        instance = dynamic_create_instance_from_ns_and_name(namespace, class_name)
-        assert instance is not None
+def subtest_instantiate(uri: str, subtests):
+    with subtests.test(msg=uri):
+        instance = dynamic_create_instance_from_uri(uri)
         instance.fill_with_dummy_data()
+        assert instance is not None, f'failed to instantiate {uri}'
+
 
 
