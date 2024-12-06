@@ -124,7 +124,7 @@ def test_get_diff_from_two_lists_one_one_different():
 
     expected = [instance2]
     result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
-    assert result[0].create_dict_from_asset() == expected[0].create_dict_from_asset()
+    assert result[0].to_dict() == expected[0].to_dict()
 
 
 def test_verify_asset_id_is_unique_correct_dict_list():

@@ -354,7 +354,7 @@ def test_create_dict_from_asset_non_standard_attributes_warnings_suppressed(subt
         instance.testBooleanField = True
         instance.non_standard_attribute_no_warning = 'waarde-2'
 
-        d = instance.create_dict_from_asset(warn_for_non_otl_conform_attributes=False)
+        d = instance.to_dict(warn_for_non_otl_conform_attributes=False)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testStringField': 'string',
@@ -371,7 +371,7 @@ def test_create_dict_from_asset_non_standard_attributes(subtests):
         instance.non_standard_attribute = 'waarde-2'
 
         with pytest.warns(NonStandardAttributeWarning):
-            d = instance.create_dict_from_asset()
+            d = instance.to_dict()
             expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                         'testBooleanField': True,
                         'testStringField': 'string',
@@ -388,7 +388,7 @@ def test_create_dict_from_asset_non_standard_attributes(subtests):
         instance.testComplexType.non_standard_in_complex_attribute = 'waarde-3'
 
         with pytest.warns(NonStandardAttributeWarning):
-            d = instance.create_dict_from_asset()
+            d = instance.to_dict()
             expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                         'testBooleanField': True,
                         'testStringField': 'string',
@@ -407,7 +407,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType.testStringField = 'string'
         instance.testComplexType.testBooleanField = True
 
-        d = instance.create_dict_from_asset()
+        d = instance.to_dict()
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testComplexType': {
                         'testBooleanField': True,
@@ -422,7 +422,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testDecimalField = 1.5
         instance.testDateField = date(year=2022, month=2, day=2)
 
-        d = instance.create_dict_from_asset()
+        d = instance.to_dict()
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': date(year=2022, month=2, day=2),
@@ -431,7 +431,7 @@ def test_create_dict_from_asset_testclass(subtests):
                     'testStringField': 'string'}
         assert d == expected
 
-        d = instance.create_dict_from_asset(cast_datetime=True)
+        d = instance.to_dict(cast_datetime=True)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': '2022-02-02',
@@ -450,7 +450,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance._testDecimalFieldMetKard.add_value(2.5)
         instance.testIntegerFieldMetKard = []
 
-        d = instance.create_dict_from_asset()
+        d = instance.to_dict()
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testDecimalFieldMetKard': [1.5, 2.5],
                     'testIntegerFieldMetKard' : [],
@@ -466,13 +466,13 @@ def test_create_dict_from_asset_testclass(subtests):
         instance._testKwantWrdMetKard.add_empty_value()
         instance.testKwantWrdMetKard[1].waarde = 5.5
 
-        d = instance.create_dict_from_asset(waarde_shortcut=True)
+        d = instance.to_dict(waarde_shortcut=True)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': 3.5,
                     'testKwantWrdMetKard': [4.5, 5.5]}
         assert d == expected
 
-        d = instance.create_dict_from_asset(waarde_shortcut=False)
+        d = instance.to_dict(waarde_shortcut=False)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': {'waarde': 3.5},
                     'testKwantWrdMetKard': [{'waarde': 4.5}, {'waarde': 5.5}]}
@@ -487,7 +487,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType._testStringFieldMetKard.add_value('string in complex')
         instance.testComplexType._testStringFieldMetKard.add_value('string 2 in complex')
 
-        d = instance.create_dict_from_asset(waarde_shortcut=True)
+        d = instance.to_dict(waarde_shortcut=True)
         expected = {
             'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexType': {'testBooleanField': True,
@@ -511,7 +511,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexTypeMetKard[1].testComplexType2MetKard[0].testStringField = 'first string in complex'
         instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
 
-        d = instance.create_dict_from_asset(waarde_shortcut=True)
+        d = instance.to_dict(waarde_shortcut=True)
         expected = {
             'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexTypeMetKard': [
@@ -621,7 +621,6 @@ def test_to_dict_and_from_dict():
 def test_create_ld_dict_from_asset_only_id():
     instance = AllCasesTestClass()
     instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
-    json_ld_dict = create_dict_from_asset(instance, rdf=True)
     expected = {
         '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
@@ -630,7 +629,33 @@ def test_create_ld_dict_from_asset_only_id():
         }
     }
 
+    json_ld_dict = instance.to_dict(rdf=True)
     assert json_ld_dict == expected
+
+
+def test_to_dict_only_id():
+    instance = AllCasesTestClass()
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'assetId': { 'identificator': '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz' }
+    }
+
+    d = instance.to_dict()
+    assert d == expected
+
+
+def test_create_dict_from_asset_only_id_deprecated():
+    instance = AllCasesTestClass()
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    expected = {
+        'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'assetId': { 'identificator': '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz' }
+    }
+
+    with pytest.warns(DeprecationWarning):
+        d = instance.create_dict_from_asset()
+    assert d == expected
 
 
 def test_create_dict_from_asset_cardinality():
@@ -639,13 +664,13 @@ def test_create_dict_from_asset_cardinality():
     instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
     instance.testKeuzelijstMetKard = ['waarde-1', 'waarde-2']
 
-    asset_dict = create_dict_from_asset(instance)
     expected = {
         'assetId': {'identificator': '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
         'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
         'toestand': 'in-gebruik',
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
 
+    asset_dict = instance.to_dict()
     assert asset_dict == expected
 
 
@@ -717,7 +742,7 @@ def test_create_dict_from_asset_datetimes(recwarn):
     instance.testDateTimeField = datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30)
     instance.testTimeField = time(hour=12, minute=30, second=30)
 
-    d = create_dict_from_asset(instance)
+    d = instance.to_dict()
     expected = {
         'testDateField': date(year=2022, month=2, day=2),
         'testDateTimeField': datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30),
@@ -726,7 +751,7 @@ def test_create_dict_from_asset_datetimes(recwarn):
 
     assert d == expected
 
-    d = create_dict_from_asset(instance, cast_datetime=True)
+    d = instance.to_dict(cast_datetime=True)
     expected = {
         'testDateField': '2022-02-02',
         'testDateTimeField': '2022-02-02 12:30:30',
