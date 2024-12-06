@@ -26,6 +26,7 @@ def test_create_valid_relation():
     assert relation.typeURI == Bevestiging.typeURI
     assert relation.bronAssetId.identificator == another.assetId.identificator
     assert relation.doelAssetId.identificator == all_cases.assetId.identificator
+    assert relation.assetId.identificator == 'Bevestiging_-_another_-_all_cases'
 
 
 def test_create_relation_input_parameters(subtests):
@@ -106,6 +107,7 @@ def test_create_relation_input_parameters(subtests):
         assert relation.typeURI == Bevestiging.typeURI
         assert relation.bronAssetId.identificator == another.assetId.identificator
         assert relation.doelAssetId.identificator == all_cases.assetId.identificator
+        assert relation.assetId.identificator == 'Bevestiging_-_another_-_all_cases'
 
     with subtests.test(msg='real test'):
         kast = dynamic_create_instance_from_ns_and_name(namespace='onderdeel', class_name='Wegkantkast')
@@ -117,6 +119,7 @@ def test_create_relation_input_parameters(subtests):
                                    relation_type=HoortBij)
         assert relation is not None
         assert relation.doelAssetId.identificator == '847a91b3-569d-4bae-87bf-7e148e8f7de9-bGdjOmluc3RhbGxhdGllI0JlaGVlcnN5cw'
+        assert relation.assetId.identificator == 'HoortBij_-_0000_-_847a91b3-569d-4bae-87bf-7e148e8f7de9-bGdjOmluc3RhbGxhdGllI0JlaGVlcnN5cw'
 
 
 def test_create_invalid_relation():
