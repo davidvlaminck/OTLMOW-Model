@@ -5,15 +5,16 @@ import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.ImplementatieElement.AIMObject import AIMObject
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset
+from UnitTests.TestModel.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
 
 def test_from_dict_typeURI_in_dict_without_model():
+    from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject as RealOTLObject
     input_dict = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Armatuurcontroller'}
-    instance = OTLObject.from_dict(input_dict)
+    instance = RealOTLObject.from_dict(input_dict)
     assert instance is not None
 
 
@@ -530,7 +531,7 @@ def test_from_dict_with_non_standardised_attributes(subtests, caplog):
         instance = AllCasesTestClass()
         instance.testStringField = 'string'
         instance.non_standardized_attribute = 'random'
-        d = create_dict_from_asset(instance, warn_for_non_otl_conform_attributes=False)
+        d = instance.to_dict(warn_for_non_otl_conform_attributes=False)
         assert len(caplog.records) == 0
 
     with subtests.test(msg='non-standard simple attribute, warnings not suppressed and not allowed'):
@@ -538,14 +539,14 @@ def test_from_dict_with_non_standardised_attributes(subtests, caplog):
             instance = AllCasesTestClass()
             instance.testStringField = 'string'
             instance.non_standardized_attribute = 'random'
-            create_dict_from_asset(instance, allow_non_otl_conform_attributes=False)
+            instance.to_dict(allow_non_otl_conform_attributes=False)
 
     with subtests.test(msg='non-standard simple attribute, warnings not suppressed but allowed'):
         with pytest.warns(NonStandardAttributeWarning):
             instance = AllCasesTestClass()
             instance.testStringField = 'string'
             instance.non_standardized_attribute = 'random'
-            create_dict_from_asset(instance)
+            instance.to_dict()
 
 
 def test_to_dict_with_non_standardised_attributes(subtests, caplog):
@@ -613,7 +614,7 @@ def test_to_dict_and_from_dict():
     instance.testComplexTypeMetKard[1].testComplexType2MetKard[0].testStringField = 'first string in complex'
     instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
 
-    created_dict = create_dict_from_asset(instance)
+    created_dict = instance.to_dict()
     created_instance = AllCasesTestClass.from_dict(created_dict, model_directory=model_directory_path)
     assert instance == created_instance
 
@@ -631,6 +632,20 @@ def test_create_ld_dict_from_asset_only_id():
 
     json_ld_dict = instance.to_dict(rdf=True)
     assert json_ld_dict == expected
+
+
+def test_from_dict_only_id():
+    instance = AllCasesTestClass()
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    d = {
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+        }
+    }
+    created_instance = OTLObject.from_dict(d, rdf=True, model_directory=model_directory_path)
+    assert instance == created_instance
 
 
 def test_to_dict_only_id():
@@ -681,7 +696,7 @@ def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes(sub
         instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
         instance.non_standard_attribute = 'waarde-2'
 
-        rdf_dict = create_dict_from_asset(instance, rdf=True, warn_for_non_otl_conform_attributes=False)
+        rdf_dict = instance.to_dict(rdf=True, warn_for_non_otl_conform_attributes=False)
         expected = {
             '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
@@ -702,7 +717,7 @@ def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes(sub
         instance.non_standard_attribute = 'waarde-2'
 
         with pytest.warns(NonStandardAttributeWarning):
-            rdf_dict = create_dict_from_asset(instance, rdf=True)
+            rdf_dict = instance.to_dict(rdf=True)
             expected = {
                 '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
@@ -722,7 +737,7 @@ def test_create_ld_dict_from_asset_cardinality():
     instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
     instance.testStringFieldMetKard = ['1', '2']
 
-    rdf_dict = create_dict_from_asset(instance, rdf=True)
+    rdf_dict = instance.to_dict(rdf=True)
     expected = {
         '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
@@ -801,7 +816,7 @@ def test_create_ld_dict_from_asset_ComplexTypeMetKard():
     instance.testComplexTypeMetKard[1].testStringField = 'string 2'
     instance.testComplexTypeMetKard[1].testStringFieldMetKard = ['lijst2', 'waardes']
     instance.testKwantWrd.waarde = 1.1
-    json_ld_dict = create_dict_from_asset(instance, rdf=True)
+    json_ld_dict = instance.to_dict(rdf=True)
     expected = {
         '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
@@ -847,7 +862,7 @@ def test_rdf_dict_complex():
     instance.testComplexTypeMetKard[0].testComplexType2.testStringField = 'string3'
     instance.testComplexTypeMetKard[1].testComplexType2.testStringField = 'string4'
 
-    reg_dict = create_dict_from_asset(instance, waarde_shortcut=True, cast_datetime=True)
+    reg_dict = instance.to_dict(waarde_shortcut=True, cast_datetime=True)
     expected_reg = {'assetId': {'identificator': '0000-0000'},
         'testComplexType': {
             'testComplexType2': {'testKwantWrd': 76.8, 'testStringField': 'GZBzgRhOrQvfZaN'},
@@ -860,7 +875,7 @@ def test_rdf_dict_complex():
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
     assert reg_dict == expected_reg
 
-    rdf_dict_waarde = create_dict_from_asset(instance, rdf=True, waarde_shortcut=True, cast_datetime=True)
+    rdf_dict_waarde = instance.to_dict(rdf=True, waarde_shortcut=True, cast_datetime=True)
     rdf_waarde_expected = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId':
             {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
@@ -885,7 +900,7 @@ def test_rdf_dict_complex():
 
     assert rdf_dict_waarde == rdf_waarde_expected
 
-    rdf_dict = create_dict_from_asset(instance, rdf=True, cast_datetime=True)
+    rdf_dict = instance.to_dict(rdf=True, cast_datetime=True)
     rdf_expected = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId':
             {'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':

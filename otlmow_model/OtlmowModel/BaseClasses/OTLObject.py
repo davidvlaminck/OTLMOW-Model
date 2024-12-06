@@ -396,6 +396,9 @@ class OTLObject(object):
             type_uri = input_dict['typeURI']
         elif rdf and 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI' in input_dict:
             type_uri = input_dict['https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI']
+        elif rdf and '@type' in input_dict:
+            type_uri = input_dict['@type']
+            del input_dict['@type']
         else:
             type_uri = cls.typeURI
 
