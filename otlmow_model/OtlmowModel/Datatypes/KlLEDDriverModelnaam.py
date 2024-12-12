@@ -13,6 +13,11 @@ class KlLEDDriverModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEDDriverModelnaam'
     options = {
+        'ebs-080s070bt2': KeuzelijstWaarde(invulwaarde='ebs-080s070bt2',
+                                           label='ebs-080s070bt2',
+                                           status='ingebruik',
+                                           definitie='ebs-080s070bt2',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverModelnaam/ebs-080s070bt2'),
         'elg-100-c350b-3y': KeuzelijstWaarde(invulwaarde='elg-100-c350b-3y',
                                              label='ELG 100 C350B 3Y',
                                              status='ingebruik',

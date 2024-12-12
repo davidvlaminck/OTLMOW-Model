@@ -20,7 +20,7 @@ class KlAanvaarbeschermingType(KeuzelijstField):
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAanvaarbeschermingType/andere'),
         'dukdalf': KeuzelijstWaarde(invulwaarde='dukdalf',
                                     label='Dukdalf',
-                                    status='ingebruik',
+                                    status='uitgebruik',
                                     definitie='Een in het water geplaatste rechtopstaande paal, al dan niet met schoorpalen voor het vastleggen en afmeren van schepen.',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAanvaarbeschermingType/dukdalf'),
         'geleidewerk': KeuzelijstWaarde(invulwaarde='geleidewerk',

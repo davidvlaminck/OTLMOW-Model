@@ -13,6 +13,11 @@ class KlWvLichtmastArmlengte(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLichtmastArmlengte'
     options = {
+        '0-8': KeuzelijstWaarde(invulwaarde='0-8',
+                                label='0.8',
+                                status='ingebruik',
+                                definitie='0.8',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLichtmastArmlengte/0-8'),
         '1.5': KeuzelijstWaarde(invulwaarde='1.5',
                                 label='1.5',
                                 status='ingebruik',
