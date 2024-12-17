@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.13.8.1",
+        "model_version": "2.13.8.2",
         "otl_version": "2.13.0",
-        "created_at": "2024-12-12T04:01:02",
+        "created_at": "2024-12-17T04:01:00",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -381,6 +381,16 @@
                 "KlLEDDriverModelnaam",
                 "KlWvLedOverhang",
                 "KlWvLichtmastArmlengte"
+            ]
+        },
+        "2.13.8.2": {
+            "previous_version": "2.13.8.1",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlLEDDriverMerk",
+                "KlLumenOutput",
+                "KlWvLedOverhang"
             ]
         }
     }
