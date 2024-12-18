@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.13.8.2",
+        "model_version": "2.13.8.3",
         "otl_version": "2.13.0",
-        "created_at": "2024-12-17T04:01:00",
+        "created_at": "2024-12-18T04:00:58",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -391,6 +391,14 @@
                 "KlLEDDriverMerk",
                 "KlLumenOutput",
                 "KlWvLedOverhang"
+            ]
+        },
+        "2.13.8.3": {
+            "previous_version": "2.13.8.2",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlLumenOutput"
             ]
         }
     }
