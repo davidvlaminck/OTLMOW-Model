@@ -13,6 +13,11 @@ class KlLEDDriverMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEDDriverMerk'
     options = {
+        'inventronics': KeuzelijstWaarde(invulwaarde='inventronics',
+                                         label='Inventronics',
+                                         status='ingebruik',
+                                         definitie='Inventronics',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverMerk/inventronics'),
         'mean-well': KeuzelijstWaarde(invulwaarde='mean-well',
                                       label='Mean Well',
                                       status='ingebruik',
