@@ -13,10 +13,13 @@ class NaamField(StringField):
 
     @classmethod
     def validate(cls, value, attribuut) -> bool:
-        if StringField.validate(value, attribuut):
-            return re.match(r'^[a-zA-Z0-9.\-_]*$', value) is not None
-        else:
+        if not StringField.validate(value, attribuut):
             return False
+        if re.match(r'^[a-zA-Z0-9.\-_]*$', value) is None:
+            return False
+        if hasattr(attribuut.owner, 'naampad') and attribuut.owner.naampad is not None:
+            return attribuut.owner.naampad.split('/')[-1] == value
+        return True
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
