@@ -4,7 +4,6 @@ import re
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject, NaamField
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 class NaampadField(NaamField):
@@ -19,6 +18,10 @@ class NaampadField(NaamField):
             return value.split('/')[-1] == attribuut.owner.naam
         return True
 
+    @classmethod
+    def create_dummy_data(cls) -> str:
+        return 'dummy/dummy'
+
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class NaampadObject(AIMNaamObject):
@@ -31,7 +34,7 @@ class NaampadObject(AIMNaamObject):
     def __init__(self):
         super().__init__()
 
-        self._naampad = OTLAttribuut(field=StringField,
+        self._naampad = OTLAttribuut(field=NaampadField,
                                      naam='naampad',
                                      label='naampad',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#NaampadObject.naampad',
