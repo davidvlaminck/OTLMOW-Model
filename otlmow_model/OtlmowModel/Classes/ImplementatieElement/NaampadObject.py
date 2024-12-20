@@ -22,7 +22,6 @@ class NaampadField(NaamField):
     def create_dummy_data(cls) -> str:
         return 'dummy/dummy'
 
-
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class NaampadObject(AIMNaamObject):
     """Abstracte als de basisklasse voor elk OTL object dat gebruik maakt van een naampad."""
