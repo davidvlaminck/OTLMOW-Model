@@ -3,6 +3,7 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlBrandwerendeMaatregelen import KlBrandwerendeMaatregelen
+from ...Datatypes.KlGebruikersType import KlGebruikersType
 from ...Datatypes.KlKokerTypeFundering import KlKokerTypeFundering
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
@@ -40,6 +41,13 @@ class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
                                                      definition='Keuzelijst voor aan te geven welk type brandwerendheid nodig is.',
                                                      owner=self)
 
+        self._gebruikersInDeKoker = OTLAttribuut(field=KlGebruikersType,
+                                                 naam='gebruikersInDeKoker',
+                                                 label='gebruikers in de koker',
+                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koker.gebruikersInDeKoker',
+                                                 definition='Geeft de type gebruikers aan die kunnen voorkomen in de desbetreffende koker.',
+                                                 owner=self)
+
         self._maximaleVrijeHoogte = OTLAttribuut(field=KwantWrdInCentimeter,
                                                  naam='maximaleVrijeHoogte',
                                                  label='maximale vrije hoogte',
@@ -69,6 +77,15 @@ class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
     @brandwerendeMaatregelen.setter
     def brandwerendeMaatregelen(self, value):
         self._brandwerendeMaatregelen.set_waarde(value, owner=self)
+
+    @property
+    def gebruikersInDeKoker(self) -> str:
+        """Geeft de type gebruikers aan die kunnen voorkomen in de desbetreffende koker."""
+        return self._gebruikersInDeKoker.get_waarde()
+
+    @gebruikersInDeKoker.setter
+    def gebruikersInDeKoker(self, value):
+        self._gebruikersInDeKoker.set_waarde(value, owner=self)
 
     @property
     def maximaleVrijeHoogte(self) -> KwantWrdInCentimeterWaarden:

@@ -17,7 +17,7 @@ class KwantWrdInHerzWaarden(WaardenObject):
                                               usagenote='"s"^^cdt:ucumunit',
                                               readonly=True,
                                               constraints='"Hz"^^cdt:ucumunit',
-                                              definition='De standaard eenheid bij dit datatype is uitgedrukt in seconde.',
+                                              definition='De standaard eenheid bij dit datatype is uitgedrukt in hertz.',
                                               owner=self)
 
         self._waarde = OTLAttribuut(field=NonNegIntegerField,
@@ -29,7 +29,7 @@ class KwantWrdInHerzWaarden(WaardenObject):
 
     @property
     def standaardEenheid(self) -> str:
-        """De standaard eenheid bij dit datatype is uitgedrukt in seconde."""
+        """De standaard eenheid bij dit datatype is uitgedrukt in hertz."""
         return self._standaardEenheid.usagenote.split('"')[1]
 
     @property

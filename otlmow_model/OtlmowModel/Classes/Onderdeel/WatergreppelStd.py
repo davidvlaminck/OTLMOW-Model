@@ -9,7 +9,7 @@ from ...Datatypes.KlLEWatergreppelType import KlLEWatergreppelType
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class WatergreppelStd(GestandaardiseerdeKantopsluiting):
-    """Gestandaardiseerde kantopsluiting, bestemd om water van de verharding op te vangen en af te voeren."""
+    """Gestandaardiseerde kantopsluiting,bestemd om water van de verharding op te vangen en af te voeren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WatergreppelStd'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -25,6 +25,8 @@ class WatergreppelStd(GestandaardiseerdeKantopsluiting):
                                         naam='isVerholen',
                                         label='is verholen',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WatergreppelStd.isVerholen',
+                                        usagenote='Attribuut uit gebruik sinds versie 2.14.0 ',
+                                        deprecated_version='2.14.0',
                                         definition='Aanduiding of de watergreppel verholen is. Verholen goten hebben een kleine sleufopening en een grote afvoercapaciteit.',
                                         owner=self)
 

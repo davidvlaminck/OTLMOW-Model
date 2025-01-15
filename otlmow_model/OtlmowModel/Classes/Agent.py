@@ -2,6 +2,7 @@
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ..Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
+from ..Classes.ImplementatieElement.AIMVersie import AIMVersie
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from ..Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
@@ -10,7 +11,7 @@ from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Agent(AIMDBStatus, OTLObject, RelationInteractor):
+class Agent(AIMDBStatus, AIMVersie, OTLObject, RelationInteractor):
     """Iemand die of iets dat kan handelen of een effect kan teweeg brengen."""
 
     typeURI = 'http://purl.org/dc/terms/Agent'
