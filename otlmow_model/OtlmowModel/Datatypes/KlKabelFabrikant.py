@@ -13,6 +13,11 @@ class KlKabelFabrikant(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelFabrikant'
     options = {
+        'b-cables': KeuzelijstWaarde(invulwaarde='b-cables',
+                                     label='B-Cables',
+                                     status='ingebruik',
+                                     definitie='B-Cables',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelFabrikant/b-cables'),
         'eldra': KeuzelijstWaarde(invulwaarde='eldra',
                                   label='Eldra',
                                   status='ingebruik',

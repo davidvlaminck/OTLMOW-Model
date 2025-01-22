@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.14.0.0",
+        "model_version": "2.14.0.1",
         "otl_version": "2.14.0",
-        "created_at": "2025-01-15T04:00:53",
+        "created_at": "2025-01-22T04:00:59",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -447,6 +447,16 @@
             "enums_updated": [
                 "KlAanvaarbeschermingType",
                 "KlDamwandMateriaal"
+            ]
+        },
+        "2.14.0.1": {
+            "previous_version": "2.14.0.0",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlKabelFabrikant",
+                "KlSeinlantaarnMerk",
+                "KlSeinlantaarnModelnaam"
             ]
         }
     }
