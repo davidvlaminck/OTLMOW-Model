@@ -516,6 +516,36 @@ def test_make_string_version_kardinaliteit():
     assert info_string == expected
 
 
+def test_make_string_version_nested_no_kard():
+    instance = AllCasesTestClass()
+    instance.testComplexType.testComplexType2.testKwantWrd.waarde = 1.1
+
+    info_string = str(instance)
+    expected = '<AllCasesTestClass> object\n'\
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n'\
+               '    testComplexType :\n'\
+               '        testComplexType2 :\n'\
+               '            testKwantWrd :\n'\
+               '                waarde : 1.1'
+
+    assert info_string == expected
+
+
+def test_make_string_version_nested_kard():
+    instance = AllCasesTestClass()
+    instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testKwantWrd.waarde = 1.1
+
+    info_string = str(instance)
+    expected = '<AllCasesTestClass> object\n'\
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n'\
+               '    testComplexTypeMetKard :\n'\
+               '    [0] testComplexType2MetKard :\n'\
+               '    [0] [0] testKwantWrd :\n'\
+               '    [0] [0]     waarde : 1.1'
+
+    assert info_string == expected
+
+
 def test_make_string_version_kardinaliteit_one_too_many():
     instance = AllCasesTestClass()
     instance.testIntegerFieldMetKard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
