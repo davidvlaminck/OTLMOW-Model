@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
+from ...Classes.Abstracten.DetaiplanObject import DetaiplanObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlMateriaalBolder import KlMateriaalBolder
 from ...Datatypes.KlTypeBevestigingBolder import KlTypeBevestigingBolder
@@ -11,7 +12,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Bolder(AanhorigheidSluisStuw, AIMNaamObject, PuntGeometrie):
+class Bolder(AanhorigheidSluisStuw, DetaiplanObject, AIMNaamObject, PuntGeometrie):
     """Een bolder is een aanmeervoorziening voor schepen geplaatst bovenop een constructie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bolder'
@@ -19,6 +20,9 @@ class Bolder(AanhorigheidSluisStuw, AIMNaamObject, PuntGeometrie):
 
     def __init__(self):
         super().__init__()
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kesp', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verankeringsmassief', direction='u')  # u = unidirectional
 
         self._materiaalBolder = OTLAttribuut(field=KlMateriaalBolder,
                                              naam='materiaalBolder',

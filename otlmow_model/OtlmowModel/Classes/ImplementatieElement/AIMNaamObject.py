@@ -25,7 +25,6 @@ class NaamField(StringField):
     def create_dummy_data(cls) -> str:
         return 'dummy'
 
-
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class AIMNaamObject(AIMObject):
     """Abstracte als de basisklasse voor elk OTL object dat benoemd wordt met een mensleesbare identificator."""
@@ -41,6 +40,7 @@ class AIMNaamObject(AIMObject):
                                   naam='naam',
                                   label='naam',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMNaamObject.naam',
+                                  usagenote='Dient leeg of consistent te zijn met het naampad indien het naampad attribuut aanwezig en gekend is.',
                                   definition='De mensleesbare naam van een asset zoals dit bv. ook terug te vinden is op een etiket op het object zelf. De assetbeheerder kent deze naam toe of geeft de opdracht om deze toe te kennen. Indien een object een algemeen gangbare naam heeft zoals bv. bij een waterloop dan wordt deze gebruikt.',
                                   owner=self)
 

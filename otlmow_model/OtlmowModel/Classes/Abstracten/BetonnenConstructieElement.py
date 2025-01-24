@@ -17,12 +17,26 @@ class BetonnenConstructieElement(ABC):
     def __init__(self):
         super().__init__()
 
+        self._bekistingsplan = OTLAttribuut(field=DtcDocument,
+                                            naam='bekistingsplan',
+                                            label='bekistingsplan',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BetonnenConstructieElement.bekistingsplan',
+                                            definition='Een plan die bekistingsmaten bevat en ook alle maten van alle mogelijke uitsparingen die er kunnen zijn.',
+                                            owner=self)
+
         self._betonspecificaties = OTLAttribuut(field=DtcBetonspecificaties,
                                                 naam='betonspecificaties',
                                                 label='betonspecificaties',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BetonnenConstructieElement.betonspecificaties',
                                                 definition='Eigenschappen van het gebruikte beton.',
                                                 owner=self)
+
+        self._technischeFicheBetonBescherming = OTLAttribuut(field=DtcDocument,
+                                                             naam='technischeFicheBetonBescherming',
+                                                             label='technische fiche betonbescherming',
+                                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BetonnenConstructieElement.technischeFicheBetonBescherming',
+                                                             definition='Technische fiche dat informatie bevat over de betonbescherming.',
+                                                             owner=self)
 
         self._uitvoeringsmethode = OTLAttribuut(field=KlUitvoeringsmethode,
                                                 naam='uitvoeringsmethode',
@@ -39,6 +53,15 @@ class BetonnenConstructieElement(ABC):
                                            owner=self)
 
     @property
+    def bekistingsplan(self) -> DtcDocumentWaarden:
+        """Een plan die bekistingsmaten bevat en ook alle maten van alle mogelijke uitsparingen die er kunnen zijn."""
+        return self._bekistingsplan.get_waarde()
+
+    @bekistingsplan.setter
+    def bekistingsplan(self, value):
+        self._bekistingsplan.set_waarde(value, owner=self)
+
+    @property
     def betonspecificaties(self) -> DtcBetonspecificatiesWaarden:
         """Eigenschappen van het gebruikte beton."""
         return self._betonspecificaties.get_waarde()
@@ -46,6 +69,15 @@ class BetonnenConstructieElement(ABC):
     @betonspecificaties.setter
     def betonspecificaties(self, value):
         self._betonspecificaties.set_waarde(value, owner=self)
+
+    @property
+    def technischeFicheBetonBescherming(self) -> DtcDocumentWaarden:
+        """Technische fiche dat informatie bevat over de betonbescherming."""
+        return self._technischeFicheBetonBescherming.get_waarde()
+
+    @technischeFicheBetonBescherming.setter
+    def technischeFicheBetonBescherming(self, value):
+        self._technischeFicheBetonBescherming.set_waarde(value, owner=self)
 
     @property
     def uitvoeringsmethode(self) -> str:

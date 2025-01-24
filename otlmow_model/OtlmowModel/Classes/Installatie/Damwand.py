@@ -66,6 +66,8 @@ class Damwand(ConstructieElement, Grondkeringen, WaterremmendeFunctie, LijnGeome
                                        naam='materiaal',
                                        label='damwand materiaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Damwand.materiaal',
+                                       usagenote='Attribuut uit gebruik sinds versie 2.14.0 ',
+                                       deprecated_version='2.14.0',
                                        definition='Het materiaal waaruit de damwand bestaat.',
                                        owner=self)
 

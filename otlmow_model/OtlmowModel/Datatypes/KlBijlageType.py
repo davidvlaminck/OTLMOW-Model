@@ -13,11 +13,36 @@ class KlBijlageType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBijlageType'
     options = {
+        'attest': KeuzelijstWaarde(invulwaarde='attest',
+                                   label='attest',
+                                   status='ingebruik',
+                                   definitie='attest',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/attest'),
         'foto': KeuzelijstWaarde(invulwaarde='foto',
                                  label='foto',
                                  status='ingebruik',
                                  definitie='foto',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/foto')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/foto'),
+        'handleiding': KeuzelijstWaarde(invulwaarde='handleiding',
+                                        label='handleiding',
+                                        status='ingebruik',
+                                        definitie='handleiding',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/handleiding'),
+        'plan': KeuzelijstWaarde(invulwaarde='plan',
+                                 label='plan',
+                                 status='ingebruik',
+                                 definitie='plan',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/plan'),
+        'technische-fiche': KeuzelijstWaarde(invulwaarde='technische-fiche',
+                                             label='technische fiche',
+                                             status='ingebruik',
+                                             definitie='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/technische-fiche'),
+        'verslag': KeuzelijstWaarde(invulwaarde='verslag',
+                                    label='verslag',
+                                    status='ingebruik',
+                                    definitie='verslag',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/verslag')
     }
 
     @classmethod

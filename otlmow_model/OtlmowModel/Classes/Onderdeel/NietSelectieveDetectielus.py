@@ -2,13 +2,14 @@
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SelNietSelLus import SelNietSelLus
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlVriLusFunctie import KlVriLusFunctie
 from ...Datatypes.KlVriLusSoortvoertuig import KlVriLusSoortvoertuig
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class NietSelectieveDetectielus(SelNietSelLus):
+class NietSelectieveDetectielus(SelNietSelLus, NaampadObject):
     """Een niet-selectieve detectielus werkt onder invloed van een wijziging in de zelfinductie van een lus in het wegdek wanneer het metaal van een voertuig binnen het gevoeligheidsgebied van de lus komt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietSelectieveDetectielus'

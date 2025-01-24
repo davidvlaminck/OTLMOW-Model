@@ -16,7 +16,7 @@ class KlKleurSupp(KeuzelijstField):
         'beige': KeuzelijstWaarde(invulwaarde='beige',
                                   label='beige',
                                   status='ingebruik',
-                                  definitie='De kleur rood.',
+                                  definitie='De kleur beige.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKleurSupp/beige'),
         'bordeaux-bruin': KeuzelijstWaarde(invulwaarde='bordeaux-bruin',
                                            label='bordeaux-bruin',
@@ -36,7 +36,7 @@ class KlKleurSupp(KeuzelijstField):
         'rood': KeuzelijstWaarde(invulwaarde='rood',
                                  label='rood',
                                  status='ingebruik',
-                                 definitie='De kleur beige.',
+                                 definitie='De kleur rood.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKleurSupp/rood')
     }
 

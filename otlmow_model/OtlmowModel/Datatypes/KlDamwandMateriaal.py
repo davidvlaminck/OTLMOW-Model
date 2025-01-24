@@ -11,6 +11,7 @@ class KlDamwandMateriaal(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlDamwandMateriaal'
     definition = 'Het materiaal waaruit de damwand bestaat.'
     status = 'ingebruik'
+    deprecated_version = '2.14.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDamwandMateriaal'
     options = {
         'beton': KeuzelijstWaarde(invulwaarde='beton',

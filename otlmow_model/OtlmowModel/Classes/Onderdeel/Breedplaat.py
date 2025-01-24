@@ -5,12 +5,13 @@ from ...Datatypes.DtcBetonspecificaties import DtcBetonspecificaties, DtcBetonsp
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Breedplaat(ConstructieElement, LijnGeometrie, VlakGeometrie):
+class Breedplaat(ConstructieElement, PuntGeometrie, LijnGeometrie, VlakGeometrie):
     """Geprefabriceerd structuurelement dat over de volledige lengte voorzien is van minstens 2 driedimensionale tralieliggers en dat bestemd is om de meewerkende onderkant te vormen van een dragende brugdekplaat of van een bouwkundige constructie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Breedplaat'

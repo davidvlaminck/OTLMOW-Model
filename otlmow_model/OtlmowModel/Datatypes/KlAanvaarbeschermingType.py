@@ -11,6 +11,7 @@ class KlAanvaarbeschermingType(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlAanvaarbeschermingType'
     definition = 'De soort van de aanvaarbescherming.'
     status = 'ingebruik'
+    deprecated_version = '2.14.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAanvaarbeschermingType'
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',

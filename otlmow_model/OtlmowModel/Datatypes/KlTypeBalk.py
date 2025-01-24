@@ -20,7 +20,7 @@ class KlTypeBalk(KeuzelijstField):
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBalk/balk-ligger'),
         'koppelbalk': KeuzelijstWaarde(invulwaarde='koppelbalk',
                                        label='Koppelbalk',
-                                       status='ingebruik',
+                                       status='uitgebruik',
                                        definitie='Een balk die de delen van een constructie met elkaar verbindt.',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBalk/koppelbalk'),
         'ringbalk': KeuzelijstWaarde(invulwaarde='ringbalk',

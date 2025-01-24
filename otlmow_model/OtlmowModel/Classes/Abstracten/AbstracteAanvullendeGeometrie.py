@@ -3,6 +3,7 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
+from ...Classes.ImplementatieElement.AIMVersie import AIMVersie
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -11,7 +12,7 @@ from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, OTLObject, RelationInteractor):
+class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, AIMVersie, OTLObject, RelationInteractor):
     """Abstracte om de eigenschappen en relaties van AanvullendeGeometrie te bundelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie'

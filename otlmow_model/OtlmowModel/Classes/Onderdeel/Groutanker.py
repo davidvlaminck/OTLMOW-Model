@@ -3,6 +3,7 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Grondanker import Grondanker
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...Datatypes.DtcHellingshoek import DtcHellingshoek, DtcHellingshoekWaarden
 from ...Datatypes.KlBeschermingsklasse import KlBeschermingsklasse
 from ...Datatypes.KlGroutankerInjectie import KlGroutankerInjectie
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
@@ -20,6 +21,8 @@ class Groutanker(Grondanker, AIMNaamObject):
 
     def __init__(self):
         super().__init__()
+
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BalkGK', direction='u')  # u = unidirectional
 
         self._aanzetpeilwortel = OTLAttribuut(field=KwantWrdInMeterTAW,
                                               naam='aanzetpeilwortel',
@@ -67,8 +70,17 @@ class Groutanker(Grondanker, AIMNaamObject):
                                           naam='hellingshoek',
                                           label='hellingshoek',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Groutanker.hellingshoek',
+                                          usagenote='Attribuut uit gebruik sinds versie 2.14.0 ',
+                                          deprecated_version='2.14.0',
                                           definition='Hoek van het ingebrachte anker in decimale graden.',
                                           owner=self)
+
+        self._hellingshoekGroutanker = OTLAttribuut(field=DtcHellingshoek,
+                                                    naam='hellingshoekGroutanker',
+                                                    label='hellingshoek groutanker',
+                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Groutanker.hellingshoekGroutanker',
+                                                    definition='Hoek van het ingebrachte anker in decimale graden alsook de richting.',
+                                                    owner=self)
 
         self._injectiemethode = OTLAttribuut(field=KlGroutankerInjectie,
                                              naam='injectiemethode',
@@ -174,6 +186,15 @@ class Groutanker(Grondanker, AIMNaamObject):
     @hellingshoek.setter
     def hellingshoek(self, value):
         self._hellingshoek.set_waarde(value, owner=self)
+
+    @property
+    def hellingshoekGroutanker(self) -> DtcHellingshoekWaarden:
+        """Hoek van het ingebrachte anker in decimale graden alsook de richting."""
+        return self._hellingshoekGroutanker.get_waarde()
+
+    @hellingshoekGroutanker.setter
+    def hellingshoekGroutanker(self, value):
+        self._hellingshoekGroutanker.set_waarde(value, owner=self)
 
     @property
     def injectiemethode(self) -> str:

@@ -22,7 +22,6 @@ class NaampadField(NaamField):
     def create_dummy_data(cls) -> str:
         return 'dummy/dummy'
 
-
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class NaampadObject(AIMNaamObject):
     """Abstracte als de basisklasse voor elk OTL object dat gebruik maakt van een naampad."""
@@ -38,6 +37,7 @@ class NaampadObject(AIMNaamObject):
                                      naam='naampad',
                                      label='naampad',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#NaampadObject.naampad',
+                                     usagenote='Dient consistent te zijn met de naam.',
                                      definition='Een set van objecten (bv. collecties) die aanduiden waar het object zich bevindt in de objectenboom (EM-Infra).',
                                      owner=self)
 

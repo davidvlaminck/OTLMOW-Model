@@ -3,16 +3,18 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorighedenBrug import AanhorighedenBrug
 from ...Classes.Abstracten.AanhorigheidKoker import AanhorigheidKoker
 from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
+from ...Classes.Abstracten.DetaiplanObject import DetaiplanObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlMateriaalLadder import KlMateriaalLadder
+from ...Datatypes.KlTypeOpstellingLadder import KlTypeOpstellingLadder
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ladder(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, AIMNaamObject, PuntGeometrie):
+class Ladder(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, DetaiplanObject, AIMNaamObject, PuntGeometrie):
     """Een ladder is een constructie van verticale bomen met horizontale sporten die gebruikt wordt als klimmiddel/gereedschap."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder'
@@ -26,6 +28,7 @@ class Ladder(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, AIMNaa
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kokerruimte', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kesp', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangsvoorziening', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompstation', direction='o')  # o = direction: outgoing
@@ -85,6 +88,13 @@ class Ladder(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, AIMNaa
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder.technischeFiche',
                                              definition='De technische fiche van de ladder.',
                                              owner=self)
+
+        self._typeOpstelling = OTLAttribuut(field=KlTypeOpstellingLadder,
+                                            naam='typeOpstelling',
+                                            label='type opstelling',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder.typeOpstelling',
+                                            definition='Geeft aan of de type van de ladder inbouw of opbouw is.',
+                                            owner=self)
 
         self._uitschuiffbaarlengte = OTLAttribuut(field=KwantWrdInMeter,
                                                   naam='uitschuiffbaarlengte',
@@ -164,6 +174,15 @@ class Ladder(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, AIMNaa
     @technischeFiche.setter
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
+
+    @property
+    def typeOpstelling(self) -> str:
+        """Geeft aan of de type van de ladder inbouw of opbouw is."""
+        return self._typeOpstelling.get_waarde()
+
+    @typeOpstelling.setter
+    def typeOpstelling(self, value):
+        self._typeOpstelling.set_waarde(value, owner=self)
 
     @property
     def uitschuiffbaarlengte(self) -> KwantWrdInMeterWaarden:

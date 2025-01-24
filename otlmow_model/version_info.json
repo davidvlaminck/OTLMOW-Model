@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.13.8.3",
-        "otl_version": "2.13.0",
-        "created_at": "2024-12-18T04:00:58",
+        "model_version": "2.14.0.1",
+        "otl_version": "2.14.0",
+        "created_at": "2025-01-22T04:00:59",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -399,6 +399,64 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlLumenOutput"
+            ]
+        },
+        "2.13.9.0": {
+            "previous_version": "2.13.8.3",
+            "updated_class_model": true,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.13.9.1": {
+            "previous_version": "2.13.9.0",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlAansluitstukMateriaal"
+            ]
+        },
+        "2.13.9.2": {
+            "previous_version": "2.13.9.1",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlTypeBalk"
+            ]
+        },
+        "2.13.9.3": {
+            "previous_version": "2.13.9.2",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlKleurSupp",
+                "KlWvLedOverhang"
+            ]
+        },
+        "2.13.9.4": {
+            "previous_version": "2.13.9.3",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlBijlageType"
+            ]
+        },
+        "2.14.0.0": {
+            "previous_version": "2.13.9.4",
+            "updated_class_model": true,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlAanvaarbeschermingType",
+                "KlDamwandMateriaal"
+            ]
+        },
+        "2.14.0.1": {
+            "previous_version": "2.14.0.0",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlKabelFabrikant",
+                "KlSeinlantaarnMerk",
+                "KlSeinlantaarnModelnaam"
             ]
         }
     }

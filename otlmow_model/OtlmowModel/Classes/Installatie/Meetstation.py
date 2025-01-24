@@ -17,22 +17,26 @@ class Meetstation(NaampadObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    deprecated_version = '2.14.0'
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IoTSensor', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PMU', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Referentiepunt', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='i', deprecated='2.14.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', direction='i', deprecated='2.14.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor', direction='i', deprecated='2.14.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera', direction='i', deprecated='2.14.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IoTSensor', direction='i', deprecated='2.14.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC', direction='i', deprecated='2.14.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PMU', direction='i', deprecated='2.14.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Referentiepunt', direction='i', deprecated='2.14.0')  # i = direction: incoming
 
         self._beoordelingLokaleTerrein = OTLAttribuut(field=KlLokaalTerreinType,
                                                       naam='beoordelingLokaleTerrein',
                                                       label='beoordeling lokale terrein',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.beoordelingLokaleTerrein',
+                                                      usagenote='Klasse uit gebruik sinds versie 2.14.0 ',
+                                                      deprecated_version='2.14.0',
                                                       kardinaliteit_max='*',
                                                       definition='Het soort terrein waarin het meetstation staat met betrekking tot het reliëf en de vegetatie.',
                                                       owner=self)
@@ -41,6 +45,8 @@ class Meetstation(NaampadObject, PuntGeometrie):
                                   naam='foto',
                                   label='foto',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.foto',
+                                  usagenote='Klasse uit gebruik sinds versie 2.14.0 ',
+                                  deprecated_version='2.14.0',
                                   kardinaliteit_max='*',
                                   definition="De verschillende foto's van het meetstation.",
                                   owner=self)
@@ -49,6 +55,8 @@ class Meetstation(NaampadObject, PuntGeometrie):
                                              naam='keuringsrapport',
                                              label='keuringsrapport',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.keuringsrapport',
+                                             usagenote='Klasse uit gebruik sinds versie 2.14.0 ',
+                                             deprecated_version='2.14.0',
                                              kardinaliteit_max='*',
                                              definition='Het rapport dat 5 jaarlijks wordt opgesteld met details over het meetstation.',
                                              owner=self)
@@ -57,6 +65,8 @@ class Meetstation(NaampadObject, PuntGeometrie):
                                                   naam='masterOfBridgeSensor',
                                                   label='master of bridge sensor',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.masterOfBridgeSensor',
+                                                  usagenote='Klasse uit gebruik sinds versie 2.14.0 ',
+                                                  deprecated_version='2.14.0',
                                                   definition='Geeft aan of het meetstation ingeplant is ter hoogte van een brug.',
                                                   owner=self)
 
@@ -64,6 +74,8 @@ class Meetstation(NaampadObject, PuntGeometrie):
                                                       naam='nabijheidVanHindernissen',
                                                       label='nabijheid van hindernissen',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.nabijheidVanHindernissen',
+                                                      usagenote='Klasse uit gebruik sinds versie 2.14.0 ',
+                                                      deprecated_version='2.14.0',
                                                       kardinaliteit_max='*',
                                                       definition='De afstand tot een hindernis in de nabijheid.',
                                                       owner=self)
@@ -72,6 +84,8 @@ class Meetstation(NaampadObject, PuntGeometrie):
                                                     naam='nabijheidVanWaterlopen',
                                                     label='nabijheid van waterlopen',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.nabijheidVanWaterlopen',
+                                                    usagenote='Klasse uit gebruik sinds versie 2.14.0 ',
+                                                    deprecated_version='2.14.0',
                                                     kardinaliteit_max='*',
                                                     definition='De afstand tot een waterloop in de nabijheid.',
                                                     owner=self)
@@ -80,6 +94,8 @@ class Meetstation(NaampadObject, PuntGeometrie):
                                                naam='onderhoudsrapport',
                                                label='onderhoudsrapport',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.onderhoudsrapport',
+                                               usagenote='Klasse uit gebruik sinds versie 2.14.0 ',
+                                               deprecated_version='2.14.0',
                                                kardinaliteit_max='*',
                                                definition='Het rapport dat jaarlijks wordt opgesteld met details over het onderhoud van het meetstation.',
                                                owner=self)
@@ -88,6 +104,8 @@ class Meetstation(NaampadObject, PuntGeometrie):
                                                 naam='sitePhysicsRapport',
                                                 label='site physics rapport',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meetstation.sitePhysicsRapport',
+                                                usagenote='Klasse uit gebruik sinds versie 2.14.0 ',
+                                                deprecated_version='2.14.0',
                                                 kardinaliteit_max='*',
                                                 definition='Beschrijvend overzichtsrapport van het meteostation.',
                                                 owner=self)

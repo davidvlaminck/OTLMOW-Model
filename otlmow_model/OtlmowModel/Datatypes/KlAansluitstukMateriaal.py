@@ -47,7 +47,12 @@ class KlAansluitstukMateriaal(KeuzelijstField):
                                 label='rvs',
                                 status='ingebruik',
                                 definitie='roestvrij staal',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/rvs')
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/rvs'),
+        'staal': KeuzelijstWaarde(invulwaarde='staal',
+                                  label='staal',
+                                  status='ingebruik',
+                                  definitie='staal',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitstukMateriaal/staal')
     }
 
     @classmethod
