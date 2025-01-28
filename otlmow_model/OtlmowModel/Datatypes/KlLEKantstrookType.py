@@ -37,7 +37,12 @@ class KlLEKantstrookType(KeuzelijstField):
                                         label='type II E 1',
                                         status='ingebruik',
                                         definitie='type II E 1',
-                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantstrookType/type-II-E-1')
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantstrookType/type-II-E-1'),
+        'type-i-b': KeuzelijstWaarde(invulwaarde='type-i-b',
+                                     label='type I B',
+                                     status='ingebruik',
+                                     definitie='type I B',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantstrookType/type-i-b')
     }
 
     @classmethod

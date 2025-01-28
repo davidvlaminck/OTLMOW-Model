@@ -17,7 +17,12 @@ class KlLETrottoirbandVorm(KeuzelijstField):
                                         label='afgeschuind',
                                         status='ingebruik',
                                         definitie='Afgeschuind',
-                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLETrottoirbandVorm/afgeschuind')
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLETrottoirbandVorm/afgeschuind'),
+        'niet-afgeschuind': KeuzelijstWaarde(invulwaarde='niet-afgeschuind',
+                                             label='niet afgeschuind',
+                                             status='ingebruik',
+                                             definitie='niet afgeschuind',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLETrottoirbandVorm/niet-afgeschuind')
     }
 
     @classmethod

@@ -13,11 +13,21 @@ class KlSeinlantaarnModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSeinlantaarnModelnaam'
     options = {
+        'alustar': KeuzelijstWaarde(invulwaarde='alustar',
+                                    label='Alustar',
+                                    status='ingebruik',
+                                    definitie='Alustar',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSeinlantaarnModelnaam/alustar'),
         'ciway': KeuzelijstWaarde(invulwaarde='ciway',
                                   label='CIWAY',
                                   status='ingebruik',
                                   definitie='CIWAY',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSeinlantaarnModelnaam/ciway')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSeinlantaarnModelnaam/ciway'),
+        'futurit': KeuzelijstWaarde(invulwaarde='futurit',
+                                    label='Futurit',
+                                    status='ingebruik',
+                                    definitie='Futurit',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSeinlantaarnModelnaam/futurit')
     }
 
     @classmethod
