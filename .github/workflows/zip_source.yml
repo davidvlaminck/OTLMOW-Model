@@ -11,10 +11,10 @@ jobs:
         working-directory: .
     steps:
       - uses: actions/checkout@v4
-      - uses: vimtor/action-zip@v1.2
-        with:
-          files: otlmow-model/
-          dest: source.zip
+      - name: zip files
+        run: |
+          rm -rf source.zip
+          zip -v -r source.zip ./otlmow_model
       - name: Commit files
         run: |
           git pull
