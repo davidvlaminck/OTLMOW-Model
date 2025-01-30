@@ -14,7 +14,7 @@ jobs:
       - name: zip files
         run: |
           rm -rf source.zip
-          zip -r source.zip ./otlmow-model
+          zip -v -r source.zip ./otlmow-model
       - name: Commit files
         run: |
           git pull
