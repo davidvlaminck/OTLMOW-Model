@@ -3,7 +3,7 @@ run-name: Zip source code for ${{ github.sha }}
 on: [push]
 
 jobs:
-  coverage:
+  zip_source_code:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     defaults:
