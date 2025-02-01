@@ -13,6 +13,11 @@ class KlVerlichtingstoestelconnectorBesturingsconnector(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerlichtingstoestelconnectorBesturingsconnector'
     options = {
+        '5-pin': KeuzelijstWaarde(invulwaarde='5-pin',
+                                  label='5 PIN',
+                                  status='ingebruik',
+                                  definitie='5 PIN',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelconnectorBesturingsconnector/5-pin'),
         'NEMA': KeuzelijstWaarde(invulwaarde='NEMA',
                                  label='NEMA',
                                  status='ingebruik',

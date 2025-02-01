@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.14.0.2",
+        "model_version": "2.14.0.3",
         "otl_version": "2.14.0",
-        "created_at": "2025-01-28T04:00:58",
+        "created_at": "2025-02-01T04:01:01",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -469,6 +469,15 @@
                 "KlLETrottoirbandVorm",
                 "KlRadarMerk",
                 "KlSeinlantaarnModelnaam"
+            ]
+        },
+        "2.14.0.3": {
+            "previous_version": "2.14.0.2",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlOpenInfiltratievoorzieningType",
+                "KlVerlichtingstoestelconnectorBesturingsconnector"
             ]
         }
     }
