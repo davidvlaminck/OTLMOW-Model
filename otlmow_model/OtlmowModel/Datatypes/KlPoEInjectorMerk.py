@@ -17,7 +17,12 @@ class KlPoEInjectorMerk(KeuzelijstField):
                                   label='Bosch',
                                   status='ingebruik',
                                   definitie='Bosch',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPoEInjectorMerk/bosch')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPoEInjectorMerk/bosch'),
+        'planet': KeuzelijstWaarde(invulwaarde='planet',
+                                   label='PLANET',
+                                   status='ingebruik',
+                                   definitie='PLANET',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPoEInjectorMerk/planet')
     }
 
     @classmethod

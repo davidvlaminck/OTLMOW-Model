@@ -13,6 +13,11 @@ class KlPoEInjectorModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPoEInjectorModelnaam'
     options = {
+        'lrp-101u-kit': KeuzelijstWaarde(invulwaarde='lrp-101u-kit',
+                                         label='LRP-101U-KIT',
+                                         status='ingebruik',
+                                         definitie='LRP-101U-KIT',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPoEInjectorModelnaam/lrp-101u-kit'),
         'npd-5001poe': KeuzelijstWaarde(invulwaarde='npd-5001poe',
                                         label='NPD 5001POE',
                                         status='ingebruik',
