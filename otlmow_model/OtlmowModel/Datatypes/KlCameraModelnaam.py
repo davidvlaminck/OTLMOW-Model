@@ -82,7 +82,12 @@ class KlCameraModelnaam(KeuzelijstField):
                                       label='Ulisse HD',
                                       status='ingebruik',
                                       definitie='Ulisse HD',
-                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraModelnaam/ulisse-hd')
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraModelnaam/ulisse-hd'),
+        'vega-tasc': KeuzelijstWaarde(invulwaarde='vega-tasc',
+                                      label='VEGA TaSC',
+                                      status='ingebruik',
+                                      definitie='VEGA TaSC',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraModelnaam/vega-tasc')
     }
 
     @classmethod
