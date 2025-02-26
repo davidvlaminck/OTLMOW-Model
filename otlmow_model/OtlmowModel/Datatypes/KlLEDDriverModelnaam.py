@@ -87,7 +87,12 @@ class KlLEDDriverModelnaam(KeuzelijstField):
                                                                    label='Xi SR 40W 0.2-0.7A SNEMP 230V C133 sXt',
                                                                    status='ingebruik',
                                                                    definitie='Xi SR 40W 0.2-0.7A SNEMP 230V C133 sXt',
-                                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverModelnaam/xi-sr-40w-0-2-0-7a-snemp-230v-c133-sxt')
+                                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverModelnaam/xi-sr-40w-0-2-0-7a-snemp-230v-c133-sxt'),
+        'xitanium-fp': KeuzelijstWaarde(invulwaarde='xitanium-fp',
+                                        label='Xitanium FP',
+                                        status='ingebruik',
+                                        definitie='Xitanium FP',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDDriverModelnaam/xitanium-fp')
     }
 
     @classmethod

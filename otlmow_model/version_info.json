@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.14.0.9",
+        "model_version": "2.14.0.10",
         "otl_version": "2.14.0",
-        "created_at": "2025-02-20T04:01:06",
+        "created_at": "2025-02-26T04:01:09",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -536,6 +536,20 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlLEDDriverModelnaam"
+            ]
+        },
+        "2.14.0.10": {
+            "previous_version": "2.14.0.9",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlAlgRijrichting",
+                "KlCameraModelnaam",
+                "KlDetectiecameraModelnaam",
+                "KlDrukknopMerk",
+                "KlDrukknopModelnaam",
+                "KlLEDDriverModelnaam",
+                "KlRadarModelnaam"
             ]
         }
     }
