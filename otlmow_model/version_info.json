@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.14.0.10",
+        "model_version": "2.14.0.11",
         "otl_version": "2.14.0",
-        "created_at": "2025-02-26T04:01:09",
+        "created_at": "2025-02-28T04:01:16",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -550,6 +550,18 @@
                 "KlDrukknopModelnaam",
                 "KlLEDDriverModelnaam",
                 "KlRadarModelnaam"
+            ]
+        },
+        "2.14.0.11": {
+            "previous_version": "2.14.0.10",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlDatakabelTypeSpecificatie",
+                "KlIVRIBaseline",
+                "KlIVRIMerkITSapp",
+                "KlIVRIModelITSapp",
+                "KlSignaalkabelTypeSpecificatie"
             ]
         }
     }

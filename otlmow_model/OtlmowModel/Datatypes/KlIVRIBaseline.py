@@ -13,6 +13,11 @@ class KlIVRIBaseline(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIBaseline'
     options = {
+        'idd-ris-fi-version-1-3-0': KeuzelijstWaarde(invulwaarde='idd-ris-fi-version-1-3-0',
+                                                     label='IDD RIS-FI version 1.3.0',
+                                                     status='ingebruik',
+                                                     definitie='IDD RIS-FI version 1.3.0',
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIBaseline/idd-ris-fi-version-1-3-0'),
         'idd-tlc-fi-version-1-3-1': KeuzelijstWaarde(invulwaarde='idd-tlc-fi-version-1-3-1',
                                                      label='IDD TLC-FI version 1.3.1',
                                                      status='ingebruik',

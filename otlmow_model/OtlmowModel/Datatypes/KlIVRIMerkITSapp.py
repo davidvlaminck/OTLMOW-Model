@@ -13,6 +13,11 @@ class KlIVRIMerkITSapp(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIMerkITSapp'
     options = {
+        'goudappel': KeuzelijstWaarde(invulwaarde='goudappel',
+                                      label='Goudappel',
+                                      status='ingebruik',
+                                      definitie='Goudappel',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkITSapp/goudappel'),
         'peek': KeuzelijstWaarde(invulwaarde='peek',
                                  label='Peek',
                                  status='ingebruik',

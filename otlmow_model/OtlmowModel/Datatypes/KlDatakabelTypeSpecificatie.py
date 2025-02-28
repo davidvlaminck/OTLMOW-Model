@@ -13,6 +13,16 @@ class KlDatakabelTypeSpecificatie(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDatakabelTypeSpecificatie'
     options = {
+        'cca-s3-d2-a3': KeuzelijstWaarde(invulwaarde='cca-s3-d2-a3',
+                                         label='Cca s3 d2 a3',
+                                         status='ingebruik',
+                                         definitie='Cca s3 d2 a3',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelTypeSpecificatie/cca-s3-d2-a3'),
+        'eca': KeuzelijstWaarde(invulwaarde='eca',
+                                label='Eca',
+                                status='ingebruik',
+                                definitie='Eca',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelTypeSpecificatie/eca'),
         'fr2': KeuzelijstWaarde(invulwaarde='fr2',
                                 label='FR2',
                                 status='ingebruik',
