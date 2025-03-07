@@ -82,7 +82,12 @@ class KlNetwerkMerk(KeuzelijstField):
                                        label='HiveAP 122',
                                        status='verwijderd',
                                        definitie='HiveAP 122',
-                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/hiveap-122')
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/hiveap-122'),
+        'oring': KeuzelijstWaarde(invulwaarde='oring',
+                                  label='Oring',
+                                  status='ingebruik',
+                                  definitie='Oring',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/oring')
     }
 
     @classmethod
