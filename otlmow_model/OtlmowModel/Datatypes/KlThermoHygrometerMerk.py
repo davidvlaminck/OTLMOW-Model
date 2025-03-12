@@ -13,6 +13,16 @@ class KlThermoHygrometerMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlThermoHygrometerMerk'
     options = {
+        'apc': KeuzelijstWaarde(invulwaarde='apc',
+                                label='APC',
+                                status='ingebruik',
+                                definitie='APC',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlThermoHygrometerMerk/apc'),
+        'gude': KeuzelijstWaarde(invulwaarde='gude',
+                                 label='Gude',
+                                 status='ingebruik',
+                                 definitie='Gude',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlThermoHygrometerMerk/gude'),
         'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',
                                     label='Vaisala',
                                     status='ingebruik',
