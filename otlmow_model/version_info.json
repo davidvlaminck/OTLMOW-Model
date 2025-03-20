@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.14.0.16",
+        "model_version": "2.14.0.17",
         "otl_version": "2.14.0",
-        "created_at": "2025-03-18T04:01:10",
+        "created_at": "2025-03-20T04:00:56",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -612,6 +612,15 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlFiguratieType"
+            ]
+        },
+        "2.14.0.17": {
+            "previous_version": "2.14.0.16",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlMIVEenheidType",
+                "KlSchoorhoek"
             ]
         }
     }

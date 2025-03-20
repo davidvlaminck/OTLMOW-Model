@@ -13,6 +13,11 @@ class KlSchoorhoek(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSchoorhoek'
     options = {
+        '1-20': KeuzelijstWaarde(invulwaarde='1-20',
+                                 label='1/20',
+                                 status='ingebruik',
+                                 definitie='Een schoorhoek van 1 op 20.',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSchoorhoek/1-20'),
         '1-3': KeuzelijstWaarde(invulwaarde='1-3',
                                 label='1/3',
                                 status='ingebruik',
