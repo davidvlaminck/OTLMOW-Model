@@ -1,15 +1,17 @@
+from pathlib import Path
+
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
+from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
 from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
-from otlmow_model.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
-from otlmow_model.OtlmowModel.Classes.Onderdeel.Laagspanningsbord import Laagspanningsbord
-from otlmow_model.OtlmowModel.Classes.Onderdeel.Stroomkring import Stroomkring
-from otlmow_model.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
 from otlmow_model.OtlmowModel.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.Helpers.RelationValidator import is_valid_relation_instance, is_valid_relation
+
+model_directory = Path(__file__).parent.parent / 'TestModel'
 
 
 class A(RelationInteractor):
@@ -29,6 +31,20 @@ class B(A, C):
         self.add_valid_relation('', 'E')
 
 
+def test_bug_relation_in_two_directions():
+    all_cases = AllCasesTestClass()
+    another = AnotherTestClass()
+    all_cases._valid_relations['https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt'][
+         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass']['i'] = ''
+    another._valid_relations['https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt'][
+         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass']['o'] = ''
+
+    assert is_valid_relation(source=another, relation_type=Voedt, target=all_cases)
+    with pytest.warns(DeprecationWarning):
+        assert is_valid_relation(source=all_cases, relation_type=Voedt, target=another)
+
+
+
 def test_is_valid_relation():
     all_cases = AllCasesTestClass()
     another = AnotherTestClass()
@@ -41,10 +57,12 @@ def test_is_valid_relation():
 
 
 def test_is_valid_relation_typeURI():
-    stroomkring = Stroomkring()
-    laagspanningsbord = Laagspanningsbord()
-    assert is_valid_relation(source_typeURI=stroomkring.typeURI, relation_type=Bevestiging,
-                             target_typeURI=laagspanningsbord.typeURI)
+    all_cases = AllCasesTestClass()
+    another = AnotherTestClass()
+    with pytest.warns(RelationDeprecationWarning):
+        result_validation = is_valid_relation(source_typeURI=all_cases.typeURI, relation_type=Voedt,
+                                              target_typeURI=another.typeURI, model_directory=model_directory)
+    assert result_validation
 
 
 def test_nieuwe_implementatie_relaties_deprecated():
