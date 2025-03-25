@@ -7,6 +7,7 @@ on:
 
 jobs:
   auto_update:
+    name: Creating an automatic update for the class model
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -15,14 +16,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Install uv with Python version 3.13
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: '3.12'
-      - name: Install Python dependencies
-        uses: py-actions/py-dependency-install@v4
-        with:
-          path: "requirements_update.txt"
+          python-version: 3.13
+      - name: Installing dependencies with uv
+        run: uv pip install -r pyproject.toml --extra update
       - name: Run automatic update
         run: python3 automatic_update.py
         working-directory: ./model_update
