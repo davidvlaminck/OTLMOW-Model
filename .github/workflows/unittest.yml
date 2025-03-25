@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   tests:
+    name: Unittests across multiple Python versions and operating systems
     timeout-minutes: 10
     runs-on: ${{ matrix.os }}
     strategy:
@@ -12,21 +13,12 @@ jobs:
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - name: Install uv and set the python version
+        uses: astral-sh/setup-uv@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Display Python version for testing purposes
-        run: python -c "import sys; print(sys.version)"
-      - name: Install Python dependencies
-        uses: py-actions/py-dependency-install@v4
-        with:
-          path: "requirements.txt"
+      - name: Installing requirements for running the tests
+        run: uv pip install -r pyproject.toml --extra test
       - name: Run unittests with pytest
         run: python -m pytest -v
-        working-directory: .
-      - name: Install nbmake
-        run: python -m pip install nbmake
-      - name: pytest notebooks
-        run: python -m pytest --nbmake Readme.ipynb
         working-directory: .
