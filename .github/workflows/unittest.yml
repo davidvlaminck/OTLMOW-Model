@@ -22,3 +22,6 @@ jobs:
       - name: Run unittests with pytest
         run: python -m pytest -v
         working-directory: .
+      - name: Run the notebook with pytest
+        run: python -m pytest --nbmake Readme.ipynb
+        working-directory: .
