@@ -4,12 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "otlmow_model"
-version = "2.14.1.0"
+version = "2.14.1.1"
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: 3", "Programming Language :: Python :: 3.9", "Programming Language :: Python :: 3.10", "Programming Language :: Python :: 3.11", "Programming Language :: Python :: 3.12", "Programming Language :: Python :: 3.13", "Operating System :: OS Independent", "Development Status :: 5 - Production/Stable", "Environment :: Console", "Intended Audience :: Developers", "Intended Audience :: Information Technology", "License :: OSI Approved :: GNU General Public License v3 (GPLv3)", "Natural Language :: Dutch", "Topic :: Software Development", "Topic :: Software Development :: Libraries :: Python Modules", "Topic :: Software Development :: Quality Assurance",]
 requires-python = ">=3.9"
 dependencies = []
-authors = [{name = "David Vlaminck", email = "david.vlaminck@mow.vlaanderen.be"}]
+[[project.authors]]
+name = "David Vlaminck"
+email = "david.vlaminck@mow.vlaanderen.be"
 
 [project.license]
 file = "LICENSE"
@@ -18,21 +20,12 @@ file = "LICENSE"
 Homepage = "https://github.com/davidvlaminck/OTLMOW-Model"
 "Bug Tracker" = "https://github.com/davidvlaminck/OTLMOW-Model/issues"
 
+[project.optional-dependencies]
+test = [ "pytest", "pytest-cov", "pytest-subtests", "pytest-timeout", "nbmake",]
+update = [ "otlmow_modelbuilder", "toml",]
+
 [tool.setuptools.package-data]
 "*" = [ "generated_info.json",]
 
 [tool.setuptools.packages.find]
 include = [ "otlmow_model*",]
-
-[project.optional-dependencies]
-test = [
-    "pytest",
-    "pytest-cov",
-    "pytest-subtests",
-    "pytest-timeout",
-    "nbmake"
-]
-update = [
-    "otlmow_modelbuilder",
-    "toml",
-]

@@ -1,9 +1,9 @@
 {
     "current": {
-        "model_version": "2.14.1.0",
+        "model_version": "2.14.1.1",
         "otl_version": "2.14.0",
-        "created_at": "2025-03-21T15:30:00",
-        "created_by": "davidvlaminck"
+        "created_at": "2025-04-04T04:00:55",
+        "created_by": "automatic_update.py"
     },
     "history": {
         "2.9.2.1": {
@@ -628,6 +628,17 @@
             "updated_class_model": true,
             "updated_enums": false,
             "enums_updated": []
+        },
+        "2.14.1.1": {
+            "previous_version": "2.14.1.0",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlArmatuurkleur",
+                "KlMIVMeetpuntAfmetingen",
+                "KlVerlichtingstoestelModelnaam",
+                "KlWvLedProtector"
+            ]
         }
     }
 }
