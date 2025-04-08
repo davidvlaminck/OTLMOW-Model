@@ -21,7 +21,7 @@ class KlDunneOverlagingType(KeuzelijstField):
         'SME-D2': KeuzelijstWaarde(invulwaarde='SME-D2',
                                    label='SME-D2',
                                    status='ingebruik',
-                                   definitie='SMA-D2',
+                                   definitie='SME-D2',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDunneOverlagingType/SME-D2'),
         'antisliplaag': KeuzelijstWaarde(invulwaarde='antisliplaag',
                                          label='antisliplaag',

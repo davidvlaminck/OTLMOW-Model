@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.14.1.1",
+        "model_version": "2.14.1.2",
         "otl_version": "2.14.0",
-        "created_at": "2025-04-04T04:00:55",
+        "created_at": "2025-04-08T04:00:46",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -638,6 +638,14 @@
                 "KlMIVMeetpuntAfmetingen",
                 "KlVerlichtingstoestelModelnaam",
                 "KlWvLedProtector"
+            ]
+        },
+        "2.14.1.2": {
+            "previous_version": "2.14.1.1",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlDunneOverlagingType"
             ]
         }
     }
