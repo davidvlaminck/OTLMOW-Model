@@ -64,8 +64,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="z_28dd02531dd56934_generated_lists_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.7.1">coverage.py v7.7.1</a>,
-            created at 2025-03-25 11:16 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.8.0">coverage.py v7.8.0</a>,
+            created at 2025-04-09 09:37 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -167,8 +167,8 @@
     <p class="run"><span class="n"><a id="t85" href="#t85">85</a></span><span class="t">        <span class="nam">deprecated_value</span> <span class="op">=</span> <span class="nam">list</span><span class="op">(</span><span class="nam">source</span><span class="op">.</span><span class="nam">_valid_relations</span><span class="op">[</span><span class="nam">relation_type</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">]</span><span class="op">[</span><span class="nam">target_typeURI</span><span class="op">]</span><span class="op">.</span><span class="nam">values</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="num">0</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t86" href="#t86">86</a></span><span class="t">        <span class="key">if</span> <span class="nam">deprecated_value</span> <span class="op">!=</span> <span class="str">''</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t87" href="#t87">87</a></span><span class="t">            <span class="nam">warnings</span><span class="op">.</span><span class="nam">warn</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t88" href="#t88">88</a></span><span class="t">                <span class="nam">message</span><span class="op">=</span><span class="str">f'the relation_type of type {relation_type.typeURI} between assets of types '</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t89" href="#t89">89</a></span><span class="t">                        <span class="str">f'{source_typeURI} and {target_typeURI} is deprecated since version {deprecated_value}'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t88" href="#t88">88</a></span><span class="t">                <span class="nam">message</span><span class="op">=</span><span class="fst">f'</span><span class="fst">the relation_type of type </span><span class="op">{</span><span class="nam">relation_type</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">}</span><span class="fst"> between assets of types </span><span class="fst">'</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t89" href="#t89">89</a></span><span class="t">                        <span class="fst">f'</span><span class="op">{</span><span class="nam">source_typeURI</span><span class="op">}</span><span class="fst"> and </span><span class="op">{</span><span class="nam">target_typeURI</span><span class="op">}</span><span class="fst"> is deprecated since version </span><span class="op">{</span><span class="nam">deprecated_value</span><span class="op">}</span><span class="fst">'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t90" href="#t90">90</a></span><span class="t">                <span class="nam">category</span><span class="op">=</span><span class="nam">RelationDeprecationWarning</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t91" href="#t91">91</a></span><span class="t">        <span class="key">return</span> <span class="key">True</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t92" href="#t92">92</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -184,8 +184,8 @@
     <p class="mis show_mis"><span class="n"><a id="t102" href="#t102">102</a></span><span class="t">            <span class="nam">deprecated_value</span> <span class="op">=</span> <span class="nam">list</span><span class="op">(</span><span class="nam">source</span><span class="op">.</span><span class="nam">_valid_relations</span><span class="op">[</span><span class="nam">relation_type</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">]</span><span class="op">[</span><span class="nam">base_type_uri</span><span class="op">]</span><span class="op">.</span><span class="nam">values</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="num">0</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t103" href="#t103">103</a></span><span class="t">            <span class="key">if</span> <span class="nam">deprecated_value</span> <span class="op">!=</span> <span class="str">''</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t104" href="#t104">104</a></span><span class="t">                <span class="nam">warnings</span><span class="op">.</span><span class="nam">warn</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t105" href="#t105">105</a></span><span class="t">                    <span class="nam">message</span><span class="op">=</span><span class="str">f'the relation_type of type {relation_type.typeURI} between assets of types '</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t106" href="#t106">106</a></span><span class="t">                            <span class="str">f'{source_typeURI} and {target_typeURI} is deprecated since version {deprecated_value}'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t105" href="#t105">105</a></span><span class="t">                    <span class="nam">message</span><span class="op">=</span><span class="fst">f'</span><span class="fst">the relation_type of type </span><span class="op">{</span><span class="nam">relation_type</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">}</span><span class="fst"> between assets of types </span><span class="fst">'</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t106" href="#t106">106</a></span><span class="t">                            <span class="fst">f'</span><span class="op">{</span><span class="nam">source_typeURI</span><span class="op">}</span><span class="fst"> and </span><span class="op">{</span><span class="nam">target_typeURI</span><span class="op">}</span><span class="fst"> is deprecated since version </span><span class="op">{</span><span class="nam">deprecated_value</span><span class="op">}</span><span class="fst">'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t107" href="#t107">107</a></span><span class="t">                    <span class="nam">category</span><span class="op">=</span><span class="nam">RelationDeprecationWarning</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t108" href="#t108">108</a></span><span class="t">            <span class="key">return</span> <span class="key">True</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t109" href="#t109">109</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -202,8 +202,8 @@
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a class="nav" href="z_28dd02531dd56934_generated_lists_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.7.1">coverage.py v7.7.1</a>,
-            created at 2025-03-25 11:16 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.8.0">coverage.py v7.8.0</a>,
+            created at 2025-04-09 09:37 +0000
         </p>
     </div>
 </footer>
