@@ -16,14 +16,22 @@ class KlWvLedProtector(KeuzelijstField):
         'gebogen-glas': KeuzelijstWaarde(invulwaarde='gebogen-glas',
                                          label='gebogen glas',
                                          status='ingebruik',
+                                         definitie='Glas dat meestal door middel van warmte in een specifieke kromming of gebogen vorm is gebracht.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedProtector/gebogen-glas'),
+        'gebogen-polycarbonaat': KeuzelijstWaarde(invulwaarde='gebogen-polycarbonaat',
+                                                  label='gebogen polycarbonaat',
+                                                  status='ingebruik',
+                                                  definitie='Polycarbonaat dat door middel van warmte en/of mechanische druk in een gebogen of gebogen vorm werd gebracht.',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedProtector/gebogen-polycarbonaat'),
         'polycarbonaat': KeuzelijstWaarde(invulwaarde='polycarbonaat',
                                           label='polycarbonaat',
                                           status='ingebruik',
+                                          definitie='Een sterke, transparante en slagvaste kunststof die bekend staat om zijn hoge duurzaamheid. ',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedProtector/polycarbonaat'),
         'vlak-glas': KeuzelijstWaarde(invulwaarde='vlak-glas',
                                       label='vlak glas',
                                       status='ingebruik',
+                                      definitie='Glas zonder vervormingen of krommingen.',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedProtector/vlak-glas')
     }
 
