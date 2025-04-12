@@ -27,19 +27,28 @@ def test_dynamic_create_instance_from_uri():
 
 
 def test_dynamic_create_instance_from_ns_and_name():
+    lgc = dynamic_create_instance_from_ns_and_name('installatie', 'AB')
+    assert lgc is not None
+
     mof = dynamic_create_instance_from_ns_and_name('onderdeel', 'Aansluitmof')
     assert mof is not None
+
+    agent = dynamic_create_instance_from_ns_and_name('purl', 'Agent')
+    assert agent is not None
 
     with pytest.raises(ModuleNotFoundError):
         dynamic_create_instance_from_ns_and_name('onderdeel', 'NotAValidClassName')
 
 
 def test_dynamic_create_type_from_uri():
-    mof_type = dynamic_create_type_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof')
-    assert mof_type is not None
-
     agent_type = dynamic_create_type_from_uri('http://purl.org/dc/terms/Agent')
     assert agent_type is not None
+
+    legacy_type = dynamic_create_type_from_uri('https://lgc.data.wegenenverkeer.be/ns/installatie#AB')
+    assert legacy_type is not None
+
+    mof_type = dynamic_create_type_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof')
+    assert mof_type is not None
 
     with pytest.raises(ModuleNotFoundError):
         dynamic_create_type_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NotAValidClassName')
