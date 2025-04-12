@@ -9,7 +9,8 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
 from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 from otlmow_model.OtlmowModel.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
-from otlmow_model.OtlmowModel.Helpers.RelationValidator import is_valid_relation_instance, is_valid_relation
+from otlmow_model.OtlmowModel.Helpers.RelationValidator import is_valid_relation_instance, is_valid_relation, \
+    is_valid_relation_using_relation_uri
 
 model_directory = Path(__file__).parent.parent / 'TestModel'
 
@@ -55,6 +56,16 @@ def test_is_valid_relation():
         assert is_valid_relation(source=all_cases, relation_type=Voedt, target=another)
     assert not is_valid_relation(source=another, relation_type=Voedt, target=all_cases)
     assert not is_valid_relation(source=all_cases, relation_type=Voedt, target=all_cases)
+
+
+def test_is_valid_relation_using_relation_uri():
+    all_cases = AllCasesTestClass()
+    another = AnotherTestClass()
+    assert is_valid_relation_using_relation_uri(source=another, relation_uri=Bevestiging.typeURI, target=all_cases)
+    with pytest.warns(RelationDeprecationWarning):
+        assert is_valid_relation_using_relation_uri(source=all_cases, relation_uri=Voedt.typeURI, target=another)
+    assert not is_valid_relation_using_relation_uri(source=another, relation_uri=Voedt.typeURI, target=all_cases)
+    assert not is_valid_relation_using_relation_uri(source=all_cases, relation_uri=Voedt.typeURI, target=all_cases)
 
 
 def test_is_valid_relation_typeURI():
