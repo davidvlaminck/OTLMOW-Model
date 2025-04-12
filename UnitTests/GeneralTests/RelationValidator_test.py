@@ -39,8 +39,9 @@ def test_bug_relation_in_two_directions():
     another._valid_relations['https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt'][
          'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass']['o'] = ''
 
-    assert is_valid_relation(source=another, relation_type=Voedt, target=all_cases)
-    with pytest.warns(DeprecationWarning):
+    with pytest.warns(RelationDeprecationWarning):
+        assert is_valid_relation(source=another, relation_type=Voedt, target=all_cases)
+    with pytest.warns(RelationDeprecationWarning):
         assert is_valid_relation(source=all_cases, relation_type=Voedt, target=another)
 
 
@@ -50,7 +51,7 @@ def test_is_valid_relation():
     another = AnotherTestClass()
     assert is_valid_relation_instance(source=another, relation_instance=Bevestiging(), target=all_cases)
     assert is_valid_relation(source=another, relation_type=Bevestiging, target=all_cases)
-    with pytest.warns(DeprecationWarning):
+    with pytest.warns(RelationDeprecationWarning):
         assert is_valid_relation(source=all_cases, relation_type=Voedt, target=another)
     assert not is_valid_relation(source=another, relation_type=Voedt, target=all_cases)
     assert not is_valid_relation(source=all_cases, relation_type=Voedt, target=all_cases)
