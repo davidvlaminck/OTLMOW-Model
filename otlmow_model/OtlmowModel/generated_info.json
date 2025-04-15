@@ -8417,14 +8417,14 @@
         },
         "https://lgc.data.wegenenverkeer.be/ns/installatie#HY.CI": {
             "abstract": false,
-            "name": "HY.CI",
+            "name": "HY_CI",
             "label": "Hydraulische cilinder (Legacy)",
             "deprecated_version": "",
             "direct_subclasses": []
         },
         "https://lgc.data.wegenenverkeer.be/ns/installatie#HY.GR": {
             "abstract": false,
-            "name": "HY.GR",
+            "name": "HY_GR",
             "label": "Hydraulische groep (Legacy)",
             "deprecated_version": "",
             "direct_subclasses": []
@@ -8466,7 +8466,7 @@
         },
         "https://lgc.data.wegenenverkeer.be/ns/installatie#ITSApp-RIS": {
             "abstract": false,
-            "name": "ITSApp.RIS",
+            "name": "ITSApp_RIS",
             "label": "ITSApp-RIS (Legacy)",
             "deprecated_version": "",
             "direct_subclasses": []

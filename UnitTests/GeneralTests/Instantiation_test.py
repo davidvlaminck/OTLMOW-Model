@@ -61,6 +61,7 @@ def test_dynamic_create_type_from_uri():
         'https://lgc.data.wegenenverkeer.be/ns/installatie#HY.CI',
         'https://lgc.data.wegenenverkeer.be/ns/installatie#Fietstel',
         'https://lgc.data.wegenenverkeer.be/ns/installatie#Brug',
+        'https://lgc.data.wegenenverkeer.be/ns/installatie#Voedingskeuzeschakelaar',
     ]
 )
 def test_dynamic_create_type_from_uri_legacy_exceptions(uri):
