@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="z_0cea012db28e37ec_Lichtnagel_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.8.0">coverage.py v7.8.0</a>,
-            created at 2025-04-09 09:37 +0000
+            created at 2025-04-15 10:08 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -83,7 +83,7 @@
     <p class="pln"><span class="n"><a id="t1" href="#t1">1</a></span><span class="t"><span class="com"># coding=utf-8</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t2" href="#t2">2</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">BaseClasses</span><span class="op">.</span><span class="nam">OTLObject</span> <span class="key">import</span> <span class="nam">OTLAttribuut</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t3" href="#t3">3</a></span><span class="t"><span class="key">from</span> <span class="op">...</span><span class="nam">Classes</span><span class="op">.</span><span class="nam">Abstracten</span><span class="op">.</span><span class="nam">EMDraagconstructie</span> <span class="key">import</span> <span class="nam">EMDraagconstructie</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t4" href="#t4">4</a></span><span class="t"><span class="key">from</span> <span class="op">...</span><span class="nam">Classes</span><span class="op">.</span><span class="nam">ImplementatieElement</span><span class="op">.</span><span class="nam">AIMNaamObject</span> <span class="key">import</span> <span class="nam">AIMNaamObject</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t4" href="#t4">4</a></span><span class="t"><span class="key">from</span> <span class="op">...</span><span class="nam">Classes</span><span class="op">.</span><span class="nam">ImplementatieElement</span><span class="op">.</span><span class="nam">NaampadObject</span> <span class="key">import</span> <span class="nam">NaampadObject</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t5" href="#t5">5</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">BaseClasses</span><span class="op">.</span><span class="nam">BooleanField</span> <span class="key">import</span> <span class="nam">BooleanField</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t6" href="#t6">6</a></span><span class="t"><span class="key">from</span> <span class="op">...</span><span class="nam">Datatypes</span><span class="op">.</span><span class="nam">DtcBeschermendeLaag</span> <span class="key">import</span> <span class="nam">DtcBeschermendeLaag</span><span class="op">,</span> <span class="nam">DtcBeschermendeLaagWaarden</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t7" href="#t7">7</a></span><span class="t"><span class="key">from</span> <span class="op">...</span><span class="nam">Datatypes</span><span class="op">.</span><span class="nam">DteKleurRAL</span> <span class="key">import</span> <span class="nam">DteKleurRAL</span><span class="op">,</span> <span class="nam">DteKleurRALWaarden</span>&nbsp;</span><span class="r"></span></p>
@@ -98,7 +98,7 @@
     <p class="pln"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t"><span class="com"># Generated with OTLClassCreator. To modify: extend, do not edit</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t"><span class="key">class</span> <span class="nam">Lichtmast</span><span class="op">(</span><span class="nam">EMDraagconstructie</span><span class="op">,</span> <span class="nam">AIMNaamObject</span><span class="op">,</span> <span class="nam">PuntGeometrie</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t"><span class="key">class</span> <span class="nam">Lichtmast</span><span class="op">(</span><span class="nam">EMDraagconstructie</span><span class="op">,</span> <span class="nam">NaampadObject</span><span class="op">,</span> <span class="nam">PuntGeometrie</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">    <span class="str">"""Paal waarop een verlichtingstoestel of andere toestellen zoals een camera bevestigd kunnen worden met uitzondering van wegverlichting. Omvat het deurtje, klemmenblok, montagekastje, bevestigingsmaterialen (bv. voetplaten) en fundering (bv. buisfundering) of verankeringsmassief. Indien de paal gebruikt wordt voor wegverlichting moet het objecttype WVLichtmast gebruikt worden."""</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">    <span class="nam">typeURI</span> <span class="op">=</span> <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast'</span>&nbsp;</span><span class="r"></span></p>
@@ -300,7 +300,7 @@
             <a class="nav" href="z_0cea012db28e37ec_Lichtnagel_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.8.0">coverage.py v7.8.0</a>,
-            created at 2025-04-09 09:37 +0000
+            created at 2025-04-15 10:08 +0000
         </p>
     </div>
 </footer>
