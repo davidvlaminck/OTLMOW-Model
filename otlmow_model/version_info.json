@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.15.1.0",
+        "model_version": "2.15.2.0",
         "otl_version": "2.15.0",
-        "created_at": "2025-04-15T14:21:00",
+        "created_at": "2025-04-15T23:08:00",
         "created_by": "davidvlaminck"
     },
     "history": {
@@ -668,6 +668,12 @@
         },
         "2.15.1.0": {
             "previous_version": "2.15.0.0",
+            "updated_class_model": true,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.15.2.0": {
+            "previous_version": "2.15.1.0",
             "updated_class_model": true,
             "updated_enums": false,
             "enums_updated": []

@@ -25,7 +25,7 @@ def test_dynamic_create_instance_from_uri():
 
 
 def test_dynamic_create_instance_from_ns_and_name():
-    lgc = dynamic_create_instance_from_ns_and_name('installatie', 'AB')
+    lgc = dynamic_create_instance_from_ns_and_name('legacy', 'AB')
     assert lgc is not None
 
     mof = dynamic_create_instance_from_ns_and_name('onderdeel', 'Aansluitmof')
@@ -50,6 +50,23 @@ def test_dynamic_create_type_from_uri():
 
     with pytest.raises(ModuleNotFoundError):
         dynamic_create_type_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NotAValidClassName')
+
+
+@pytest.mark.parametrize(
+    "uri",
+    [
+        'https://lgc.data.wegenenverkeer.be/ns/installatie#RIS',
+        'https://lgc.data.wegenenverkeer.be/ns/installatie#ITSApp-RIS',
+        'https://lgc.data.wegenenverkeer.be/ns/installatie#HY.GR',
+        'https://lgc.data.wegenenverkeer.be/ns/installatie#HY.CI',
+        'https://lgc.data.wegenenverkeer.be/ns/installatie#Fietstel',
+        'https://lgc.data.wegenenverkeer.be/ns/installatie#Brug',
+        'https://lgc.data.wegenenverkeer.be/ns/installatie#Voedingskeuzeschakelaar',
+    ]
+)
+def test_dynamic_create_type_from_uri_legacy_exceptions(uri):
+    legacy_instance = dynamic_create_instance_from_uri(uri)
+    assert legacy_instance is not None
 
 
 def test_dynamic_create_type_from_ns_and_name():

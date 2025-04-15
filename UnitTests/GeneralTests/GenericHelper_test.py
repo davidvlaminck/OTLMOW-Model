@@ -85,7 +85,7 @@ def test_get_ns_and_name_from_uri():
     assert get_ns_and_name_from_uri(object_uri) == (expected_ns, expected_name)
 
     object_uri = 'https://lgc.data.wegenenverkeer.be/ns/installatie#AB'
-    expected_ns = 'installatie'
+    expected_ns = 'legacy'
     expected_name = 'AB'
     assert get_ns_and_name_from_uri(object_uri) == (expected_ns, expected_name)
 
