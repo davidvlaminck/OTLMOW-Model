@@ -1,7 +1,9 @@
 # coding=utf-8
+from datetime import date
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.Kast import Kast
+from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.KlAlgIngressProtectionCode import KlAlgIngressProtectionCode
 from ...Datatypes.KlBuitenkastVerfraaid import KlBuitenkastVerfraaid
 from ...Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden
@@ -35,6 +37,13 @@ class Buitenkast(Kast):
                                                 definition='Frequentie (in jaar) waarmee de kast moet onderworpen worden aan een periodieke keuring door een externe dienst voor technische controle.',
                                                 owner=self)
 
+        self._laatsteKeuringsdatum = OTLAttribuut(field=DateField,
+                                                  naam='laatsteKeuringsdatum',
+                                                  label='laatste keuringsdatum',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buitenkast.laatsteKeuringsdatum',
+                                                  definition='Deze datum geeft aan wanneer de laatste keuring plaatsvond en kan gebruikt worden om te bepalen wanneer een volgende keuring nodig is.',
+                                                  owner=self)
+
         self._verfraaid = OTLAttribuut(field=KlBuitenkastVerfraaid,
                                        naam='verfraaid',
                                        label='verfraaid',
@@ -59,6 +68,15 @@ class Buitenkast(Kast):
     @keuringsfrequentie.setter
     def keuringsfrequentie(self, value):
         self._keuringsfrequentie.set_waarde(value, owner=self)
+
+    @property
+    def laatsteKeuringsdatum(self) -> date:
+        """Deze datum geeft aan wanneer de laatste keuring plaatsvond en kan gebruikt worden om te bepalen wanneer een volgende keuring nodig is."""
+        return self._laatsteKeuringsdatum.get_waarde()
+
+    @laatsteKeuringsdatum.setter
+    def laatsteKeuringsdatum(self, value):
+        self._laatsteKeuringsdatum.set_waarde(value, owner=self)
 
     @property
     def verfraaid(self) -> str:

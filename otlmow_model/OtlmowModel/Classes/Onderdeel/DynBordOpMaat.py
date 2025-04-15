@@ -1,12 +1,13 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LEDBord import LEDBord
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlDynBordOpMaatMerk import KlDynBordOpMaatMerk
 from ...Datatypes.KlDynBordOpMaatModelnaam import KlDynBordOpMaatModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DynBordOpMaat(LEDBord):
+class DynBordOpMaat(LEDBord, NaampadObject):
     """Dynamisch verkeersbord dat niet standaard is; en dus niet is gespecifieerd in SB270."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordOpMaat'

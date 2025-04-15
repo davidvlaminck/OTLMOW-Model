@@ -4,10 +4,11 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlTypeExterneNaspanning import KlTypeExterneNaspanning
 from ...Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, KwantWrdInKiloNewtonWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class ExterneNaspanning(AIMNaamObject, PuntGeometrie):
+class ExterneNaspanning(AIMNaamObject, PuntGeometrie, LijnGeometrie):
     """Nagespannen kabel of staaf die wordt geplaatst om de draagkracht van een structuur (bv. van een brug) te verhogen. Dit kan zowel in bestaande als in nieuwe structuren wordt toegepast."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#ExterneNaspanning'

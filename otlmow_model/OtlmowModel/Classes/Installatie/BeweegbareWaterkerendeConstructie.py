@@ -13,7 +13,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class BeweegbareWaterkerendeConstructie(ConstructiefObject, VlakGeometrie):
-    """Beweegbare constructie om een waterpeilverschil te keren"""
+    """Een beweegbare constructie ontworpen om een waterpeilverschil te keren, inclusief alle gelaste onderdelen die bijdragen aan de structurele integriteit en functionaliteit van de constructie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BeweegbareWaterkerendeConstructie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

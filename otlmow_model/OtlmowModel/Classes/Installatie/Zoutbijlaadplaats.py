@@ -2,11 +2,12 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Zoutbijlaadplaats(NaampadObject, VlakGeometrie):
+class Zoutbijlaadplaats(NaampadObject, PuntGeometrie, VlakGeometrie):
     """Site in het beheer van een district,waar strooiwagens zout of pekel kunnen bijladen,wanneer ze tijdens de winterdienst hun strooiroute afleggen. De leverancier kan toegang krijgen (badge of codeklavier) om de tanks of de silo’s terug te vullen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zoutbijlaadplaats'

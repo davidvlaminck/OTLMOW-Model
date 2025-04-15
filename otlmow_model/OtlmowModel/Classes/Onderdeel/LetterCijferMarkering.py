@@ -4,11 +4,10 @@ from ...Classes.Abstracten.FiguratieMarkeringToegang import FiguratieMarkeringTo
 from ...Datatypes.KlLetterCijfer import KlLetterCijfer
 from ...Datatypes.KlLetterCijferType import KlLetterCijferType
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class LetterCijferMarkering(FiguratieMarkeringToegang, PuntGeometrie):
+class LetterCijferMarkering(FiguratieMarkeringToegang):
     """Een markering bestaande uit individuele letters en/of cijfers."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LetterCijferMarkering'

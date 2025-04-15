@@ -8,11 +8,11 @@ from ...Datatypes.DtcSoftwarePoortconfiguratie import DtcSoftwarePoortconfigurat
 from ...Datatypes.KlSoftwareLicentie import KlSoftwareLicentie
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 from otlmow_model.OtlmowModel.BaseClasses.URIField import URIField
-from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Software(SoftwareToegang, NaampadObject, GeenGeometrie):
+class Software(SoftwareToegang, NaampadObject, PuntGeometrie):
     """Geheel van computerprogramma's met bijbehorende data."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Software'

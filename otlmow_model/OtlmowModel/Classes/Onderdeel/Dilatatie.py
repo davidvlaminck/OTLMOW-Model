@@ -7,7 +7,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Dilatatie(AIMObject, PuntGeometrie):
-    """Dilataties zijn bedoeld om ervoor te zorgen dat bouwconstructies vrij kunnen krimpen en uitzetten bij onder andere temperatuurwisselingen."""
+    """Dilataties zijn bedoeld om ervoor te zorgen dat geleideconstructies vrij kunnen krimpen en uitzetten bij onder andere temperatuurwisselingen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dilatatie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

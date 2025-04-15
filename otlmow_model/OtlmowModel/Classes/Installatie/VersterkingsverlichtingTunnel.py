@@ -1,10 +1,11 @@
 # coding=utf-8
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VersterkingsverlichtingTunnel(AIMNaamObject, VlakGeometrie):
+class VersterkingsverlichtingTunnel(AIMNaamObject, LijnGeometrie, VlakGeometrie):
     """Een aanvullend verlichtingssysteem aan de in -en uitgang van de koker met verschillende regimes."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VersterkingsverlichtingTunnel'

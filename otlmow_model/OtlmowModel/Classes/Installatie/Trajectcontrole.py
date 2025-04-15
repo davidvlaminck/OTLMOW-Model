@@ -5,11 +5,12 @@ from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlAlgRijrichting import KlAlgRijrichting
 from ...Datatypes.KlAlgSnelheidsregime import KlAlgSnelheidsregime
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Trajectcontrole(NaampadObject, LijnGeometrie):
+class Trajectcontrole(NaampadObject, PuntGeometrie, LijnGeometrie):
     """Trajectcontrole is een systeem waarbij de gemiddelde snelheid over een langere afstand wordt gemeten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Trajectcontrole'

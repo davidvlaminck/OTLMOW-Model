@@ -2,6 +2,7 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Controller import Controller
 from ...Datatypes.KlControllerBeveiligingssleutel import KlControllerBeveiligingssleutel
+from ...Datatypes.KlNetwerkconfiguratieWV import KlNetwerkconfiguratieWV
 from ...Datatypes.KlSegmentcontrollerMerk import KlSegmentcontrollerMerk
 from ...Datatypes.KlSegmentcontrollerModelnaam import KlSegmentcontrollerModelnaam
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
@@ -73,6 +74,13 @@ class Segmentcontroller(Controller):
                                        definition='Modelnaam van de segmentcontroller.',
                                        owner=self)
 
+        self._netwerkconfiguratieWV = OTLAttribuut(field=KlNetwerkconfiguratieWV,
+                                                   naam='netwerkconfiguratieWV',
+                                                   label='netwerkconfiguratie wegverlichting',
+                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.netwerkconfiguratieWV',
+                                                   definition='De netwerkconfiguratie omvat de instelling van het netwerk (de zogenaamde kleur van het netwerk) in het kader van de gesplitste netwerkenopstelling van de lichtpuntcontrole.',
+                                                   owner=self)
+
     @property
     def beveil_igingssleutel(self) -> str:
         """De encryptie die wordt toegepast om de verbinding tussen lokaal en centraal te beveiligen."""
@@ -126,3 +134,12 @@ class Segmentcontroller(Controller):
     @modelnaam.setter
     def modelnaam(self, value):
         self._modelnaam.set_waarde(value, owner=self)
+
+    @property
+    def netwerkconfiguratieWV(self) -> str:
+        """De netwerkconfiguratie omvat de instelling van het netwerk (de zogenaamde kleur van het netwerk) in het kader van de gesplitste netwerkenopstelling van de lichtpuntcontrole."""
+        return self._netwerkconfiguratieWV.get_waarde()
+
+    @netwerkconfiguratieWV.setter
+    def netwerkconfiguratieWV(self, value):
+        self._netwerkconfiguratieWV.set_waarde(value, owner=self)

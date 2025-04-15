@@ -110,7 +110,7 @@ class Sluis(OntwerpwaterstandStreefpeil, AIMNaamObject):
                                          naam='waterdiepte',
                                          label='waterdiepte',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Sluis.waterdiepte',
-                                         definition='De verticale afstand tussen het wateroppervlak, gemiddelde laagwaterstand (normale afwaarts pomppeil/ ALAT-waarde) , in de sluis van het laagste punt van de drempel, de sluishoofdvloer of sluiskolkvloer.',
+                                         definition='De verticale afstand tussen het wateroppervlak bij gemiddelde laagwaterstand (normale afwaarts pomppeil/ mTAW-waarde) en het laagste punt van de drempel, de sluishoofdvloer of sluiskolkvloer.',
                                          owner=self)
 
     @property
@@ -214,7 +214,7 @@ class Sluis(OntwerpwaterstandStreefpeil, AIMNaamObject):
 
     @property
     def waterdiepte(self) -> KwantWrdInMeterWaarden:
-        """De verticale afstand tussen het wateroppervlak, gemiddelde laagwaterstand (normale afwaarts pomppeil/ ALAT-waarde) , in de sluis van het laagste punt van de drempel, de sluishoofdvloer of sluiskolkvloer."""
+        """De verticale afstand tussen het wateroppervlak bij gemiddelde laagwaterstand (normale afwaarts pomppeil/ mTAW-waarde) en het laagste punt van de drempel, de sluishoofdvloer of sluiskolkvloer."""
         return self._waterdiepte.get_waarde()
 
     @waterdiepte.setter

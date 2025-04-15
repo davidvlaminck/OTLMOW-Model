@@ -15,6 +15,9 @@ class ElectricityAppurtenance(Appurtenance):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVModule', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Z30Groep', direction='o')  # o = direction: outgoing
+
         self._appurtenanceType = OTLAttribuut(field=KlElectricityAppurtenanceType,
                                               naam='appurtenanceType',
                                               label='appurtenanceType',

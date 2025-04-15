@@ -13,7 +13,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class PTRegelaar(AIMNaamObject, PuntGeometrie):
-    """Deze PT-module staat in voor het ontvangen en bewerken van telegrammen van voertuigen van het openbaar vervoer (bussen, trams)."""
+    """Deze PT-module staat in voor het ontvangen en bewerken van telegrammen van voertuigen van het openbaar vervoer (bussen,trams)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -62,6 +62,8 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
                                       naam='protocol',
                                       label='protocol',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar.protocol',
+                                      usagenote='Attribuut uit gebruik sinds versie 2.15.0 ',
+                                      deprecated_version='2.15.0',
                                       definition='Naam van het protocol waarmee gecommuniceerd wordt tussen PT-regelaar en verkeersregelaar.',
                                       owner=self)
 
@@ -72,6 +74,13 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
                                              kardinaliteit_max='*',
                                              definition='Nummers van de voertuigen die connecteren met de PT regelaar.',
                                              owner=self)
+
+        self._vplanNummer = OTLAttribuut(field=StringField,
+                                         naam='vplanNummer',
+                                         label='vplan nummer',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar.vplanNummer',
+                                         definition='Nummer van het V-plan.',
+                                         owner=self)
 
     @property
     def communicatiewijze(self) -> str:
@@ -126,3 +135,12 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
     @voertuignummers.setter
     def voertuignummers(self, value):
         self._voertuignummers.set_waarde(value, owner=self)
+
+    @property
+    def vplanNummer(self) -> str:
+        """Nummer van het V-plan."""
+        return self._vplanNummer.get_waarde()
+
+    @vplanNummer.setter
+    def vplanNummer(self, value):
+        self._vplanNummer.set_waarde(value, owner=self)

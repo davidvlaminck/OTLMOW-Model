@@ -5,11 +5,10 @@ from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDeci
 from ...Datatypes.KlLetterVerschaald import KlLetterVerschaald
 from ...Datatypes.KlLetterVerschaaldType import KlLetterVerschaaldType
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class LetterMarkeringVerschaald(FiguratieMarkeringToegang, PuntGeometrie):
+class LetterMarkeringVerschaald(FiguratieMarkeringToegang):
     """Een markering bestaande uit letters die een verschaling ondergaat zoals een vergroting en/of een verkleining."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LetterMarkeringVerschaald'

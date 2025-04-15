@@ -1,13 +1,14 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LEDBord import LEDBord
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlDynBordZ30Merk import KlDynBordZ30Merk
 from ...Datatypes.KlDynBordZ30Modelnaam import KlDynBordZ30Modelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DynBordZ30(LEDBord):
+class DynBordZ30(LEDBord, NaampadObject):
     """Dynamisch verkeersbord dat verkeerstekens voor een zone 30 kan weergeven."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordZ30'
@@ -18,8 +19,16 @@ class DynBordZ30(LEDBord):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NetwerkModem', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RechteSteun', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Z30Groep', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ForfaitaireAansluiting', direction='i')  # i = direction: incoming
+
+        self._isInverse = OTLAttribuut(field=BooleanField,
+                                       naam='isInverse',
+                                       label='is Inverse',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordZ30.isInverse',
+                                       definition='Inverse borden zijn signaleringsborden die aangeven wanneer een bepaald verkeersteken niet van kracht is. De aansturing hiervan gebeurt via de Zone 30-kalenderwebsite.',
+                                       owner=self)
 
         self._merk = OTLAttribuut(field=KlDynBordZ30Merk,
                                   naam='merk',
@@ -41,6 +50,15 @@ class DynBordZ30(LEDBord):
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordZ30.naastGenummerdeWeg',
                                                 definition='Aanduiding of het bord naast een genummerde weg of een niet-genummerde weg staat, gericht naar het aankomende verkeer.',
                                                 owner=self)
+
+    @property
+    def isInverse(self) -> bool:
+        """Inverse borden zijn signaleringsborden die aangeven wanneer een bepaald verkeersteken niet van kracht is. De aansturing hiervan gebeurt via de Zone 30-kalenderwebsite."""
+        return self._isInverse.get_waarde()
+
+    @isInverse.setter
+    def isInverse(self, value):
+        self._isInverse.set_waarde(value, owner=self)
 
     @property
     def merk(self) -> str:

@@ -2,12 +2,13 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LEDBord import LEDBord
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlDynBordRVMSMerk import KlDynBordRVMSMerk
 from ...Datatypes.KlDynBordRVMSModelnaam import KlDynBordRVMSModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DynBordRVMS(LEDBord, SerienummerObject):
+class DynBordRVMS(LEDBord, SerienummerObject, NaampadObject):
     """Dynamisch verkeersbord dat dynamische verkeerstekens en teksten kan afbeelden. RVMS staat voor Road-side Variable Message Signs."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRVMS'

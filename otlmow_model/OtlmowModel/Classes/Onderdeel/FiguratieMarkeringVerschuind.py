@@ -6,11 +6,10 @@ from ...Datatypes.KlFiguratieSoortVerschuind import KlFiguratieSoortVerschuind
 from ...Datatypes.KlFiguratieTypeVerschuind import KlFiguratieTypeVerschuind
 from ...Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class FiguratieMarkeringVerschuind(FiguratieMarkeringToegang, VlakGeometrie):
+class FiguratieMarkeringVerschuind(FiguratieMarkeringToegang):
     """Een schuine markering als figuratie op de weg aangebracht om het verkeer te waarschuwen, informeren of regelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FiguratieMarkeringVerschuind'

@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.VRIDraagconstructie import VRIDraagconstructie
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlRechteSteunType import KlRechteSteunType
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -26,12 +27,28 @@ class RechteSteun(VRIDraagconstructie, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BiFlashInstallatie', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokerafsluiting', direction='o')  # o = direction: outgoing
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RechteSteun.technischeFiche',
+                                             definition='De technische fiche van de rechte steun.',
+                                             owner=self)
+
         self._type = OTLAttribuut(field=KlRechteSteunType,
                                   naam='type',
                                   label='type',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RechteSteun.type',
                                   definition='Het type verwijst naar de aanpassingen die gebeuren wanneer een andere techniek gebruik maakt van de rechte steun. Meestal gaat dit over een aanpassing in de lengte van het verjongde deel van de rechte steun.',
                                   owner=self)
+
+    @property
+    def technischeFiche(self) -> DtcDocumentWaarden:
+        """De technische fiche van de rechte steun."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def type(self) -> str:

@@ -14,7 +14,7 @@ class DtcVoorzetconstructieBevestigingsmateriaalWaarden(WaardenObject):
                                       naam='diameter',
                                       label='diameter',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcVoorzetconstructieBevestigingsmateriaal.diameter',
-                                      definition='De diameter van de voorzetconstructie.',
+                                      definition='De diameter van het bevestigingsmateriaal gebruikt bij een voorzetconstructie.',
                                       owner=self)
 
         self._materiaal = OTLAttribuut(field=KlVoorzetconstructieBevestigingsmateriaal,
@@ -26,7 +26,7 @@ class DtcVoorzetconstructieBevestigingsmateriaalWaarden(WaardenObject):
 
     @property
     def diameter(self) -> str:
-        """De diameter van de voorzetconstructie."""
+        """De diameter van het bevestigingsmateriaal gebruikt bij een voorzetconstructie."""
         return self._diameter.get_waarde()
 
     @diameter.setter

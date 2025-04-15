@@ -2,12 +2,13 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LEDBord import LEDBord
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlDynBordRSSMerk import KlDynBordRSSMerk
 from ...Datatypes.KlDynBordRSSModelnaam import KlDynBordRSSModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DynBordRSS(LEDBord, SerienummerObject):
+class DynBordRSS(LEDBord, SerienummerObject, NaampadObject):
     """Dynamisch verkeersbord voor rijstrooksignalisatie (RSS)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRSS'
@@ -16,6 +17,8 @@ class DynBordRSS(LEDBord, SerienummerObject):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabel', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DynBordGroep', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Matrixbord', direction='o', deprecated='2.10.0')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang', direction='u')  # u = unidirectional
 

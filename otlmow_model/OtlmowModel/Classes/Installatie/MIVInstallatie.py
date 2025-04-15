@@ -3,11 +3,12 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlMIVEenheidType import KlMIVEenheidType
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class MIVInstallatie(NaampadObject, VlakGeometrie):
+class MIVInstallatie(NaampadObject, PuntGeometrie, VlakGeometrie):
     """Een MIV eenheid die instaat voor de verwerking van gegevens van lussen op een bepaalde locatie, hetzij als satelliet-eenheid hetzij als centrale eenheid voor de combinatie van verschillende eenheden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie'

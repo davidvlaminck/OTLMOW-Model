@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.VRIDraagconstructie import VRIDraagconstructie
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlDraagconstructieDwarsdoorsnede import KlDraagconstructieDwarsdoorsnede
@@ -9,7 +10,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Galgpaal(VRIDraagconstructie, PuntGeometrie):
+class Galgpaal(VRIDraagconstructie, NaampadObject, PuntGeometrie):
     """De galgpalen zijn bestemd voor het bevestigen van verkeerslichten, signaalborden, wegwijzers boven het wegdek. Bovendien laten zij het bevestigen toe van één of meerdere lantaarns van het type 200 op de paalschacht. De draagwijdte van de arm moet kunnen reiken tot 9 m. De galgpalen beantwoorden aan SB270-51-6.15"""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Galgpaal'
@@ -61,6 +62,13 @@ class Galgpaal(VRIDraagconstructie, PuntGeometrie):
                                              definition='Een bijlage waarin de detailtekeningen van de galgpaal zijn opgenomen.',
                                              owner=self)
 
+        self._vrijeHoogte = OTLAttribuut(field=KwantWrdInMeter,
+                                         naam='vrijeHoogte',
+                                         label='vrije hoogte',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Galgpaal.vrijeHoogte',
+                                         definition='De verticale afstand (in meter) tussen de bovenkant van het wegdek en de onderkant van het laagste, daarboven gelegen constructiedeel van de galgpaal.',
+                                         owner=self)
+
     @property
     def aantalLiggers(self) -> float:
         """Het aantal liggers waarmee de arm van de galgpaal is uitgevoerd."""
@@ -105,3 +113,12 @@ class Galgpaal(VRIDraagconstructie, PuntGeometrie):
     @technischeFiche.setter
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
+
+    @property
+    def vrijeHoogte(self) -> KwantWrdInMeterWaarden:
+        """De verticale afstand (in meter) tussen de bovenkant van het wegdek en de onderkant van het laagste, daarboven gelegen constructiedeel van de galgpaal."""
+        return self._vrijeHoogte.get_waarde()
+
+    @vrijeHoogte.setter
+    def vrijeHoogte(self, value):
+        self._vrijeHoogte.set_waarde(value, owner=self)

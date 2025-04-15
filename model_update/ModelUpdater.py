@@ -25,6 +25,11 @@ class ModelUpdater:
         model_version = cls.update_model_version(updated_class_model=updated_class_model, updated_enums=updated_enums,
                                                  model_version=current_model_version, otl_version=otl_version)
 
+        print(f'Current OTL version: {current_otl_version}')
+        print(f'Current current_model_version version: {current_model_version}')
+        print(f'New OTL version: {otl_version}')
+        print(f'Updated class model: {updated_class_model}')
+
         if current_model_version == model_version:
             raise ValueError(f'The model version you are trying to update to is the same as the current version: '
                              f'{model_version}')

@@ -5,6 +5,7 @@ from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlAansluitingMIVMeetpunt import KlAansluitingMIVMeetpunt
 from ...Datatypes.KlAlgRijstrookcode import KlAlgRijstrookcode
 from ...Datatypes.KlMIVLusUitslijprichting import KlMIVLusUitslijprichting
@@ -26,6 +27,7 @@ class MIVMeetpunt(NaampadObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#TelecommunicationsCable', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie', direction='o', deprecated='2.9.0')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Datakabel', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelmof', direction='i')  # i = direction: incoming
@@ -41,6 +43,13 @@ class MIVMeetpunt(NaampadObject, PuntGeometrie):
                                          usagenote='Deze eigenschap is tijdelijk toegevoegd in het kader van het verweven van Legacy data en OTL data. De informatie in deze eigenschap zal op termijn moeten worden bijgehouden  in het type Datakabel',
                                          definition='LEGACY-ATTRIBUUT zie usageNote! De aansluiting van de meetlussen op het verwerkingssysteem.',
                                          owner=self)
+
+        self._aantalWindingen = OTLAttribuut(field=IntegerField,
+                                             naam='aantalWindingen',
+                                             label='aantal windingen',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt.aantalWindingen',
+                                             definition='Het aantal windingen dat een meetpunt heeft.',
+                                             owner=self)
 
         self._afmetingen = OTLAttribuut(field=KlMIVMeetpuntAfmetingen,
                                         naam='afmetingen',
@@ -68,8 +77,15 @@ class MIVMeetpunt(NaampadObject, PuntGeometrie):
                                       naam='isBedekt',
                                       label='is bedekt',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt.isBedekt',
-                                      definition='Geeft aan of de lussen bedekt zijn door een toplaag. De bedekking door een toplaag zorgt er voor dat de lus niet zichtbaar is met het blote oog.',
+                                      definition='Geeft aan of de lussen bedekt zijn door een toplaag. De bedekking door een toplaag betekent dat de lus zich in de onderlaag bevindt en zorgt er voor dat de lus niet zichtbaar is met het blote oog.',
                                       owner=self)
+
+        self._isGekoppeld = OTLAttribuut(field=BooleanField,
+                                         naam='isGekoppeld',
+                                         label='is gekoppeld',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVMeetpunt.isGekoppeld',
+                                         definition='Geeft aan of de data van het meetpunt wordt gebruikt voor de aansturing van andere verkeerstechnieken.',
+                                         owner=self)
 
         self._logischeGroepVerkeerscentrum = OTLAttribuut(field=StringField,
                                                           naam='logischeGroepVerkeerscentrum',
@@ -134,6 +150,15 @@ class MIVMeetpunt(NaampadObject, PuntGeometrie):
         self._aansluiting.set_waarde(value, owner=self)
 
     @property
+    def aantalWindingen(self) -> int:
+        """Het aantal windingen dat een meetpunt heeft."""
+        return self._aantalWindingen.get_waarde()
+
+    @aantalWindingen.setter
+    def aantalWindingen(self, value):
+        self._aantalWindingen.set_waarde(value, owner=self)
+
+    @property
     def afmetingen(self) -> str:
         """De afmetingen van de lussen als lengte en breedte volgens een lijst van vaste afmetingen"""
         return self._afmetingen.get_waarde()
@@ -162,12 +187,21 @@ class MIVMeetpunt(NaampadObject, PuntGeometrie):
 
     @property
     def isBedekt(self) -> bool:
-        """Geeft aan of de lussen bedekt zijn door een toplaag. De bedekking door een toplaag zorgt er voor dat de lus niet zichtbaar is met het blote oog."""
+        """Geeft aan of de lussen bedekt zijn door een toplaag. De bedekking door een toplaag betekent dat de lus zich in de onderlaag bevindt en zorgt er voor dat de lus niet zichtbaar is met het blote oog."""
         return self._isBedekt.get_waarde()
 
     @isBedekt.setter
     def isBedekt(self, value):
         self._isBedekt.set_waarde(value, owner=self)
+
+    @property
+    def isGekoppeld(self) -> bool:
+        """Geeft aan of de data van het meetpunt wordt gebruikt voor de aansturing van andere verkeerstechnieken."""
+        return self._isGekoppeld.get_waarde()
+
+    @isGekoppeld.setter
+    def isGekoppeld(self, value):
+        self._isGekoppeld.set_waarde(value, owner=self)
 
     @property
     def logischeGroepVerkeerscentrum(self) -> str:

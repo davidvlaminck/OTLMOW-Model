@@ -3,6 +3,7 @@ from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.DtcMinMaxHoogteSchermelement import DtcMinMaxHoogteSchermelement, DtcMinMaxHoogteSchermelementWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
@@ -40,6 +41,13 @@ class GeluidwerendeConstructie(AIMNaamObject, LijnGeometrie):
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GeluidwerendeConstructie.horizontaalRuimtebeslag',
                                                      definition='Document waarin de variatie in horizontaal ruimtebeslag over het verloop van de geluidswerende constructie is weergegeven. Het horizontaal ruimtebeslag is de breedte die de gehele constructie inneemt op het maaiveld, loodrecht op de richting waarin de schermelementen op elkaar aangesloten zijn. Er moet een nieuwe waarde ingegeven worden elke keer als de hoogte van de constructie wijzigt.',
                                                      owner=self)
+
+        self._minMaxSchermhoogte = OTLAttribuut(field=DtcMinMaxHoogteSchermelement,
+                                                naam='minMaxSchermhoogte',
+                                                label='minimale maximale schermhoogte',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GeluidwerendeConstructie.minMaxSchermhoogte',
+                                                definition='De waarde uitgedrukt in centimeter van het laagste en het hoogste schermelement in de constructie.',
+                                                owner=self)
 
         self._overzichtsafbeelding = OTLAttribuut(field=DtcDocument,
                                                   naam='overzichtsafbeelding',
@@ -96,6 +104,15 @@ class GeluidwerendeConstructie(AIMNaamObject, LijnGeometrie):
     @horizontaalRuimtebeslag.setter
     def horizontaalRuimtebeslag(self, value):
         self._horizontaalRuimtebeslag.set_waarde(value, owner=self)
+
+    @property
+    def minMaxSchermhoogte(self) -> DtcMinMaxHoogteSchermelementWaarden:
+        """De waarde uitgedrukt in centimeter van het laagste en het hoogste schermelement in de constructie."""
+        return self._minMaxSchermhoogte.get_waarde()
+
+    @minMaxSchermhoogte.setter
+    def minMaxSchermhoogte(self, value):
+        self._minMaxSchermhoogte.set_waarde(value, owner=self)
 
     @property
     def overzichtsafbeelding(self) -> List[DtcDocumentWaarden]:
