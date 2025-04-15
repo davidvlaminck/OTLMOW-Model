@@ -8856,6 +8856,13 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://lgc.data.wegenenverkeer.be/ns/installatie#IVSBGroep": {
+            "abstract": false,
+            "name": "IVSBGroep",
+            "label": "IVSB groep (Legacy)",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://lgc.data.wegenenverkeer.be/ns/installatie#SeinbrugIVS": {
             "abstract": false,
             "name": "SeinbrugIVS",
@@ -9262,10 +9269,24 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://lgc.data.wegenenverkeer.be/ns/installatie#Stuw": {
+            "abstract": false,
+            "name": "Stuw",
+            "label": "Stuw (Legacy)",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://lgc.data.wegenenverkeer.be/ns/installatie#Ssig": {
             "abstract": false,
             "name": "Ssig",
             "label": "Scheepvaartsignalisatie (Legacy)",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://lgc.data.wegenenverkeer.be/ns/installatie#Sluis": {
+            "abstract": false,
+            "name": "Sluis",
+            "label": "Sluis of sluizencomplex (Legacy)",
             "deprecated_version": "",
             "direct_subclasses": []
         },

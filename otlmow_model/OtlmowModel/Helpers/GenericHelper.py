@@ -23,7 +23,17 @@ def get_ns_and_name_from_uri(object_uri):
     short_uri_array = short_uri.split('#')
     ns, name = short_uri_array[0], short_uri_array[1]
     if ns.startswith('lgc:'):
-        ns = ns[4:]
+        if '.' in name:
+            name = name.replace('.', '_')
+        if '-' in name:
+            name = name.replace('-', '_')
+        if name == "RIS":
+            name = "RISLegacy"
+        elif name == 'Fietstel':
+            name = 'FietstelLegacy'
+        elif name == 'Brug':
+            name = 'BeweegbareBrug'
+        return 'Legacy', name
     return ns, name
 
 
@@ -41,6 +51,8 @@ def get_titlecase_from_ns(ns: str) -> str:
         return 'ImplementatieElement'
     elif ns == 'installatie':
         return 'Installatie'
+    elif ns == 'legacy':
+        return 'Legacy'
     elif ns == 'levenscyclus':
         return 'Levenscyclus'
     elif ns == 'onderdeel':
