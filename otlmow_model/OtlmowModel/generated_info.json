@@ -1905,7 +1905,8 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure"
+                "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure",
+                "https://lgc.data.wegenenverkeer.be/ns/installatie#LegacyObject"
             ]
         },
         "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMNaamObject": {
@@ -2328,7 +2329,8 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure"
+                "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure",
+                "https://lgc.data.wegenenverkeer.be/ns/installatie#LegacyObject"
             ]
         },
         "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie": {
@@ -2342,7 +2344,8 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure"
+                "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure",
+                "https://lgc.data.wegenenverkeer.be/ns/installatie#LegacyObject"
             ]
         },
         "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#ActivityComplex": {
@@ -8374,6 +8377,22 @@
             "abstract": false,
             "name": "ProefZichtbaarheidBijNachtRegenweer",
             "label": "Proef zichtbaarheid bij nacht en regenweer",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://lgc.data.wegenenverkeer.be/ns/installatie#LegacyObject": {
+            "abstract": true,
+            "name": "LegacyObject",
+            "label": "Legacy object",
+            "deprecated_version": "",
+            "direct_subclasses": [
+                "https://lgc.data.wegenenverkeer.be/ns/installatie#AB"
+            ]
+        },
+        "https://lgc.data.wegenenverkeer.be/ns/installatie#AB": {
+            "abstract": false,
+            "name": "AB",
+            "label": "Afstandsbewaking",
             "deprecated_version": "",
             "direct_subclasses": []
         }

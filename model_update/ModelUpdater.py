@@ -13,10 +13,15 @@ class ModelUpdater:
             version_info = json.load(file)
 
         current_otl_version = version_info['current']['otl_version']
+
         updated_class_model = (current_otl_version != otl_version)
         updated_enums = len(enums_updated) > 0
 
         current_model_version = version_info['current']['model_version']
+        print(f'Current OTL version: {current_otl_version}')
+        print(f'Current current_model_version version: {current_model_version}')
+        print(f'New OTL version: {otl_version}')
+        print(f'Updated class model: {updated_class_model}')
         model_version = cls.update_model_version(updated_class_model=updated_class_model, updated_enums=updated_enums,
                                                  model_version=current_model_version, otl_version=otl_version)
 
