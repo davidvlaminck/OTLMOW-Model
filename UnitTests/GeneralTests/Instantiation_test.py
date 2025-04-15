@@ -77,7 +77,7 @@ def test_instantiate_test_class_with_asset_creator():
 def test_instantiate_test_and_real_classes_using_dynamic_import():
     model_location = Path(ROOT_DIR).parent / 'TestModel'
     test_class = dynamic_create_instance_from_ns_and_name('onderdeel', 'AllCasesTestClass', model_directory=model_location)
-    mof = dynamic_create_instance_from_ns_and_name('onderdeel', 'Aansluitmof', model_directory=None)
+    mof = dynamic_create_instance_from_ns_and_name('onderdeel', 'Elektromotor', model_directory=None)
 
     assert test_class is not None
     assert mof is not None

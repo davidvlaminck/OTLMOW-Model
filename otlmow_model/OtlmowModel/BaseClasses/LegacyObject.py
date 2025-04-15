@@ -1,6 +1,8 @@
 import re
 from abc import abstractmethod
 
+from otlmow_model.OtlmowModel.BaseClasses.NaamField import NaamField
+from otlmow_model.OtlmowModel.BaseClasses.NaampadField import NaampadField
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
@@ -10,43 +12,6 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLAsset import OTLAsset
 from otlmow_model.OtlmowModel.Classes.ImplementatieElement.AIMToestand import AIMToestand
 from otlmow_model.OtlmowModel.Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from otlmow_model.OtlmowModel.Classes.ImplementatieElement.AIMVersie import AIMVersie
-
-
-
-class NaamField(StringField):
-    def __init__(self, naam: str, label: str, objectUri: str, definition: str, owner):
-        super().__init__(naam, label, objectUri, definition, owner)
-
-    @classmethod
-    def validate(cls, value, attribuut) -> bool:
-        if not StringField.validate(value, attribuut):
-            return False
-        if re.match(r'^[\w.\-]*$', value) is None:
-            return False
-        if hasattr(attribuut.owner, 'naampad') and attribuut.owner.naampad is not None:
-            return attribuut.owner.naampad.split('/')[-1] == value
-        return True
-
-    @classmethod
-    def create_dummy_data(cls) -> str:
-        return 'dummy'
-
-
-class NaampadField(NaamField):
-    def __init__(self, naam: str, label: str, objectUri: str, definition: str, owner):
-        super().__init__(naam, label, objectUri, definition, owner)
-
-    @classmethod
-    def validate(cls, value, attribuut) -> bool:
-        if re.match(r'^[\w.\-]+[/[\w.\-]+]*$', value) is None:
-            return False
-        if attribuut.owner.naam is not None:
-            return value.split('/')[-1] == attribuut.owner.naam
-        return True
-
-    @classmethod
-    def create_dummy_data(cls) -> str:
-        return 'dummy/dummy'
 
 
 class LegacyObject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationInteractor, PuntGeometrie):

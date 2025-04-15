@@ -1,6 +1,6 @@
 import pytest
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from otlmow_model.OtlmowModel.Classes.ImplementatieElement.AIMNaamObject import NaamField
+from otlmow_model.OtlmowModel.BaseClasses.NaamField import NaamField
 
 
 class NaamClass:
