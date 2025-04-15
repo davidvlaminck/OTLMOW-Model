@@ -2,9 +2,10 @@
 from otlmow_model.OtlmowModel.BaseClasses.LegacyObject import LegacyObject
 
 
-# Generated with OTLClassCreator. To modify: extend, do not edit
+# Generated with LegacyClassCreator. To modify: extend, do not edit
 class AB(LegacyObject):
-    """Afstandsbewaking (Legacy)"""
+    """Afstandsbewaking (Legacy)
+	Afstandsbewaking"""
 
     typeURI = 'https://lgc.data.wegenenverkeer.be/ns/installatie#AB'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

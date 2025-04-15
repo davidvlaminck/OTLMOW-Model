@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlToegangscontroleSleuteltype import KlToegangscontroleSleuteltype
@@ -7,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Toegangscontrole(NaampadObject, PuntGeometrie):
+class Toegangscontrole(NaampadObject, AIMNaamObject, PuntGeometrie):
     """Component voor controle van de toegang tot een ruimte of behuizing."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontrole'
