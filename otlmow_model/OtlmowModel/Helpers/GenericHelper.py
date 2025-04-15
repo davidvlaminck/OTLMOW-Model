@@ -33,7 +33,9 @@ def get_ns_and_name_from_uri(object_uri):
             name = 'FietstelLegacy'
         elif name == 'Brug':
             name = 'BeweegbareBrug'
-        return 'Legacy', name
+        elif name == 'Voedingskeuzeschakelaar':
+            name = 'VKS'
+        return 'legacy', name
     return ns, name
 
 
@@ -75,7 +77,7 @@ def get_aim_id_from_uuid_and_typeURI(uuid: str, type_uri: str):
     else:
         ns, name = get_ns_and_name_from_uri(type_uri)
         if 'lgc.' in type_uri:
-            encoded_uri = encode_short_uri(f'lgc:{ns}#{name}')
+            encoded_uri = encode_short_uri(f'lgc:installatie#{name}')
         else:
             encoded_uri = encode_short_uri(f'{ns}#{name}')
     return f'{uuid}-{encoded_uri}'
