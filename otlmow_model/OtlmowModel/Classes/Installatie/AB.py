@@ -1,7 +1,8 @@
-# Generated with OTLClassCreator. To modify: extend, do not edit
+# coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.LegacyObject import LegacyObject
 
 
+# Generated with OTLClassCreator. To modify: extend, do not edit
 class AB(LegacyObject):
     """Afstandsbewaking (Legacy)"""
 
