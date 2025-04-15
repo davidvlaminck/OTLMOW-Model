@@ -3,11 +3,12 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from ...Classes.Abstracten.DetaiplanObject import DetaiplanObject
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Randprofiel(ConstructiefObject, DetaiplanObject, LijnGeometrie):
+class Randprofiel(ConstructiefObject, DetaiplanObject, PuntGeometrie, LijnGeometrie):
     """Profiel ter afwerking en versterking van de rand. Deze kan uitgevoerd worden in verschillende materialen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Randprofiel'

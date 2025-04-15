@@ -2,10 +2,11 @@
 from abc import abstractmethod
 from ...Classes.Abstracten.AOWSType import AOWSType
 from ...Classes.Abstracten.Markering import Markering
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class FiguratieMarkeringToegang(AOWSType, Markering):
+class FiguratieMarkeringToegang(AOWSType, Markering, PuntGeometrie):
     """Abstracte als toegang tot de verschillende soorten figuratiemarkeringen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#FiguratieMarkeringToegang'

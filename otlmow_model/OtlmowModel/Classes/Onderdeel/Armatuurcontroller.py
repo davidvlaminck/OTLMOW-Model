@@ -4,6 +4,7 @@ from ...Classes.Abstracten.Communicatieapparatuur import Communicatieapparatuur
 from ...Classes.Abstracten.FirmwareObject import FirmwareObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
+from ...Datatypes.KlNetwerkconfiguratieWV import KlNetwerkconfiguratieWV
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
@@ -60,6 +61,13 @@ class Armatuurcontroller(Communicatieapparatuur, FirmwareObject):
                                        definition='Modelnaam van de armatuurcontroller.',
                                        owner=self)
 
+        self._netwerkconfiguratieWV = OTLAttribuut(field=KlNetwerkconfiguratieWV,
+                                                   naam='netwerkconfiguratieWV',
+                                                   label='netwerkconfiguratie wegverlichting',
+                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Armatuurcontroller.netwerkconfiguratieWV',
+                                                   definition='De netwerkconfiguratie omvat de instelling van het netwerk (de zogenaamde kleur van het netwerk) in het kader van de gesplitste netwerkenopstelling van de lichtpuntcontrole.',
+                                                   owner=self)
+
         self._serienummer = OTLAttribuut(field=StringField,
                                          naam='serienummer',
                                          label='serienummer',
@@ -102,6 +110,15 @@ class Armatuurcontroller(Communicatieapparatuur, FirmwareObject):
     @modelnaam.setter
     def modelnaam(self, value):
         self._modelnaam.set_waarde(value, owner=self)
+
+    @property
+    def netwerkconfiguratieWV(self) -> str:
+        """De netwerkconfiguratie omvat de instelling van het netwerk (de zogenaamde kleur van het netwerk) in het kader van de gesplitste netwerkenopstelling van de lichtpuntcontrole."""
+        return self._netwerkconfiguratieWV.get_waarde()
+
+    @netwerkconfiguratieWV.setter
+    def netwerkconfiguratieWV(self, value):
+        self._netwerkconfiguratieWV.set_waarde(value, owner=self)
 
     @property
     def serienummer(self) -> str:

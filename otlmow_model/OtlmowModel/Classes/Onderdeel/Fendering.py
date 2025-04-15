@@ -10,7 +10,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Fendering(AanhorigheidSluisStuw, AIMNaamObject, PuntGeometrie, LijnGeometrie):
-    """Een fender dient om de kinetische energie van een afmerend schip op te vangen en op die manier schade aan een schip of de achterliggende constructie."""
+    """Een fender dient om de kinetische energie van een afmerend schip op te vangen en op die manier schade aan een schip of de achterliggende constructie te vermijden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Fendering'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

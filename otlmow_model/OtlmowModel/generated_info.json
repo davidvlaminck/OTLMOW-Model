@@ -1988,6 +1988,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lmuur",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Omloopriool",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Omroepzone",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Oplegrij",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Overbrenging",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pijler",
@@ -2056,6 +2057,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Controlepaneel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DABRepeater",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dekzerkprofiel",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Detectieverwerkingseenheid",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Deur",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dichting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Display",
@@ -2072,6 +2074,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ForfaitaireAansluiting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GPU",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Gassensor",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Golfplaat",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Groutanker",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Haalkom",
@@ -2421,10 +2424,12 @@
             "direct_subclasses": [
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#ASTRIDInstallatie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BiFlashInstallatie",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DynBordGroep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Fietstelinstallatie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Flitsgroep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Hulppost",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#IPBackbone",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#IVSBGroep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#L2AccessStructuur",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Link",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Luchtkwaliteitsensor",
@@ -2438,16 +2443,32 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Slagboom",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Trajectcontrole",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VLAN",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Weguitrusting",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Z30Groep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zoutbijlaadplaats",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zpad",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Datakabel",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordOpMaat",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordPK",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRSS",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRVMS",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordVMS",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordZ30",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FietstelDisplay",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Fietstelsysteem",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Galgpaal",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hoogtedetectie",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IVSB",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietSelectieveDetectielus",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Silo",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Software",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Tank",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontrole",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontroller",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WazeBeacon"
             ]
         },
@@ -2737,6 +2758,13 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DynBordGroep": {
+            "abstract": false,
+            "name": "DynBordGroep",
+            "label": "Dynamisch bord groep",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ecoduct": {
             "abstract": false,
             "name": "Ecoduct",
@@ -2951,6 +2979,13 @@
             "abstract": false,
             "name": "IPBackbone",
             "label": "IP backbone",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#IVSBGroep": {
+            "abstract": false,
+            "name": "IVSBGroep",
+            "label": "IVSB Groep",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -3182,6 +3217,13 @@
             "abstract": false,
             "name": "Omloopriool",
             "label": "Omloopriool",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Omroepzone": {
+            "abstract": false,
+            "name": "Omroepzone",
+            "label": "Omroepzone",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -3535,6 +3577,13 @@
             "deprecated_version": "2.11.0",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Weguitrusting": {
+            "abstract": false,
+            "name": "Weguitrusting",
+            "label": "Weguitrusting",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wilddetectiezone": {
             "abstract": false,
             "name": "Wilddetectiezone",
@@ -3553,6 +3602,13 @@
             "abstract": false,
             "name": "Wrijfbalk",
             "label": "Wrijfbalk",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Z30Groep": {
+            "abstract": false,
+            "name": "Z30Groep",
+            "label": "Z30 groep",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -4501,6 +4557,13 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Detectieverwerkingseenheid": {
+            "abstract": false,
+            "name": "Detectieverwerkingseenheid",
+            "label": "Detectieverwerkingseenheid",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Deur": {
             "abstract": false,
             "name": "Deur",
@@ -5073,6 +5136,13 @@
             "abstract": false,
             "name": "Glijlager",
             "label": "Glijlager",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Golfplaat": {
+            "abstract": false,
+            "name": "Golfplaat",
+            "label": "Golfplaat",
             "deprecated_version": "",
             "direct_subclasses": []
         },

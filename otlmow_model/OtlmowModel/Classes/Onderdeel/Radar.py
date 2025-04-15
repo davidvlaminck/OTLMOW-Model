@@ -4,11 +4,12 @@ from ...Classes.Abstracten.NietWeggebondenDetectie import NietWeggebondenDetecti
 from ...Classes.Abstracten.TypeWeggebruiker import TypeWeggebruiker
 from ...Datatypes.KlRadarMerk import KlRadarMerk
 from ...Datatypes.KlRadarModelnaam import KlRadarModelnaam
+from ...Datatypes.KlVriCommunicatieprotocolVerkeersdetectie import KlVriCommunicatieprotocolVerkeersdetectie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Radar(NietWeggebondenDetectie, TypeWeggebruiker):
-    """Een detector die werkt volgens het Doppler-effect. De detectie gebeurt met behulp van een microgolfbundel die in de richting van het wegdek wordt uitgezonden. Gebruikt voor het detecteren van voertuigen, voetgangers en fietsers."""
+    """Een detector die werkt volgens het Doppler-effect. De detectie gebeurt met behulp van een microgolfbundel die in de richting van het wegdek wordt uitgezonden. Gebruikt voor het detecteren van voertuigen,voetgangers en fietsers."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Radar'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -18,6 +19,15 @@ class Radar(NietWeggebondenDetectie, TypeWeggebruiker):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VRIDraagconstructie', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRIVirtueleDetectiezone', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Detectieverwerkingseenheid', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar', direction='u')  # u = unidirectional
+
+        self._communicatieprotocol = OTLAttribuut(field=KlVriCommunicatieprotocolVerkeersdetectie,
+                                                  naam='communicatieprotocol',
+                                                  label='communicatiewijze',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Radar.communicatieprotocol',
+                                                  definition='Gebruikte communicatiewijze voor de stuurkaart.',
+                                                  owner=self)
 
         self._merk = OTLAttribuut(field=KlRadarMerk,
                                   naam='merk',
@@ -32,6 +42,15 @@ class Radar(NietWeggebondenDetectie, TypeWeggebruiker):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Radar.modelnaam',
                                        definition='De modelnaam van de radar.',
                                        owner=self)
+
+    @property
+    def communicatieprotocol(self) -> str:
+        """Gebruikte communicatiewijze voor de stuurkaart."""
+        return self._communicatieprotocol.get_waarde()
+
+    @communicatieprotocol.setter
+    def communicatieprotocol(self, value):
+        self._communicatieprotocol.set_waarde(value, owner=self)
 
     @property
     def merk(self) -> str:

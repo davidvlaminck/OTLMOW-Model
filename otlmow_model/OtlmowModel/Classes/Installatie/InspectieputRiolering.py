@@ -4,11 +4,12 @@ from ...Classes.Abstracten.Put import Put
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlPutType import KlPutType
 from ...Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class InspectieputRiolering(Put, AIMObject, VlakGeometrie):
+class InspectieputRiolering(Put, AIMObject, PuntGeometrie, VlakGeometrie):
     """Dient om de aanwezige riolering te kunnen inspecteren, reinigen of onderhouden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#InspectieputRiolering'

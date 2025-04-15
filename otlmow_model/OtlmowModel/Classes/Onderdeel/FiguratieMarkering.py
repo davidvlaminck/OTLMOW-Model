@@ -5,11 +5,10 @@ from ...Datatypes.KlFiguratieCode import KlFiguratieCode
 from ...Datatypes.KlFiguratieSoort import KlFiguratieSoort
 from ...Datatypes.KlFiguratieType import KlFiguratieType
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class FiguratieMarkering(FiguratieMarkeringToegang, PuntGeometrie):
+class FiguratieMarkering(FiguratieMarkeringToegang):
     """Een markering als figuratie op de weg aangebracht om het verkeer te waarschuwen, informeren of regelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FiguratieMarkering'

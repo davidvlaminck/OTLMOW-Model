@@ -23,7 +23,7 @@ class DtuHellingsSchoorhoekWaarden(UnionWaarden):
                                         label='schoorhoek',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuHellingsSchoorhoek.schoorhoek',
                                         kardinaliteit_min='0',
-                                        definition='Hoek die het object maakt ten opzichte van de verticale, uitgedrukt in 1 op x (vb.: 1/4).',
+                                        definition='Hoek die het object maakt ten opzichte van de verticale, uitgedrukt als een verhouding (1 op x), bijvoorbeeld 1 op 4. Bij verticale palen is er geen sprake van een schoorhoek in verhouding, omdat er geen horizontale afwijking is. In dat geval dient de hoek expliciet als 0 graden aangegeven te worden bij het attribuut Hellingshoek.',
                                         owner=self)
 
     @property
@@ -39,7 +39,7 @@ class DtuHellingsSchoorhoekWaarden(UnionWaarden):
 
     @property
     def schoorhoek(self) -> str:
-        """Hoek die het object maakt ten opzichte van de verticale, uitgedrukt in 1 op x (vb.: 1/4)."""
+        """Hoek die het object maakt ten opzichte van de verticale, uitgedrukt als een verhouding (1 op x), bijvoorbeeld 1 op 4. Bij verticale palen is er geen sprake van een schoorhoek in verhouding, omdat er geen horizontale afwijking is. In dat geval dient de hoek expliciet als 0 graden aangegeven te worden bij het attribuut Hellingshoek."""
         return self._schoorhoek.get_waarde()
 
     @schoorhoek.setter

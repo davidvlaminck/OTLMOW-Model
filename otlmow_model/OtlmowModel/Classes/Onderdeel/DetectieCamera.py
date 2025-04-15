@@ -6,6 +6,7 @@ from ...Classes.Abstracten.TypeWeggebruiker import TypeWeggebruiker
 from ...Datatypes.KlDetectiecameraDetectieprincipe import KlDetectiecameraDetectieprincipe
 from ...Datatypes.KlDetectiecameraMerk import KlDetectiecameraMerk
 from ...Datatypes.KlDetectiecameraModelnaam import KlDetectiecameraModelnaam
+from ...Datatypes.KlVriCommunicatieprotocolVerkeersdetectie import KlVriCommunicatieprotocolVerkeersdetectie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -20,6 +21,15 @@ class DetectieCamera(NietWeggebondenDetectie, TypeWeggebruiker):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VRIDraagconstructie', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRIVirtueleDetectiezone', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Detectieverwerkingseenheid', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar', direction='u')  # u = unidirectional
+
+        self._communicatieprotocol = OTLAttribuut(field=KlVriCommunicatieprotocolVerkeersdetectie,
+                                                  naam='communicatieprotocol',
+                                                  label='communicatiewijze',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DetectieCamera.communicatieprotocol',
+                                                  definition='Gebruikte communicatiewijze voor de stuurkaart.',
+                                                  owner=self)
 
         self._detectieprincipe = OTLAttribuut(field=KlDetectiecameraDetectieprincipe,
                                               naam='detectieprincipe',
@@ -42,6 +52,15 @@ class DetectieCamera(NietWeggebondenDetectie, TypeWeggebruiker):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DetectieCamera.modelnaam',
                                        definition='De modelnaam van de detectiecamera.',
                                        owner=self)
+
+    @property
+    def communicatieprotocol(self) -> str:
+        """Gebruikte communicatiewijze voor de stuurkaart."""
+        return self._communicatieprotocol.get_waarde()
+
+    @communicatieprotocol.setter
+    def communicatieprotocol(self, value):
+        self._communicatieprotocol.set_waarde(value, owner=self)
 
     @property
     def detectieprincipe(self) -> List[str]:

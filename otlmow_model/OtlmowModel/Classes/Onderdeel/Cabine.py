@@ -1,14 +1,16 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Inloopbehuizing import Inloopbehuizing
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlCabineAardingsstelsel import KlCabineAardingsstelsel
 from ...Datatypes.KlCabineStandaardtype import KlCabineStandaardtype
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Cabine(Inloopbehuizing, VlakGeometrie):
+class Cabine(Inloopbehuizing, PuntGeometrie, VlakGeometrie):
     """Een behuizing voornamelijk bestemd voor het beschermen van elektromechanische technieken waarin het omwille van de grootte en toegankelijkheid mogelijk is om rond te lopen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine'
@@ -33,6 +35,13 @@ class Cabine(Inloopbehuizing, VlakGeometrie):
                                              definition='Keuze tussen verschillende types voor het gebruikte aardingsstelsel.',
                                              owner=self)
 
+        self._heeftIsolatie = OTLAttribuut(field=BooleanField,
+                                           naam='heeftIsolatie',
+                                           label='heeft isolatie',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine.heeftIsolatie',
+                                           definition='Geeft aan of de cabine is voorzien van isolatie.',
+                                           owner=self)
+
         self._kelderdiepte = OTLAttribuut(field=KwantWrdInMeter,
                                           naam='kelderdiepte',
                                           label='kelderdiepte',
@@ -55,6 +64,15 @@ class Cabine(Inloopbehuizing, VlakGeometrie):
     @aardingsstelsel.setter
     def aardingsstelsel(self, value):
         self._aardingsstelsel.set_waarde(value, owner=self)
+
+    @property
+    def heeftIsolatie(self) -> bool:
+        """Geeft aan of de cabine is voorzien van isolatie."""
+        return self._heeftIsolatie.get_waarde()
+
+    @heeftIsolatie.setter
+    def heeftIsolatie(self, value):
+        self._heeftIsolatie.set_waarde(value, owner=self)
 
     @property
     def kelderdiepte(self) -> KwantWrdInMeterWaarden:
