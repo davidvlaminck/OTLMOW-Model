@@ -1,8 +1,6 @@
 import concurrent
-import multiprocessing
 import os
 from concurrent.futures import ThreadPoolExecutor, ALL_COMPLETED
-from os.path import isfile
 from pathlib import Path
 
 import pytest
@@ -102,6 +100,3 @@ def subtest_instantiate(uri: str, subtests):
         instance = dynamic_create_instance_from_uri(uri)
         instance.fill_with_dummy_data()
         assert instance is not None, f'failed to instantiate {uri}'
-
-
-
