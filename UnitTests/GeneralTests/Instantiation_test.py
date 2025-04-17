@@ -112,6 +112,7 @@ def test_instantiate_all_classes_using_class_dict(subtests):
         futures = not_done
         print(f'{len(done)} done, {len(not_done)} not done')
 
+
 def subtest_instantiate(uri: str, subtests):
     with subtests.test(msg=uri):
         instance = dynamic_create_instance_from_uri(uri)
