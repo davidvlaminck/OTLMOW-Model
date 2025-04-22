@@ -241,10 +241,10 @@ class OTLAttribuut:
                     self.set_waarde('POLYGON Z ((200000 200000 0, 200001 200001 1, 200002 200002 2, 200000 200000 0))')
             else:
                 data = self.field.create_dummy_data()
-                if self.kardinaliteit_max != '1':
-                    self.set_waarde([data])
-                else:
+                if data is None or self.kardinaliteit_max == '1':
                     self.set_waarde(data)
+                else:
+                    self.set_waarde([data])
             return
         new_value_object = self.field.waardeObject()
         new_value_object._parent = self

@@ -97,7 +97,6 @@ def test_dummy_KeuzelijstField():
     attr.fill_with_dummy_data()
 
     generated_dummy_waarde = attr.get_waarde()
-    generated_dummy_waarde = attr.get_waarde()
     assert generated_dummy_waarde is not None
     assert isinstance(generated_dummy_waarde, str)
     assert generated_dummy_waarde in attr.field.options.keys()
