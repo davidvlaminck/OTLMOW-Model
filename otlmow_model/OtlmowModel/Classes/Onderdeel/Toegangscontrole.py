@@ -8,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Toegangscontrole(NaampadObject, AIMNaamObject, PuntGeometrie):
+class Toegangscontrole(AIMNaamObject, NaampadObject, PuntGeometrie):
     """Component voor controle van de toegang tot een ruimte of behuizing."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontrole'

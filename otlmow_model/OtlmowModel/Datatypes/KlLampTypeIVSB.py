@@ -9,7 +9,7 @@ class KlLampTypeIVSB(KeuzelijstField):
     label = 'lamp type inwendig verlicht signalisatiebord'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlLampTypeIVSB'
     definition = 'Het type van de lamp(en) aanwezig in het inwendig verlicht signalisatiebord.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLampTypeIVSB'
     options = {
     }

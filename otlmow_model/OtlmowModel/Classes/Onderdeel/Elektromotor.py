@@ -21,7 +21,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Elektromotor(ElektrischComponentennummerObject, SerienummerObject, NaampadObject, AIMNaamObject, PuntGeometrie):
+class Elektromotor(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject, NaampadObject, PuntGeometrie):
     """Een machine die elektrische energie omzet in mechanische energie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor'
