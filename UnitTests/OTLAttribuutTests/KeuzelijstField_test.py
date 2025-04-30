@@ -32,6 +32,12 @@ def test_using_label():
     assert instance.testKeuzelijst == 'waarde-1'
 
 
+def test_assign_hyphen_get_None(subtests):
+    instance = AllCasesTestClass()
+    instance.testKeuzelijst = '-'
+    assert instance.testKeuzelijst is None
+
+
 def test_full_test_on_test_class_kard_1(subtests):
     instance = AllCasesTestClass()
     with subtests.test(msg='empty instance'):
