@@ -1,9 +1,9 @@
 {
     "current": {
-        "model_version": "2.15.7.0",
+        "model_version": "2.15.7.1",
         "otl_version": "2.15.0",
-        "created_at": "2025-05-13T20:46:00",
-        "created_by": "david.vlaminck"
+        "created_at": "2025-05-14T04:01:32",
+        "created_by": "automatic_update.py"
     },
     "history": {
         "2.9.2.1": {
@@ -722,6 +722,17 @@
             "updated_class_model": true,
             "updated_enums": false,
             "enums_updated": []
+        },
+        "2.15.7.1": {
+            "previous_version": "2.15.7.0",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlAlgMateriaal",
+                "KlDatakabelType",
+                "KlPlantwijze",
+                "KlVegetatieelementStandplaats"
+            ]
         }
     }
 }
