@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.15.7.2",
+        "model_version": "2.15.7.3",
         "otl_version": "2.15.0",
-        "created_at": "2025-05-15T04:01:05",
+        "created_at": "2025-05-16T04:02:19",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -741,6 +741,14 @@
             "enums_updated": [
                 "KlDatakabelAdersEnSectie",
                 "KlSignaalkabelAdersEnSectie"
+            ]
+        },
+        "2.15.7.3": {
+            "previous_version": "2.15.7.2",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlDrukknopModelnaam"
             ]
         }
     }

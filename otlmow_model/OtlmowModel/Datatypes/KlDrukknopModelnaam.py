@@ -22,7 +22,12 @@ class KlDrukknopModelnaam(KeuzelijstField):
                                            label='DAPS 2100L 42V',
                                            status='ingebruik',
                                            definitie='DAPS 2100L 42V',
-                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDrukknopModelnaam/daps-2100l-42v')
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDrukknopModelnaam/daps-2100l-42v'),
+        'model-24v': KeuzelijstWaarde(invulwaarde='model-24v',
+                                      label='model 24V',
+                                      status='ingebruik',
+                                      definitie='Modelnaam is niet gekend maar wel dat dit een 24V model is.',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDrukknopModelnaam/model-24v')
     }
 
     @classmethod
