@@ -86,7 +86,7 @@ def test_fuzzy_matching():
     instance = AllCasesTestClass()
     with pytest.raises(InvalidOptionError) as excinfo:
         instance.testKeuzelijst = 'waarde-4a'
-    print(excinfo.value)
+
     assert (str(excinfo.value) ==
             'waarde-4a is not a valid option for testKeuzelijst, find the valid options using print(meta_info('
             '<object>, attribute="testKeuzelijst"))\nDid you mean one of these? "waarde-4"')
