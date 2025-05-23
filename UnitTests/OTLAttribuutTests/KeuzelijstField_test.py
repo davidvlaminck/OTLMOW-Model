@@ -1,6 +1,7 @@
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
+from otlmow_model.OtlmowModel.Exceptions.InvalidOptionError import InvalidOptionError
 from otlmow_model.OtlmowModel.Exceptions.RemovedOptionError import RemovedOptionError
 
 
@@ -79,3 +80,14 @@ def test_print_keuzelijstwaarde():
     assert str(instance._testKeuzelijst.field.options['waarde-4']) == 'waarde-4'
     assert str(instance._testKeuzelijst.field.options['waarde-5']) == 'waarde-5 (uitgebruik)'
     assert str(instance._testKeuzelijst.field.options['waarde-6']) == 'waarde-6 (verwijderd)'
+
+
+def test_fuzzy_matching():
+    instance = AllCasesTestClass()
+    with pytest.raises(InvalidOptionError) as excinfo:
+        instance.testKeuzelijst = 'waarde-4a'
+    print(excinfo.value)
+    assert (str(excinfo.value) ==
+            'waarde-4a is not a valid option for testKeuzelijst, find the valid options using print(meta_info('
+            '<object>, attribute="testKeuzelijst"))\nDid you mean one of these? "waarde-4"')
+    assert excinfo.value.closest_matches == ['waarde-4']
