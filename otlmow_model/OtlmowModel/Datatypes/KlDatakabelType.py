@@ -129,7 +129,7 @@ class KlDatakabelType(KeuzelijstField):
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelType/s-utp'),
         'stralende-kabel': KeuzelijstWaarde(invulwaarde='stralende-kabel',
                                             label='Stralende kabel',
-                                            status='ingebruik',
+                                            status='uitgebruik',
                                             definitie='Stralende kabel.',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelType/stralende-kabel'),
         'tpgf': KeuzelijstWaarde(invulwaarde='tpgf',
@@ -196,7 +196,12 @@ class KlDatakabelType(KeuzelijstField):
                                 label='UXL',
                                 status='ingebruik',
                                 definitie='UXL',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelType/uxl')
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelType/uxl'),
+        'voedende-kabel': KeuzelijstWaarde(invulwaarde='voedende-kabel',
+                                           label='Voedende kabel',
+                                           status='ingebruik',
+                                           definitie='Een coax kabel die het signaal doorstuurt tot aan de stralende kabel.',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelType/voedende-kabel')
     }
 
     @classmethod
