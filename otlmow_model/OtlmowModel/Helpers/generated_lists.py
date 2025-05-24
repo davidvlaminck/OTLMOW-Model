@@ -31,7 +31,11 @@ def get_hardcoded_class_dict(model_directory: Path = None) -> dict:
     if model_directory is None:
         model_directory = MODEL_ROOT_PATH
 
-    with open(model_directory / 'OtlmowModel' / 'generated_info.json', 'r') as f:
+    generated_info_path = model_directory / 'OtlmowModel' / 'generated_info.json'
+    if not generated_info_path.exists():
+        raise FileNotFoundError(f"Generated info file not found at {generated_info_path}")
+
+    with open(generated_info_path, 'r') as f:
         generated_info_dict = json.load(f)
     global_class_dict = generated_info_dict['classes']
 
