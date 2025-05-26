@@ -8,6 +8,7 @@ import pytest
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import dynamic_create_instance_from_uri, \
     dynamic_create_instance_from_ns_and_name, dynamic_create_type_from_uri, dynamic_create_type_from_ns_and_name
+from otlmow_model.OtlmowModel.Exceptions.CouldNotCreateInstanceError import CouldNotCreateInstanceError
 from otlmow_model.OtlmowModel.Helpers.generated_lists import get_hardcoded_class_dict
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -20,7 +21,7 @@ def test_dynamic_create_instance_from_uri():
     agent = dynamic_create_instance_from_uri('http://purl.org/dc/terms/Agent')
     assert agent is not None
 
-    with pytest.raises(ModuleNotFoundError):
+    with pytest.raises(CouldNotCreateInstanceError):
         dynamic_create_instance_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NotAValidClassName')
 
 
@@ -31,10 +32,10 @@ def test_dynamic_create_instance_from_ns_and_name():
     mof = dynamic_create_instance_from_ns_and_name('onderdeel', 'Aansluitmof')
     assert mof is not None
 
-    agent = dynamic_create_instance_from_ns_and_name('purl', 'Agent')
+    agent = dynamic_create_instance_from_ns_and_name('', 'Agent')
     assert agent is not None
 
-    with pytest.raises(ModuleNotFoundError):
+    with pytest.raises(CouldNotCreateInstanceError):
         dynamic_create_instance_from_ns_and_name('onderdeel', 'NotAValidClassName')
 
 
@@ -48,7 +49,7 @@ def test_dynamic_create_type_from_uri():
     mof_type = dynamic_create_type_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aansluitmof')
     assert mof_type is not None
 
-    with pytest.raises(ModuleNotFoundError):
+    with pytest.raises(CouldNotCreateInstanceError):
         dynamic_create_type_from_uri('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NotAValidClassName')
 
 
@@ -73,7 +74,7 @@ def test_dynamic_create_type_from_ns_and_name():
     mof_type = dynamic_create_type_from_ns_and_name('onderdeel', 'Aansluitmof')
     assert mof_type is not None
 
-    with pytest.raises(ModuleNotFoundError):
+    with pytest.raises(CouldNotCreateInstanceError):
         dynamic_create_type_from_ns_and_name('onderdeel', 'NotAValidClassName')
 
 
@@ -89,10 +90,11 @@ def test_instantiate_test_class_with_asset_creator():
         model_directory=model_location)
     assert test_class is not None
 
+
 def test_instantiate_test_and_real_classes_using_dynamic_import():
     model_location = Path(ROOT_DIR).parent / 'TestModel'
-    test_class = dynamic_create_instance_from_ns_and_name('onderdeel', 'AllCasesTestClass', model_directory=model_location)
     mof = dynamic_create_instance_from_ns_and_name('onderdeel', 'Aansluitmof', model_directory=None)
+    test_class = dynamic_create_instance_from_ns_and_name('onderdeel', 'AllCasesTestClass', model_directory=model_location)
 
     assert test_class is not None
     assert mof is not None
@@ -115,6 +117,9 @@ def test_instantiate_all_classes_using_class_dict(subtests):
 
 def subtest_instantiate(uri: str, subtests):
     with subtests.test(msg=uri):
-        instance = dynamic_create_instance_from_uri(uri)
-        instance.fill_with_dummy_data()
-        assert instance is not None, f'failed to instantiate {uri}'
+        try:
+            instance = dynamic_create_instance_from_uri(uri)
+            instance.fill_with_dummy_data()
+            assert instance is not None, f'failed to instantiate {uri}'
+        except CouldNotCreateInstanceError:
+            assert False, f'failed to instantiate {uri}'
