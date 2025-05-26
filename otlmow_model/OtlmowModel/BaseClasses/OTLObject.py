@@ -928,6 +928,9 @@ def dynamic_create_instance_from_ns_and_name(namespace: str, class_name: str, mo
     :return: returns an instance of class_name in the given namespace, located from directory
     :rtype: OTLObject
     """
+    type_ = dynamic_create_type_from_ns_and_name(namespace=namespace, class_name=class_name,
+                                                 model_directory=model_directory)
+    return type_()
 
 
 def dynamic_create_instance_from_uri(class_uri: str, model_directory: Path = None) -> OTLObject:

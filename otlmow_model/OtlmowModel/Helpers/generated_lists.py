@@ -2,31 +2,17 @@ import json
 from collections.abc import Iterable
 from pathlib import Path
 
-global_relation_dict: dict = {}
-global_class_dict: dict = {}
+global_relation_dict_by_model: dict = {}
+global_class_dict_by_model: dict = {}
 
 MODEL_ROOT_PATH = Path(__file__).parent.parent.parent
 
 
 def get_hardcoded_relation_dict(model_directory: Path = None) -> dict:
-    global global_relation_dict
-    if global_relation_dict != {}:
-        return global_relation_dict
-
-    if model_directory is None:
-        model_directory = MODEL_ROOT_PATH
-
-    with open(model_directory / 'OtlmowModel' / 'generated_info.json', 'r') as f:
-        generated_info_dict = json.load(f)
-    global_relation_dict = generated_info_dict['relations']
-
-    return global_relation_dict
-
-
-def get_hardcoded_class_dict(model_directory: Path = None) -> dict:
-    global global_class_dict
-    if global_class_dict != {}:
-        return global_class_dict
+    global global_relation_dict_by_model
+    model_dir_str = str(model_directory)
+    if model_dir_str in global_relation_dict_by_model:
+        return global_relation_dict_by_model[model_dir_str]
 
     if model_directory is None:
         model_directory = MODEL_ROOT_PATH
@@ -35,11 +21,31 @@ def get_hardcoded_class_dict(model_directory: Path = None) -> dict:
     if not generated_info_path.exists():
         raise FileNotFoundError(f"Generated info file not found at {generated_info_path}")
 
-    with open(generated_info_path, 'r') as f:
+    with open(generated_info_path) as f:
         generated_info_dict = json.load(f)
-    global_class_dict = generated_info_dict['classes']
+    global_relation_dict_by_model[model_dir_str] = generated_info_dict['relations']
 
-    return global_class_dict
+    return global_relation_dict_by_model[model_dir_str]
+
+
+def get_hardcoded_class_dict(model_directory: Path = None) -> dict:
+    global global_class_dict_by_model
+    model_dir_str = str(model_directory)
+    if model_dir_str in global_class_dict_by_model:
+        return global_class_dict_by_model[model_dir_str]
+
+    if model_directory is None:
+        model_directory = MODEL_ROOT_PATH
+
+    generated_info_path = model_directory / 'OtlmowModel' / 'generated_info.json'
+    if not generated_info_path.exists():
+        raise FileNotFoundError(f"Generated info file not found at {generated_info_path}")
+
+    with open(generated_info_path) as f:
+        generated_info_dict = json.load(f)
+    global_class_dict_by_model[model_dir_str] = generated_info_dict['classes']
+
+    return global_class_dict_by_model[model_dir_str]
 
 def get_concrete_subclasses_from_class_dict(base_uri: str, model_directory: Path = None) -> Iterable[str]:
     class_dict = get_hardcoded_class_dict(model_directory)
