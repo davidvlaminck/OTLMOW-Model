@@ -121,5 +121,5 @@ def subtest_instantiate(uri: str, subtests):
             instance = dynamic_create_instance_from_uri(uri)
             instance.fill_with_dummy_data()
             assert instance is not None, f'failed to instantiate {uri}'
-        except (CouldNotCreateInstanceError, ImportError):
+        except:
             assert False, f'failed to instantiate {uri}'
