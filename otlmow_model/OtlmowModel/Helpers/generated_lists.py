@@ -16,6 +16,7 @@ def get_hardcoded_relation_dict(model_directory: Path = None) -> dict:
 
     if model_directory is None:
         model_directory = MODEL_ROOT_PATH
+        model_dir_str = str(model_directory)
 
     generated_info_path = model_directory / 'OtlmowModel' / 'generated_info.json'
     if not generated_info_path.exists():
@@ -36,6 +37,7 @@ def get_hardcoded_class_dict(model_directory: Path = None) -> dict:
 
     if model_directory is None:
         model_directory = MODEL_ROOT_PATH
+        model_dir_str = str(model_directory)
 
     generated_info_path = model_directory / 'OtlmowModel' / 'generated_info.json'
     if not generated_info_path.exists():

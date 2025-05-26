@@ -897,13 +897,13 @@ def dynamic_create_type_from_ns_and_name(namespace: str, class_name: str, model_
     if ns_match is None:
         error.message += f'\nNo classes found with the namespace {namespace}.'
         from difflib import get_close_matches
-        closest_matches = get_close_matches(namespace, {c['ns'] for c in class_dict.values()}, n=5, cutoff=0.9)
+        closest_matches = get_close_matches(namespace, {c['ns'] for c in class_dict.values()}, n=5, cutoff=0.8)
         closest_matches_string = '", "'.join(closest_matches)
         error.message += f'\nDid you mean one of these namespaces? "{closest_matches_string}"'
         raise error
 
     from difflib import get_close_matches
-    closest_matches = get_close_matches(class_name, {c['name'] for c in class_dict.values()}, n=5, cutoff=0.9)
+    closest_matches = get_close_matches(class_name, {c['name'] for c in class_dict.values()}, n=5, cutoff=0.8)
     closest_matches_string = '", "'.join(closest_matches)
 
     error.message += (f'\nNo classes found with the namespace {namespace}.'
@@ -968,7 +968,7 @@ def dynamic_create_type_from_uri(class_uri: str, model_directory: Path = None) -
         return _create_type_from_class_dict_entry(class_dict[class_uri], model_directory=model_directory)
 
     from difflib import get_close_matches
-    closest_matches = get_close_matches(class_uri, class_dict.keys(), n=5, cutoff=0.95)
+    closest_matches = get_close_matches(class_uri, class_dict.keys(), n=5, cutoff=0.8)
     closest_matches_string = '", "'.join(closest_matches)
 
     error = CouldNotCreateInstanceError(
