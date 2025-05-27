@@ -1,4 +1,5 @@
 import concurrent
+import logging
 import os
 from concurrent.futures import ThreadPoolExecutor, ALL_COMPLETED
 from pathlib import Path
@@ -102,24 +103,27 @@ def test_instantiate_test_and_real_classes_using_dynamic_import():
 
 @pytest.mark.filterwarnings("ignore::DeprecationWarning")
 @pytest.mark.timeout(300)
-def test_instantiate_all_classes_using_class_dict(subtests):
+def test_instantiate_all_classes_using_class_dict():
     classes_to_instantiate = [uri for uri, class_dict in get_hardcoded_class_dict().items() if not class_dict['abstract']]
     # use multithreading
     executor = ThreadPoolExecutor(8)
-    futures = [executor.submit(subtest_instantiate, uri=uri, subtests=subtests) for uri in classes_to_instantiate]
+    futures = [executor.submit(subtest_instantiate, uri=uri) for uri in classes_to_instantiate]
     attempt = 5
     while futures and attempt > 0:
         attempt -= 1
         done, not_done = concurrent.futures.wait(futures, return_when=ALL_COMPLETED, timeout=60)
         futures = not_done
-        print(f'{len(done)} done, {len(not_done)} not done')
+        logging.info(f'{len(done)} done, {len(not_done)} not done')
+    assert not futures
 
-
-def subtest_instantiate(uri: str, subtests):
-    with subtests.test(msg=uri):
-        try:
-            instance = dynamic_create_instance_from_uri(uri)
-            instance.fill_with_dummy_data()
-            assert instance is not None, f'failed to instantiate {uri}'
-        except:
-            assert False, f'failed to instantiate {uri}'
+def subtest_instantiate(uri: str, ):
+    try:
+        instance = dynamic_create_instance_from_uri(uri)
+        instance.fill_with_dummy_data()
+        if instance is None:
+            logging.info(f'instance is None for {uri}\n')
+            raise CouldNotCreateInstanceError(f'instance is None for {uri}')
+        print(f'successfully instantiated {uri}')
+    except Exception as e:
+        logging.info(f'could not create an instance for {uri}')
+        raise e
