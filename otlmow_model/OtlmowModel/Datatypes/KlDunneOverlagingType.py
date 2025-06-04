@@ -27,7 +27,17 @@ class KlDunneOverlagingType(KeuzelijstField):
                                          label='antisliplaag',
                                          status='ingebruik',
                                          definitie='antisliplaag',
-                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDunneOverlagingType/antisliplaag')
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDunneOverlagingType/antisliplaag'),
+        'waterdichte-toplaag-met-instrooi-ng': KeuzelijstWaarde(invulwaarde='waterdichte-toplaag-met-instrooi-ng',
+                                                                label='waterdichte toplaag met instrooiïng',
+                                                                status='ingebruik',
+                                                                definitie='De waterdichte toplaag is een meerlaags vloeibaar aangebracht systeem om de drager (beton, staal, ...) te beschermen tegen waterinfiltratie waarbij de 2de laag wordt ingestrooid met instrooimateriaal om stroefheid te verkrijgen.',
+                                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDunneOverlagingType/waterdichte-toplaag-met-instrooi-ng'),
+        'waterdichte-toplaag-zonder-instrooi-ng': KeuzelijstWaarde(invulwaarde='waterdichte-toplaag-zonder-instrooi-ng',
+                                                                   label='waterdichte toplaag zonder instrooiïng',
+                                                                   status='ingebruik',
+                                                                   definitie='De waterdichte toplaag is een meerlaags vloeibaar aangebracht systeem om de drager (beton, staal, ...) te beschermen tegen waterinfiltratie.',
+                                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDunneOverlagingType/waterdichte-toplaag-zonder-instrooi-ng')
     }
 
     @classmethod
