@@ -35,7 +35,7 @@ class KlDeurType(KeuzelijstField):
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDeurType/kopdeur'),
         'nooddeur': KeuzelijstWaarde(invulwaarde='nooddeur',
                                      label='Nooddeur',
-                                     status='ingebruik',
+                                     status='verwijderd',
                                      definitie='Nooddeur',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDeurType/nooddeur'),
         'toegangsdeur': KeuzelijstWaarde(invulwaarde='toegangsdeur',
