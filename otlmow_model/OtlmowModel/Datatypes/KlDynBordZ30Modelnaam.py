@@ -88,7 +88,17 @@ class KlDynBordZ30Modelnaam(KeuzelijstField):
         'F4b-30-70-Flash': KeuzelijstWaarde(invulwaarde='F4b-30-70-Flash',
                                             label='F4b 30-70 Flash',
                                             status='ingebruik',
-                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordZ30Modelnaam/F4b-30-70-Flash')
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordZ30Modelnaam/F4b-30-70-Flash'),
+        'c43-30': KeuzelijstWaarde(invulwaarde='c43-30',
+                                   label='C43 30',
+                                   status='ingebruik',
+                                   definitie='C43 30',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordZ30Modelnaam/c43-30'),
+        'c43-50-70-flash': KeuzelijstWaarde(invulwaarde='c43-50-70-flash',
+                                            label='C43 50-70 Flash',
+                                            status='ingebruik',
+                                            definitie='C43 50-70 Flash',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordZ30Modelnaam/c43-50-70-flash')
     }
 
     @classmethod
