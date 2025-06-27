@@ -26,15 +26,6 @@ class Segmentcontroller(Controller):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring', direction='i')  # i = direction: incoming
 
-        self._beveil_igingssleutel = OTLAttribuut(field=KlControllerBeveiligingssleutel,
-                                                  naam='beveil_igingssleutel',
-                                                  label='beveiligingssleutel',
-                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.beveil_igingssleutel',
-                                                  usagenote='Attribuut uit gebruik sinds versie 2.0.0 ',
-                                                  deprecated_version='2.0.0',
-                                                  definition='De encryptie die wordt toegepast om de verbinding tussen lokaal en centraal te beveiligen.',
-                                                  owner=self)
-
         self._beveiligingssleutel = OTLAttribuut(field=KlControllerBeveiligingssleutel,
                                                  naam='beveiligingssleutel',
                                                  label='beveiligingssleutel',
@@ -80,15 +71,6 @@ class Segmentcontroller(Controller):
                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.netwerkconfiguratieWV',
                                                    definition='De netwerkconfiguratie omvat de instelling van het netwerk (de zogenaamde kleur van het netwerk) in het kader van de gesplitste netwerkenopstelling van de lichtpuntcontrole.',
                                                    owner=self)
-
-    @property
-    def beveil_igingssleutel(self) -> str:
-        """De encryptie die wordt toegepast om de verbinding tussen lokaal en centraal te beveiligen."""
-        return self._beveil_igingssleutel.get_waarde()
-
-    @beveil_igingssleutel.setter
-    def beveil_igingssleutel(self, value):
-        self._beveil_igingssleutel.set_waarde(value, owner=self)
 
     @property
     def beveiligingssleutel(self) -> str:
