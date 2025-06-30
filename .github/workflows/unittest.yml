@@ -1,12 +1,6 @@
 name: Unittests
 run-name: Unittests for ${{ github.sha }}
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on: [push]
 
 jobs:
   tests:

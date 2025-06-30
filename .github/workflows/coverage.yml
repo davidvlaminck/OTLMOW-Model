@@ -3,7 +3,7 @@ run-name: Coverage for ${{ github.sha }}
 on:
   push:
     branches:
-    - master
+      - master
   pull_request:
     branches:
       - master
