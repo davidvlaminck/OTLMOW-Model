@@ -15,7 +15,7 @@ class KlBijlageMetGeometrieType(KeuzelijstField):
     options = {
         'andere': KeuzelijstWaarde(invulwaarde='andere',
                                    label='andere',
-                                   status='ingebruik',
+                                   status='uitgebruik',
                                    definitie='andere',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageMetGeometrieType/andere'),
         'detailplan': KeuzelijstWaarde(invulwaarde='detailplan',
