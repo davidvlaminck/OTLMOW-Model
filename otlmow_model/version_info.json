@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.15.10.8",
+        "model_version": "2.15.10.9",
         "otl_version": "2.15.0",
-        "created_at": "2025-06-28T04:02:43",
+        "created_at": "2025-07-01T04:12:55",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -847,6 +847,15 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlBijlageMetGeometrieType"
+            ]
+        },
+        "2.15.10.9": {
+            "previous_version": "2.15.10.8",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlBijlageType",
+                "KlCameraModelnaam"
             ]
         }
     }
