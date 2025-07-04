@@ -13,11 +13,21 @@ class KlDetectieVeCommunicatiewijze(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDetectieVeCommunicatiewijze'
     options = {
+        'contacten': KeuzelijstWaarde(invulwaarde='contacten',
+                                      label='contacten',
+                                      status='ingebruik',
+                                      definitie='Een communicatiewijze door middel van relais, die een schakelcontact opent of sluit.',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDetectieVeCommunicatiewijze/contacten'),
         'detection-output': KeuzelijstWaarde(invulwaarde='detection-output',
                                              label='detection output',
-                                             status='ingebruik',
+                                             status='uitgebruik',
                                              definitie='detection output',
-                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDetectieVeCommunicatiewijze/detection-output')
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDetectieVeCommunicatiewijze/detection-output'),
+        'serieel': KeuzelijstWaarde(invulwaarde='serieel',
+                                    label='serieel',
+                                    status='ingebruik',
+                                    definitie='Een communicatiewijze waarbij bits van informatie één voor één worden doorgestuurd.',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDetectieVeCommunicatiewijze/serieel')
     }
 
     @classmethod
