@@ -10,8 +10,9 @@ class OTLField:
     definition: str = ''
     usagenote: str = ''
     deprecated_version: str = ''
-    waardeObject: Any = None
-    clearing_value: Any = None
+    waardeObject: Any
+    clearing_value: Any
+    native_type: Any
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
