@@ -10,8 +10,8 @@ class OTLField:
     definition: str = ''
     usagenote: str = ''
     deprecated_version: str = ''
-    waardeObject: Any
-    clearing_value: Any
+    waardeObject: Any = None
+    clearing_value: Any = None
     native_type: Any
 
     @classmethod
