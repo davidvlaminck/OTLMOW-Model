@@ -40,3 +40,17 @@ The **otlmow-davie** project has a REST client to the DAVIE platform to allow au
 The **otlmow-visuals** project provides a way to visualize OTL objects and their relations. The result is an interactive HTML file that can be opened in any browser.
 
 The **otlmow-gui** project is a deployable local application that allows the user to create templates, edit, visualize and export data.
+
+## Installation
+I recommend working with uv. Install this first:
+``` 
+pip install uv
+```
+Then install this package by using the uv pip install command:
+``` 
+uv pip install otlmow-model
+```
+If you are a developer, use this command to install the dependencies, including those needed to run the test suite.
+``` 
+uv pip install -r pyproject.toml --extra test
+``` 
