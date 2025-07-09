@@ -21,10 +21,6 @@ class NaamField(StringField):
             return attribuut.owner.naampad.split('/')[-1] == value
         return True
 
-    @classmethod
-    def create_dummy_data(cls) -> str:
-        return 'dummy'
-
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class AIMNaamObject(AIMObject):
     """Abstracte als de basisklasse voor elk OTL object dat benoemd wordt met een mensleesbare identificator."""
