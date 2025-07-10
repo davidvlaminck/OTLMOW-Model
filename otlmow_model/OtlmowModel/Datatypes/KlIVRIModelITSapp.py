@@ -27,7 +27,12 @@ class KlIVRIModelITSapp(KeuzelijstField):
                                    label='Imflow',
                                    status='ingebruik',
                                    definitie='Imflow',
-                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIModelITSapp/imflow')
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIModelITSapp/imflow'),
+        'stridefx': KeuzelijstWaarde(invulwaarde='stridefx',
+                                     label='StrideFX',
+                                     status='ingebruik',
+                                     definitie='StrideFX',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIModelITSapp/stridefx')
     }
 
     @classmethod

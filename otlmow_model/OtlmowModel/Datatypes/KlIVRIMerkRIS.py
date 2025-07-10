@@ -32,7 +32,12 @@ class KlIVRIMerkRIS(KeuzelijstField):
                                              label='Swarco Nederland',
                                              status='ingebruik',
                                              definitie='Swarco Nederland',
-                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkRIS/swarco-nederland')
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkRIS/swarco-nederland'),
+        'yunex': KeuzelijstWaarde(invulwaarde='yunex',
+                                  label='Yunex',
+                                  status='ingebruik',
+                                  definitie='Yunex',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkRIS/yunex')
     }
 
     @classmethod

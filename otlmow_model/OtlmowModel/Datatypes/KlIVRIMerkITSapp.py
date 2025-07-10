@@ -27,7 +27,12 @@ class KlIVRIMerkITSapp(KeuzelijstField):
                                   label='RHDHV',
                                   status='ingebruik',
                                   definitie='RHDHV',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkITSapp/rhdhv')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkITSapp/rhdhv'),
+        'yunex': KeuzelijstWaarde(invulwaarde='yunex',
+                                  label='Yunex',
+                                  status='ingebruik',
+                                  definitie='Yunex',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkITSapp/yunex')
     }
 
     @classmethod
