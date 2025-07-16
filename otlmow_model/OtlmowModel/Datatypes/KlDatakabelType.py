@@ -129,7 +129,7 @@ class KlDatakabelType(KeuzelijstField):
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelType/s-utp'),
         'stralende-kabel': KeuzelijstWaarde(invulwaarde='stralende-kabel',
                                             label='Stralende kabel',
-                                            status='uitgebruik',
+                                            status='ingebruik',
                                             definitie='Stralende kabel.',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelType/stralende-kabel'),
         'tpgf': KeuzelijstWaarde(invulwaarde='tpgf',
