@@ -9,7 +9,7 @@ class KlAantalLampenIVSB(KeuzelijstField):
     label = 'aantal lampen inwendig verlicht signalisatiebord'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlAantalLampenIVSB'
     definition = 'Het aantal lampen dat aanwezig is op het bord.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAantalLampenIVSB'
     options = {
     }
