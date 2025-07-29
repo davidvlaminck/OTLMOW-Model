@@ -6,8 +6,10 @@ from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcAanlegBoomvorm import DtcAanlegBoomvorm, DtcAanlegBoomvormWaarden
 from ...Datatypes.KlBoomGroeifase import KlBoomGroeifase
 from ...Datatypes.KlBoomspiegelInvulling import KlBoomspiegelInvulling
+from ...Datatypes.KlDoorrijhoogte import KlDoorrijhoogte
 from ...Datatypes.KlEindbeeldOpgaandeBoom import KlEindbeeldOpgaandeBoom
 from ...Datatypes.KlKlassePlantjaar import KlKlassePlantjaar
+from ...Datatypes.KlTakvrijeHoogte import KlTakvrijeHoogte
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
@@ -51,6 +53,13 @@ class Boom(VegetatieElement, PuntGeometrie):
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.boomverankeringszone',
                                                   definition='De straal van de cirkelvormige ruimte waarbinnen de wortels zich bevinden die instaan voor de stabiliteit van de boom uitgedrukt in meter.',
                                                   owner=self)
+
+        self._doorrijhoogte = OTLAttribuut(field=KlDoorrijhoogte,
+                                           naam='doorrijhoogte',
+                                           label='doorrijhoogte',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.doorrijhoogte',
+                                           definition='Vrij te houden hoogte in meter, voor het doorrijden van verkeer toe te laten.',
+                                           owner=self)
 
         self._doorwortelbaarVolume = OTLAttribuut(field=KwantWrdInKubiekeMeter,
                                                   naam='doorwortelbaarVolume',
@@ -112,10 +121,19 @@ class Boom(VegetatieElement, PuntGeometrie):
                                            definition='Diameter van de kroonprojectie in meter.',
                                            owner=self)
 
+        self._takvrijeHoogte = OTLAttribuut(field=KlTakvrijeHoogte,
+                                            naam='takvrijeHoogte',
+                                            label='takvrije hoogte',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.takvrijeHoogte',
+                                            definition='Tot aan de hoogte van de gewenste takvrije stamlengte wordt de boom zodanig gesnoeid dat er één doorgaande stam is.',
+                                            owner=self)
+
         self._takvrijeStamlengte = OTLAttribuut(field=KwantWrdInMeter,
                                                 naam='takvrijeStamlengte',
                                                 label='takvrije stamlengte',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.takvrijeStamlengte',
+                                                usagenote='Attribuut uit gebruik sinds versie 2.16.0 ',
+                                                deprecated_version='2.16.0',
                                                 definition='Tot aan de hoogte van de gewenste takvrije stamlengte wordt de boom zodanig gesnoeid dat er één doorgaande stam is.',
                                                 owner=self)
 
@@ -130,6 +148,8 @@ class Boom(VegetatieElement, PuntGeometrie):
                                                 naam='vrijeDoorrijhoogte',
                                                 label='vrije doorrijhoogte',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.vrijeDoorrijhoogte',
+                                                usagenote='Attribuut uit gebruik sinds versie 2.16.0 ',
+                                                deprecated_version='2.16.0',
                                                 definition='Vrij te houden hoogte in meter, voor het doorrijden van verkeer toe te laten.',
                                                 owner=self)
 
@@ -159,6 +179,15 @@ class Boom(VegetatieElement, PuntGeometrie):
     @boomverankeringszone.setter
     def boomverankeringszone(self, value):
         self._boomverankeringszone.set_waarde(value, owner=self)
+
+    @property
+    def doorrijhoogte(self) -> str:
+        """Vrij te houden hoogte in meter, voor het doorrijden van verkeer toe te laten."""
+        return self._doorrijhoogte.get_waarde()
+
+    @doorrijhoogte.setter
+    def doorrijhoogte(self, value):
+        self._doorrijhoogte.set_waarde(value, owner=self)
 
     @property
     def doorwortelbaarVolume(self) -> KwantWrdInKubiekeMeterWaarden:
@@ -231,6 +260,15 @@ class Boom(VegetatieElement, PuntGeometrie):
     @kroonDiameter.setter
     def kroonDiameter(self, value):
         self._kroonDiameter.set_waarde(value, owner=self)
+
+    @property
+    def takvrijeHoogte(self) -> str:
+        """Tot aan de hoogte van de gewenste takvrije stamlengte wordt de boom zodanig gesnoeid dat er één doorgaande stam is."""
+        return self._takvrijeHoogte.get_waarde()
+
+    @takvrijeHoogte.setter
+    def takvrijeHoogte(self, value):
+        self._takvrijeHoogte.set_waarde(value, owner=self)
 
     @property
     def takvrijeStamlengte(self) -> KwantWrdInMeterWaarden:

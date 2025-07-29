@@ -43,6 +43,20 @@ class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
                                     definition='Geeft aan of het meettoestel CO in de lucht meet of niet.',
                                     owner=self)
 
+        self._meetExplosiegevaar = OTLAttribuut(field=BooleanField,
+                                                naam='meetExplosiegevaar',
+                                                label='meet explosiegevaar',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LuchtkwaliteitZenderOntvanger.meetExplosiegevaar',
+                                                definition='Geeft aan of het meettoestel het explosiegevaar meet of niet.',
+                                                owner=self)
+
+        self._meetLuchtsnelheid = OTLAttribuut(field=BooleanField,
+                                               naam='meetLuchtsnelheid',
+                                               label='meet luchtsnelheid',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LuchtkwaliteitZenderOntvanger.meetLuchtsnelheid',
+                                               definition='Geeft aan of het meettoestel de luchtsnelheid meet of niet.',
+                                               owner=self)
+
         self._meetNoX = OTLAttribuut(field=BooleanField,
                                      naam='meetNoX',
                                      label='meet NOx',
@@ -90,6 +104,24 @@ class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
     @meetCO.setter
     def meetCO(self, value):
         self._meetCO.set_waarde(value, owner=self)
+
+    @property
+    def meetExplosiegevaar(self) -> bool:
+        """Geeft aan of het meettoestel het explosiegevaar meet of niet."""
+        return self._meetExplosiegevaar.get_waarde()
+
+    @meetExplosiegevaar.setter
+    def meetExplosiegevaar(self, value):
+        self._meetExplosiegevaar.set_waarde(value, owner=self)
+
+    @property
+    def meetLuchtsnelheid(self) -> bool:
+        """Geeft aan of het meettoestel de luchtsnelheid meet of niet."""
+        return self._meetLuchtsnelheid.get_waarde()
+
+    @meetLuchtsnelheid.setter
+    def meetLuchtsnelheid(self, value):
+        self._meetLuchtsnelheid.set_waarde(value, owner=self)
 
     @property
     def meetNoX(self) -> bool:

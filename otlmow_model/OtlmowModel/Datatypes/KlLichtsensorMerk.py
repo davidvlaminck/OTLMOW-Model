@@ -17,7 +17,12 @@ class KlLichtsensorMerk(KeuzelijstField):
                                      label='Schreder',
                                      status='ingebruik',
                                      definitie='Schreder',
-                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorMerk/schreder')
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorMerk/schreder'),
+        'skye': KeuzelijstWaarde(invulwaarde='skye',
+                                 label='Skye',
+                                 status='ingebruik',
+                                 definitie='Skye',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorMerk/skye')
     }
 
     @classmethod

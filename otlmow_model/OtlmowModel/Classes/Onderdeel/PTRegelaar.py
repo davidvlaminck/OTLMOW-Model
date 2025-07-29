@@ -67,6 +67,14 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
                                       definition='Naam van het protocol waarmee gecommuniceerd wordt tussen PT-regelaar en verkeersregelaar.',
                                       owner=self)
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar.technischeFiche',
+                                             kardinaliteit_max='*',
+                                             definition='De technische fiches van een PTRegelaar.',
+                                             owner=self)
+
         self._voertuignummers = OTLAttribuut(field=StringField,
                                              naam='voertuignummers',
                                              label='voertuignummers',
@@ -126,6 +134,15 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
     @protocol.setter
     def protocol(self, value):
         self._protocol.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+        """De technische fiches van een PTRegelaar."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def voertuignummers(self) -> List[str]:

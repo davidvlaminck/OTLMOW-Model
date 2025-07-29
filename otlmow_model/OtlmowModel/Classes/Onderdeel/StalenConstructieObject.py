@@ -3,11 +3,13 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ConstructieElement import ConstructieElement
 from ...Classes.Abstracten.StalenConstructieElement import StalenConstructieElement
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class StalenConstructieObject(ConstructieElement, StalenConstructieElement, VlakGeometrie):
+class StalenConstructieObject(ConstructieElement, StalenConstructieElement, PuntGeometrie, LijnGeometrie, VlakGeometrie):
     """Op maat gemaakt generiek stalen object dat dient ter constructie. Dit kan gemaakt zijn uit verschillende stalen delen aan elkaar gelast/gebout/... die één geheel vormen. Dit gaat niet over een standaard profiel of plaat, maar over een specifiek gevormd stalen object, zoals bijvoorbeeld: een stalen verbindingsknoop,..."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenConstructieObject'

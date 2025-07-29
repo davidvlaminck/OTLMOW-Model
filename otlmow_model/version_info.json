@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.15.12.3",
-        "otl_version": "2.15.0",
-        "created_at": "2025-07-17T04:12:30",
+        "model_version": "2.16.0.0",
+        "otl_version": "2.16.0",
+        "created_at": "2025-07-29T04:17:46",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -914,6 +914,26 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlAantalLampenIVSB"
+            ]
+        },
+        "2.16.0.0": {
+            "previous_version": "2.15.12.3",
+            "updated_class_model": true,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlAantalLampenIVSB",
+                "KlBatterijMerk",
+                "KlBatterijModelnaam",
+                "KlLichtsensorMerk",
+                "KlLichtsensorModelnaam",
+                "KlNetwerkelemGebruik",
+                "KlOptischeWegdeksensorMerk",
+                "KlOptischeWegdeksensorModelnaam",
+                "KlPyranometerMerk",
+                "KlPyranometerModelnaam",
+                "KlSpanningsomvormerMerk",
+                "KlSpanningsomvormerModelnaam",
+                "KlToegangscontroleSleuteltype"
             ]
         }
     }

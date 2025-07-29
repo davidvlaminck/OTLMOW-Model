@@ -4,6 +4,7 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlBewegingsvrijheidInVlakBijOplegging import KlBewegingsvrijheidInVlakBijOplegging
+from ...Datatypes.KlOverigeFunctiesOplegging import KlOverigeFunctiesOplegging
 from ...Datatypes.KlTypeOplegging import KlTypeOplegging
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -18,7 +19,13 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rolwagenchassis', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kabelveerhuis', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Oplegmechanisme', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Oplegrij', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Landhoofd', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pijler', direction='o')  # o = direction: outgoing
 
         self._bewegingsvrijheidInHetVlak = OTLAttribuut(field=KlBewegingsvrijheidInVlakBijOplegging,
                                                         naam='bewegingsvrijheidInHetVlak',
@@ -27,6 +34,14 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
                                                         kardinaliteit_max='*',
                                                         definition='De bewegingsvrijheid in het vlak. Er kunnen meerdere mogelijkheden zijn.',
                                                         owner=self)
+
+        self._overigeFuncties = OTLAttribuut(field=KlOverigeFunctiesOplegging,
+                                             naam='overigeFuncties',
+                                             label='overige functies',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Oplegging.overigeFuncties',
+                                             kardinaliteit_max='3',
+                                             definition='De overige functies van de oplegging.',
+                                             owner=self)
 
         self._type = OTLAttribuut(field=KlTypeOplegging,
                                   naam='type',
@@ -50,6 +65,15 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
     @bewegingsvrijheidInHetVlak.setter
     def bewegingsvrijheidInHetVlak(self, value):
         self._bewegingsvrijheidInHetVlak.set_waarde(value, owner=self)
+
+    @property
+    def overigeFuncties(self) -> List[str]:
+        """De overige functies van de oplegging."""
+        return self._overigeFuncties.get_waarde()
+
+    @overigeFuncties.setter
+    def overigeFuncties(self, value):
+        self._overigeFuncties.set_waarde(value, owner=self)
 
     @property
     def type(self) -> str:

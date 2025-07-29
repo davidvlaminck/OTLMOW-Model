@@ -5,6 +5,7 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlKabelFabrikant import KlKabelFabrikant
 from ...Datatypes.KlKabelLeidingBescherming import KlKabelLeidingBescherming
 from ...Datatypes.KlKabelmantelKleur import KlKabelmantelKleur
+from ...Datatypes.KwantWrdInKilogramPerMeter import KwantWrdInKilogramPerMeter, KwantWrdInKilogramPerMeterWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
@@ -24,9 +25,12 @@ class Kabel(AIMNaamObject, LijnGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelmof', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderdoorboring', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderwaterkruising', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#CameraGroep', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DynBordGroep', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVModule', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meteostation', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Slagboom', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRSS', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordVMS', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#OmhullendeInrichting', direction='i')  # i = direction: incoming
@@ -52,11 +56,18 @@ class Kabel(AIMNaamObject, LijnGeometrie):
                                        definition='De naam van de producent van de kabel.',
                                        owner=self)
 
+        self._gewicht = OTLAttribuut(field=KwantWrdInKilogramPerMeter,
+                                     naam='gewicht',
+                                     label='gewicht',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabel.gewicht',
+                                     definition='Het gewicht van de kabel per meter.',
+                                     owner=self)
+
         self._typeBescherming = OTLAttribuut(field=KlKabelLeidingBescherming,
                                              naam='typeBescherming',
                                              label='type bescherming',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kabel.typeBescherming',
-                                             definition='Geeft aan of en hoe de leiding bijkomend mechanisch beschermd nadat ze in de sleuf gelegd is.',
+                                             definition='Geeft aan of en hoe de leiding bijkomend mechanisch beschermd is.',
                                              owner=self)
 
     @property
@@ -87,8 +98,17 @@ class Kabel(AIMNaamObject, LijnGeometrie):
         self._fabrikant.set_waarde(value, owner=self)
 
     @property
+    def gewicht(self) -> KwantWrdInKilogramPerMeterWaarden:
+        """Het gewicht van de kabel per meter."""
+        return self._gewicht.get_waarde()
+
+    @gewicht.setter
+    def gewicht(self, value):
+        self._gewicht.set_waarde(value, owner=self)
+
+    @property
     def typeBescherming(self) -> str:
-        """Geeft aan of en hoe de leiding bijkomend mechanisch beschermd nadat ze in de sleuf gelegd is."""
+        """Geeft aan of en hoe de leiding bijkomend mechanisch beschermd is."""
         return self._typeBescherming.get_waarde()
 
     @typeBescherming.setter

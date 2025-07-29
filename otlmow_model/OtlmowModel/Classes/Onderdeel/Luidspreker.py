@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KLLuidsprekerVormgeving import KLLuidsprekerVormgeving
 from ...Datatypes.KlAudioTransportType import KlAudioTransportType
@@ -10,7 +10,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Luidspreker(AIMNaamObject, PuntGeometrie):
+class Luidspreker(NaampadObject, PuntGeometrie):
     """Een luidspreker is een apparaat waarmee elektrische signalen worden omgezet in geluid."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Luidspreker'

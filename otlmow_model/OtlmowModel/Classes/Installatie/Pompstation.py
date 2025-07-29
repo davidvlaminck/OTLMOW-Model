@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Pompstation(AIMNaamObject, VlakGeometrie):
+class Pompstation(NaampadObject, VlakGeometrie):
     """Inrichting voor het oppompen van grond- of oppervlaktewater."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompstation'

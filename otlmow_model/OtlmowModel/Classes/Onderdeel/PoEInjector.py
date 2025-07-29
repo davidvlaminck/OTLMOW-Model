@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlPoEInjectorMerk import KlPoEInjectorMerk
 from ...Datatypes.KlPoEInjectorModelnaam import KlPoEInjectorModelnaam
@@ -8,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class PoEInjector(AIMNaamObject, PuntGeometrie):
+class PoEInjector(NaampadObject, PuntGeometrie):
     """Een toestel waarmee stroom/voeding voor een ander toestel over een datakabel kan gestuurd worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PoEInjector'

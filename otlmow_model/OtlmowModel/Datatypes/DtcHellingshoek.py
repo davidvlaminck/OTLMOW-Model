@@ -14,13 +14,31 @@ class DtcHellingshoekWaarden(WaardenObject):
                                   naam='hoek',
                                   label='hoek',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcHellingshoek.hoek',
+                                  usagenote='Attribuut uit gebruik sinds versie 2.16.0 ',
+                                  deprecated_version='2.16.0',
                                   definition='Hoek van het ingebrachte anker in decimale graden.',
                                   owner=self)
+
+        self._hoekHorizontaleAs = OTLAttribuut(field=KwantWrdInDecimaleGraden,
+                                               naam='hoekHorizontaleAs',
+                                               label='hoek t.o.v. horizontale as',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcHellingshoek.hoekHorizontaleAs',
+                                               definition='De hellingshoek die wordt gemeten ten opzichte van een horizontale as.',
+                                               owner=self)
+
+        self._hoekVerticaleAs = OTLAttribuut(field=KwantWrdInDecimaleGraden,
+                                             naam='hoekVerticaleAs',
+                                             label='hoek t.o.v. verticale as',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcHellingshoek.hoekVerticaleAs',
+                                             definition='De hellingshoek die wordt gemeten ten opzichte van een verticale as.',
+                                             owner=self)
 
         self._richtingHellingshoek = OTLAttribuut(field=KlRichtingHellingshoek,
                                                   naam='richtingHellingshoek',
                                                   label='richting hellingshoek',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcHellingshoek.richtingHellingshoek',
+                                                  usagenote='Attribuut uit gebruik sinds versie 2.16.0 ',
+                                                  deprecated_version='2.16.0',
                                                   definition='Geeft de richting van de hoek t.o.v. de as aan.',
                                                   owner=self)
 
@@ -32,6 +50,24 @@ class DtcHellingshoekWaarden(WaardenObject):
     @hoek.setter
     def hoek(self, value):
         self._hoek.set_waarde(value, owner=self._parent)
+
+    @property
+    def hoekHorizontaleAs(self) -> KwantWrdInDecimaleGradenWaarden:
+        """De hellingshoek die wordt gemeten ten opzichte van een horizontale as."""
+        return self._hoekHorizontaleAs.get_waarde()
+
+    @hoekHorizontaleAs.setter
+    def hoekHorizontaleAs(self, value):
+        self._hoekHorizontaleAs.set_waarde(value, owner=self._parent)
+
+    @property
+    def hoekVerticaleAs(self) -> KwantWrdInDecimaleGradenWaarden:
+        """De hellingshoek die wordt gemeten ten opzichte van een verticale as."""
+        return self._hoekVerticaleAs.get_waarde()
+
+    @hoekVerticaleAs.setter
+    def hoekVerticaleAs(self, value):
+        self._hoekVerticaleAs.set_waarde(value, owner=self._parent)
 
     @property
     def richtingHellingshoek(self) -> str:

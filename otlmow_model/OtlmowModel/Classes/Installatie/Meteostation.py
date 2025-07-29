@@ -66,6 +66,14 @@ class Meteostation(MeetstationAbstract, NaampadObject):
                                                 definition='Beschrijvend overzichtsrapport van het meteostation.',
                                                 owner=self)
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Meteostation.technischeFiche',
+                                             kardinaliteit_max='*',
+                                             definition='De technische fiches als bijlage.',
+                                             owner=self)
+
     @property
     def beoordelingLokaleTerrein(self) -> List[str]:
         """Het soort terrein waarin het meetstation staat met betrekking tot het reliëf en de vegetatie."""
@@ -110,3 +118,12 @@ class Meteostation(MeetstationAbstract, NaampadObject):
     @sitePhysicsRapport.setter
     def sitePhysicsRapport(self, value):
         self._sitePhysicsRapport.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+        """De technische fiches als bijlage."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)

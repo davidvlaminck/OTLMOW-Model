@@ -1,6 +1,8 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereLaag import AndereLaag
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.KlAlgBouwklassegroep import KlAlgBouwklassegroep
 from ...Datatypes.KlDunneOverlagingType import KlDunneOverlagingType
 from ...Datatypes.KlKleurSupp import KlKleurSupp
 from ...Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
@@ -9,7 +11,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class DunneOverlaging(AndereLaag, VlakGeometrie):
-    """Een dunne overlaging kan bestaan uit een SME overlaging of een antisliplaag."""
+    """Een dunne overlaging kan bestaan uit een SME overlaging, een antisliplaag, waterdichte toplaag, ...."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DunneOverlaging'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -32,6 +34,13 @@ class DunneOverlaging(AndereLaag, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LijnvormigElement', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VegetatieElement', direction='i')  # i = direction: incoming
 
+        self._bouwklasse = OTLAttribuut(field=KlAlgBouwklassegroep,
+                                        naam='bouwklasse',
+                                        label='bouwklasse',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DunneOverlaging.bouwklasse',
+                                        definition='Een maat voor de verkeersbelasting over de volledige levensduur van de laag. De laag is ontworpen volgens de aangeduide bouwklasse.',
+                                        owner=self)
+
         self._gewicht = OTLAttribuut(field=KwantWrdInTon,
                                      naam='gewicht',
                                      label='gewicht',
@@ -46,12 +55,28 @@ class DunneOverlaging(AndereLaag, VlakGeometrie):
                                    definition='De kleur van de dunne overlaging.',
                                    owner=self)
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DunneOverlaging.technischeFiche',
+                                             definition='De technische fiche van de dunne overlaging',
+                                             owner=self)
+
         self._type = OTLAttribuut(field=KlDunneOverlagingType,
                                   naam='type',
                                   label='type',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DunneOverlaging.type',
                                   definition='Het type SME overlaging of antisliplaag.',
                                   owner=self)
+
+    @property
+    def bouwklasse(self) -> str:
+        """Een maat voor de verkeersbelasting over de volledige levensduur van de laag. De laag is ontworpen volgens de aangeduide bouwklasse."""
+        return self._bouwklasse.get_waarde()
+
+    @bouwklasse.setter
+    def bouwklasse(self, value):
+        self._bouwklasse.set_waarde(value, owner=self)
 
     @property
     def gewicht(self) -> KwantWrdInTonWaarden:
@@ -70,6 +95,15 @@ class DunneOverlaging(AndereLaag, VlakGeometrie):
     @kleur.setter
     def kleur(self, value):
         self._kleur.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> DtcDocumentWaarden:
+        """De technische fiche van de dunne overlaging"""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def type(self) -> str:

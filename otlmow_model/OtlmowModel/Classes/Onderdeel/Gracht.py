@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.WaterloopRelatie import WaterloopRelatie
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlGrachtFunctie import KlGrachtFunctie
 from ...Datatypes.KlGrachtdoorsnede import KlGrachtdoorsnede
 
@@ -40,6 +41,13 @@ class Gracht(WaterloopRelatie):
                                      definition='De functiebepaling van de gracht, als vesting, polder,...',
                                      owner=self)
 
+        self._isBekleed = OTLAttribuut(field=BooleanField,
+                                       naam='isBekleed',
+                                       label='is bekleed',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Gracht.isBekleed',
+                                       definition='Geeft aan of de oever en/of bodem van de gracht is voorzien van een kunstmatige bekleding (zoals beton, metselwerk, of kunststof), met het doel om de gracht te verstevigen, erosie te voorkomen, of het onderhoud te vergemakkelijken.',
+                                       owner=self)
+
     @property
     def doorsnede(self) -> str:
         """De doorsnede van de gracht."""
@@ -57,3 +65,12 @@ class Gracht(WaterloopRelatie):
     @functie.setter
     def functie(self, value):
         self._functie.set_waarde(value, owner=self)
+
+    @property
+    def isBekleed(self) -> bool:
+        """Geeft aan of de oever en/of bodem van de gracht is voorzien van een kunstmatige bekleding (zoals beton, metselwerk, of kunststof), met het doel om de gracht te verstevigen, erosie te voorkomen, of het onderhoud te vergemakkelijken."""
+        return self._isBekleed.get_waarde()
+
+    @isBekleed.setter
+    def isBekleed(self, value):
+        self._isBekleed.set_waarde(value, owner=self)

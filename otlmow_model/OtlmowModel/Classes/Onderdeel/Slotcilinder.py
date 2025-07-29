@@ -52,9 +52,9 @@ class Slotcilinder(SerienummerObject, AIMNaamObject, PuntGeometrie):
 
         self._sleutelplan = OTLAttribuut(field=KlSleutelplan,
                                          naam='sleutelplan',
-                                         label='steutelplan',
+                                         label='sleutelplan',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Slotcilinder.sleutelplan',
-                                         definition='De sluetel die past op de slotcilinder.',
+                                         definition='De sleutel die past op de slotcilinder.',
                                          owner=self)
 
     @property
@@ -95,7 +95,7 @@ class Slotcilinder(SerienummerObject, AIMNaamObject, PuntGeometrie):
 
     @property
     def sleutelplan(self) -> str:
-        """De sluetel die past op de slotcilinder."""
+        """De sleutel die past op de slotcilinder."""
         return self._sleutelplan.get_waarde()
 
     @sleutelplan.setter

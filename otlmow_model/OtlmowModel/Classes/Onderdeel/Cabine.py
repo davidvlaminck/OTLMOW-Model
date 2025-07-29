@@ -1,16 +1,18 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Inloopbehuizing import Inloopbehuizing
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlCabineAardingsstelsel import KlCabineAardingsstelsel
 from ...Datatypes.KlCabineStandaardtype import KlCabineStandaardtype
+from ...Datatypes.KlNetwerklocatie import KlNetwerklocatie
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Cabine(Inloopbehuizing, PuntGeometrie, VlakGeometrie):
+class Cabine(Inloopbehuizing, NaampadObject, PuntGeometrie, VlakGeometrie):
     """Een behuizing voornamelijk bestemd voor het beschermen van elektromechanische technieken waarin het omwille van de grootte en toegankelijkheid mogelijk is om rond te lopen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine'
@@ -56,6 +58,13 @@ class Cabine(Inloopbehuizing, PuntGeometrie, VlakGeometrie):
                                            definition='Het type van de cabine volgens de gangbare standaarden.',
                                            owner=self)
 
+        self._typeNetwerklocatie = OTLAttribuut(field=KlNetwerklocatie,
+                                                naam='typeNetwerklocatie',
+                                                label='keuzelijst netwerklocaties',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine.typeNetwerklocatie',
+                                                definition='De verschillende opties netwerklocatie.',
+                                                owner=self)
+
     @property
     def aardingsstelsel(self) -> str:
         """Keuze tussen verschillende types voor het gebruikte aardingsstelsel."""
@@ -91,3 +100,12 @@ class Cabine(Inloopbehuizing, PuntGeometrie, VlakGeometrie):
     @standaardtype.setter
     def standaardtype(self, value):
         self._standaardtype.set_waarde(value, owner=self)
+
+    @property
+    def typeNetwerklocatie(self) -> str:
+        """De verschillende opties netwerklocatie."""
+        return self._typeNetwerklocatie.get_waarde()
+
+    @typeNetwerklocatie.setter
+    def typeNetwerklocatie(self, value):
+        self._typeNetwerklocatie.set_waarde(value, owner=self)

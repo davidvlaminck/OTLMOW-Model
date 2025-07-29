@@ -3,12 +3,14 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlTypeBrugligger import KlTypeBrugligger
+from ...Datatypes.KlTypeDoorsnede import KlTypeDoorsnede
+from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Brugligger(ConstructiefObject, VlakGeometrie):
-    """Ondersteunende balkstructuur van een brug onder, boven of aansluitend op het brugdek."""
+    """Ondersteunende balkstructuur van een brug onder,boven of aansluitend op het brugdek."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -40,7 +42,15 @@ class Brugligger(ConstructiefObject, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VastTegengewicht', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElement', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Oplegging', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ComplexeGeleiding', direction='i')  # i = direction: incoming
+
+        self._aantalCellen = OTLAttribuut(field=NonNegIntegerField,
+                                          naam='aantalCellen',
+                                          label='aantal cellen',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger.aantalCellen',
+                                          definition='Het aantal cellen van de kokerligger (indien het gaat om een kokerligger).',
+                                          owner=self)
 
         self._detailplanBrugligger = OTLAttribuut(field=DtcDocument,
                                                   naam='detailplanBrugligger',
@@ -55,6 +65,22 @@ class Brugligger(ConstructiefObject, VlakGeometrie):
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger.type',
                                   definition='Het type van brugligger.',
                                   owner=self)
+
+        self._typeDoorsnede = OTLAttribuut(field=KlTypeDoorsnede,
+                                           naam='typeDoorsnede',
+                                           label='type doorsnede',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger.typeDoorsnede',
+                                           definition='Het type doorsnede van de brugligger.',
+                                           owner=self)
+
+    @property
+    def aantalCellen(self) -> int:
+        """Het aantal cellen van de kokerligger (indien het gaat om een kokerligger)."""
+        return self._aantalCellen.get_waarde()
+
+    @aantalCellen.setter
+    def aantalCellen(self, value):
+        self._aantalCellen.set_waarde(value, owner=self)
 
     @property
     def detailplanBrugligger(self) -> DtcDocumentWaarden:
@@ -73,3 +99,12 @@ class Brugligger(ConstructiefObject, VlakGeometrie):
     @type.setter
     def type(self, value):
         self._type.set_waarde(value, owner=self)
+
+    @property
+    def typeDoorsnede(self) -> str:
+        """Het type doorsnede van de brugligger."""
+        return self._typeDoorsnede.get_waarde()
+
+    @typeDoorsnede.setter
+    def typeDoorsnede(self, value):
+        self._typeDoorsnede.set_waarde(value, owner=self)

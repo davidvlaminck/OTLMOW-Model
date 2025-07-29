@@ -17,7 +17,12 @@ class KlSpanningsomvormerMerk(KeuzelijstField):
                                   label='Eltek',
                                   status='ingebruik',
                                   definitie='Eltek',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerMerk/eltek')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerMerk/eltek'),
+        'phoenix-contact': KeuzelijstWaarde(invulwaarde='phoenix-contact',
+                                            label='Phoenix Contact',
+                                            status='ingebruik',
+                                            definitie='Phoenix Contact',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerMerk/phoenix-contact')
     }
 
     @classmethod

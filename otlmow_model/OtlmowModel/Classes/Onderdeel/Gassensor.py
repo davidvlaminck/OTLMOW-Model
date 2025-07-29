@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlGassensorMerk import KlGassensorMerk
 from ...Datatypes.KlGassensorModelnaam import KlGassensorModelnaam
@@ -8,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Gassensor(AIMNaamObject, PuntGeometrie):
+class Gassensor(NaampadObject, PuntGeometrie):
     """Een meettoestel dat de aanwezigheid van bepaalde gassen detecteert."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Gassensor'

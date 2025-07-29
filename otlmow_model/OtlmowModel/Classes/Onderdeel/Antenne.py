@@ -34,6 +34,7 @@ class Antenne(Communicatieapparatuur):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#RHZModule', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antenne', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antennecoupler', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SignaalSplitter', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar', direction='u')  # u = unidirectional
@@ -44,7 +45,7 @@ class Antenne(Communicatieapparatuur):
                                              naam='constructieType',
                                              label='constructie type',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antenne.constructieType',
-                                             definition='Het constructie type of de vorm van de antenne, die mee de wijze van ophanging bepaald.',
+                                             definition='Het constructie type of de vorm van de antenne, die mee de wijze van ophanging bepaalt.',
                                              owner=self)
 
         self._frequentierange = OTLAttribuut(field=KlAntenneFrequentierange,
@@ -91,7 +92,7 @@ class Antenne(Communicatieapparatuur):
 
     @property
     def constructieType(self) -> str:
-        """Het constructie type of de vorm van de antenne, die mee de wijze van ophanging bepaald."""
+        """Het constructie type of de vorm van de antenne, die mee de wijze van ophanging bepaalt."""
         return self._constructieType.get_waarde()
 
     @constructieType.setter

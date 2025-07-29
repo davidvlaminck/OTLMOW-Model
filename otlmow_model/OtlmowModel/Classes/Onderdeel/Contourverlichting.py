@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Contourverlichting(AIMNaamObject, PuntGeometrie):
+class Contourverlichting(NaampadObject, PuntGeometrie):
     """Groene ledstrip verlichting die de vluchtdeur omrand en zo de visibiliteit van de vluchtdeur en de vluchtweg vergroot."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contourverlichting'

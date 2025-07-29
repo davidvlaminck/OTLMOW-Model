@@ -35,16 +35,16 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
 
         self._nominaalVermogen = OTLAttribuut(field=KwantWrdInWatt,
                                               naam='nominaalVermogen',
-                                              label='nominale spanning',
+                                              label='nominaal vermogen',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#LEDRotondeafbakening.nominaalVermogen',
-                                              definition='Nominale spanning (in volt) van de LED rotondeafbakening.',
+                                              definition='Nominaal vermogen (in watt) van de LED rotondeafbakening.',
                                               owner=self)
 
         self._nominaleSpanning = OTLAttribuut(field=KwantWrdInVolt,
                                               naam='nominaleSpanning',
-                                              label='nominaal vermogen',
+                                              label='nominale spanning',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#LEDRotondeafbakening.nominaleSpanning',
-                                              definition='Nominaal vermogen (in watt) van de LED rotondeafbakening.',
+                                              definition='Nominale spanning (in volt) van de LED rotondeafbakening.',
                                               owner=self)
 
         self._tussenafstand = OTLAttribuut(field=KwantWrdInCentimeter,
@@ -74,7 +74,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
 
     @property
     def nominaalVermogen(self) -> KwantWrdInWattWaarden:
-        """Nominale spanning (in volt) van de LED rotondeafbakening."""
+        """Nominaal vermogen (in watt) van de LED rotondeafbakening."""
         return self._nominaalVermogen.get_waarde()
 
     @nominaalVermogen.setter
@@ -83,7 +83,7 @@ class LEDRotondeafbakening(EMAfbakening, LijnGeometrie):
 
     @property
     def nominaleSpanning(self) -> KwantWrdInVoltWaarden:
-        """Nominaal vermogen (in watt) van de LED rotondeafbakening."""
+        """Nominale spanning (in volt) van de LED rotondeafbakening."""
         return self._nominaleSpanning.get_waarde()
 
     @nominaleSpanning.setter

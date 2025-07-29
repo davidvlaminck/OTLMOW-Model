@@ -22,7 +22,12 @@ class KlSpanningsomvormerModelnaam(KeuzelijstField):
                                         label='Smartpack S ',
                                         status='ingebruik',
                                         definitie='Smartpack S ',
-                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerModelnaam/smartpack-s')
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerModelnaam/smartpack-s'),
+        'trio': KeuzelijstWaarde(invulwaarde='trio',
+                                 label='Trio',
+                                 status='ingebruik',
+                                 definitie='Trio',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerModelnaam/trio')
     }
 
     @classmethod

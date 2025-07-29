@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kokerafsluiting(AIMNaamObject, VlakGeometrie):
+class Kokerafsluiting(NaampadObject, VlakGeometrie):
     """Het geheel van o.a. slagbomen,verkeerslichten en detectielussen in functie van de afsluiting van een koker."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokerafsluiting'

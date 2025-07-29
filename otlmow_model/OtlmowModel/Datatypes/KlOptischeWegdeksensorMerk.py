@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,11 @@ class KlOptischeWegdeksensorMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOptischeWegdeksensorMerk'
     options = {
+        'vaisala': KeuzelijstWaarde(invulwaarde='vaisala',
+                                    label='Vaisala',
+                                    status='ingebruik',
+                                    definitie='Vaisala',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOptischeWegdeksensorMerk/vaisala')
     }
 
     @classmethod

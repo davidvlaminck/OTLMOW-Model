@@ -1,13 +1,17 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.AxiaalDraagvermogen import AxiaalDraagvermogen
+from ...Classes.Abstracten.Fundering import Fundering
 from ...Classes.Onderdeel.Funderingspaal import Funderingspaal
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInKilogramPerKubiekeMeter import KwantWrdInKilogramPerKubiekeMeter, KwantWrdInKilogramPerKubiekeMeterWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Grindkern(Funderingspaal):
+class Grindkern(AxiaalDraagvermogen, Fundering, Funderingspaal):
     """In de grond gevormd of vrijgestort cilindrisch element uit grind dat door heien of trillen wordt verdicht."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grindkern'
@@ -32,9 +36,17 @@ class Grindkern(Funderingspaal):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Waarschuwingslantaarn', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ZenderOntvangerToegang', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Grondverbetering', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElement', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ComplexeGeleiding', direction='i')  # i = direction: incoming
+
+        self._dwarsafmetingDiameter = OTLAttribuut(field=KwantWrdInMillimeter,
+                                                   naam='dwarsafmetingDiameter',
+                                                   label='dwarsafmeting diameter',
+                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grindkern.dwarsafmetingDiameter',
+                                                   definition='De dwarsafmeting (diameter) van de grindkern in millimeter.',
+                                                   owner=self)
 
         self._hOhAfstand = OTLAttribuut(field=KwantWrdInMeter,
                                         naam='hOhAfstand',
@@ -63,6 +75,22 @@ class Grindkern(Funderingspaal):
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grindkern.nuttigeLengte',
                                            definition='De lengte, uitgedrukt in meter, van het aanzetpeil tot aan de funderingsaanzet van de buisleiding of constructie.',
                                            owner=self)
+
+        self._technischeFicheGrind = OTLAttribuut(field=DtcDocument,
+                                                  naam='technischeFicheGrind',
+                                                  label='technische fiche grind',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grindkern.technischeFicheGrind',
+                                                  definition='Technische fiche van het materiaal grind dat in de grindkern zit.',
+                                                  owner=self)
+
+    @property
+    def dwarsafmetingDiameter(self) -> KwantWrdInMillimeterWaarden:
+        """De dwarsafmeting (diameter) van de grindkern in millimeter."""
+        return self._dwarsafmetingDiameter.get_waarde()
+
+    @dwarsafmetingDiameter.setter
+    def dwarsafmetingDiameter(self, value):
+        self._dwarsafmetingDiameter.set_waarde(value, owner=self)
 
     @property
     def hOhAfstand(self) -> KwantWrdInMeterWaarden:
@@ -99,3 +127,12 @@ class Grindkern(Funderingspaal):
     @nuttigeLengte.setter
     def nuttigeLengte(self, value):
         self._nuttigeLengte.set_waarde(value, owner=self)
+
+    @property
+    def technischeFicheGrind(self) -> DtcDocumentWaarden:
+        """Technische fiche van het materiaal grind dat in de grindkern zit."""
+        return self._technischeFicheGrind.get_waarde()
+
+    @technischeFicheGrind.setter
+    def technischeFicheGrind(self, value):
+        self._technischeFicheGrind.set_waarde(value, owner=self)

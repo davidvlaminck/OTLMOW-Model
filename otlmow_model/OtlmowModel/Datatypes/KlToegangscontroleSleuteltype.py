@@ -10,6 +10,7 @@ class KlToegangscontroleSleuteltype(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlToegangscontroleSleuteltype'
     definition = 'Types voor sleutels die toegang geven tot een behuizing.'
     status = 'ingebruik'
+    deprecated_version = '2.16.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangscontroleSleuteltype'
     options = {
     }

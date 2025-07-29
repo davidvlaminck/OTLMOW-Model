@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from otlmow_model.OtlmowModel.BaseClasses.WaardenObject import WaardenObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
@@ -41,6 +42,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
                                                     naam='groeiplaatsverbetering',
                                                     label='groeiplaatsverbetering',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcAanlegBoomvorm.groeiplaatsverbetering',
+                                                    kardinaliteit_max='*',
                                                     definition='De techniek waarmee de groeiplaats wordt verbeterd met als doel de levensverwachting en de conditie van de vegetatie te verbeteren.',
                                                     owner=self)
 
@@ -140,7 +142,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._boompaalconstructie.set_waarde(value, owner=self._parent)
 
     @property
-    def groeiplaatsverbetering(self) -> str:
+    def groeiplaatsverbetering(self) -> List[str]:
         """De techniek waarmee de groeiplaats wordt verbeterd met als doel de levensverwachting en de conditie van de vegetatie te verbeteren."""
         return self._groeiplaatsverbetering.get_waarde()
 

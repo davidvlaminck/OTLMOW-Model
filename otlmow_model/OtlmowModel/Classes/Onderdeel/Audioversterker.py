@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -37,6 +38,7 @@ class Audioversterker(AIMNaamObject, PuntGeometrie):
                                      naam='ipAdres',
                                      label='IP-adres',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Audioversterker.ipAdres',
+                                     kardinaliteit_max='2',
                                      definition='Het IP-adres van de audioversterker.',
                                      owner=self)
 
@@ -71,7 +73,7 @@ class Audioversterker(AIMNaamObject, PuntGeometrie):
         self._dnsNaam.set_waarde(value, owner=self)
 
     @property
-    def ipAdres(self) -> DteIPv4AdresWaarden:
+    def ipAdres(self) -> List[DteIPv4AdresWaarden]:
         """Het IP-adres van de audioversterker."""
         return self._ipAdres.get_waarde()
 

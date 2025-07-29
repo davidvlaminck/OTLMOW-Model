@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kokerventilatie(AIMNaamObject, VlakGeometrie):
+class Kokerventilatie(NaampadObject, VlakGeometrie):
     """Het geheel van ventilatoren, luchtkanalen, sensoren en regelapparatuur om de luchtsnelheid, luchtdruk en luchtsamenstelling in een koker te bewaken en aan te passen aan veranderende omstandigheden, zoals verkeerscongestie of noodsituaties zoals brand."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokerventilatie'

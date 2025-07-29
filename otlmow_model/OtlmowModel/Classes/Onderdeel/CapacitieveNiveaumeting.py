@@ -1,12 +1,13 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Niveaumeting import Niveaumeting
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlCapacitieveNiveaumetingMerk import KlCapacitieveNiveaumetingMerk
 from ...Datatypes.KlCapacitieveNiveaumetingModelnaam import KlCapacitieveNiveaumetingModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class CapacitieveNiveaumeting(Niveaumeting):
+class CapacitieveNiveaumeting(Niveaumeting, NaampadObject):
     """Een inrichting voor het bepalen van het peil van een vloeistof (bv. het waterniveau in een vloeistoftank of lekwaterput van een kelder). Een capacitieve sensor meet de aan- of afwezigheid van een materiaal of vloeistof. Het meest gebruikte type is de driepunts elektrode, hierbij krijgt elke elektrode een eigen grenswaarde, uit de combinatie van de gegeven die de verschillende elektroden oplevert kan het niveau bepaald worden. Het resultaat wordt omgezet in een uitleesbaar signaal. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#CapacitieveNiveaumeting'

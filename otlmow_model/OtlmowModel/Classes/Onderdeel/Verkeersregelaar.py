@@ -8,7 +8,9 @@ from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
+from ...Datatypes.KlMobieleNetwerktechnologie import KlMobieleNetwerktechnologie
 from ...Datatypes.KlRegelaarRegelaartype import KlRegelaarRegelaartype
+from ...Datatypes.KlSimkaarttype import KlSimkaarttype
 from ...Datatypes.KlVRDisplayType import KlVRDisplayType
 from ...Datatypes.KlVerkeersregelaarCoordinatiewijze import KlVerkeersregelaarCoordinatiewijze
 from ...Datatypes.KlVerkeersregelaarMerk import KlVerkeersregelaarMerk
@@ -113,6 +115,13 @@ class Verkeersregelaar(AIMNaamObject, PuntGeometrie):
                                   definition='Het merk van een verkeersregelaar.',
                                   owner=self)
 
+        self._mobieleNetwerktechnologie = OTLAttribuut(field=KlMobieleNetwerktechnologie,
+                                                       naam='mobieleNetwerktechnologie',
+                                                       label='mobiele netwerktechnologie',
+                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar.mobieleNetwerktechnologie',
+                                                       definition='De meest recente mobiele netwerkstandaard waarmee de verkeersregelaar verbinding kan maken. Indien de verkeersregelaar verbonden is met een vast netwerk, dient hier "vast netwerk" gekozen te worden.',
+                                                       owner=self)
+
         self._modelnaam = OTLAttribuut(field=KlVerkeersregelaarModelnaam,
                                        naam='modelnaam',
                                        label='modelnaam',
@@ -140,6 +149,13 @@ class Verkeersregelaar(AIMNaamObject, PuntGeometrie):
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar.simkaartnummer',
                                             definition='Het nummer van de simkaart die aanwezig is op de communicatiekaart.',
                                             owner=self)
+
+        self._simkaarttype = OTLAttribuut(field=KlSimkaarttype,
+                                          naam='simkaarttype',
+                                          label='simkaarttype',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar.simkaarttype',
+                                          definition='Het type simkaart dat aanwezig is op de communicatiekaart.',
+                                          owner=self)
 
         self._technischeDocumentatie = OTLAttribuut(field=DtcDocument,
                                                     naam='technischeDocumentatie',
@@ -258,6 +274,15 @@ class Verkeersregelaar(AIMNaamObject, PuntGeometrie):
         self._merk.set_waarde(value, owner=self)
 
     @property
+    def mobieleNetwerktechnologie(self) -> str:
+        """De meest recente mobiele netwerkstandaard waarmee de verkeersregelaar verbinding kan maken. Indien de verkeersregelaar verbonden is met een vast netwerk, dient hier "vast netwerk" gekozen te worden."""
+        return self._mobieleNetwerktechnologie.get_waarde()
+
+    @mobieleNetwerktechnologie.setter
+    def mobieleNetwerktechnologie(self, value):
+        self._mobieleNetwerktechnologie.set_waarde(value, owner=self)
+
+    @property
     def modelnaam(self) -> str:
         """De modelnaam/product range van een verkeersregelaar."""
         return self._modelnaam.get_waarde()
@@ -292,6 +317,15 @@ class Verkeersregelaar(AIMNaamObject, PuntGeometrie):
     @simkaartnummer.setter
     def simkaartnummer(self, value):
         self._simkaartnummer.set_waarde(value, owner=self)
+
+    @property
+    def simkaarttype(self) -> str:
+        """Het type simkaart dat aanwezig is op de communicatiekaart."""
+        return self._simkaarttype.get_waarde()
+
+    @simkaarttype.setter
+    def simkaarttype(self, value):
+        self._simkaarttype.set_waarde(value, owner=self)
 
     @property
     def technischeDocumentatie(self) -> DtcDocumentWaarden:

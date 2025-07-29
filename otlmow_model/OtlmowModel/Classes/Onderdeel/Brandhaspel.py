@@ -2,6 +2,7 @@
 from datetime import date
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Brandvoorziening import Brandvoorziening
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.KlBrandhaspelMerk import KlBrandhaspelMerk
 from ...Datatypes.KlBrandhaspelModelnaam import KlBrandhaspelModelnaam
@@ -12,7 +13,7 @@ from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Brandhaspel(Brandvoorziening):
+class Brandhaspel(Brandvoorziening, NaampadObject):
     """Een brandslang met spuitmond,opgerold op een haspel."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Brandhaspel'

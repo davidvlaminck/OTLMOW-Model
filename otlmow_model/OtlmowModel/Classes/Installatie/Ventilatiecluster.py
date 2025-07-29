@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ventilatiecluster(AIMNaamObject, VlakGeometrie):
+class Ventilatiecluster(NaampadObject, VlakGeometrie):
     """Een systeem van ventilatoren die samenwerken om de luchtstroom en luchtkwaliteit in een deel van de koker of een specifieke ruimte te reguleren en te verbeteren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ventilatiecluster'

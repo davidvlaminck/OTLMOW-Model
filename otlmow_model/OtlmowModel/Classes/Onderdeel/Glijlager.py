@@ -3,11 +3,12 @@ from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Lager import Lager
 from ...Datatypes.KlGlijlagerMerk import KlGlijlagerMerk
 from ...Datatypes.KlGlijlagerModelnaam import KlGlijlagerModelnaam
+from ...Datatypes.KlVormgevingLager import KlVormgevingLager
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Glijlager(Lager):
-    """Een machineonderdeel met als functie het toelaten van rotatie of translatie van een as. Bij een glijlager glijdt de as in een vast lager, het verlagen van de wrijving tussen as en lager gebeurt door smering of door het materiaal van het lager."""
+    """Een machineonderdeel met als functie het toelaten van rotatie of translatie van een as. Bij een glijlager glijdt de as in een vast lager,het verlagen van de wrijving tussen as en lager gebeurt door smering of door het materiaal van het lager."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Glijlager'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -29,6 +30,13 @@ class Glijlager(Lager):
                                        definition='De modelnaam volgens de fabrikant van het lager.',
                                        owner=self)
 
+        self._vormgeving = OTLAttribuut(field=KlVormgevingLager,
+                                        naam='vormgeving',
+                                        label='vormgeving',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Glijlager.vormgeving',
+                                        definition='De vorm van het glijlager.',
+                                        owner=self)
+
     @property
     def merk(self) -> str:
         """Het merk van het lager."""
@@ -46,3 +54,12 @@ class Glijlager(Lager):
     @modelnaam.setter
     def modelnaam(self, value):
         self._modelnaam.set_waarde(value, owner=self)
+
+    @property
+    def vormgeving(self) -> str:
+        """De vorm van het glijlager."""
+        return self._vormgeving.get_waarde()
+
+    @vormgeving.setter
+    def vormgeving(self, value):
+        self._vormgeving.set_waarde(value, owner=self)

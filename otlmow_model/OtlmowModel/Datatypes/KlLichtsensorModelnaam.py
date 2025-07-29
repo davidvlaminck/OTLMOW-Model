@@ -17,7 +17,12 @@ class KlLichtsensorModelnaam(KeuzelijstField):
                                                label='Luminance LUCI L20',
                                                status='ingebruik',
                                                definitie='Luminance LUCI L20',
-                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorModelnaam/luminance-luci-l20')
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorModelnaam/luminance-luci-l20'),
+        'skl2638': KeuzelijstWaarde(invulwaarde='skl2638',
+                                    label='SKL2638',
+                                    status='ingebruik',
+                                    definitie='SKL2638',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorModelnaam/skl2638')
     }
 
     @classmethod
