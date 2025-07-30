@@ -13,6 +13,11 @@ class KlPLCModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPLCModelnaam'
     options = {
+        'axc-f-2152': KeuzelijstWaarde(invulwaarde='axc-f-2152',
+                                       label='AXC-F-2152',
+                                       status='ingebruik',
+                                       definitie='AXC-F-2152',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPLCModelnaam/axc-f-2152'),
         'axc-f-3152': KeuzelijstWaarde(invulwaarde='axc-f-3152',
                                        label='AXC-F-3152',
                                        status='ingebruik',

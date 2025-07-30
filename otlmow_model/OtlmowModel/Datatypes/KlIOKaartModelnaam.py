@@ -13,6 +13,11 @@ class KlIOKaartModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOKaartModelnaam'
     options = {
+        'axl-f-ai4-i-1h': KeuzelijstWaarde(invulwaarde='axl-f-ai4-i-1h',
+                                           label='AXL F AI4 I 1H',
+                                           status='ingebruik',
+                                           definitie='AXL F AI4 I 1H',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartModelnaam/axl-f-ai4-i-1h'),
         'dri701': KeuzelijstWaarde(invulwaarde='dri701',
                                    label='DRI701',
                                    status='ingebruik',
