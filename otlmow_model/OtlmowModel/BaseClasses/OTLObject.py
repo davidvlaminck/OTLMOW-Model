@@ -242,7 +242,14 @@ class OTLAttribuut:
                 elif first_geom_type == 'POLYGON Z':
                     self.set_waarde('POLYGON Z ((200000 200000 0, 200001 200001 1, 200002 200002 2, 200000 200000 0))')
             else:
-                data = self.field.create_dummy_data()
+                if self.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#NaampadObject.naampad':
+                    naam_attr = get_attribute_by_name(self.owner, 'naam')
+                    if naam_attr is not None and naam_attr.waarde is not None:
+                        data = f'dummy/{naam_attr.waarde}'
+                    else:
+                        data = 'dummy/dummy'
+                else:
+                    data = self.field.create_dummy_data()
                 if data is None or self.kardinaliteit_max == '1':
                     self.set_waarde(data)
                 else:
