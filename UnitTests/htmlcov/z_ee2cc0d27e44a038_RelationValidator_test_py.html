@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Coverage for UnitTests/GeneralTests/RelationValidator_test.py: 100%</title>
     <link rel="icon" sizes="32x32" href="favicon_32_cb_58284776.png">
-    <link rel="stylesheet" href="style_cb_81f8c14c.css" type="text/css">
+    <link rel="stylesheet" href="style_cb_6b508a39.css" type="text/css">
     <script src="coverage_html_cb_6fb7b396.js" defer></script>
 </head>
 <body class="pyfile">
@@ -64,8 +64,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="z_ee2cc0d27e44a038_WaardenObject_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.9.2">coverage.py v7.9.2</a>,
-            created at 2025-07-06 07:54 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.10.1">coverage.py v7.10.1</a>,
+            created at 2025-07-30 14:20 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -92,7 +92,7 @@
     <p class="run"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">Exceptions</span><span class="op">.</span><span class="nam">RelationDeprecationWarning</span> <span class="key">import</span> <span class="nam">RelationDeprecationWarning</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">GeometrieTypes</span><span class="op">.</span><span class="nam">PuntGeometrie</span> <span class="key">import</span> <span class="nam">PuntGeometrie</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">Helpers</span><span class="op">.</span><span class="nam">RelationValidator</span> <span class="key">import</span> <span class="nam">is_valid_relation_instance</span><span class="op">,</span> <span class="nam">is_valid_relation</span><span class="op">,</span> <span class="xx">\</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">    <span class="nam">is_valid_relation_using_relation_uri</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">    <span class="nam">is_valid_relation_using_relation_uri</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t"><span class="nam">model_directory</span> <span class="op">=</span> <span class="nam">Path</span><span class="op">(</span><span class="nam">__file__</span><span class="op">)</span><span class="op">.</span><span class="nam">parent</span><span class="op">.</span><span class="nam">parent</span> <span class="op">/</span> <span class="str">'TestModel'</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -118,9 +118,9 @@
     <p class="run"><span class="n"><a id="t36" href="#t36">36</a></span><span class="t">    <span class="nam">all_cases</span> <span class="op">=</span> <span class="nam">AllCasesTestClass</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t37" href="#t37">37</a></span><span class="t">    <span class="nam">another</span> <span class="op">=</span> <span class="nam">AnotherTestClass</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t38" href="#t38">38</a></span><span class="t">    <span class="nam">all_cases</span><span class="op">.</span><span class="nam">_valid_relations</span><span class="op">[</span><span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt'</span><span class="op">]</span><span class="op">[</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t39" href="#t39">39</a></span><span class="t">         <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass'</span><span class="op">]</span><span class="op">[</span><span class="str">'i'</span><span class="op">]</span> <span class="op">=</span> <span class="str">''</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t39" href="#t39">39</a></span><span class="t">         <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass'</span><span class="op">]</span><span class="op">[</span><span class="str">'i'</span><span class="op">]</span> <span class="op">=</span> <span class="str">''</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t40" href="#t40">40</a></span><span class="t">    <span class="nam">another</span><span class="op">.</span><span class="nam">_valid_relations</span><span class="op">[</span><span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt'</span><span class="op">]</span><span class="op">[</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t41" href="#t41">41</a></span><span class="t">         <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'</span><span class="op">]</span><span class="op">[</span><span class="str">'o'</span><span class="op">]</span> <span class="op">=</span> <span class="str">''</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t41" href="#t41">41</a></span><span class="t">         <span class="str">'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'</span><span class="op">]</span><span class="op">[</span><span class="str">'o'</span><span class="op">]</span> <span class="op">=</span> <span class="str">''</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t42" href="#t42">42</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t43" href="#t43">43</a></span><span class="t">    <span class="key">with</span> <span class="nam">pytest</span><span class="op">.</span><span class="nam">warns</span><span class="op">(</span><span class="nam">RelationDeprecationWarning</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t44" href="#t44">44</a></span><span class="t">        <span class="key">assert</span> <span class="nam">is_valid_relation</span><span class="op">(</span><span class="nam">source</span><span class="op">=</span><span class="nam">another</span><span class="op">,</span> <span class="nam">relation_type</span><span class="op">=</span><span class="nam">Voedt</span><span class="op">,</span> <span class="nam">target</span><span class="op">=</span><span class="nam">all_cases</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -155,7 +155,7 @@
     <p class="run"><span class="n"><a id="t73" href="#t73">73</a></span><span class="t">    <span class="nam">another</span> <span class="op">=</span> <span class="nam">AnotherTestClass</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t74" href="#t74">74</a></span><span class="t">    <span class="key">with</span> <span class="nam">pytest</span><span class="op">.</span><span class="nam">warns</span><span class="op">(</span><span class="nam">RelationDeprecationWarning</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t75" href="#t75">75</a></span><span class="t">        <span class="nam">result_validation</span> <span class="op">=</span> <span class="nam">is_valid_relation</span><span class="op">(</span><span class="nam">source_typeURI</span><span class="op">=</span><span class="nam">all_cases</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">,</span> <span class="nam">relation_type</span><span class="op">=</span><span class="nam">Voedt</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t76" href="#t76">76</a></span><span class="t">                                              <span class="nam">target_typeURI</span><span class="op">=</span><span class="nam">another</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">,</span> <span class="nam">model_directory</span><span class="op">=</span><span class="nam">model_directory</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t76" href="#t76">76</a></span><span class="t">                                              <span class="nam">target_typeURI</span><span class="op">=</span><span class="nam">another</span><span class="op">.</span><span class="nam">typeURI</span><span class="op">,</span> <span class="nam">model_directory</span><span class="op">=</span><span class="nam">model_directory</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t77" href="#t77">77</a></span><span class="t">    <span class="key">assert</span> <span class="nam">result_validation</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t78" href="#t78">78</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t79" href="#t79">79</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -178,8 +178,8 @@
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a class="nav" href="z_ee2cc0d27e44a038_WaardenObject_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.9.2">coverage.py v7.9.2</a>,
-            created at 2025-07-06 07:54 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.10.1">coverage.py v7.10.1</a>,
+            created at 2025-07-30 14:20 +0000
         </p>
     </div>
 </footer>

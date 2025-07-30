@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Coverage for UnitTests/GeneralTests/GenericHelper_test.py: 100%</title>
     <link rel="icon" sizes="32x32" href="favicon_32_cb_58284776.png">
-    <link rel="stylesheet" href="style_cb_81f8c14c.css" type="text/css">
+    <link rel="stylesheet" href="style_cb_6b508a39.css" type="text/css">
     <script src="coverage_html_cb_6fb7b396.js" defer></script>
 </head>
 <body class="pyfile">
@@ -64,8 +64,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="z_ee2cc0d27e44a038_Instantiation_import_all_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.9.2">coverage.py v7.9.2</a>,
-            created at 2025-07-06 07:54 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.10.1">coverage.py v7.10.1</a>,
+            created at 2025-07-30 14:20 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -83,19 +83,19 @@
     <p class="run"><span class="n"><a id="t1" href="#t1">1</a></span><span class="t"><span class="key">import</span> <span class="nam">pytest</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t2" href="#t2">2</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t3" href="#t3">3</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">Helpers</span><span class="op">.</span><span class="nam">GenericHelper</span> <span class="key">import</span> <span class="nam">get_titlecase_from_ns</span><span class="op">,</span> <span class="nam">get_aim_id_from_uuid_and_typeURI</span><span class="op">,</span> <span class="xx">\</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t4" href="#t4">4</a></span><span class="t">    <span class="nam">get_shortened_uri</span><span class="op">,</span> <span class="nam">get_ns_and_name_from_uri</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t4" href="#t4">4</a></span><span class="t">    <span class="nam">get_shortened_uri</span><span class="op">,</span> <span class="nam">get_ns_and_name_from_uri</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t5" href="#t5">5</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t6" href="#t6">6</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t7" href="#t7">7</a></span><span class="t"><span class="key">def</span> <span class="nam">test_get_titlecase_from_ns</span><span class="op">(</span><span class="nam">subtests</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t8" href="#t8">8</a></span><span class="t">    <span class="key">for</span> <span class="nam">ns_input</span><span class="op">,</span> <span class="nam">expected_output</span> <span class="key">in</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t">        <span class="str">'ABSTRACTEN'</span><span class="op">:</span> <span class="str">'Abstracten'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t">        <span class="str">'abstracten'</span><span class="op">:</span> <span class="str">'Abstracten'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t">        <span class="str">'implementatieelement'</span><span class="op">:</span> <span class="str">'ImplementatieElement'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">        <span class="str">'installatie'</span><span class="op">:</span> <span class="str">'Installatie'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">        <span class="str">'levenscyclus'</span><span class="op">:</span> <span class="str">'Levenscyclus'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">        <span class="str">'onderdeel'</span><span class="op">:</span> <span class="str">'Onderdeel'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">        <span class="str">'proefenmeting'</span><span class="op">:</span> <span class="str">'ProefEnMeting'</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">    <span class="op">}</span><span class="op">.</span><span class="nam">items</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t">        <span class="str">'ABSTRACTEN'</span><span class="op">:</span> <span class="str">'Abstracten'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t">        <span class="str">'abstracten'</span><span class="op">:</span> <span class="str">'Abstracten'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t">        <span class="str">'implementatieelement'</span><span class="op">:</span> <span class="str">'ImplementatieElement'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">        <span class="str">'installatie'</span><span class="op">:</span> <span class="str">'Installatie'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">        <span class="str">'levenscyclus'</span><span class="op">:</span> <span class="str">'Levenscyclus'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">        <span class="str">'onderdeel'</span><span class="op">:</span> <span class="str">'Onderdeel'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">        <span class="str">'proefenmeting'</span><span class="op">:</span> <span class="str">'ProefEnMeting'</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">    <span class="op">}</span><span class="op">.</span><span class="nam">items</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">        <span class="key">with</span> <span class="nam">subtests</span><span class="op">.</span><span class="nam">test</span><span class="op">(</span><span class="nam">msg</span><span class="op">=</span><span class="fst">f'</span><span class="fst">testing </span><span class="op">{</span><span class="nam">ns_input</span><span class="op">}</span><span class="fst">, expecting </span><span class="op">{</span><span class="nam">expected_output</span><span class="op">}</span><span class="fst">'</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">            <span class="key">assert</span> <span class="nam">get_titlecase_from_ns</span><span class="op">(</span><span class="nam">ns_input</span><span class="op">)</span> <span class="op">==</span> <span class="nam">expected_output</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -186,8 +186,8 @@
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a class="nav" href="z_ee2cc0d27e44a038_Instantiation_import_all_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.9.2">coverage.py v7.9.2</a>,
-            created at 2025-07-06 07:54 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.10.1">coverage.py v7.10.1</a>,
+            created at 2025-07-30 14:20 +0000
         </p>
     </div>
 </footer>

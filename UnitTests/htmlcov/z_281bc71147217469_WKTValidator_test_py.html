@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Coverage for UnitTests/OTLFieldTests/WKTValidator_test.py: 100%</title>
     <link rel="icon" sizes="32x32" href="favicon_32_cb_58284776.png">
-    <link rel="stylesheet" href="style_cb_81f8c14c.css" type="text/css">
+    <link rel="stylesheet" href="style_cb_6b508a39.css" type="text/css">
     <script src="coverage_html_cb_6fb7b396.js" defer></script>
 </head>
 <body class="pyfile">
@@ -64,8 +64,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="z_2d5ce494db294288_OTLObject_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.9.2">coverage.py v7.9.2</a>,
-            created at 2025-07-06 07:54 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.10.1">coverage.py v7.10.1</a>,
+            created at 2025-07-30 14:20 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -104,7 +104,7 @@
     <p class="run"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">        <span class="key">assert</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"LINESTRING (200001 200002, 200003 200004)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">        <span class="key">assert</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"LINESTRING Z (200001.0 200002.0 3.0, 200004.0 200005.0 6.0)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t24" href="#t24">24</a></span><span class="t">        <span class="key">assert</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"LINESTRING Z (200001.0 200002.0 3.0, 200004.0 200005.0 6.0, "</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t25" href="#t25">25</a></span><span class="t">                                         <span class="str">"200007.0 200008.0 9.0)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t25" href="#t25">25</a></span><span class="t">                                         <span class="str">"200007.0 200008.0 9.0)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t26" href="#t26">26</a></span><span class="t">        <span class="key">assert</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"LINESTRING Z (200001 200002 3, 200004 200005 6, 200007 200008 9)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t27" href="#t27">27</a></span><span class="t">        <span class="key">assert</span> <span class="key">not</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"LINESTRING (200001,0 200002,0, 200003,0 200004,0)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t28" href="#t28">28</a></span><span class="t">        <span class="key">assert</span> <span class="key">not</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"LINESTRING Z (200001.0 200002.0, 200004.0 200005.0)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -115,12 +115,12 @@
     <p class="run"><span class="n"><a id="t33" href="#t33">33</a></span><span class="t">        <span class="key">assert</span> <span class="key">not</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"POLYGON ((200010 200020, 200030 200040))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t34" href="#t34">34</a></span><span class="t">        <span class="key">assert</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"POLYGON ((200010.0 200020.0, 200030.0 200040.0, 200050.0 200060.0))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t35" href="#t35">35</a></span><span class="t">        <span class="key">assert</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"POLYGON ((200010.0 200020.0, 200030.0 200040.0, 200050.0 200060.0, "</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t36" href="#t36">36</a></span><span class="t">                                         <span class="str">"200070.0 200080.0))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t36" href="#t36">36</a></span><span class="t">                                         <span class="str">"200070.0 200080.0))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t37" href="#t37">37</a></span><span class="t">        <span class="key">assert</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"POLYGON Z ((200010.0 200020.0 1, 200030.0 200040.0 2, 200050.0 200060.0 3))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t38" href="#t38">38</a></span><span class="t">        <span class="key">assert</span> <span class="key">not</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"POLYGON Z ((200010.0 200020.0, 200030.0 200040.0 2, 200050.0 200060.0))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t39" href="#t39">39</a></span><span class="t">        <span class="key">assert</span> <span class="key">not</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"POLYGON ((200010.0 200020.0 1, 200030.0 200040.0 2, 200050.0 200060.0 3))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t40" href="#t40">40</a></span><span class="t">        <span class="key">assert</span> <span class="nam">WKTValidator</span><span class="op">.</span><span class="nam">validate_wkt</span><span class="op">(</span><span class="str">"POLYGON ((200010.0 200020.0, 200030.0 200040.0, 200050.0 200060.0), "</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t41" href="#t41">41</a></span><span class="t">                                      <span class="str">"(200110.0 200120.0, 200130.0 200140.0, 200150.0 200160.0))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t41" href="#t41">41</a></span><span class="t">                                      <span class="str">"(200110.0 200120.0, 200130.0 200140.0, 200150.0 200160.0))"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -129,8 +129,8 @@
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a class="nav" href="z_2d5ce494db294288_OTLObject_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.9.2">coverage.py v7.9.2</a>,
-            created at 2025-07-06 07:54 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.10.1">coverage.py v7.10.1</a>,
+            created at 2025-07-30 14:20 +0000
         </p>
     </div>
 </footer>
