@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,21 @@ class KlSimkaarttype(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSimkaarttype'
     options = {
+        'geen': KeuzelijstWaarde(invulwaarde='geen',
+                                 label='geen',
+                                 status='ingebruik',
+                                 definitie='geen simkaart',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSimkaarttype/geen'),
+        'olu': KeuzelijstWaarde(invulwaarde='olu',
+                                label='OLU',
+                                status='ingebruik',
+                                definitie='OLU simkaart',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSimkaarttype/olu'),
+        'standaard': KeuzelijstWaarde(invulwaarde='standaard',
+                                      label='standaard',
+                                      status='ingebruik',
+                                      definitie='standaard simkaart',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSimkaarttype/standaard')
     }
 
     @classmethod
