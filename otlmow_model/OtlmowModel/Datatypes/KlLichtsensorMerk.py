@@ -13,6 +13,11 @@ class KlLichtsensorMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtsensorMerk'
     options = {
+        'electrical-special': KeuzelijstWaarde(invulwaarde='electrical-special',
+                                               label='ELECTRICAL-SPECIAL',
+                                               status='ingebruik',
+                                               definitie='ELECTRICAL-SPECIAL',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorMerk/electrical-special'),
         'schreder': KeuzelijstWaarde(invulwaarde='schreder',
                                      label='Schreder',
                                      status='ingebruik',

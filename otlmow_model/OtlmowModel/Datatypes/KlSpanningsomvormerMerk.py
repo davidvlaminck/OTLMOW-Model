@@ -22,7 +22,12 @@ class KlSpanningsomvormerMerk(KeuzelijstField):
                                             label='Phoenix Contact',
                                             status='ingebruik',
                                             definitie='Phoenix Contact',
-                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerMerk/phoenix-contact')
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerMerk/phoenix-contact'),
+        'puls': KeuzelijstWaarde(invulwaarde='puls',
+                                 label='Puls',
+                                 status='ingebruik',
+                                 definitie='Puls',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerMerk/puls')
     }
 
     @classmethod
