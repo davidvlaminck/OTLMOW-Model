@@ -9,7 +9,7 @@ class KlNetwerklocatie(KeuzelijstField):
     label = 'Keuzelijst Netwerklocatie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlNetwerklocatie'
     definition = 'De verschillende types netwerklocatie.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerklocatie'
     options = {
     }
