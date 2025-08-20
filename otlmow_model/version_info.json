@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.16.1.5",
+        "model_version": "2.16.1.6",
         "otl_version": "2.16.0",
-        "created_at": "2025-08-14T04:07:01",
+        "created_at": "2025-08-20T04:00:50",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -997,6 +997,14 @@
             "enums_updated": [
                 "KlCorrosiebelastingscategorie",
                 "KlNetwerklocatie"
+            ]
+        },
+        "2.16.1.6": {
+            "previous_version": "2.16.1.5",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlDrukknopMerk"
             ]
         }
     }
