@@ -18,13 +18,15 @@ class StralendeKabel(Kabel, NaampadObject):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#OmhullendeInrichting', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#ASTRIDInstallatie', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#RadioheruitzendInstallatie', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Datakabel', direction='u')  # u = unidirectional
 
         self._frequentiebereik = OTLAttribuut(field=KwantWrdInMegahertz,
                                               naam='frequentiebereik',
                                               label='frequentiebereik',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StralendeKabel.frequentiebereik',
-                                              definition='Het verschil tussen de laagste en hoogste frequentie waarop het signaal effectief werkt.  Dit bereik wordt uitgedrukt in megahertz (MHz).',
+                                              definition='Het verschil tussen de laagste en hoogste frequentie waarop het signaal effectief werkt. Dit bereik wordt uitgedrukt in megahertz (MHz).',
                                               owner=self)
 
         self._kabeldikte = OTLAttribuut(field=KlKabeldikte,
@@ -43,7 +45,7 @@ class StralendeKabel(Kabel, NaampadObject):
 
     @property
     def frequentiebereik(self) -> KwantWrdInMegahertzWaarden:
-        """Het verschil tussen de laagste en hoogste frequentie waarop het signaal effectief werkt.  Dit bereik wordt uitgedrukt in megahertz (MHz)."""
+        """Het verschil tussen de laagste en hoogste frequentie waarop het signaal effectief werkt. Dit bereik wordt uitgedrukt in megahertz (MHz)."""
         return self._frequentiebereik.get_waarde()
 
     @frequentiebereik.setter

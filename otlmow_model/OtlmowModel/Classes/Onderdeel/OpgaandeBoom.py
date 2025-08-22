@@ -35,7 +35,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                     naam='aanleg',
                                     label='aanleg',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.aanleg',
-                                    usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                    usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                     deprecated_version='2.0.0',
                                     definition='De manier van aanplanten van individuele bomen.',
                                     owner=self)
@@ -44,7 +44,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                          naam='boomspiegel',
                                          label='boomspiegel',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.boomspiegel',
-                                         usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                         usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                          deprecated_version='2.0.0',
                                          definition='Het stuk grond rondom de stam van een boom. Dit is in de ideale situatie minstens zo groot is als de kruin van de boom.',
                                          owner=self)
@@ -53,7 +53,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                                   naam='boomverankeringszone',
                                                   label='boomverankeringszone',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.boomverankeringszone',
-                                                  usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                                  usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                                   deprecated_version='2.0.0',
                                                   definition='De straal van de cirkelvormige ruimte waarbinnen de wortels zich bevinden die instaan voor de stabiliteit van de boom uitgedrukt in meter.',
                                                   owner=self)
@@ -62,7 +62,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                                   naam='doorwortelbaarVolume',
                                                   label='doorwortelbaar volume',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.doorwortelbaarVolume',
-                                                  usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                                  usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                                   deprecated_version='2.0.0',
                                                   definition='Het bodemvolume met voldoende mineralen, water en zuurstof die bereikbaar zijn voor een boom om erin te wortelen.',
                                                   owner=self)
@@ -71,7 +71,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                        naam='eindbeeld',
                                        label='eindbeeld',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.eindbeeld',
-                                       usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                       usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                        deprecated_version='2.0.0',
                                        definition='Het nagestreefde beeld van de volgroeide boom of struik op deze specifieke standplaats.',
                                        owner=self)
@@ -80,7 +80,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                                       naam='geschatteKlassePlantjaar',
                                                       label='geschatte klasse plantjaar',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.geschatteKlassePlantjaar',
-                                                      usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                                      usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                                       deprecated_version='2.0.0',
                                                       definition='Dit attribuut geeft een interval weer van 20 jaar waarin de boom geplant werd.',
                                                       owner=self)
@@ -89,7 +89,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                        naam='groeifase',
                                        label='groeifase',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.groeifase',
-                                       usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                       usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                        deprecated_version='2.0.0',
                                        definition='Fase van beheer volgens de verschillende levensfases van de boom.',
                                        owner=self)
@@ -98,7 +98,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                               naam='heeftBoomrooster',
                                               label='heeft boomrooster',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.heeftBoomrooster',
-                                              usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                              usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                               deprecated_version='2.0.0',
                                               definition='Duidt aan of een horizontale structuur aanwezig is die zorgt voor een adequate bescherming van bomen tegen betreding van de boomspiegel door voetgangers of verkeer.',
                                               owner=self)
@@ -107,7 +107,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                                naam='heeftLuchtleiding',
                                                label='heeft luchtleiding',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.heeftLuchtleiding',
-                                               usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                               usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                                deprecated_version='2.0.0',
                                                definition='Bepaling of een bovengrondse nutsleiding aanwezig is die in conflict kan komen met de boom.',
                                                owner=self)
@@ -116,7 +116,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                         naam='isVerplant',
                                         label='is verplant',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.isVerplant',
-                                        usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                        usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                         deprecated_version='2.0.0',
                                         definition='Aanduiding of de opgaande boom al dan niet van locatie veranderd is na een eerste aanplant binnen het openbaar domein.',
                                         owner=self)
@@ -125,7 +125,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                            naam='kroonDiameter',
                                            label='kroon diameter',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.kroonDiameter',
-                                           usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                           usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                            deprecated_version='2.0.0',
                                            definition='Diameter van de kroonprojectie in meter.',
                                            owner=self)
@@ -134,7 +134,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                                 naam='takvrijeStamlengte',
                                                 label='takvrije stamlengte',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.takvrijeStamlengte',
-                                                usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                                usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                                 deprecated_version='2.0.0',
                                                 definition='Tot aan de hoogte van de gewenste takvrije stamlengte wordt de boom zodanig gesnoeid dat er één doorgaande stam is.',
                                                 owner=self)
@@ -143,7 +143,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                                         naam='totaleBoombeschermingszone',
                                                         label='totale boombeschermingszone',
                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.totaleBoombeschermingszone',
-                                                        usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                                        usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                                         deprecated_version='2.0.0',
                                                         definition='De straal van de cirkelvormige ruimte rond de boom waar maatregelen genomen worden om de boom te beschermen tijdens projecten of manifestaties uitgedrukt in centimeters.',
                                                         owner=self)
@@ -152,7 +152,7 @@ class OpgaandeBoom(VegetatieElement, PuntGeometrie):
                                                 naam='vrijeDoorrijhoogte',
                                                 label='vrije doorrijhoogte',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom.vrijeDoorrijhoogte',
-                                                usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                                usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                                 deprecated_version='2.0.0',
                                                 definition='Vrij te houden hoogte in meter, voor het doorrijden van verkeer toe te laten.',
                                                 owner=self)

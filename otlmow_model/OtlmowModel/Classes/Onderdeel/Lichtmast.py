@@ -43,7 +43,7 @@ class Lichtmast(EMDraagconstructie, NaampadObject, PuntGeometrie):
                                           naam='beschermlaag',
                                           label='beschermlaag',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast.beschermlaag',
-                                          usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
+                                          usagenote='Attribuut uit gebruik sinds versie 2.12.0',
                                           deprecated_version='2.12.0',
                                           definition='Beschermlaag van de lichtmast.',
                                           owner=self)

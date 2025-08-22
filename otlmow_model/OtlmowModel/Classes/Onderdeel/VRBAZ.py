@@ -21,7 +21,7 @@ class VRBAZ(VRModuleZFirmware):
                                   naam='merk',
                                   label='merk',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRBAZ.merk',
-                                  usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                  usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                   deprecated_version='2.12.0',
                                   definition='De merknaam van de VR-BAZ.',
                                   owner=self)
@@ -30,7 +30,7 @@ class VRBAZ(VRModuleZFirmware):
                                        naam='modelnaam',
                                        label='modelnaam',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRBAZ.modelnaam',
-                                       usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                       usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                        deprecated_version='2.12.0',
                                        definition='De modelnaam van de VR-BAZ.',
                                        owner=self)

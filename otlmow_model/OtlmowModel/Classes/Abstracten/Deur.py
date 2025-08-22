@@ -29,7 +29,7 @@ class Deur(Toegangselement):
                                                  naam='afmetingDeuropening',
                                                  label='afmeting deuropening',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.afmetingDeuropening',
-                                                 usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                                 usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                                  deprecated_version='2.9.0',
                                                  definition='Afmeting van de vrije ruimte die ontstaat wanneer de deur volledig geopend is.',
                                                  owner=self)
@@ -38,7 +38,7 @@ class Deur(Toegangselement):
                                             naam='brandweerstand',
                                             label='brandweerstand',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.brandweerstand',
-                                            usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                            usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                             deprecated_version='2.9.0',
                                             definition='Brandwerendheid is een maat voor de tijd die een constructie heeft voor dat deze bezwijkt onder invloed van een brand.',
                                             owner=self)
@@ -47,7 +47,7 @@ class Deur(Toegangselement):
                                      naam='breedte',
                                      label='breedte',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.breedte',
-                                     usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                     usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                      deprecated_version='2.9.0',
                                      definition='De afmeting van de rechtopstaande deur gemeten van de ene zijkant naar de andere.',
                                      owner=self)
@@ -56,7 +56,7 @@ class Deur(Toegangselement):
                                    naam='dikte',
                                    label='dikte',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.dikte',
-                                   usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                   usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                    deprecated_version='2.9.0',
                                    definition='De dikte van de deur gemeten van de ene buitenzijde van de deur tot de andere.',
                                    owner=self)
@@ -65,7 +65,7 @@ class Deur(Toegangselement):
                                        naam='fabrikant',
                                        label='fabrikant',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.fabrikant',
-                                       usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                       usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                        deprecated_version='2.9.0',
                                        definition='Naam van de producent van de deur.',
                                        owner=self)
@@ -74,7 +74,7 @@ class Deur(Toegangselement):
                                            naam='handgreeptype',
                                            label='handgreeptype',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.handgreeptype',
-                                           usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                           usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                            deprecated_version='2.9.0',
                                            definition='Soort greep aan waarmee de deur geopend wordt.',
                                            owner=self)
@@ -83,7 +83,7 @@ class Deur(Toegangselement):
                                               naam='heeftDeurcontact',
                                               label='heeft deurcontact',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.heeftDeurcontact',
-                                              usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                              usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                               deprecated_version='2.9.0',
                                               definition='Geeft aan of de deur voorzien is van een contact dat bewaakt of de deur open of dicht is.',
                                               owner=self)
@@ -92,7 +92,7 @@ class Deur(Toegangselement):
                                     naam='hoogte',
                                     label='hoogte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.hoogte',
-                                    usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                    usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                     deprecated_version='2.9.0',
                                     definition='De afmeting van de rechtopstaande deur gemeten van de onderkant tot de bovenkant.',
                                     owner=self)
@@ -101,7 +101,7 @@ class Deur(Toegangselement):
                                             naam='isZelfsluitend',
                                             label='is zelfsluitend',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.isZelfsluitend',
-                                            usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                            usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                             deprecated_version='2.9.0',
                                             definition='Geeft aan of de deur voorzien is van een mechanisme dat er voor zorgt dat de deur sluit zonder tussenkomst van een gebruiker.',
                                             owner=self)
@@ -110,7 +110,7 @@ class Deur(Toegangselement):
                                                naam='ophangconstructie',
                                                label='ophangconstructie',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.ophangconstructie',
-                                               usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                               usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                                deprecated_version='2.9.0',
                                                definition='Documentatie met betrekking tot de manier waarop de deur met het kozijn bevestigd is aan de ruimte waartoe ze toegang biedt.',
                                                owner=self)
@@ -119,7 +119,7 @@ class Deur(Toegangselement):
                                            naam='sluitingstijd',
                                            label='sluitingstijd',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Deur.sluitingstijd',
-                                           usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                           usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                            deprecated_version='2.9.0',
                                            definition='Duurtijd voor het automatische sluiten van een zelfsluitende deur die volledig open staat.',
                                            owner=self)

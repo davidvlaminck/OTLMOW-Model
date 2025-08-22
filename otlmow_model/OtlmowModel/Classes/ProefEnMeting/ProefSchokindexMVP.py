@@ -25,7 +25,7 @@ class ProefSchokindexMVP(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                            naam='schokindexMvp',
                                            label='schokindex mvp',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefSchokindexMVP.schokindexMvp',
-                                           usagenote='Klasse uit gebruik sinds versie 2.0.0 ',
+                                           usagenote='Klasse uit gebruik sinds versie 2.0.0',
                                            deprecated_version='2.0.0',
                                            definition='Head Injury Criterium (HIC) van een motorvangplank.',
                                            owner=self)

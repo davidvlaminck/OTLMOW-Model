@@ -1,12 +1,13 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Luchtkwaliteittoestel import Luchtkwaliteittoestel
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlAlgIngressProtectionCode import KlAlgIngressProtectionCode
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel):
+class LuchtkwaliteitZenderOntvanger(Luchtkwaliteittoestel, NaampadObject):
     """Onderdeel van de luchtkwaliteitsensor dat het signaal uitstuurt en ontvangt op basis waarvan de luchtkwaliteit gemeten wordt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LuchtkwaliteitZenderOntvanger'

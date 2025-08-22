@@ -28,7 +28,7 @@ class Kokercomplex(AIMNaamObject, LijnGeometrie, VlakGeometrie):
                                                            naam='ligtFunderingInOpRandWaterweg',
                                                            label='ligt fundering in of op de rand van de waterweg',
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokercomplex.ligtFunderingInOpRandWaterweg',
-                                                           usagenote='Attribuut uit gebruik sinds versie 2.11.0 ',
+                                                           usagenote='Attribuut uit gebruik sinds versie 2.11.0',
                                                            deprecated_version='2.11.0',
                                                            definition='Geeft aan of de fundering van het landhoofd in of op de rand van de waterweg ligt.',
                                                            owner=self)
@@ -37,7 +37,7 @@ class Kokercomplex(AIMNaamObject, LijnGeometrie, VlakGeometrie):
                                                             naam='ligtFunderingsaanzetOnderBodem',
                                                             label='ligt funderingsaanzet onder de bodem',
                                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokercomplex.ligtFunderingsaanzetOnderBodem',
-                                                            usagenote='Attribuut uit gebruik sinds versie 2.11.0 ',
+                                                            usagenote='Attribuut uit gebruik sinds versie 2.11.0',
                                                             deprecated_version='2.11.0',
                                                             definition='Geeft aan of de funderingsaanzet al dan niet onder de bodem ligt.',
                                                             owner=self)

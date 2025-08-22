@@ -22,7 +22,7 @@ class VRModuleMetFirmware(FirmwareObject, VerkeersregelaarModule):
                                   naam='merk',
                                   label='merk',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VRModuleMetFirmware.merk',
-                                  usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
+                                  usagenote='Attribuut uit gebruik sinds versie 2.12.0',
                                   deprecated_version='2.12.0',
                                   definition='Het merk van de VR module met Firmware.',
                                   owner=self)

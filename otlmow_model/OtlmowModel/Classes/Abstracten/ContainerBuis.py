@@ -25,7 +25,7 @@ class ContainerBuis(ABC):
                                    naam='kleur',
                                    label='kleur',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ContainerBuis.kleur',
-                                   usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                   usagenote='Klasse uit gebruik sinds versie 2.8.0',
                                    deprecated_version='2.8.0',
                                    kardinaliteit_max='*',
                                    definition='De kleur van de coating.',

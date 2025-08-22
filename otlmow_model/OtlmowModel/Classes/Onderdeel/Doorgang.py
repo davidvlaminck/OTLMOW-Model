@@ -25,7 +25,7 @@ class Doorgang(AIMObject, PuntGeometrie):
                                              naam='technischeFiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Doorgang.technischeFiche',
-                                             usagenote='Klasse uit gebruik sinds versie 2.1.0 ',
+                                             usagenote='Klasse uit gebruik sinds versie 2.1.0',
                                              deprecated_version='2.1.0',
                                              definition='Document waarin onder andere het inplantingsplan van de doorgang wordt weergegeven.',
                                              owner=self)
@@ -34,7 +34,7 @@ class Doorgang(AIMObject, PuntGeometrie):
                                   naam='type',
                                   label='type',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Doorgang.type',
-                                  usagenote='Klasse uit gebruik sinds versie 2.1.0 ',
+                                  usagenote='Klasse uit gebruik sinds versie 2.1.0',
                                   deprecated_version='2.1.0',
                                   definition='Bepaling van het type van doorgang (sas, nooddeur) (voorlopig opgenomen in figuur 8-4-1).',
                                   owner=self)

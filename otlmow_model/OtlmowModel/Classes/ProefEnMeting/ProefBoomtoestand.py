@@ -41,7 +41,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                          naam='basiswaarde',
                                          label='basiswaarde',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.basiswaarde',
-                                         usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                         usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                          deprecated_version='2.12.0',
                                          definition='Het schriftelijk verslag dat na onderzoek of visuele controle wordt opgemaakt.',
                                          owner=self)
@@ -50,7 +50,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                                  naam='conditiebeoordeling',
                                                  label='conditiebeoordeling',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.conditiebeoordeling',
-                                                 usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                                 usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                                  deprecated_version='2.12.0',
                                                  definition='De conditie beoordeeld volgens de kronenstructuur van Dr. A. Roloff, gelet op de scheutlengte ontwikkeling en vorming van dood hout.',
                                                  owner=self)
@@ -59,7 +59,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                             naam='conditiewaarde',
                                             label='conditiewaarde',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.conditiewaarde',
-                                            usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                            usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                             deprecated_version='2.12.0',
                                             definition='Een coëfficiënt die iets vertelt over de gezondheidstoestand (vitaliteit, conditie) en de levensverwachting van een boom.',
                                             owner=self)
@@ -68,7 +68,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                         naam='conflicten',
                                         label='conflicten',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.conflicten',
-                                        usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                        usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                         deprecated_version='2.12.0',
                                         definition='Mogelijke standplaatsconflicten die de condities of structuur van de boom negatief kunnen beïnvloeden.',
                                         owner=self)
@@ -77,7 +77,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                       naam='gebreken',
                                       label='gebreken',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.gebreken',
-                                      usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                      usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                       deprecated_version='2.12.0',
                                       kardinaliteit_max='*',
                                       definition='Een visueel defect aan een boom wat dient gemonitord te worden.',
@@ -87,7 +87,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                            naam='kroonDiameter',
                                            label='kroondiameter',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.kroonDiameter',
-                                           usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                           usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                            deprecated_version='2.12.0',
                                            definition='Diameter van de kroonprojectie in meter.',
                                            owner=self)
@@ -96,7 +96,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                             naam='krooninspectie',
                                             label='krooninspectie',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.krooninspectie',
-                                            usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                            usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                             deprecated_version='2.12.0',
                                             definition='Controle van gebrekssymptomen in de kroon.',
                                             owner=self)
@@ -105,7 +105,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                         naam='meerwaarde',
                                         label='meerwaarde',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.meerwaarde',
-                                        usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                        usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                         deprecated_version='2.12.0',
                                         definition='Mogelijkheid om de boom een waarde toe te kennen op basis van hun uitzonderlijke ecologische of erfgoedwaarde .',
                                         owner=self)
@@ -114,7 +114,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                                 naam='onderhoudstoestand',
                                                 label='onderhoudstoestand',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.onderhoudstoestand',
-                                                usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                                usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                                 deprecated_version='2.12.0',
                                                 definition='De toestand van een boom die de eventuele snoeiachterstand aangeeft.',
                                                 owner=self)
@@ -123,7 +123,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                                           naam='onderzoekVisueleBoomcontrole',
                                                           label='onderzoek visuele boomcontrole',
                                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.onderzoekVisueleBoomcontrole',
-                                                          usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                                          usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                                           deprecated_version='2.12.0',
                                                           definition='Visueel bepalen van de veiligheid en conditie van een boom.',
                                                           owner=self)
@@ -132,7 +132,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                               naam='plantwijzewaarde',
                                               label='plantwijzewaarde',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.plantwijzewaarde',
-                                              usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                              usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                               deprecated_version='2.12.0',
                                               definition='Een factor die de ontwikkeling van het uiterlijk (de habitus) van een boom relateert met de manier waarop hij geplant wordt.',
                                               owner=self)
@@ -141,7 +141,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                                  naam='rapportageOnderzoek',
                                                  label='rapportage onderzoek',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.rapportageOnderzoek',
-                                                 usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                                 usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                                  deprecated_version='2.12.0',
                                                  definition='Het schriftelijk verslag dat na onderzoek of visuele controle wordt opgemaakt.',
                                                  owner=self)
@@ -150,7 +150,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                          naam='soortwaarde',
                                          label='soortwaarde',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.soortwaarde',
-                                         usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                         usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                          deprecated_version='2.12.0',
                                          definition='Geeft voor een bepaalde boomsoort of -variëteit de verhouding weer tussen de prijs per cm² van die soort en de eenheidsprijs.',
                                          owner=self)
@@ -159,7 +159,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                         naam='stamomtrek',
                                         label='stamomtrek',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.stamomtrek',
-                                        usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                        usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                         deprecated_version='2.12.0',
                                         definition='Omtrek van de stam van de boom in cm, gemeten op 1 meter boven de grond.',
                                         owner=self)
@@ -168,7 +168,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                                naam='standplaatswaarde',
                                                label='standplaatswaarde',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.standplaatswaarde',
-                                               usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                               usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                                deprecated_version='2.12.0',
                                                definition='De waarde van de boom afhankelijk van de bebouwingsdichtheid en de aanplantingsmogelijkheden rondom en voor de boom.',
                                                owner=self)
@@ -177,7 +177,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                                      naam='tijdstempelBoomtoestand',
                                                      label='tijdstempel boomtoestand',
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.tijdstempelBoomtoestand',
-                                                     usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                                     usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                                      deprecated_version='2.12.0',
                                                      definition='Datum van laatste snoeibeurt.',
                                                      owner=self)
@@ -186,7 +186,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                                        naam='uitgebreidPlaatsonderzoek',
                                                        label='uitgebreid plaatsonderzoek',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.uitgebreidPlaatsonderzoek',
-                                                       usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                                       usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                                        deprecated_version='2.12.0',
                                                        definition='Grondige beoordeling van de textuur en structuur van de bodem, met als doel een voorstel tot conditieverbeterende maatregelen.',
                                                        owner=self)
@@ -195,7 +195,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
                                              naam='wortelonderzoek',
                                              label='Wortelonderzoek',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand.wortelonderzoek',
-                                             usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                             usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                              deprecated_version='2.12.0',
                                              definition='Bepalen van de kwaliteit van de wortels (bv. aantasting door schimmels) of het bepalen van de reikwijdte van de wortels (bv. om een wortelbeschermingszone op te zetten in de buurt van werken van de bomen).',
                                              owner=self)

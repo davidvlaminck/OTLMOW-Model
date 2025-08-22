@@ -28,7 +28,7 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
                                          naam='meetrapport',
                                          label='meetrapport',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus.meetrapport',
-                                         usagenote='Attribuut uit gebruik sinds versie 2.9.0 ',
+                                         usagenote='Attribuut uit gebruik sinds versie 2.9.0 .Bestanden van het type pdf.',
                                          deprecated_version='2.9.0',
                                          definition='De elektrische eigenschappen van de lus: R, L, C en de isolatieweerstand. Dit verzekert naast de afmetingen mee de voorziene nauwkeurigheid van de voertuigmetingen.',
                                          owner=self)
@@ -37,7 +37,7 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
                                               naam='uitslijprichting',
                                               label='uitslijprichting',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus.uitslijprichting',
-                                              usagenote='Attribuut uit gebruik sinds versie 2.9.0 ',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.9.0',
                                               deprecated_version='2.9.0',
                                               definition='De uitlopers van de lus gaan naar links of naar rechts bekeken ten opzichte van de rijrichting.',
                                               owner=self)
@@ -46,7 +46,7 @@ class MIVLus(AIMNaamObject, LijnGeometrie):
                                            naam='zichtbaarheid',
                                            label='zichtbaarheid',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVLus.zichtbaarheid',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.9.0 ',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.9.0',
                                            deprecated_version='2.9.0',
                                            definition='Is dus lus zichtbaar in het wegdek of bedekt door een toplaag.',
                                            owner=self)

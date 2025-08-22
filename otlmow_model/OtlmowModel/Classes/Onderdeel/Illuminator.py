@@ -13,7 +13,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Illuminator(AIMNaamObject, PuntGeometrie):
-    """Een verlichtingscomponent gekoppeld aan een camera dat dient om voldoende belichting te bieden voor het detecteren en herkennen van oa. voertuigen, vaak door gebruik van infraroodlicht zodat de flits onzichtbaar is voor het menselijk oog."""
+    """Een verlichtingscomponent gekoppeld aan een camera dat dient om voldoende belichting te bieden voor het detecteren en herkennen van oa. voertuigen,vaak door gebruik van infraroodlicht zodat de flits onzichtbaar is voor het menselijk oog."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Illuminator'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -44,7 +44,7 @@ class Illuminator(AIMNaamObject, PuntGeometrie):
                                              naam='plaatsingsdatum',
                                              label='plaatsingsdatum',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Illuminator.plaatsingsdatum',
-                                             definition='De datum waarop de illuminator fysiek is geïnstalleerd of gemonteerd op de beoogde locatie.',
+                                             definition='De datum waarop de illuminator fysiek is geïnstalleerd of vervangen op een locatie.',
                                              owner=self)
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
@@ -83,7 +83,7 @@ class Illuminator(AIMNaamObject, PuntGeometrie):
 
     @property
     def plaatsingsdatum(self) -> date:
-        """De datum waarop de illuminator fysiek is geïnstalleerd of gemonteerd op de beoogde locatie."""
+        """De datum waarop de illuminator fysiek is geïnstalleerd of vervangen op een locatie."""
         return self._plaatsingsdatum.get_waarde()
 
     @plaatsingsdatum.setter

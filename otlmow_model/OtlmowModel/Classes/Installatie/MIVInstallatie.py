@@ -33,7 +33,7 @@ class MIVInstallatie(NaampadObject, PuntGeometrie, VlakGeometrie):
                                        naam='lusConfig',
                                        label='lus config',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie.lusConfig',
-                                       usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                       usagenote='Klasse uit gebruik sinds versie 2.9.0 .Bestanden van het type xlsx.',
                                        deprecated_version='2.9.0',
                                        definition='Een definierende tabel die relatie legt tussen meetpuntnummer lusvolgorde nummer en de GPS locatie.',
                                        owner=self)
@@ -42,7 +42,7 @@ class MIVInstallatie(NaampadObject, PuntGeometrie, VlakGeometrie):
                                                     naam='technischeDocumentatie',
                                                     label='technische documentatie',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie.technischeDocumentatie',
-                                                    usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                                    usagenote='Klasse uit gebruik sinds versie 2.9.0 .Bestanden van het type pdf.',
                                                     deprecated_version='2.9.0',
                                                     definition='Documentatie van de onderdelen: LVE / luskaart / communicatiekaart, configurator, ...',
                                                     owner=self)
@@ -51,7 +51,7 @@ class MIVInstallatie(NaampadObject, PuntGeometrie, VlakGeometrie):
                                   naam='type',
                                   label='type MIV installatie',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MIVInstallatie.type',
-                                  usagenote='Klasse uit gebruik sinds versie 2.9.0 ',
+                                  usagenote='Klasse uit gebruik sinds versie 2.9.0',
                                   deprecated_version='2.9.0',
                                   definition='Het type volgens de gebruikte technologie en inzet in een groter geheel.',
                                   owner=self)

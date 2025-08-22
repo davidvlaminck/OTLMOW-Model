@@ -42,7 +42,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                           naam='isWaterdicht',
                                           label='is waterdicht',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.isWaterdicht',
-                                          usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                          usagenote='Klasse uit gebruik sinds versie 2.8.0',
                                           deprecated_version='2.8.0',
                                           definition='Geeft aan of de damwand al dan niet waterdicht is.',
                                           owner=self)
@@ -51,7 +51,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                        naam='materiaal',
                                        label='materiaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.materiaal',
-                                       usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                       usagenote='Klasse uit gebruik sinds versie 2.8.0',
                                        deprecated_version='2.8.0',
                                        definition='Het materiaal waaruit de damwand bestaat.',
                                        owner=self)
@@ -60,7 +60,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                          naam='oppervlakte',
                                          label='oppervlakte',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.oppervlakte',
-                                         usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                         usagenote='Klasse uit gebruik sinds versie 2.8.0',
                                          deprecated_version='2.8.0',
                                          definition='De totale oppervlakte van de damwandconstructie in vierkante meter.',
                                          owner=self)
@@ -69,7 +69,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                            naam='profiellengte',
                                            label='profiellengte',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.profiellengte',
-                                           usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                           usagenote='Klasse uit gebruik sinds versie 2.8.0',
                                            deprecated_version='2.8.0',
                                            definition='De lengte van één damwandprofiel.',
                                            owner=self)
@@ -78,7 +78,7 @@ class Damwand(ConstructieElement, LijnGeometrie):
                                           naam='totaleLengte',
                                           label='totale lengte',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Damwand.totaleLengte',
-                                          usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                          usagenote='Klasse uit gebruik sinds versie 2.8.0',
                                           deprecated_version='2.8.0',
                                           definition='De totale lengte van de damwandconstructie in lopende meter.',
                                           owner=self)

@@ -26,7 +26,7 @@ class Baanlichaam(AIMObject, VlakGeometrie):
                                           naam='dwarsprofiel',
                                           label='dwarsprofiel',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Baanlichaam.dwarsprofiel',
-                                          usagenote='Klasse uit gebruik sinds versie 2.11.0 ',
+                                          usagenote='Klasse uit gebruik sinds versie 2.11.0 .Bestanden van het type xlsx, dwg of pdf.',
                                           deprecated_version='2.11.0',
                                           definition='Een dwarsprofiel is een doorsnijding van een terrein of constructie met een verticaal vlak, aangebracht loodrecht op de as ervan.',
                                           owner=self)
@@ -35,7 +35,7 @@ class Baanlichaam(AIMObject, VlakGeometrie):
                                                 naam='horizontaleLigging',
                                                 label='horizontale ligging',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Baanlichaam.horizontaleLigging',
-                                                usagenote='Klasse uit gebruik sinds versie 2.11.0 ',
+                                                usagenote='Klasse uit gebruik sinds versie 2.11.0 .Bestanden van het type xlsx, dwg of pdf.',
                                                 deprecated_version='2.11.0',
                                                 definition='De horizontale ligging van het baanlichaam als document bijlage.',
                                                 owner=self)
@@ -44,7 +44,7 @@ class Baanlichaam(AIMObject, VlakGeometrie):
                                           naam='langsprofiel',
                                           label='langsprofiel',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Baanlichaam.langsprofiel',
-                                          usagenote='Klasse uit gebruik sinds versie 2.11.0 ',
+                                          usagenote='Klasse uit gebruik sinds versie 2.11.0 .Bestanden van het type xlsx, dwg of pdf.',
                                           deprecated_version='2.11.0',
                                           definition='Een langsprofiel is een doorsnijding van een terrein of constructie met een verticaal vlak, aangebracht in de lengterichting van de as ervan.',
                                           owner=self)

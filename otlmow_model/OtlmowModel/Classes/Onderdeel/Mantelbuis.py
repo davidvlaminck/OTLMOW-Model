@@ -29,7 +29,7 @@ class Mantelbuis(Buis, ContainerBuis):
                                        naam='materiaal',
                                        label='materiaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Mantelbuis.materiaal',
-                                       usagenote='Klasse uit gebruik sinds versie 2.8.0 ',
+                                       usagenote='Klasse uit gebruik sinds versie 2.8.0',
                                        deprecated_version='2.8.0',
                                        definition='Bepaalt het materiaal van de mantelbuis.',
                                        owner=self)

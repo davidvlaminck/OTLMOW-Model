@@ -100,7 +100,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
                                              naam='technischeFiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcBetonspecificaties.technischeFiche',
-                                             usagenote='Attribuut uit gebruik sinds versie 2.5.0 ',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.5.0',
                                              deprecated_version='2.5.0',
                                              definition='De technische fiche van het beton. Deze moet volgende eigenschappen bevatten: de norm waaraan het beton voldoet, de sterkteklasse, de duurzaamheid (bestaande uit het gebruiksdomein en de omgevingsklasse(n)), de consistentieklasse, de nominale grootste korrelafmeting,...',
                                              owner=self)

@@ -1,12 +1,13 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Brandvoorziening import Brandvoorziening
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KwantWrdInBar import KwantWrdInBar, KwantWrdInBarWaarden
 from ...Datatypes.KwantWrdInKiloWatt import KwantWrdInKiloWatt, KwantWrdInKiloWattWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Drukverhogingsgroep(Brandvoorziening):
+class Drukverhogingsgroep(Brandvoorziening, NaampadObject):
     """Onderdeel dat de druk van het aangevoerde water regelt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Drukverhogingsgroep'

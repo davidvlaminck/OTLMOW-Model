@@ -2831,6 +2831,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contourverlichting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Datakabel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Deur",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Drukverhogingsgroep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordExternePU",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordOpMaat",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordPK",
@@ -2850,10 +2851,12 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#InwendigVerlichtPictogram",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtsensor",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LuchtkwaliteitZenderOntvanger",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Luidspreker",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetmicrofoon",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietSelectieveDetectielus",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Noodverlichtingstoestel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omvormer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PoEInjector",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pomp",
@@ -2866,6 +2869,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontrole",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontroller",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VentilatieAfsluitklep",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ventilator",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WazeBeacon",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ZuilTGC"
             ]

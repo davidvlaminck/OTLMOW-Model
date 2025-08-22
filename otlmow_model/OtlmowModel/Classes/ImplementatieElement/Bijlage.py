@@ -24,7 +24,7 @@ class Bijlage(AbstracteAanvullendeGeometrie, GeenGeometrie):
                                   naam='type',
                                   label='type',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Bijlage.type',
-                                  usagenote='Klasse uit gebruik sinds versie 2.13.0 ',
+                                  usagenote='Klasse uit gebruik sinds versie 2.13.0',
                                   deprecated_version='2.13.0',
                                   kardinaliteit_max='*',
                                   definition='De typering of categorie van de bijlage.',

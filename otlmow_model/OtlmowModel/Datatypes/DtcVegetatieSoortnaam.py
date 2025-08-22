@@ -29,7 +29,7 @@ class DtcVegetatieSoortnaamWaarden(WaardenObject):
                                                        naam='soortnaamWetenschappelijk',
                                                        label='soortnaam wetenschappelijk',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcVegetatieSoortnaam.soortnaamWetenschappelijk',
-                                                       usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
+                                                       usagenote='Attribuut uit gebruik sinds versie 2.12.0',
                                                        deprecated_version='2.12.0',
                                                        definition='De wetenschappelijke soortnaam van de beplanting.',
                                                        owner=self)

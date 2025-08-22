@@ -10,7 +10,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Golfplaat(AIMNaamObject, PuntGeometrie, LijnGeometrie, VlakGeometrie):
-    """Dit is een gegolfd constructie-element van metaal of kunststof, gebruikt in bouw- en infrastructuurprojecten zoals tunnels en duikers. Het biedt verhoogde stijfheid en sterkte en verdeelt belastingen en spanningen efficiënt."""
+    """Dit is een gegolfd constructie-element van metaal of kunststof,gebruikt in bouw- en infrastructuurprojecten zoals tunnels en duikers. Het biedt verhoogde stijfheid en sterkte en verdeelt belastingen en spanningen efficiënt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Golfplaat'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -20,6 +20,7 @@ class Golfplaat(AIMNaamObject, PuntGeometrie, LijnGeometrie, VlakGeometrie):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wand', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#WaterdoorvoerendeDuiker', direction='o')  # o = direction: outgoing
 
         self._materiaal = OTLAttribuut(field=KlMateriaalGolfplaat,
                                        naam='materiaal',

@@ -22,7 +22,7 @@ class Aardingspen(AIMNaamObject, PuntGeometrie):
                                     naam='lengte',
                                     label='lengte',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aardingspen.lengte',
-                                    usagenote='Attribuut uit gebruik sinds versie 2.7.0 ',
+                                    usagenote='Attribuut uit gebruik sinds versie 2.7.0',
                                     deprecated_version='2.7.0',
                                     definition='De totale lengte van de aardingspen.',
                                     owner=self)

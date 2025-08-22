@@ -152,7 +152,7 @@ class Laagspanningsbord(AIMNaamObject, PuntGeometrie):
                                       naam='vermogen',
                                       label='vermogen',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord.vermogen',
-                                      usagenote='Attribuut uit gebruik sinds versie 2.7.0 ',
+                                      usagenote='Attribuut uit gebruik sinds versie 2.7.0',
                                       deprecated_version='2.7.0',
                                       definition='Het vermogen van het laagspanningsbord.',
                                       owner=self)

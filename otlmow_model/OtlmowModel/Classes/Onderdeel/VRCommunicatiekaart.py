@@ -23,7 +23,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
                                      naam='dnsNaam',
                                      label='DNS naam',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRCommunicatiekaart.dnsNaam',
-                                     usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                     usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                      deprecated_version='2.12.0',
                                      definition='De DNSNaam (ook "volledige domein naam" genoemd ) is een unieke naam binnen het Domain Name System (DNS), het naamgevingssysteem waarmee computers, webservers, diensten en toepassing op een unieke manier kunnen worden geïdentificeerd. Deze bevat zowel de hostname en de top level domein naam bv. 120c8-ar1.belfa.be.',
                                      owner=self)
@@ -32,7 +32,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
                                              naam='heeftSmartguard',
                                              label='heeft smartguard',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRCommunicatiekaart.heeftSmartguard',
-                                             usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                             usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                              deprecated_version='2.12.0',
                                              definition='Smartguard aanwezig?',
                                              owner=self)
@@ -41,7 +41,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
                                      naam='ipAdres',
                                      label='ipv4 adres',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRCommunicatiekaart.ipAdres',
-                                     usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                     usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                      deprecated_version='2.12.0',
                                      definition='IP-adres.',
                                      owner=self)
@@ -50,7 +50,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
                                             naam='telefoonnummer',
                                             label='telefoonnummer',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRCommunicatiekaart.telefoonnummer',
-                                            usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                            usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                             deprecated_version='2.12.0',
                                             definition='Telefoonnummer.',
                                             owner=self)
@@ -59,7 +59,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
                                           naam='typeGeheugen',
                                           label='type geheugen',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRCommunicatiekaart.typeGeheugen',
-                                          usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                          usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                           deprecated_version='2.12.0',
                                           definition='Type opslaggeheugen op de aanwezige SD-kaart.',
                                           owner=self)
@@ -68,7 +68,7 @@ class VRCommunicatiekaart(VRModuleMetFirmware):
                                         naam='uitvoering',
                                         label='uitvoering',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRCommunicatiekaart.uitvoering',
-                                        usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                        usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                         deprecated_version='2.12.0',
                                         definition='Type van communicatiekaart.',
                                         owner=self)

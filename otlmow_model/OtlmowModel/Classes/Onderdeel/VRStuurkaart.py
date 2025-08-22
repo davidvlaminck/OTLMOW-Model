@@ -20,7 +20,7 @@ class VRStuurkaart(VRModuleMetFirmware):
                                                   naam='communicatieprotocol',
                                                   label='communicatieprotocol',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VRStuurkaart.communicatieprotocol',
-                                                  usagenote='Klasse uit gebruik sinds versie 2.12.0 ',
+                                                  usagenote='Klasse uit gebruik sinds versie 2.12.0',
                                                   deprecated_version='2.12.0',
                                                   definition='Gebruikte communicatieprotocol voor de stuurkaart.',
                                                   owner=self)

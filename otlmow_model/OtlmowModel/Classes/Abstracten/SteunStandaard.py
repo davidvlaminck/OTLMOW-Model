@@ -74,7 +74,7 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
                                           naam='beschermlaag',
                                           label='beschermlaag',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard.beschermlaag',
-                                          usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
+                                          usagenote='Attribuut uit gebruik sinds versie 2.12.0',
                                           deprecated_version='2.12.0',
                                           definition='Type bescherming van de steun, bv. geschilderd of gegalvaniseerd.',
                                           owner=self)

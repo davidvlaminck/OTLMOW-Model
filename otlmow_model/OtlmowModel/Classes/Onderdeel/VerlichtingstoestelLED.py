@@ -46,7 +46,7 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
                                            naam='armatuurkleur',
                                            label='armatuurkleur',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.armatuurkleur',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0',
                                            deprecated_version='2.3.0',
                                            definition='De kleur van de zichtbare buitenkant van het verlichtingstoestel.',
                                            owner=self)
@@ -132,7 +132,7 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
                                            naam='tussenAfstand',
                                            label='tussen afstand',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.tussenAfstand',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.4.0 ',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.4.0',
                                            deprecated_version='2.4.0',
                                            definition='Afstand tussen de verschillende LED verlichtingstoestellen.',
                                            owner=self)

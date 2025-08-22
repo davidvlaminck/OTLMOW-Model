@@ -50,7 +50,7 @@ class Badgelezer(ElektrischComponentennummerObject, FirmwareObject, SerienummerO
                                                  naam='configuratiebestand',
                                                  label='configuratiebestand',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Badgelezer.configuratiebestand',
-                                                 usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
+                                                 usagenote='Attribuut uit gebruik sinds versie 2.8.0',
                                                  deprecated_version='2.8.0',
                                                  definition='Bestand dat de configuratie gegevens van de badgelezer bijhoudt.',
                                                  owner=self)

@@ -62,7 +62,7 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
                                       naam='protocol',
                                       label='protocol',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar.protocol',
-                                      usagenote='Attribuut uit gebruik sinds versie 2.15.0 ',
+                                      usagenote='Attribuut uit gebruik sinds versie 2.15.0',
                                       deprecated_version='2.15.0',
                                       definition='Naam van het protocol waarmee gecommuniceerd wordt tussen PT-regelaar en verkeersregelaar.',
                                       owner=self)

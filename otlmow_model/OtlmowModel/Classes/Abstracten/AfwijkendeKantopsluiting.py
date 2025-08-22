@@ -48,7 +48,7 @@ class AfwijkendeKantopsluiting(Kantopsluiting):
                                                       naam='technischeFicheAfwijking',
                                                       label='technische fiche afwijking',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AfwijkendeKantopsluiting.technischeFicheAfwijking',
-                                                      usagenote='Attribuut uit gebruik sinds versie 2.9.0 ',
+                                                      usagenote='Attribuut uit gebruik sinds versie 2.9.0 .Bestanden van het type xlsx of pdf.',
                                                       deprecated_version='2.9.0',
                                                       kardinaliteit_max='*',
                                                       definition='De technische fiche van de afwijkende kantopsluiting.',

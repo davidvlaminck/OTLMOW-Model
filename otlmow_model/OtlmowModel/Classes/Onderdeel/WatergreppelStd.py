@@ -25,7 +25,7 @@ class WatergreppelStd(GestandaardiseerdeKantopsluiting):
                                         naam='isVerholen',
                                         label='is verholen',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WatergreppelStd.isVerholen',
-                                        usagenote='Attribuut uit gebruik sinds versie 2.14.0 ',
+                                        usagenote='Attribuut uit gebruik sinds versie 2.14.0',
                                         deprecated_version='2.14.0',
                                         definition='Aanduiding of de watergreppel verholen is. Verholen goten hebben een kleine sleufopening en een grote afvoercapaciteit.',
                                         owner=self)

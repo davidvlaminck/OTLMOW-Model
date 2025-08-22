@@ -2,6 +2,7 @@
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Ventilatie import Ventilatie
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlVentilatorGebruik import KlVentilatorGebruik
 from ...Datatypes.KlVentilatorRichting import KlVentilatorRichting
@@ -9,7 +10,7 @@ from ...Datatypes.KwantWrdInProcent import KwantWrdInProcent, KwantWrdInProcentW
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ventilator(Ventilatie):
+class Ventilator(Ventilatie, NaampadObject):
     """Onderdeel voor het creëren van luchtcirculatie binnen een open of gesloten ruimte met het oog op het vervangen van vervuilde door zuivere lucht. Voor een gesloten ruimte kan de luchtcirculatie ook zorgen voor afkoeling."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ventilator'
@@ -45,7 +46,7 @@ class Ventilator(Ventilatie):
                                                     naam='heeftTemperatuurmeting',
                                                     label='heeft temperatuurmeting',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ventilator.heeftTemperatuurmeting',
-                                                    definition='Geeft aan of de ventilator uitgerust is met temperatuurmeting.',
+                                                    definition='Geeft aan of de ventilator uitgerust is met temperatuurmeting die een beveiliging tegen oververhitting van de motor in normale omstandigheden garandeert.',
                                                     owner=self)
 
         self._heeftTrillingsmeting = OTLAttribuut(field=BooleanField,
@@ -92,7 +93,7 @@ class Ventilator(Ventilatie):
 
     @property
     def heeftTemperatuurmeting(self) -> bool:
-        """Geeft aan of de ventilator uitgerust is met temperatuurmeting."""
+        """Geeft aan of de ventilator uitgerust is met temperatuurmeting die een beveiliging tegen oververhitting van de motor in normale omstandigheden garandeert."""
         return self._heeftTemperatuurmeting.get_waarde()
 
     @heeftTemperatuurmeting.setter

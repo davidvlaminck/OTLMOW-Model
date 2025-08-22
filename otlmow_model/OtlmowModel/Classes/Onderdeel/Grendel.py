@@ -8,8 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Grendel(TechnischDocument, AIMNaamObject, PuntGeometrie):
-    """Een mechanisch onderdeel dat toelaat om een constructie of bewegend element in een gewenste positie te vergrendelen, meestal door middel van een schuif-, klem- of draaibeweging.
-"""
+    """Een mechanisch onderdeel dat toelaat om een constructie of bewegend element in een gewenste positie te vergrendelen, meestal door middel van een schuif-, klem- of draaibeweging. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grendel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

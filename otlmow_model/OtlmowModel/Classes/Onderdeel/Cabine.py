@@ -32,7 +32,7 @@ class Cabine(Inloopbehuizing, NaampadObject, PuntGeometrie, VlakGeometrie):
                                              naam='aardingsstelsel',
                                              label='aardingsstelsel',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine.aardingsstelsel',
-                                             usagenote='Attribuut uit gebruik sinds versie 2.7.0 ',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.7.0',
                                              deprecated_version='2.7.0',
                                              definition='Keuze tussen verschillende types voor het gebruikte aardingsstelsel.',
                                              owner=self)

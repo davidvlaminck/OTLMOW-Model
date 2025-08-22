@@ -25,7 +25,7 @@ class VerlichtingstoestelNaHP(Verlichtingstoestel, VerlichtingstoestelConnector)
                                            naam='armatuurkleur',
                                            label='armatuurkleur',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelNaHP.armatuurkleur',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0',
                                            deprecated_version='2.3.0',
                                            definition='De kleur van de zichtbare buitenkant van het verlichtingstoestel.',
                                            owner=self)

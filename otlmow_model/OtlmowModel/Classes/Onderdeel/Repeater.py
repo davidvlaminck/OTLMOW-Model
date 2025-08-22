@@ -38,7 +38,7 @@ class Repeater(ZenderOntvangerToegang):
                                         naam='toepassing',
                                         label='toepassing',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Repeater.toepassing',
-                                        usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
+                                        usagenote='Attribuut uit gebruik sinds versie 2.8.0',
                                         deprecated_version='2.8.0',
                                         definition='De techniek of standaard waarmee signalen over het netwerk verstuurd worden. Mogelijke waarden zijn onder andere: KAR, wifi, GPRS of GSM..',
                                         owner=self)
