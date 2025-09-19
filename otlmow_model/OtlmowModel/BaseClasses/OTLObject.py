@@ -187,8 +187,14 @@ class OTLAttribuut:
                 if self.field.validate(value=converted_value, attribuut=self):
                     self.waarde = converted_value
                 else:
+                    if owner is None and self.owner is not None and self.owner._parent is not None:
+                        raise ValueError(
+                            f'Could not assign the best effort converted value to {self.owner._parent.naam}.'
+                            f'{self.naam}. Value {value} is not valid (type: {self.field.label}')
+
                     raise ValueError(
-                        f'Could not assign the best effort converted value to {owner.__class__.__name__}.{self.naam}')
+                        f'Could not assign the best effort converted value to {owner.__class__.__name__}.{self.naam} '
+                        f'Value {value} is not valid (type: {self.field.label}')
 
         # check if kwant Wrd inside a union type, if so, call clear_props
         if (owner is not None and value is not None and hasattr(owner, 'field') and owner.field.waardeObject is not None
