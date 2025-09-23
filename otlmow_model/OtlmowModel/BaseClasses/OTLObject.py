@@ -353,9 +353,11 @@ class OTLObject(object):
     def __iter__(self) -> Generator[OTLAttribuut, None, None]:
         yield from sorted(filter(lambda v: isinstance(v, OTLAttribuut), (vars(self).values())), key=lambda x: x.naam)
 
-    def __eq__(self, other):
+    def __eq__(self, value) -> bool:
+        if value is None:
+            return False
         return (create_dict_from_asset(self, warn_for_non_otl_conform_attributes=False) ==
-                create_dict_from_asset(other, warn_for_non_otl_conform_attributes=False))
+                create_dict_from_asset(value, warn_for_non_otl_conform_attributes=False))
 
     def is_instance_of(self, otl_type: type, dynamic_created: bool = False, model_directory: Path = None):
         if dynamic_created:

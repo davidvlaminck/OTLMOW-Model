@@ -893,6 +893,14 @@ def test__eq__(subtests):
 
         assert not instance == instance2
 
+    with subtests.test(msg='None'):
+        instance = AllCasesTestClass()
+        instance.testStringField = 'test'
+
+        instance2 = None
+
+        assert not instance == instance2
+
 
 def test_to_dict_and_from_dict():
     instance = AllCasesTestClass()
