@@ -893,13 +893,18 @@ def test__eq__(subtests):
 
         assert not instance == instance2
 
+
+def test__eq__not_equal_to_none(subtests):
     with subtests.test(msg='None'):
         instance = AllCasesTestClass()
         instance.testStringField = 'test'
 
         instance2 = None
 
-        assert not instance == instance2
+        assert instance != instance2
+        assert instance2 != instance
+        assert instance2 is None
+        assert instance is not None
 
 
 def test_to_dict_and_from_dict():
