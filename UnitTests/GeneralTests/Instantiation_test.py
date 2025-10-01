@@ -1,7 +1,6 @@
-import concurrent
-import logging
+import time
 import os
-from concurrent.futures import ThreadPoolExecutor, ALL_COMPLETED
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import pytest
@@ -102,28 +101,53 @@ def test_instantiate_test_and_real_classes_using_dynamic_import():
 
 
 @pytest.mark.filterwarnings("ignore::DeprecationWarning")
-@pytest.mark.timeout(300)
+@pytest.mark.timeout(100)
 def test_instantiate_all_classes_using_class_dict():
-    classes_to_instantiate = [uri for uri, class_dict in get_hardcoded_class_dict().items() if not class_dict['abstract']]
-    # use multithreading
-    executor = ThreadPoolExecutor(8)
-    futures = [executor.submit(subtest_instantiate, uri=uri) for uri in classes_to_instantiate]
-    attempt = 5
-    while futures and attempt > 0:
-        attempt -= 1
-        done, not_done = concurrent.futures.wait(futures, return_when=ALL_COMPLETED, timeout=60)
-        futures = not_done
-        logging.info(f'{len(done)} done, {len(not_done)} not done')
-    assert not futures
+    # gather all non-abstract class URIs
+    uris = [uri for uri, class_dict in get_hardcoded_class_dict().items() if not class_dict['abstract']]
 
-def subtest_instantiate(uri: str, ):
-    try:
-        instance = dynamic_create_instance_from_uri(uri)
-        instance.fill_with_dummy_data()
-        if instance is None:
-            logging.info(f'instance is None for {uri}\n')
-            raise CouldNotCreateInstanceError(f'instance is None for {uri}')
-        print(f'successfully instantiated {uri}')
-    except Exception as e:
-        logging.info(f'could not create an instance for {uri}')
-        raise e
+    errors = []
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        future_to_uri = {
+            executor.submit(instantiate_with_retry, uri): uri
+            for uri in uris
+        }
+
+        for future in as_completed(future_to_uri, timeout=240):
+            uri = future_to_uri[future]
+            try:
+                # will re-raise if instantiate_with_retry exhausted its retries
+                future.result(timeout=60)
+            except Exception as exc:
+                errors.append((uri, exc))
+
+    if errors:
+        lines = [f"{u}: {type(e).__name__}: {e}" for u, e in errors]
+        pytest.fail(
+            "Failed to instantiate the following URIs after retries:\n"
+            + "\n".join(lines)
+        )
+
+
+def instantiate_with_retry(uri: str, retries: int = 5, delay: float = 0.1) -> object:
+    """
+    Try to instantiate and fill dummy data up to `retries` times.
+    Raises the final exception if all attempts fail.
+    """
+    for attempt in range(1, retries + 1):
+        try:
+            inst = dynamic_create_instance_from_uri(uri)
+            inst.fill_with_dummy_data()
+            if inst is None:
+                raise CouldNotCreateInstanceError(f"instance is None for {uri}")
+            return inst
+        except CouldNotCreateInstanceError as exc:
+            print(f"Attempt {attempt} for {uri} failed: {type(exc).__name__}: {exc}")
+            if attempt == retries:
+                # final failure — let it bubble
+                raise exc
+            time.sleep(delay)
+        except Exception as exc:
+            print(f"Attempt {attempt} for {uri} failed: {type(exc).__name__}: {exc}")
+            raise exc
+    return None
