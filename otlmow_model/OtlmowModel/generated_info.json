@@ -292,7 +292,8 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Combiwand",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Funderingswand",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingspaal",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingsput"
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingsput",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grindkern"
             ]
         },
         "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AxiaalDraagvermogenWand": {
@@ -913,6 +914,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingsmassief",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingspaal",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Funderingszool",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grindkern",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenSchroefpaal"
             ]
         },
@@ -2854,6 +2856,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetmicrofoon",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietSelectieveDetectielus",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Noodverlichtingstoestel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omvormer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PoEInjector",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pomp",

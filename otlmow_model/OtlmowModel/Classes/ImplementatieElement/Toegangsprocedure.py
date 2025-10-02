@@ -17,7 +17,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Toegangsprocedure(AIMDBStatus, AIMToestand, AIMVersie, OTLObject, RelationInteractor, PuntGeometrie):
+class Toegangsprocedure(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor, OTLObject, PuntGeometrie):
     """De procedure die gevolgd moet worden om toegang te verkrijgen tot een object."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure'

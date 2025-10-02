@@ -12,7 +12,7 @@ from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, AIMVersie, OTLObject, RelationInteractor):
+class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor, OTLObject):
     """Abstracte om de eigenschappen en relaties van AanvullendeGeometrie te bundelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie'

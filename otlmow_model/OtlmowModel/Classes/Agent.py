@@ -11,7 +11,7 @@ from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Agent(AIMDBStatus, AIMVersie, OTLObject, RelationInteractor):
+class Agent(AIMDBStatus, AIMVersie, RelationInteractor, OTLObject):
     """Iemand die of iets dat kan handelen of een effect kan teweeg brengen."""
 
     typeURI = 'http://purl.org/dc/terms/Agent'

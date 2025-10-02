@@ -1,5 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.AxiaalDraagvermogen import AxiaalDraagvermogen
+from ...Classes.Abstracten.Fundering import Fundering
 from ...Classes.Onderdeel.Funderingspaal import Funderingspaal
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -9,7 +11,7 @@ from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMi
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Grindkern(Funderingspaal):
+class Grindkern(Funderingspaal, AxiaalDraagvermogen, Fundering):
     """In de grond gevormd of vrijgestort cilindrisch element uit grind dat door heien of trillen wordt verdicht."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grindkern'
