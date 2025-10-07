@@ -42,7 +42,12 @@ class KlPLCModelnaam(KeuzelijstField):
                                    label='DMU703',
                                    status='ingebruik',
                                    definitie='DMU703',
-                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPLCModelnaam/dmu703')
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPLCModelnaam/dmu703'),
+        's7-1200': KeuzelijstWaarde(invulwaarde='s7-1200',
+                                    label='S7-1200',
+                                    status='ingebruik',
+                                    definitie='S7-1200',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPLCModelnaam/s7-1200')
     }
 
     @classmethod

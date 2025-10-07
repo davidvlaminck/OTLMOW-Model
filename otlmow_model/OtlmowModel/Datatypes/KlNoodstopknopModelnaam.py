@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,11 @@ class KlNoodstopknopModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNoodstopknopModelnaam'
     options = {
+        'xb4': KeuzelijstWaarde(invulwaarde='xb4',
+                                label='XB4',
+                                status='ingebruik',
+                                definitie='XB4',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNoodstopknopModelnaam/xb4')
     }
 
     @classmethod

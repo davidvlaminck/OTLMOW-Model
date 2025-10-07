@@ -13,6 +13,11 @@ class KlPictogramSymbool(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPictogramSymbool'
     options = {
+        'brandblusser': KeuzelijstWaarde(invulwaarde='brandblusser',
+                                         label='brandblusser',
+                                         status='ingebruik',
+                                         definitie='brandblusser',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPictogramSymbool/brandblusser'),
         'halte': KeuzelijstWaarde(invulwaarde='halte',
                                   label='halte',
                                   status='ingebruik',
@@ -35,6 +40,11 @@ class KlPictogramSymbool(KeuzelijstField):
                                                   label='nummer veiligheidsnis',
                                                   status='ingebruik',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPictogramSymbool/nummer-veiligheidsnis'),
+        'telefoon': KeuzelijstWaarde(invulwaarde='telefoon',
+                                     label='telefoon',
+                                     status='ingebruik',
+                                     definitie='telefoon',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPictogramSymbool/telefoon'),
         'tunnelnaam': KeuzelijstWaarde(invulwaarde='tunnelnaam',
                                        label='tunnelnaam',
                                        status='ingebruik',
