@@ -1059,7 +1059,7 @@ def test_create_dict_from_asset_datetimes(recwarn):
     d = create_dict_from_asset(instance, cast_datetime=True)
     expected = {
         'testDateField': '2022-02-02',
-        'testDateTimeField': '2022-02-02 12:30:30',
+        'testDateTimeField': '2022-02-02T12:30:30',
         'testTimeField': '12:30:30',
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
 
