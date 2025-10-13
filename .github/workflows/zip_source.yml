@@ -1,15 +1,12 @@
 name: Zip source code
 run-name: Zip source code for ${{ github.sha }}
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
   workflow_dispatch:
   workflow_run:
-    workflows: [Automatic update]
+    workflows: [Create release]
     types:
       - completed
 
