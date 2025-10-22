@@ -15,16 +15,6 @@ def get_shortened_uri(object_uri: str):
         return f'lgc:{shorter_uri}'
     return shorter_uri
 
-# TODO re-implement if needed
-# def to_short_uri(object_uri: str):
-#     if object_uri == 'http://purl.org/dc/terms/Agent':
-#         return 'dcmi:Agent'
-#     shorter_uri = object_uri.split('/ns/')[1]
-#     if object_uri.startswith('https://wegenenverkeer.'):
-#         return shorter_uri
-#     prefix = object_uri.split('://')[1].split('.')[0]
-#     return f'{prefix}:{shorter_uri}'
-
 
 def get_ns_and_name_from_uri(object_uri):
     if object_uri == 'http://purl.org/dc/terms/Agent':
