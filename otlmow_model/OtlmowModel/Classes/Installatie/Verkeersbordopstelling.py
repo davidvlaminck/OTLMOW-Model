@@ -3,16 +3,14 @@ from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Signalisatie import Signalisatie
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
-from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
-from ...Datatypes.KlOperationeleStatus import KlOperationeleStatus
 from ...Datatypes.KlPositieSoort import KlPositieSoort
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...Datatypes.KlSoortSteun import KlSoortSteun
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
+class Verkeersbordopstelling(Signalisatie, AIMObject):
     """Het geheel van verticale verkeerssignalisatie die bevestigd is aan één of meerdere draagconstructies op éénzelfde geolocatie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling'
@@ -21,33 +19,17 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanzicht', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pictogram', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsOntwerpVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling', direction='o')  # o = direction: outgoing
 
-        self._afbeelding = OTLAttribuut(field=DtcDocument,
-                                        naam='afbeelding',
-                                        label='afbeelding',
-                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.afbeelding',
-                                        usagenote='Een bestand dat een afbeelding weergeeft.',
-                                        kardinaliteit_max='*',
-                                        definition='Grafische weergave van de opstelling geplaatst op het openbaar domein.',
-                                        owner=self)
-
-        self._isBotsvriendelijk = OTLAttribuut(field=BooleanField,
-                                               naam='isBotsvriendelijk',
-                                               label='is botsvriendelijk',
-                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.isBotsvriendelijk',
-                                               definition='Een botsvriendelijk obstakel is een voorwerp dat bij aanrijding door een voertuig de letselernst voor de inzittenden reduceert.',
-                                               owner=self)
-
-        self._operationeleStatus = OTLAttribuut(field=KlOperationeleStatus,
-                                                naam='operationeleStatus',
-                                                label='operationele status',
-                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.operationeleStatus',
-                                                usagenote="Enkel te gebruiken wanneer een object 'in gebruik' is. Zie ook attribuut toestand overgeërfd van AIMToestand om de asset levenscyclus aan te duiden.",
-                                                definition='Operationele status van de Verkeersbordopstelling volgens keuzelijst.',
-                                                owner=self)
+        self._geometrie = OTLAttribuut(field=StringField,
+                                       naam='geometrie',
+                                       label='geometrie',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.geometrie',
+                                       usagenote='Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.',
+                                       definition='De geometrie in string (wkt formaat).',
+                                       owner=self)
 
         self._positieTovRijweg = OTLAttribuut(field=KlPositieSoort,
                                               naam='positieTovRijweg',
@@ -56,6 +38,13 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
                                               usagenote='Bijvoorbeeld: boven, rechts, links',
                                               definition='De plaatsing van de opstelling ten aanzien van de rijbaan.',
                                               owner=self)
+
+        self._soortSteun = OTLAttribuut(field=KlSoortSteun,
+                                        naam='soortSteun',
+                                        label='soort steun',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.soortSteun',
+                                        definition='Aanduiding welk type steun het verkeersbord draagt.',
+                                        owner=self)
 
         self._wegSegment = OTLAttribuut(field=DtcExterneReferentie,
                                         naam='wegSegment',
@@ -68,31 +57,13 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
                                         owner=self)
 
     @property
-    def afbeelding(self) -> List[DtcDocumentWaarden]:
-        """Grafische weergave van de opstelling geplaatst op het openbaar domein."""
-        return self._afbeelding.get_waarde()
+    def geometrie(self) -> str:
+        """De geometrie in string (wkt formaat)."""
+        return self._geometrie.get_waarde()
 
-    @afbeelding.setter
-    def afbeelding(self, value):
-        self._afbeelding.set_waarde(value, owner=self)
-
-    @property
-    def isBotsvriendelijk(self) -> bool:
-        """Een botsvriendelijk obstakel is een voorwerp dat bij aanrijding door een voertuig de letselernst voor de inzittenden reduceert."""
-        return self._isBotsvriendelijk.get_waarde()
-
-    @isBotsvriendelijk.setter
-    def isBotsvriendelijk(self, value):
-        self._isBotsvriendelijk.set_waarde(value, owner=self)
-
-    @property
-    def operationeleStatus(self) -> str:
-        """Operationele status van de Verkeersbordopstelling volgens keuzelijst."""
-        return self._operationeleStatus.get_waarde()
-
-    @operationeleStatus.setter
-    def operationeleStatus(self, value):
-        self._operationeleStatus.set_waarde(value, owner=self)
+    @geometrie.setter
+    def geometrie(self, value):
+        self._geometrie.set_waarde(value, owner=self)
 
     @property
     def positieTovRijweg(self) -> str:
@@ -102,6 +73,15 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
     @positieTovRijweg.setter
     def positieTovRijweg(self, value):
         self._positieTovRijweg.set_waarde(value, owner=self)
+
+    @property
+    def soortSteun(self) -> str:
+        """Aanduiding welk type steun het verkeersbord draagt."""
+        return self._soortSteun.get_waarde()
+
+    @soortSteun.setter
+    def soortSteun(self, value):
+        self._soortSteun.set_waarde(value, owner=self)
 
     @property
     def wegSegment(self) -> List[DtcExterneReferentieWaarden]:

@@ -1,7 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
-from ...Datatypes.KlAIMToestand import KlAIMToestand
+from ...Datatypes.KlToestandSV import KlToestandSV
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -15,7 +15,7 @@ class AIMToestand(ABC):
     def __init__(self):
         super().__init__()
 
-        self._toestand = OTLAttribuut(field=KlAIMToestand,
+        self._toestand = OTLAttribuut(field=KlToestandSV,
                                       naam='toestand',
                                       label='AIM-toestand',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand',

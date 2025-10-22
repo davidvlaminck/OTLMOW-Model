@@ -16,7 +16,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Derdenobject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationInteractor, PuntGeometrie, LijnGeometrie, VlakGeometrie):
+class Derdenobject(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor, OTLAsset, PuntGeometrie, LijnGeometrie, VlakGeometrie):
     """Object niet in eigendom van de assetbeheerder dat zonder verdere typering bewaard wordt om relaties met getypeerde assets te kunnen beheren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject'

@@ -44,11 +44,11 @@ class DtcExterneReferentieWaarden(WaardenObject):
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
 class DtcExterneReferentie(ComplexField):
-    """Complex datatype waarmee een referentienummer zoals gekend bij de externe partij bv. aannemer, VLCC, ... kan toegevoegd worden aan object."""
+    """Complex datatype waarmee een referentienummer zoals gekend bij de externe partij bv. aannemer,VLCC,... kan toegevoegd worden aan object."""
     naam = 'DtcExterneReferentie'
     label = 'Externe referentie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcExterneReferentie'
-    definition = 'Complex datatype waarmee een referentienummer zoals gekend bij de externe partij bv. aannemer, VLCC, ... kan toegevoegd worden aan object.'
+    definition = 'Complex datatype waarmee een referentienummer zoals gekend bij de externe partij bv. aannemer,VLCC,... kan toegevoegd worden aan object.'
     waardeObject = DtcExterneReferentieWaarden
 
     def __str__(self):
