@@ -599,9 +599,9 @@
             "label": "Link object",
             "deprecated_version": "",
             "direct_subclasses": [
-                " http://www.w3.org/2004/02/skos/core#Concept",
                 "http://lblod.data.gift/vocabularies/variables/Variable",
                 "http://lblod.data.gift/vocabularies/variables/VariableInstance",
+                "http://www.w3.org/2004/02/skos/core#Concept",
                 "https://data.vlaanderen.be/ns/besluit#Artikel",
                 "https://data.vlaanderen.be/ns/besluit#Besluit",
                 "https://data.vlaanderen.be/ns/besluit#Voorwaarde",

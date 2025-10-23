@@ -1,10 +1,12 @@
 # coding=utf-8
 from abc import abstractmethod
 from ...Classes.Abstracten.BaseAttributenSV import BaseAttributenSV
+from otlmow_model.OtlmowModel.BaseClasses.OTLAsset import OTLAsset
+from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class LinkObjectSV(BaseAttributenSV):
+class LinkObjectSV(BaseAttributenSV, RelationInteractor, OTLAsset):
     """Abstracte om relaties te linken op hoog niveau."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LinkObjectSV'
