@@ -1,7 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlPTRegelaarMerk import KlPTRegelaarMerk
 from ...Datatypes.KlPTRegelaarModelnaam import KlPTRegelaarModelnaam
@@ -12,7 +12,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class PTRegelaar(AIMNaamObject, PuntGeometrie):
+class PTRegelaar(NaampadObject, PuntGeometrie):
     """Deze PT-module staat in voor het ontvangen en bewerken van telegrammen van voertuigen van het openbaar vervoer (bussen,trams)."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar'
@@ -62,7 +62,7 @@ class PTRegelaar(AIMNaamObject, PuntGeometrie):
                                       naam='protocol',
                                       label='protocol',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar.protocol',
-                                      usagenote='Attribuut uit gebruik sinds versie 2.15.0',
+                                      usagenote='Attribuut uit gebruik sinds versie 2.15.0 ',
                                       deprecated_version='2.15.0',
                                       definition='Naam van het protocol waarmee gecommuniceerd wordt tussen PT-regelaar en verkeersregelaar.',
                                       owner=self)

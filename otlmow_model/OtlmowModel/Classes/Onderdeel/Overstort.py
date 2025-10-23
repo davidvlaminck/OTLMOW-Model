@@ -10,7 +10,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Overstort(LinkendElement, VlakGeometrie):
-    """Een overstort is een drempel tussen twee kamers waar water vanaf een bepaald peil van de ene naar de andere kamer kan stromen. Tussen twee kamers kunnen een of meerdere overstorten voorkomen."""
+    """Een overstort is een constructief element dat toelaat om water vanaf een bepaald peil van het ene hydraulische compartiment naar het andere te laten stromen; bv. een drempel of muur tussen twee kamers, een open bufferbekken en een rioleringsstelsel, etc..."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Overstort'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

@@ -9,7 +9,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Controlepaneel(SerienummerObject, AIMNaamObject, PuntGeometrie):
-    """Een inrichting voor het besturen van een systeem dat of installatie die zich in de buurt van het controlepaneel bevindt. Een controlepaneel kan onder andere uitgerust zijn met schakelaars, drukknoppen, draaiknoppen, cijfertoetsen, signaallampen, etc."""
+    """Een inrichting voor het besturen van een systeem dat of installatie die zich in de buurt van het controlepaneel bevindt. Een controlepaneel kan onder andere uitgerust zijn met schakelaars,drukknoppen,draaiknoppen,cijfertoetsen,signaallampen,etc."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Controlepaneel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -19,6 +19,7 @@ class Controlepaneel(SerienummerObject, AIMNaamObject, PuntGeometrie):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC', direction='u')  # u = unidirectional
 
         self._merk = OTLAttribuut(field=KlControlepaneelMerk,
                                   naam='merk',

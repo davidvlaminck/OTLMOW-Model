@@ -40,6 +40,13 @@ class Transformator(AIMNaamObject, PuntGeometrie):
                                                     definition='Geeft aan of de transformator al dan niet galvanisch gescheiden is.',
                                                     owner=self)
 
+        self._isOlieGevuld = OTLAttribuut(field=BooleanField,
+                                          naam='isOlieGevuld',
+                                          label='is olie gevuld',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Transformator.isOlieGevuld',
+                                          definition='Duidt aan of de transformator al dan niet gevuld is met olie. Het andere is van het droge type, meestal harsgevuld.',
+                                          owner=self)
+
         self._isolatiemedium = OTLAttribuut(field=KlTransformatorIsolatiemedium,
                                             naam='isolatiemedium',
                                             label='isolatiemedium',
@@ -104,6 +111,15 @@ class Transformator(AIMNaamObject, PuntGeometrie):
     @isGalvanischGescheiden.setter
     def isGalvanischGescheiden(self, value):
         self._isGalvanischGescheiden.set_waarde(value, owner=self)
+
+    @property
+    def isOlieGevuld(self) -> bool:
+        """Duidt aan of de transformator al dan niet gevuld is met olie. Het andere is van het droge type, meestal harsgevuld."""
+        return self._isOlieGevuld.get_waarde()
+
+    @isOlieGevuld.setter
+    def isOlieGevuld(self, value):
+        self._isOlieGevuld.set_waarde(value, owner=self)
 
     @property
     def isolatiemedium(self) -> str:

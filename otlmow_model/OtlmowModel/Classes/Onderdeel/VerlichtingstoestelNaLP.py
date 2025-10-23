@@ -1,5 +1,7 @@
 # coding=utf-8
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Verlichtingstoestel import Verlichtingstoestel
+from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -16,3 +18,19 @@ class VerlichtingstoestelNaLP(Verlichtingstoestel):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Montagekast', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WVOpvoertransformator', direction='u')  # u = unidirectional
+
+        self._lichtpuntHoogte = OTLAttribuut(field=KwantWrdInMeter,
+                                             naam='lichtpuntHoogte',
+                                             label='lichtpunt hoogte',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelNaLP.lichtpuntHoogte',
+                                             definition='Hoogte van het lichtpunt ten opzichte van de rijweg.',
+                                             owner=self)
+
+    @property
+    def lichtpuntHoogte(self) -> KwantWrdInMeterWaarden:
+        """Hoogte van het lichtpunt ten opzichte van de rijweg."""
+        return self._lichtpuntHoogte.get_waarde()
+
+    @lichtpuntHoogte.setter
+    def lichtpuntHoogte(self, value):
+        self._lichtpuntHoogte.set_waarde(value, owner=self)

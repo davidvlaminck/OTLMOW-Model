@@ -1,10 +1,10 @@
 # coding=utf-8
+from ...Classes.Abstracten.Cilindermechanisme import Cilindermechanisme
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class MechanischeCilinder(AIMNaamObject, PuntGeometrie):
+class MechanischeCilinder(Cilindermechanisme, AIMNaamObject):
     """Elektrisch aangedreven actuator waarbij de beweging wordt bewerkstelligd door een inwendig spindelmechanisme."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#MechanischeCilinder'

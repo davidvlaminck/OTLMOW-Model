@@ -5,7 +5,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Bliksemafleider(AIMNaamObject, PuntGeometrie):
-    """Een metalen staaf die zich doorgaans op het hoogste punt van een gebouw of draagconstructie bevindt en in het geval van een blikseminslag een laag-impedant pad naar de bodem voorziet. De bliksem zal dus verkiezen op deze staaf in te slaan, eerder dan op een ander punt van het gebouw of draagconstructie."""
+    """Een metalen constructie (meestal een staaf of ring) die zich doorgaans op het hoogste punt van een gebouw bevindt en een laag-impedant pad naar de bodem voorziet."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bliksemafleider'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

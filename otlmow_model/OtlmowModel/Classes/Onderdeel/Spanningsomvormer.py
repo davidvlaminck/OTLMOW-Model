@@ -1,8 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlSpanningsomvormerMerk import KlSpanningsomvormerMerk
 from ...Datatypes.KlSpanningsomvormerModelnaam import KlSpanningsomvormerModelnaam
 from ...Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
@@ -27,10 +29,12 @@ class Spanningsomvormer(ElektrischComponentennummerObject, SerienummerObject, AI
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lokaal', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rack', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#MeetstationAbstract', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Batterij', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omvormer', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontroller', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='i')  # i = direction: incoming
@@ -69,6 +73,14 @@ class Spanningsomvormer(ElektrischComponentennummerObject, SerienummerObject, AI
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Spanningsomvormer.modelnaam',
                                        definition='De modelnaam van de spanningsomvormer.',
                                        owner=self)
+
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Spanningsomvormer.technischeFiche',
+                                             kardinaliteit_max='*',
+                                             definition='De technische fiches als bijlage.',
+                                             owner=self)
 
         self._uitgangsfrequentie = OTLAttribuut(field=KwantWrdInHerz,
                                                 naam='uitgangsfrequentie',
@@ -135,6 +147,15 @@ class Spanningsomvormer(ElektrischComponentennummerObject, SerienummerObject, AI
     @modelnaam.setter
     def modelnaam(self, value):
         self._modelnaam.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+        """De technische fiches als bijlage."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def uitgangsfrequentie(self) -> KwantWrdInHerzWaarden:

@@ -70,7 +70,7 @@ class Groutanker(Grondanker, AIMNaamObject):
                                           naam='hellingshoek',
                                           label='hellingshoek',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Groutanker.hellingshoek',
-                                          usagenote='Attribuut uit gebruik sinds versie 2.14.0',
+                                          usagenote='Attribuut uit gebruik sinds versie 2.14.0 ',
                                           deprecated_version='2.14.0',
                                           definition='Hoek van het ingebrachte anker in decimale graden.',
                                           owner=self)

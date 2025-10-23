@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Controller import Controller
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlControllerBeveiligingssleutel import KlControllerBeveiligingssleutel
 from ...Datatypes.KlNetwerkconfiguratieWV import KlNetwerkconfiguratieWV
 from ...Datatypes.KlSegmentcontrollerMerk import KlSegmentcontrollerMerk
@@ -9,7 +10,7 @@ from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Segmentcontroller(Controller):
+class Segmentcontroller(Controller, NaampadObject):
     """Controller die zorgt voor de bewaking en bediening van verlichtingssegmenten per paal en aldus zorgt voor de communicatie tussen de cabine en de armatuurcontrollers."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller'
@@ -37,7 +38,7 @@ class Segmentcontroller(Controller):
                                   naam='merk',
                                   label='merk',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.merk',
-                                  usagenote='Attribuut uit gebruik sinds versie 2.8.0',
+                                  usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
                                   deprecated_version='2.8.0',
                                   definition='Merk van de segmentcontroller.',
                                   owner=self)
@@ -60,7 +61,7 @@ class Segmentcontroller(Controller):
                                        naam='modelnaam',
                                        label='modelnaam',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller.modelnaam',
-                                       usagenote='Attribuut uit gebruik sinds versie 2.8.0',
+                                       usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
                                        deprecated_version='2.8.0',
                                        definition='Modelnaam van de segmentcontroller.',
                                        owner=self)

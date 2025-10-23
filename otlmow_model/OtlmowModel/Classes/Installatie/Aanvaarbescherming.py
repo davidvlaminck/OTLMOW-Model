@@ -40,7 +40,7 @@ class Aanvaarbescherming(AanvaarbeschermingGeleidewerk, AIMNaamObject):
                                                     naam='typeAanvaarbescherming',
                                                     label='type aanvaarbescherming',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aanvaarbescherming.typeAanvaarbescherming',
-                                                    usagenote='Attribuut uit gebruik sinds versie 2.14.0',
+                                                    usagenote='Attribuut uit gebruik sinds versie 2.14.0 ',
                                                     deprecated_version='2.14.0',
                                                     definition='De soort van aanvaarbescherming.',
                                                     owner=self)

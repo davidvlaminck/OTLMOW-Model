@@ -89,6 +89,13 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
                                                              definition='Geeft aan of het cement gebruikt wordt voor een tragere sterkteontwikkeling (LH).',
                                                              owner=self)
 
+        self._isCementMetPolypropyleenvezels = OTLAttribuut(field=BooleanField,
+                                                            naam='isCementMetPolypropyleenvezels',
+                                                            label='is cement met polypropyleenvezels',
+                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcBetonspecificaties.isCementMetPolypropyleenvezels',
+                                                            definition='Geeft aan of in het cement Polypropyleenvezels (PP) zijn verwerkt.',
+                                                            owner=self)
+
         self._isColloidaalbeton = OTLAttribuut(field=BooleanField,
                                                naam='isColloidaalbeton',
                                                label='is colloïdaalbeton',
@@ -100,7 +107,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
                                              naam='technischeFiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcBetonspecificaties.technischeFiche',
-                                             usagenote='Attribuut uit gebruik sinds versie 2.5.0',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.5.0 ',
                                              deprecated_version='2.5.0',
                                              definition='De technische fiche van het beton. Deze moet volgende eigenschappen bevatten: de norm waaraan het beton voldoet, de sterkteklasse, de duurzaamheid (bestaande uit het gebruiksdomein en de omgevingsklasse(n)), de consistentieklasse, de nominale grootste korrelafmeting,...',
                                              owner=self)
@@ -209,6 +216,15 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
     @isCementMetLageHydratatiewarmte.setter
     def isCementMetLageHydratatiewarmte(self, value):
         self._isCementMetLageHydratatiewarmte.set_waarde(value, owner=self._parent)
+
+    @property
+    def isCementMetPolypropyleenvezels(self) -> bool:
+        """Geeft aan of in het cement Polypropyleenvezels (PP) zijn verwerkt."""
+        return self._isCementMetPolypropyleenvezels.get_waarde()
+
+    @isCementMetPolypropyleenvezels.setter
+    def isCementMetPolypropyleenvezels(self, value):
+        self._isCementMetPolypropyleenvezels.set_waarde(value, owner=self._parent)
 
     @property
     def isColloidaalbeton(self) -> bool:

@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.BVAfwateringKunstwerken import BVAfwateringKunstwerken
 from ...Classes.Abstracten.LinkendElement import LinkendElement
 from ...Classes.Abstracten.OmhullendeInrichting import OmhullendeInrichting
 from ...Datatypes.KlAansluitstukMateriaal import KlAansluitstukMateriaal
@@ -10,7 +11,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
+class Hulpstuk(BVAfwateringKunstwerken, LinkendElement, OmhullendeInrichting, PuntGeometrie):
     """Stukken die zorgen voor verbindingen tussen buizen en/of leidingen om bv. van richting te veranderen,te verlengen,te verlopen van diameter,meerdere buizen op mekaar aan te sluiten,..."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hulpstuk'
@@ -20,7 +21,9 @@ class Hulpstuk(LinkendElement, OmhullendeInrichting, PuntGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Beschermbuis', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Brandvoorziening', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LinkendElement', direction='i')  # i = direction: incoming

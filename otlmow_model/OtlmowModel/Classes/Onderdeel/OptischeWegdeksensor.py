@@ -8,7 +8,7 @@ from ...Datatypes.KlOptischeWegdeksensorModelnaam import KlOptischeWegdeksensorM
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class OptischeWegdeksensor(Sensoropstelling, AIMNaamObject):
-    """Een meettoestel dat gebruik maakt van optische eigenschappen om de wegdekcondities zoals nat, ijs, sneeuw en vorst te meten."""
+    """Een meettoestel dat gebruik maakt van optische eigenschappen om de wegdekcondities zoals nat,ijs,sneeuw en vorst te meten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OptischeWegdeksensor'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -18,6 +18,8 @@ class OptischeWegdeksensor(Sensoropstelling, AIMNaamObject):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ThermoHygrometer', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='i')  # i = direction: incoming
 
         self._merk = OTLAttribuut(field=KlOptischeWegdeksensorMerk,
                                   naam='merk',

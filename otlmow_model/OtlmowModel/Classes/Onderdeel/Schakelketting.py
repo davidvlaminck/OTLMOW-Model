@@ -12,7 +12,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Schakelketting(AIMNaamObject, PuntGeometrie):
-    """Een schakelketting bestaat uit een reeks met elkaar verbonden schakels. Ze worden doorgaans gebruikt om trekkrachten uit te oefenen, zoals bv. bij hijsinstallaties."""
+    """Een schakelketting bestaat uit een reeks met elkaar verbonden schakels. Ze worden doorgaans gebruikt om trekkrachten uit te oefenen,zoals bv. bij hijsinstallaties."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Schakelketting'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -20,6 +20,7 @@ class Schakelketting(AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#PompGroep', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hijsinstallatie', direction='u')  # u = unidirectional
 
         self._breedteSchakel = OTLAttribuut(field=KwantWrdInMillimeter,

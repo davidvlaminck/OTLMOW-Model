@@ -19,6 +19,7 @@ class Cilinderbodem(StaalsoortObject, TechnischDocument, AIMNaamObject, PuntGeom
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Lager', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cilindermantel', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Cilindermechanisme', direction='o')  # o = direction: outgoing
 
         self._isOog = OTLAttribuut(field=BooleanField,
                                    naam='isOog',

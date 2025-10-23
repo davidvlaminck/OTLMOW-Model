@@ -1,6 +1,5 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Classes.Onderdeel.Binnenverlichtingstoestel import Binnenverlichtingstoestel
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlNominaleSpanning import KlNominaleSpanning
@@ -11,7 +10,7 @@ from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntege
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Noodverlichtingstoestel(Binnenverlichtingstoestel, NaampadObject):
+class Noodverlichtingstoestel(Binnenverlichtingstoestel):
     """Een verlichtingstoestel als combinatie van de lamp en de armatuur dat ingeschakeld is in een systeem voor noodverlichting en daarom moet voldoen aan bijkomende vereisten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Noodverlichtingstoestel'

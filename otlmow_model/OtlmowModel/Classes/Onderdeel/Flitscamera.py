@@ -1,12 +1,12 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Flitscamera(AIMNaamObject, PuntGeometrie):
+class Flitscamera(NaampadObject, PuntGeometrie):
     """Cameratoestel waarmee de overtredingen vastgelegd worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Flitscamera'

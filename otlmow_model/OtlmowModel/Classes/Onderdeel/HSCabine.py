@@ -2,6 +2,7 @@
 from datetime import date
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.Cabine import Cabine
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlCabineLokaalKlasse import KlCabineLokaalKlasse
@@ -19,6 +20,7 @@ class HSCabine(Cabine):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Toegangselement', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#WegverlichtingGroep', direction='o')  # o = direction: outgoing
 
         self._elektrischSchema = OTLAttribuut(field=DtcDocument,
                                               naam='elektrischSchema',
@@ -26,6 +28,13 @@ class HSCabine(Cabine):
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine.elektrischSchema',
                                               definition='Elektrisch aansluitschema van de HS cabine.',
                                               owner=self)
+
+        self._isKopcabine = OTLAttribuut(field=BooleanField,
+                                         naam='isKopcabine',
+                                         label='is kopcabine',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine.isKopcabine',
+                                         definition='Duidt aan of de HSCabine toegankelijk moet zijn de distributienetbeheerder.',
+                                         owner=self)
 
         self._lokaalKlasse = OTLAttribuut(field=KlCabineLokaalKlasse,
                                           naam='lokaalKlasse',
@@ -49,6 +58,15 @@ class HSCabine(Cabine):
     @elektrischSchema.setter
     def elektrischSchema(self, value):
         self._elektrischSchema.set_waarde(value, owner=self)
+
+    @property
+    def isKopcabine(self) -> bool:
+        """Duidt aan of de HSCabine toegankelijk moet zijn de distributienetbeheerder."""
+        return self._isKopcabine.get_waarde()
+
+    @isKopcabine.setter
+    def isKopcabine(self, value):
+        self._isKopcabine.set_waarde(value, owner=self)
 
     @property
     def lokaalKlasse(self) -> str:

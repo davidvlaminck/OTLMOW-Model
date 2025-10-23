@@ -2,11 +2,12 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Behuizing import Behuizing
 from ...Classes.Abstracten.Kokerruimte import Kokerruimte
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Lokaal(Behuizing, Kokerruimte):
+class Lokaal(Behuizing, Kokerruimte, NaampadObject):
     """Een ruimte binnen een gebouw."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lokaal'

@@ -1,10 +1,11 @@
 # coding=utf-8
 from ...Classes.Abstracten.Seinlantaarn import Seinlantaarn
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Knipperlantaarn(Seinlantaarn):
-    """Een lantaarn bestaande uit één of meerdere knipperende oranje-geel verkeerslichten bevestigd op een steun, teneinde de weggebruiker te waarschuwen."""
+class Knipperlantaarn(Seinlantaarn, NaampadObject):
+    """Een lantaarn bestaande uit één of meerdere knipperende oranje-geel verkeerslichten bevestigd op een steun,teneinde de weggebruiker te waarschuwen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Knipperlantaarn'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

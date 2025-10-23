@@ -93,7 +93,7 @@ class Boom(VegetatieElement, PuntGeometrie):
                                               naam='heeftBoomrooster',
                                               label='heeft boomrooster',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.heeftBoomrooster',
-                                              usagenote='Attribuut uit gebruik sinds versie 2.12.0',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.12.0 ',
                                               deprecated_version='2.12.0',
                                               definition='Duidt aan of een horizontale structuur aanwezig is die zorgt voor een adequate bescherming van bomen tegen betreding van de boomspiegel door voetgangers of verkeer.',
                                               owner=self)
@@ -116,7 +116,7 @@ class Boom(VegetatieElement, PuntGeometrie):
                                            naam='kroonDiameter',
                                            label='kroon diameter',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.kroonDiameter',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.8.0',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.8.0 ',
                                            deprecated_version='2.8.0',
                                            definition='Diameter van de kroonprojectie in meter.',
                                            owner=self)
@@ -132,7 +132,7 @@ class Boom(VegetatieElement, PuntGeometrie):
                                                 naam='takvrijeStamlengte',
                                                 label='takvrije stamlengte',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.takvrijeStamlengte',
-                                                usagenote='Attribuut uit gebruik sinds versie 2.16.0',
+                                                usagenote='Attribuut uit gebruik sinds versie 2.16.0 ',
                                                 deprecated_version='2.16.0',
                                                 definition='Tot aan de hoogte van de gewenste takvrije stamlengte wordt de boom zodanig gesnoeid dat er één doorgaande stam is.',
                                                 owner=self)
@@ -148,7 +148,7 @@ class Boom(VegetatieElement, PuntGeometrie):
                                                 naam='vrijeDoorrijhoogte',
                                                 label='vrije doorrijhoogte',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom.vrijeDoorrijhoogte',
-                                                usagenote='Attribuut uit gebruik sinds versie 2.16.0',
+                                                usagenote='Attribuut uit gebruik sinds versie 2.16.0 ',
                                                 deprecated_version='2.16.0',
                                                 definition='Vrij te houden hoogte in meter, voor het doorrijden van verkeer toe te laten.',
                                                 owner=self)

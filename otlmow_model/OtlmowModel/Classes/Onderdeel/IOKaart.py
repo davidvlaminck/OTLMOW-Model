@@ -1,8 +1,10 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlIOBitSnelheid import KlIOBitSnelheid
 from ...Datatypes.KlIOKaartMerk import KlIOKaartMerk
 from ...Datatypes.KlIOKaartModelnaam import KlIOKaartModelnaam
@@ -22,10 +24,13 @@ class IOKaart(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObjec
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PMU', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Niveaumeting', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Ventilatie', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bel', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Calamiteitendoorsteek', direction='u')  # u = unidirectional
@@ -53,6 +58,10 @@ class IOKaart(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObjec
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VentilatieAfsluitklep', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ventilatierooster', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VulpuntBrandweer', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PMU', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring', direction='i')  # i = direction: incoming
 
         self._bitsnelheid = OTLAttribuut(field=KlIOBitSnelheid,
                                          naam='bitsnelheid',
@@ -102,6 +111,14 @@ class IOKaart(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObjec
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart.signaalType',
                                          definition='Geeft aan of de IO-kaart werkt met een digitaal of met een analoog signaal.',
                                          owner=self)
+
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IOKaart.technischeFiche',
+                                             kardinaliteit_max='*',
+                                             definition='De technische fiches als bijlage.',
+                                             owner=self)
 
     @property
     def bitsnelheid(self) -> str:
@@ -165,3 +182,12 @@ class IOKaart(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObjec
     @signaalType.setter
     def signaalType(self, value):
         self._signaalType.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+        """De technische fiches als bijlage."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)

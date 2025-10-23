@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.BVAfwateringKunstwerken import BVAfwateringKunstwerken
 from ...Classes.Abstracten.Buis import Buis
 from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlRioleringsbuisFunctie import KlRioleringsbuisFunctie
@@ -8,8 +9,8 @@ from ...Datatypes.KlSterktereeks import KlSterktereeks
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Rioleringsbuis(Buis):
-    """Ondergronds kanaal of pijp voor gravitaire afvoer van water."""
+class Rioleringsbuis(BVAfwateringKunstwerken, Buis):
+    """Een kanaal of pijp voor gravitaire afvoer van water."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rioleringsbuis'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -17,8 +18,11 @@ class Rioleringsbuis(Buis):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ecokoker', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#WaterdoorvoerendeDuiker', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Taludgoot', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis', direction='i', deprecated='2.8.0')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Brandvoorziening', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis', direction='i')  # i = direction: incoming

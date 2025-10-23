@@ -2,12 +2,13 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereLaag import AndereLaag
 from ...Classes.Abstracten.LaagDikte import LaagDikte
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlMateriaalDraineerlaag import KlMateriaalDraineerlaag
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Draineerlaag(AndereLaag, LaagDikte):
-    """Materiaal onder constructies om overdrukken of water af te voeren."""
+    """Materiaal rond constructies om overdrukken of water af te voeren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Draineerlaag'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -25,6 +26,8 @@ class Draineerlaag(AndereLaag, LaagDikte):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LijnvormigElement', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VegetatieElement', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Epoxydrain', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sluisvloertegel', direction='i')  # i = direction: incoming
 
         self._materiaalDraineerlaag = OTLAttribuut(field=KlMateriaalDraineerlaag,
@@ -34,6 +37,13 @@ class Draineerlaag(AndereLaag, LaagDikte):
                                                    definition='Het type van materiaal van de draineerlaag.',
                                                    owner=self)
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Draineerlaag.technischeFiche',
+                                             definition='De technische fiche van de draineerlaag',
+                                             owner=self)
+
     @property
     def materiaalDraineerlaag(self) -> str:
         """Het type van materiaal van de draineerlaag."""
@@ -42,3 +52,12 @@ class Draineerlaag(AndereLaag, LaagDikte):
     @materiaalDraineerlaag.setter
     def materiaalDraineerlaag(self, value):
         self._materiaalDraineerlaag.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> DtcDocumentWaarden:
+        """De technische fiche van de draineerlaag"""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)

@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlRackMerk import KlRackMerk
@@ -11,7 +11,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Rack(AIMNaamObject, PuntGeometrie):
+class Rack(NaampadObject, PuntGeometrie):
     """Interne draagstructuur binnen een behuizing voor (elektromechanische) toestellen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rack'

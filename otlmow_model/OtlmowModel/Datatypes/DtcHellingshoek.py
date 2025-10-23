@@ -14,7 +14,7 @@ class DtcHellingshoekWaarden(WaardenObject):
                                   naam='hoek',
                                   label='hoek',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcHellingshoek.hoek',
-                                  usagenote='Attribuut uit gebruik sinds versie 2.16.0',
+                                  usagenote='Attribuut uit gebruik sinds versie 2.16.0 ',
                                   deprecated_version='2.16.0',
                                   definition='Hoek van het ingebrachte anker in decimale graden.',
                                   owner=self)
@@ -37,7 +37,7 @@ class DtcHellingshoekWaarden(WaardenObject):
                                                   naam='richtingHellingshoek',
                                                   label='richting hellingshoek',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcHellingshoek.richtingHellingshoek',
-                                                  usagenote='Attribuut uit gebruik sinds versie 2.16.0',
+                                                  usagenote='Attribuut uit gebruik sinds versie 2.16.0 ',
                                                   deprecated_version='2.16.0',
                                                   definition='Geeft de richting van de hoek t.o.v. de as aan.',
                                                   owner=self)

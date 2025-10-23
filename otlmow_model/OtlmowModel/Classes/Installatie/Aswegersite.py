@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcBereikInKg import DtcBereikInKg, DtcBereikInKgWaarden
 from ...Datatypes.DtcKwaliteitscertifcaat import DtcKwaliteitscertifcaat, DtcKwaliteitscertifcaatWaarden
 from ...Datatypes.KlAfmetingAswegerzone import KlAfmetingAswegerzone
@@ -9,7 +9,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Aswegersite(AIMNaamObject, VlakGeometrie):
+class Aswegersite(NaampadObject, VlakGeometrie):
     """Het geheel van infrastructuurelementen en toestellen op één locatie voor de exploitatie van een asweger."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aswegersite'
@@ -19,14 +19,15 @@ class Aswegersite(AIMNaamObject, VlakGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verlichtingstoestel', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Asweger', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lokaal', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Slagboom', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afsluiting', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aswegerput', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Printer', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Weegcel', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Weegplaat', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Weegcel', direction='i', deprecated='2.17.0')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Weegplaat', direction='i', deprecated='2.17.0')  # i = direction: incoming
 
         self._afmetingAswegerZone = OTLAttribuut(field=KlAfmetingAswegerzone,
                                                  naam='afmetingAswegerZone',

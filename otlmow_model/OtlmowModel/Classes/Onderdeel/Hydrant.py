@@ -1,13 +1,14 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Brandvoorziening import Brandvoorziening
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlHydrantKoppeling import KlHydrantKoppeling
 from ...Datatypes.KwantWrdInInch import KwantWrdInInch, KwantWrdInInchWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Hydrant(Brandvoorziening):
+class Hydrant(Brandvoorziening, NaampadObject):
     """Aftappunt van de brandleiding bedoeld voor de brandweer. Ook brandkraan genoemd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hydrant'

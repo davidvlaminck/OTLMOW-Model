@@ -1,14 +1,14 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.Cilindermechanisme import Cilindermechanisme
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KwantWrdInBar import KwantWrdInBar, KwantWrdInBarWaarden
 from ...Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, KwantWrdInKiloNewtonWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class HydraulischeCilinder(AIMNaamObject, PuntGeometrie):
+class HydraulischeCilinder(Cilindermechanisme, AIMNaamObject):
     """Hydraulisch aangedreven actuator waarbij de beweging wordt bewerkstelligd door een inwendige hydraulische druk."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HydraulischeCilinder'

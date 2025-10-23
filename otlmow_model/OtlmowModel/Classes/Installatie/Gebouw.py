@@ -1,12 +1,13 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Behuizing import Behuizing
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Gebouw(Behuizing, VlakGeometrie):
+class Gebouw(Behuizing, NaampadObject, VlakGeometrie):
     """Elk bouwwerk,dat een voor mensen toegankelijke overdekte,geheel of gedeeltelijk met wanden omsloten ruimte vormt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw'

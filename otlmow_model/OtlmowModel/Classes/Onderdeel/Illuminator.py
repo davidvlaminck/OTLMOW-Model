@@ -2,7 +2,7 @@
 from typing import List
 from datetime import date
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlIlluminatorMerk import KlIlluminatorMerk
@@ -12,7 +12,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Illuminator(AIMNaamObject, PuntGeometrie):
+class Illuminator(NaampadObject, PuntGeometrie):
     """Een verlichtingscomponent gekoppeld aan een camera dat dient om voldoende belichting te bieden voor het detecteren en herkennen van oa. voertuigen,vaak door gebruik van infraroodlicht zodat de flits onzichtbaar is voor het menselijk oog."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Illuminator'

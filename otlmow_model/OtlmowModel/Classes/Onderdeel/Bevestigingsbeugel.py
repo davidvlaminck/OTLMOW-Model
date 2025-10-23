@@ -6,6 +6,7 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlBevestigingsbeugelType import KlBevestigingsbeugelType
+from ...Datatypes.KlMateriaalBevestigingsbeugel import KlMateriaalBevestigingsbeugel
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -18,6 +19,7 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BVAfwateringKunstwerken', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BekledingComponent', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElement', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='u')  # u = unidirectional
@@ -27,9 +29,15 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Waarschuwingslantaarn', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ZenderOntvangerToegang', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Balk', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DrogePompkelder', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kolom', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koppelbalk', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lmuur', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompkamer', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wand', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ANPRCamera', direction='u', deprecated='2.9.0')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antenne', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antennecoupler', direction='u')  # u = unidirectional
@@ -83,6 +91,22 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
                                          definition='Geeft aan of de bevestigingsbeugel verzegeld is tegen het ongemerkt losmaken ervan.',
                                          owner=self)
 
+        self._materiaalBevestigingsbeugel = OTLAttribuut(field=KlMateriaalBevestigingsbeugel,
+                                                         naam='materiaalBevestigingsbeugel',
+                                                         label='materiaal bevestigingsbeugel',
+                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel.materiaalBevestigingsbeugel',
+                                                         definition='Het materiaal waaruit de bevestigingsbeugel bestaat.',
+                                                         owner=self)
+
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestigingsbeugel.technischeFiche',
+                                             usagenote='Bestanden van het type xlsx, dwg of pdf.',
+                                             kardinaliteit_max='*',
+                                             definition='De technische fiche van de bevestigingsbeugel.',
+                                             owner=self)
+
         self._type = OTLAttribuut(field=KlBevestigingsbeugelType,
                                   naam='type',
                                   label='type',
@@ -125,6 +149,24 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
     @isVerzegeld.setter
     def isVerzegeld(self, value):
         self._isVerzegeld.set_waarde(value, owner=self)
+
+    @property
+    def materiaalBevestigingsbeugel(self) -> str:
+        """Het materiaal waaruit de bevestigingsbeugel bestaat."""
+        return self._materiaalBevestigingsbeugel.get_waarde()
+
+    @materiaalBevestigingsbeugel.setter
+    def materiaalBevestigingsbeugel(self, value):
+        self._materiaalBevestigingsbeugel.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+        """De technische fiche van de bevestigingsbeugel."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def type(self) -> str:

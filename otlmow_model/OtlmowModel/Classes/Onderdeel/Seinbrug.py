@@ -14,7 +14,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Seinbrug(VRIDraagconstructie, NaampadObject, LijnGeometrie, VlakGeometrie):
-    """Metalen constructie bestaande uit twee of meer verticale steunen met voetplaat en uit een enkele of een dubbel uitgevoerde horizontale dwarsverbinding,allen kokervormig met rechthoekige doorsnede. Ook wel portiek of portaal genoemd."""
+    """Metalen constructie bestaande uit twee of meer verticale steunen met voetplaat en uit een enkele of een dubbel uitgevoerde horizontale dwarsverbinding,allen kokervormig met rechthoekige doorsnede."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

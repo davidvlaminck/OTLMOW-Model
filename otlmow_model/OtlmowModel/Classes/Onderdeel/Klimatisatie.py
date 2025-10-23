@@ -1,13 +1,13 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlKlimatisatieMerk import KlKlimatisatieMerk
 from ...Datatypes.KlKlimatisatieModelnaam import KlKlimatisatieModelnaam
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Klimatisatie(AIMNaamObject, PuntGeometrie):
+class Klimatisatie(NaampadObject, PuntGeometrie):
     """Component waarmee de temperatuur en klimaat geregeld wordt van het objecttype waaraan het bevestigd is zoals een behuizing of ruimte."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie'

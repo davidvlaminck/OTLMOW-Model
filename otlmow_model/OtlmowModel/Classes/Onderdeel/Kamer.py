@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.BVAfwateringKunstwerken import BVAfwateringKunstwerken
 from ...Classes.Abstracten.PutRelatie import PutRelatie
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -13,8 +14,8 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kamer(PutRelatie, VlakGeometrie):
-    """Een kamer is een aanééngesloten ondergrondse constructie waarbinnen vrije stroming van water over de bodem mogelijk is. Een constructie of inspectieput kan één of meerdere kamers hebben."""
+class Kamer(BVAfwateringKunstwerken, PutRelatie, VlakGeometrie):
+    """Een kamer is een aanééngesloten al dan niet ondergrondse constructie waarbinnen vrije stroming van water over de bodem mogelijk is. Een constructie of inspectieput kan één of meerdere kamers hebben."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -65,6 +66,13 @@ class Kamer(PutRelatie, VlakGeometrie):
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer.hoogte',
                                     definition='De afmeting 2 (hoogte) van het grondplan van de putkamer in millimeter.',
                                     owner=self)
+
+        self._isWoelkamer = OTLAttribuut(field=BooleanField,
+                                         naam='isWoelkamer',
+                                         label='is woelkamer',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer.isWoelkamer',
+                                         definition='Geeft aan of de kamer als woelkamer dient.',
+                                         owner=self)
 
         self._klasse = OTLAttribuut(field=KlKamerKlasse,
                                     naam='klasse',
@@ -140,6 +148,15 @@ class Kamer(PutRelatie, VlakGeometrie):
     @hoogte.setter
     def hoogte(self, value):
         self._hoogte.set_waarde(value, owner=self)
+
+    @property
+    def isWoelkamer(self) -> bool:
+        """Geeft aan of de kamer als woelkamer dient."""
+        return self._isWoelkamer.get_waarde()
+
+    @isWoelkamer.setter
+    def isWoelkamer(self, value):
+        self._isWoelkamer.set_waarde(value, owner=self)
 
     @property
     def klasse(self) -> str:

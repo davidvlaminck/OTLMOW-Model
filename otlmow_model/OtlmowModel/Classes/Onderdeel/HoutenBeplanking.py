@@ -2,6 +2,7 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.HoutenConstructieElement import HoutenConstructieElement
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
@@ -10,7 +11,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class HoutenBeplanking(HoutenConstructieElement, AIMNaamObject, LijnGeometrie, VlakGeometrie):
-    """De beplanking in hout van een waterbouwkundige constructie."""
+    """Beplanking in hout, gebruikt voor constructieve of decoratieve afwerking van bouwelementen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoutenBeplanking'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -18,6 +19,10 @@ class HoutenBeplanking(HoutenConstructieElement, AIMNaamObject, LijnGeometrie, V
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Balk', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kolom', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wand', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BeweegbareWaterkerendeConstructie', direction='o')  # o = direction: outgoing
 
         self._aantalLagen = OTLAttribuut(field=IntegerField,
@@ -26,6 +31,13 @@ class HoutenBeplanking(HoutenConstructieElement, AIMNaamObject, LijnGeometrie, V
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoutenBeplanking.aantalLagen',
                                          definition='Het aantal lagen dat de beplanking bevat.',
                                          owner=self)
+
+        self._isWaterdicht = OTLAttribuut(field=BooleanField,
+                                          naam='isWaterdicht',
+                                          label='is waterdicht',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoutenBeplanking.isWaterdicht',
+                                          definition='Geeft aan of de houten beplanking al dan niet waterdicht is.',
+                                          owner=self)
 
         self._totaleDikte = OTLAttribuut(field=KwantWrdInMillimeter,
                                          naam='totaleDikte',
@@ -42,6 +54,15 @@ class HoutenBeplanking(HoutenConstructieElement, AIMNaamObject, LijnGeometrie, V
     @aantalLagen.setter
     def aantalLagen(self, value):
         self._aantalLagen.set_waarde(value, owner=self)
+
+    @property
+    def isWaterdicht(self) -> bool:
+        """Geeft aan of de houten beplanking al dan niet waterdicht is."""
+        return self._isWaterdicht.get_waarde()
+
+    @isWaterdicht.setter
+    def isWaterdicht(self, value):
+        self._isWaterdicht.set_waarde(value, owner=self)
 
     @property
     def totaleDikte(self) -> KwantWrdInMillimeterWaarden:

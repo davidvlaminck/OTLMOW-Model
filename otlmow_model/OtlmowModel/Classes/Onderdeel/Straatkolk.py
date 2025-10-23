@@ -24,6 +24,8 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Epoxydrain', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LinkendElement', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#WaterloopRelatie', direction='i')  # i = direction: incoming
@@ -49,6 +51,13 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
                                      definition='Het type van bak van de straatkolk.',
                                      owner=self)
 
+        self._fungeertAlsSpuier = OTLAttribuut(field=BooleanField,
+                                               naam='fungeertAlsSpuier',
+                                               label='fungeert als spuier',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkolk.fungeertAlsSpuier',
+                                               definition='Geeft aan of de straatkolk als spuier fungeert.',
+                                               owner=self)
+
         self._heeftAfdekplaatReukafsluiter = OTLAttribuut(field=BooleanField,
                                                           naam='heeftAfdekplaatReukafsluiter',
                                                           label='heeft afdekplaat reukafsluiter',
@@ -67,7 +76,7 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
                                      naam='rooster',
                                      label='rooster',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkolk.rooster',
-                                     usagenote='Attribuut uit gebruik sinds versie 2.1.0',
+                                     usagenote='Attribuut uit gebruik sinds versie 2.1.0 ',
                                      deprecated_version='2.1.0',
                                      definition='Bepaalt het gebruikte type van rooster.',
                                      owner=self)
@@ -126,6 +135,15 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
     @bakType.setter
     def bakType(self, value):
         self._bakType.set_waarde(value, owner=self)
+
+    @property
+    def fungeertAlsSpuier(self) -> bool:
+        """Geeft aan of de straatkolk als spuier fungeert."""
+        return self._fungeertAlsSpuier.get_waarde()
+
+    @fungeertAlsSpuier.setter
+    def fungeertAlsSpuier(self, value):
+        self._fungeertAlsSpuier.set_waarde(value, owner=self)
 
     @property
     def heeftAfdekplaatReukafsluiter(self) -> bool:

@@ -5,6 +5,7 @@ from ...Classes.Abstracten.VerlichtingstoestelConnector import Verlichtingstoest
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.KlArmatuurkleur import KlArmatuurkleur
+from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -25,7 +26,7 @@ class VerlichtingstoestelNaHP(Verlichtingstoestel, VerlichtingstoestelConnector)
                                            naam='armatuurkleur',
                                            label='armatuurkleur',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelNaHP.armatuurkleur',
-                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.3.0 ',
                                            deprecated_version='2.3.0',
                                            definition='De kleur van de zichtbare buitenkant van het verlichtingstoestel.',
                                            owner=self)
@@ -50,6 +51,13 @@ class VerlichtingstoestelNaHP(Verlichtingstoestel, VerlichtingstoestelConnector)
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelNaHP.kleurArmatuur',
                                            definition='De kleur van de zichtbare buitenkant van het verlichtingstoestel.',
                                            owner=self)
+
+        self._lichtpuntHoogte = OTLAttribuut(field=KwantWrdInMeter,
+                                             naam='lichtpuntHoogte',
+                                             label='lichtpunt hoogte',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelNaHP.lichtpuntHoogte',
+                                             definition='Hoogte van het lichtpunt ten opzichte van de rijweg.',
+                                             owner=self)
 
     @property
     def armatuurkleur(self) -> DteKleurRALWaarden:
@@ -86,3 +94,12 @@ class VerlichtingstoestelNaHP(Verlichtingstoestel, VerlichtingstoestelConnector)
     @kleurArmatuur.setter
     def kleurArmatuur(self, value):
         self._kleurArmatuur.set_waarde(value, owner=self)
+
+    @property
+    def lichtpuntHoogte(self) -> KwantWrdInMeterWaarden:
+        """Hoogte van het lichtpunt ten opzichte van de rijweg."""
+        return self._lichtpuntHoogte.get_waarde()
+
+    @lichtpuntHoogte.setter
+    def lichtpuntHoogte(self, value):
+        self._lichtpuntHoogte.set_waarde(value, owner=self)

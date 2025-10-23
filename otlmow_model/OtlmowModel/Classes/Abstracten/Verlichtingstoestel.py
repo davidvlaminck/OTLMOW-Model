@@ -4,6 +4,7 @@ from abc import abstractmethod
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...Datatypes.KlVerlichtingstoestelInclinatiehoek import KlVerlichtingstoestelInclinatiehoek
 from ...Datatypes.KlVerlichtingstoestelMerk import KlVerlichtingstoestelMerk
 from ...Datatypes.KlVerlichtingstoestelModelnaam import KlVerlichtingstoestelModelnaam
 from ...Datatypes.KlVerlichtingstoestelVerlichtGebied import KlVerlichtingstoestelVerlichtGebied
@@ -99,7 +100,10 @@ class Verlichtingstoestel(SerienummerObject, AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoutenDamplank', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoutenHeipaal', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Injectiepaal', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KunststofConstructieObject', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KunststoffenDamplank', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kunststofplaat', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kunststofprofiel', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Metselwerk', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Micropaal', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietStandaardStalenProfiel', direction='u')  # u = unidirectional
@@ -125,6 +129,13 @@ class Verlichtingstoestel(SerienummerObject, AIMNaamObject, PuntGeometrie):
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verlichtingstoestel.heeftAansluitkastGeintegreerd',
                                                            definition='Is de aansluitkast geïntegreerd?',
                                                            owner=self)
+
+        self._inclinatiehoek = OTLAttribuut(field=KlVerlichtingstoestelInclinatiehoek,
+                                            naam='inclinatiehoek',
+                                            label='inclinatiehoek',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verlichtingstoestel.inclinatiehoek',
+                                            definition='De inclinatiehoek geeft aan hoeveel het verlichtingstoestel naar voren of naar achteren is gekanteld ten opzichte van de horizontale stand. Deze informatie wordt uitgedrukt in graden.',
+                                            owner=self)
 
         self._merk = OTLAttribuut(field=KlVerlichtingstoestelMerk,
                                   naam='merk',
@@ -169,6 +180,15 @@ class Verlichtingstoestel(SerienummerObject, AIMNaamObject, PuntGeometrie):
     @heeftAansluitkastGeintegreerd.setter
     def heeftAansluitkastGeintegreerd(self, value):
         self._heeftAansluitkastGeintegreerd.set_waarde(value, owner=self)
+
+    @property
+    def inclinatiehoek(self) -> str:
+        """De inclinatiehoek geeft aan hoeveel het verlichtingstoestel naar voren of naar achteren is gekanteld ten opzichte van de horizontale stand. Deze informatie wordt uitgedrukt in graden."""
+        return self._inclinatiehoek.get_waarde()
+
+    @inclinatiehoek.setter
+    def inclinatiehoek(self, value):
+        self._inclinatiehoek.set_waarde(value, owner=self)
 
     @property
     def merk(self) -> str:
