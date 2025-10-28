@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.17.0.0",
+        "model_version": "2.17.0.1",
         "otl_version": "2.17.0",
-        "created_at": "2025-10-23T04:01:02",
+        "created_at": "2025-10-28T04:00:59",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1132,6 +1132,14 @@
             "updated_class_model": true,
             "updated_enums": false,
             "enums_updated": []
+        },
+        "2.17.0.1": {
+            "previous_version": "2.17.0.0",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlLampTypeIVSB"
+            ]
         }
     }
 }
