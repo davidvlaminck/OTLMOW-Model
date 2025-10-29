@@ -42,7 +42,12 @@ class KlUPSMerk(KeuzelijstField):
                                             label='Pulse Dimension',
                                             status='ingebruik',
                                             definitie='Pulse Dimension',
-                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/pulse-dimension')
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/pulse-dimension'),
+        'socomec': KeuzelijstWaarde(invulwaarde='socomec',
+                                    label='Socomec',
+                                    status='ingebruik',
+                                    definitie='Socomec',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSMerk/socomec')
     }
 
     @classmethod

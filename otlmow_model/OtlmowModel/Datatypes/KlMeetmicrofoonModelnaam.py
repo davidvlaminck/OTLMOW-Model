@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,11 @@ class KlMeetmicrofoonModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMeetmicrofoonModelnaam'
     options = {
+        'ws200pi': KeuzelijstWaarde(invulwaarde='ws200pi',
+                                    label='WS200PI',
+                                    status='ingebruik',
+                                    definitie='WS200PI',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMeetmicrofoonModelnaam/ws200pi')
     }
 
     @classmethod

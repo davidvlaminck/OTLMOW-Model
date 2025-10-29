@@ -24,7 +24,12 @@ class KlDynBordPKModelnaam(KeuzelijstField):
         'PK-Tidal': KeuzelijstWaarde(invulwaarde='PK-Tidal',
                                      label='PK-Tidal',
                                      status='ingebruik',
-                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordPKModelnaam/PK-Tidal')
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordPKModelnaam/PK-Tidal'),
+        'vms-l-430x340-3g-rb-l3t-b7': KeuzelijstWaarde(invulwaarde='vms-l-430x340-3g-rb-l3t-b7',
+                                                       label='VMS-L-430x340-3G-RB-L3T-B7',
+                                                       status='ingebruik',
+                                                       definitie='VMS-L-430x340-3G-RB-L3T-B7',
+                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordPKModelnaam/vms-l-430x340-3g-rb-l3t-b7')
     }
 
     @classmethod
