@@ -13,6 +13,11 @@ class KlIVRIMerkRIS(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIMerkRIS'
     options = {
+        'haskoning': KeuzelijstWaarde(invulwaarde='haskoning',
+                                      label='Haskoning',
+                                      status='ingebruik',
+                                      definitie='Haskoning',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIMerkRIS/haskoning'),
         'peek': KeuzelijstWaarde(invulwaarde='peek',
                                  label='Peek',
                                  status='ingebruik',

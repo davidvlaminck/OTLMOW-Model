@@ -13,6 +13,11 @@ class KlUPSModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUPSModelnaam'
     options = {
+        'modulys': KeuzelijstWaarde(invulwaarde='modulys',
+                                    label='Modulys',
+                                    status='ingebruik',
+                                    definitie='Modulys',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUPSModelnaam/modulys'),
         'other': KeuzelijstWaarde(invulwaarde='other',
                                   label='Other',
                                   status='ingebruik',

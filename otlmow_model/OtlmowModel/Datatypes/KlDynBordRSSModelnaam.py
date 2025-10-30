@@ -53,7 +53,12 @@ class KlDynBordRSSModelnaam(KeuzelijstField):
                                           label='RSS1-ACHILLES',
                                           status='ingebruik',
                                           definitie='RSS1-ACHILLES',
-                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRSSModelnaam/rss1-achilles')
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRSSModelnaam/rss1-achilles'),
+        'vms-f-850x850-3g-rb-ecofc2': KeuzelijstWaarde(invulwaarde='vms-f-850x850-3g-rb-ecofc2',
+                                                       label='VMS-F-850x850-3G-RB-ECOFC2',
+                                                       status='ingebruik',
+                                                       definitie='VMS-F-850x850-3G-RB-ECOFC2',
+                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRSSModelnaam/vms-f-850x850-3g-rb-ecofc2')
     }
 
     @classmethod
