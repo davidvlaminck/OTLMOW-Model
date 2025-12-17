@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.17.0.6",
+        "model_version": "2.17.0.7",
         "otl_version": "2.17.0",
-        "created_at": "2025-12-13T04:04:24",
+        "created_at": "2025-12-17T04:08:11",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1202,6 +1202,16 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlStaalsoortMetEquivalenten"
+            ]
+        },
+        "2.17.0.7": {
+            "previous_version": "2.17.0.6",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlAntenneMerk",
+                "KlLuidsprekerMerk",
+                "KlLuidsprekerModelnaam"
             ]
         }
     }

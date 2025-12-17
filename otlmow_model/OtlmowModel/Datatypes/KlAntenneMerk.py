@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,11 @@ class KlAntenneMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAntenneMerk'
     options = {
+        'panorama-antennas': KeuzelijstWaarde(invulwaarde='panorama-antennas',
+                                              label='Panorama Antennas',
+                                              status='ingebruik',
+                                              definitie='Panorama Antennas',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAntenneMerk/panorama-antennas')
     }
 
     @classmethod

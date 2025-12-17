@@ -17,7 +17,12 @@ class KlLuidsprekerMerk(KeuzelijstField):
                                    label='Harman',
                                    status='ingebruik',
                                    definitie='Harman',
-                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuidsprekerMerk/harman')
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuidsprekerMerk/harman'),
+        'ic-audio': KeuzelijstWaarde(invulwaarde='ic-audio',
+                                     label='IC Audio',
+                                     status='ingebruik',
+                                     definitie='IC Audio',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuidsprekerMerk/ic-audio')
     }
 
     @classmethod

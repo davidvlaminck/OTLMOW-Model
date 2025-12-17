@@ -17,7 +17,17 @@ class KlLuidsprekerModelnaam(KeuzelijstField):
                                                 label='ABF-260/100W PA6 V0',
                                                 status='ingebruik',
                                                 definitie='ABF-260/100W PA6 V0',
-                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuidsprekerModelnaam/abf-260-100w-pa6-v0')
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuidsprekerModelnaam/abf-260-100w-pa6-v0'),
+        'da-10-260-t-en54': KeuzelijstWaarde(invulwaarde='da-10-260-t-en54',
+                                             label='DA 10-260/T-EN54',
+                                             status='ingebruik',
+                                             definitie='DA 10-260/T-EN54',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuidsprekerModelnaam/da-10-260-t-en54'),
+        'dk-30-t-en54-pg': KeuzelijstWaarde(invulwaarde='dk-30-t-en54-pg',
+                                            label='DK 30/T-EN54-PG',
+                                            status='ingebruik',
+                                            definitie='DK 30/T-EN54-PG',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuidsprekerModelnaam/dk-30-t-en54-pg')
     }
 
     @classmethod
