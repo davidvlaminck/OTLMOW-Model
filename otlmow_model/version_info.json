@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.17.0.7",
+        "model_version": "2.17.0.8",
         "otl_version": "2.17.0",
-        "created_at": "2025-12-17T04:08:11",
+        "created_at": "2025-12-18T04:08:55",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1212,6 +1212,14 @@
                 "KlAntenneMerk",
                 "KlLuidsprekerMerk",
                 "KlLuidsprekerModelnaam"
+            ]
+        },
+        "2.17.0.8": {
+            "previous_version": "2.17.0.7",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlTakvrijeHoogte"
             ]
         }
     }
