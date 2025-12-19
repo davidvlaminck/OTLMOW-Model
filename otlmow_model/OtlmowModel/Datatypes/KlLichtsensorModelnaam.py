@@ -13,6 +13,11 @@ class KlLichtsensorModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtsensorModelnaam'
     options = {
+        'lrl7621': KeuzelijstWaarde(invulwaarde='lrl7621',
+                                    label='LRL7621',
+                                    status='ingebruik',
+                                    definitie='LRL7621',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtsensorModelnaam/lrl7621'),
         'luminance-luci-l20': KeuzelijstWaarde(invulwaarde='luminance-luci-l20',
                                                label='Luminance LUCI L20',
                                                status='ingebruik',

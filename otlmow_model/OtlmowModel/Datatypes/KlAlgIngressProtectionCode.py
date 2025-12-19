@@ -102,7 +102,12 @@ class KlAlgIngressProtectionCode(KeuzelijstField):
                                  label='IP68',
                                  status='ingebruik',
                                  definitie='ip68',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAlgIngressProtectionCode/ip68')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAlgIngressProtectionCode/ip68'),
+        'ipx4': KeuzelijstWaarde(invulwaarde='ipx4',
+                                 label='IPx4',
+                                 status='ingebruik',
+                                 definitie='IPx4',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAlgIngressProtectionCode/ipx4')
     }
 
     @classmethod

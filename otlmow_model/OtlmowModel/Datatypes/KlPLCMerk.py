@@ -13,6 +13,11 @@ class KlPLCMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPLCMerk'
     options = {
+        'philips': KeuzelijstWaarde(invulwaarde='philips',
+                                    label='Philips',
+                                    status='ingebruik',
+                                    definitie='Philips',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPLCMerk/philips'),
         'phoenix-contact': KeuzelijstWaarde(invulwaarde='phoenix-contact',
                                             label='Phoenix Contact',
                                             status='ingebruik',

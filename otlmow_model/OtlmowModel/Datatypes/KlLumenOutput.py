@@ -53,6 +53,11 @@ class KlLumenOutput(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='15000',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/15000'),
+        '16000': KeuzelijstWaarde(invulwaarde='16000',
+                                  label='16000',
+                                  status='ingebruik',
+                                  definitie='16000',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/16000'),
         '1750': KeuzelijstWaarde(invulwaarde='1750',
                                  label='1750',
                                  status='ingebruik',
@@ -88,6 +93,11 @@ class KlLumenOutput(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='25000',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/25000'),
+        '26000': KeuzelijstWaarde(invulwaarde='26000',
+                                  label='26000',
+                                  status='ingebruik',
+                                  definitie='26000',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/26000'),
         '3000': KeuzelijstWaarde(invulwaarde='3000',
                                  label='3000',
                                  status='ingebruik',
@@ -187,7 +197,17 @@ class KlLumenOutput(KeuzelijstField):
                                   label='90000',
                                   status='ingebruik',
                                   definitie='90000',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/90000')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/90000'),
+        '91000': KeuzelijstWaarde(invulwaarde='91000',
+                                  label='91000',
+                                  status='ingebruik',
+                                  definitie='91000',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/91000'),
+        '91900': KeuzelijstWaarde(invulwaarde='91900',
+                                  label='91900',
+                                  status='ingebruik',
+                                  definitie='91900',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/91900')
     }
 
     @classmethod

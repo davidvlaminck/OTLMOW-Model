@@ -267,7 +267,17 @@ class KlVerlichtingstoestelModelnaam(KeuzelijstField):
                                          label='TFLEX Module',
                                          status='ingebruik',
                                          definitie='TFLEX Module',
-                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelModelnaam/tflex-module')
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelModelnaam/tflex-module'),
+        'tubeline-eto-bgp360': KeuzelijstWaarde(invulwaarde='tubeline-eto-bgp360',
+                                                label='TubeLine ETO BGP360',
+                                                status='ingebruik',
+                                                definitie='TubeLine ETO BGP360',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelModelnaam/tubeline-eto-bgp360'),
+        'tubepoint-gen2-bgp237': KeuzelijstWaarde(invulwaarde='tubepoint-gen2-bgp237',
+                                                  label='TubePoint gen2 BGP237',
+                                                  status='ingebruik',
+                                                  definitie='TubePoint gen2 BGP237',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelModelnaam/tubepoint-gen2-bgp237')
     }
 
     @classmethod
