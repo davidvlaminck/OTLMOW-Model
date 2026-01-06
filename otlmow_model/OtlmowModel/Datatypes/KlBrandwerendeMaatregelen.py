@@ -32,7 +32,12 @@ class KlBrandwerendeMaatregelen(KeuzelijstField):
                                                 label='brandwerende platen',
                                                 status='ingebruik',
                                                 definitie='Brandwerende platen',
-                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBrandwerendeMaatregelen/brandwerende-platen')
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBrandwerendeMaatregelen/brandwerende-platen'),
+        'geen': KeuzelijstWaarde(invulwaarde='geen',
+                                 label='geen',
+                                 status='ingebruik',
+                                 definitie='Er zijn geen brandwerende maatregelen aanwezig.',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBrandwerendeMaatregelen/geen')
     }
 
     @classmethod

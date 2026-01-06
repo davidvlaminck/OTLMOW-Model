@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.17.0.9",
+        "model_version": "2.17.0.10",
         "otl_version": "2.17.0",
-        "created_at": "2025-12-19T04:10:13",
+        "created_at": "2026-01-06T04:13:52",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1238,6 +1238,16 @@
                 "KlRepeaterModelnaam",
                 "KlVerlichtingstoestelModelnaam",
                 "KlWvLedLichtpunthoogte"
+            ]
+        },
+        "2.17.0.10": {
+            "previous_version": "2.17.0.9",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlBrandwerendeMaatregelen",
+                "KlConstructiestaalsoort",
+                "KlLEDDriverModelnaam"
             ]
         }
     }
