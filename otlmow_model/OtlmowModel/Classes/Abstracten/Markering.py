@@ -1,13 +1,17 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.Signalisatie import Signalisatie
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcMarkeringOpvatting import DtcMarkeringOpvatting, DtcMarkeringOpvattingWaarden
 from ...Datatypes.DtcProductidentificatiecode import DtcProductidentificatiecode, DtcProductidentificatiecodeWaarden
 from ...Datatypes.KlKleurMarkering import KlKleurMarkering
 from ...Datatypes.KlMarkeringSoort import KlMarkeringSoort
+from ...Datatypes.KlMarkeringsproduct import KlMarkeringsproduct
+from ...Datatypes.KlMarkeringssysteem import KlMarkeringssysteem
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -96,8 +100,24 @@ class Markering(Signalisatie, AIMObject):
                                             naam='markeringsoort',
                                             label='markeringsoort',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering.markeringsoort',
+                                            usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                            deprecated_version='2.18.0',
                                             definition='De soort van markering (verf, thermopast,...).',
                                             owner=self)
+
+        self._markeringsproduct = OTLAttribuut(field=KlMarkeringsproduct,
+                                               naam='markeringsproduct',
+                                               label='markeringsproduct',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering.markeringsproduct',
+                                               definition='Het type product van de markering.',
+                                               owner=self)
+
+        self._markeringssysteem = OTLAttribuut(field=KlMarkeringssysteem,
+                                               naam='markeringssysteem',
+                                               label='markeringssysteem',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering.markeringssysteem',
+                                               definition='Een combinatie van een markeringsproduct en één of meer soorten glasparels of een geschikt mengsel van glasparels en een stroefmakend middel, aangebracht met een welbepaalde methode en met een welbepaalde dosering.',
+                                               owner=self)
 
         self._markeringsysteemCopro = OTLAttribuut(field=DtcProductidentificatiecode,
                                                    naam='markeringsysteemCopro',
@@ -112,6 +132,14 @@ class Markering(Signalisatie, AIMObject):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering.opvatting',
                                        definition='De opvatting van de markering, zijnde middelenverbintenis of resultaatsverbintenis met een minimale levensduur.',
                                        owner=self)
+
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering.technischeFiche',
+                                             kardinaliteit_max='*',
+                                             definition='De technische fiche(s) van de markering.',
+                                             owner=self)
 
     @property
     def isHandwerk(self) -> bool:
@@ -150,6 +178,24 @@ class Markering(Signalisatie, AIMObject):
         self._markeringsoort.set_waarde(value, owner=self)
 
     @property
+    def markeringsproduct(self) -> str:
+        """Het type product van de markering."""
+        return self._markeringsproduct.get_waarde()
+
+    @markeringsproduct.setter
+    def markeringsproduct(self, value):
+        self._markeringsproduct.set_waarde(value, owner=self)
+
+    @property
+    def markeringssysteem(self) -> str:
+        """Een combinatie van een markeringsproduct en één of meer soorten glasparels of een geschikt mengsel van glasparels en een stroefmakend middel, aangebracht met een welbepaalde methode en met een welbepaalde dosering."""
+        return self._markeringssysteem.get_waarde()
+
+    @markeringssysteem.setter
+    def markeringssysteem(self, value):
+        self._markeringssysteem.set_waarde(value, owner=self)
+
+    @property
     def markeringsysteemCopro(self) -> DtcProductidentificatiecodeWaarden:
         """De product informatie van de markering via COPRO codes."""
         return self._markeringsysteemCopro.get_waarde()
@@ -166,3 +212,12 @@ class Markering(Signalisatie, AIMObject):
     @opvatting.setter
     def opvatting(self, value):
         self._opvatting.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+        """De technische fiche(s) van de markering."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)

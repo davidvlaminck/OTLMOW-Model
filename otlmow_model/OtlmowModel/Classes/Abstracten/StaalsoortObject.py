@@ -1,6 +1,7 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
+from ...Datatypes.KlConstructiestaalsoort import KlConstructiestaalsoort
 from ...Datatypes.KlStaalsoortMetEquivalenten import KlStaalsoortMetEquivalenten
 
 
@@ -19,8 +20,17 @@ class StaalsoortObject(ABC):
                                        naam='materiaal',
                                        label='staalsoorten',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#StaalsoortObject.materiaal',
+                                       usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                       deprecated_version='2.18.0',
                                        definition='Lijst van staalsoorten (constructiestaal, gietstaal, veredelstaal, smeedstaan en roestvaststaal)',
                                        owner=self)
+
+        self._soortStaal = OTLAttribuut(field=KlConstructiestaalsoort,
+                                        naam='soortStaal',
+                                        label='soort staal',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#StaalsoortObject.soortStaal',
+                                        definition='Lijst van staalsoorten (constructiestaal, gietstaal, veredelstaal, smeedstaan en roestvaststaal)',
+                                        owner=self)
 
     @property
     def materiaal(self) -> str:
@@ -30,3 +40,12 @@ class StaalsoortObject(ABC):
     @materiaal.setter
     def materiaal(self, value):
         self._materiaal.set_waarde(value, owner=self)
+
+    @property
+    def soortStaal(self) -> str:
+        """Lijst van staalsoorten (constructiestaal, gietstaal, veredelstaal, smeedstaan en roestvaststaal)"""
+        return self._soortStaal.get_waarde()
+
+    @soortStaal.setter
+    def soortStaal(self, value):
+        self._soortStaal.set_waarde(value, owner=self)

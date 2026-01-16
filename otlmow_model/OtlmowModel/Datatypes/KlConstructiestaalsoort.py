@@ -5,11 +5,11 @@ from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaar
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlConstructiestaalsoort(KeuzelijstField):
-    """De soort van het constructiestaal."""
+    """De soort van staal."""
     naam = 'KlConstructiestaalsoort'
-    label = 'Constructiestaalsoort'
+    label = 'Staalsoort'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlConstructiestaalsoort'
-    definition = 'De soort van het constructiestaal.'
+    definition = 'De soort van staal.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlConstructiestaalsoort'
     options = {

@@ -1,6 +1,7 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlBrandwerendeMaatregelen import KlBrandwerendeMaatregelen
 from ...Datatypes.KlGebruikersType import KlGebruikersType
@@ -11,7 +12,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
+class Koker(NaampadObject, LijnGeometrie, VlakGeometrie):
     """Een koker is een opdeling van het kokercomplex in de lengte richting, het heeft een doorvoerende functie met een in- en uitgang en eventuele zijgangen, die met een gesloten doorsnede verbonden zijn. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koker'
@@ -28,7 +29,8 @@ class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokercomplex', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kolom', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Omroepzone', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Randprofiel', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Randafwerking', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Randprofiel', direction='i', deprecated='2.18.0')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wand', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ConstructieSokkel', direction='i')  # i = direction: incoming
@@ -40,9 +42,10 @@ class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
 
         self._brandwerendeMaatregelen = OTLAttribuut(field=KlBrandwerendeMaatregelen,
                                                      naam='brandwerendeMaatregelen',
-                                                     label='type brandwerendheid',
+                                                     label='brandwerende maatregelen',
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koker.brandwerendeMaatregelen',
-                                                     definition='Keuzelijst voor aan te geven welk type brandwerendheid nodig is.',
+                                                     kardinaliteit_max='*',
+                                                     definition='De verschillende brandwerende maatregelen toegepast in de koker.',
                                                      owner=self)
 
         self._gebruikersInDeKoker = OTLAttribuut(field=KlGebruikersType,
@@ -74,8 +77,8 @@ class Koker(AIMObject, LijnGeometrie, VlakGeometrie):
                                            owner=self)
 
     @property
-    def brandwerendeMaatregelen(self) -> str:
-        """Keuzelijst voor aan te geven welk type brandwerendheid nodig is."""
+    def brandwerendeMaatregelen(self) -> List[str]:
+        """De verschillende brandwerende maatregelen toegepast in de koker."""
         return self._brandwerendeMaatregelen.get_waarde()
 
     @brandwerendeMaatregelen.setter

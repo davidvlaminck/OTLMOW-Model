@@ -9,6 +9,7 @@ from ...Datatypes.KlSpanningsomvormerMerk import KlSpanningsomvormerMerk
 from ...Datatypes.KlSpanningsomvormerModelnaam import KlSpanningsomvormerModelnaam
 from ...Datatypes.KwantWrdInAmpere import KwantWrdInAmpere, KwantWrdInAmpereWaarden
 from ...Datatypes.KwantWrdInHerz import KwantWrdInHerz, KwantWrdInHerzWaarden
+from ...Datatypes.KwantWrdInKiloWatt import KwantWrdInKiloWatt, KwantWrdInKiloWattWaarden
 from ...Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -33,11 +34,13 @@ class Spanningsomvormer(ElektrischComponentennummerObject, SerienummerObject, AI
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Batterij', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netontkoppelbord', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omvormer', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontroller', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Zonnepaneel', direction='i')  # i = direction: incoming
 
         self._ingangsfrequentie = OTLAttribuut(field=KwantWrdInHerz,
                                                naam='ingangsfrequentie',
@@ -102,6 +105,13 @@ class Spanningsomvormer(ElektrischComponentennummerObject, SerienummerObject, AI
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Spanningsomvormer.uitgangsstroom',
                                             definition='De waarde van de elektrische stroom aan de uitgangszijde van de omvormer.',
                                             owner=self)
+
+        self._vermogen = OTLAttribuut(field=KwantWrdInKiloWatt,
+                                      naam='vermogen',
+                                      label='vermogen',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Spanningsomvormer.vermogen',
+                                      definition='Het vermogen van de omvormer in kilowatt.',
+                                      owner=self)
 
     @property
     def ingangsfrequentie(self) -> KwantWrdInHerzWaarden:
@@ -183,3 +193,12 @@ class Spanningsomvormer(ElektrischComponentennummerObject, SerienummerObject, AI
     @uitgangsstroom.setter
     def uitgangsstroom(self, value):
         self._uitgangsstroom.set_waarde(value, owner=self)
+
+    @property
+    def vermogen(self) -> KwantWrdInKiloWattWaarden:
+        """Het vermogen van de omvormer in kilowatt."""
+        return self._vermogen.get_waarde()
+
+    @vermogen.setter
+    def vermogen(self, value):
+        self._vermogen.set_waarde(value, owner=self)

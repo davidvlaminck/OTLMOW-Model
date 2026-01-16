@@ -11,6 +11,7 @@ from ...Datatypes.KlRoosterOpeningswijze import KlRoosterOpeningswijze
 from ...Datatypes.KlStraatkolkBakType import KlStraatkolkBakType
 from ...Datatypes.KlStraatkolkType import KlStraatkolkType
 from ...Datatypes.KlStraatkolkTypeUitlaat import KlStraatkolkTypeUitlaat
+from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -43,6 +44,14 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkolk.bakAfmetingen',
                                            definition='De afmetingen van de bak van de straatkolk in mm.',
                                            owner=self)
+
+        self._bakDiameter = OTLAttribuut(field=KwantWrdInMillimeter,
+                                         naam='bakDiameter',
+                                         label='bakdiameter',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Straatkolk.bakDiameter',
+                                         usagenote='Deze eigenschap wordt enkel gebruikt voor ronde uitvoeringen van een straatkolk. Voor rechthoekige uitvoeringen wordt de eigenschap bakAfmetingen gebruikt.',
+                                         definition='De diameter van de kolkbak wanneer deze is uitgevoerd als een ronde straatkolk, doorgaans in PVC of een ander cilindrisch materiaal.',
+                                         owner=self)
 
         self._bakType = OTLAttribuut(field=KlStraatkolkBakType,
                                      naam='bakType',
@@ -126,6 +135,15 @@ class Straatkolk(Put, PutRelatie, PuntGeometrie):
     @bakAfmetingen.setter
     def bakAfmetingen(self, value):
         self._bakAfmetingen.set_waarde(value, owner=self)
+
+    @property
+    def bakDiameter(self) -> KwantWrdInMillimeterWaarden:
+        """De diameter van de kolkbak wanneer deze is uitgevoerd als een ronde straatkolk, doorgaans in PVC of een ander cilindrisch materiaal."""
+        return self._bakDiameter.get_waarde()
+
+    @bakDiameter.setter
+    def bakDiameter(self, value):
+        self._bakDiameter.set_waarde(value, owner=self)
 
     @property
     def bakType(self) -> str:

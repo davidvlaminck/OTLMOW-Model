@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorighedenBrug import AanhorighedenBrug
 from ...Classes.Abstracten.AanhorigheidKoker import AanhorigheidKoker
@@ -7,6 +8,7 @@ from ...Classes.Abstracten.DetaiplanObject import DetaiplanObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.DtcMateriaalEnAfwerking import DtcMateriaalEnAfwerking, DtcMateriaalEnAfwerkingWaarden
 from ...Datatypes.KlAfwerkingstypeLeuning import KlAfwerkingstypeLeuning
 from ...Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from ...Datatypes.KlVormLeuning import KlVormLeuning
@@ -34,11 +36,17 @@ class Leuning(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, Detai
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Trap', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#StalenProfiel', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoutenConstructieprofiel', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenConstructieObject', direction='i')  # i = direction: incoming
 
         self._afwerkingstype = OTLAttribuut(field=KlAfwerkingstypeLeuning,
                                             naam='afwerkingstype',
                                             label='afwerkingstype',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning.afwerkingstype',
+                                            usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                            deprecated_version='2.18.0',
+                                            kardinaliteit_max='*',
                                             definition='Het type afwerking van de leuning.',
                                             owner=self)
 
@@ -60,14 +68,23 @@ class Leuning(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, Detai
                                        naam='materiaal',
                                        label='materiaal',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning.materiaal',
+                                       usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                       deprecated_version='2.18.0',
                                        definition='Het materiaal waaruit de leuning is vervaardigd.',
                                        owner=self)
+
+        self._materiaalUitvoering = OTLAttribuut(field=DtcMateriaalEnAfwerking,
+                                                 naam='materiaalUitvoering',
+                                                 label='materiaal uitvoering',
+                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning.materiaalUitvoering',
+                                                 definition='Het materiaal en type van afwerking van de leuning.',
+                                                 owner=self)
 
         self._professioneelGebruik = OTLAttribuut(field=BooleanField,
                                                   naam='professioneelGebruik',
                                                   label='professioneel gebruik',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Leuning.professioneelGebruik',
-                                                  definition='Geeft aan of het gebruik enkel voor professionelen is of ook publiekeliGeeft aan of het gebruik enkel voor professionelen is of ook publiekelijk gebruikt wordt.',
+                                                  definition='Geeft aan of het gebruik enkel voor professionelen is of ook publiekelijk gebruikt wordt.',
                                                   owner=self)
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
@@ -85,7 +102,7 @@ class Leuning(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, Detai
                                   owner=self)
 
     @property
-    def afwerkingstype(self) -> str:
+    def afwerkingstype(self) -> List[str]:
         """Het type afwerking van de leuning."""
         return self._afwerkingstype.get_waarde()
 
@@ -121,8 +138,17 @@ class Leuning(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, Detai
         self._materiaal.set_waarde(value, owner=self)
 
     @property
+    def materiaalUitvoering(self) -> DtcMateriaalEnAfwerkingWaarden:
+        """Het materiaal en type van afwerking van de leuning."""
+        return self._materiaalUitvoering.get_waarde()
+
+    @materiaalUitvoering.setter
+    def materiaalUitvoering(self, value):
+        self._materiaalUitvoering.set_waarde(value, owner=self)
+
+    @property
     def professioneelGebruik(self) -> bool:
-        """Geeft aan of het gebruik enkel voor professionelen is of ook publiekeliGeeft aan of het gebruik enkel voor professionelen is of ook publiekelijk gebruikt wordt."""
+        """Geeft aan of het gebruik enkel voor professionelen is of ook publiekelijk gebruikt wordt."""
         return self._professioneelGebruik.get_waarde()
 
     @professioneelGebruik.setter

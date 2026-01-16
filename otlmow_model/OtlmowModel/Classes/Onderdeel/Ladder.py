@@ -7,7 +7,9 @@ from ...Classes.Abstracten.DetaiplanObject import DetaiplanObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.KlConstructiestaalsoort import KlConstructiestaalsoort
 from ...Datatypes.KlMateriaalLadder import KlMateriaalLadder
+from ...Datatypes.KlTypeBevestigingLadder import KlTypeBevestigingLadder
 from ...Datatypes.KlTypeOpstellingLadder import KlTypeOpstellingLadder
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
@@ -82,11 +84,25 @@ class Ladder(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, Detaip
                                              definition='Het materiaal waaruit de ladder is opgebouwd.',
                                              owner=self)
 
+        self._materiaalVerankering = OTLAttribuut(field=KlConstructiestaalsoort,
+                                                  naam='materiaalVerankering',
+                                                  label='materiaal verankering',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder.materiaalVerankering',
+                                                  definition='Het materiaal waaruit de verankering van de ladder kan bestaan.',
+                                                  owner=self)
+
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
                                              naam='technischeFiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder.technischeFiche',
                                              definition='De technische fiche van de ladder.',
+                                             owner=self)
+
+        self._typeBevestiging = OTLAttribuut(field=KlTypeBevestigingLadder,
+                                             naam='typeBevestiging',
+                                             label='type bevestiging ladder',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder.typeBevestiging',
+                                             definition='De verschillende wijzen waarop een ladder aan een constructie bevestigd kan worden.',
                                              owner=self)
 
         self._typeOpstelling = OTLAttribuut(field=KlTypeOpstellingLadder,
@@ -167,6 +183,15 @@ class Ladder(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, Detaip
         self._materiaalLadder.set_waarde(value, owner=self)
 
     @property
+    def materiaalVerankering(self) -> str:
+        """Het materiaal waaruit de verankering van de ladder kan bestaan."""
+        return self._materiaalVerankering.get_waarde()
+
+    @materiaalVerankering.setter
+    def materiaalVerankering(self, value):
+        self._materiaalVerankering.set_waarde(value, owner=self)
+
+    @property
     def technischeFiche(self) -> DtcDocumentWaarden:
         """De technische fiche van de ladder."""
         return self._technischeFiche.get_waarde()
@@ -174,6 +199,15 @@ class Ladder(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, Detaip
     @technischeFiche.setter
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
+
+    @property
+    def typeBevestiging(self) -> str:
+        """De verschillende wijzen waarop een ladder aan een constructie bevestigd kan worden."""
+        return self._typeBevestiging.get_waarde()
+
+    @typeBevestiging.setter
+    def typeBevestiging(self, value):
+        self._typeBevestiging.set_waarde(value, owner=self)
 
     @property
     def typeOpstelling(self) -> str:

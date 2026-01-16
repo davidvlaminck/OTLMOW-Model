@@ -1,11 +1,11 @@
 # coding=utf-8
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Geleidingsverlichting(AIMObject, PuntGeometrie, LijnGeometrie):
+class Geleidingsverlichting(NaampadObject, PuntGeometrie, LijnGeometrie):
     """Verlichting die de gestrande weggebruiker begeleiding biedt op handhoogte langs de vluchtroute tot aan een vluchtdeur of tot aan een veilige locatie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleidingsverlichting'

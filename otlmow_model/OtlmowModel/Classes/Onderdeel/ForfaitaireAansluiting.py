@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
 from ...Datatypes.KlNominaleSpanning import KlNominaleSpanning
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
@@ -8,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class ForfaitaireAansluiting(AIMNaamObject, PuntGeometrie):
+class ForfaitaireAansluiting(NaampadObject, PuntGeometrie):
     """Een elektrische aansluiting waarbij met een forfaitair tarief gewerkt wordt,hierbij is er geen teller voorzien door de DNB."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ForfaitaireAansluiting'
@@ -24,12 +24,15 @@ class ForfaitaireAansluiting(AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BiFlash', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordZ30', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PunctueleVerlichtingsmast', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomkring', direction='o')  # o = direction: outgoing
 
         self._adresVolgensDNB = OTLAttribuut(field=DtcAdres,
                                              naam='adresVolgensDNB',
                                              label='adres volgens DNB',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ForfaitaireAansluiting.adresVolgensDNB',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                             deprecated_version='2.18.0',
                                              definition='Het adres van de aansluiting volgens de distributienetbeheerder.',
                                              owner=self)
 
@@ -37,6 +40,8 @@ class ForfaitaireAansluiting(AIMNaamObject, PuntGeometrie):
                                        naam='eanNummer',
                                        label='ean nummer',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ForfaitaireAansluiting.eanNummer',
+                                       usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                       deprecated_version='2.18.0',
                                        definition='Uniek identificatienummer van de elektrische aansluiting, bestaande uit 18 cijfers.',
                                        owner=self)
 
@@ -51,6 +56,8 @@ class ForfaitaireAansluiting(AIMNaamObject, PuntGeometrie):
                                            naam='referentieDNB',
                                            label='referentie distributienetbeheerder',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ForfaitaireAansluiting.referentieDNB',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                           deprecated_version='2.18.0',
                                            definition='De wijze waarop, de referentie waarmee de aansluiting gekend is bij de distributienetbeheerder.',
                                            owner=self)
 

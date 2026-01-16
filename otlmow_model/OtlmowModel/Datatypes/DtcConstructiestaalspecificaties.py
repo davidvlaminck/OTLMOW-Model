@@ -14,6 +14,8 @@ class DtcConstructiestaalspecificatiesWaarden(WaardenObject):
                                         naam='staalsoort',
                                         label='staalsoort',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcConstructiestaalspecificaties.staalsoort',
+                                        usagenote='Klasse uit gebruik sinds versie 2.18.0 ',
+                                        deprecated_version='2.18.0',
                                         definition='Staalkwaliteit die wordt gebruikt volgens Europese normen.',
                                         owner=self)
 
@@ -21,6 +23,8 @@ class DtcConstructiestaalspecificatiesWaarden(WaardenObject):
                                          naam='walsmethode',
                                          label='walsmethode',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcConstructiestaalspecificaties.walsmethode',
+                                         usagenote='Klasse uit gebruik sinds versie 2.18.0 ',
+                                         deprecated_version='2.18.0',
                                          definition='Op welke manier het staal gewalst is.',
                                          owner=self)
 
@@ -45,11 +49,11 @@ class DtcConstructiestaalspecificatiesWaarden(WaardenObject):
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
 class DtcConstructiestaalspecificaties(ComplexField):
-    """Complex datatype om de eigenschappen van constructiestaal te bundelen."""
+    """Complex datatype om de eigenschappen van staal te bundelen."""
     naam = 'DtcConstructiestaalspecificaties'
-    label = 'Constructiestaalspecificaties'
+    label = 'Staalspecificaties'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcConstructiestaalspecificaties'
-    definition = 'Complex datatype om de eigenschappen van constructiestaal te bundelen.'
+    definition = 'Complex datatype om de eigenschappen van staal te bundelen.'
     waardeObject = DtcConstructiestaalspecificatiesWaarden
 
     def __str__(self):

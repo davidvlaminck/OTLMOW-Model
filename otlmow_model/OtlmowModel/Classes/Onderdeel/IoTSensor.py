@@ -7,6 +7,7 @@ from ...Datatypes.KlIoTSensorMerk import KlIoTSensorMerk
 from ...Datatypes.KlIoTSensorModelnaam import KlIoTSensorModelnaam
 from ...Datatypes.KlIoTSensorParameter import KlIoTSensorParameter
 from ...Datatypes.KlIoTSensorVerbindingstype import KlIoTSensorVerbindingstype
+from ...Datatypes.KlIoTSensortype import KlIoTSensortype
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -63,6 +64,13 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
                                          definition='Het unieke nummer waarmee het toestel door de fabrikant geïdentificeerd is.',
                                          owner=self)
 
+        self._typeIoTSensor = OTLAttribuut(field=KlIoTSensortype,
+                                           naam='typeIoTSensor',
+                                           label='type IoT-sensor',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IoTSensor.typeIoTSensor',
+                                           definition='Het type van IoT-sensor.',
+                                           owner=self)
+
         self._typeVerbinding = OTLAttribuut(field=KlIoTSensorVerbindingstype,
                                             naam='typeVerbinding',
                                             label='type verbinding',
@@ -114,6 +122,15 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
     @serienummer.setter
     def serienummer(self, value):
         self._serienummer.set_waarde(value, owner=self)
+
+    @property
+    def typeIoTSensor(self) -> str:
+        """Het type van IoT-sensor."""
+        return self._typeIoTSensor.get_waarde()
+
+    @typeIoTSensor.setter
+    def typeIoTSensor(self, value):
+        self._typeIoTSensor.set_waarde(value, owner=self)
 
     @property
     def typeVerbinding(self) -> str:

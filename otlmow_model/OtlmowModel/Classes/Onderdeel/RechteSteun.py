@@ -8,7 +8,7 @@ from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class RechteSteun(VRIDraagconstructie, PuntGeometrie):
-    """Rechte paal voor het steun geven aan allerlei installaties. Dit omvat het volledige draagsysteem, zijnde de logische samenstelling van met elkaar verbonden onderdelen, bestemd voor het geven van mechanische sterkte en stabiliteit aan de installatie voor wegsignalering. Afhankelijk van het gekozen model kan de rechte steun bestemd zijn voor: verkeerslichten (A-paal, D-paal en zwanenhals), variabele zone 30, bi-flash of andere installaties."""
+    """Rechte paal voor het steun geven aan allerlei installaties. Dit omvat het volledige draagsysteem, zijnde de logische samenstelling van met elkaar verbonden onderdelen, bestemd voor het geven van mechanische sterkte en stabiliteit aan de installatie voor wegsignalering."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RechteSteun'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

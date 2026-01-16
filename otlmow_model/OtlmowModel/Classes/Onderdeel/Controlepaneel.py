@@ -1,14 +1,14 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlControlepaneelMerk import KlControlepaneelMerk
 from ...Datatypes.KlControlepaneelModelnaam import KlControlepaneelModelnaam
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Controlepaneel(SerienummerObject, AIMNaamObject, PuntGeometrie):
+class Controlepaneel(SerienummerObject, NaampadObject, PuntGeometrie):
     """Een inrichting voor het besturen van een systeem dat of installatie die zich in de buurt van het controlepaneel bevindt. Een controlepaneel kan onder andere uitgerust zijn met schakelaars,drukknoppen,draaiknoppen,cijfertoetsen,signaallampen,etc."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Controlepaneel'

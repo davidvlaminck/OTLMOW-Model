@@ -1,13 +1,13 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.MotorVermogenskring import MotorVermogenskring
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlRelaisMerk import KlRelaisMerk
 from ...Datatypes.KlRelaisModelnaam import KlRelaisModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Relais(MotorVermogenskring, AIMNaamObject):
+class Relais(MotorVermogenskring, NaampadObject):
     """Een door een elektromagneet bediende schakelaar voor het schakelen van kleine vermogens. Ook magneetschakelaar genoemd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Relais'

@@ -2,14 +2,14 @@
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlTemperatuursensorMerk import KlTemperatuursensorMerk
 from ...Datatypes.KlTemperatuursensorModelnaam import KlTemperatuursensorModelnaam
 from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Temperatuursensor(ElektrischComponentennummerObject, SerienummerObject, AIMNaamObject, PuntGeometrie):
+class Temperatuursensor(ElektrischComponentennummerObject, SerienummerObject, NaampadObject, PuntGeometrie):
     """Een meettoestel dat de temperatuur van een omgeving of medium meet. Het resultaat wordt omgezet in een uitleesbaar signaal."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Temperatuursensor'

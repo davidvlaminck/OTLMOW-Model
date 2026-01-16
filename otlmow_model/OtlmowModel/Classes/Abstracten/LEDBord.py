@@ -7,6 +7,7 @@ from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
+from ...Datatypes.KlLEDBordCommprotocol import KlLEDBordCommprotocol
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
@@ -43,6 +44,13 @@ class LEDBord(Verkeersbord, AIMNaamObject):
                                                  definition='Het aantal lichtsensoren waar het bord over beschikt die continu de intensiteit van het invallend licht meten.',
                                                  owner=self)
 
+        self._communicatieprotocol = OTLAttribuut(field=KlLEDBordCommprotocol,
+                                                  naam='communicatieprotocol',
+                                                  label='communicatieprotocol',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LEDBord.communicatieprotocol',
+                                                  definition='Communicatieprotocol waarmee het LEDBord wordt aangestuurd.',
+                                                  owner=self)
+
         self._dnsNaam = OTLAttribuut(field=StringField,
                                      naam='dnsNaam',
                                      label='DNS naam',
@@ -75,6 +83,8 @@ class LEDBord(Verkeersbord, AIMNaamObject):
                                       naam='protocol',
                                       label='protocol',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LEDBord.protocol',
+                                      usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                      deprecated_version='2.18.0',
                                       definition='Communicatieprotocol waarmee het LEDBord wordt aangestuurd.',
                                       owner=self)
 
@@ -100,6 +110,15 @@ class LEDBord(Verkeersbord, AIMNaamObject):
     @aantalLichtsensoren.setter
     def aantalLichtsensoren(self, value):
         self._aantalLichtsensoren.set_waarde(value, owner=self)
+
+    @property
+    def communicatieprotocol(self) -> str:
+        """Communicatieprotocol waarmee het LEDBord wordt aangestuurd."""
+        return self._communicatieprotocol.get_waarde()
+
+    @communicatieprotocol.setter
+    def communicatieprotocol(self, value):
+        self._communicatieprotocol.set_waarde(value, owner=self)
 
     @property
     def dnsNaam(self) -> str:

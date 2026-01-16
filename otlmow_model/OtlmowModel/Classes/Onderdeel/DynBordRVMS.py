@@ -1,14 +1,16 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.ArtikelnummerObject import ArtikelnummerObject
 from ...Classes.Abstracten.LEDBord import LEDBord
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlDynBordRVMSMerk import KlDynBordRVMSMerk
 from ...Datatypes.KlDynBordRVMSModelnaam import KlDynBordRVMSModelnaam
+from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DynBordRVMS(LEDBord, SerienummerObject, NaampadObject):
+class DynBordRVMS(ArtikelnummerObject, LEDBord, SerienummerObject, NaampadObject):
     """Dynamisch verkeersbord dat dynamische verkeerstekens en teksten kan afbeelden. RVMS staat voor Road-side Variable Message Signs."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRVMS'
@@ -19,6 +21,13 @@ class DynBordRVMS(LEDBord, SerienummerObject, NaampadObject):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DynBordGroep', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SoftwareToegang', direction='u')  # u = unidirectional
+
+        self._fabricagenummer = OTLAttribuut(field=StringField,
+                                             naam='fabricagenummer',
+                                             label='fabricagenummer',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRVMS.fabricagenummer',
+                                             definition='Een nummer dat referenties bevat naar plannen van het dynamische bord, zowel elektrische als mechanische plannen.',
+                                             owner=self)
 
         self._merk = OTLAttribuut(field=KlDynBordRVMSMerk,
                                   naam='merk',
@@ -33,6 +42,22 @@ class DynBordRVMS(LEDBord, SerienummerObject, NaampadObject):
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRVMS.modelnaam',
                                        definition='Modelnaam van het RVMS-bord.',
                                        owner=self)
+
+        self._revisienummer = OTLAttribuut(field=StringField,
+                                           naam='revisienummer',
+                                           label='revisienummer',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRVMS.revisienummer',
+                                           definition='Een nummer waarmee het dynamische bord in de DVM centrale gekend staat en gebruikt wordt om aan te sturen.',
+                                           owner=self)
+
+    @property
+    def fabricagenummer(self) -> str:
+        """Een nummer dat referenties bevat naar plannen van het dynamische bord, zowel elektrische als mechanische plannen."""
+        return self._fabricagenummer.get_waarde()
+
+    @fabricagenummer.setter
+    def fabricagenummer(self, value):
+        self._fabricagenummer.set_waarde(value, owner=self)
 
     @property
     def merk(self) -> str:
@@ -51,3 +76,12 @@ class DynBordRVMS(LEDBord, SerienummerObject, NaampadObject):
     @modelnaam.setter
     def modelnaam(self, value):
         self._modelnaam.set_waarde(value, owner=self)
+
+    @property
+    def revisienummer(self) -> str:
+        """Een nummer waarmee het dynamische bord in de DVM centrale gekend staat en gebruikt wordt om aan te sturen."""
+        return self._revisienummer.get_waarde()
+
+    @revisienummer.setter
+    def revisienummer(self, value):
+        self._revisienummer.set_waarde(value, owner=self)

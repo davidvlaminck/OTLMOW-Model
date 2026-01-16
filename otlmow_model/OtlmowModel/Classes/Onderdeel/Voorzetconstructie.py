@@ -1,6 +1,8 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BekledingComponent import BekledingComponent
+from ...Classes.Abstracten.TechnischDocument import TechnischDocument
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcVoorzetconstructieBevestigingsmateriaal import DtcVoorzetconstructieBevestigingsmateriaal, DtcVoorzetconstructieBevestigingsmateriaalWaarden
@@ -10,7 +12,7 @@ from ...Datatypes.KwantWrdInMinuut import KwantWrdInMinuut, KwantWrdInMinuutWaar
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Voorzetconstructie(BekledingComponent):
+class Voorzetconstructie(BekledingComponent, TechnischDocument, NaampadObject):
     """Een voorzetconstructie is een wandconstructie die vóór een bestaande muur wordt geplaatst. Doorgaans uitgevoerd met kleine spouw met isolatiemateriaal en aan de binnenzijde van het bouw- of kunstwerk."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie'
@@ -44,6 +46,8 @@ class Voorzetconstructie(BekledingComponent):
                                             naam='brandweerstand',
                                             label='brandweerstand',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie.brandweerstand',
+                                            usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                            deprecated_version='2.18.0',
                                             definition='Geeft aan hoeveel minuten de voorzetconstructie bestand is tegen brand.',
                                             owner=self)
 
@@ -51,6 +55,8 @@ class Voorzetconstructie(BekledingComponent):
                                    naam='dikte',
                                    label='dikte',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie.dikte',
+                                   usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                   deprecated_version='2.18.0',
                                    definition='De dikte van de voorzetconstructie, uitgedrukt in millimeter.',
                                    owner=self)
 
@@ -58,6 +64,8 @@ class Voorzetconstructie(BekledingComponent):
                                               naam='getestOpSpalling',
                                               label='getest op spalling',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie.getestOpSpalling',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                              deprecated_version='2.18.0',
                                               definition='Geeft aan of de voorzetconstructie al dan niet getest is op spalling.',
                                               owner=self)
 
@@ -65,6 +73,8 @@ class Voorzetconstructie(BekledingComponent):
                                            naam='isBrandwerend',
                                            label='is brandwerend',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie.isBrandwerend',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                           deprecated_version='2.18.0',
                                            definition='Geeft aan of de voorzetconstructie al dan niet brandwerend is.',
                                            owner=self)
 
@@ -72,6 +82,8 @@ class Voorzetconstructie(BekledingComponent):
                                                           naam='maximaleInterfaceTemperatuur',
                                                           label='maximale temperatuur interface',
                                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie.maximaleInterfaceTemperatuur',
+                                                          usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                                          deprecated_version='2.18.0',
                                                           definition='De maximale temperatuur tegen dewelke de interface bestand is, uitgedrukt in graden celsius.',
                                                           owner=self)
 
@@ -79,6 +91,8 @@ class Voorzetconstructie(BekledingComponent):
                                              naam='technischefiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie.technischefiche',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.18.0 ',
+                                             deprecated_version='2.18.0',
                                              definition='De technische fiche, al dan niet met het certificaat, van de voorzetconstructie.',
                                              owner=self)
 

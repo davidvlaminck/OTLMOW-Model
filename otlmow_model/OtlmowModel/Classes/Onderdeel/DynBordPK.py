@@ -4,10 +4,11 @@ from ...Classes.Abstracten.LEDBord import LEDBord
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlDynBordPKMerk import KlDynBordPKMerk
 from ...Datatypes.KlDynBordPKModelnaam import KlDynBordPKModelnaam
+from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DynBordPK(LEDBord, NaampadObject):
+class DynBordPK(LEDBord, NaampadObject, PuntGeometrie):
     """Dynamisch verkeersbord dat een Pijl of Kruis verkeersteken kan afbeelden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordPK'

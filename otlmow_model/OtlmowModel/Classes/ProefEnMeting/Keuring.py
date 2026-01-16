@@ -15,16 +15,20 @@ class Keuring(Proef, GeenGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#Keuring'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    deprecated_version = '2.18.0'
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing', direction='o')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing', direction='o', deprecated='2.18.0')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', direction='o', deprecated='2.18.0')  # o = direction: outgoing
 
         self._datum = OTLAttribuut(field=DateField,
                                    naam='datum',
                                    label='keuringsdatum',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#Keuring.datum',
+                                   usagenote='Klasse uit gebruik sinds versie 2.18.0 ',
+                                   deprecated_version='2.18.0',
                                    definition='De datum waarop de keuring werd uitgevoerd.',
                                    owner=self)
 
@@ -32,6 +36,8 @@ class Keuring(Proef, GeenGeometrie):
                                              naam='geldigheidsDuur',
                                              label='geldigheidsduur',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#Keuring.geldigheidsDuur',
+                                             usagenote='Klasse uit gebruik sinds versie 2.18.0 ',
+                                             deprecated_version='2.18.0',
                                              definition='de periode (in jaar) waarbinnen de keuring geldig blijft.',
                                              owner=self)
 
@@ -39,6 +45,8 @@ class Keuring(Proef, GeenGeometrie):
                                      naam='verslag',
                                      label='keuringsverslag',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#Keuring.verslag',
+                                     usagenote='Klasse uit gebruik sinds versie 2.18.0 ',
+                                     deprecated_version='2.18.0',
                                      definition='document met het verslag van de keuring.',
                                      owner=self)
 
