@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -9,9 +10,19 @@ class KlLEDBordCommprotocol(KeuzelijstField):
     label = 'LEDBord communicatieprotocol'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlLEDBordCommprotocol'
     definition = 'De mogelijke opties voor het communicatieprotocol gebruikt bij de aansturing van een LEDBord type.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEDBordCommprotocol'
     options = {
+        'ethernet': KeuzelijstWaarde(invulwaarde='ethernet',
+                                     label='ethernet',
+                                     status='ingebruik',
+                                     definitie='ethernet',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDBordCommprotocol/ethernet'),
+        'serieel': KeuzelijstWaarde(invulwaarde='serieel',
+                                    label='serieel',
+                                    status='ingebruik',
+                                    definitie='serieel',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDBordCommprotocol/serieel')
     }
 
     @classmethod

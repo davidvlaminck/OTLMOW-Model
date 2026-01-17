@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -9,9 +10,24 @@ class KlBevestigingsMateriaalBrandwerendeBekleding(KeuzelijstField):
     label = 'bevestigingsmateriaal brandwerende bekleding'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlBevestigingsMateriaalBrandwerendeBekleding'
     definition = 'Keuzelijst met het type materiaal van de ankers, bouten of andere middelen waarmee de bekleding is bevestigd.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBevestigingsMateriaalBrandwerendeBekleding'
     options = {
+        'n-v-t': KeuzelijstWaarde(invulwaarde='n-v-t',
+                                  label='n.v.t.',
+                                  status='ingebruik',
+                                  definitie='n.v.t.',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBevestigingsMateriaalBrandwerendeBekleding/n-v-t'),
+        'rvs': KeuzelijstWaarde(invulwaarde='rvs',
+                                label='rvs',
+                                status='ingebruik',
+                                definitie='rvs',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBevestigingsMateriaalBrandwerendeBekleding/rvs'),
+        'staal': KeuzelijstWaarde(invulwaarde='staal',
+                                  label='staal',
+                                  status='ingebruik',
+                                  definitie='staal',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBevestigingsMateriaalBrandwerendeBekleding/staal')
     }
 
     @classmethod

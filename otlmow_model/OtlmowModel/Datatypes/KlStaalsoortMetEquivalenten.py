@@ -9,7 +9,7 @@ class KlStaalsoortMetEquivalenten(KeuzelijstField):
     label = 'Staalsoort met equivalenten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlStaalsoortMetEquivalenten'
     definition = 'De soort van het staal.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     deprecated_version = '2.18.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStaalsoortMetEquivalenten'
     options = {

@@ -9,7 +9,7 @@ class KlTypeRandafwerking(KeuzelijstField):
     label = 'type randafwerking'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeRandafwerking'
     definition = 'De lijst verschillende types randafwerking.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeRandafwerking'
     options = {
     }

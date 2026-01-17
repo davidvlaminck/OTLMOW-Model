@@ -9,7 +9,7 @@ class KlOverigeFunctiesCentreerinrichting(KeuzelijstField):
     label = 'overige functies centreerinrichting'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOverigeFunctiesCentreerinrichting'
     definition = 'De overige functies van de centreerinrichting.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOverigeFunctiesCentreerinrichting'
     options = {
     }

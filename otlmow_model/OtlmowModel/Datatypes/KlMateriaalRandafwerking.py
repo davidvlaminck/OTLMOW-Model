@@ -9,7 +9,7 @@ class KlMateriaalRandafwerking(KeuzelijstField):
     label = 'materiaal randafwerking'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlMateriaalRandafwerking'
     definition = 'Het materiaal van de randafwerking.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalRandafwerking'
     options = {
     }

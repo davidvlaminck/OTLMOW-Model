@@ -9,7 +9,7 @@ class KlTypeGebouwgebruik(KeuzelijstField):
     label = 'type gebouwgebruik'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeGebouwgebruik'
     definition = 'De mogelijke types van gebruik of functies van een gebouw.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeGebouwgebruik'
     options = {
     }

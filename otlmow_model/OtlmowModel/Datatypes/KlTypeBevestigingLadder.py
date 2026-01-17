@@ -9,7 +9,7 @@ class KlTypeBevestigingLadder(KeuzelijstField):
     label = 'type bevesting ladder'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeBevestigingLadder'
     definition = 'De verschillende wijzen waarop een ladder aan een constructie bevestigd kan worden.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBevestigingLadder'
     options = {
     }

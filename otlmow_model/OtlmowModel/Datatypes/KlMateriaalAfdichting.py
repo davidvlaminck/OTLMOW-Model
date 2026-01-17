@@ -9,7 +9,7 @@ class KlMateriaalAfdichting(KeuzelijstField):
     label = 'materiaal afdichting'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlMateriaalAfdichting'
     definition = 'De verschillende opties materiaal waaruit de afdichting kan bestaan.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalAfdichting'
     options = {
     }

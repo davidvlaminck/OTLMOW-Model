@@ -9,7 +9,7 @@ class KlMateriaalBevestigingsbeugel(KeuzelijstField):
     label = 'materiaal bevestigingsbeugel'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlMateriaalBevestigingsbeugel'
     definition = 'De verschillende opties materiaal waaruit de bevestigingsbeugel kan bestaan.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalBevestigingsbeugel'
     options = {
     }

@@ -9,7 +9,7 @@ class KlOverigeFunctiesOplegging(KeuzelijstField):
     label = 'overige functies oplegging'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlOverigeFunctiesOplegging'
     definition = 'De overige functies van de oplegging.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOverigeFunctiesOplegging'
     options = {
     }

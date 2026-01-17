@@ -1,5 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -9,9 +10,19 @@ class KlRichtingVoeg(KeuzelijstField):
     label = 'richting voeg'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlRichtingVoeg'
     definition = 'De richting van de voeg waarop de voegafdichting wordt geplaatst.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRichtingVoeg'
     options = {
+        'dwars': KeuzelijstWaarde(invulwaarde='dwars',
+                                  label='dwars',
+                                  status='ingebruik',
+                                  definitie='dwars',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRichtingVoeg/dwars'),
+        'langs': KeuzelijstWaarde(invulwaarde='langs',
+                                  label='langs',
+                                  status='ingebruik',
+                                  definitie='langs',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRichtingVoeg/langs')
     }
 
     @classmethod
