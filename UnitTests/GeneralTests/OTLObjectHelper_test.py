@@ -264,7 +264,7 @@ def test_is_aim_id_valid_model_directory():
 
 
 def test_is_aim_id_valid():
-    aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI1RMQ2ZpUG9vcnQ' # TlCfiPoort
+    aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'  # AllCasesTestClass
     assert is_aim_id(aim_id)
 
     aim_id = '12345678-1234-1234-1234-123456789012-cHVybDpBZ2VudA' # Agent
