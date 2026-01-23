@@ -8,11 +8,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Union, Dict, List, Generator, TypeVar, Type
 
-from .DateField import DateField
 from .DateTimeField import DateTimeField
 from .KeuzelijstField import KeuzelijstField
 from .OTLField import OTLField
-from .TimeField import TimeField
 from .URIField import URIField
 from .UnionTypeField import UnionTypeField
 from .UnionWaarden import UnionWaarden
@@ -530,7 +528,7 @@ def _recursive_create_dict_from_asset(
         for attr_key, attr in vars(asset).items():
             if attr_key in {'_parent', '_valid_relations', '_geometry_types'}:
                 continue
-            if isinstance(attr, OTLAttribuut):
+            if hasattr(attr, '__class__') and attr.__class__.__name__ == 'OTLAttribuut':
                 if not attr.mark_to_be_cleared:
                     if attr.waarde is None:
                         continue
@@ -567,17 +565,17 @@ def _recursive_create_dict_from_asset(
                     if attr.mark_to_be_cleared:
                         d[attr.naam] = attr.field.clearing_value
                     elif cast_datetime:
-                        if attr.field == TimeField:
+                        if attr.field.__name__ == 'TimeField':
                             if isinstance(attr.waarde, list):
                                 d[attr.naam] = [time.strftime(list_item, "%H:%M:%S") for list_item in attr.waarde]
                             else:
                                 d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
-                        elif attr.field == DateField:
+                        elif attr.field.__name__ == 'DateField':
                             if isinstance(attr.waarde, list):
                                 d[attr.naam] = [date.strftime(list_item, "%Y-%m-%d") for list_item in attr.waarde]
                             else:
                                 d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
-                        elif attr.field == DateTimeField:
+                        elif attr.field.__name__ == 'DateTimeField':
                             if isinstance(attr.waarde, list):
                                 d[attr.naam] = [DateTimeField.value_default(list_item)
                                                 for list_item in attr.waarde]
@@ -628,7 +626,7 @@ def _recursive_create_rdf_dict_from_asset(
         for attr_key, attr in vars(asset).items():
             if attr_key in {'_parent', '_valid_relations', '_geometry_types'}:
                 continue
-            if isinstance(attr, OTLAttribuut):
+            if hasattr(attr, '__class__') and attr.__class__.__name__ == 'OTLAttribuut':
                 if not attr.mark_to_be_cleared:
                     if attr.waarde is None:
                         continue
@@ -669,17 +667,17 @@ def _recursive_create_rdf_dict_from_asset(
                     if attr.mark_to_be_cleared:
                         d[attr.objectUri] = attr.field.clearing_value
                     elif cast_datetime:
-                        if attr.field == TimeField:
+                        if attr.field.__name__ == 'TimeField':
                             if isinstance(attr.waarde, list):
                                 d[attr.objectUri] = [time.strftime(list_item, "%H:%M:%S") for list_item in attr.waarde]
                             else:
                                 d[attr.objectUri] = time.strftime(attr.waarde, "%H:%M:%S")
-                        elif attr.field == DateField:
+                        elif attr.field.__name__ == 'DateField':
                             if isinstance(attr.waarde, list):
                                 d[attr.objectUri] = [date.strftime(list_item, "%Y-%m-%d") for list_item in attr.waarde]
                             else:
                                 d[attr.objectUri] = date.strftime(attr.waarde, "%Y-%m-%d")
-                        elif attr.field == DateTimeField:
+                        elif attr.field .__name__== 'DateTimeField':
                             if isinstance(attr.waarde, list):
                                 d[attr.objectUri] = [datetime.strftime(list_item, "%Y-%m-%d %H:%M:%S")
                                                      for list_item in attr.waarde]
@@ -876,11 +874,11 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()
 
-            if cast_datetime and attribute_to_set.waarde._waarde.field in [TimeField, DateField, DateTimeField]:
+            if cast_datetime and attribute_to_set.waarde._waarde.field.__name__ in ['TimeField', 'DateField', 'DateTimeField']:
                 value = attribute_to_set.waarde._waarde.field.convert_to_correct_type(value=value, log_warnings=False)
             attribute_to_set.waarde._waarde.set_waarde(value)
     else:
-        if cast_datetime and attribute_to_set.field in [TimeField, DateField, DateTimeField]:
+        if cast_datetime and attribute_to_set.field.__name__ in ['TimeField', 'DateField', 'DateTimeField']:
             value = attribute_to_set.field.convert_to_correct_type(value=value, log_warnings=False)
         attribute_to_set.set_waarde(value)
 

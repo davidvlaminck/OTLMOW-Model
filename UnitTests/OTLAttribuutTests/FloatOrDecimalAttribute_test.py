@@ -1,8 +1,8 @@
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from otlmow_model.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
-from otlmow_model.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
+from UnitTests.TestModel.OtlmowModel.Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
+from UnitTests.TestModel.OtlmowModel.warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 
 def test_full_test_on_testclass_kard_1(subtests):

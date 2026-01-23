@@ -982,14 +982,34 @@ def test_create_dict_from_asset_cardinality():
     assert asset_dict == expected
 
 
-def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes(subtests, recwarn):
-    with subtests.test(msg='non-standard simple attribute / warnings suppressed'):
-        instance = AllCasesTestClass()
-        instance.toestand = 'in-gebruik'
-        instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
-        instance.non_standard_attribute = 'waarde-2'
+def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes_no_warnings(recwarn):
+    instance = AllCasesTestClass()
+    instance.toestand = 'in-gebruik'
+    instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    instance.non_standard_attribute = 'waarde-2'
 
-        rdf_dict = create_dict_from_asset(instance, rdf=True, warn_for_non_otl_conform_attributes=False)
+    rdf_dict = create_dict_from_asset(instance, rdf=True, warn_for_non_otl_conform_attributes=False)
+    expected = {
+        '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
+            'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
+                '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
+            'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
+        'non_standard_attribute': 'waarde-2'
+    }
+
+    assert rdf_dict == expected
+    assert len(recwarn) == 0
+
+def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes_with_warning(recwarn):
+    instance2 = AllCasesTestClass()
+    instance2.toestand = 'in-gebruik'
+    instance2.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
+    instance2.non_standard_attribute = 'waarde-2'
+
+    with pytest.warns(NonStandardAttributeWarning):
+        rdf_dict = create_dict_from_asset(instance2, rdf=True)
         expected = {
             '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
@@ -1001,27 +1021,6 @@ def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes(sub
         }
 
         assert rdf_dict == expected
-        assert len(recwarn) == 0
-
-    with subtests.test(msg='non-standard simple attribute'):
-        instance = AllCasesTestClass()
-        instance.toestand = 'in-gebruik'
-        instance.assetId.identificator = '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'
-        instance.non_standard_attribute = 'waarde-2'
-
-        with pytest.warns(NonStandardAttributeWarning):
-            rdf_dict = create_dict_from_asset(instance, rdf=True)
-            expected = {
-                '@type': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId': {
-                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator':
-                        '0000-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'},
-                'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand':
-                    'https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik',
-                'non_standard_attribute': 'waarde-2'
-            }
-
-            assert rdf_dict == expected
 
 
 def test_create_ld_dict_from_asset_cardinality():
@@ -1077,12 +1076,14 @@ def test_from_dict_datetimes(recwarn):
         'testDateTimeField': datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30),
         'testTimeField': time(hour=12, minute=30, second=30),
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
-    instance = AllCasesTestClass.from_dict(d, model_directory=model_directory_path)
+    instance = AllCasesTestClass.from_dict(d, model_directory=model_directory_path, cast_datetime=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testDateField == date(year=2022, month=2, day=2)
     assert instance.testDateTimeField == datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30)
     assert instance.testTimeField == time(hour=12, minute=30, second=30)
+
+    assert len(recwarn) == 0
 
     d = {
         'testDateField': '2022-02-02',
@@ -1153,7 +1154,8 @@ def test_isinstance_checks():
     assert dynamically_created_instance.typeURI == AllCasesTestClass.typeURI
     assert dynamically_created_instance.is_instance_of(AllCasesTestClass)
     assert not dynamically_created_instance.is_instance_of(str)
-    assert dynamically_created_instance.is_instance_of(OTLObject)
+    assert "OTLObject" in [cls.__name__ for cls in dynamically_created_instance.__class__.mro()]
+    #assert dynamically_created_instance.is_instance_of(OTLObject)
 
     dynamic_aim_object_type = dynamic_create_type_from_uri(
         AIMObject.typeURI, model_directory=model_directory_path)
@@ -1653,8 +1655,9 @@ def test_from_dict_illegal_attributes():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'assetId': {'identificator': '88888888'}}
-    with pytest.raises(CanNotClearAttributeError):
+    with pytest.raises(Exception) as excinfo:
         instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    assert excinfo.type.__name__ == CanNotClearAttributeError.__name__
 
 
 def test_get_all_concrete_relations_real_class():

@@ -5,8 +5,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
-from otlmow_model.OtlmowModel.Exceptions.InvalidOptionError import InvalidOptionError
-from otlmow_model.OtlmowModel.Exceptions.RemovedOptionError import RemovedOptionError
+from UnitTests.TestModel.OtlmowModel.Exceptions.InvalidOptionError import InvalidOptionError
+from UnitTests.TestModel.OtlmowModel.Exceptions.RemovedOptionError import RemovedOptionError
 
 
 def test_adms_status(subtests):
