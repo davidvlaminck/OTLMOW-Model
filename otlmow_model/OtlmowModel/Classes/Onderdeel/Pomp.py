@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LinkendElement import LinkendElement
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlPompMerk import KlPompMerk
 from ...Datatypes.KlPompModelnaam import KlPompModelnaam
 from ...Datatypes.KlPompSoort import KlPompSoort
 from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

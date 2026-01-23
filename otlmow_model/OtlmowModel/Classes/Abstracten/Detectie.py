@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlVriBewaking import KlVriBewaking

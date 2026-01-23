@@ -1,12 +1,12 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ArtikelnummerObject import ArtikelnummerObject
 from ...Classes.Abstracten.LEDBord import LEDBord
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlDynBordRSSMerk import KlDynBordRSSMerk
 from ...Datatypes.KlDynBordRSSModelnaam import KlDynBordRSSModelnaam
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

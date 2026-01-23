@@ -1,14 +1,14 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
 from ...Datatypes.KlVerkeersbordCategorie import KlVerkeersbordCategorie
 from ...Datatypes.KlVerkeersbordCode import KlVerkeersbordCode
 from ...Datatypes.KlVerkeersbordconceptStatus import KlVerkeersbordconceptStatus
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
-from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
+from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

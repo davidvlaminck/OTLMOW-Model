@@ -1,13 +1,13 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlTypeMateriaal import KlTypeMateriaal
 from ...Datatypes.KlTypeVoeg import KlTypeVoeg
 from ...Datatypes.KwantWrdInBar import KwantWrdInBar, KwantWrdInBarWaarden
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

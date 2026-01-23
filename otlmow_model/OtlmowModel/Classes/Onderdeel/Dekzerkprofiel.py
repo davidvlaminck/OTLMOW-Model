@@ -1,11 +1,11 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcVerankeringDekzerkprofiel import DtcVerankeringDekzerkprofiel, DtcVerankeringDekzerkprofielWaarden
 from ...Datatypes.KlConstructiestaalsoort import KlConstructiestaalsoort
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

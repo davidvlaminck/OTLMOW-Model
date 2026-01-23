@@ -1,16 +1,16 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlVerlichtingstoestelInclinatiehoek import KlVerlichtingstoestelInclinatiehoek
 from ...Datatypes.KlVerlichtingstoestelMerk import KlVerlichtingstoestelMerk
 from ...Datatypes.KlVerlichtingstoestelModelnaam import KlVerlichtingstoestelModelnaam
 from ...Datatypes.KlVerlichtingstoestelVerlichtGebied import KlVerlichtingstoestelVerlichtGebied
 from ...Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

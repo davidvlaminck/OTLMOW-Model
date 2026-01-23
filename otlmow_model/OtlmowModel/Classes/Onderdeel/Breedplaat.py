@@ -1,13 +1,13 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ConstructieElement import ConstructieElement
 from ...Datatypes.DtcBetonspecificaties import DtcBetonspecificaties, DtcBetonspecificatiesWaarden
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

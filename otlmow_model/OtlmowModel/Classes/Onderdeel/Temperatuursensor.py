@@ -1,11 +1,11 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlTemperatuursensorMerk import KlTemperatuursensorMerk
 from ...Datatypes.KlTemperatuursensorModelnaam import KlTemperatuursensorModelnaam
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

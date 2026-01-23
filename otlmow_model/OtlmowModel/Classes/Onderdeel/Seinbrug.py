@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.VRIDraagconstructie import VRIDraagconstructie
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
+from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlSeinbrugRijrichting import KlSeinbrugRijrichting
 from ...Datatypes.KlSeinbrugType import KlSeinbrugType
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

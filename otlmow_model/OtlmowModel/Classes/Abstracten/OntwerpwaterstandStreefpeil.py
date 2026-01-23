@@ -1,9 +1,9 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

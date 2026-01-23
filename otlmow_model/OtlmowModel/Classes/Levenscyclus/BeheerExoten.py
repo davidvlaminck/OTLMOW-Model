@@ -1,7 +1,7 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlBeheerExoten import KlBeheerExoten
 from ...Datatypes.KlNazorgJaarfrequentie import KlNazorgJaarfrequentie
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden

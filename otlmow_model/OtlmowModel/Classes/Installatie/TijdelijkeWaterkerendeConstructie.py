@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
-from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
+from ...BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlMateriaalBWCTWC import KlMateriaalBWCTWC
 from ...Datatypes.KlPlaatsingsmethodeTWC import KlPlaatsingsmethodeTWC
 from ...Datatypes.KlTypeTWC import KlTypeTWC
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,12 +1,12 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LinkendElement import LinkendElement
 from ...Datatypes.KlTerugslagklepType import KlTerugslagklepType
 from ...Datatypes.KlTsklepAfsluiterMateriaal import KlTsklepAfsluiterMateriaal
 from ...Datatypes.KlVormTerugslagklep import KlVormTerugslagklep
 from ...Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,11 +1,11 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Communicatieapparatuur import Communicatieapparatuur
 from ...Classes.Abstracten.FirmwareObject import FirmwareObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...Datatypes.KlNetwerkconfiguratieWV import KlNetwerkconfiguratieWV
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

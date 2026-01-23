@@ -1,7 +1,7 @@
 # coding=utf-8
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

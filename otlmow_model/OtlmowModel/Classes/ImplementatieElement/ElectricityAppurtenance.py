@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.Appurtenance import Appurtenance
 from ...Datatypes.KlElectricityAppurtenanceType import KlElectricityAppurtenanceType
 from ...Datatypes.KlElectricitySubthema import KlElectricitySubthema

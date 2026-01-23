@@ -1,9 +1,9 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AxiaalDraagvermogen import AxiaalDraagvermogen
 from ...Classes.Abstracten.Fundering import Fundering
 from ...Classes.Onderdeel.Funderingspaal import Funderingspaal
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInKilogramPerKubiekeMeter import KwantWrdInKilogramPerKubiekeMeter, KwantWrdInKilogramPerKubiekeMeterWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden

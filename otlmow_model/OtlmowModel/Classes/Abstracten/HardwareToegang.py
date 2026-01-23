@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
@@ -8,7 +8,7 @@ from ...Datatypes.KlHardwareCdDvdTape import KlHardwareCdDvdTape
 from ...Datatypes.KlHardwareDomein import KlHardwareDomein
 from ...Datatypes.KlHardwareOS import KlHardwareOS
 from ...Datatypes.KwantWrdInGigabyte import KwantWrdInGigabyte, KwantWrdInGigabyteWaarden
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,7 +1,7 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.FiguratieMarkeringToegang import FiguratieMarkeringToegang
-from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
+from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlLetterVerschaald import KlLetterVerschaald
 from ...Datatypes.KlLetterVerschaaldType import KlLetterVerschaaldType
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden

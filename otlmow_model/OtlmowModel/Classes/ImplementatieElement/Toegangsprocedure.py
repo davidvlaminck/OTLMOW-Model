@@ -1,19 +1,19 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
 from ...Classes.ImplementatieElement.AIMVersie import AIMVersie
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
-from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
+from ...BaseClasses.OTLObject import OTLObject
+from ...BaseClasses.RelationInteractor import RelationInteractor
 from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
 from ...Datatypes.DtcToegangsprocedureBijlage import DtcToegangsprocedureBijlage, DtcToegangsprocedureBijlageWaarden
 from ...Datatypes.DtcToegangsprocedureToegangstijden import DtcToegangsprocedureToegangstijden, DtcToegangsprocedureToegangstijdenWaarden
 from ...Datatypes.KlToegangsprocedureAandachtspunt import KlToegangsprocedureAandachtspunt
 from ...Datatypes.KlTypeBadge import KlTypeBadge
 from ...Datatypes.KlTypeSleutel import KlTypeSleutel
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

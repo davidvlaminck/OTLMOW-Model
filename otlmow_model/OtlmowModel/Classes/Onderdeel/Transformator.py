@@ -1,7 +1,7 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlTransformatorIsolatiemedium import KlTransformatorIsolatiemedium
 from ...Datatypes.KlTransformatorTrafobeveiliging import KlTransformatorTrafobeveiliging
 from ...Datatypes.KlVerliezenType import KlVerliezenType
@@ -9,8 +9,8 @@ from ...Datatypes.KwantWrdInKiloVolt import KwantWrdInKiloVolt, KwantWrdInKiloVo
 from ...Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAmpere, KwantWrdInKiloVoltAmpereWaarden
 from ...Datatypes.KwantWrdInProcent import KwantWrdInProcent, KwantWrdInProcentWaarden
 from ...Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

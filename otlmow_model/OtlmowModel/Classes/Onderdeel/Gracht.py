@@ -1,7 +1,7 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.WaterloopRelatie import WaterloopRelatie
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlGrachtFunctie import KlGrachtFunctie
 from ...Datatypes.KlGrachtdoorsnede import KlGrachtdoorsnede
 

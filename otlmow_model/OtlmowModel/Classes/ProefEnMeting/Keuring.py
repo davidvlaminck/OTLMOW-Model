@@ -1,11 +1,11 @@
 # coding=utf-8
 from datetime import date
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Proef import Proef
-from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from ...BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.GeenGeometrie import GeenGeometrie
+from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BijlageVoertuigkering import BijlageVoertuigkering
 from ...Classes.Abstracten.EigenschappenVoertuigkering import EigenschappenVoertuigkering
 from ...Classes.Abstracten.Geluidsschermelement import Geluidsschermelement

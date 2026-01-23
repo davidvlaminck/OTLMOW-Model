@@ -1,13 +1,13 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Laag import Laag
 from ...Classes.Abstracten.LaagDikte import LaagDikte
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcGrondsoort import DtcGrondsoort, DtcGrondsoortWaarden
 from ...Datatypes.DtcSoortVervuiling import DtcSoortVervuiling, DtcSoortVervuilingWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

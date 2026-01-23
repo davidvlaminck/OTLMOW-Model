@@ -1,11 +1,11 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcBereikInKg import DtcBereikInKg, DtcBereikInKgWaarden
 from ...Datatypes.DtcKwaliteitscertifcaat import DtcKwaliteitscertifcaat, DtcKwaliteitscertifcaatWaarden
 from ...Datatypes.KlAfmetingAswegerzone import KlAfmetingAswegerzone
 from ...Datatypes.KlAswegersiteTypeMarkering import KlAswegersiteTypeMarkering
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

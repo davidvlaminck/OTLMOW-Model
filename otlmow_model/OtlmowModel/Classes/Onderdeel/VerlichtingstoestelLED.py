@@ -1,8 +1,8 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Verlichtingstoestel import Verlichtingstoestel
 from ...Classes.Abstracten.VerlichtingstoestelConnector import VerlichtingstoestelConnector
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.KlArmatuurkleur import KlArmatuurkleur

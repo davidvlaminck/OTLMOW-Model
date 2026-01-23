@@ -1,10 +1,10 @@
 # coding=utf-8
 import re
 
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from ...BaseClasses.StringField import StringField
 
 
 class NaamField(StringField):

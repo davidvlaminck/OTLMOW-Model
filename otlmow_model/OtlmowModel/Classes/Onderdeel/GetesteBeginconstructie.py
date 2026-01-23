@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Beginstuk import Beginstuk
 from ...Classes.Abstracten.SchokindexVoertuigkering import SchokindexVoertuigkering
 from ...Datatypes.KlLEACPerformantieklasse import KlLEACPerformantieklasse

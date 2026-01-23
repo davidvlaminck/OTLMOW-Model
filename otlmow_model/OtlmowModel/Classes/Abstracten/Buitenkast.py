@@ -1,9 +1,9 @@
 # coding=utf-8
 from datetime import date
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.Kast import Kast
-from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from ...BaseClasses.DateField import DateField
 from ...Datatypes.KlAlgIngressProtectionCode import KlAlgIngressProtectionCode
 from ...Datatypes.KlBuitenkastVerfraaid import KlBuitenkastVerfraaid
 from ...Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden

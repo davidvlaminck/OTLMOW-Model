@@ -1,12 +1,12 @@
 # coding=utf-8
 from datetime import date, date
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from ...BaseClasses.DateField import DateField
 from ...Datatypes.KlBrandblusserBlusmiddel import KlBrandblusserBlusmiddel
 from ...Datatypes.KlBrandblusserGewicht import KlBrandblusserGewicht
 from ...Datatypes.KlBrandblusserType import KlBrandblusserType
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

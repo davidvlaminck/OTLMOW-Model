@@ -1,8 +1,8 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BVAfwateringKunstwerken import BVAfwateringKunstwerken
 from ...Classes.Abstracten.Buis import Buis
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlDraineerbuisMateriaal import KlDraineerbuisMateriaal
 
 

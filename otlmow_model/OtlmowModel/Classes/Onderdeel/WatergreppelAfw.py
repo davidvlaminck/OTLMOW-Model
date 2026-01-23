@@ -1,7 +1,7 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AfwijkendeKantopsluiting import AfwijkendeKantopsluiting
-from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
+from ...BaseClasses.IntegerField import IntegerField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

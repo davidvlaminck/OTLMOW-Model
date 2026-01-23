@@ -1,9 +1,9 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereLaag import AndereLaag
 from ...Classes.Abstracten.LaagDikte import LaagDikte
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlHechtspecie import KlHechtspecie
 from ...Datatypes.KlStortsteenKaliber import KlStortsteenKaliber

@@ -1,11 +1,11 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlTypeBrugligger import KlTypeBrugligger
 from ...Datatypes.KlTypeDoorsnede import KlTypeDoorsnede
-from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

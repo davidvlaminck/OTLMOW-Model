@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Brandvoorziening import Brandvoorziening
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KwantWrdInBar import KwantWrdInBar, KwantWrdInBarWaarden

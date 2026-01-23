@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlGewaarborgdeWrijvingshoek import KlGewaarborgdeWrijvingshoek
 from ...Datatypes.KlGrondherkomst import KlGrondherkomst

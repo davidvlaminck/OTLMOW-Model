@@ -1,6 +1,6 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.Lichtmast import Lichtmast
 from ...Datatypes.DtuWvLichtmastBevsToestelMethode import DtuWvLichtmastBevsToestelMethode, DtuWvLichtmastBevsToestelMethodeWaarden
 from ...Datatypes.KlWvLichtmastAantArmen import KlWvLichtmastAantArmen

@@ -1,10 +1,10 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereLaag import AndereLaag
 from ...Datatypes.KlKleurSupp import KlKleurSupp
 from ...Datatypes.KlSlemProductfamilie import KlSlemProductfamilie
 from ...Datatypes.KlSlemlaagsoort import KlSlemlaagsoort
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

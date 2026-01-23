@@ -1,10 +1,10 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.Abstracten.Toegangselement import Toegangselement
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcAfmetingBxhInM import DtcAfmetingBxhInM, DtcAfmetingBxhInMWaarden
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlDeurFabrikant import KlDeurFabrikant
@@ -14,7 +14,7 @@ from ...Datatypes.KlToegangsdeurTypeOpening import KlToegangsdeurTypeOpening
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...Datatypes.KwantWrdInSeconde import KwantWrdInSeconde, KwantWrdInSecondeWaarden
 from ...Datatypes.KwantWrdInUur import KwantWrdInUur, KwantWrdInUurWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

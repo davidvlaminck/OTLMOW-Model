@@ -1,10 +1,10 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlMateriaalVoegafdichting import KlMateriaalVoegafdichting
 from ...Datatypes.KlRichtingVoeg import KlRichtingVoeg
 from ...Datatypes.KlUitvoeringVoegafdichting import KlUitvoeringVoegafdichting
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

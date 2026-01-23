@@ -1,4 +1,8 @@
-﻿from datetime import date, datetime, time
+﻿import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
+from datetime import date, datetime, time
 from pathlib import Path
 
 import pytest

@@ -1,12 +1,12 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.TechnischDocument import TechnischDocument
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlMateriaalAnker import KlMateriaalAnker
 from ...Datatypes.KlMateriaalStalenKlemblok import KlMateriaalStalenKlemblok
 from ...Datatypes.KlTypeAnker import KlTypeAnker
-from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

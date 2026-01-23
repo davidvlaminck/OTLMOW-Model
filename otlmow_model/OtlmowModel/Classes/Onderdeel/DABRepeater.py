@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.IPNetwerkToegangObject import IPNetwerkToegangObject
 from ...Classes.Abstracten.RHZModule import RHZModule
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject

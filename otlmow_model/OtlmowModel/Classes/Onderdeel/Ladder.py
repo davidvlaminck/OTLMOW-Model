@@ -1,18 +1,18 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorighedenBrug import AanhorighedenBrug
 from ...Classes.Abstracten.AanhorigheidKoker import AanhorigheidKoker
 from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.Abstracten.DetaiplanObject import DetaiplanObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlConstructiestaalsoort import KlConstructiestaalsoort
 from ...Datatypes.KlMateriaalLadder import KlMateriaalLadder
 from ...Datatypes.KlTypeBevestigingLadder import KlTypeBevestigingLadder
 from ...Datatypes.KlTypeOpstellingLadder import KlTypeOpstellingLadder
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

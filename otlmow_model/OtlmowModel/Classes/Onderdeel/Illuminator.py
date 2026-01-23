@@ -1,14 +1,14 @@
 # coding=utf-8
 from typing import List
 from datetime import date
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from ...BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlIlluminatorMerk import KlIlluminatorMerk
 from ...Datatypes.KlIlluminatorModelnaam import KlIlluminatorModelnaam
 from ...Datatypes.KwantWrdInMaand import KwantWrdInMaand, KwantWrdInMaandWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

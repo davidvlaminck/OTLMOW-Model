@@ -1,9 +1,9 @@
 # coding=utf-8
 from typing import List
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.OntwerpwaterstandStreefpeil import OntwerpwaterstandStreefpeil
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDVWtoelaatbareSchipsafemetingen import DtcDVWtoelaatbareSchipsafemetingen, DtcDVWtoelaatbareSchipsafemetingenWaarden
 from ...Datatypes.DtcOntwerpSchip import DtcOntwerpSchip, DtcOntwerpSchipWaarden
 from ...Datatypes.KlKerendeKarakterSluis import KlKerendeKarakterSluis

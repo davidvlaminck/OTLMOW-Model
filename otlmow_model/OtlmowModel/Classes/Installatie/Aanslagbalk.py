@@ -1,6 +1,6 @@
 # coding=utf-8
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

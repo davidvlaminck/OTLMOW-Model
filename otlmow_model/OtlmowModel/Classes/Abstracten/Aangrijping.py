@@ -2,7 +2,7 @@
 from abc import abstractmethod
 from ...Classes.Abstracten.StaalsoortObject import StaalsoortObject
 from ...Classes.Abstracten.TechnischDocument import TechnischDocument
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

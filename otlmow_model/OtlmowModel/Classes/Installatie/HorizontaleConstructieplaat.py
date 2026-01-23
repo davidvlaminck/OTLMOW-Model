@@ -1,12 +1,12 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ConstructieElementAanvaarbeschermingGeleidewerk import ConstructieElementAanvaarbeschermingGeleidewerk
 from ...Classes.Abstracten.ConstructieElementSluisStuw import ConstructieElementSluisStuw
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
 from ...Datatypes.KlTypeHorizontalePlaat import KlTypeHorizontalePlaat
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
-from otlmow_model.OtlmowModel.GeometrieTypes.LijnGeometrie import LijnGeometrie
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

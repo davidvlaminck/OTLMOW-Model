@@ -1,14 +1,14 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
 from ...Classes.ImplementatieElement.AIMVersie import AIMVersie
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
-from otlmow_model.OtlmowModel.BaseClasses.RelationInteractor import RelationInteractor
+from ...BaseClasses.OTLObject import OTLObject
+from ...BaseClasses.RelationInteractor import RelationInteractor
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

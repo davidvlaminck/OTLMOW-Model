@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LaagBouwklasse import LaagBouwklasse
 from ...Datatypes.DtuBVLaagtypes import DtuBVLaagtypes, DtuBVLaagtypesWaarden
 from ...Datatypes.KlBVBindmiddel import KlBVBindmiddel

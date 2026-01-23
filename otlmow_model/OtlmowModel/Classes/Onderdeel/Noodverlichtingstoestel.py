@@ -1,12 +1,12 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.Binnenverlichtingstoestel import Binnenverlichtingstoestel
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlNominaleSpanning import KlNominaleSpanning
 from ...Datatypes.KlNoodverlichtingTypeBatterij import KlNoodverlichtingTypeBatterij
 from ...Datatypes.KwantWrdInMinuut import KwantWrdInMinuut, KwantWrdInMinuutWaarden
 from ...Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
-from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

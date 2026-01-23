@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.EMDraagconstructie import EMDraagconstructie
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -8,7 +8,7 @@ from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.KlDraagConstrBeschermlaag import KlDraagConstrBeschermlaag
 from ...Datatypes.KlDraagConstrBijzondertransport import KlDraagConstrBijzondertransport
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

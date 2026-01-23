@@ -1,15 +1,15 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.PU import PU
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...Datatypes.KlDynBordExternePUMerk import KlDynBordExternePUMerk
 from ...Datatypes.KlDynBordExternePUModelnaam import KlDynBordExternePUModelnaam
 from ...Datatypes.KlMobieleNetwerktechnologie import KlMobieleNetwerktechnologie
 from ...Datatypes.KlSimkaarttype import KlSimkaarttype
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

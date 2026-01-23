@@ -1,11 +1,11 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Detectie import Detectie
 from ...Classes.Abstracten.FirmwareObject import FirmwareObject
 from ...Datatypes.KlWeggebondendetectorDetectieprincipe import KlWeggebondendetectorDetectieprincipe
 from ...Datatypes.KlWeggebondendetectorMerk import KlWeggebondendetectorMerk
 from ...Datatypes.KlWeggebondendetectorModelnaam import KlWeggebondendetectorModelnaam
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

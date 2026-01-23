@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.Abstracten.DetaiplanObject import DetaiplanObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -7,8 +7,8 @@ from ...Datatypes.KlMateriaalBolder import KlMateriaalBolder
 from ...Datatypes.KlTypeBevestigingBolder import KlTypeBevestigingBolder
 from ...Datatypes.KlTypeBolder import KlTypeBolder
 from ...Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, KwantWrdInKiloNewtonWaarden
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

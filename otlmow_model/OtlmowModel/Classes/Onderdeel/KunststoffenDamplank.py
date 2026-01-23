@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.DamplankAbstracte import DamplankAbstracte
 from ...Datatypes.DtcKunststofspecificaties import DtcKunststofspecificaties, DtcKunststofspecificatiesWaarden
 from ...Datatypes.KlKunststoffenDamplankvorm import KlKunststoffenDamplankvorm

@@ -1,7 +1,7 @@
 # coding=utf-8
 from ...Classes.Abstracten.ConstructieElementSluisStuw import ConstructieElementSluisStuw
 from ...Classes.Abstracten.ConstructiefObject import ConstructiefObject
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,8 +1,8 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LaagBouwklasse import LaagBouwklasse
 from ...Datatypes.DtcSupplementenCBV import DtcSupplementenCBV, DtcSupplementenCBVWaarden
-from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
+from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlCBVAardVerharding import KlCBVAardVerharding
 from ...Datatypes.KlCBVLaagtype import KlCBVLaagtype
 from ...Datatypes.KlCBVOppervlaktebehandeling import KlCBVOppervlaktebehandeling

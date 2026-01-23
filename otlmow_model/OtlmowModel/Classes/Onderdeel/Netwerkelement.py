@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.RHZModule import RHZModule
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcAfmetingNetwerkelement import DtcAfmetingNetwerkelement, DtcAfmetingNetwerkelementWaarden
@@ -7,8 +7,8 @@ from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...Datatypes.KlNetwerkMerk import KlNetwerkMerk
 from ...Datatypes.KlNetwerkelemGebruik import KlNetwerkelemGebruik
 from ...Datatypes.KlNetwerkelemModelnaam import KlNetwerkelemModelnaam
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

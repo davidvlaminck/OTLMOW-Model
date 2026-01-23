@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.TechnischDocument import TechnischDocument
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -7,7 +7,7 @@ from ...Datatypes.KlSmeringType import KlSmeringType
 from ...Datatypes.KlTypeBeweging import KlTypeBeweging
 from ...Datatypes.KwantWrdInKubiekeCentimeter import KwantWrdInKubiekeCentimeter, KwantWrdInKubiekeCentimeterWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

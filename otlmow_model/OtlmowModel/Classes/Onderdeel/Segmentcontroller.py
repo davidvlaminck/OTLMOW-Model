@@ -1,12 +1,12 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Controller import Controller
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlControllerBeveiligingssleutel import KlControllerBeveiligingssleutel
 from ...Datatypes.KlNetwerkconfiguratieWV import KlNetwerkconfiguratieWV
 from ...Datatypes.KlSegmentcontrollerMerk import KlSegmentcontrollerMerk
 from ...Datatypes.KlSegmentcontrollerModelnaam import KlSegmentcontrollerModelnaam
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
+from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

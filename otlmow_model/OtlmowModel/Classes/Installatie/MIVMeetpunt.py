@@ -1,11 +1,11 @@
 # coding=utf-8
 from datetime import date
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from otlmow_model.OtlmowModel.BaseClasses.BooleanField import BooleanField
-from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from ...BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
+from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlAansluitingMIVMeetpunt import KlAansluitingMIVMeetpunt
 from ...Datatypes.KlAlgRijstrookcode import KlAlgRijstrookcode
 from ...Datatypes.KlMIVLusUitslijprichting import KlMIVLusUitslijprichting
@@ -13,8 +13,8 @@ from ...Datatypes.KlMIVMeetpuntAfmetingen import KlMIVMeetpuntAfmetingen
 from ...Datatypes.KlMIVMeetpuntGebied import KlMIVMeetpuntGebied
 from ...Datatypes.KlMIVWegdek import KlMIVWegdek
 from ...Datatypes.KlServicePrioriteit import KlServicePrioriteit
-from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,5 +1,5 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.IPNetwerkToegangObject import IPNetwerkToegangObject
 from ...Classes.Abstracten.RHZModule import RHZModule
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
@@ -7,7 +7,7 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlFMRepeaterBoxMerk import KlFMRepeaterBoxMerk
 from ...Datatypes.KlFMRepeaterBoxModelnaam import KlFMRepeaterBoxModelnaam
-from otlmow_model.OtlmowModel.BaseClasses.NonNegIntegerField import NonNegIntegerField
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

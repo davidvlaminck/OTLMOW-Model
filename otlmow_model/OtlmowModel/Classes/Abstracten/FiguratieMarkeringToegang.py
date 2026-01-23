@@ -2,7 +2,7 @@
 from abc import abstractmethod
 from ...Classes.Abstracten.AOWSType import AOWSType
 from ...Classes.Abstracten.Markering import Markering
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,11 +1,11 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.HardwareToegang import HardwareToegang
-from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
+from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlHardwareMerk import KlHardwareMerk
 from ...Datatypes.KlHardwareModelnaam import KlHardwareModelnaam
 from ...Datatypes.KlHardwareVormfactor import KlHardwareVormfactor
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

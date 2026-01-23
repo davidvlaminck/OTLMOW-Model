@@ -1,11 +1,11 @@
 # coding=utf-8
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcAardingsstelsel import DtcAardingsstelsel, DtcAardingsstelselWaarden
 from ...Datatypes.KlAardingAardingsnet import KlAardingAardingsnet
 from ...Datatypes.KlAardingsInstallatieType import KlAardingsInstallatieType
 from ...Datatypes.KwantWrdInOhm import KwantWrdInOhm, KwantWrdInOhmWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.VlakGeometrie import VlakGeometrie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

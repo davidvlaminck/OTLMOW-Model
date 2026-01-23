@@ -1,16 +1,16 @@
 # coding=utf-8
 from datetime import date
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.Abstracten.Voedingspunt import Voedingspunt
-from otlmow_model.OtlmowModel.BaseClasses.DateField import DateField
+from ...BaseClasses.DateField import DateField
 from ...Datatypes.DtcAfmetingBxhInMm import DtcAfmetingBxhInMm, DtcAfmetingBxhInMmWaarden
 from ...Datatypes.KlBatterijMateriaal import KlBatterijMateriaal
 from ...Datatypes.KlBatterijMerk import KlBatterijMerk
 from ...Datatypes.KlBatterijModelnaam import KlBatterijModelnaam
 from ...Datatypes.KwantWrdInAmpereUur import KwantWrdInAmpereUur, KwantWrdInAmpereUurWaarden
 from ...Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
-from otlmow_model.OtlmowModel.GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
