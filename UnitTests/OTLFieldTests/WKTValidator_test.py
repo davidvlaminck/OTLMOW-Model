@@ -1,4 +1,8 @@
-﻿from otlmow_model.OtlmowModel.BaseClasses.WKTValidator import WKTValidator
+﻿import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
+from otlmow_model.OtlmowModel.BaseClasses.WKTValidator import WKTValidator
 
 
 def test_WKT_valid(subtests):

@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
 import pytest
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
@@ -53,5 +57,3 @@ def test_errors():
     with pytest.raises(ValueError) as exc_list_one_too_many:
         instance.testStringFieldMetKard = ["geel", "rood", "blauw"]
     assert str(exc_list_one_too_many.value) == "expecting at most 2 element(s) in AllCasesTestClass.testStringFieldMetKard"
-
-

@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
 from datetime import date, datetime, time
 
 from UnitTests.TestModel.OtlmowModel.Datatypes.DtcTestComplexType import DtcTestComplexType
