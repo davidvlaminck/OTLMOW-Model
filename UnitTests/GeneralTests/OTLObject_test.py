@@ -12,10 +12,10 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, \
+from UnitTests.TestModel.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, \
     dynamic_create_instance_from_uri, dynamic_create_type_from_uri
-from otlmow_model.OtlmowModel.Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
-from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
+from UnitTests.TestModel.OtlmowModel.Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
+from UnitTests.TestModel.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
