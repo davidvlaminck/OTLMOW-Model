@@ -875,7 +875,7 @@ class KlWetenschappelijkeSoortnaam(KeuzelijstField):
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWetenschappelijkeSoortnaam/hippophae-salicifolia'),
         'hyppophae-salicifolia': KeuzelijstWaarde(invulwaarde='hyppophae-salicifolia',
                                                   label='Hyppophae salicifolia',
-                                                  status='uitgebruik',
+                                                  status='verwijderd',
                                                   definitie='Hyppophae salicifolia -- foutief geschreven = Hippophae salicifolia',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWetenschappelijkeSoortnaam/hyppophae-salicifolia'),
         'ilex-aquifolium': KeuzelijstWaarde(invulwaarde='ilex-aquifolium',

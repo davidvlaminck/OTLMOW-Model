@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.18.0.3",
+        "model_version": "2.18.0.4",
         "otl_version": "2.18.0",
-        "created_at": "2026-01-22T04:19:09",
+        "created_at": "2026-01-23T04:15:36",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1295,6 +1295,14 @@
         },
         "2.18.0.3": {
             "previous_version": "2.18.0.2",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlWetenschappelijkeSoortnaam"
+            ]
+        },
+        "2.18.0.4": {
+            "previous_version": "2.18.0.3",
             "updated_class_model": false,
             "updated_enums": true,
             "enums_updated": [
