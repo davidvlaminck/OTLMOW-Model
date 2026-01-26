@@ -783,7 +783,7 @@ def test_create_dict_from_asset_datetimes(recwarn):
     assert len(recwarn) == 0
 
 
-def test_from_dict_datetimes(recwarn):
+def test_from_dict_datetime_native_without_cast(recwarn):
     d = {
         'testDateField': date(year=2022, month=2, day=2),
         'testDateTimeField': datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30,
@@ -797,7 +797,10 @@ def test_from_dict_datetimes(recwarn):
     assert instance.testDateTimeField == datetime(year=2022, month=2, day=2, hour=12, minute=30, second=30,
                                                   microsecond=500000)
     assert instance.testTimeField == time(hour=12, minute=30, second=30)
+    assert len(recwarn) == 0
 
+
+def test_from_dict_datetime_strings_with_cast(recwarn):
     d = {
         'testDateField': '2022-02-02',
         'testDateTimeField': '2022-02-02 12:30:30.5',

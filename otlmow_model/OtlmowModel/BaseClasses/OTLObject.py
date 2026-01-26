@@ -8,11 +8,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Union, Dict, List, Generator, TypeVar, Type
 
-from .DateField import DateField
-from .DateTimeField import DateTimeField
+from otlmow_model.OtlmowModel.BaseClasses.DateTimeField import DateTimeField
 from .KeuzelijstField import KeuzelijstField
 from .OTLField import OTLField
-from .TimeField import TimeField
 from .URIField import URIField
 from .UnionTypeField import UnionTypeField
 from .UnionWaarden import UnionWaarden
@@ -47,6 +45,7 @@ class OTLAttribuut:
         self.readonlyValue = None
         self.mark_to_be_cleared: bool = False
         self.waarde = None
+        self.is_otl_attribute: bool = True
         self.field: Type[OTLField] = field
 
         if self.field.waardeObject:
@@ -268,11 +267,13 @@ class OTLAttribuut:
         new_value_object = self.field.waardeObject()
         new_value_object._parent = self
 
-        if isinstance(new_value_object, UnionWaarden):
+        if getattr(new_value_object, '_is_union_waarden_object', False):
             selected_attr = random.choice(list(new_value_object))
             selected_attr.fill_with_dummy_data()
         else:
             for a in new_value_object:
+                if a == 'is_waarden_object':
+                    continue
                 a.fill_with_dummy_data()
 
         if self.kardinaliteit_max != '1':
@@ -311,6 +312,9 @@ class OTLObject(object):
                 warnings.warn(
                     message=f'used a class ({self.__class__.__name__}) that is deprecated since version {self.deprecated_version}',
                     category=ClassDeprecationWarning)
+
+    def return_is_otl_object(self) -> bool:
+        return True
 
     def clear_value(self, attribute_name: str) -> None:
         if attribute_name is None:
@@ -528,7 +532,8 @@ def _recursive_create_dict_from_asset(
     else:
         d = {}
         for attr_key, attr in vars(asset).items():
-            if attr_key in {'_parent', '_valid_relations', '_geometry_types'}:
+            if attr_key in {'_parent', '_valid_relations', '_geometry_types',
+                            '_is_waarden_object', '_is_union_waarden_object'}:
                 continue
             if hasattr(attr, '__class__') and attr.__class__.__name__ == 'OTLAttribuut':
                 if not attr.mark_to_be_cleared:
@@ -566,18 +571,18 @@ def _recursive_create_dict_from_asset(
                 else:
                     if attr.mark_to_be_cleared:
                         d[attr.naam] = attr.field.clearing_value
-                    elif cast_datetime:
-                        if attr.field.__name__ == 'TimeField':
+                    elif cast_datetime and attr.field.is_otl_field:
+                        if attr.field.native_type == time:
                             if isinstance(attr.waarde, list):
                                 d[attr.naam] = [time.strftime(list_item, "%H:%M:%S") for list_item in attr.waarde]
                             else:
                                 d[attr.naam] = time.strftime(attr.waarde, "%H:%M:%S")
-                        elif attr.field.__name__ == 'DateField':
+                        elif attr.field.native_type == date:
                             if isinstance(attr.waarde, list):
                                 d[attr.naam] = [date.strftime(list_item, "%Y-%m-%d") for list_item in attr.waarde]
                             else:
                                 d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
-                        elif attr.field.__name__ == 'DateTimeField':
+                        elif attr.field.native_type == datetime:
                             if isinstance(attr.waarde, list):
                                 d[attr.naam] = [DateTimeField.value_default(list_item)
                                                 for list_item in attr.waarde]
@@ -626,7 +631,8 @@ def _recursive_create_rdf_dict_from_asset(
     else:
         d = {}
         for attr_key, attr in vars(asset).items():
-            if attr_key in {'_parent', '_valid_relations', '_geometry_types'}:
+            if attr_key in {'_parent', '_valid_relations', '_geometry_types',
+                            '_is_union_waarden_object', '_is_waarden_object'}:
                 continue
             if hasattr(attr, '__class__') and attr.__class__.__name__ == 'OTLAttribuut':
                 if not attr.mark_to_be_cleared:
@@ -876,11 +882,13 @@ def set_value_by_dictitem(instance_or_attribute: Union[OTLObject, OTLAttribuut],
             if attribute_to_set.waarde is None:
                 attribute_to_set.add_empty_value()
 
-            if cast_datetime and attribute_to_set.waarde._waarde.field in [TimeField, DateField, DateTimeField]:
+            if (cast_datetime and attribute_to_set.field.is_otl_field and
+                    attribute_to_set.field.native_type in [date, datetime, time]):
                 value = attribute_to_set.waarde._waarde.field.convert_to_correct_type(value=value, log_warnings=False)
             attribute_to_set.waarde._waarde.set_waarde(value)
     else:
-        if cast_datetime and attribute_to_set.field in [TimeField, DateField, DateTimeField]:
+        if (cast_datetime and attribute_to_set.field.is_otl_field and
+                attribute_to_set.field.native_type in [date, datetime, time]):
             value = attribute_to_set.field.convert_to_correct_type(value=value, log_warnings=False)
         attribute_to_set.set_waarde(value)
 
