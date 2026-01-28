@@ -13,6 +13,11 @@ class KlZonnepaneelMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZonnepaneelMerk'
     options = {
+        'longi': KeuzelijstWaarde(invulwaarde='longi',
+                                  label='Longi',
+                                  status='ingebruik',
+                                  definitie='Longi',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlZonnepaneelMerk/longi'),
         'mobx': KeuzelijstWaarde(invulwaarde='mobx',
                                  label='MobX',
                                  status='ingebruik',

@@ -13,6 +13,11 @@ class KlZonnepaneelModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZonnepaneelModelnaam'
     options = {
+        'lr5-54': KeuzelijstWaarde(invulwaarde='lr5-54',
+                                   label='LR5-54',
+                                   status='ingebruik',
+                                   definitie='LR5-54',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlZonnepaneelModelnaam/lr5-54'),
         'pv': KeuzelijstWaarde(invulwaarde='pv',
                                label='PV',
                                status='ingebruik',
