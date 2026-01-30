@@ -11,25 +11,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  check_model_update:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Download model update status artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: model-update-status
-          path: ./
-      - name: Read model update status
-        id: read_status
-        run: |
-          STATUS=$(cat model_update_status.txt | grep MODEL_UPDATED | cut -d= -f2)
-          echo "model_updated=$STATUS" >> $GITHUB_OUTPUT
-
   release:
-    needs: check_model_update
-    if: needs.check_model_update.outputs.model_updated == 'true' && (github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' || github.event_name == 'push')
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
     permissions:
       id-token: write
     concurrency: release
