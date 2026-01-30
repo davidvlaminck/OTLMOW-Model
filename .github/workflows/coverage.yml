@@ -22,6 +22,13 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           python-version: 3.13
+      - name: Cache uv dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            uv-${{ runner.os }}-
       - name: Installing dependencies with uv for running the tests
         run: uv pip install -r pyproject.toml --extra test
       - name: Run unittests with pytest and coverage
@@ -39,3 +46,4 @@ jobs:
           git add .
           git commit -m "Updated coverage report"
           git push
+

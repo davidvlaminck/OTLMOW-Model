@@ -20,6 +20,13 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           python-version: 3.13
+      - name: Cache uv dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            uv-${{ runner.os }}-
       - name: Installing dependencies with uv
         run: uv pip install -r pyproject.toml --extra update
       - name: Run automatic update
@@ -31,5 +38,5 @@ jobs:
           git pull
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git commit -m "auto updated class model"
+          git commit -m "auto updated class model - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit."
           git push

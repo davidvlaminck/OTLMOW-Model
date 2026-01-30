@@ -23,6 +23,13 @@ jobs:
         working-directory: .
     steps:
       - uses: actions/checkout@v4
+      - name: Cache uv dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            uv-${{ runner.os }}-
       - name: zip files
         run: |
           rm -rf source.zip
