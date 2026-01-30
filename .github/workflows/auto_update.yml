@@ -32,8 +32,6 @@ jobs:
       - name: Run automatic update
         run: python3 automatic_update.py
         working-directory: ./model_update
-      - name: List model_update directory
-        run: ls -l model_update
       - name: Upload model update status artifact
         uses: actions/upload-artifact@v4
         with:
