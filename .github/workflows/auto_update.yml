@@ -32,6 +32,11 @@ jobs:
       - name: Run automatic update
         run: python3 automatic_update.py
         working-directory: ./model_update
+      - name: Upload model update status artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-update-status
+          path: model_update/model_update_status.txt
       - name: Commit files
         working-directory: .
         run: |

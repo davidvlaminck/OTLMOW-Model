@@ -31,8 +31,11 @@ class ModelUpdater:
         print(f'Updated class model: {updated_class_model}')
 
         if current_model_version == model_version:
-            raise ValueError(f'The model version you are trying to update to is the same as the current version: '
-                             f'{model_version}')
+            print("MODEL_UPDATED=false")
+            status_file = Path(__file__).parent / "model_update_status.txt"
+            with status_file.open("w") as f:
+                f.write("MODEL_UPDATED=false\n")
+            return
 
         version_info['current'] = {
             'model_version': model_version,
@@ -50,6 +53,10 @@ class ModelUpdater:
 
         with open(version_info_file_path, 'w', encoding='utf-8') as file:
             json.dump(version_info, file, indent=4)
+        print("MODEL_UPDATED=true")
+        status_file = Path(__file__).parent / "model_update_status.txt"
+        with status_file.open("w") as f:
+            f.write("MODEL_UPDATED=true\n")
 
     @classmethod
     def find_changed_enums(cls, model_path: str = 'otlmow_model/OtlmowModel') -> List:
