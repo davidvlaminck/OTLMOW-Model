@@ -18,59 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Determine source run id
-        id: determine
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          RUN_ID=$(python3 - <<'PY'
-import os, json, urllib.request, sys
-repo = os.environ['GITHUB_REPOSITORY']
-event_path = os.environ.get('GITHUB_EVENT_PATH')
-with open(event_path) as f:
-    event = json.load(f)
-# If this workflow was triggered by a workflow_run (Create release), event['workflow_run'] is the release run
-wf = event.get('workflow_run', {}) or {}
-head_sha = wf.get('head_sha')
-if head_sha:
-    # find the auto_update run that has the same head_sha
-    url = f"https://api.github.com/repos/{repo}/actions/workflows/auto_update.yml/runs?per_page=50"
-    req = urllib.request.Request(url, headers={
-        'Authorization': f"token {os.environ['GITHUB_TOKEN']}",
-        'Accept': 'application/vnd.github.v3+json'
-    })
-    with urllib.request.urlopen(req) as resp:
-        data = json.load(resp)
-    runs = data.get('workflow_runs') or []
-    for r in runs:
-        if r.get('head_sha') == head_sha:
-            print(r.get('id'))
-            sys.exit(0)
-# fallback: latest auto_update run
-url = f"https://api.github.com/repos/{repo}/actions/workflows/auto_update.yml/runs?per_page=1"
-req = urllib.request.Request(url, headers={
-    'Authorization': f"token {os.environ['GITHUB_TOKEN']}",
-    'Accept': 'application/vnd.github.v3+json'
-})
-with urllib.request.urlopen(req) as resp:
-    data = json.load(resp)
-runs = data.get('workflow_runs') or []
-if runs:
-    print(runs[0]['id'])
-else:
-    print('')
-PY
-)
-          echo "run_id=$RUN_ID" >> $GITHUB_OUTPUT
-
       - name: Download model update status artifact
         uses: actions/download-artifact@v4
         with:
           name: model-update-status
           path: ./
-          repository: ${{ github.repository }}
-          run-id: ${{ steps.determine.outputs.run_id }}
       - name: Read model update status
         id: read_status
         run: |
