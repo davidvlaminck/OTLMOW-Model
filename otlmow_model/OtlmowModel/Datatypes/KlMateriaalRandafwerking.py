@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,31 @@ class KlMateriaalRandafwerking(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalRandafwerking'
     options = {
+        'beton': KeuzelijstWaarde(invulwaarde='beton',
+                                  label='beton',
+                                  status='ingebruik',
+                                  definitie='Beton',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalRandafwerking/beton'),
+        'hout': KeuzelijstWaarde(invulwaarde='hout',
+                                 label='hout',
+                                 status='ingebruik',
+                                 definitie='Hout',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalRandafwerking/hout'),
+        'kunststof': KeuzelijstWaarde(invulwaarde='kunststof',
+                                      label='kunststof',
+                                      status='ingebruik',
+                                      definitie='Kunststof',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalRandafwerking/kunststof'),
+        'natuursteen': KeuzelijstWaarde(invulwaarde='natuursteen',
+                                        label='natuursteen',
+                                        status='ingebruik',
+                                        definitie='Natuursteen',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalRandafwerking/natuursteen'),
+        'staal': KeuzelijstWaarde(invulwaarde='staal',
+                                  label='staal',
+                                  status='ingebruik',
+                                  definitie='Staal',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalRandafwerking/staal')
     }
 
     @classmethod
