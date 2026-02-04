@@ -9,7 +9,7 @@ class KlModelnaamRookdetector(KeuzelijstField):
     label = 'modelnaam rookdetector'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlModelnaamRookdetector'
     definition = 'De modelnaam van de rookdetector.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlModelnaamRookdetector'
     options = {
     }

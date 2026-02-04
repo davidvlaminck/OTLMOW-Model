@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.18.4.3",
+        "model_version": "2.18.4.4",
         "otl_version": "2.18.0",
-        "created_at": "2026-02-03T04:30:33",
+        "created_at": "2026-02-04T04:28:31",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1372,6 +1372,16 @@
                 "KlLichtmastMasthoogte",
                 "KlLichtmastMasttype",
                 "KlWvLichtmastArmlengte"
+            ]
+        },
+        "2.18.4.4": {
+            "previous_version": "2.18.4.3",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlMerkRookdetector",
+                "KlModelnaamRookdetector",
+                "KlTestnorm"
             ]
         }
     }

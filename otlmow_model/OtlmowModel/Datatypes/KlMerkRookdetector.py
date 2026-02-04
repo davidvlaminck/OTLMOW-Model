@@ -9,7 +9,7 @@ class KlMerkRookdetector(KeuzelijstField):
     label = 'merk rookdetector'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMerkRookdetector'
     definition = 'Het merk van de rookdetector.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMerkRookdetector'
     options = {
     }
