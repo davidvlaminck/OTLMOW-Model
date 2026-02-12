@@ -35,6 +35,8 @@ class Buitenkast(Kast):
                                                 naam='keuringsfrequentie',
                                                 label='keuringsfrequentie',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buitenkast.keuringsfrequentie',
+                                                usagenote='Attribuut uit gebruik sinds versie 2.18.1',
+                                                deprecated_version='2.18.1',
                                                 definition='Frequentie (in jaar) waarmee de kast moet onderworpen worden aan een periodieke keuring door een externe dienst voor technische controle.',
                                                 owner=self)
 
@@ -42,6 +44,8 @@ class Buitenkast(Kast):
                                                   naam='laatsteKeuringsdatum',
                                                   label='laatste keuringsdatum',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buitenkast.laatsteKeuringsdatum',
+                                                  usagenote='Attribuut uit gebruik sinds versie 2.18.1',
+                                                  deprecated_version='2.18.1',
                                                   definition='Deze datum geeft aan wanneer de laatste keuring plaatsvond en kan gebruikt worden om te bepalen wanneer een volgende keuring nodig is.',
                                                   owner=self)
 

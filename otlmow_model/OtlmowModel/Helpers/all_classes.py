@@ -392,6 +392,7 @@ from ..Classes.Onderdeel.EcoPoort import EcoPoort
 from ..Classes.Onderdeel.Ecoraster import Ecoraster
 from ..Classes.Onderdeel.Eindstuk import Eindstuk
 from ..Classes.Onderdeel.ElastischElement import ElastischElement
+from ..Classes.Onderdeel.ElektrischeKeuring import ElektrischeKeuring
 from ..Classes.Onderdeel.Elektromotor import Elektromotor
 from ..Classes.Onderdeel.EnergiemeterAWV import EnergiemeterAWV
 from ..Classes.Onderdeel.EnergiemeterDNB import EnergiemeterDNB
@@ -461,6 +462,7 @@ from ..Classes.Onderdeel.HeeftAanvullendeGeometrie import HeeftAanvullendeGeomet
 from ..Classes.Onderdeel.HeeftBeheer import HeeftBeheer
 from ..Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from ..Classes.Onderdeel.HeeftBijlage import HeeftBijlage
+from ..Classes.Onderdeel.HeeftKeuring import HeeftKeuring
 from ..Classes.Onderdeel.HeeftNetwerkProtectie import HeeftNetwerkProtectie
 from ..Classes.Onderdeel.HeeftNetwerktoegang import HeeftNetwerktoegang
 from ..Classes.Onderdeel.HeeftToegangsprocedure import HeeftToegangsprocedure
