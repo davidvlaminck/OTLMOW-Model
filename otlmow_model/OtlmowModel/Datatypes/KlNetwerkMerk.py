@@ -87,7 +87,12 @@ class KlNetwerkMerk(KeuzelijstField):
                                   label='Oring',
                                   status='ingebruik',
                                   definitie='Oring',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/oring')
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/oring'),
+        'weidm-ller': KeuzelijstWaarde(invulwaarde='weidm-ller',
+                                       label='Weidmüller',
+                                       status='ingebruik',
+                                       definitie='Weidmüller',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkMerk/weidm-ller')
     }
 
     @classmethod

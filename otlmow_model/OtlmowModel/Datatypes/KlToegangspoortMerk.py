@@ -16,12 +16,18 @@ class KlToegangspoortMerk(KeuzelijstField):
         'bm-technics': KeuzelijstWaarde(invulwaarde='bm-technics',
                                         label='BM Technics',
                                         status='ingebruik',
+                                        definitie='BM Technics',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangspoortMerk/bm-technics'),
         'hormann': KeuzelijstWaarde(invulwaarde='hormann',
                                     label='Hormann',
                                     status='ingebruik',
-                                    definitie='HÃƒÂ¶rmann',
-                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangspoortMerk/hormann')
+                                    definitie='Hormann',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangspoortMerk/hormann'),
+        'segaf': KeuzelijstWaarde(invulwaarde='segaf',
+                                  label='Segaf',
+                                  status='ingebruik',
+                                  definitie='Segaf',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangspoortMerk/segaf')
     }
 
     @classmethod
