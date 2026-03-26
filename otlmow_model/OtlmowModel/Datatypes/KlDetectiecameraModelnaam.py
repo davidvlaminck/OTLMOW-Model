@@ -62,7 +62,12 @@ class KlDetectiecameraModelnaam(KeuzelijstField):
                                                  label='TrafiCam2 Wide Angle',
                                                  status='ingebruik',
                                                  definitie='TrafiCam2 Wide Angle',
-                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDetectiecameraModelnaam/traficam2-wide-angle')
+                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDetectiecameraModelnaam/traficam2-wide-angle'),
+        'trafione': KeuzelijstWaarde(invulwaarde='trafione',
+                                     label='TrafiOne',
+                                     status='ingebruik',
+                                     definitie='TrafiOne',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDetectiecameraModelnaam/trafione')
     }
 
     @classmethod
