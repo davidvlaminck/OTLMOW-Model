@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,26 @@ class KlAansluitingDamwandBestaandeConstructie(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAansluitingDamwandBestaandeConstructie'
     options = {
+        'door-middel-van-betonprop': KeuzelijstWaarde(invulwaarde='door-middel-van-betonprop',
+                                                      label='door middel van betonprop',
+                                                      status='ingebruik',
+                                                      definitie='door middel van betonprop',
+                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitingDamwandBestaandeConstructie/door-middel-van-betonprop'),
+        'door-middel-van-groutprop': KeuzelijstWaarde(invulwaarde='door-middel-van-groutprop',
+                                                      label='door middel van groutprop',
+                                                      status='ingebruik',
+                                                      definitie='door middel van groutprop',
+                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitingDamwandBestaandeConstructie/door-middel-van-groutprop'),
+        'door-middel-van-kleiprop': KeuzelijstWaarde(invulwaarde='door-middel-van-kleiprop',
+                                                     label='door middel van kleiprop',
+                                                     status='ingebruik',
+                                                     definitie='door middel van kleiprop',
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitingDamwandBestaandeConstructie/door-middel-van-kleiprop'),
+        'door-middel-van-vrij-zittend-slot': KeuzelijstWaarde(invulwaarde='door-middel-van-vrij-zittend-slot',
+                                                              label='door middel van vrij zittend slot',
+                                                              status='ingebruik',
+                                                              definitie='door middel van vrij zittend slot',
+                                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAansluitingDamwandBestaandeConstructie/door-middel-van-vrij-zittend-slot')
     }
 
     @classmethod
