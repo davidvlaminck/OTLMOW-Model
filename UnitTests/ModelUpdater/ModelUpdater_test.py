@@ -42,10 +42,17 @@ def test_update_model_same_version():
     version_info_file_path = fake_github_root_path / 'otlmow_model' / 'version_info.json'
     generate_version_info(version_info_file_path)
 
-    with pytest.raises(ValueError):
-        ModelUpdater.update_model(version_info_file_path=version_info_file_path,
-                                  otl_version='2.9.0', created_by='david.vlaminck', enums_updated=[])
+    # When no update is required the updater writes a status file MODEL_UPDATED=false
+    ModelUpdater.update_model(version_info_file_path=version_info_file_path,
+                              otl_version='2.9.0', created_by='david.vlaminck', enums_updated=[])
 
+    # The status file is written to the repository's model_update folder
+    status_file = Path(__file__).parent.parent.parent / 'model_update' / 'model_update_status.txt'
+    assert status_file.exists()
+    assert status_file.read_text(encoding='utf-8') == 'MODEL_UPDATED=false\n'
+
+    # cleanup
+    status_file.unlink()
     version_info_file_path.unlink()
 
 
