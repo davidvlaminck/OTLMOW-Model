@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Verlichtingstoestel import Verlichtingstoestel
 from ...Classes.Abstracten.VerlichtingstoestelConnector import VerlichtingstoestelConnector
@@ -147,8 +148,9 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
 
         self._verlichtingsNiveau = OTLAttribuut(field=KlWvLedVerlNiveau,
                                                 naam='verlichtingsNiveau',
-                                                label='verlichtings niveau',
+                                                label='verlichtingsniveau',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.verlichtingsNiveau',
+                                                kardinaliteit_max='*',
                                                 definition='Een set van verlichtingstechnische eisen zoals gemiddelde luminantie, verlichtingssterkte, uniformiteiten.',
                                                 owner=self)
 
@@ -288,7 +290,7 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector):
         self._tussenafstandLED.set_waarde(value, owner=self)
 
     @property
-    def verlichtingsNiveau(self) -> str:
+    def verlichtingsNiveau(self) -> List[str]:
         """Een set van verlichtingstechnische eisen zoals gemiddelde luminantie, verlichtingssterkte, uniformiteiten."""
         return self._verlichtingsNiveau.get_waarde()
 

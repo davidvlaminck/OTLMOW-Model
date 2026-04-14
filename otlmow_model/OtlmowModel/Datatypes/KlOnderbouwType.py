@@ -13,6 +13,11 @@ class KlOnderbouwType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOnderbouwType'
     options = {
+        'bitumengebonden-fundering': KeuzelijstWaarde(invulwaarde='bitumengebonden-fundering',
+                                                      label='bitumengebonden fundering',
+                                                      status='ingebruik',
+                                                      definitie='Bitumengebonden fundering',
+                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOnderbouwType/bitumengebonden-fundering'),
         'bodemsubstraat': KeuzelijstWaarde(invulwaarde='bodemsubstraat',
                                            label='bodemsubstraat',
                                            status='ingebruik',

@@ -21,6 +21,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
                                           naam='betondekking',
                                           label='betondekking',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcBetonspecificaties.betondekking',
+                                          kardinaliteit_max='*',
                                           definition='De afstand in millimeter tussen de buitenkant van het beton (het oppervlak van het beton) tot het dichtstbijzijnde wapeningsstaal.',
                                           owner=self)
 
@@ -128,7 +129,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
                                              owner=self)
 
     @property
-    def betondekking(self) -> KwantWrdInMillimeterWaarden:
+    def betondekking(self) -> List[KwantWrdInMillimeterWaarden]:
         """De afstand in millimeter tussen de buitenkant van het beton (het oppervlak van het beton) tot het dichtstbijzijnde wapeningsstaal."""
         return self._betondekking.get_waarde()
 

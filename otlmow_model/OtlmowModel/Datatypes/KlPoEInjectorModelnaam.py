@@ -13,6 +13,16 @@ class KlPoEInjectorModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPoEInjectorModelnaam'
     options = {
+        'ipoe-171-60w': KeuzelijstWaarde(invulwaarde='ipoe-171-60w',
+                                         label='IPOE-171-60W',
+                                         status='ingebruik',
+                                         definitie='IPOE-171-60W',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPoEInjectorModelnaam/ipoe-171-60w'),
+        'ipoe-171-95w': KeuzelijstWaarde(invulwaarde='ipoe-171-95w',
+                                         label='IPOE-171-95W',
+                                         status='ingebruik',
+                                         definitie='IPOE-171-95W',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPoEInjectorModelnaam/ipoe-171-95w'),
         'lrp-101u-kit': KeuzelijstWaarde(invulwaarde='lrp-101u-kit',
                                          label='LRP-101U-KIT',
                                          status='ingebruik',

@@ -58,16 +58,31 @@ class KlLichtmastMasthoogte(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Lijst paalhoogtes/ CLASS : VPLMAST',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasthoogte/5.00'),
+        '6-00': KeuzelijstWaarde(invulwaarde='6-00',
+                                 label='6.00',
+                                 status='ingebruik',
+                                 definitie='6.00',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasthoogte/6-00'),
         '6.30': KeuzelijstWaarde(invulwaarde='6.30',
                                  label='6.30',
                                  status='ingebruik',
                                  definitie='Lijst paalhoogtes/ CLASS : VPLMAST',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasthoogte/6.30'),
+        '7-00': KeuzelijstWaarde(invulwaarde='7-00',
+                                 label='7.00',
+                                 status='ingebruik',
+                                 definitie='7.00',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasthoogte/7-00'),
         '8.00': KeuzelijstWaarde(invulwaarde='8.00',
                                  label='8.00',
                                  status='ingebruik',
                                  definitie='Lijst paalhoogtes/ CLASS : VPLMAST',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasthoogte/8.00')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasthoogte/8.00'),
+        'niet-standaard': KeuzelijstWaarde(invulwaarde='niet-standaard',
+                                           label='Niet standaard',
+                                           status='ingebruik',
+                                           definitie='Niet standaard',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasthoogte/niet-standaard')
     }
 
     @classmethod

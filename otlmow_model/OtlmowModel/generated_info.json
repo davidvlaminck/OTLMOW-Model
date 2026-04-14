@@ -12,6 +12,9 @@
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage": {
             "directional": true
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftKeuring": {
+            "directional": true
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftNetwerkProtectie": {
             "directional": true
         },
@@ -184,6 +187,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AanvullendeGeometrie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AanvullendeMiddellijn",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bijlage",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ElektrischeKeuring",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderdoorboring",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderwaterkruising"
             ]
@@ -1240,6 +1244,16 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buitenkast",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IndoorKast",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lockerkast"
+            ]
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KeuringObject": {
+            "abstract": true,
+            "ns": "abstracten",
+            "name": "KeuringObject",
+            "label": "Keuringobject",
+            "deprecated_version": "",
+            "direct_subclasses": [
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ElektrischeKeuring"
             ]
         },
         "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlassiekeFundering": {
@@ -2789,6 +2803,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftKeuring",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftNetwerkProtectie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftNetwerktoegang",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftToegangsprocedure",
@@ -6095,6 +6110,14 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ElektrischeKeuring": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "ElektrischeKeuring",
+            "label": "Elektrische keuring",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor": {
             "abstract": false,
             "ns": "onderdeel",
@@ -6666,6 +6689,14 @@
             "ns": "onderdeel",
             "name": "HeeftBijlage",
             "label": "HeeftBijlage",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftKeuring": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HeeftKeuring",
+            "label": "Heeft keuring",
             "deprecated_version": "",
             "direct_subclasses": []
         },
