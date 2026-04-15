@@ -13,7 +13,7 @@ from ...BaseClasses.StringField import StringField
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class StalenDamplank(DamplankAbstracte, StalenConstructieElement):
-    """Slank geprofileerd stalen profiel, op de uiteindes voorzien van "sloten" om de planken met elkaar te verbinden en zodoende een continu gronddicht scherm te vormen."""
+    """Slank geprofileerd stalen profiel,op de uiteindes voorzien van "sloten" om de planken met elkaar te verbinden en zodoende een continu gronddicht scherm te vormen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenDamplank'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -61,6 +61,8 @@ class StalenDamplank(DamplankAbstracte, StalenConstructieElement):
                                            naam='isWarmgewalsd',
                                            label='is warmgewalsd',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenDamplank.isWarmgewalsd',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.19.0 ',
+                                           deprecated_version='2.19.0',
                                            definition='Geeft aan of de stalen damplank, warmgewalsd is. Indien niet is het koudgewalsd.',
                                            owner=self)
 

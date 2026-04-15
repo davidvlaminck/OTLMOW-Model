@@ -52,8 +52,8 @@ class Wegkantkast(Buitenkast, NaampadObject):
                                               naam='elektrischSchema',
                                               label='elektrisch schema',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wegkantkast.elektrischSchema',
-                                              usagenote='Attribuut uit gebruik sinds versie 2.18.1 .Bestanden van het type pdf,dwg of dxf.',
-                                              deprecated_version='2.18.1',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.19.0 ',
+                                              deprecated_version='2.19.0',
                                               kardinaliteit_max='*',
                                               definition='Elektrisch aansluitschema van de kast.',
                                               owner=self)

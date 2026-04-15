@@ -5,6 +5,8 @@ from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlPompGroepMerk import KlPompGroepMerk
 from ...Datatypes.KlPompGroepModelnaam import KlPompGroepModelnaam
 from ...Datatypes.KlPompSoort import KlPompSoort
+from ...Datatypes.KwantWrdInKubiekeMeterPerUur import KwantWrdInKubiekeMeterPerUur, KwantWrdInKubiekeMeterPerUurWaarden
+from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -54,6 +56,20 @@ class PompGroep(AIMNaamObject, PuntGeometrie):
                                        definition='De modelnaam van de pompgroep.',
                                        owner=self)
 
+        self._opvoerhoogte = OTLAttribuut(field=KwantWrdInMeter,
+                                          naam='opvoerhoogte',
+                                          label='opvoerhoogte',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#PompGroep.opvoerhoogte',
+                                          definition='De verticale afstand tussen het vloeistofniveau aan de zuigzijde en het hoogste punt waar de vloeistof naartoe moet worden gepompt. Dit is de druk die de pomp moet leveren om de gewenste pompcapaciteit te bereiken, uitgedrukt in meter.',
+                                          owner=self)
+
+        self._pompcapaciteit = OTLAttribuut(field=KwantWrdInKubiekeMeterPerUur,
+                                            naam='pompcapaciteit',
+                                            label='pompcapaciteit',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#PompGroep.pompcapaciteit',
+                                            definition='Het volume vloeistof dat de pomp per tijdseenheid verplaatst bij het nominale werkpunt, doorgaans uitgedrukt in kubieke meter per uur.',
+                                            owner=self)
+
         self._soort = OTLAttribuut(field=KlPompSoort,
                                    naam='soort',
                                    label='soort',
@@ -96,6 +112,24 @@ class PompGroep(AIMNaamObject, PuntGeometrie):
     @modelnaam.setter
     def modelnaam(self, value):
         self._modelnaam.set_waarde(value, owner=self)
+
+    @property
+    def opvoerhoogte(self) -> KwantWrdInMeterWaarden:
+        """De verticale afstand tussen het vloeistofniveau aan de zuigzijde en het hoogste punt waar de vloeistof naartoe moet worden gepompt. Dit is de druk die de pomp moet leveren om de gewenste pompcapaciteit te bereiken, uitgedrukt in meter."""
+        return self._opvoerhoogte.get_waarde()
+
+    @opvoerhoogte.setter
+    def opvoerhoogte(self, value):
+        self._opvoerhoogte.set_waarde(value, owner=self)
+
+    @property
+    def pompcapaciteit(self) -> KwantWrdInKubiekeMeterPerUurWaarden:
+        """Het volume vloeistof dat de pomp per tijdseenheid verplaatst bij het nominale werkpunt, doorgaans uitgedrukt in kubieke meter per uur."""
+        return self._pompcapaciteit.get_waarde()
+
+    @pompcapaciteit.setter
+    def pompcapaciteit(self, value):
+        self._pompcapaciteit.set_waarde(value, owner=self)
 
     @property
     def soort(self) -> str:

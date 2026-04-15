@@ -9,11 +9,11 @@ from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcRechtspersoon import DtcRechtspersoon, DtcRechtspersoonWaarden
 from ...Datatypes.KwantWrdInKiloVoltAmpere import KwantWrdInKiloVoltAmpere, KwantWrdInKiloVoltAmpereWaarden
 from ...BaseClasses.StringField import StringField
-from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DNB(Voedingspunt, GeenGeometrie):
+class DNB(Voedingspunt, PuntGeometrie):
     """Een abstracte die de gegevens van de distributienetbeheerder bevat die bij een aansluiting horen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#DNB'

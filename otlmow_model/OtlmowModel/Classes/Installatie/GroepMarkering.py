@@ -1,12 +1,12 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class GroepMarkering(AIMObject, PuntGeometrie):
+class GroepMarkering(NaampadObject, PuntGeometrie):
     """Groepering om alle soorten markeringen te groeperen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GroepMarkering'

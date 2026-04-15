@@ -3,6 +3,7 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.KlTypeKokervoeg import KlTypeKokervoeg
 from ...Datatypes.KlTypeMateriaal import KlTypeMateriaal
 from ...Datatypes.KlTypeVoeg import KlTypeVoeg
 from ...Datatypes.KwantWrdInBar import KwantWrdInBar, KwantWrdInBarWaarden
@@ -21,6 +22,7 @@ class Kokervoeg(AIMObject, LijnGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokersectie', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afdichtingsvoorziening', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koker', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voegafdichting', direction='i')  # i = direction: incoming
 
@@ -52,6 +54,13 @@ class Kokervoeg(AIMObject, LijnGeometrie):
                                                   definition='Geeft weer of er al dan niet verkeer over de voeg passeert',
                                                   owner=self)
 
+        self._kokervoegType = OTLAttribuut(field=KlTypeKokervoeg,
+                                           naam='kokervoegType',
+                                           label='kokervoegtype',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kokervoeg.kokervoegType',
+                                           definition='Het type van de kokervoeg volgens de uitvoeringsvorm.',
+                                           owner=self)
+
         self._materiaal = OTLAttribuut(field=KlTypeMateriaal,
                                        naam='materiaal',
                                        label='materiaal',
@@ -70,6 +79,8 @@ class Kokervoeg(AIMObject, LijnGeometrie):
                                            naam='typeKokervoeg',
                                            label='type kokervoeg',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kokervoeg.typeKokervoeg',
+                                           usagenote='Attribuut uit gebruik sinds versie 2.19.0 ',
+                                           deprecated_version='2.19.0',
                                            definition='Geeft het type weer van de voeg tussen de koker elementen.',
                                            owner=self)
 
@@ -108,6 +119,15 @@ class Kokervoeg(AIMObject, LijnGeometrie):
     @heeftVerkeerOverVoeg.setter
     def heeftVerkeerOverVoeg(self, value):
         self._heeftVerkeerOverVoeg.set_waarde(value, owner=self)
+
+    @property
+    def kokervoegType(self) -> str:
+        """Het type van de kokervoeg volgens de uitvoeringsvorm."""
+        return self._kokervoegType.get_waarde()
+
+    @kokervoegType.setter
+    def kokervoegType(self, value):
+        self._kokervoegType.set_waarde(value, owner=self)
 
     @property
     def materiaal(self) -> str:

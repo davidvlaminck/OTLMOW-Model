@@ -6,10 +6,11 @@ from ...Classes.Abstracten.Grondkeringen import Grondkeringen
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DamplankAbstracte(Fundering, Grondkeringen, PuntGeometrie):
+class DamplankAbstracte(Fundering, Grondkeringen, PuntGeometrie, LijnGeometrie):
     """Abstracte om eigenschappen van de damplank te bundelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#DamplankAbstracte'

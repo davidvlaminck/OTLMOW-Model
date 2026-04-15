@@ -4,12 +4,13 @@ from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.Abstracten.AansluitendeConstructie import AansluitendeConstructie
 from ...Classes.Abstracten.EigenschappenVoertuigkering import EigenschappenVoertuigkering
 from ...Classes.Abstracten.SchokindexVoertuigkering import SchokindexVoertuigkering
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlLEACWerkingsbreedte import KlLEACWerkingsbreedte
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Geleideconstructie(AanhorigheidSluisStuw, AansluitendeConstructie, EigenschappenVoertuigkering, SchokindexVoertuigkering):
+class Geleideconstructie(AanhorigheidSluisStuw, AansluitendeConstructie, EigenschappenVoertuigkering, SchokindexVoertuigkering, NaampadObject):
     """Een doorlopende afschermende constructie voor voertuigen geïnstalleerd langs de weg of in de middenberm."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie'

@@ -1,7 +1,7 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Toegangselement import Toegangselement
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlToegangspoortMerk import KlToegangspoortMerk
 from ...Datatypes.KlToegangspoortModelnaam import KlToegangspoortModelnaam
@@ -11,7 +11,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Toegangspoort(Toegangselement, AIMNaamObject, PuntGeometrie):
+class Toegangspoort(Toegangselement, NaampadObject, PuntGeometrie):
     """Element dat een bredere doorgang in een constructie of hekwerk afsluit ."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangspoort'

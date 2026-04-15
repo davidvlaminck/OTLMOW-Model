@@ -75,7 +75,7 @@ class Randafwerking(ConstructiefObject, DetaiplanObject, PuntGeometrie, LijnGeom
                                         naam='uitvoering',
                                         label='uitvoering randafwerking',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Randafwerking.uitvoering',
-                                        definition='De verschillende types randafwerking.',
+                                        definition='De verschillende mogelijke uitvoeringen van randafwerking.',
                                         owner=self)
 
     @property
@@ -107,7 +107,7 @@ class Randafwerking(ConstructiefObject, DetaiplanObject, PuntGeometrie, LijnGeom
 
     @property
     def uitvoering(self) -> str:
-        """De verschillende types randafwerking."""
+        """De verschillende mogelijke uitvoeringen van randafwerking."""
         return self._uitvoering.get_waarde()
 
     @uitvoering.setter

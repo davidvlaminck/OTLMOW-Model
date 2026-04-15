@@ -1,6 +1,7 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.PompSchroefEnWaaier import PompSchroefEnWaaier
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KwantWrdInKilogram import KwantWrdInKilogram, KwantWrdInKilogramWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
@@ -9,7 +10,7 @@ from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Wormschroef(PompSchroefEnWaaier, LijnGeometrie):
+class Wormschroef(PompSchroefEnWaaier, NaampadObject, LijnGeometrie):
     """Een spiraalvormige schroef die toelaat vloeistoffen, sluries, of poeders te transporteren. De schroef, geplaatst in een gesloten of deels open buis, wordt aangedreven en draait rond zijn eigen as. Deze draaiende beweging leidt tot de verplaatsing van het te verplaatsen medium. Wanneer het medium in opwaartse richting getransporteerd wordt spreekt men van een pomp. Wanneer het medium in afwaartse richting beweegt en al doende de schroef doet draaien, spreekt men van een turbine. Wordt ook wel waterschroef, opvoerschroef, vijzelpomp, of een schroef van Archimedes genoemd. """
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wormschroef'

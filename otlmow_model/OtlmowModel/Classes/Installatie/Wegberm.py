@@ -1,24 +1,22 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.TerreinDeel import TerreinDeel
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlWegbermBIO import KlWegbermBIO
 from ...Datatypes.KlWegbermType import KlWegbermType
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Wegberm(TerreinDeel, AIMObject):
+class Wegberm(TerreinDeel, NaampadObject):
     """Gedeelte van het wegplatform dat buiten de rijbanen ligt. Een wegberm kan sloten en bijzonder ingerichte onderdelen bevatten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    deprecated_version = '2.11.0'
-
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BegroeidVoorkomen', direction='u', deprecated='2.11.0')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BegroeidVoorkomen', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LijnvormigElement', direction='u', deprecated='2.11.0')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VegetatieElement', direction='i', deprecated='2.11.0')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#WaterloopRelatie', direction='i', deprecated='2.11.0')  # i = direction: incoming
@@ -27,7 +25,7 @@ class Wegberm(TerreinDeel, AIMObject):
                                                            naam='bijzonderIngerichteOnderdelen',
                                                            label='bijzonder ingerichte onderdelen van de wegberm',
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm.bijzonderIngerichteOnderdelen',
-                                                           usagenote='Klasse uit gebruik sinds versie 2.11.0 ',
+                                                           usagenote='Attribuut uit gebruik sinds versie 2.11.0 ',
                                                            deprecated_version='2.11.0',
                                                            definition='De bijzonder ingerichte onderdelen van de wegberm.',
                                                            owner=self)
@@ -36,8 +34,6 @@ class Wegberm(TerreinDeel, AIMObject):
                                   naam='type',
                                   label='type',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm.type',
-                                  usagenote='Klasse uit gebruik sinds versie 2.11.0 ',
-                                  deprecated_version='2.11.0',
                                   definition='Het type van wegberm.',
                                   owner=self)
 

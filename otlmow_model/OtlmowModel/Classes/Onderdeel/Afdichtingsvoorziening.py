@@ -10,7 +10,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Afdichtingsvoorziening(AIMNaamObject, PuntGeometrie):
-    """Voorziening om te zorgen dat er geen water lekt tussen verschillende onderdelen van een beweegbare waterkerende constructie alsook tussen beweegbare en vaste waterbouwkundige constructies."""
+    """Een afdichtingsvoorziening is een afdichtend component dat wordt toegepast ter hoogte van een voeg, naad of overgang tussen constructiedelen om waterdichtheid te realiseren."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afdichtingsvoorziening'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -19,6 +19,7 @@ class Afdichtingsvoorziening(AIMNaamObject, PuntGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aanslagbalk', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kokervoeg', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BeweegbareWaterkerendeConstructie', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#TijdelijkeWaterkerendeConstructie', direction='o')  # o = direction: outgoing
 

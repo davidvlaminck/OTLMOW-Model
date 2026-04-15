@@ -10,7 +10,7 @@ from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class InspectieputRiolering(Put, AIMObject, PuntGeometrie, VlakGeometrie):
-    """Dient om de aanwezige riolering te kunnen inspecteren, reinigen of onderhouden."""
+    """Dient om de aanwezige riolering te kunnen inspecteren,reinigen of onderhouden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#InspectieputRiolering'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -27,6 +27,8 @@ class InspectieputRiolering(Put, AIMObject, PuntGeometrie, VlakGeometrie):
                                              naam='hoekverdraaiing',
                                              label='hoekverdraaiing',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#InspectieputRiolering.hoekverdraaiing',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.19.0 ',
+                                             deprecated_version='2.19.0',
                                              definition='Verschil in richting tussen inkomende en uitgaande rioolbuis.',
                                              owner=self)
 

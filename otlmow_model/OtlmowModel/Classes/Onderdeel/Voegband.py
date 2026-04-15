@@ -17,8 +17,10 @@ class Voegband(AIMNaamObject, PuntGeometrie, LijnGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kesp', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Lmuur', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wand', direction='u')  # u = unidirectional
 
         self._isGeinjecteerd = OTLAttribuut(field=BooleanField,
                                             naam='isGeinjecteerd',
@@ -26,6 +28,13 @@ class Voegband(AIMNaamObject, PuntGeometrie, LijnGeometrie):
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voegband.isGeinjecteerd',
                                             definition='Geeft aan of de voegband al dan niet geïnjecteerd is.',
                                             owner=self)
+
+        self._isUitwendig = OTLAttribuut(field=BooleanField,
+                                         naam='isUitwendig',
+                                         label='is uitwendig',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voegband.isUitwendig',
+                                         definition='Geeft aan of de voegband al dan niet van het type uitwendig is.',
+                                         owner=self)
 
         self._materiaalVoegband = OTLAttribuut(field=KlMateriaalVoegband,
                                                naam='materiaalVoegband',
@@ -42,6 +51,15 @@ class Voegband(AIMNaamObject, PuntGeometrie, LijnGeometrie):
     @isGeinjecteerd.setter
     def isGeinjecteerd(self, value):
         self._isGeinjecteerd.set_waarde(value, owner=self)
+
+    @property
+    def isUitwendig(self) -> bool:
+        """Geeft aan of de voegband al dan niet van het type uitwendig is."""
+        return self._isUitwendig.get_waarde()
+
+    @isUitwendig.setter
+    def isUitwendig(self, value):
+        self._isUitwendig.set_waarde(value, owner=self)
 
     @property
     def materiaalVoegband(self) -> str:

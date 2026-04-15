@@ -2,6 +2,7 @@
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...BaseClasses.BooleanField import BooleanField
+from ...Datatypes.KlTypeVerbinding import KlTypeVerbinding
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -57,6 +58,13 @@ class Pijler(AIMNaamObject, VlakGeometrie):
                                                        definition='Geeft aan of de pijler in of op de rand van de waterweg staat, al dan niet.',
                                                        owner=self)
 
+        self._typeVerbinding = OTLAttribuut(field=KlTypeVerbinding,
+                                            naam='typeVerbinding',
+                                            label='type verbinding',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pijler.typeVerbinding',
+                                            definition='De verschillende types verbindingen tussen (kelder)landhoofd, (kelder)pijler met brugdek.',
+                                            owner=self)
+
     @property
     def funderingsaanzetOnderDeBodemVanDeWaterweg(self) -> bool:
         """Geeft aan of er een funderingsaanzet is onder de bodem van de waterweg, al dan niet."""
@@ -74,3 +82,12 @@ class Pijler(AIMNaamObject, VlakGeometrie):
     @inOfOpDeRandVanDeWaterweg.setter
     def inOfOpDeRandVanDeWaterweg(self, value):
         self._inOfOpDeRandVanDeWaterweg.set_waarde(value, owner=self)
+
+    @property
+    def typeVerbinding(self) -> str:
+        """De verschillende types verbindingen tussen (kelder)landhoofd, (kelder)pijler met brugdek."""
+        return self._typeVerbinding.get_waarde()
+
+    @typeVerbinding.setter
+    def typeVerbinding(self, value):
+        self._typeVerbinding.set_waarde(value, owner=self)

@@ -3,7 +3,7 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from ...Classes.Abstracten.FirmwareObject import FirmwareObject
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlAansluitingskabel import KlAansluitingskabel
@@ -16,7 +16,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Badgelezer(ElektrischComponentennummerObject, FirmwareObject, SerienummerObject, AIMNaamObject, PuntGeometrie):
+class Badgelezer(ElektrischComponentennummerObject, FirmwareObject, SerienummerObject, NaampadObject, PuntGeometrie):
     """Een inrichting voor automatische authenticatie op basis van een badge."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Badgelezer'

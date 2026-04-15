@@ -8,7 +8,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Toegangsvoorziening(AIMNaamObject, PuntGeometrie):
-    """Een toegangsschouw of ruimte dat is ontworpen om personen in staat te stellen componenten van de sluis of stuw te bereiken, te inspecteren en eraan te werken."""
+    """Een toegangsschouw of ruimte die is ontworpen om personen in staat te stellen componenten van het kunstwerk te bereiken, te inspecteren en eraan te werken."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangsvoorziening'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -16,8 +16,10 @@ class Toegangsvoorziening(AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Landhoofd', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ballastcompartiment', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ladder', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PutBovenbouw', direction='u')  # u = unidirectional
 
         self._afmetingen = OTLAttribuut(field=StringField,
                                         naam='afmetingen',

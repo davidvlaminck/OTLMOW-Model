@@ -1,6 +1,7 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LaagBouwklasse import LaagBouwklasse
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcSupplementenCBV import DtcSupplementenCBV, DtcSupplementenCBVWaarden
 from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlCBVAardVerharding import KlCBVAardVerharding
@@ -11,7 +12,7 @@ from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Cementbetonverharding(LaagBouwklasse):
+class Cementbetonverharding(LaagBouwklasse, NaampadObject):
     """Stijve verharding met of zonder wapening verkregen door cementbeton te spreiden en mechanisch te verdichten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cementbetonverharding'

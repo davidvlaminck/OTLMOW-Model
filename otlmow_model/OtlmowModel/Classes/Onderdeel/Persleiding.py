@@ -1,13 +1,14 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Buis import Buis
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlPersleidingMateriaal import KlPersleidingMateriaal
 from ...Datatypes.KlSDRKlasse import KlSDRKlasse
 from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Persleiding(Buis, LijnGeometrie):
+class Persleiding(Buis, NaampadObject, LijnGeometrie):
     """Ondergronds kanaal of pijp voor afvoer van een vloeistof of gas onder druk."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Persleiding'

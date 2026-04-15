@@ -158,6 +158,7 @@ class Buis(AIMObject, LijnGeometrie):
                                                naam='hoogteBinnenzijde',
                                                label='hoogte binnenzijde',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis.hoogteBinnenzijde',
+                                               usagenote='Voor cirkelvormige buizen met dunwandig profiel wordt deze waarde niet afzonderlijk ingevuld.',
                                                definition='De hoogte van de binnenzijde van de buis in millimeter. Bij cirkelvormige buizen is dit de binnendiameter.',
                                                owner=self)
 
@@ -165,6 +166,7 @@ class Buis(AIMObject, LijnGeometrie):
                                                naam='hoogteBuitenzijde',
                                                label='hoogte buitenzijde',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis.hoogteBuitenzijde',
+                                               usagenote='Voor cirkelvormige buizen met dunwandig profiel wordt deze waarde niet afzonderlijk ingevuld.',
                                                definition='De hoogte van de buitenzijde van een buis in millimeter. Bij cirkelvormige buizen is dit de buitendiameter.',
                                                owner=self)
 

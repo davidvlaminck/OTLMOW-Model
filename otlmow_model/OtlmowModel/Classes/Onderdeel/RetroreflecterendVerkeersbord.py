@@ -1,11 +1,15 @@
 # coding=utf-8
+from datetime import date
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Verkeersbord import Verkeersbord
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...BaseClasses.DateField import DateField
 from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
+from ...Datatypes.KlFabricageTypeRetroreflecterendVerkeersbord import KlFabricageTypeRetroreflecterendVerkeersbord
 from ...Datatypes.KlRetroreflecterendVerkeersbordAfwerkingsgraad import KlRetroreflecterendVerkeersbordAfwerkingsgraad
 from ...Datatypes.KlRetroreflecterendVerkeersbordGrootteorde import KlRetroreflecterendVerkeersbordGrootteorde
 from ...Datatypes.KlRetroreflecterendVerkeersbordMerk import KlRetroreflecterendVerkeersbordMerk
+from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -24,6 +28,7 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeluidswerendeConstructie', direction='u', deprecated='2.0.0')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendeFolie', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Slagboomarm', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BiFlashInstallatie', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HoogtebegrenzerInstallatie', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefRetroreflectie', direction='i')  # i = direction: incoming
@@ -35,6 +40,20 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMNaamObject, PuntGeometrie):
                                              definition='De afwerkingsgraad van het retroreflecterend verkeersbord, volgens een keuzelijst op basis van SB250.',
                                              owner=self)
 
+        self._fabricageDatum = OTLAttribuut(field=DateField,
+                                            naam='fabricageDatum',
+                                            label='fabricage datum',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord.fabricageDatum',
+                                            definition='De datum waarop het bord werd gebouwd.',
+                                            owner=self)
+
+        self._fabricageType = OTLAttribuut(field=KlFabricageTypeRetroreflecterendVerkeersbord,
+                                           naam='fabricageType',
+                                           label='fabricage type',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord.fabricageType',
+                                           definition='Genormaliseerde referentie waaraan het verkeersbord voldoet.',
+                                           owner=self)
+
         self._grootteorde = OTLAttribuut(field=KlRetroreflecterendVerkeersbordGrootteorde,
                                          naam='grootteorde',
                                          label='grootteorde',
@@ -42,6 +61,13 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMNaamObject, PuntGeometrie):
                                          kardinaliteit_min='0',
                                          definition='De classificatie naar grootteorde van het verkeersbord, zoals gedefinieerd in SB250 hoofdstuk 10.',
                                          owner=self)
+
+        self._horizontaleVerschuiving = OTLAttribuut(field=KwantWrdInMillimeter,
+                                                     naam='horizontaleVerschuiving',
+                                                     label='horizontale verschuiving',
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord.horizontaleVerschuiving',
+                                                     definition='De verschuiving van het bord, gemeten van het midden van het bord tot de centrale as van de opstelling. Een positieve waarde duidt op een verschuiving naar rechts, een negatieve waarde op een verschuiving naar links.',
+                                                     owner=self)
 
         self._kleurAchterkant = OTLAttribuut(field=DteKleurRAL,
                                              naam='kleurAchterkant',
@@ -76,6 +102,24 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMNaamObject, PuntGeometrie):
         self._afwerkingsgraad.set_waarde(value, owner=self)
 
     @property
+    def fabricageDatum(self) -> date:
+        """De datum waarop het bord werd gebouwd."""
+        return self._fabricageDatum.get_waarde()
+
+    @fabricageDatum.setter
+    def fabricageDatum(self, value):
+        self._fabricageDatum.set_waarde(value, owner=self)
+
+    @property
+    def fabricageType(self) -> str:
+        """Genormaliseerde referentie waaraan het verkeersbord voldoet."""
+        return self._fabricageType.get_waarde()
+
+    @fabricageType.setter
+    def fabricageType(self, value):
+        self._fabricageType.set_waarde(value, owner=self)
+
+    @property
     def grootteorde(self) -> str:
         """De classificatie naar grootteorde van het verkeersbord, zoals gedefinieerd in SB250 hoofdstuk 10."""
         return self._grootteorde.get_waarde()
@@ -83,6 +127,15 @@ class RetroreflecterendVerkeersbord(Verkeersbord, AIMNaamObject, PuntGeometrie):
     @grootteorde.setter
     def grootteorde(self, value):
         self._grootteorde.set_waarde(value, owner=self)
+
+    @property
+    def horizontaleVerschuiving(self) -> KwantWrdInMillimeterWaarden:
+        """De verschuiving van het bord, gemeten van het midden van het bord tot de centrale as van de opstelling. Een positieve waarde duidt op een verschuiving naar rechts, een negatieve waarde op een verschuiving naar links."""
+        return self._horizontaleVerschuiving.get_waarde()
+
+    @horizontaleVerschuiving.setter
+    def horizontaleVerschuiving(self, value):
+        self._horizontaleVerschuiving.set_waarde(value, owner=self)
 
     @property
     def kleurAchterkant(self) -> DteKleurRALWaarden:

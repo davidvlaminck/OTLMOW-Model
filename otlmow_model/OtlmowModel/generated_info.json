@@ -3,6 +3,9 @@
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie": {
             "directional": true
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanzicht": {
+            "directional": true
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer": {
             "directional": true
         },
@@ -246,6 +249,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Betonmat",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Betonmatras",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Draineerlaag",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DrukspreidendeConstructie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DunneOverlaging",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GeexpandeerdPolystyreen",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geotextiel",
@@ -413,7 +417,9 @@
             "label": "Bekleding component",
             "deprecated_version": "",
             "direct_subclasses": [
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AkoestischeBekleding",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BrandwerendeBekleding",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#EsthetischeBekleding",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie"
             ]
         },
@@ -1340,6 +1346,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ArtificieleLaag",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afdichting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Draineerlaag",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DrukspreidendeConstructie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grond",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Onderbouw",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stortsteen"
@@ -2319,6 +2326,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#ActivityComplex",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#NaampadObject",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aanvaarbescherming",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aardingsinstallatie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BasisverlichtingTunnel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Been",
@@ -2412,7 +2420,6 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antennecoupler",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AsMechanisch",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Audioversterker",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Badgelezer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Balg",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ballastcompartiment",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BeslagHoutenSluisdeur",
@@ -2458,7 +2465,6 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Golfplaat",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Grendel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Groutanker",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Haalkom",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Halsbeugeloog",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Halsbeugelpen",
@@ -2476,7 +2482,6 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelleidingdoorvoer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelmof",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KabelnetBuis",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KabelnetToegang",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelspanner",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelsteun",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabeltrommel",
@@ -2496,7 +2501,6 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVProcessorkaart",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#MIVVoedingsmodule",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Magneetgrendel",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetcel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Motorbeveiligingsschakelaar",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Motorsturing",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Naaf",
@@ -2574,10 +2578,8 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ThermoHygrometer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Tijdschakelaar",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangsluik",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangspoort",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangsvoorziening",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toestelventilator",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Transformator",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Trap",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Trillingsvoorziening",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VastTegengewicht",
@@ -2643,7 +2645,6 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Glijgeleiding",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Grendelmechanisme",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GroepDwarseMarkeringEnFiguratie",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GroepMarkering",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Halsbeugelmechanisme",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#InspectieputRiolering",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kabelbewegingsmechanisme",
@@ -2660,7 +2661,6 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Tandkransmechanisme",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ventilatiekanaal",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#Afdekking",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#Afgraving",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerBoomvorm",
@@ -2684,6 +2684,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bouwput",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bovenbouw",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Buisbekleding",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ConserveringStaal",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactor",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dilatatie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Divergentiepuntbebakeningselement",
@@ -2800,6 +2801,7 @@
             "deprecated_version": "",
             "direct_subclasses": [
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanvullendeGeometrie",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanzicht",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage",
@@ -2857,6 +2859,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Flitspaal",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouw",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gebouwuitrusting",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#GroepMarkering",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Hulppost",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HulppostGroep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#IPBackbone",
@@ -2882,16 +2885,21 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Tunneluitrusting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Tunnelverlichting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VLAN",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VRIBuiteninstallatie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ventilatiecluster",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VerlichteOversteekplaatsGroep",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wegberm",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Weguitrusting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#WegverlichtingGroep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Z30Groep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zoutbijlaadplaats",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Zpad",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ALSB",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Badgelezer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BiFlash",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BitumineuzeLaag",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Brandblusser",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Brandhaspel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cabine",
@@ -2899,12 +2907,15 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Calamiteitendoorsteek",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#CapacitieveNiveaumeting",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Cementbetonverharding",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Codeklavier",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contourverlichting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Controlepaneel",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DNBHoogspanning",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DNBLaagspanning",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Datakabel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Deur",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dieselgenerator",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Drukverhogingsgroep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordExternePU",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordOpMaat",
@@ -2921,7 +2932,16 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ForfaitaireAansluiting",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Galgpaal",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Gassensor",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleideconstructie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Geleidingsverlichting",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSAankomstDNB",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSAankomstKlant",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSAutonomeVoeding",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscelTransfo",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSMelder",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSVertrekDNB",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSVertrekKlant",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hoogtedetectie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hydrant",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IVSB",
@@ -2930,18 +2950,22 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomServer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IntercomToestel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#InwendigVerlichtPictogram",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KabelnetToegang",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Knipperlantaarn",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LSSchuif",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtsensor",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LuchtkwaliteitZenderOntvanger",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Luidspreker",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetcel",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetmicrofoon",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietSelectieveDetectielus",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omvormer",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Persleiding",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PoEInjector",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pomp",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PunctueleVerlichtingsmast",
@@ -2957,6 +2981,9 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Temperatuursensor",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontrole",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangscontroller",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toegangspoort",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Transformator",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UitleesapparatuurFlitscamera",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VentilatieAfsluitklep",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ventilator",
@@ -2967,6 +2994,7 @@
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WVConsole",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WazeBeacon",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wegkantkast",
+                "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wormschroef",
                 "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ZuilTGC"
             ]
         },
@@ -3045,6 +3073,14 @@
             "ns": "installatie",
             "name": "Aanvaarbescherming",
             "label": "Aanvaarbescherming",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling": {
+            "abstract": false,
+            "ns": "installatie",
+            "name": "AanzichtVerkeersbordopstelling",
+            "label": "Aanzicht verkeersbordopstelling",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -4328,6 +4364,14 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VRIBuiteninstallatie": {
+            "abstract": false,
+            "ns": "installatie",
+            "name": "VRIBuiteninstallatie",
+            "label": "VRI buiteninstallatie",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VakwerkElement": {
             "abstract": false,
             "ns": "installatie",
@@ -4493,7 +4537,7 @@
             "ns": "installatie",
             "name": "Wegberm",
             "label": "Wegberm",
-            "deprecated_version": "2.11.0",
+            "deprecated_version": "",
             "direct_subclasses": []
         },
         "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Weguitrusting": {
@@ -4669,6 +4713,14 @@
             "ns": "onderdeel",
             "name": "AIDModule",
             "label": "AID-module",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ALSB": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "ALSB",
+            "label": "Algemeen laagspanningsbord",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -4861,6 +4913,14 @@
             "ns": "onderdeel",
             "name": "Afwateringsgeul",
             "label": "Afwateringsgeul",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AkoestischeBekleding": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "AkoestischeBekleding",
+            "label": "Akoestische bekleding",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -5654,6 +5714,14 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ConserveringStaal": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "ConserveringStaal",
+            "label": "Conservering staal",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ConstructieSokkel": {
             "abstract": false,
             "ns": "onderdeel",
@@ -5942,6 +6010,14 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DrukspreidendeConstructie": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "DrukspreidendeConstructie",
+            "label": "Drukspreidende constructie",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Drukvat": {
             "abstract": false,
             "ns": "onderdeel",
@@ -6179,6 +6255,14 @@
             "ns": "onderdeel",
             "name": "EquipotentiaalVerbinding",
             "label": "Equipotentiaal verbinding",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#EsthetischeBekleding": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "EsthetischeBekleding",
+            "label": "Esthetische bekleding",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -6580,6 +6664,30 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSAankomstDNB": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HSAankomstDNB",
+            "label": "HS aankomst DNB",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSAankomstKlant": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HSAankomstKlant",
+            "label": "HS aankomst klant",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSAutonomeVoeding": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HSAutonomeVoeding",
+            "label": "HS autonome voeding",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscel": {
             "abstract": false,
             "ns": "onderdeel",
@@ -6588,11 +6696,43 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSBeveiligingscelTransfo": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HSBeveiligingscelTransfo",
+            "label": "HS beveiligingscel transfo",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
         "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine": {
             "abstract": false,
             "ns": "onderdeel",
             "name": "HSCabine",
             "label": "HS-cabine",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSMelder": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HSMelder",
+            "label": "HS melder",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSVertrekDNB": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HSVertrekDNB",
+            "label": "HS vertrek DNB",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSVertrekKlant": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HSVertrekKlant",
+            "label": "HS vertrek klant",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -6665,6 +6805,14 @@
             "ns": "onderdeel",
             "name": "HeeftAanvullendeGeometrie",
             "label": "Heeft aanvullende geometrie",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanzicht": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "HeeftAanzicht",
+            "label": "Heeft aanzicht",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -7254,6 +7402,14 @@
             "ns": "onderdeel",
             "name": "LKSensorDoorverbinddoos",
             "label": "Luchtkwaliteitsensor doorverbinddoos",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LSSchuif": {
+            "abstract": false,
+            "ns": "onderdeel",
+            "name": "LSSchuif",
+            "label": "LS schuif",
             "deprecated_version": "",
             "direct_subclasses": []
         },

@@ -3,6 +3,7 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.VRIDraagconstructie import VRIDraagconstructie
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlRechteSteunType import KlRechteSteunType
+from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -26,6 +27,14 @@ class RechteSteun(VRIDraagconstructie, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ForfaitaireAansluiting', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BiFlashInstallatie', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kokerafsluiting', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VRIBuiteninstallatie', direction='o')  # o = direction: outgoing
+
+        self._doorsnede = OTLAttribuut(field=KwantWrdInMillimeter,
+                                       naam='doorsnede',
+                                       label='diameter',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RechteSteun.doorsnede',
+                                       definition='De doorsnede of diameter van de rechte steun, uitgedrukt in millimeter.',
+                                       owner=self)
 
         self._technischeFiche = OTLAttribuut(field=DtcDocument,
                                              naam='technischeFiche',
@@ -40,6 +49,15 @@ class RechteSteun(VRIDraagconstructie, PuntGeometrie):
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RechteSteun.type',
                                   definition='Het type verwijst naar de aanpassingen die gebeuren wanneer een andere techniek gebruik maakt van de rechte steun. Meestal gaat dit over een aanpassing in de lengte van het verjongde deel van de rechte steun.',
                                   owner=self)
+
+    @property
+    def doorsnede(self) -> KwantWrdInMillimeterWaarden:
+        """De doorsnede of diameter van de rechte steun, uitgedrukt in millimeter."""
+        return self._doorsnede.get_waarde()
+
+    @doorsnede.setter
+    def doorsnede(self, value):
+        self._doorsnede.set_waarde(value, owner=self)
 
     @property
     def technischeFiche(self) -> DtcDocumentWaarden:

@@ -34,6 +34,7 @@ class BrandwerendeBekleding(BekledingComponent):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Waarschuwingslantaarn', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ZenderOntvangerToegang', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voorzetconstructie', direction='u')  # u = unidirectional
 
         self._bevestigingsmateriaal = OTLAttribuut(field=KlBevestigingsMateriaalBrandwerendeBekleding,
                                                    naam='bevestigingsmateriaal',
@@ -60,7 +61,7 @@ class BrandwerendeBekleding(BekledingComponent):
                                    naam='dikte',
                                    label='dikte',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BrandwerendeBekleding.dikte',
-                                   definition='De nominale dikte van de aangebrachte beschermlaag, uitgedrukt in millimeter.',
+                                   definition='De nominale dikte van de bekleding, uitgedrukt in millimeter.',
                                    owner=self)
 
         self._maximaleTemperatuurinterface = OTLAttribuut(field=KwantWrdInCelsius,
@@ -120,7 +121,7 @@ class BrandwerendeBekleding(BekledingComponent):
 
     @property
     def dikte(self) -> KwantWrdInMillimeterWaarden:
-        """De nominale dikte van de aangebrachte beschermlaag, uitgedrukt in millimeter."""
+        """De nominale dikte van de bekleding, uitgedrukt in millimeter."""
         return self._dikte.get_waarde()
 
     @dikte.setter

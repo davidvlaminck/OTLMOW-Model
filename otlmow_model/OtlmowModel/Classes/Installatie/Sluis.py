@@ -99,6 +99,13 @@ class Sluis(OntwerpwaterstandStreefpeil, AIMNaamObject):
                                         definition='De maximale grootte van schepen, uitgedrukt in tonnen, die de sluis kunnen passeren zonder de capaciteit of de structuur van de sluis te overschrijden.',
                                         owner=self)
 
+        self._verval = OTLAttribuut(field=KwantWrdInMeter,
+                                    naam='verval',
+                                    label='verval',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Sluis.verval',
+                                    definition='Verticale afstand tussen gemiddeld opwaarts en gemiddeld afwaarts waterpeil.',
+                                    owner=self)
+
         self._vrijeHoogte = OTLAttribuut(field=KwantWrdInMeter,
                                          naam='vrijeHoogte',
                                          label='vrije hoogte',
@@ -202,6 +209,15 @@ class Sluis(OntwerpwaterstandStreefpeil, AIMNaamObject):
     @tonnenmaat.setter
     def tonnenmaat(self, value):
         self._tonnenmaat.set_waarde(value, owner=self)
+
+    @property
+    def verval(self) -> KwantWrdInMeterWaarden:
+        """Verticale afstand tussen gemiddeld opwaarts en gemiddeld afwaarts waterpeil."""
+        return self._verval.get_waarde()
+
+    @verval.setter
+    def verval(self, value):
+        self._verval.set_waarde(value, owner=self)
 
     @property
     def vrijeHoogte(self) -> KwantWrdInMeterWaarden:

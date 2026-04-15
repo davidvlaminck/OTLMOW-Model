@@ -41,6 +41,20 @@ class Stuw(OntwerpwaterstandStreefpeil, AIMNaamObject):
                                               definition='Het maximale waterpeil dat kan worden bereikt aan de stroomopwaartse zijde van de stuw, gemeten vanaf de onderkant van de stuwconstructie.',
                                               owner=self)
 
+        self._verval = OTLAttribuut(field=KwantWrdInMeter,
+                                    naam='verval',
+                                    label='verval',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Stuw.verval',
+                                    definition='Verticale afstand tussen gemiddeld opwaarts en gemiddeld afwaarts waterpeil.',
+                                    owner=self)
+
+        self._waterdiepte = OTLAttribuut(field=KwantWrdInMeter,
+                                         naam='waterdiepte',
+                                         label='waterdiepte',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Stuw.waterdiepte',
+                                         definition='De verticale afstand tussen het maatgevend wateroppervlak (opwaarts) en het laagste punt van het vloer of drempelniveau.',
+                                         owner=self)
+
     @property
     def breedte(self) -> KwantWrdInMeterWaarden:
         """De afstand tussen de dagkanten van de vaste constructie."""
@@ -67,3 +81,21 @@ class Stuw(OntwerpwaterstandStreefpeil, AIMNaamObject):
     @maximaalStuwPeil.setter
     def maximaalStuwPeil(self, value):
         self._maximaalStuwPeil.set_waarde(value, owner=self)
+
+    @property
+    def verval(self) -> KwantWrdInMeterWaarden:
+        """Verticale afstand tussen gemiddeld opwaarts en gemiddeld afwaarts waterpeil."""
+        return self._verval.get_waarde()
+
+    @verval.setter
+    def verval(self, value):
+        self._verval.set_waarde(value, owner=self)
+
+    @property
+    def waterdiepte(self) -> KwantWrdInMeterWaarden:
+        """De verticale afstand tussen het maatgevend wateroppervlak (opwaarts) en het laagste punt van het vloer of drempelniveau."""
+        return self._waterdiepte.get_waarde()
+
+    @waterdiepte.setter
+    def waterdiepte(self, value):
+        self._waterdiepte.set_waarde(value, owner=self)

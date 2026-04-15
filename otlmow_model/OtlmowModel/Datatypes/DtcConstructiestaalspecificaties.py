@@ -14,8 +14,6 @@ class DtcConstructiestaalspecificatiesWaarden(WaardenObject):
                                         naam='staalsoort',
                                         label='staalsoort',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcConstructiestaalspecificaties.staalsoort',
-                                        usagenote='Klasse uit gebruik sinds versie 2.18.0 ',
-                                        deprecated_version='2.18.0',
                                         definition='Staalkwaliteit die wordt gebruikt volgens Europese normen.',
                                         owner=self)
 
@@ -23,8 +21,6 @@ class DtcConstructiestaalspecificatiesWaarden(WaardenObject):
                                          naam='walsmethode',
                                          label='walsmethode',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcConstructiestaalspecificaties.walsmethode',
-                                         usagenote='Klasse uit gebruik sinds versie 2.18.0 ',
-                                         deprecated_version='2.18.0',
                                          definition='Op welke manier het staal gewalst is.',
                                          owner=self)
 

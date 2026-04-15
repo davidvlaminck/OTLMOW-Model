@@ -1,6 +1,7 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LaagBouwklasse import LaagBouwklasse
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtuBVLaagtypes import DtuBVLaagtypes, DtuBVLaagtypesWaarden
 from ...Datatypes.KlBVBindmiddel import KlBVBindmiddel
 from ...Datatypes.KlBVMengseltype import KlBVMengseltype
@@ -8,7 +9,7 @@ from ...Datatypes.KlKleurSupp import KlKleurSupp
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BitumineuzeLaag(LaagBouwklasse):
+class BitumineuzeLaag(LaagBouwklasse, NaampadObject):
     """Flexibele verharding die meestal uit bitumineus gebonden materialen (asfalt of gietasfalt) bestaat en laagsgewijs wordt aangelegd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BitumineuzeLaag'

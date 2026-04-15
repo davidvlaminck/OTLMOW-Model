@@ -1,7 +1,7 @@
 # coding=utf-8
 from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlKabelnettoegangNetwerksoort import KlKabelnettoegangNetwerksoort
 from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
@@ -10,7 +10,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class KabelnetToegang(AIMNaamObject, PuntGeometrie):
+class KabelnetToegang(NaampadObject, PuntGeometrie):
     """Knooppunt van Kabelnet dat toegang geeft tot de informatie die in Kabelnet bewaard wordt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KabelnetToegang'
