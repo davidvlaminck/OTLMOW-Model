@@ -21,7 +21,7 @@ class KlVentilatorGebruik(KeuzelijstField):
         'dwarsventilatie-afvoer': KeuzelijstWaarde(invulwaarde='dwarsventilatie-afvoer',
                                                    label='dwarsventilatie afvoer',
                                                    status='ingebruik',
-                                                   definitie='Een ventilatie-eenheid die lucht dwars uit de tunnel onttrekt, en deze via afvoerkanalen naar buiten afvoert.',
+                                                   definitie='Een ventilatie-eenheid die lucht afvoert dwars op de lengterichting van de tunnel, via roosters of sleuven in wand of plafond.',
                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVentilatorGebruik/dwarsventilatie-afvoer'),
         'dwarsventilatie-inblaasunit': KeuzelijstWaarde(invulwaarde='dwarsventilatie-inblaasunit',
                                                         label='dwarsventilatie inblaasunit',
@@ -31,11 +31,12 @@ class KlVentilatorGebruik(KeuzelijstField):
         'dwarsventilatie-toevoer': KeuzelijstWaarde(invulwaarde='dwarsventilatie-toevoer',
                                                     label='dwarsventilatie toevoer',
                                                     status='ingebruik',
-                                                    definitie='Een ventilatie-eenheid die verse lucht toevoert dwars op de lengterichting van de tunnel eventueel via roosters of sleuven in wand of plafond.',
+                                                    definitie='Een ventilatie-eenheid die lucht toevoert dwars op de lengterichting van de tunnel, door openingen in wand of plafond.',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVentilatorGebruik/dwarsventilatie-toevoer'),
         'langsventilator': KeuzelijstWaarde(invulwaarde='langsventilator',
                                             label='langsventilator',
                                             status='ingebruik',
+                                            definitie='Een ventilatie-eenheid die lucht in de langsrichting in de tunnel verplaatst.',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVentilatorGebruik/langsventilator')
     }
 
