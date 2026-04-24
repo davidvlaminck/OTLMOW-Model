@@ -277,7 +277,12 @@ class KlBVMengseltype(KeuzelijstField):
                                               label='toplaag van ZOA-C',
                                               status='ingebruik',
                                               definitie='toplaag van ZOA-C',
-                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBVMengseltype/toplaag-van-ZOA-C')
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBVMengseltype/toplaag-van-ZOA-C'),
+        'zoap-b1': KeuzelijstWaarde(invulwaarde='zoap-b1',
+                                    label='ZOAP-B1',
+                                    status='ingebruik',
+                                    definitie='ZOAP-B1',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBVMengseltype/zoap-b1')
     }
 
     @classmethod
