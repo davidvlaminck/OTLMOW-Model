@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,18 @@ class KlTypeBevestigingRail(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBevestigingRail'
     options = {
+        'bout': KeuzelijstWaarde(invulwaarde='bout',
+                                 label='bout',
+                                 status='ingebruik',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBevestigingRail/bout'),
+        'draadstang': KeuzelijstWaarde(invulwaarde='draadstang',
+                                       label='draadstang',
+                                       status='ingebruik',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBevestigingRail/draadstang'),
+        'klassieke-spoorklem': KeuzelijstWaarde(invulwaarde='klassieke-spoorklem',
+                                                label='klassieke spoorklem',
+                                                status='ingebruik',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBevestigingRail/klassieke-spoorklem')
     }
 
     @classmethod

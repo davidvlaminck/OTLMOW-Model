@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,18 @@ class KlStangHydraulischeCilinderBekleding(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStangHydraulischeCilinderBekleding'
     options = {
+        'keramisch': KeuzelijstWaarde(invulwaarde='keramisch',
+                                      label='keramisch',
+                                      status='ingebruik',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStangHydraulischeCilinderBekleding/keramisch'),
+        'metallisch': KeuzelijstWaarde(invulwaarde='metallisch',
+                                       label='metallisch',
+                                       status='ingebruik',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStangHydraulischeCilinderBekleding/metallisch'),
+        'nikkelchroom': KeuzelijstWaarde(invulwaarde='nikkelchroom',
+                                         label='nikkelchroom',
+                                         status='ingebruik',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStangHydraulischeCilinderBekleding/nikkelchroom')
     }
 
     @classmethod

@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,18 @@ class KlTypeAnkerplaat(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeAnkerplaat'
     options = {
+        'ingestort': KeuzelijstWaarde(invulwaarde='ingestort',
+                                      label='ingestort',
+                                      status='ingebruik',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeAnkerplaat/ingestort'),
+        'niet-ingestort': KeuzelijstWaarde(invulwaarde='niet-ingestort',
+                                           label='niet-ingestort',
+                                           status='ingebruik',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeAnkerplaat/niet-ingestort'),
+        'voorgespannen': KeuzelijstWaarde(invulwaarde='voorgespannen',
+                                          label='voorgespannen',
+                                          status='ingebruik',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeAnkerplaat/voorgespannen')
     }
 
     @classmethod

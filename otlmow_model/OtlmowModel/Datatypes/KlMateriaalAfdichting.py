@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,22 @@ class KlMateriaalAfdichting(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalAfdichting'
     options = {
+        'hars': KeuzelijstWaarde(invulwaarde='hars',
+                                 label='hars',
+                                 status='ingebruik',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalAfdichting/hars'),
+        'hechtend-gietasfalt': KeuzelijstWaarde(invulwaarde='hechtend-gietasfalt',
+                                                label='hechtend gietasfalt',
+                                                status='ingebruik',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalAfdichting/hechtend-gietasfalt'),
+        'niet-hechtend-gietasfalt': KeuzelijstWaarde(invulwaarde='niet-hechtend-gietasfalt',
+                                                     label='niet-hechtend gietasfalt',
+                                                     status='ingebruik',
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalAfdichting/niet-hechtend-gietasfalt'),
+        'roofing': KeuzelijstWaarde(invulwaarde='roofing',
+                                    label='roofing',
+                                    status='ingebruik',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalAfdichting/roofing')
     }
 
     @classmethod

@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,14 @@ class KlTypeSpankabel(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeSpankabel'
     options = {
+        'draden': KeuzelijstWaarde(invulwaarde='draden',
+                                   label='Draden',
+                                   status='ingebruik',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeSpankabel/draden'),
+        'strengen': KeuzelijstWaarde(invulwaarde='strengen',
+                                     label='Strengen',
+                                     status='ingebruik',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeSpankabel/strengen')
     }
 
     @classmethod

@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,18 @@ class KlToegangsprocedureToegangstijden(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangsprocedureToegangstijden'
     options = {
+        '24-7': KeuzelijstWaarde(invulwaarde='24-7',
+                                 label='24/7',
+                                 status='ingebruik',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangsprocedureToegangstijden/24-7'),
+        'op-afspraak': KeuzelijstWaarde(invulwaarde='op-afspraak',
+                                        label='Op afspraak',
+                                        status='ingebruik',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangsprocedureToegangstijden/op-afspraak'),
+        'tijdens-kantooruren': KeuzelijstWaarde(invulwaarde='tijdens-kantooruren',
+                                                label='Tijdens kantooruren',
+                                                status='ingebruik',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangsprocedureToegangstijden/tijdens-kantooruren')
     }
 
     @classmethod

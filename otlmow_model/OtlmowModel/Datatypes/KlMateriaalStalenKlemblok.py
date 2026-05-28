@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,22 @@ class KlMateriaalStalenKlemblok(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalStalenKlemblok'
     options = {
+        'constructiestaal': KeuzelijstWaarde(invulwaarde='constructiestaal',
+                                             label='constructiestaal',
+                                             status='ingebruik',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalStalenKlemblok/constructiestaal'),
+        'gietstaal': KeuzelijstWaarde(invulwaarde='gietstaal',
+                                      label='gietstaal',
+                                      status='ingebruik',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalStalenKlemblok/gietstaal'),
+        'rvs': KeuzelijstWaarde(invulwaarde='rvs',
+                                label='RVS',
+                                status='ingebruik',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalStalenKlemblok/rvs'),
+        'smeedstaal': KeuzelijstWaarde(invulwaarde='smeedstaal',
+                                       label='smeedstaal',
+                                       status='ingebruik',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMateriaalStalenKlemblok/smeedstaal')
     }
 
     @classmethod

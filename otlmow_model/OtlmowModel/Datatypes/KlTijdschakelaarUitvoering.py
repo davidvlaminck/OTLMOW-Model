@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,14 @@ class KlTijdschakelaarUitvoering(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTijdschakelaarUitvoering'
     options = {
+        'analoog': KeuzelijstWaarde(invulwaarde='analoog',
+                                    label='analoog',
+                                    status='ingebruik',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTijdschakelaarUitvoering/analoog'),
+        'digitaal': KeuzelijstWaarde(invulwaarde='digitaal',
+                                     label='digitaal',
+                                     status='ingebruik',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTijdschakelaarUitvoering/digitaal')
     }
 
     @classmethod

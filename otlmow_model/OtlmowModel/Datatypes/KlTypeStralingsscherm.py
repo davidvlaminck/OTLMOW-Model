@@ -13,9 +13,21 @@ class KlTypeStralingsscherm(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeStralingsscherm'
     options = {
+        'beschermingshut': KeuzelijstWaarde(invulwaarde='beschermingshut',
+                                            label='beschermingshut',
+                                            status='ingebruik',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeStralingsscherm/beschermingshut'),
+        'beschermingskap': KeuzelijstWaarde(invulwaarde='beschermingskap',
+                                            label='beschermingskap',
+                                            status='ingebruik',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeStralingsscherm/beschermingskap'),
+        'geen': KeuzelijstWaarde(invulwaarde='geen',
+                                 label='geen',
+                                 status='ingebruik',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeStralingsscherm/geen'),
         'vaisala-dtr13': KeuzelijstWaarde(invulwaarde='vaisala-dtr13',
                                           label='Vaisala DTR13',
-                                          status='ingebruik',
+                                          status='uitgebruik',
                                           definitie='Vaisala DTR13',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeStralingsscherm/vaisala-dtr13')
     }

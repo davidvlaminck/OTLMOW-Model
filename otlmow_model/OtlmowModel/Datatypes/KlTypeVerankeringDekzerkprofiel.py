@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,14 @@ class KlTypeVerankeringDekzerkprofiel(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeVerankeringDekzerkprofiel'
     options = {
+        'deuvels': KeuzelijstWaarde(invulwaarde='deuvels',
+                                    label='deuvels',
+                                    status='ingebruik',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeVerankeringDekzerkprofiel/deuvels'),
+        'plaatstaal-met-zwaluwstaarten': KeuzelijstWaarde(invulwaarde='plaatstaal-met-zwaluwstaarten',
+                                                          label='plaatstaal met zwaluwstaarten',
+                                                          status='ingebruik',
+                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeVerankeringDekzerkprofiel/plaatstaal-met-zwaluwstaarten')
     }
 
     @classmethod

@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,14 @@ class KlTypeVullingBalg(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeVullingBalg'
     options = {
+        'lucht': KeuzelijstWaarde(invulwaarde='lucht',
+                                  label='lucht',
+                                  status='ingebruik',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeVullingBalg/lucht'),
+        'water': KeuzelijstWaarde(invulwaarde='water',
+                                  label='water',
+                                  status='ingebruik',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeVullingBalg/water')
     }
 
     @classmethod

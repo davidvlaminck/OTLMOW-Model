@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,19 @@ class KlMotorsturingType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMotorsturingType'
     options = {
+        'dc-motorsturing': KeuzelijstWaarde(invulwaarde='dc-motorsturing',
+                                            label='DC motorsturing',
+                                            status='ingebruik',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMotorsturingType/dc-motorsturing'),
+        'frequentiesturing': KeuzelijstWaarde(invulwaarde='frequentiesturing',
+                                              label='frequentiesturing',
+                                              status='ingebruik',
+                                              definitie='Elektronische vermogenschakelaar die een bepaalde uitgangsspanning met een bepaalde frequentie realiseert. Deze frequentie is onder andere bepalend voor snelheid/toerental van de elektromotor.',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMotorsturingType/frequentiesturing'),
+        'softstarter': KeuzelijstWaarde(invulwaarde='softstarter',
+                                        label='softstarter',
+                                        status='ingebruik',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMotorsturingType/softstarter')
     }
 
     @classmethod

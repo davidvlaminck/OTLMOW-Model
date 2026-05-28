@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,14 @@ class KlGroutankerInjectie(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGroutankerInjectie'
     options = {
+        'igu-(injection-globale-et-unitaire)': KeuzelijstWaarde(invulwaarde='igu-(injection-globale-et-unitaire)',
+                                                                label='IGU (Injection Globale et Unitaire)',
+                                                                status='ingebruik',
+                                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGroutankerInjectie/igu-(injection-globale-et-unitaire)'),
+        'irs-(injection-repetitive-et-selective)': KeuzelijstWaarde(invulwaarde='irs-(injection-repetitive-et-selective)',
+                                                                    label='IRS (Injection Répétitive et Sélective)',
+                                                                    status='ingebruik',
+                                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGroutankerInjectie/irs-(injection-repetitive-et-selective)')
     }
 
     @classmethod

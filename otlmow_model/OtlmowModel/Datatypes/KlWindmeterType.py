@@ -17,7 +17,20 @@ class KlWindmeterType(KeuzelijstField):
                                       label='Ultrasoon',
                                       status='ingebruik',
                                       definitie='Ultrasoon',
-                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWindmeterType/ultrasoon')
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWindmeterType/ultrasoon'),
+        'windrichting': KeuzelijstWaarde(invulwaarde='windrichting',
+                                         label='windrichting',
+                                         status='ingebruik',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWindmeterType/windrichting'),
+        'windrichting-en-windsnelheid': KeuzelijstWaarde(invulwaarde='windrichting-en-windsnelheid',
+                                                         label='windrichting en windsnelheid',
+                                                         status='ingebruik',
+                                                         definitie='windrichting en windsnelheid',
+                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWindmeterType/windrichting-en-windsnelheid'),
+        'windsnelheid': KeuzelijstWaarde(invulwaarde='windsnelheid',
+                                         label='windsnelheid',
+                                         status='ingebruik',
+                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWindmeterType/windsnelheid')
     }
 
     @classmethod

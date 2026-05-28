@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,18 @@ class KlTypeHoogtebegrenzer(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeHoogtebegrenzer'
     options = {
+        'balk': KeuzelijstWaarde(invulwaarde='balk',
+                                 label='balk',
+                                 status='ingebruik',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeHoogtebegrenzer/balk'),
+        'ketting': KeuzelijstWaarde(invulwaarde='ketting',
+                                    label='ketting',
+                                    status='ingebruik',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeHoogtebegrenzer/ketting'),
+        'koker': KeuzelijstWaarde(invulwaarde='koker',
+                                  label='koker',
+                                  status='ingebruik',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeHoogtebegrenzer/koker')
     }
 
     @classmethod
