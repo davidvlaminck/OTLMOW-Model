@@ -820,6 +820,7 @@ def test__iter__():
                0].objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId'
     assert [attr.objectUri for attr in instance] == [
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId',
+        'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie',
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.bestekPostNummer',
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.datumOprichtingObject',
         'https://loc.data.wegenenverkeer.be/ns/implementatieelement#Locatie.geometrie',
@@ -1247,6 +1248,7 @@ def test_create_dict_from_asset_clear_value_complex_on_prim_attribute():
                                                          'testStringField': '88888888'},
                                     'testComplexType2MetKard': [{'testKwantWrd': {'waarde': 88888888.0},
                                                                  'testStringField': '88888888'}],
+                                    'testKeuzelijst': '88888888',
                                     'testKwantWrd': {'waarde': 88888888.0},
                                     'testKwantWrdMetKard': [{'waarde': 88888888.0}],
                                     'testStringField': '88888888',
@@ -1267,6 +1269,7 @@ def test_create_dict_from_asset_clear_value_complex_on_prim_attribute():
                             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testKwantWrd': {
                                 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0},
                             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType2.testStringField': '88888888'}],
+                    'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKeuzelijst': '88888888',
                     'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrd': {
                         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdTest.waarde': 88888888.0},
                     'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKwantWrdMetKard': [
@@ -1317,6 +1320,7 @@ def test_create_dict_from_asset_clear_value_complex_kard_on_prim_attribute():
                       'testComplexType2MetKard': [
                           {'testKwantWrd': {'waarde': 88888888.0},
                            'testStringField': '88888888'}],
+                      'testKeuzelijst': '88888888',
                       'testKwantWrd': {'waarde': 88888888.0},
                       'testKwantWrdMetKard': [{'waarde': 88888888.0}],
                       'testStringField': '88888888',
@@ -1326,6 +1330,7 @@ def test_create_dict_from_asset_clear_value_complex_kard_on_prim_attribute():
                                            'testStringField': '88888888'},
                       'testComplexType2MetKard': [{'testKwantWrd': {'waarde': 88888888.0},
                                                    'testStringField': '88888888'}],
+                      'testKeuzelijst': '88888888',
                       'testKwantWrd': {'waarde': 88888888.0},
                       'testKwantWrdMetKard': [{'waarde': 88888888.0}],
                       'testStringField': '88888888',

@@ -32,6 +32,7 @@ def test_meta_info_on_deprecated_class():
                    'deprecated since 2.0.0\n' \
                    'attributes:\n' \
                    '    assetId (type: DtcIdentificator)\n' \
+                   '    assetVersie (type: DtcAssetVersie)\n' \
                    '    bestekPostNummer (type: String)\n' \
                    '    datumOprichtingObject (type: Date)\n' \
                    '    geometry (type: WKT)\n' \
@@ -51,6 +52,7 @@ def test_meta_info_on_otl_object():
                'definition: Just another TestClass to test relations\n' \
                'attributes:\n' \
                '    assetId (type: DtcIdentificator)\n' \
+               '    assetVersie (type: DtcAssetVersie)\n' \
                '    bestekPostNummer (type: String)\n' \
                '    datumOprichtingObject (type: Date)\n' \
                '    deprecatedString (type: String) <deprecated since 2.0.0>\n' \
@@ -117,6 +119,7 @@ attributes:
     testBooleanField (type: Boolean)
     testComplexType2 (type: DtcTestComplexType2)
     testComplexType2MetKard (type: DtcTestComplexType2, cardinality: 1-*)
+    testKeuzelijst (type: KlTestKeuzelijst)
     testKwantWrd (type: KwantWrdTest)
     testKwantWrdMetKard (type: KwantWrdTest, cardinality: 1-*)
     testStringField (type: String)
