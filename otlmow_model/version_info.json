@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.19.0.9",
+        "model_version": "2.19.0.10",
         "otl_version": "2.19.0",
-        "created_at": "2026-06-09T05:17:18",
+        "created_at": "2026-06-10T05:26:06",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1621,6 +1621,14 @@
                 "KlNetwerkelemGebruik",
                 "KlNetwerkelemModelnaam",
                 "KlNetwerkkaartModelnaam"
+            ]
+        },
+        "2.19.0.10": {
+            "previous_version": "2.19.0.9",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlIoTSensortype"
             ]
         }
     }
