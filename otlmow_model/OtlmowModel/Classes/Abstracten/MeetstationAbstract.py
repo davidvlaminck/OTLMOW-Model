@@ -52,6 +52,8 @@ class MeetstationAbstract(PuntGeometrie, VlakGeometrie):
                                              naam='keuringsrapport',
                                              label='keuringsrapport',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#MeetstationAbstract.keuringsrapport',
+                                             usagenote='Attribuut uit gebruik sinds versie 2.20.0 ',
+                                             deprecated_version='2.20.0',
                                              kardinaliteit_max='*',
                                              definition='Het rapport dat 5 jaarlijks wordt opgesteld met details over het meetstation.',
                                              owner=self)

@@ -11,6 +11,7 @@ class KlMateriaalAfdichting(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#KlMateriaalAfdichting'
     definition = 'De verschillende opties materiaal waaruit de afdichting kan bestaan.'
     status = 'ingebruik'
+    deprecated_version = '2.20.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalAfdichting'
     options = {
         'hars': KeuzelijstWaarde(invulwaarde='hars',

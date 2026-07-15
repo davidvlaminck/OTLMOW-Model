@@ -1,5 +1,6 @@
 # coding=utf-8
 from datetime import date
+from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.Cabine import Cabine
 from ...BaseClasses.BooleanField import BooleanField
@@ -31,15 +32,25 @@ class HSCabine(Cabine):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Meetcel', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Segmentcontroller', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftKeuring', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ElektrischeKeuring', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompstation', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#WegverlichtingGroep', direction='o')  # o = direction: outgoing
 
         self._elektrischSchema = OTLAttribuut(field=DtcDocument,
                                               naam='elektrischSchema',
                                               label='elektrisch schema',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine.elektrischSchema',
+                                              kardinaliteit_max='*',
                                               definition='Elektrisch aansluitschema van de HS cabine.',
                                               owner=self)
+
+        self._heeftAfstandssturing = OTLAttribuut(field=BooleanField,
+                                                  naam='heeftAfstandssturing',
+                                                  label='heeft afstandssturing',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HSCabine.heeftAfstandssturing',
+                                                  definition='Geeft aan of de HS-cabine aangesloten is op een extern afstandsbedieningssysteem (bv. van de netbeheerder zoals Fluvius), waarmee operationele schakelingen vanop afstand kunnen worden uitgevoerd.',
+                                                  owner=self)
 
         self._isKopcabine = OTLAttribuut(field=BooleanField,
                                          naam='isKopcabine',
@@ -63,13 +74,22 @@ class HSCabine(Cabine):
                                                                 owner=self)
 
     @property
-    def elektrischSchema(self) -> DtcDocumentWaarden:
+    def elektrischSchema(self) -> List[DtcDocumentWaarden]:
         """Elektrisch aansluitschema van de HS cabine."""
         return self._elektrischSchema.get_waarde()
 
     @elektrischSchema.setter
     def elektrischSchema(self, value):
         self._elektrischSchema.set_waarde(value, owner=self)
+
+    @property
+    def heeftAfstandssturing(self) -> bool:
+        """Geeft aan of de HS-cabine aangesloten is op een extern afstandsbedieningssysteem (bv. van de netbeheerder zoals Fluvius), waarmee operationele schakelingen vanop afstand kunnen worden uitgevoerd."""
+        return self._heeftAfstandssturing.get_waarde()
+
+    @heeftAfstandssturing.setter
+    def heeftAfstandssturing(self, value):
+        self._heeftAfstandssturing.set_waarde(value, owner=self)
 
     @property
     def isKopcabine(self) -> bool:

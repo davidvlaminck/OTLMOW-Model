@@ -3,6 +3,7 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcBurgerlijkeKlasseBrug import DtcBurgerlijkeKlasseBrug, DtcBurgerlijkeKlasseBrugWaarden
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.KlOntwerpbelasting import KlOntwerpbelasting
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from ...BaseClasses.StringField import StringField
@@ -11,7 +12,7 @@ from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Brug(AIMNaamObject, VlakGeometrie):
-    """Een beweegbare, vaste of drijvende verbinding voor het verkeer tussen twee punten, die door water of iets anders gescheiden zijn."""
+    """Een beweegbare,vaste of drijvende verbinding voor het verkeer tussen twee punten,die door water of iets anders gescheiden zijn."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brug'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -43,21 +44,30 @@ class Brug(AIMNaamObject, VlakGeometrie):
                                               naam='ontwerpbelasting',
                                               label='ontwerpbelasting',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brug.ontwerpbelasting',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.20.0 ',
+                                              deprecated_version='2.20.0',
                                               definition='De draagkracht waarvoor de brug ontworpen is.',
                                               owner=self)
+
+        self._ontwerpbelastingConstructie = OTLAttribuut(field=KlOntwerpbelasting,
+                                                         naam='ontwerpbelastingConstructie',
+                                                         label='ontwerpbelasting constructie',
+                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brug.ontwerpbelastingConstructie',
+                                                         definition='De belasting(en) waarvoor de constructie werd ontworpen.',
+                                                         owner=self)
 
         self._totaleBreedteBrug = OTLAttribuut(field=KwantWrdInMeter,
                                                naam='totaleBreedteBrug',
                                                label='totale breedte brug',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brug.totaleBreedteBrug',
-                                               definition='De totale breedte van de hele brug, in meter.',
+                                               definition='Totale breedte van de bovenbouw, gemeten loodrecht op de lengteas van de bovenliggende weg, tussen de uiterste grens van de constructie, uitgedrukt in meter. Indien de breedte van de constructie variabel is (bv. trapeziumvormige brug, boog die uitwaaiert), wordt de gemiddelde breedte van de constructie genomen — d.w.z. de gemiddelde breedte van de dwarsprofielen gemeten loodrecht op de bovenliggende weg.',
                                                owner=self)
 
         self._totaleLengteBrug = OTLAttribuut(field=KwantWrdInMeter,
                                               naam='totaleLengteBrug',
                                               label='totale lengte brug',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brug.totaleLengteBrug',
-                                              definition='De lengte, uitgedrukt in meter, van uiterste brugdekvoeg tot uiterste brugdekvoeg (gemeten over de ganse lengte van de brug).',
+                                              definition='Horizontaal geprojecteerde oppervlakte van de bovenbouw. Bij constante breedte berekend als de totale lengte van de brug (gemeten volgens de bovenliggende weg) vermenigvuldigd met de totale breedte, uitgedrukt in vierkante meter. Indien de lengte of breedte variabel is, of bij niet-rechthoekige vormen, wordt de oppervlakte van de ingetekende omschreven polygoon van de constructie gebruikt. Bij beschikbaarheid van een polygoon heeft deze methode de voorkeur.',
                                               owner=self)
 
         self._totaleOppervlakteBrug = OTLAttribuut(field=KwantWrdInVierkanteMeter,
@@ -95,8 +105,17 @@ class Brug(AIMNaamObject, VlakGeometrie):
         self._ontwerpbelasting.set_waarde(value, owner=self)
 
     @property
+    def ontwerpbelastingConstructie(self) -> str:
+        """De belasting(en) waarvoor de constructie werd ontworpen."""
+        return self._ontwerpbelastingConstructie.get_waarde()
+
+    @ontwerpbelastingConstructie.setter
+    def ontwerpbelastingConstructie(self, value):
+        self._ontwerpbelastingConstructie.set_waarde(value, owner=self)
+
+    @property
     def totaleBreedteBrug(self) -> KwantWrdInMeterWaarden:
-        """De totale breedte van de hele brug, in meter."""
+        """Totale breedte van de bovenbouw, gemeten loodrecht op de lengteas van de bovenliggende weg, tussen de uiterste grens van de constructie, uitgedrukt in meter. Indien de breedte van de constructie variabel is (bv. trapeziumvormige brug, boog die uitwaaiert), wordt de gemiddelde breedte van de constructie genomen — d.w.z. de gemiddelde breedte van de dwarsprofielen gemeten loodrecht op de bovenliggende weg."""
         return self._totaleBreedteBrug.get_waarde()
 
     @totaleBreedteBrug.setter
@@ -105,7 +124,7 @@ class Brug(AIMNaamObject, VlakGeometrie):
 
     @property
     def totaleLengteBrug(self) -> KwantWrdInMeterWaarden:
-        """De lengte, uitgedrukt in meter, van uiterste brugdekvoeg tot uiterste brugdekvoeg (gemeten over de ganse lengte van de brug)."""
+        """Horizontaal geprojecteerde oppervlakte van de bovenbouw. Bij constante breedte berekend als de totale lengte van de brug (gemeten volgens de bovenliggende weg) vermenigvuldigd met de totale breedte, uitgedrukt in vierkante meter. Indien de lengte of breedte variabel is, of bij niet-rechthoekige vormen, wordt de oppervlakte van de ingetekende omschreven polygoon van de constructie gebruikt. Bij beschikbaarheid van een polygoon heeft deze methode de voorkeur."""
         return self._totaleLengteBrug.get_waarde()
 
     @totaleLengteBrug.setter

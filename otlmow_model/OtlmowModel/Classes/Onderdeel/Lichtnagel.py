@@ -15,6 +15,8 @@ class Lichtnagel(EMAfbakening, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VRIBuiteninstallatie', direction='o')  # o = direction: outgoing
+
         self._isLED = OTLAttribuut(field=BooleanField,
                                    naam='isLED',
                                    label='is LED',

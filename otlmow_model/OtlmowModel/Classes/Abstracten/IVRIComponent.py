@@ -4,10 +4,11 @@ from abc import abstractmethod
 from ...Classes.Onderdeel.Software import Software
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlIVRIBaseline import KlIVRIBaseline
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class IVRIComponent(Software):
+class IVRIComponent(Software, PuntGeometrie):
     """Abstracte die eigenschappen van de iVRI (intelligente verkeersregelaar) component bundelt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#IVRIComponent'

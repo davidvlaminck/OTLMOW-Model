@@ -1,10 +1,10 @@
 # coding=utf-8
+from ...Classes.Abstracten.Bewegingsmechanisme import Bewegingsmechanisme
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Tandheugelmechanisme(AIMObject, PuntGeometrie):
+class Tandheugelmechanisme(Bewegingsmechanisme, AIMObject):
     """Een mechanisme bestaande uit een tandheugel en een tandwiel dat wordt gebruikt om een lineaire beweging om te zetten in een roterende beweging of omgekeerd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Tandheugelmechanisme'

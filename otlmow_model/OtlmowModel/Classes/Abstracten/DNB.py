@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from datetime import date, date, date
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
@@ -92,6 +93,7 @@ class DNB(Voedingspunt, PuntGeometrie):
                                            naam='risicoAnalyse',
                                            label='risico analyse',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#DNB.risicoAnalyse',
+                                           kardinaliteit_max='*',
                                            definition='Document met de risicoanalyse.',
                                            owner=self)
 
@@ -177,7 +179,7 @@ class DNB(Voedingspunt, PuntGeometrie):
         self._referentieDNB.set_waarde(value, owner=self)
 
     @property
-    def risicoAnalyse(self) -> DtcDocumentWaarden:
+    def risicoAnalyse(self) -> List[DtcDocumentWaarden]:
         """Document met de risicoanalyse."""
         return self._risicoAnalyse.get_waarde()
 

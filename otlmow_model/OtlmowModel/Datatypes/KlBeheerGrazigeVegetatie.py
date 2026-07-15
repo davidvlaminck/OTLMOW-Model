@@ -7,7 +7,7 @@ from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 class KlBeheerGrazigeVegetatie(KeuzelijstField):
     """De verschillende soorten van beheer voor grazige vegetatie."""
     naam = 'KlBeheerGrazigeVegetatie'
-    label = 'Beheer grazige vegetatie'
+    label = 'Beheer van grazige vegetatie'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBeheerGrazigeVegetatie'
     definition = 'De verschillende soorten van beheer voor grazige vegetatie.'
     status = 'ingebruik'

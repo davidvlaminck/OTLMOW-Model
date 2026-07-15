@@ -8,7 +8,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class EcoPoort(ComplexeGeleiding, PuntGeometrie):
-    """Een afsluitbare doorgang om mensen toe te laten tot het gebied."""
+    """Een afsluitbare doorgang die mensen toegang biedt tot het gebied en voorkomt dat dieren het verlaten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#EcoPoort'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

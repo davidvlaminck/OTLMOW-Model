@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -79,6 +80,7 @@ class Behuizing(AIMNaamObject):
                                            label='risicoanalyse',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing.risicoanalyse',
                                            usagenote='De risicoanalyse heeft in eerste instantie betrekking op werken in en rond een behuizing met elektrische installaties. Voor behuizingen met installaties van de distributienetbeheerder wordt de risicoanalyse bestemd voor die beheerder, bewaard in het gelijknamig attribuut van het onderdeel van die beheerder, bv. EnergiemeterDNB.',
+                                           kardinaliteit_max='*',
                                            definition='Een bestandsbijlage met de risicoanalyse voor werken in en rond een behuizing.',
                                            owner=self)
 
@@ -100,7 +102,7 @@ class Behuizing(AIMNaamObject):
         self._adres.set_waarde(value, owner=self)
 
     @property
-    def risicoanalyse(self) -> DtcDocumentWaarden:
+    def risicoanalyse(self) -> List[DtcDocumentWaarden]:
         """Een bestandsbijlage met de risicoanalyse voor werken in en rond een behuizing."""
         return self._risicoanalyse.get_waarde()
 

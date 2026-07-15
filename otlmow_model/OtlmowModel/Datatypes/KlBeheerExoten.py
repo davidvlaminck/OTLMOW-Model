@@ -7,7 +7,7 @@ from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 class KlBeheerExoten(KeuzelijstField):
     """Behandelingswijzen van exoten."""
     naam = 'KlBeheerExoten'
-    label = 'Beheer exoten'
+    label = 'Beheer mogelijke exoten'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBeheerExoten'
     definition = 'Behandelingswijzen van exoten.'
     status = 'ingebruik'

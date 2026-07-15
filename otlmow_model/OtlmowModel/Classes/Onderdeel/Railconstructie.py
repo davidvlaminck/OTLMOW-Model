@@ -5,6 +5,7 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlTypeBevestigingRail import KlTypeBevestigingRail
+from ...Datatypes.KlTypeKlem import KlTypeKlem
 from ...BaseClasses.StringField import StringField
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -19,10 +20,15 @@ class Railconstructie(TechnischDocument, AIMNaamObject, PuntGeometrie):
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElementSluisStuw', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DraagstructuurBWCTWC', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Bovenrolwagen', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Glijgeleiding', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Onderrolwagen', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Rolgeleiding', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Glijmateriaal', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rol', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wiel', direction='i')  # i = direction: incoming
 
         self._aantalVoegen = OTLAttribuut(field=IntegerField,
                                           naam='aantalVoegen',
@@ -59,6 +65,13 @@ class Railconstructie(TechnischDocument, AIMNaamObject, PuntGeometrie):
                                          definition='Geeft aan of de bovenrolwagen voegen heeft of niet.',
                                          owner=self)
 
+        self._klemtype = OTLAttribuut(field=KlTypeKlem,
+                                      naam='klemtype',
+                                      label='klemtype',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Railconstructie.klemtype',
+                                      definition='Het type klem gebruikt in de railconstructie.',
+                                      owner=self)
+
         self._typeBevestiging = OTLAttribuut(field=KlTypeBevestigingRail,
                                              naam='typeBevestiging',
                                              label='type bevestiging rail',
@@ -70,6 +83,8 @@ class Railconstructie(TechnischDocument, AIMNaamObject, PuntGeometrie):
                                       naam='typeKlem',
                                       label='type klem',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Railconstructie.typeKlem',
+                                      usagenote='Attribuut uit gebruik sinds versie 2.20.0 ',
+                                      deprecated_version='2.20.0',
                                       definition='Het type klem gebruikt in de railconstructie.',
                                       owner=self)
 
@@ -117,6 +132,15 @@ class Railconstructie(TechnischDocument, AIMNaamObject, PuntGeometrie):
     @heeftVoegen.setter
     def heeftVoegen(self, value):
         self._heeftVoegen.set_waarde(value, owner=self)
+
+    @property
+    def klemtype(self) -> str:
+        """Het type klem gebruikt in de railconstructie."""
+        return self._klemtype.get_waarde()
+
+    @klemtype.setter
+    def klemtype(self, value):
+        self._klemtype.set_waarde(value, owner=self)
 
     @property
     def typeBevestiging(self) -> str:

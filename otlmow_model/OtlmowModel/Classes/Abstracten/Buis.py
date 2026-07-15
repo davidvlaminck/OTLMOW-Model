@@ -130,6 +130,7 @@ class Buis(AIMObject, LijnGeometrie):
                                                 naam='breedteBuitenzijde',
                                                 label='breedte buitenzijde',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis.breedteBuitenzijde',
+                                                usagenote='Voor cirkelvormige buizen met dunwandig profiel wordt deze waarde niet afzonderlijk ingevuld.',
                                                 definition='De breedte van de buitenzijde van de buis in millimeter. Bij cirkelvormige buizen is dit de buitendiameter.',
                                                 owner=self)
 

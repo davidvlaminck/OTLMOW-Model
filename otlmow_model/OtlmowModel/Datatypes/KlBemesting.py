@@ -7,7 +7,7 @@ from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 class KlBemesting(KeuzelijstField):
     """Het toevoegen van en verwerken van meststoffen zowel bij aanleg alsook bij beheer."""
     naam = 'KlBemesting'
-    label = 'Bemesting'
+    label = 'Bemestingen'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBemesting'
     definition = 'Het toevoegen van en verwerken van meststoffen zowel bij aanleg alsook bij beheer.'
     status = 'ingebruik'

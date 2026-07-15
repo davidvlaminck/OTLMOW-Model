@@ -1,11 +1,13 @@
 # coding=utf-8
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereLaag import AndereLaag
+from ...Datatypes.KlTypeBeschermlaag import KlTypeBeschermlaag
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Beschermlaag(AndereLaag, VlakGeometrie):
-    """Een specifieke laag in de wegopbouw die de afdichting beschermt tegen perforatie, blaasvorming, indrukking, afschuiving, termische belasting enz."""
+    """Een specifieke laag in de wegopbouw die de afdichting beschermt tegen perforatie,blaasvorming,indrukking,afschuiving,termische belasting enz."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Beschermlaag'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -24,3 +26,19 @@ class Beschermlaag(AndereLaag, VlakGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#VegetatieElement', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Epoxydrain', direction='i')  # i = direction: incoming
+
+        self._typeBeschermlaag = OTLAttribuut(field=KlTypeBeschermlaag,
+                                              naam='typeBeschermlaag',
+                                              label='type beschermlaag',
+                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Beschermlaag.typeBeschermlaag',
+                                              definition='De mogelijke types beschermlaag.',
+                                              owner=self)
+
+    @property
+    def typeBeschermlaag(self) -> str:
+        """De mogelijke types beschermlaag."""
+        return self._typeBeschermlaag.get_waarde()
+
+    @typeBeschermlaag.setter
+    def typeBeschermlaag(self, value):
+        self._typeBeschermlaag.set_waarde(value, owner=self)

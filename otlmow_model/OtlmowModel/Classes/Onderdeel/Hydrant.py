@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Brandvoorziening import Brandvoorziening
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -27,6 +28,7 @@ class Hydrant(Brandvoorziening, NaampadObject):
                                       naam='diameter',
                                       label='diameter',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Hydrant.diameter',
+                                      kardinaliteit_max='*',
                                       definition='Diameter van het aftappunt.',
                                       owner=self)
 
@@ -52,7 +54,7 @@ class Hydrant(Brandvoorziening, NaampadObject):
                                        owner=self)
 
     @property
-    def diameter(self) -> KwantWrdInInchWaarden:
+    def diameter(self) -> List[KwantWrdInInchWaarden]:
         """Diameter van het aftappunt."""
         return self._diameter.get_waarde()
 

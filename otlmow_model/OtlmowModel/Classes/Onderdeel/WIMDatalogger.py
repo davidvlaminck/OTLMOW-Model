@@ -1,13 +1,13 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlWIMDataloggerMerk import KlWIMDataloggerMerk
 from ...Datatypes.KlWIMDataloggerModelnaam import KlWIMDataloggerModelnaam
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class WIMDatalogger(AIMNaamObject, PuntGeometrie):
+class WIMDatalogger(NaampadObject, PuntGeometrie):
     """Lokale verwerkingseenheid voor aggregatie weeggegevens."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#WIMDatalogger'

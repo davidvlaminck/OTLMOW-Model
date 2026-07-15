@@ -8,7 +8,7 @@ from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Stuwconstructie(AIMNaamObject, LijnGeometrie):
-    """Een debietbegrenzende constructie waarbij het af te voeren water in zijn geheel door een (knijp)opening stroomt bij normale afvoer. Bij hevige regenval, wanneer de watertoevoer niet meer kan worden verwerkt, wordt een buffer opgebouwd tot aan de overstort."""
+    """Een debietbegrenzende constructie waarbij de afvoer van water gebeurt al dan niet via een knijpopening of een andere hydraulische beperking. Bij hevige regenval, wanneer de watertoevoer niet meer kan worden verwerkt, wordt buffering opgebouwd tot aan de overstort."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stuwconstructie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -23,6 +23,7 @@ class Stuwconstructie(AIMNaamObject, LijnGeometrie):
                                                naam='breedteUitsparing',
                                                label='breedte uitsparing',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stuwconstructie.breedteUitsparing',
+                                               usagenote='Indien er geen uitsparing aanwezig is, is deze waarde 0.',
                                                definition='De breedte van het uitgesneden deel dat de functie heeft van overstort in millimeter.',
                                                owner=self)
 
@@ -30,6 +31,7 @@ class Stuwconstructie(AIMNaamObject, LijnGeometrie):
                                                   naam='diameterKnijpopening',
                                                   label='diameter knijpopening',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stuwconstructie.diameterKnijpopening',
+                                                  usagenote='Indien er geen knijpopening aanwezig is, is deze waarde 0.',
                                                   definition='De diameter van de opening onderaan de cascade die zorgt voor een vertraagde waterafvoer bij hevige regenval of overvloedige toevoer van water in millimeter.',
                                                   owner=self)
 

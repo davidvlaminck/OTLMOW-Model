@@ -33,6 +33,8 @@ class Afdichting(AndereLaag, LaagDikte):
                                                  naam='materiaalAfdichting',
                                                  label='materiaal afdichting',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afdichting.materiaalAfdichting',
+                                                 usagenote='Attribuut uit gebruik sinds versie 2.20.0 ',
+                                                 deprecated_version='2.20.0',
                                                  definition='Het materiaal van de afdichting.',
                                                  owner=self)
 

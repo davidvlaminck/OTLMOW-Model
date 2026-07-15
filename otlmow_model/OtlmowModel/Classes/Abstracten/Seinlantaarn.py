@@ -7,6 +7,7 @@ from ...Datatypes.KlLantaarnVormgeving import KlLantaarnVormgeving
 from ...Datatypes.KlSeinlantaarnDiameter import KlSeinlantaarnDiameter
 from ...Datatypes.KlSeinlantaarnMerk import KlSeinlantaarnMerk
 from ...Datatypes.KlSeinlantaarnModelnaam import KlSeinlantaarnModelnaam
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -103,6 +104,7 @@ class Seinlantaarn(AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KunststoffenDamplank', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kunststofplaat', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kunststofprofiel', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Metselwerk', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Micropaal', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#NietStandaardStalenProfiel', direction='u')  # u = unidirectional
@@ -124,6 +126,13 @@ class Seinlantaarn(AIMNaamObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StroomMeetmodule', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VoedtAangestuurd', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Contactor', direction='i')  # i = direction: incoming
+
+        self._aantalModules = OTLAttribuut(field=NonNegIntegerField,
+                                           naam='aantalModules',
+                                           label='aantal modules',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Seinlantaarn.aantalModules',
+                                           definition='Het aantal lichtmodules waaruit de seinlantaarn bestaat.',
+                                           owner=self)
 
         self._diameter = OTLAttribuut(field=KlSeinlantaarnDiameter,
                                       naam='diameter',
@@ -159,6 +168,15 @@ class Seinlantaarn(AIMNaamObject, PuntGeometrie):
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Seinlantaarn.vormgeving',
                                         definition='Type vormgeving van de seinlantaarn.',
                                         owner=self)
+
+    @property
+    def aantalModules(self) -> int:
+        """Het aantal lichtmodules waaruit de seinlantaarn bestaat."""
+        return self._aantalModules.get_waarde()
+
+    @aantalModules.setter
+    def aantalModules(self, value):
+        self._aantalModules.set_waarde(value, owner=self)
 
     @property
     def diameter(self) -> str:

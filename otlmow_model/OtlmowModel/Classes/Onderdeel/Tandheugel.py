@@ -10,7 +10,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class Tandheugel(StaalsoortObject, TechnischDocument, AIMNaamObject, PuntGeometrie):
-    """Een rechthoekige staaf, ook tandlat of heugel genoemd, die aan één kant is voorzien van vertanding, zoals een tandwiel. De tanden grijpen in op die van een bijbehorend tandwiel, waardoor een rotatie kan worden omgezet in een lineaire beweging of omgekeerd."""
+    """Een recht of gekromd mechanisch element, ook wel tandlat of heugel genoemd, die aan één kant is voorzien van vertanding, zoals een tandwiel. De tanden grijpen in op die van een bijbehorend tandwiel, waardoor afhankelijk van de vorm zowel lineaire als roterende bewegingen kunnen worden gerealiseerd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Tandheugel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -18,8 +18,14 @@ class Tandheugel(StaalsoortObject, TechnischDocument, AIMNaamObject, PuntGeometr
     def __init__(self):
         super().__init__()
 
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AsLagerCombinatie', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElementSluisStuw', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DraagstructuurBWCTWC', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Aangrijpingsstoel', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Draagstoel', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pen', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Tandheugelmechanisme', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rol', direction='o')  # o = direction: outgoing
 
         self._lengteTandheugel = OTLAttribuut(field=KwantWrdInMillimeter,
                                               naam='lengteTandheugel',

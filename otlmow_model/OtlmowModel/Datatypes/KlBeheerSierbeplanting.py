@@ -7,7 +7,7 @@ from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 class KlBeheerSierbeplanting(KeuzelijstField):
     """Verschillende mogelijke beheeropties bij sierbeplanting."""
     naam = 'KlBeheerSierbeplanting'
-    label = 'Beheer sierbeplanting'
+    label = 'Beheer van sierbeplanting'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#KlBeheerSierbeplanting'
     definition = 'Verschillende mogelijke beheeropties bij sierbeplanting.'
     status = 'ingebruik'

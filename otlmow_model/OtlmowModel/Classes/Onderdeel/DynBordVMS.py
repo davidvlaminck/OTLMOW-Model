@@ -10,7 +10,7 @@ from ...BaseClasses.StringField import StringField
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class DynBordVMS(ArtikelnummerObject, LEDBord, NaampadObject):
-    """Dynamisch verkeersbord dat dynamische verkeerstekens (linkerzijde) en teksten (rechterzijde) kan afbeelden. VMS staat voor Variable Message Signs."""
+    """Dynamisch verkeersbord dat  gelijktijdig verkeerstekens en teksten kan weergeven op 2 geïntegreerde displays  (verkeerstekens uiterst links). Het bord is bevestigd aan een seinbrug en heeft tot doel het verkeer te sturen (over een langer traject) en waarschuwingen en reistijden te tonen. VMS staat voor Variable Message Sign."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordVMS'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

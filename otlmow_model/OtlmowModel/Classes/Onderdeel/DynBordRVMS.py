@@ -11,7 +11,7 @@ from ...BaseClasses.StringField import StringField
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class DynBordRVMS(ArtikelnummerObject, LEDBord, SerienummerObject, NaampadObject):
-    """Dynamisch verkeersbord dat dynamische verkeerstekens en teksten kan afbeelden. RVMS staat voor Road-side Variable Message Signs."""
+    """Dynamisch verkeersbord dat verkeerstekens, teksten en figuren kan weergeven in alle kleuren.  Het bord is bevestigd aan een seinbrug of galgpaal en heeft tot doel route- en bestemmingsinformatie of waarschuwingen te tonen. RVMS staat voor Road-side Variable Message Sign."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRVMS'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

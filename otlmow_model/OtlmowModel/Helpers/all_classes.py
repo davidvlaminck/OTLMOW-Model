@@ -43,6 +43,8 @@ from ..Classes.Installatie.CalamiteitendoorsteekGroep import Calamiteitendoorste
 from ..Classes.Installatie.CameraGroep import CameraGroep
 from ..Classes.Installatie.Centreermechanisme import Centreermechanisme
 from ..Classes.Installatie.Combiwand import Combiwand
+from ..Classes.Installatie.CoordinatiesysteemVRI import CoordinatiesysteemVRI
+from ..Classes.Installatie.DIZV import DIZV
 from ..Classes.Installatie.Damwand import Damwand
 from ..Classes.Installatie.Deurkamer import Deurkamer
 from ..Classes.Installatie.Deurkas import Deurkas
@@ -134,6 +136,7 @@ from ..Classes.Installatie.Onderrolwagen import Onderrolwagen
 from ..Classes.Installatie.Oplegmechanisme import Oplegmechanisme
 from ..Classes.Installatie.Oplegrij import Oplegrij
 from ..Classes.Installatie.Overbrenging import Overbrenging
+from ..Classes.Installatie.PTGroep import PTGroep
 from ..Classes.Installatie.Paalmatras import Paalmatras
 from ..Classes.Installatie.Pad import Pad
 from ..Classes.Installatie.Pijler import Pijler
@@ -193,6 +196,7 @@ from ..Classes.Installatie.VoorzieningNegatieveReactie import VoorzieningNegatie
 from ..Classes.Installatie.Wand import Wand
 from ..Classes.Installatie.WaterdoorvoerendeDuiker import WaterdoorvoerendeDuiker
 from ..Classes.Installatie.Waterweg import Waterweg
+from ..Classes.Installatie.Weegsensorgroep import Weegsensorgroep
 from ..Classes.Installatie.Wegberm import Wegberm
 from ..Classes.Installatie.Weguitrusting import Weguitrusting
 from ..Classes.Installatie.WegverlichtingGroep import WegverlichtingGroep
@@ -328,6 +332,7 @@ from ..Classes.Onderdeel.CapacitieveNiveaumeting import CapacitieveNiveaumeting
 from ..Classes.Onderdeel.CementBentonietwand import CementBentonietwand
 from ..Classes.Onderdeel.Cementbetonverharding import Cementbetonverharding
 from ..Classes.Onderdeel.Centreerinrichting import Centreerinrichting
+from ..Classes.Onderdeel.Centreerstuk import Centreerstuk
 from ..Classes.Onderdeel.Centreervork import Centreervork
 from ..Classes.Onderdeel.CilinderStangkop import CilinderStangkop
 from ..Classes.Onderdeel.Cilinderbodem import Cilinderbodem
@@ -481,6 +486,7 @@ from ..Classes.Onderdeel.HeeftKeuring import HeeftKeuring
 from ..Classes.Onderdeel.HeeftNetwerkProtectie import HeeftNetwerkProtectie
 from ..Classes.Onderdeel.HeeftNetwerktoegang import HeeftNetwerktoegang
 from ..Classes.Onderdeel.HeeftToegangsprocedure import HeeftToegangsprocedure
+from ..Classes.Onderdeel.HeeftVPlan import HeeftVPlan
 from ..Classes.Onderdeel.Heestermassief import Heestermassief
 from ..Classes.Onderdeel.HeischraalGrasland import HeischraalGrasland
 from ..Classes.Onderdeel.Hijsinstallatie import Hijsinstallatie
@@ -696,6 +702,7 @@ from ..Classes.Onderdeel.Schakelketting import Schakelketting
 from ..Classes.Onderdeel.SchampkantAfw import SchampkantAfw
 from ..Classes.Onderdeel.SchampkantStd import SchampkantStd
 from ..Classes.Onderdeel.Schanskorf import Schanskorf
+from ..Classes.Onderdeel.Scharnierschoen import Scharnierschoen
 from ..Classes.Onderdeel.ScheurremmendeLaag import ScheurremmendeLaag
 from ..Classes.Onderdeel.Schommeljuk import Schommeljuk
 from ..Classes.Onderdeel.Segmentcontroller import Segmentcontroller
@@ -799,6 +806,7 @@ from ..Classes.Onderdeel.UPS import UPS
 from ..Classes.Onderdeel.UitheemsLoofhout import UitheemsLoofhout
 from ..Classes.Onderdeel.UitleesapparatuurFlitscamera import UitleesapparatuurFlitscamera
 from ..Classes.Onderdeel.UltrasoonNiveaumeting import UltrasoonNiveaumeting
+from ..Classes.Onderdeel.VPlan import VPlan
 from ..Classes.Onderdeel.VRBAZ import VRBAZ
 from ..Classes.Onderdeel.VRBatterijICU import VRBatterijICU
 from ..Classes.Onderdeel.VRBeveiligingskaart import VRBeveiligingskaart

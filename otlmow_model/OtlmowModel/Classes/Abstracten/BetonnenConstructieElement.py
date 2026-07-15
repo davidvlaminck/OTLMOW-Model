@@ -1,4 +1,5 @@
 # coding=utf-8
+from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
 from ...Datatypes.DtcBetonspecificaties import DtcBetonspecificaties, DtcBetonspecificatiesWaarden
@@ -21,6 +22,7 @@ class BetonnenConstructieElement(ABC):
                                             naam='bekistingsplan',
                                             label='bekistingsplan',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BetonnenConstructieElement.bekistingsplan',
+                                            kardinaliteit_max='*',
                                             definition='Een plan die bekistingsmaten bevat en ook alle maten van alle mogelijke uitsparingen die er kunnen zijn.',
                                             owner=self)
 
@@ -53,7 +55,7 @@ class BetonnenConstructieElement(ABC):
                                            owner=self)
 
     @property
-    def bekistingsplan(self) -> DtcDocumentWaarden:
+    def bekistingsplan(self) -> List[DtcDocumentWaarden]:
         """Een plan die bekistingsmaten bevat en ook alle maten van alle mogelijke uitsparingen die er kunnen zijn."""
         return self._bekistingsplan.get_waarde()
 

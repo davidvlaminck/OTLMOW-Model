@@ -1,6 +1,7 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LinkendElement import LinkendElement
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlDompelpompMerk import KlDompelpompMerk
 from ...Datatypes.KlDompelpompModelnaam import KlDompelpompModelnaam
 from ...Datatypes.KlNominaleSpanning import KlNominaleSpanning
@@ -12,7 +13,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Dompelpomp(LinkendElement, PuntGeometrie):
+class Dompelpomp(LinkendElement, NaampadObject, PuntGeometrie):
     """Een pomp die geheel in de te verpompen vloeistof wordt ondergedompeld. Ook klokpomp of onderwaterpomp genoemd. Voor kleinschalige dompelpompen gebruikt men ook de naam lekwaterpomp."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dompelpomp'
