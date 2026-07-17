@@ -1,9 +1,10 @@
 # coding=utf-8
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Weegsensorgroep(NaampadObject):
+class Weegsensorgroep(NaampadObject, PuntGeometrie):
     """Een groep om weegsensoren te groeperen binnen het thema DIZV."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Weegsensorgroep'

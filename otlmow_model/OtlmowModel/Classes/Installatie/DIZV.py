@@ -1,9 +1,10 @@
 # coding=utf-8
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DIZV(NaampadObject):
+class DIZV(NaampadObject, PuntGeometrie):
     """Een groepstype voor detectie inbreuken zwaar vervoer."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DIZV'

@@ -2,10 +2,11 @@
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...BaseClasses.StringField import StringField
+from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class VPlan(AIMNaamObject):
+class VPlan(AIMNaamObject, GeenGeometrie):
     """Beschrijving van de werking en sturing van een verkeersregelinstallatie, waarin de fasering, conflicten, prioriteiten en schakellogica van de verkeerslichten eenduidig worden vastgelegd, zodat de regeling correct kan worden geïmplementeerd, geconfigureerd en beheerd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VPlan'

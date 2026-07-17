@@ -2,10 +2,11 @@
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlMateriaalCentreerstuk import KlMateriaalCentreerstuk
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Centreerstuk(AIMNaamObject):
+class Centreerstuk(AIMNaamObject, PuntGeometrie):
     """Het invallende onderdeel van een centreermechanisme dat in een centreervork geleid wordt om een beweegbare constructie nauwkeurig te positioneren ten opzichte van een vast of ander beweegbaar deel. Dit onderdeel kan voorzien zijn van een rol."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Centreerstuk'

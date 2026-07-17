@@ -1,9 +1,10 @@
 # coding=utf-8
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class PTGroep(NaampadObject):
+class PTGroep(NaampadObject, PuntGeometrie):
     """Groep voor het groeperen van objecten van het type personentransportmodules."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#PTGroep'
