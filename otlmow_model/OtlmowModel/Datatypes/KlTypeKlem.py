@@ -9,7 +9,7 @@ class KlTypeKlem(KeuzelijstField):
     label = 'Type klem'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlTypeKlem'
     definition = 'De verschillende types klemmen.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeKlem'
     options = {
     }

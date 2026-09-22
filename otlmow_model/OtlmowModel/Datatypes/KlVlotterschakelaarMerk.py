@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,11 @@ class KlVlotterschakelaarMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVlotterschakelaarMerk'
     options = {
+        'flygt': KeuzelijstWaarde(invulwaarde='flygt',
+                                  label='Flygt',
+                                  status='ingebruik',
+                                  definitie='Flygt-Xylem',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVlotterschakelaarMerk/flygt')
     }
 
     @classmethod

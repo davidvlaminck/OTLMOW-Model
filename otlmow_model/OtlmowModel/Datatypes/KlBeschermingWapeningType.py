@@ -31,7 +31,7 @@ class KlBeschermingWapeningType(KeuzelijstField):
         'wapeningsnet': KeuzelijstWaarde(invulwaarde='wapeningsnet',
                                          label='wapeningsnet',
                                          status='ingebruik',
-                                         definitie='Keuzelijst voor de wapening gebruikt bij de fundering (wapeningsnet,geotextiel,geogrids)',
+                                         definitie='Een raster van onderling verbonden stalen staven of draden om oa. trekspanningen op te nemen en scheurvorming te beperken.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeschermingWapeningType/wapeningsnet')
     }
 

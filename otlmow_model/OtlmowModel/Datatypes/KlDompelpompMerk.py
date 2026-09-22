@@ -13,6 +13,11 @@ class KlDompelpompMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDompelpompMerk'
     options = {
+        'flygt': KeuzelijstWaarde(invulwaarde='flygt',
+                                  label='Flygt',
+                                  status='ingebruik',
+                                  definitie='Flygt',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDompelpompMerk/flygt'),
         'homa': KeuzelijstWaarde(invulwaarde='homa',
                                  label='HOMA',
                                  status='ingebruik',

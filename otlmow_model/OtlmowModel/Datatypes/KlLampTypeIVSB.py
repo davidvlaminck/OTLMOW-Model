@@ -13,6 +13,11 @@ class KlLampTypeIVSB(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLampTypeIVSB'
     options = {
+        'andere': KeuzelijstWaarde(invulwaarde='andere',
+                                   label='Andere',
+                                   status='ingebruik',
+                                   definitie='Andere',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLampTypeIVSB/andere'),
         'cdm-t-mw-eco-230w-842-mastercolour-e40': KeuzelijstWaarde(invulwaarde='cdm-t-mw-eco-230w-842-mastercolour-e40',
                                                                    label='CDM-T MW eco 230W/842 – MASTERColour E40',
                                                                    status='ingebruik',
@@ -67,7 +72,12 @@ class KlLampTypeIVSB(KeuzelijstField):
                                    label='TL 36W',
                                    status='ingebruik',
                                    definitie='TL 36W',
-                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLampTypeIVSB/tl-36w')
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLampTypeIVSB/tl-36w'),
+        'tl-58w': KeuzelijstWaarde(invulwaarde='tl-58w',
+                                   label='TL 58W',
+                                   status='ingebruik',
+                                   definitie='TL 58W',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLampTypeIVSB/tl-58w')
     }
 
     @classmethod

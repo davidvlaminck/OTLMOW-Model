@@ -55,7 +55,7 @@ class KlBijlageType(KeuzelijstField):
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/risicoanalyse'),
         'technische-fiche': KeuzelijstWaarde(invulwaarde='technische-fiche',
                                              label='technische fiche',
-                                             status='ingebruik',
+                                             status='uitgebruik',
                                              definitie='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/technische-fiche'),
         'verslag': KeuzelijstWaarde(invulwaarde='verslag',

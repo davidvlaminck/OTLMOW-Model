@@ -9,7 +9,7 @@ class KlMateriaalCentreerstuk(KeuzelijstField):
     label = 'Materiaal centreerstuk'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMateriaalCentreerstuk'
     definition = 'De mogelijke materialen van een centreerstuk.'
-    status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
+    status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalCentreerstuk'
     options = {
     }

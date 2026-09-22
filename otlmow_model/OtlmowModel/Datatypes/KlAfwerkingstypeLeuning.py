@@ -25,7 +25,12 @@ class KlAfwerkingstypeLeuning(KeuzelijstField):
                                                   label='Roestvrij cortenstaal',
                                                   status='ingebruik',
                                                   definitie='roestvrij cortenstaal',
-                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfwerkingstypeLeuning/roestvrij-cortenstaal')
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfwerkingstypeLeuning/roestvrij-cortenstaal'),
+        'thermisch-verzinkt': KeuzelijstWaarde(invulwaarde='thermisch-verzinkt',
+                                               label='Thermisch verzinkt',
+                                               status='ingebruik',
+                                               definitie='Voorzien van een beschermende zinklaag aangebracht door onderdompeling in gesmolten zink ter bescherming tegen corrosie.',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfwerkingstypeLeuning/thermisch-verzinkt')
     }
 
     @classmethod

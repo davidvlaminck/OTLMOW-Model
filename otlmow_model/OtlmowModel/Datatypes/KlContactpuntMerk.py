@@ -17,7 +17,17 @@ class KlContactpuntMerk(KeuzelijstField):
                                    label='Heinen',
                                    status='ingebruik',
                                    definitie='Heinen',
-                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntMerk/heinen')
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntMerk/heinen'),
+        'ifm': KeuzelijstWaarde(invulwaarde='ifm',
+                                label='IFM',
+                                status='ingebruik',
+                                definitie='IFM',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntMerk/ifm'),
+        'maasland-groep': KeuzelijstWaarde(invulwaarde='maasland-groep',
+                                           label='Maasland Groep',
+                                           status='ingebruik',
+                                           definitie='Maasland Groep',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntMerk/maasland-groep')
     }
 
     @classmethod

@@ -38,7 +38,7 @@ class KlBijlageMetGeometrieType(KeuzelijstField):
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageMetGeometrieType/veiligheidsvoorschriften'),
         'werkplan': KeuzelijstWaarde(invulwaarde='werkplan',
                                      label='werkplan',
-                                     status='ingebruik',
+                                     status='uitgebruik',
                                      definitie='werkplan',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageMetGeometrieType/werkplan')
     }

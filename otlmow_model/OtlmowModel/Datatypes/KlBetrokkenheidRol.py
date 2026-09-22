@@ -69,7 +69,12 @@ class KlBetrokkenheidRol(KeuzelijstField):
         'verantwoordelijke-reiniging': KeuzelijstWaarde(invulwaarde='verantwoordelijke-reiniging',
                                                         label='verantwoordelijke reiniging',
                                                         status='ingebruik',
-                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetrokkenheidRol/verantwoordelijke-reiniging')
+                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetrokkenheidRol/verantwoordelijke-reiniging'),
+        'verwerkingsverantwoordelijke': KeuzelijstWaarde(invulwaarde='verwerkingsverantwoordelijke',
+                                                         label='verwerkingsverantwoordelijke',
+                                                         status='ingebruik',
+                                                         definitie='Beslist waarom (het doel) en hoe (de middelen) persoonsgegevens (op de beelden) worden verzameld en gebruikt. De organisatie(s) die bepaalt/beslist waarom en  hoe de camerabeelden worden verwerkt (= het doel bepalen) en daarvoor verantwoordelijk is (bvb. zorgen voor veilige bewaring).',
+                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetrokkenheidRol/verwerkingsverantwoordelijke')
     }
 
     @classmethod

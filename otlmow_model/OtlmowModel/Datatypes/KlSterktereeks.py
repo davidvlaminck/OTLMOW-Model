@@ -112,7 +112,12 @@ class KlSterktereeks(KeuzelijstField):
                                                 label='PVC composiet SN8',
                                                 status='ingebruik',
                                                 definitie='PVC composiet SN8',
-                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterktereeks/pvc-composiet-s-n-8')
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterktereeks/pvc-composiet-s-n-8'),
+        'r135': KeuzelijstWaarde(invulwaarde='r135',
+                                 label='R135',
+                                 status='ingebruik',
+                                 definitie='R135',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterktereeks/r135')
     }
 
     @classmethod

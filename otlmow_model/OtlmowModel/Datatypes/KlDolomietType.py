@@ -26,7 +26,7 @@ class KlDolomietType(KeuzelijstField):
         '5-15': KeuzelijstWaarde(invulwaarde='5-15',
                                  label='5-15',
                                  status='ingebruik',
-                                 definitie='mei-15',
+                                 definitie='5/15',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDolomietType/5-15')
     }
 

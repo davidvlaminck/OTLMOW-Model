@@ -372,7 +372,22 @@ class KlNetwerkelemModelnaam(KeuzelijstField):
                                  label='RS30',
                                  status='ingebruik',
                                  definitie='RS30',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkelemModelnaam/rs30')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkelemModelnaam/rs30'),
+        'rut206': KeuzelijstWaarde(invulwaarde='rut206',
+                                   label='RUT206',
+                                   status='ingebruik',
+                                   definitie='RUT206',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkelemModelnaam/rut206'),
+        'rut240': KeuzelijstWaarde(invulwaarde='rut240',
+                                   label='RUT240',
+                                   status='ingebruik',
+                                   definitie='RUT240',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkelemModelnaam/rut240'),
+        'titan-ii': KeuzelijstWaarde(invulwaarde='titan-ii',
+                                     label='Titan II',
+                                     status='ingebruik',
+                                     definitie='Titan II',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkelemModelnaam/titan-ii')
     }
 
     @classmethod

@@ -17,7 +17,22 @@ class KlContactpuntModelnaam(KeuzelijstField):
                                            label='Aritech-DC-107',
                                            status='ingebruik',
                                            definitie='Aritech-DC-107',
-                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntModelnaam/aritech-dc-107')
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntModelnaam/aritech-dc-107'),
+        'em-7wfm': KeuzelijstWaarde(invulwaarde='em-7wfm',
+                                    label='EM-7WFM',
+                                    status='ingebruik',
+                                    definitie='EM-7WFM (Maasland Groep)',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntModelnaam/em-7wfm'),
+        'ii502a': KeuzelijstWaarde(invulwaarde='ii502a',
+                                   label='II502a',
+                                   status='ingebruik',
+                                   definitie='II502a (IFM)',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntModelnaam/ii502a'),
+        'iq2010': KeuzelijstWaarde(invulwaarde='iq2010',
+                                   label='IQ2010',
+                                   status='ingebruik',
+                                   definitie='IQ2010 (IFM)',
+                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlContactpuntModelnaam/iq2010')
     }
 
     @classmethod

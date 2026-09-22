@@ -13,6 +13,11 @@ class KlPompMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPompMerk'
     options = {
+        'flygt': KeuzelijstWaarde(invulwaarde='flygt',
+                                  label='Flygt',
+                                  status='ingebruik',
+                                  definitie='Flygt',
+                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPompMerk/flygt'),
         'lowara': KeuzelijstWaarde(invulwaarde='lowara',
                                    label='Lowara',
                                    status='ingebruik',
