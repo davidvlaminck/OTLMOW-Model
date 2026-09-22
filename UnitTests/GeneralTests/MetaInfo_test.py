@@ -135,3 +135,19 @@ def test_meta_info_on_otl_attribute_Dtc_by_dotnotation():
 typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField
 definition: Test attribuut voor tekst in een complex datatype."""
     assert result == expected
+
+
+def test_meta_info_on_otl_attribute_keuzelijst():
+    instance = AllCasesTestClass()
+
+    result = meta_info(instance, attribute='testComplexType.testKeuzelijst')
+    expected = """Showing metadata of testKeuzelijst:
+typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testKeuzelijst
+definition: Test attribuut voor een keuzelijst in een complex datatype.
+valid values:
+    waarde-1
+    waarde-2
+    waarde-3
+    waarde-4
+    waarde-5 (waarde uit gebruik!)"""
+    assert result == expected
