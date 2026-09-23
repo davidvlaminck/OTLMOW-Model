@@ -4,10 +4,11 @@ from ...Classes.Abstracten.Kabelgeleiding import Kabelgeleiding
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlAlgMateriaal import KlAlgMateriaal
 from ...Datatypes.KwantWrdInKilogramPerMeter import KwantWrdInKilogramPerMeter, KwantWrdInKilogramPerMeterWaarden
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kabelgoot(Kabelgeleiding):
+class Kabelgoot(Kabelgeleiding, VlakGeometrie):
     """Een inrichting die ervoor zorgt dat een kabel beschermd is tegen beschadiging en/of op een gecontroleerde plaats blijft hangen of liggen. Een kabelgoot is doorgaans een halfopen constructie. Er bestaan ook kabelgoten die door een deksel gesloten kunnen worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelgoot'

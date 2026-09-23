@@ -2,10 +2,11 @@
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.BetonnenConstructieObject import BetonnenConstructieObject
 from ...Datatypes.KlDikteBetonnenPlaat import KlDikteBetonnenPlaat
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BetonnenPlaat(BetonnenConstructieObject):
+class BetonnenPlaat(BetonnenConstructieObject, VlakGeometrie):
     """Een vlak en plat enkelvoudig betonnen constructie-element dat zowel horizontaal als verticaal geplaatst kan worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BetonnenPlaat'

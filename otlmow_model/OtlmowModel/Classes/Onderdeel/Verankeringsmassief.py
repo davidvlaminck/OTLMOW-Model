@@ -4,10 +4,11 @@ from ...Classes.Abstracten.Betonfundering import Betonfundering
 from ...Classes.Abstracten.KlassiekeFundering import KlassiekeFundering
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Verankeringsmassief(Betonfundering, KlassiekeFundering):
+class Verankeringsmassief(Betonfundering, KlassiekeFundering, PuntGeometrie):
     """Een fundering waarin ankers zijn aangebracht en die zorgen voor bevestiging en stabilisatie van een object."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verankeringsmassief'
