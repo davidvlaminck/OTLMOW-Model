@@ -1,9 +1,9 @@
 {
     "current": {
-        "model_version": "2.20.1.0",
+        "model_version": "2.20.2.0",
         "otl_version": "2.20.0",
-        "created_at": "2026-09-22T10:23:03",
-        "created_by": "automatic_update.py"
+        "created_at": "2026-09-23T21:12:00",
+        "created_by": "davidvlaminck"
     },
     "history": {
         "2.9.2.1": {
@@ -1703,6 +1703,12 @@
         },
         "2.20.1.0": {
             "previous_version": "2.20.0.1",
+            "updated_class_model": true,
+            "updated_enums": false,
+            "enums_updated": []
+        },
+        "2.20.2.0": {
+            "previous_version": "2.20.1.0",
             "updated_class_model": true,
             "updated_enums": false,
             "enums_updated": []
