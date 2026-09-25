@@ -4,11 +4,10 @@ from ...Classes.Abstracten.DwarseMarkeringToegang import DwarseMarkeringToegang
 from ...Datatypes.KlDwarseMarkeringCode import KlDwarseMarkeringCode
 from ...Datatypes.KlDwarseMarkeringSoort import KlDwarseMarkeringSoort
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class DwarseMarkering(DwarseMarkeringToegang, LijnGeometrie):
+class DwarseMarkering(DwarseMarkeringToegang):
     """Een markering dwars op de weg aangebracht om het verkeer te waarschuwen, informeren of regelen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DwarseMarkering'

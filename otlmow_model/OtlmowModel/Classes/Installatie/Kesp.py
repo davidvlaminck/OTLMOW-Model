@@ -2,11 +2,10 @@
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BalkGK import BalkGK
 from ...BaseClasses.BooleanField import BooleanField
-from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kesp(BalkGK, VlakGeometrie):
+class Kesp(BalkGK):
     """Algemene benaming voor het aanduiden van een betonnen balk bovenaan grondkerende structuren, een kopbalk als het ware (wordt ook wel kaaimuurkop genoemd). Ankervoorzieningen, ladders, enz. worden in/tegen de kesp bevestigd."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kesp'

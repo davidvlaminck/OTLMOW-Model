@@ -4,11 +4,10 @@ from ...Classes.Abstracten.AanvaarbeschermingGeleidewerk import Aanvaarbeschermi
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.KlAanvaarbeschermingType import KlAanvaarbeschermingType
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Aanvaarbescherming(AanvaarbeschermingGeleidewerk, AIMNaamObject, PuntGeometrie):
+class Aanvaarbescherming(AanvaarbeschermingGeleidewerk, AIMNaamObject):
     """Constructie om te verhinderen dat schepen ergens tegenaan botsen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Aanvaarbescherming'

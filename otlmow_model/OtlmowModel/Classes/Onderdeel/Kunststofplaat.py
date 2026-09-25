@@ -2,11 +2,10 @@
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.KunststofConstructieObject import KunststofConstructieObject
 from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Kunststofplaat(KunststofConstructieObject, PuntGeometrie):
+class Kunststofplaat(KunststofConstructieObject):
     """Een kunststof enkelvoudig constructie-object, dat zowel horizontaal (bij een plaat) als verticaal (bij een wand) geplaatst kan worden."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kunststofplaat'

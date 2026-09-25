@@ -4,11 +4,10 @@ from ...Classes.Abstracten.WaterloopRelatie import WaterloopRelatie
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlGrachtFunctie import KlGrachtFunctie
 from ...Datatypes.KlGrachtdoorsnede import KlGrachtdoorsnede
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Gracht(WaterloopRelatie, LijnGeometrie):
+class Gracht(WaterloopRelatie):
     """Een kunstmatige aangelegde waterloop."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Gracht'

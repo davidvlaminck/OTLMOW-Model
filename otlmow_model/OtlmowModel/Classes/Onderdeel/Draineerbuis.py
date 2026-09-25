@@ -4,11 +4,10 @@ from ...Classes.Abstracten.BVAfwateringKunstwerken import BVAfwateringKunstwerke
 from ...Classes.Abstracten.Buis import Buis
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlDraineerbuisMateriaal import KlDraineerbuisMateriaal
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Draineerbuis(BVAfwateringKunstwerken, Buis, PuntGeometrie):
+class Draineerbuis(BVAfwateringKunstwerken, Buis):
     """Een buis voor het afvoeren van water uit de bodem over en door de grond,met als gevolg het verlagen van het grondwaterpeil."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Draineerbuis'
