@@ -28,9 +28,11 @@ jobs:
           restore-keys: |
             uv-${{ runner.os }}-
       - name: Installing dependencies with uv
-        run: uv pip install -r pyproject.toml --extra update
+        run: |
+          uv venv --python 3.13
+          uv pip install -r pyproject.toml --extra update
       - name: Run automatic update
-        run: python3 automatic_update.py
+        run: uv run python3 automatic_update.py
         working-directory: ./model_update
       - name: Commit files
         working-directory: .
