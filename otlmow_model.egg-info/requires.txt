@@ -1,0 +1,11 @@
+
+[test]
+pytest
+pytest-cov
+pytest-subtests
+pytest-timeout
+nbmake
+
+[update]
+otlmow_modelbuilder
+toml
