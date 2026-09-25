@@ -4,10 +4,11 @@ from ...Classes.Onderdeel.Funderingspaal import Funderingspaal
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlInbrengmethode import KlInbrengmethode
 from ...Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class StalenFunderingsprofiel(Funderingspaal):
+class StalenFunderingsprofiel(Funderingspaal, LijnGeometrie):
     """Stalen profiel, bijvoorbeeld een H-profiel, dat wordt gebruikt als fundering of wapening van een fundering. Dit is geen profiel voor een damwand: hiervoor moet 'Stalen damplank' worden gebruikt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#StalenFunderingsprofiel'

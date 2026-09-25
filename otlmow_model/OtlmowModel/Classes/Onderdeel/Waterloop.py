@@ -2,10 +2,11 @@
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.WaterloopRelatie import WaterloopRelatie
 from ...Datatypes.KlWaterloopCategorie import KlWaterloopCategorie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Waterloop(WaterloopRelatie):
+class Waterloop(WaterloopRelatie, LijnGeometrie):
     """Oorspronkelijk natuurlijke watergeul in het landschap waarin water stroomt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Waterloop'

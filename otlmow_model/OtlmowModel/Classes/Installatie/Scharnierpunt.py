@@ -1,10 +1,11 @@
 # coding=utf-8
 from ...Classes.Abstracten.Geleidingsmechanisme import Geleidingsmechanisme
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Scharnierpunt(Geleidingsmechanisme, AIMNaamObject):
+class Scharnierpunt(Geleidingsmechanisme, AIMNaamObject, VlakGeometrie):
     """Een vast draaipunt waar de rotatie van een bewegend onderdeel plaatsvindt rond een as. Het scharnierpunt is samengesteld uit kleinere onderdelen zoals een as, ring, draagstoel, …"""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Scharnierpunt'
