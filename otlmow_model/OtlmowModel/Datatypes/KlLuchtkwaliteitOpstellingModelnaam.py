@@ -28,7 +28,12 @@ class KlLuchtkwaliteitOpstellingModelnaam(KeuzelijstField):
         'VICOTEC324': KeuzelijstWaarde(invulwaarde='VICOTEC324',
                                        label='VICOTEC324',
                                        status='ingebruik',
-                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuchtkwaliteitOpstellingModelnaam/VICOTEC324')
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuchtkwaliteitOpstellingModelnaam/VICOTEC324'),
+        'visguard-2': KeuzelijstWaarde(invulwaarde='visguard-2',
+                                       label='VisGuard 2',
+                                       status='ingebruik',
+                                       definitie='VisGuard 2',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuchtkwaliteitOpstellingModelnaam/visguard-2')
     }
 
     @classmethod
