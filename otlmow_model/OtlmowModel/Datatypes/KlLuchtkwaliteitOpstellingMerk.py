@@ -16,7 +16,12 @@ class KlLuchtkwaliteitOpstellingMerk(KeuzelijstField):
         'sick': KeuzelijstWaarde(invulwaarde='sick',
                                  label='sick',
                                  status='ingebruik',
-                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuchtkwaliteitOpstellingMerk/sick')
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuchtkwaliteitOpstellingMerk/sick'),
+        'sigrist': KeuzelijstWaarde(invulwaarde='sigrist',
+                                    label='Sigrist',
+                                    status='ingebruik',
+                                    definitie='Sigrist',
+                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuchtkwaliteitOpstellingMerk/sigrist')
     }
 
     @classmethod
