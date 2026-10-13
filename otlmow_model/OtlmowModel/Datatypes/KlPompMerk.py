@@ -13,6 +13,11 @@ class KlPompMerk(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPompMerk'
     options = {
+        'aspen-pumps': KeuzelijstWaarde(invulwaarde='aspen-pumps',
+                                        label='Aspen Pumps',
+                                        status='ingebruik',
+                                        definitie='Aspen Pumps',
+                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPompMerk/aspen-pumps'),
         'flygt': KeuzelijstWaarde(invulwaarde='flygt',
                                   label='Flygt',
                                   status='ingebruik',

@@ -17,7 +17,12 @@ class KlPompModelnaam(KeuzelijstField):
                                        label='1SV22F011T',
                                        status='ingebruik',
                                        definitie='1SV22F011T',
-                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPompModelnaam/1sv22f011t')
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPompModelnaam/1sv22f011t'),
+        'hi-lift-2l': KeuzelijstWaarde(invulwaarde='hi-lift-2l',
+                                       label='Hi-Lift 2L',
+                                       status='ingebruik',
+                                       definitie='Hi-Lift 2L',
+                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPompModelnaam/hi-lift-2l')
     }
 
     @classmethod

@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.20.4.1",
+        "model_version": "2.20.4.2",
         "otl_version": "2.20.0",
-        "created_at": "2026-10-08T10:58:09",
+        "created_at": "2026-10-13T11:12:54",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1756,6 +1756,15 @@
             "updated_enums": true,
             "enums_updated": [
                 "KlBSSRandafwerking"
+            ]
+        },
+        "2.20.4.2": {
+            "previous_version": "2.20.4.1",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlPompMerk",
+                "KlPompModelnaam"
             ]
         }
     }
