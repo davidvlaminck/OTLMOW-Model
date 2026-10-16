@@ -7,6 +7,7 @@ from ...Datatypes.DtcBeschermendeLaag import DtcBeschermendeLaag, DtcBeschermend
 from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.KlDraagConstrBeschermlaag import KlDraagConstrBeschermlaag
 from ...Datatypes.KlDraagConstrBijzondertransport import KlDraagConstrBijzondertransport
+from ...Datatypes.KlKleurStandaard import KlKleurStandaard
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...BaseClasses.StringField import StringField
 
@@ -104,8 +105,17 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
                                    naam='kleur',
                                    label='kleur',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard.kleur',
+                                   usagenote='Attribuut uit gebruik sinds versie 2.21.0 ',
+                                   deprecated_version='2.21.0',
                                    definition='De RAL kleur van het uitwendig zichtbare gedeelte.',
                                    owner=self)
+
+        self._kleurStandaard = OTLAttribuut(field=KlKleurStandaard,
+                                            naam='kleurStandaard',
+                                            label='kleur standaard',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#SteunStandaard.kleurStandaard',
+                                            definition='De gestandaardiseerde kleur van het object, gekozen uit een vooraf gedefinieerde keuzelijst die hoofdzakelijk RAL-kleuren bevat en waar nodig ook andere officieel vastgelegde kleuren, zoals Stadsgrijs.',
+                                            owner=self)
 
     @property
     def beschermendeLaag(self) -> DtcBeschermendeLaagWaarden:
@@ -160,3 +170,12 @@ class SteunStandaard(EMDraagconstructie, AIMNaamObject):
     @kleur.setter
     def kleur(self, value):
         self._kleur.set_waarde(value, owner=self)
+
+    @property
+    def kleurStandaard(self) -> str:
+        """De gestandaardiseerde kleur van het object, gekozen uit een vooraf gedefinieerde keuzelijst die hoofdzakelijk RAL-kleuren bevat en waar nodig ook andere officieel vastgelegde kleuren, zoals Stadsgrijs."""
+        return self._kleurStandaard.get_waarde()
+
+    @kleurStandaard.setter
+    def kleurStandaard(self, value):
+        self._kleurStandaard.set_waarde(value, owner=self)

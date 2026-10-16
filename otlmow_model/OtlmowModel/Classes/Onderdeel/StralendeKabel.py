@@ -3,6 +3,7 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Kabel import Kabel
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ...Datatypes.DtcFrequentierange import DtcFrequentierange, DtcFrequentierangeWaarden
 from ...Datatypes.KlKabeldikte import KlKabeldikte
 from ...Datatypes.KwantWrdInMegahertz import KwantWrdInMegahertz, KwantWrdInMegahertzWaarden
 
@@ -26,8 +27,17 @@ class StralendeKabel(Kabel, NaampadObject):
                                               naam='frequentiebereik',
                                               label='frequentiebereik',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StralendeKabel.frequentiebereik',
+                                              usagenote='Attribuut uit gebruik sinds versie 2.21.0 ',
+                                              deprecated_version='2.21.0',
                                               definition='Het verschil tussen de laagste en hoogste frequentie waarop het signaal effectief werkt. Dit bereik wordt uitgedrukt in megahertz (MHz).',
                                               owner=self)
+
+        self._frequentierange = OTLAttribuut(field=DtcFrequentierange,
+                                             naam='frequentierange',
+                                             label='frequentierange',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StralendeKabel.frequentierange',
+                                             definition='De frequentierange van de zendontvanger.',
+                                             owner=self)
 
         self._kabeldikte = OTLAttribuut(field=KlKabeldikte,
                                         naam='kabeldikte',
@@ -51,6 +61,15 @@ class StralendeKabel(Kabel, NaampadObject):
     @frequentiebereik.setter
     def frequentiebereik(self, value):
         self._frequentiebereik.set_waarde(value, owner=self)
+
+    @property
+    def frequentierange(self) -> DtcFrequentierangeWaarden:
+        """De frequentierange van de zendontvanger."""
+        return self._frequentierange.get_waarde()
+
+    @frequentierange.setter
+    def frequentierange(self, value):
+        self._frequentierange.set_waarde(value, owner=self)
 
     @property
     def kabeldikte(self) -> str:

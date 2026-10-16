@@ -3,6 +3,7 @@ from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...BaseClasses.BooleanField import BooleanField
+from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlBewegingsvrijheidInVlakBijOplegging import KlBewegingsvrijheidInVlakBijOplegging
 from ...Datatypes.KlOverigeFunctiesOplegging import KlOverigeFunctiesOplegging
 from ...Datatypes.KlTypeOplegging import KlTypeOplegging
@@ -21,7 +22,7 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AsLagerCombinatie', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rolwagenchassis', direction='u')  # u = unidirectional
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kabelveerhuis', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Kabelveerhuis', direction='o', deprecated='2.21.0')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Oplegmechanisme', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Oplegrij', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Brugligger', direction='i')  # i = direction: incoming
@@ -44,6 +45,13 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Oplegging.overigeFuncties',
                                              kardinaliteit_max='3',
                                              definition='De overige functies van de oplegging.',
+                                             owner=self)
+
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Oplegging.technischeFiche',
+                                             definition='Verwijzing naar de technische fiche met de productspecifieke eigenschappen en technische specificaties van de oplegging.',
                                              owner=self)
 
         self._type = OTLAttribuut(field=KlTypeOplegging,
@@ -77,6 +85,15 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
     @overigeFuncties.setter
     def overigeFuncties(self, value):
         self._overigeFuncties.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> DtcDocumentWaarden:
+        """Verwijzing naar de technische fiche met de productspecifieke eigenschappen en technische specificaties van de oplegging."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def type(self) -> str:

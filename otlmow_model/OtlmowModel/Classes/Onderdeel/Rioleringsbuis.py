@@ -6,10 +6,11 @@ from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlRioleringsbuisFunctie import KlRioleringsbuisFunctie
 from ...Datatypes.KlRioleringsbuisMateriaal import KlRioleringsbuisMateriaal
 from ...Datatypes.KlSterktereeks import KlSterktereeks
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Rioleringsbuis(BVAfwateringKunstwerken, Buis):
+class Rioleringsbuis(BVAfwateringKunstwerken, Buis, PuntGeometrie):
     """Een kanaal of pijp voor gravitaire afvoer van water."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rioleringsbuis'
@@ -29,6 +30,8 @@ class Rioleringsbuis(BVAfwateringKunstwerken, Buis):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#LinkendElement', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#PutRelatie', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#WaterloopRelatie', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KWSAfscheider', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KWSAfscheider', direction='o')  # o = direction: outgoing
 
         self._aantalAfgedichteAansluitingen = OTLAttribuut(field=IntegerField,
                                                            naam='aantalAfgedichteAansluitingen',

@@ -1,14 +1,14 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlBatterijladerMerk import KlBatterijladerMerk
 from ...Datatypes.KlBatterijladerModelnaam import KlBatterijladerModelnaam
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Batterijlader(SerienummerObject, AIMObject, PuntGeometrie):
+class Batterijlader(SerienummerObject, NaampadObject, PuntGeometrie):
     """Een aparte permanente lader die een batterij oplaadt. Deze wordt ook wel een druppelaar of druppellader genoemd. Doorgaans wordt de batterij opgeladen door gebruik te maken van de netvoeding."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Batterijlader'

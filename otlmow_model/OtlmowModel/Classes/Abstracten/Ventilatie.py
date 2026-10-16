@@ -1,7 +1,7 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 from ...Datatypes.KwantWrdInKubiekeMeterPerSeconde import KwantWrdInKubiekeMeterPerSeconde, KwantWrdInKubiekeMeterPerSecondeWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
@@ -11,7 +11,7 @@ from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ventilatie(AIMObject, PuntGeometrie, VlakGeometrie):
+class Ventilatie(NaampadObject, PuntGeometrie, VlakGeometrie):
     """Abstracte voor attributen die gemeenschappelijk zijn voor verschillende types van ventilatie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Ventilatie'

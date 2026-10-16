@@ -6,10 +6,11 @@ from ...Datatypes.KlGrondherkomst import KlGrondherkomst
 from ...Datatypes.KlOphogingSoorten import KlOphogingSoorten
 from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
 from ...Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ophoging(AIMObject):
+class Ophoging(AIMObject, VlakGeometrie):
     """Wordt beschouwd als de verzameling van beheeractiviteiten die uitgevoerd kunnen worden op grond."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#Ophoging'

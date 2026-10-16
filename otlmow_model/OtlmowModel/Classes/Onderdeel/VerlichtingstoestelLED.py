@@ -7,6 +7,7 @@ from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.KlArmatuurkleur import KlArmatuurkleur
+from ...Datatypes.KlLenstypeLEDVerlichting import KlLenstypeLEDVerlichting
 from ...Datatypes.KlLumenOutput import KlLumenOutput
 from ...Datatypes.KlWvLedAantalTeVerlichtenRijstroken import KlWvLedAantalTeVerlichtenRijstroken
 from ...Datatypes.KlWvLedKleurTemp import KlWvLedKleurTemp
@@ -88,6 +89,13 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector, 
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.kleurTemperatuur',
                                               definition="Kleurtemperatuur van de LED's.",
                                               owner=self)
+
+        self._lenstype = OTLAttribuut(field=KlLenstypeLEDVerlichting,
+                                      naam='lenstype',
+                                      label='lenstype',
+                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VerlichtingstoestelLED.lenstype',
+                                      definition='Fabrikantgebonden code die de toegepaste lens of optiek van het LED-verlichtingstoestel identificeert en verwijst naar de bijbehorende lichtverdeling.',
+                                      owner=self)
 
         self._lichtkleur = OTLAttribuut(field=KlWvLedLichtkleur,
                                         naam='lichtkleur',
@@ -218,6 +226,15 @@ class VerlichtingstoestelLED(Verlichtingstoestel, VerlichtingstoestelConnector, 
     @kleurTemperatuur.setter
     def kleurTemperatuur(self, value):
         self._kleurTemperatuur.set_waarde(value, owner=self)
+
+    @property
+    def lenstype(self) -> str:
+        """Fabrikantgebonden code die de toegepaste lens of optiek van het LED-verlichtingstoestel identificeert en verwijst naar de bijbehorende lichtverdeling."""
+        return self._lenstype.get_waarde()
+
+    @lenstype.setter
+    def lenstype(self, value):
+        self._lenstype.set_waarde(value, owner=self)
 
     @property
     def lichtkleur(self) -> str:

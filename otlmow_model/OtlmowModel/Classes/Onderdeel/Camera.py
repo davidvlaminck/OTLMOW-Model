@@ -8,6 +8,8 @@ from ...Datatypes.DtcCameraBeeldverwerking import DtcCameraBeeldverwerking, DtcC
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...Datatypes.KlAlgRijrichting import KlAlgRijrichting
+from ...Datatypes.KlBeslotenheidPlaats import KlBeslotenheidPlaats
+from ...Datatypes.KlCameraDoeleinde import KlCameraDoeleinde
 from ...Datatypes.KlCameraMerk import KlCameraMerk
 from ...Datatypes.KlCameraModelnaam import KlCameraModelnaam
 from ...Datatypes.KlSensorOpstelwijze import KlSensorOpstelwijze
@@ -56,6 +58,7 @@ class Camera(SerienummerObject, NaampadObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Illuminator', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omvormer', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IpPowerSwitch', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', direction='i')  # i = direction: incoming
@@ -72,6 +75,20 @@ class Camera(SerienummerObject, NaampadObject, PuntGeometrie):
                                                         kardinaliteit_max='*',
                                                         definition='Geeft aan welke types beeldverwerking die camera zelf uitvoert dus zonder gebruik te maken van een externe verwerkingseenheid.',
                                                         owner=self)
+
+        self._beslotenheidPlaats = OTLAttribuut(field=KlBeslotenheidPlaats,
+                                                naam='beslotenheidPlaats',
+                                                label='beslotenheid plaats',
+                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.beslotenheidPlaats',
+                                                definition='De juridische kwalificatie van de plaats waar de camera staat, op basis van de beslotenheid en de toegankelijkheid voor het publiek.',
+                                                owner=self)
+
+        self._cameradoeleinde = OTLAttribuut(field=KlCameraDoeleinde,
+                                             naam='cameradoeleinde',
+                                             label='cameradoeleinde',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera.cameradoeleinde',
+                                             definition='Het doel waarvoor de camera wordt ingezet en waarvoor de geregistreerde beelden en de daaruit afgeleide gegevens worden verwerkt.',
+                                             owner=self)
 
         self._configBestandAid = OTLAttribuut(field=DtcDocument,
                                               naam='configBestandAid',
@@ -195,6 +212,24 @@ class Camera(SerienummerObject, NaampadObject, PuntGeometrie):
     @beeldverwerkingsinstelling.setter
     def beeldverwerkingsinstelling(self, value):
         self._beeldverwerkingsinstelling.set_waarde(value, owner=self)
+
+    @property
+    def beslotenheidPlaats(self) -> str:
+        """De juridische kwalificatie van de plaats waar de camera staat, op basis van de beslotenheid en de toegankelijkheid voor het publiek."""
+        return self._beslotenheidPlaats.get_waarde()
+
+    @beslotenheidPlaats.setter
+    def beslotenheidPlaats(self, value):
+        self._beslotenheidPlaats.set_waarde(value, owner=self)
+
+    @property
+    def cameradoeleinde(self) -> str:
+        """Het doel waarvoor de camera wordt ingezet en waarvoor de geregistreerde beelden en de daaruit afgeleide gegevens worden verwerkt."""
+        return self._cameradoeleinde.get_waarde()
+
+    @cameradoeleinde.setter
+    def cameradoeleinde(self, value):
+        self._cameradoeleinde.set_waarde(value, owner=self)
 
     @property
     def configBestandAid(self) -> DtcDocumentWaarden:

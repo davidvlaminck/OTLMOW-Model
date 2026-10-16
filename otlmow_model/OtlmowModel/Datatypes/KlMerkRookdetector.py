@@ -11,6 +11,7 @@ class KlMerkRookdetector(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlMerkRookdetector'
     definition = 'Het merk van de rookdetector.'
     status = 'ingebruik'
+    deprecated_version = '2.21.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMerkRookdetector'
     options = {
         'kidde': KeuzelijstWaarde(invulwaarde='kidde',

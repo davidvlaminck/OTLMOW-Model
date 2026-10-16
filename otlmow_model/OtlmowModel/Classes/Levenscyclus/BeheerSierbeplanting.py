@@ -5,10 +5,11 @@ from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlBeheerSierbeplanting import KlBeheerSierbeplanting
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BeheerSierbeplanting(AIMObject):
+class BeheerSierbeplanting(AIMObject, VlakGeometrie):
     """Het beheerobject voor de sierbeplanting."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerSierbeplanting'

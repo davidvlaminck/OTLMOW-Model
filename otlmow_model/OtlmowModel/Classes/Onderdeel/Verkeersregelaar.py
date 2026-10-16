@@ -44,6 +44,7 @@ class Verkeersregelaar(NaampadObject, PuntGeometrie):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Antenne', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DetectieCamera', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Detectieverwerkingseenheid', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KabelnetToegang', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ontvanger', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTKARModem', direction='u')  # u = unidirectional
@@ -187,14 +188,18 @@ class Verkeersregelaar(NaampadObject, PuntGeometrie):
                                         naam='vplanDatum',
                                         label='vplan datum',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar.vplanDatum',
-                                        definition='Datum van het V-plan.',
+                                        usagenote='Attribuut uit gebruik sinds versie 2.21.0 ',
+                                        deprecated_version='2.21.0',
+                                        definition='Datum van het Vplan.',
                                         owner=self)
 
         self._vplanNummer = OTLAttribuut(field=StringField,
                                          naam='vplanNummer',
                                          label='vplan nummer',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Verkeersregelaar.vplanNummer',
-                                         definition='Nummer van het V-plan.',
+                                         usagenote='Attribuut uit gebruik sinds versie 2.21.0 ',
+                                         deprecated_version='2.21.0',
+                                         definition='Nummer van het Vplan.',
                                          owner=self)
 
     @property
@@ -361,7 +366,7 @@ class Verkeersregelaar(NaampadObject, PuntGeometrie):
 
     @property
     def vplanDatum(self) -> date:
-        """Datum van het V-plan."""
+        """Datum van het Vplan."""
         return self._vplanDatum.get_waarde()
 
     @vplanDatum.setter
@@ -370,7 +375,7 @@ class Verkeersregelaar(NaampadObject, PuntGeometrie):
 
     @property
     def vplanNummer(self) -> str:
-        """Nummer van het V-plan."""
+        """Nummer van het Vplan."""
         return self._vplanNummer.get_waarde()
 
     @vplanNummer.setter

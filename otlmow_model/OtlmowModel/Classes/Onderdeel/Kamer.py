@@ -24,6 +24,7 @@ class Kamer(BVAfwateringKunstwerken, PutRelatie, VlakGeometrie):
         super().__init__()
 
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bovenbouw', direction='u', deprecated='2.1.0')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KWSAfscheider', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PutBovenbouw', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Schacht', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#BlindePut', direction='o')  # o = direction: outgoing
@@ -50,7 +51,8 @@ class Kamer(BVAfwateringKunstwerken, PutRelatie, VlakGeometrie):
                                                         naam='heeftOlieAfscheidendeKamer',
                                                         label='heeft olieafscheidende kamer',
                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kamer.heeftOlieAfscheidendeKamer',
-                                                        definition='Geeft aan of er een olie afscheidende kamer aanwezig is',
+                                                        usagenote='Gebruik dit attribuut enkel wanneer de afscheidende functie integraal deel uitmaakt van de bouwkundige uitvoering van de kamer. Is er een afzonderlijk geplaatst, vervangbaar toestel aanwezig, gebruik dan de klasse KWSAfscheider.',
+                                                        definition='Geeft aan of de kamer een ingebouwde olieafscheidende voorziening heeft voor het afscheiden en tijdelijk vasthouden van lichte vloeistoffen van minerale oorsprong (zoals oliën en brandstoffen).',
                                                         owner=self)
 
         self._heeftZandvang = OTLAttribuut(field=BooleanField,
@@ -124,7 +126,7 @@ class Kamer(BVAfwateringKunstwerken, PutRelatie, VlakGeometrie):
 
     @property
     def heeftOlieAfscheidendeKamer(self) -> bool:
-        """Geeft aan of er een olie afscheidende kamer aanwezig is"""
+        """Geeft aan of de kamer een ingebouwde olieafscheidende voorziening heeft voor het afscheiden en tijdelijk vasthouden van lichte vloeistoffen van minerale oorsprong (zoals oliën en brandstoffen)."""
         return self._heeftOlieAfscheidendeKamer.get_waarde()
 
     @heeftOlieAfscheidendeKamer.setter

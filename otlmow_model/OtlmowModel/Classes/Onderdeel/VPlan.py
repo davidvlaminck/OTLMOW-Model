@@ -20,14 +20,14 @@ class VPlan(AIMNaamObject, GeenGeometrie):
 
         self._plannummer = OTLAttribuut(field=StringField,
                                         naam='plannummer',
-                                        label='plannummer',
+                                        label='vplan nummer',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#VPlan.plannummer',
-                                        definition='Nummer van het V-plan.',
+                                        definition='Nummer van het Vplan.',
                                         owner=self)
 
     @property
     def plannummer(self) -> str:
-        """Nummer van het V-plan."""
+        """Nummer van het Vplan."""
         return self._plannummer.get_waarde()
 
     @plannummer.setter

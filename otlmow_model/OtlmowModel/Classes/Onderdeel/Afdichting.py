@@ -5,10 +5,11 @@ from ...Classes.Abstracten.LaagDikte import LaagDikte
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlAfdichtingType import KlAfdichtingType
 from ...Datatypes.KlMateriaalAfdichting import KlMateriaalAfdichting
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Afdichting(AndereLaag, LaagDikte):
+class Afdichting(AndereLaag, LaagDikte, PuntGeometrie):
     """Een specifieke laag in de wegdekopbouw die voorkomt dat water tot op de constructieplaat doordringt."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afdichting'

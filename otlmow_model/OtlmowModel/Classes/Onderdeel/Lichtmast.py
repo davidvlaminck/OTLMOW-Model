@@ -8,6 +8,7 @@ from ...Datatypes.DteKleurRAL import DteKleurRAL, DteKleurRALWaarden
 from ...Datatypes.DtuLichtmastMasthoogte import DtuLichtmastMasthoogte, DtuLichtmastMasthoogteWaarden
 from ...Datatypes.KlDraagConstrBeschermlaag import KlDraagConstrBeschermlaag
 from ...Datatypes.KlDraagconstructieDwarsdoorsnede import KlDraagconstructieDwarsdoorsnede
+from ...Datatypes.KlKleurStandaard import KlKleurStandaard
 from ...Datatypes.KlLichtmastBotsNormering import KlLichtmastBotsNormering
 from ...Datatypes.KlLichtmastLeverancier import KlLichtmastLeverancier
 from ...Datatypes.KlLichtmastMasttype import KlLichtmastMasttype
@@ -85,8 +86,17 @@ class Lichtmast(EMDraagconstructie, NaampadObject, PuntGeometrie):
                                    naam='kleur',
                                    label='kleur',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast.kleur',
+                                   usagenote='Attribuut uit gebruik sinds versie 2.21.0 ',
+                                   deprecated_version='2.21.0',
                                    definition='RAL kleur van de lichtmast.',
                                    owner=self)
+
+        self._kleurStandaard = OTLAttribuut(field=KlKleurStandaard,
+                                            naam='kleurStandaard',
+                                            label='kleur standaard',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Lichtmast.kleurStandaard',
+                                            definition='De gestandaardiseerde kleur van het object, gekozen uit een vooraf gedefinieerde keuzelijst die hoofdzakelijk RAL-kleuren bevat en waar nodig ook andere officieel vastgelegde kleuren, zoals Stadsgrijs.',
+                                            owner=self)
 
         self._leverancier = OTLAttribuut(field=KlLichtmastLeverancier,
                                          naam='leverancier',
@@ -176,6 +186,15 @@ class Lichtmast(EMDraagconstructie, NaampadObject, PuntGeometrie):
     @kleur.setter
     def kleur(self, value):
         self._kleur.set_waarde(value, owner=self)
+
+    @property
+    def kleurStandaard(self) -> str:
+        """De gestandaardiseerde kleur van het object, gekozen uit een vooraf gedefinieerde keuzelijst die hoofdzakelijk RAL-kleuren bevat en waar nodig ook andere officieel vastgelegde kleuren, zoals Stadsgrijs."""
+        return self._kleurStandaard.get_waarde()
+
+    @kleurStandaard.setter
+    def kleurStandaard(self, value):
+        self._kleurStandaard.set_waarde(value, owner=self)
 
     @property
     def leverancier(self) -> str:

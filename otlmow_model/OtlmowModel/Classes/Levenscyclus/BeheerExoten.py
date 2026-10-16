@@ -5,10 +5,11 @@ from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlBeheerExoten import KlBeheerExoten
 from ...Datatypes.KlNazorgJaarfrequentie import KlNazorgJaarfrequentie
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BeheerExoten(AIMObject):
+class BeheerExoten(AIMObject, VlakGeometrie):
     """Het beheerobject voor de exoten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerExoten'

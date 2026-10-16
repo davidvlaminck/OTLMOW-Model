@@ -1,14 +1,14 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.ImplementatieElement.AIMObject import AIMObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlFunctieRioleringsstelsel import KlFunctieRioleringsstelsel
 from ...Datatypes.KlRioleringStelsel import KlRioleringStelsel
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Rioleringsstelsel(AIMObject, VlakGeometrie):
-    """De groepering van de objecten die behoren tot het riolering, aanvoer- of afvoerstelsel."""
+class Rioleringsstelsel(NaampadObject, VlakGeometrie):
+    """De groepering van de objecten die behoren tot het riolering,aanvoer- of afvoerstelsel."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Rioleringsstelsel'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""

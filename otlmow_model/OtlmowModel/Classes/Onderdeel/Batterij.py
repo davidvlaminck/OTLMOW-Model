@@ -3,6 +3,7 @@ from datetime import date
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.Abstracten.Voedingspunt import Voedingspunt
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...BaseClasses.DateField import DateField
 from ...Datatypes.DtcAfmetingBxhInMm import DtcAfmetingBxhInMm, DtcAfmetingBxhInMmWaarden
 from ...Datatypes.KlBatterijMateriaal import KlBatterijMateriaal
@@ -14,7 +15,7 @@ from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Batterij(SerienummerObject, Voedingspunt, PuntGeometrie):
+class Batterij(SerienummerObject, Voedingspunt, NaampadObject, PuntGeometrie):
     """Element bestaande uit meerdere elektrochemische cellen voor het leveren van elektriciteit,die ontstaat door de omzetting van opgeslagen chemische energie in elektrische energie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Batterij'

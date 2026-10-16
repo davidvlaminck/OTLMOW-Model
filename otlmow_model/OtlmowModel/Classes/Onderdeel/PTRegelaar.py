@@ -88,7 +88,9 @@ class PTRegelaar(NaampadObject, PuntGeometrie):
                                          naam='vplanNummer',
                                          label='vplan nummer',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PTRegelaar.vplanNummer',
-                                         definition='Nummer van het V-plan.',
+                                         usagenote='Attribuut uit gebruik sinds versie 2.21.0 ',
+                                         deprecated_version='2.21.0',
+                                         definition='Nummer van het Vplan.',
                                          owner=self)
 
     @property
@@ -156,7 +158,7 @@ class PTRegelaar(NaampadObject, PuntGeometrie):
 
     @property
     def vplanNummer(self) -> str:
-        """Nummer van het V-plan."""
+        """Nummer van het Vplan."""
         return self._vplanNummer.get_waarde()
 
     @vplanNummer.setter

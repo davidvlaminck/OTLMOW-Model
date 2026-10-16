@@ -2,7 +2,7 @@
 from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...Datatypes.KlHardwareCdDvdTape import KlHardwareCdDvdTape
 from ...Datatypes.KlHardwareDomein import KlHardwareDomein
@@ -12,7 +12,7 @@ from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class HardwareToegang(AIMNaamObject):
+class HardwareToegang(NaampadObject):
     """Een abstracte die de gemeenschappelijke kenmerken bevat voor zowel fysieke als virtuele hardware."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#HardwareToegang'
