@@ -12,6 +12,75 @@ from ..Helpers.GenericHelper import validate_guid, get_aim_id_from_uuid_and_type
 from ..Helpers.RelationValidator import is_valid_relation
 
 
+def _default_model_directory(model_directory: Optional[Path]) -> Path:
+    if model_directory is None:
+        current_file_path = Path(__file__)
+        model_directory = current_file_path.parent.parent.parent
+    return model_directory
+
+
+def _require_exactly_one(name: str, obj: Optional[RelationInteractor], typeURI: Optional[str],
+                         uuid: Optional[str]) -> None:
+    if obj is None and (typeURI is None or uuid is None):
+        raise ValueError(f'Exactly one of {name} or ({name}_typeURI + {name}_uuid) needs to be not None.')
+
+
+def _warn_object_and_type_uri(name: str, obj: Optional[RelationInteractor], typeURI: Optional[str]) -> None:
+    if obj is not None and typeURI is not None:
+        warnings.warn(
+            f'both {name} and {name}_typeURI are not None. Using {name} and ignoring {name}_type_uri.',
+            RuntimeWarning)
+
+
+def _resolve_aim_id(uuid: Optional[str], typeURI: Optional[str]) -> tuple[str, bool]:
+    if not validate_guid(uuid):
+        raise ValueError(f'{uuid} is not a valid guid format.')
+    return get_aim_id_from_uuid_and_typeURI(uuid, typeURI), 'lgc.' in typeURI
+
+
+def _instantiate(typeURI: str, uuid: Optional[str], model_directory: Path) -> tuple[RelationInteractor, bool, str]:
+    aim_id, is_legacy = _resolve_aim_id(uuid, typeURI)
+    instance = dynamic_create_instance_from_uri(class_uri=typeURI, model_directory=model_directory)
+    if typeURI == 'http://purl.org/dc/terms/Agent':
+        instance.agentId.identificator = aim_id
+        instance.agentId.toegekendDoor = 'AWV'
+    else:
+        instance.assetId.identificator = aim_id
+        instance.assetId.toegekendDoor = 'AWV'
+    return instance, is_legacy, aim_id
+
+
+def _require_valid_id(instance: RelationInteractor, name: str,
+                      is_legacy: bool) -> None:
+    if not is_legacy:
+        if instance.typeURI == 'http://purl.org/dc/terms/Agent' and instance.agentId.identificator is None:
+            raise AttributeError(
+                f'In order to create a relation_type, the {name} needs to have a valid agentId '
+                f'({name}.agentId.identificator)')
+        elif instance.typeURI != 'http://purl.org/dc/terms/Agent' and instance.assetId.identificator is None:
+            raise AttributeError(
+                f'In order to create a relation_type, the {name} needs to have a valid assetId '
+                f'({name}.assetId.identificator)')
+
+
+def _set_relation_end(relation_type: RelatieObject, end: str, aim_id: str, instance: RelationInteractor,
+                      typeURI: str, is_legacy: bool) -> str:
+    asset_id_attribute = getattr(relation_type, f'{end}AssetId')
+    if is_legacy:
+        asset_id_attribute.identificator = aim_id
+        asset_id_attribute.toegekendDoor = 'AWV'
+        segment = aim_id
+    elif typeURI == 'http://purl.org/dc/terms/Agent':
+        asset_id_attribute.identificator = instance.agentId.identificator
+        asset_id_attribute.toegekendDoor = instance.agentId.toegekendDoor
+        segment = instance.agentId.identificator
+    else:
+        asset_id_attribute.identificator = instance.assetId.identificator
+        asset_id_attribute.toegekendDoor = instance.assetId.toegekendDoor
+        segment = instance.assetId.identificator
+    return segment
+
+
 def create_relation(relation_type: type[RelatieObject], source: Optional[RelationInteractor] = None,
                     target: Optional[RelationInteractor] = None,
                     source_uuid: Optional[str] = None, source_typeURI: Optional[str] = None,
@@ -42,129 +111,50 @@ def create_relation(relation_type: type[RelatieObject], source: Optional[Relatio
     :rtype: RelatieObject or None
     """
 
-    if model_directory is None:
-        current_file_path = Path(__file__)
-        model_directory = current_file_path.parent.parent.parent
+    model_directory = _default_model_directory(model_directory)
 
-    if source is None and (source_typeURI is None or source_uuid is None):
-        raise ValueError('Exactly one of source or (source_typeURI + source_uuid) needs to be not None.')
-    if target is None and (target_typeURI is None or target_uuid is None):
-        raise ValueError('Exactly one of target or (target_typeURI + target_uuid) needs to be not None.')
+    _require_exactly_one('source', source, source_typeURI, source_uuid)
+    _require_exactly_one('target', target, target_typeURI, target_uuid)
 
-    if source is not None and source_typeURI is not None:
-        warnings.warn('both source and source_typeURI are not None. Using source and ignoring source_typeURI.',
-                      RuntimeWarning)
-    if target is not None and target_typeURI is not None:
-        warnings.warn('both target and target_typeURI are not None. Using source and ignoring target_typeURI.',
-                      RuntimeWarning)
+    _warn_object_and_type_uri('source', source, source_typeURI)
+    _warn_object_and_type_uri('target', target, target_typeURI)
 
-    source_is_legacy, target_is_legacy = False, False
     source_aim_id, target_aim_id = None, None
+    source_is_legacy = source is None and 'lgc.' in source_typeURI
+    target_is_legacy = target is None and 'lgc.' in target_typeURI
 
     if source is None:
-        if not validate_guid(source_uuid):
-            raise ValueError('source_uuid is not a valid guid format.')
-
-        if 'lgc.' in source_typeURI:
-            source_is_legacy = True
-
-        source_aim_id = get_aim_id_from_uuid_and_typeURI(source_uuid, source_typeURI)
-
-        if not source_is_legacy:
-            source = dynamic_create_instance_from_uri(source_typeURI, model_directory=model_directory)
-            if source_typeURI == 'http://purl.org/dc/terms/Agent':
-                source.agentId.identificator = source_aim_id
-                source.agentId.toegekendDoor = 'AWV'
-            else:
-                source.assetId.identificator = source_aim_id
-                source.assetId.toegekendDoor = 'AWV'
-
+        source, source_is_legacy, source_aim_id = _instantiate(source_typeURI, source_uuid,
+                                                                model_directory)
     if target is None:
-        if not validate_guid(target_uuid):
-            raise ValueError('target_uuid is not a valid guid format.')
-
-        if 'lgc.' in target_typeURI:
-            target_is_legacy = True
-
-        target_aim_id = get_aim_id_from_uuid_and_typeURI(target_uuid, target_typeURI)
-
-        if not target_is_legacy:
-            target = dynamic_create_instance_from_uri(target_typeURI, model_directory=model_directory)
-            if target_typeURI == 'http://purl.org/dc/terms/Agent':
-                target.agentId.identificator = target_aim_id
-                target.agentId.toegekendDoor = 'AWV'
-            else:
-                target.assetId.identificator = target_aim_id
-                target.assetId.toegekendDoor = 'AWV'
+        target, target_is_legacy, target_aim_id = _instantiate(target_typeURI, target_uuid,
+                                                                model_directory)
 
     if not (source_is_legacy or target_is_legacy):
         valid = is_valid_relation(source=source, target=target, relation_type=relation_type)
         if not valid:
-            raise CouldNotCreateRelationError("Can't create an invalid relation_type, please validate relations first")
+            raise CouldNotCreateRelationError(
+                "Can't create an invalid relation_type, please validate relations first")
 
     relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI,
                                                      model_directory=model_directory)
 
-    if not source_is_legacy:
-        if source.typeURI == 'http://purl.org/dc/terms/Agent' and source.agentId.identificator is None:
-            raise AttributeError('In order to create a relation_type, the source needs to have a valid agentId '
-                                 '(source.agentId.identificator)')
-        elif source.typeURI != 'http://purl.org/dc/terms/Agent' and source.assetId.identificator is None:
-            raise AttributeError('In order to create a relation_type, the source needs to have a valid assetId '
-                                 '(source.assetId.identificator)')
-    if not target_is_legacy:
-        if target.typeURI == 'http://purl.org/dc/terms/Agent' and target.agentId.identificator is None:
-            raise AttributeError('In order to create a relation_type, the target needs to have a valid agentId '
-                                 '(target.agentId.identificator)')
-        elif target.typeURI != 'http://purl.org/dc/terms/Agent' and target.assetId.identificator is None:
-            raise AttributeError('In order to create a relation_type, the target needs to have a valid assetId '
-                                 '(target.assetId.identificator)')
+    _require_valid_id(source, 'source', source_is_legacy)
+    _require_valid_id(target, 'target', target_is_legacy)
 
-
-    if source_is_legacy:
-        relation_type.bronAssetId.identificator = source_aim_id
-        relation_type.bronAssetId.toegekendDoor = 'AWV'
-        relation_id = source_aim_id
-    else:
-        if source.typeURI == 'http://purl.org/dc/terms/Agent':
-            relation_type.bronAssetId.identificator = source.agentId.identificator
-            relation_type.bronAssetId.toegekendDoor = source.agentId.toegekendDoor
-            relation_id = source.agentId.identificator
-        else:
-            relation_type.bronAssetId.identificator = source.assetId.identificator
-            relation_type.bronAssetId.toegekendDoor = source.assetId.toegekendDoor
-            relation_id = source.assetId.identificator
-
-    relation_id += '_-_'
-
-    if target_is_legacy:
-        relation_type.doelAssetId.identificator = target_aim_id
-        relation_type.doelAssetId.toegekendDoor = 'AWV'
-        relation_id += target_aim_id
-    else:
-        if target.typeURI == 'http://purl.org/dc/terms/Agent':
-            relation_type.doelAssetId.identificator = target.agentId.identificator
-            relation_type.doelAssetId.toegekendDoor = target.agentId.toegekendDoor
-            relation_id += target.agentId.identificator
-        else:
-            relation_type.doelAssetId.identificator = target.assetId.identificator
-            relation_type.doelAssetId.toegekendDoor = target.assetId.toegekendDoor
-            relation_id += target.assetId.identificator
+    bron_segment = _set_relation_end(relation_type, 'bron', source_aim_id, source, source_typeURI,
+                                     source_is_legacy)
+    doel_segment = _set_relation_end(relation_type, 'doel', target_aim_id, target, target_typeURI,
+                                     target_is_legacy)
+    relation_id = bron_segment + '_-_' + doel_segment
 
     relation_id = relation_type.__class__.__name__ + '_-_' + relation_id
 
     relation_type.assetId.identificator = relation_id
     relation_type.assetId.toegekendDoor = 'OTLMOW'
 
-    if source_is_legacy:
-        relation_type.bron.typeURI = source_typeURI
-    else:
-        relation_type.bron.typeURI = source.typeURI
-
-    if target_is_legacy:
-        relation_type.doel.typeURI = target_typeURI
-    else:
-        relation_type.doel.typeURI = target.typeURI
+    relation_type.bron.typeURI = source_typeURI if source_is_legacy else source.typeURI
+    relation_type.doel.typeURI = target_typeURI if target_is_legacy else target.typeURI
 
     return relation_type
 

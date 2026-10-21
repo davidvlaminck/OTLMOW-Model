@@ -34,55 +34,65 @@ class TimeField(OTLField):
             raise CouldNotConvertToCorrectTypeError(
                 f'{value} could not be converted to correct type (implied by {cls.__name__})')
         if isinstance(value, datetime):
-            if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned a datetime to a time datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
-            return time(value.hour, value.minute, value.second)
+            return cls._convert_datetime(value, log_warnings)
         if isinstance(value, date):
-            if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned a date to a time datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
-            return time()
+            return cls._convert_date(log_warnings)
         if isinstance(value, int):
-            if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned an integer to a time datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
-            timestamp = datetime.fromtimestamp(value, timezone.utc)
-
-            return time(timestamp.hour, timestamp.minute, timestamp.second)
+            return cls._convert_int(value, log_warnings)
         if isinstance(value, str):
+            return cls._convert_string(value, log_warnings)
+        return cls._convert_fallback(value)
+
+    @classmethod
+    def _convert_datetime(cls, value: datetime, log_warnings: bool) -> time:
+        if log_warnings:
+            warnings.warn(category=IncorrectTypeWarning,
+                          message='Assigned a datetime to a time datatype. '
+                                  'Automatically converted to the correct type. Please change the type')
+        return time(value.hour, value.minute, value.second)
+
+    @classmethod
+    def _convert_date(cls, log_warnings: bool) -> time:
+        if log_warnings:
+            warnings.warn(category=IncorrectTypeWarning,
+                          message='Assigned a date to a time datatype. '
+                                  'Automatically converted to the correct type. Please change the type')
+        return time()
+
+    @classmethod
+    def _convert_int(cls, value: int, log_warnings: bool) -> time:
+        if log_warnings:
+            warnings.warn(category=IncorrectTypeWarning,
+                          message='Assigned an integer to a time datatype. '
+                                  'Automatically converted to the correct type. Please change the type')
+        timestamp = datetime.fromtimestamp(value, timezone.utc)
+        return time(timestamp.hour, timestamp.minute, timestamp.second)
+
+    @classmethod
+    def _convert_string(cls, value: str, log_warnings: bool) -> time:
+        try:
+            dt = datetime.strptime(value, "%H:%M:%S")
+        except ValueError:
             try:
-                dt = datetime.strptime(value, "%H:%M:%S")
-                if log_warnings:
-                    warnings.warn(category=IncorrectTypeWarning,
-                                  message='Assigned a string to a time datatype. '
-                                          'Automatically converted to the correct type. Please change the type')
-                return time(dt.hour, dt.minute, dt.second)
+                dt = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
             except ValueError:
                 try:
-                    dt = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
-                    if log_warnings:
-                        warnings.warn(category=IncorrectTypeWarning,
-                                      message='Assigned a string to a time datatype. '
-                                              'Automatically converted to the correct type. Please change the type')
-                    return time(dt.hour, dt.minute, dt.second)
-                except ValueError:
-                    try:
-                        dt = datetime.strptime(value, "%d/%m/%Y %H:%M:%S")
-                        if log_warnings:
-                            warnings.warn(category=IncorrectTypeWarning,
-                                          message='Assigned a string to a time datatype. '
-                                                  'Automatically converted to the correct type. Please change the type')
-                        return time(dt.hour, dt.minute, dt.second)
-                    except Exception as e:
-                        raise CouldNotConvertToCorrectTypeError(
-                            f'{value} could not be converted to correct type (implied by {cls.__name__})'
-                        ) from e
+                    dt = datetime.strptime(value, "%d/%m/%Y %H:%M:%S")
+                except Exception as e:
+                    raise CouldNotConvertToCorrectTypeError(
+                        f'{value} could not be converted to correct type (implied by {cls.__name__})'
+                    ) from e
+        if log_warnings:
+            warnings.warn(category=IncorrectTypeWarning,
+                          message='Assigned a string to a time datatype. '
+                                  'Automatically converted to the correct type. Please change the type')
+        return time(dt.hour, dt.minute, dt.second)
+
+    @classmethod
+    def _convert_fallback(cls, value: Any) -> time:
         raise CouldNotConvertToCorrectTypeError(
-            f'{value} could not be converted to correct type (implied by {cls.__name__})')
+            f'{value} could not be converted to correct type (implied by {cls.__name__})'
+        )
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
