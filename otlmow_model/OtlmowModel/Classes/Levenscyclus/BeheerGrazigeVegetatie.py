@@ -7,10 +7,11 @@ from ...Datatypes.DtcMaaien import DtcMaaien, DtcMaaienWaarden
 from ...Datatypes.KlBeheerGrazigeVegetatie import KlBeheerGrazigeVegetatie
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BeheerGrazigeVegetatie(AIMObject):
+class BeheerGrazigeVegetatie(AIMObject, VlakGeometrie):
     """Het beheerobject voor de grazige vegetatie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerGrazigeVegetatie'

@@ -1,10 +1,11 @@
 # coding=utf-8
 from ...Classes.Abstracten.AndereLaag import AndereLaag
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Noppendrainage(AndereLaag, VlakGeometrie):
+class Noppendrainage(AndereLaag, LijnGeometrie, VlakGeometrie):
     """Een noppendrainveld zorgt voor een verticale afwatering van het overtollige water."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Noppendrainage'

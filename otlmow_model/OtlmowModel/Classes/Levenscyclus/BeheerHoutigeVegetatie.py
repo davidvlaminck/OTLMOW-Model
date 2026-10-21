@@ -4,10 +4,11 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlBeheerHoutigeVegetatie import KlBeheerHoutigeVegetatie
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class BeheerHoutigeVegetatie(AIMObject):
+class BeheerHoutigeVegetatie(AIMObject, VlakGeometrie):
     """Het beheerobject voor de houtige vegetatie."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerHoutigeVegetatie'

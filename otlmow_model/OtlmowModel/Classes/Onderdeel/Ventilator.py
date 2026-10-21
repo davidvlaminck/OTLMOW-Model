@@ -2,7 +2,6 @@
 from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Ventilatie import Ventilatie
-from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlVentilatorGebruik import KlVentilatorGebruik
 from ...Datatypes.KlVentilatorRichting import KlVentilatorRichting
@@ -10,7 +9,7 @@ from ...Datatypes.KwantWrdInProcent import KwantWrdInProcent, KwantWrdInProcentW
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Ventilator(Ventilatie, NaampadObject):
+class Ventilator(Ventilatie):
     """Onderdeel voor het creëren van luchtcirculatie binnen een open of gesloten ruimte met het oog op het vervangen van vervuilde door zuivere lucht. Voor een gesloten ruimte kan de luchtcirculatie ook zorgen voor afkoeling."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Ventilator'

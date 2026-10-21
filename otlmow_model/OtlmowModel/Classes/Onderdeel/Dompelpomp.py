@@ -5,6 +5,7 @@ from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlDompelpompMerk import KlDompelpompMerk
 from ...Datatypes.KlDompelpompModelnaam import KlDompelpompModelnaam
 from ...Datatypes.KlNominaleSpanning import KlNominaleSpanning
+from ...Datatypes.KwantWrdInKubiekeMeterPerUur import KwantWrdInKubiekeMeterPerUur, KwantWrdInKubiekeMeterPerUurWaarden
 from ...Datatypes.KwantWrdInLiterPerMinuut import KwantWrdInLiterPerMinuut, KwantWrdInLiterPerMinuutWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
@@ -54,6 +55,8 @@ class Dompelpomp(LinkendElement, NaampadObject, PuntGeometrie):
                                             naam='maximaalDebiet',
                                             label='maximaal debiet',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dompelpomp.maximaalDebiet',
+                                            usagenote='Attribuut uit gebruik sinds versie 2.21.0 ',
+                                            deprecated_version='2.21.0',
                                             definition='Het maximaal debiet dat de pomp kan leveren.',
                                             owner=self)
 
@@ -61,6 +64,8 @@ class Dompelpomp(LinkendElement, NaampadObject, PuntGeometrie):
                                                   naam='maximaleOpvoerhoogte',
                                                   label='maximale opvoerhoogte',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dompelpomp.maximaleOpvoerhoogte',
+                                                  usagenote='Attribuut uit gebruik sinds versie 2.21.0 ',
+                                                  deprecated_version='2.21.0',
                                                   definition='De maximale hoogte die de pomp een vloeistof kan doen bereiken.',
                                                   owner=self)
 
@@ -84,6 +89,20 @@ class Dompelpomp(LinkendElement, NaampadObject, PuntGeometrie):
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dompelpomp.nominaleSpanning',
                                               definition='De nominale spanning van de dompelpomp.',
                                               owner=self)
+
+        self._opvoerhoogte = OTLAttribuut(field=KwantWrdInMeter,
+                                          naam='opvoerhoogte',
+                                          label='opvoerhoogte',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dompelpomp.opvoerhoogte',
+                                          definition='De verticale afstand tussen het vloeistofniveau aan de zuigzijde en het hoogste punt waar de vloeistof naartoe moet worden gepompt. Dit is de druk die de pomp moet leveren om de gewenste pompcapaciteit te bereiken, uitgedrukt in meter.',
+                                          owner=self)
+
+        self._pompcapaciteit = OTLAttribuut(field=KwantWrdInKubiekeMeterPerUur,
+                                            naam='pompcapaciteit',
+                                            label='pompcapaciteit',
+                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Dompelpomp.pompcapaciteit',
+                                            definition='Het volume vloeistof dat de pomp per tijdseenheid verplaatst bij het nominale werkpunt, doorgaans uitgedrukt in kubieke meter per uur.',
+                                            owner=self)
 
         self._vermogen = OTLAttribuut(field=KwantWrdInWatt,
                                       naam='vermogen',
@@ -154,6 +173,24 @@ class Dompelpomp(LinkendElement, NaampadObject, PuntGeometrie):
     @nominaleSpanning.setter
     def nominaleSpanning(self, value):
         self._nominaleSpanning.set_waarde(value, owner=self)
+
+    @property
+    def opvoerhoogte(self) -> KwantWrdInMeterWaarden:
+        """De verticale afstand tussen het vloeistofniveau aan de zuigzijde en het hoogste punt waar de vloeistof naartoe moet worden gepompt. Dit is de druk die de pomp moet leveren om de gewenste pompcapaciteit te bereiken, uitgedrukt in meter."""
+        return self._opvoerhoogte.get_waarde()
+
+    @opvoerhoogte.setter
+    def opvoerhoogte(self, value):
+        self._opvoerhoogte.set_waarde(value, owner=self)
+
+    @property
+    def pompcapaciteit(self) -> KwantWrdInKubiekeMeterPerUurWaarden:
+        """Het volume vloeistof dat de pomp per tijdseenheid verplaatst bij het nominale werkpunt, doorgaans uitgedrukt in kubieke meter per uur."""
+        return self._pompcapaciteit.get_waarde()
+
+    @pompcapaciteit.setter
+    def pompcapaciteit(self, value):
+        self._pompcapaciteit.set_waarde(value, owner=self)
 
     @property
     def vermogen(self) -> KwantWrdInWattWaarden:

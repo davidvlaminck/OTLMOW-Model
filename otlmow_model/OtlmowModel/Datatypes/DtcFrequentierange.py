@@ -13,19 +13,19 @@ class DtcFrequentierangeWaarden(WaardenObject):
                                         naam='bovengrens',
                                         label='bovengrens',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcFrequentierange.bovengrens',
-                                        definition='De bovengrens van de frequentierange van het toestel.',
+                                        definition='De bovengrens van de frequentierange van het toestel in hertz.',
                                         owner=self)
 
         self._ondergrens = OTLAttribuut(field=KwantWrdInHerz,
                                         naam='ondergrens',
                                         label='ondergrens',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcFrequentierange.ondergrens',
-                                        definition='De ondergrens van de frequentierange van het toestel.',
+                                        definition='De ondergrens van de frequentierange van het toestel in hertz.',
                                         owner=self)
 
     @property
     def bovengrens(self) -> KwantWrdInHerzWaarden:
-        """De bovengrens van de frequentierange van het toestel."""
+        """De bovengrens van de frequentierange van het toestel in hertz."""
         return self._bovengrens.get_waarde()
 
     @bovengrens.setter
@@ -34,7 +34,7 @@ class DtcFrequentierangeWaarden(WaardenObject):
 
     @property
     def ondergrens(self) -> KwantWrdInHerzWaarden:
-        """De ondergrens van de frequentierange van het toestel."""
+        """De ondergrens van de frequentierange van het toestel in hertz."""
         return self._ondergrens.get_waarde()
 
     @ondergrens.setter

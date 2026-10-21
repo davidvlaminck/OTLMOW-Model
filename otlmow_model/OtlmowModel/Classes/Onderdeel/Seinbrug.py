@@ -8,6 +8,7 @@ from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlSeinbrugRijrichting import KlSeinbrugRijrichting
 from ...Datatypes.KlSeinbrugType import KlSeinbrugType
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -42,6 +43,13 @@ class Seinbrug(VRIDraagconstructie, NaampadObject, LijnGeometrie, VlakGeometrie)
                                            label='aantal ladders',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug.aantalLadders',
                                            definition='Het aantal ladders waarmee de seinbrug toegankelijk is.',
+                                           owner=self)
+
+        self._aantalLiggers = OTLAttribuut(field=NonNegIntegerField,
+                                           naam='aantalLiggers',
+                                           label='aantal liggers',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug.aantalLiggers',
+                                           definition='Het aantal horizontale liggers waaruit de seinbrug is opgebouwd.',
                                            owner=self)
 
         self._aantalSteunen = OTLAttribuut(field=FloatOrDecimalField,
@@ -122,6 +130,15 @@ class Seinbrug(VRIDraagconstructie, NaampadObject, LijnGeometrie, VlakGeometrie)
     @aantalLadders.setter
     def aantalLadders(self, value):
         self._aantalLadders.set_waarde(value, owner=self)
+
+    @property
+    def aantalLiggers(self) -> int:
+        """Het aantal horizontale liggers waaruit de seinbrug is opgebouwd."""
+        return self._aantalLiggers.get_waarde()
+
+    @aantalLiggers.setter
+    def aantalLiggers(self, value):
+        self._aantalLiggers.set_waarde(value, owner=self)
 
     @property
     def aantalSteunen(self) -> float:

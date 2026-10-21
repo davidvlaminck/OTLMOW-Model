@@ -11,6 +11,7 @@ class KlModelnaamRookdetector(KeuzelijstField):
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#KlModelnaamRookdetector'
     definition = 'De modelnaam van de rookdetector.'
     status = 'ingebruik'
+    deprecated_version = '2.21.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlModelnaamRookdetector'
     options = {
         'ke-dp3120w': KeuzelijstWaarde(invulwaarde='ke-dp3120w',

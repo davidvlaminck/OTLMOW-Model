@@ -11,7 +11,7 @@ from ...Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterT
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class StalenBuispaal(Funderingspaal):
-    """Volledig op lengte gelast element, meestal door middel van rondnaden, eventueel met inbegrip van de slotprofielen, die door middel van heien of pulsen op diepte wordt gebracht en nadien wordt opgevuld."""
+    """Volledig op lengte gelast element,meestal door middel van rondnaden,eventueel met inbegrip van de slotprofielen,die door middel van heien of pulsen op diepte wordt gebracht en nadien wordt opgevuld."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#StalenBuispaal'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -38,6 +38,7 @@ class StalenBuispaal(Funderingspaal):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Binnenverlichtingstoestel', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Combiwand', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Dukdalf', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Geleidewerk', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElement', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#LigtOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag', direction='i')  # i = direction: incoming
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#SluitAanOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ComplexeGeleiding', direction='i')  # i = direction: incoming

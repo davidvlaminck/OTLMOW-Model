@@ -62,11 +62,11 @@ class DtcDienstdatumWaarden(WaardenObject):
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
 class DtcDienstdatum(ComplexField):
-    """Complex datatype ter inventarisatie van de indienst- en uitdienstname van een V-plan."""
+    """Complex datatype ter inventarisatie van de indienst- en uitdienstname van een Vplan."""
     naam = 'DtcDienstdatum'
-    label = 'Dienstdatum V-plan'
+    label = 'Dienstdatum Vplan'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtcDienstdatum'
-    definition = 'Complex datatype ter inventarisatie van de indienst- en uitdienstname van een V-plan.'
+    definition = 'Complex datatype ter inventarisatie van de indienst- en uitdienstname van een Vplan.'
     waardeObject = DtcDienstdatumWaarden
 
     def __str__(self):

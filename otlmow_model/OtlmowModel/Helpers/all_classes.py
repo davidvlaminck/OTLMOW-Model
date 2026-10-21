@@ -87,6 +87,7 @@ from ..Classes.Installatie.Hameistijl import Hameistijl
 from ..Classes.Installatie.Hanger import Hanger
 from ..Classes.Installatie.Hefportiek import Hefportiek
 from ..Classes.Installatie.Heftoren import Heftoren
+from ..Classes.Installatie.HijsEnHefwerktuig import HijsEnHefwerktuig
 from ..Classes.Installatie.HoogtebegrenzerInstallatie import HoogtebegrenzerInstallatie
 from ..Classes.Installatie.HorizontaleConstructieplaat import HorizontaleConstructieplaat
 from ..Classes.Installatie.Hulppost import Hulppost
@@ -166,6 +167,7 @@ from ..Classes.Installatie.Taatsmechanisme import Taatsmechanisme
 from ..Classes.Installatie.Tandheugelmechanisme import Tandheugelmechanisme
 from ..Classes.Installatie.Tandkransmechanisme import Tandkransmechanisme
 from ..Classes.Installatie.Tegengewichtkist import Tegengewichtkist
+from ..Classes.Installatie.Telefooncentrale import Telefooncentrale
 from ..Classes.Installatie.TijdelijkeBerlinerwandTussenschot import TijdelijkeBerlinerwandTussenschot
 from ..Classes.Installatie.TijdelijkeOpslagplaats import TijdelijkeOpslagplaats
 from ..Classes.Installatie.TijdelijkeWaterkerendeConstructie import TijdelijkeWaterkerendeConstructie
@@ -311,6 +313,7 @@ from ..Classes.Onderdeel.Bouwput import Bouwput
 from ..Classes.Onderdeel.Bovenbouw import Bovenbouw
 from ..Classes.Onderdeel.Braam import Braam
 from ..Classes.Onderdeel.Brandblusser import Brandblusser
+from ..Classes.Onderdeel.Branddetector import Branddetector
 from ..Classes.Onderdeel.Brandhaspel import Brandhaspel
 from ..Classes.Onderdeel.Brandleiding import Brandleiding
 from ..Classes.Onderdeel.Brandnetelruigte import Brandnetelruigte
@@ -356,6 +359,7 @@ from ..Classes.Onderdeel.DNBHoogspanning import DNBHoogspanning
 from ..Classes.Onderdeel.DNBLaagspanning import DNBLaagspanning
 from ..Classes.Onderdeel.Damwand import Damwand
 from ..Classes.Onderdeel.Datakabel import Datakabel
+from ..Classes.Onderdeel.Debietmeter import Debietmeter
 from ..Classes.Onderdeel.Dekzerkprofiel import Dekzerkprofiel
 from ..Classes.Onderdeel.DetectieCamera import DetectieCamera
 from ..Classes.Onderdeel.Detectieverwerkingseenheid import Detectieverwerkingseenheid
@@ -428,6 +432,7 @@ from ..Classes.Onderdeel.Flens import Flens
 from ..Classes.Onderdeel.Flenskoppeling import Flenskoppeling
 from ..Classes.Onderdeel.Flitscamera import Flitscamera
 from ..Classes.Onderdeel.ForfaitaireAansluiting import ForfaitaireAansluiting
+from ..Classes.Onderdeel.Frequentieregelaar import Frequentieregelaar
 from ..Classes.Onderdeel.FunderingOpStaal import FunderingOpStaal
 from ..Classes.Onderdeel.Funderingsmassief import Funderingsmassief
 from ..Classes.Onderdeel.Funderingspaal import Funderingspaal
@@ -440,6 +445,7 @@ from ..Classes.Onderdeel.Gassensor import Gassensor
 from ..Classes.Onderdeel.GeexpandeerdPolystyreen import GeexpandeerdPolystyreen
 from ..Classes.Onderdeel.GekleurdWegvlakMarkering import GekleurdWegvlakMarkering
 from ..Classes.Onderdeel.Geleideconstructie import Geleideconstructie
+from ..Classes.Onderdeel.Geleidingssteun import Geleidingssteun
 from ..Classes.Onderdeel.Geleidingsverlichting import Geleidingsverlichting
 from ..Classes.Onderdeel.Geleidingswand import Geleidingswand
 from ..Classes.Onderdeel.GeluidswerendeConstructie import GeluidswerendeConstructie
@@ -475,6 +481,7 @@ from ..Classes.Onderdeel.Halsbeugeloog import Halsbeugeloog
 from ..Classes.Onderdeel.Halsbeugelpen import Halsbeugelpen
 from ..Classes.Onderdeel.Halsbeugelschoen import Halsbeugelschoen
 from ..Classes.Onderdeel.Handbediening import Handbediening
+from ..Classes.Onderdeel.Handbrandmelder import Handbrandmelder
 from ..Classes.Onderdeel.Handwiel import Handwiel
 from ..Classes.Onderdeel.Hardware import Hardware
 from ..Classes.Onderdeel.HeeftAanvullendeGeometrie import HeeftAanvullendeGeometrie
@@ -490,6 +497,7 @@ from ..Classes.Onderdeel.HeeftVPlan import HeeftVPlan
 from ..Classes.Onderdeel.Heestermassief import Heestermassief
 from ..Classes.Onderdeel.HeischraalGrasland import HeischraalGrasland
 from ..Classes.Onderdeel.Hijsinstallatie import Hijsinstallatie
+from ..Classes.Onderdeel.Hijspunt import Hijspunt
 from ..Classes.Onderdeel.Hoofdschakelaar import Hoofdschakelaar
 from ..Classes.Onderdeel.Hoogtebegrenzer import Hoogtebegrenzer
 from ..Classes.Onderdeel.Hoogtedetectie import Hoogtedetectie
@@ -524,6 +532,7 @@ from ..Classes.Onderdeel.IsInspectieVan import IsInspectieVan
 from ..Classes.Onderdeel.IsNetwerkECC import IsNetwerkECC
 from ..Classes.Onderdeel.IsSWGehostOp import IsSWGehostOp
 from ..Classes.Onderdeel.IsSWOnderdeelVan import IsSWOnderdeelVan
+from ..Classes.Onderdeel.KWSAfscheider import KWSAfscheider
 from ..Classes.Onderdeel.Kabelgoot import Kabelgoot
 from ..Classes.Onderdeel.Kabelladder import Kabelladder
 from ..Classes.Onderdeel.Kabelleidingdoorvoer import Kabelleidingdoorvoer
@@ -564,6 +573,7 @@ from ..Classes.Onderdeel.Lichtmast import Lichtmast
 from ..Classes.Onderdeel.Lichtnagel import Lichtnagel
 from ..Classes.Onderdeel.Lichtsensor import Lichtsensor
 from ..Classes.Onderdeel.Lichtzuil import Lichtzuil
+from ..Classes.Onderdeel.Lift import Lift
 from ..Classes.Onderdeel.LigtOp import LigtOp
 from ..Classes.Onderdeel.LijnvormigElementMarkering import LijnvormigElementMarkering
 from ..Classes.Onderdeel.Lockerkast import Lockerkast
@@ -571,6 +581,8 @@ from ..Classes.Onderdeel.Lockermanagementmodule import Lockermanagementmodule
 from ..Classes.Onderdeel.LogischePoort import LogischePoort
 from ..Classes.Onderdeel.Loofhout import Loofhout
 from ..Classes.Onderdeel.LoopTerminationAndProtection import LoopTerminationAndProtection
+from ..Classes.Onderdeel.Loopkat import Loopkat
+from ..Classes.Onderdeel.Loopprofiel import Loopprofiel
 from ..Classes.Onderdeel.Loopvloer import Loopvloer
 from ..Classes.Onderdeel.LuchtkwaliteitControleUnit import LuchtkwaliteitControleUnit
 from ..Classes.Onderdeel.LuchtkwaliteitZenderOntvanger import LuchtkwaliteitZenderOntvanger
@@ -692,6 +704,7 @@ from ..Classes.Onderdeel.RingMechanisch import RingMechanisch
 from ..Classes.Onderdeel.Rioleringsbuis import Rioleringsbuis
 from ..Classes.Onderdeel.Riooltoegang import Riooltoegang
 from ..Classes.Onderdeel.Rol import Rol
+from ..Classes.Onderdeel.Roltrap import Roltrap
 from ..Classes.Onderdeel.Rolwagenchassis import Rolwagenchassis
 from ..Classes.Onderdeel.Rookdetector import Rookdetector
 from ..Classes.Onderdeel.Rookkoepel import Rookkoepel
@@ -726,6 +739,7 @@ from ..Classes.Onderdeel.Slotcilinder import Slotcilinder
 from ..Classes.Onderdeel.Sluisvloertegel import Sluisvloertegel
 from ..Classes.Onderdeel.SluitAanOp import SluitAanOp
 from ..Classes.Onderdeel.Smeernippel import Smeernippel
+from ..Classes.Onderdeel.Softstarter import Softstarter
 from ..Classes.Onderdeel.Software import Software
 from ..Classes.Onderdeel.SoilmixwandElement import SoilmixwandElement
 from ..Classes.Onderdeel.Sokkel import Sokkel
@@ -770,9 +784,11 @@ from ..Classes.Onderdeel.StuurklepBrandleiding import StuurklepBrandleiding
 from ..Classes.Onderdeel.Stuwconstructie import Stuwconstructie
 from ..Classes.Onderdeel.TGCUitbreidingsModule import TGCUitbreidingsModule
 from ..Classes.Onderdeel.TLCfiPoort import TLCfiPoort
+from ..Classes.Onderdeel.TTSegment import TTSegment
 from ..Classes.Onderdeel.Taatspen import Taatspen
 from ..Classes.Onderdeel.Taatspot import Taatspot
 from ..Classes.Onderdeel.Taatsschoen import Taatsschoen
+from ..Classes.Onderdeel.Takel import Takel
 from ..Classes.Onderdeel.Taludgoot import Taludgoot
 from ..Classes.Onderdeel.Tandheugel import Tandheugel
 from ..Classes.Onderdeel.Tandkrans import Tandkrans
@@ -782,6 +798,7 @@ from ..Classes.Onderdeel.Tank import Tank
 from ..Classes.Onderdeel.TechnischePut import TechnischePut
 from ..Classes.Onderdeel.Tegenmateriaal import Tegenmateriaal
 from ..Classes.Onderdeel.Telecomkabel import Telecomkabel
+from ..Classes.Onderdeel.Telefoontoestel import Telefoontoestel
 from ..Classes.Onderdeel.Temperatuursensor import Temperatuursensor
 from ..Classes.Onderdeel.Ternairmengselverharding import Ternairmengselverharding
 from ..Classes.Onderdeel.Terugkeer import Terugkeer

@@ -14,16 +14,20 @@ class Rookdetector(AIMNaamObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rookdetector'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    deprecated_version = '2.21.0'
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='u')  # u = unidirectional
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wand', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#HorizontaleConstructieplaat', direction='u', deprecated='2.21.0')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Wand', direction='u', deprecated='2.21.0')  # u = unidirectional
 
         self._merk = OTLAttribuut(field=KlMerkRookdetector,
                                   naam='merk',
                                   label='merk',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rookdetector.merk',
+                                  usagenote='Klasse uit gebruik sinds versie 2.21.0 ',
+                                  deprecated_version='2.21.0',
                                   definition='Het merk van de rookdetector.',
                                   owner=self)
 
@@ -31,6 +35,8 @@ class Rookdetector(AIMNaamObject, PuntGeometrie):
                                        naam='modelnaam',
                                        label='modelnaam',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rookdetector.modelnaam',
+                                       usagenote='Klasse uit gebruik sinds versie 2.21.0 ',
+                                       deprecated_version='2.21.0',
                                        definition='De modelnaam van de rookdetector.',
                                        owner=self)
 
@@ -38,6 +44,8 @@ class Rookdetector(AIMNaamObject, PuntGeometrie):
                                              naam='technischeFiche',
                                              label='technische fiche',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rookdetector.technischeFiche',
+                                             usagenote='Klasse uit gebruik sinds versie 2.21.0 ',
+                                             deprecated_version='2.21.0',
                                              definition='De technische fiche van de rookdetector.',
                                              owner=self)
 

@@ -65,6 +65,13 @@ class Brugdekvoeg(AIMNaamObject, LijnGeometrie):
                                        definition='De producent die de brugdekvoeg heeft gemaakt.',
                                        owner=self)
 
+        self._technischeFiche = OTLAttribuut(field=DtcDocument,
+                                             naam='technischeFiche',
+                                             label='technische fiche',
+                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Brugdekvoeg.technischeFiche',
+                                             definition='Verwijzing naar de technische fiche met de productspecifieke eigenschappen en technische specificaties van de brugdekvoeg.',
+                                             owner=self)
+
         self._typeBrugdekvoeg = OTLAttribuut(field=KlTypeBrugdekvoeg,
                                              naam='typeBrugdekvoeg',
                                              label='type brugdekvoeg',
@@ -123,6 +130,15 @@ class Brugdekvoeg(AIMNaamObject, LijnGeometrie):
     @producent.setter
     def producent(self, value):
         self._producent.set_waarde(value, owner=self)
+
+    @property
+    def technischeFiche(self) -> DtcDocumentWaarden:
+        """Verwijzing naar de technische fiche met de productspecifieke eigenschappen en technische specificaties van de brugdekvoeg."""
+        return self._technischeFiche.get_waarde()
+
+    @technischeFiche.setter
+    def technischeFiche(self, value):
+        self._technischeFiche.set_waarde(value, owner=self)
 
     @property
     def typeBrugdekvoeg(self) -> str:

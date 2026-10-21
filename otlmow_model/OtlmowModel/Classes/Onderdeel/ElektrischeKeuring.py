@@ -4,12 +4,13 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
 from ...Classes.Abstracten.KeuringObject import KeuringObject
 from ...BaseClasses.DateField import DateField
+from ...Datatypes.KlKeuringsTypeElektrisch import KlKeuringsTypeElektrisch
 from ...Datatypes.KlKeuringsresultaat import KlKeuringsresultaat
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
 class ElektrischeKeuring(AbstracteAanvullendeGeometrie, KeuringObject):
-    """Een formele controle en beoordeling waarbij wordt nagegaan of de elektrische installatie voldoet aan de geldende wettelijke, normatieve en veiligheidsvereisten, met als doel de elektrische veiligheid en conformiteit te waarborgen."""
+    """Een formele controle en beoordeling waarbij wordt nagegaan of de elektrische installatie voldoet aan de geldende wettelijke,normatieve en veiligheidsvereisten,met als doel de elektrische veiligheid en conformiteit te waarborgen."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ElektrischeKeuring'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
@@ -29,6 +30,13 @@ class ElektrischeKeuring(AbstracteAanvullendeGeometrie, KeuringObject):
                                        definition='De datum tot en met welke de elektrische keuring als geldig wordt beschouwd, conform de geldende regelgeving of het keuringsverslag, waarna een herkeuring vereist is.',
                                        owner=self)
 
+        self._keuringsType = OTLAttribuut(field=KlKeuringsTypeElektrisch,
+                                          naam='keuringsType',
+                                          label='keuringstype',
+                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ElektrischeKeuring.keuringsType',
+                                          definition='Het type van de elektrische keuring volgens het moment of de aanleiding ervan.',
+                                          owner=self)
+
         self._resultaat = OTLAttribuut(field=KlKeuringsresultaat,
                                        naam='resultaat',
                                        label='resultaat',
@@ -44,6 +52,15 @@ class ElektrischeKeuring(AbstracteAanvullendeGeometrie, KeuringObject):
     @geldigTot.setter
     def geldigTot(self, value):
         self._geldigTot.set_waarde(value, owner=self)
+
+    @property
+    def keuringsType(self) -> str:
+        """Het type van de elektrische keuring volgens het moment of de aanleiding ervan."""
+        return self._keuringsType.get_waarde()
+
+    @keuringsType.setter
+    def keuringsType(self, value):
+        self._keuringsType.set_waarde(value, owner=self)
 
     @property
     def resultaat(self) -> str:

@@ -3,10 +3,11 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlGrondbewerking import KlGrondbewerking
 from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Grondbewerking(AIMObject):
+class Grondbewerking(AIMObject, VlakGeometrie):
     """Omvat de profielbewerkingen en bouwvoorwerkzaamheden voor aanleg van beplaningen, graslanden, wegbermen en grasmatten."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#Grondbewerking'

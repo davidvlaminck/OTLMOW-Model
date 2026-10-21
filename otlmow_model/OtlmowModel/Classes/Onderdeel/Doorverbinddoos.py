@@ -1,13 +1,14 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Behuizing import Behuizing
+from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcAfmetingBxlxhInMm import DtcAfmetingBxlxhInMm, DtcAfmetingBxlxhInMmWaarden
 from ...Datatypes.KlAlgIngressProtectionCode import KlAlgIngressProtectionCode
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
-class Doorverbinddoos(Behuizing, PuntGeometrie):
+class Doorverbinddoos(Behuizing, NaampadObject, PuntGeometrie):
     """Een behuizing waarin kabels aan elkaar gekoppeld worden om over te gaan van het ene naar het andere type of de splitsen of samen te komen. De behuizing is niet voorzien van een deur en kan enkel geopend worden met het geschikte gereedschap."""
 
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Doorverbinddoos'
