@@ -1,2 +1,2 @@
-﻿class CouldNotConvertToCorrectTypeError(Exception):
+class CouldNotConvertToCorrectTypeError(Exception):
     pass

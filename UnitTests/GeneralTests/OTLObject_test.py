@@ -1,4 +1,4 @@
-﻿from datetime import datetime, date, time
+from datetime import datetime, date, time
 from pathlib import Path
 import sys
 import os

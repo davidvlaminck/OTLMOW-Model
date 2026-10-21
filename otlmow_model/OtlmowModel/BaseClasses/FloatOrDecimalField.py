@@ -1,4 +1,4 @@
-﻿import decimal
+import decimal
 import random
 import warnings
 from typing import Optional, Any

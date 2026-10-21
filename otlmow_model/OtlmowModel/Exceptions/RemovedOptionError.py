@@ -1,2 +1,2 @@
-﻿class RemovedOptionError(Exception):
+class RemovedOptionError(Exception):
     pass

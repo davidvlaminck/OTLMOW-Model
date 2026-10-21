@@ -1,4 +1,4 @@
-﻿from abc import ABC
+from abc import ABC
 from .OTLField import OTLField
 
 

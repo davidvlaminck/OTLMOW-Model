@@ -1,19 +1,19 @@
 [
   {
     "date": "2026-10-21",
-    "commit": "338e4f38c",
+    "commit": "1a7a8cb61",
     "metrics": {
       "ruff_issues": 855,
-      "ruff_format_files": -1,
+      "ruff_format_files": 78,
       "mypy_errors": 680,
       "coverage_percent": 73.5,
       "coverage_branch_percent": 54.2,
-      "max_crap": 53.5,
-      "max_complexity": 41,
+      "max_crap": 2554.5,
+      "max_complexity": 51,
       "bandit_high": 0,
       "dead_code": 0,
-      "god_classes": 0,
-      "unparsable_files": 13
+      "god_classes": 2,
+      "unparsable_files": 0
     },
     "ruff_per_rule": {
       "Q000": 193,

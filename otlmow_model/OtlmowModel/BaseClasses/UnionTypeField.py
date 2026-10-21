@@ -1,4 +1,4 @@
-﻿from typing import Any
+from typing import Any
 
 from .OTLField import OTLField
 from ..Exceptions.UnionTypeError import UnionTypeError
