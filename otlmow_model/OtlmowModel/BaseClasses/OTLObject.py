@@ -102,7 +102,8 @@ class OTLObject(object):
                     category=ClassDeprecationWarning,
                 )
 
-    def return_is_otl_object(self) -> bool:
+    @staticmethod
+    def return_is_otl_object() -> bool:
         return True
 
     def clear_value(self, attribute_name: str) -> None:
