@@ -21,37 +21,66 @@ class IntegerField(OTLField):
     @classmethod
     def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[int]:
         if value is None:
-            return None
+            return cls._convert_from_none()
         if isinstance(value, bool):
-            if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned a boolean to a integer datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
-            return value
+            return cls._convert_from_bool(value, log_warnings)
         if isinstance(value, int):
-            return value
+            return cls._convert_from_int(value)
         if isinstance(value, (float, decimal.Decimal)):
-            i = int(value)
-            if value - i != 0:
+            return cls._convert_from_float(value, log_warnings)
+        if isinstance(value, str):
+            return cls._convert_from_str(value, log_warnings)
+        return cls._convert_from_fallback(value)
+
+    @classmethod
+    def _convert_from_none(cls) -> None:
+        return None
+
+    @classmethod
+    def _convert_from_bool(cls, value: bool, log_warnings: bool) -> int:
+        if log_warnings:
+            warnings.warn(category=IncorrectTypeWarning,
+                          message='Assigned a boolean to a integer datatype. '
+                                  'Automatically converted to the correct type. Please change the type')
+        return value
+
+    @classmethod
+    def _convert_from_int(cls, value: int) -> int:
+        return value
+
+    @classmethod
+    def _convert_from_float(cls, value, log_warnings: bool) -> int:
+        i = int(value)
+        if value - i != 0:
+            raise CouldNotConvertToCorrectTypeError(
+                f'{value} could not be converted to correct type (implied by {cls.__name__})')
+        if log_warnings:
+            warnings.warn(category=IncorrectTypeWarning,
+                          message='Assigned a float/decimal to a integer datatype. '
+                                  'Automatically converted to the correct type. Please change the type')
+        return i
+
+    @classmethod
+    def _convert_from_str(cls, value: str, log_warnings: bool) -> int:
+        try:
+            float_value = float(value)
+            int_value = int(float_value)
+            if int_value != float_value:
                 raise CouldNotConvertToCorrectTypeError(
                     f'{value} could not be converted to correct type (implied by {cls.__name__})')
             if log_warnings:
                 warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned a float/decimal to a integer datatype. '
+                              message='Assigned a string to a integer datatype. '
                                       'Automatically converted to the correct type. Please change the type')
-            return i
+            return int_value
+        except Exception as e:
+            raise CouldNotConvertToCorrectTypeError(
+                f'{value} could not be converted to correct type (implied by {cls.__name__})'
+            ) from e
+
+    @classmethod
+    def _convert_from_fallback(cls, value: Any) -> int:
         try:
-            if isinstance(value, str):
-                float_value = float(value)
-                int_value = int(float_value)
-                if int_value != float_value:
-                    raise CouldNotConvertToCorrectTypeError(
-                        f'{value} could not be converted to correct type (implied by {cls.__name__})')
-                if log_warnings:
-                    warnings.warn(category=IncorrectTypeWarning,
-                                  message='Assigned a string to a integer datatype. '
-                                          'Automatically converted to the correct type. Please change the type')
-                return int_value
             return int(value)
         except Exception as e:
             raise CouldNotConvertToCorrectTypeError(
