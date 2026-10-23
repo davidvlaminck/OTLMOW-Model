@@ -9,6 +9,8 @@ Purpose: pin the behaviour of the attribute model that was split out of
 (code_quality/REFACTOR_LOG.md).
 """
 
+import warnings
+
 import pytest
 from otlmow_model.OtlmowModel.BaseClasses.ComplexField import ComplexField
 from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
@@ -270,6 +272,80 @@ def test_deprecation_warning_on_deprecated_attribute():
     attribute = _attr(StringField, 's', deprecated_version='2.13.0')
     with pytest.warns(AttributeDeprecationWarning):
         attribute.set_waarde('x')
+
+
+def test_deprecation_warning_on_deprecated_owner_with_typeuri():
+    class _DeprecatedOwner:
+        typeURI = 'https://example.com#Deprecated'
+        deprecated_version = '2.13.0'
+
+    class _Container:
+        def __init__(self, parent):
+            self._parent = parent
+
+    attribute = _attr(StringField, 'waarde', owner=_Container(_DeprecatedOwner()))
+    with pytest.warns(AttributeDeprecationWarning, match='https://example.com#Deprecated is deprecated'):
+        attribute.set_waarde('x')
+
+
+def test_deprecation_warning_on_deprecated_owner_without_typeuri():
+    class _PlainDeprecatedOwner:
+        deprecated_version = '2.13.0'
+
+    class _Container:
+        def __init__(self, parent):
+            self._parent = parent
+
+    attribute = _attr(StringField, 'waarde', owner=_Container(_PlainDeprecatedOwner()))
+    with pytest.warns(AttributeDeprecationWarning, match='used a class that is deprecated'):
+        attribute.set_waarde('x')
+
+
+def test_deprecation_check_without_owner_does_not_warn():
+    with warnings.catch_warnings():
+        warnings.simplefilter('error')
+        OTLAttribuut._perform_deprecation_check(None)
+
+
+def test_set_waarde_invalid_value_raises_with_the_owner_of_the_attribute():
+    class _OwnerWithoutParent:
+        pass
+
+    attribute = _attr(_InvalidValueField, 'i', owner=_OwnerWithoutParent())
+    with pytest.raises(ValueError, match=r'Could not assign the best effort converted value to _OwnerWithoutParent\.i'):
+        attribute.set_waarde('not-a-number')
+
+
+def test_set_waarde_invalid_value_raises_with_the_parent_of_the_owner():
+    class _Parent:
+        naam = 'parent'
+
+    class _OwnerWithParent:
+        def __init__(self):
+            self._parent = _Parent()
+
+    attribute = _attr(_InvalidValueField, 'i', owner=_OwnerWithParent())
+    with pytest.raises(ValueError, match=r'Could not assign the best effort converted value to parent\.i'):
+        attribute.set_waarde('not-a-number')
+
+
+def test_set_waarde_list_with_a_value_that_is_not_a_list_raises():
+    attribute = _attr(StringField, 's', kardinaliteit_max='*')
+    with pytest.raises(TypeError, match='expecting a list in'):
+        attribute.set_waarde('not-a-list')
+
+
+def test_set_waarde_list_with_too_many_elements_raises():
+    attribute = _attr(StringField, 's', kardinaliteit_max='2')
+    with pytest.raises(ValueError, match='expecting at most 2 element'):
+        attribute.set_waarde(['a', 'b', 'c'])
+
+
+def test_clear_value_complex_attribute_without_value_creates_one():
+    attribute = _attr(_DtcDoc, 'doc')
+    attribute.clear_value()
+    assert attribute.waarde is not None
+    assert attribute.waarde._bestandsnaam.mark_to_be_cleared is True
 
 
 def test_attribute_str_contains_metadata():

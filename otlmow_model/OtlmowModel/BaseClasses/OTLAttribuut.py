@@ -149,11 +149,15 @@ class OTLAttribuut:
     def _clear_complex_value(self) -> None:
         if self.waarde is None:
             self.add_empty_value()
-        items = self.waarde if self.kardinaliteit_max != '1' else [self.waarde]
-        for item in items:
+        for item in self._clearable_items():
             for sub_attr in item:
                 if not sub_attr.readonly:
                     sub_attr.clear_value()
+
+    def _clearable_items(self):
+        if self.kardinaliteit_max != '1':
+            return self.waarde
+        return [self.waarde]
 
     def _perform_cardinality_check(self, owner, value, kardinaliteit_max):
         kardinaliteit_min = int(self.kardinaliteit_min)
@@ -224,44 +228,35 @@ class OTLAttribuut:
         return converted_value
 
     def _raise_invalid_value(self, value, owner) -> None:
+        raise ValueError(self._invalid_value_message(value, owner))
+
+    def _invalid_value_message(self, value, owner) -> str:
         if owner is None and self.owner is not None:
-            if hasattr(self.owner, '_parent') and self.owner._parent is not None:
-                raise ValueError(
-                    f'Could not assign the best effort converted value to {self.owner._parent.naam}.'
-                    f'{self.naam}. Value {value} is not valid (type: {self.field.label})'
-                )
-            else:
-                raise ValueError(
-                    f'Could not assign the best effort converted value to {self.owner.__class__.__name__}.'
-                    f'{self.naam} Value {value} is not valid (type: {self.field.label})'
-                )
-        raise ValueError(
+            return self._invalid_value_message_for_owner(self.owner, value)
+        return (
             f'Could not assign the best effort converted value to {owner.__class__.__name__}.{self.naam} '
             f'Value {value} is not valid (type: {self.field.label})'
         )
 
+    def _invalid_value_message_for_owner(self, owner, value) -> str:
+        if hasattr(owner, '_parent') and owner._parent is not None:
+            return (
+                f'Could not assign the best effort converted value to {owner._parent.naam}.'
+                f'{self.naam}. Value {value} is not valid (type: {self.field.label})'
+            )
+        return (
+            f'Could not assign the best effort converted value to {owner.__class__.__name__}.'
+            f'{self.naam} Value {value} is not valid (type: {self.field.label})'
+        )
+
     @staticmethod
     def _perform_deprecation_check(owner):
-        if owner is not None:
-            if owner.naam == 'waarde':
-                owner = owner.owner._parent
-
-            if hasattr(owner, 'deprecated_version') and owner.deprecated_version != '':
-                if hasattr(owner, 'objectUri'):
-                    warnings.warn(
-                        message=f'{owner.objectUri} is deprecated since version {owner.deprecated_version}',
-                        category=AttributeDeprecationWarning,
-                    )
-                elif hasattr(owner, 'typeURI'):
-                    warnings.warn(
-                        message=f'{owner.typeURI} is deprecated since version {owner.deprecated_version}',
-                        category=AttributeDeprecationWarning,
-                    )
-                else:
-                    warnings.warn(
-                        message=f'used a class that is deprecated since version {owner.deprecated_version}',
-                        category=AttributeDeprecationWarning,
-                    )
+        if owner is None:
+            return
+        owner = _deprecation_owner(owner)
+        if not _is_deprecated(owner):
+            return
+        warnings.warn(message=_deprecation_message(owner), category=AttributeDeprecationWarning)
 
     def __str__(self):
         return (
@@ -326,6 +321,25 @@ class OTLAttribuut:
                     continue
                 a.fill_with_dummy_data()
         return new_value_object
+
+
+def _deprecation_owner(owner):
+    """Return the object that carries the deprecation metadata of an attribute."""
+    if owner.naam == 'waarde':
+        return owner.owner._parent
+    return owner
+
+
+def _is_deprecated(owner) -> bool:
+    return hasattr(owner, 'deprecated_version') and owner.deprecated_version != ''
+
+
+def _deprecation_message(owner) -> str:
+    if hasattr(owner, 'objectUri'):
+        return f'{owner.objectUri} is deprecated since version {owner.deprecated_version}'
+    if hasattr(owner, 'typeURI'):
+        return f'{owner.typeURI} is deprecated since version {owner.deprecated_version}'
+    return f'used a class that is deprecated since version {owner.deprecated_version}'
 
 
 def _clear_other_props_of_union(owner, value) -> None:

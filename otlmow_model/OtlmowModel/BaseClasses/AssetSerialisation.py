@@ -291,11 +291,15 @@ def _propagate_clearing_to_children(attr) -> None:
 def _rdf_entry_for_simple_attribute(attr, options: SerialisationOptions) -> dict[str, Any]:
     if attr.mark_to_be_cleared:
         return {attr.objectUri: attr.field.clearing_value}
-    if options.cast_datetime and attr.field.is_otl_field and attr.field.native_type == datetime:
+    if _needs_datetime_cast(attr, options):
         return {attr.objectUri: _format_rdf_datetime_value(attr.waarde)}
     if _has_options(attr.field):
         return {attr.objectUri: _options_value(attr)}
     return {attr.objectUri: attr.waarde}
+
+
+def _needs_datetime_cast(attr, options: SerialisationOptions) -> bool:
+    return options.cast_datetime and attr.field.is_otl_field and attr.field.native_type == datetime
 
 
 def _format_rdf_datetime_value(waarde):
@@ -310,10 +314,14 @@ def _has_options(field) -> bool:
 
 def _options_value(attr):
     if isinstance(attr.waarde, list):
-        if attr.waarde == [None]:
-            return []
-        return [attr.field.options[list_item].objectUri for list_item in attr.waarde]
+        return _options_list_value(attr)
     return attr.field.options[attr.waarde].objectUri
+
+
+def _options_list_value(attr) -> list[Any]:
+    if attr.waarde == [None]:
+        return []
+    return [attr.field.options[list_item].objectUri for list_item in attr.waarde]
 
 
 def clean_dict(d) -> Optional[dict[str, Any]]:
@@ -343,26 +351,25 @@ def build_string_version(asset, indent: int = 4) -> str:
 def _make_string_version_from_dict(
     d, level: int = 0, indent: int = 4, list_index: int = -1, prefix: str = ''
 ) -> list[Any]:
-    lines = []
-
     if list_index != -1:
         prefix = _index_prefix(prefix, list_index, indent)
 
+    lines = []
     for key in sorted(d):
         if key == 'typeURI':
             continue
-        value = _mark_cleared_value(d[key])
-        if isinstance(value, dict):
-            lines.append(f'{prefix}{key} :')
-            lines.extend(
-                _make_string_version_from_dict(value, level=level + 1, indent=indent, prefix=prefix + ' ' * indent)
-            )
-        elif isinstance(value, list):
-            lines.append(f'{prefix}{key} :')
-            lines.extend(_list_lines(value, level=level, indent=indent, prefix=prefix))
-        else:
-            lines.append(f'{prefix}{key} : {value}')
+        lines.extend(_string_lines_for_entry(key, d[key], level, indent, prefix))
     return lines
+
+
+def _string_lines_for_entry(key: str, value, level: int, indent: int, prefix: str) -> list[Any]:
+    value = _mark_cleared_value(value)
+    if isinstance(value, dict):
+        nested = _make_string_version_from_dict(value, level=level + 1, indent=indent, prefix=prefix + ' ' * indent)
+        return [f'{prefix}{key} :', *nested]
+    if isinstance(value, list):
+        return [f'{prefix}{key} :', *_list_lines(value, level=level, indent=indent, prefix=prefix)]
+    return [f'{prefix}{key} : {value}']
 
 
 def _index_prefix(prefix: str, list_index: int, indent: int) -> str:
@@ -485,23 +492,35 @@ def _set_complex_value(attribute_to_set, value, options: SerialisationOptions) -
 
 def _set_complex_list_value(attribute_to_set, value, options: SerialisationOptions) -> None:
     for index, list_item in enumerate(value):
-        if attribute_to_set.waarde is None or len(attribute_to_set.waarde) <= index:
-            attribute_to_set.add_empty_value()
+        _ensure_list_item_exists(attribute_to_set, index)
 
-        if attribute_to_set.field.waarde_shortcut_applicable and options.waarde_shortcut:  # dte / kwantWrd
+        if _is_shortcut_item(attribute_to_set, options):
             _set_shortcut_item_value(attribute_to_set, index, list_item)
         else:  # complex / union
-            for k, v in list_item.items():
-                set_value_by_dictitem(
-                    attribute_to_set.waarde[index],
-                    k,
-                    v,
-                    waarde_shortcut=options.waarde_shortcut,
-                    rdf=options.rdf,
-                    cast_datetime=options.cast_datetime,
-                    allow_non_otl_conform_attributes=options.allow_non_otl_conform_attributes,
-                    warn_for_non_otl_conform_attributes=options.warn_for_non_otl_conform_attributes,
-                )
+            _set_complex_list_item(attribute_to_set, index, list_item, options)
+
+
+def _ensure_list_item_exists(attribute_to_set, index: int) -> None:
+    if attribute_to_set.waarde is None or len(attribute_to_set.waarde) <= index:
+        attribute_to_set.add_empty_value()
+
+
+def _is_shortcut_item(attribute_to_set, options: SerialisationOptions) -> bool:
+    return attribute_to_set.field.waarde_shortcut_applicable and options.waarde_shortcut
+
+
+def _set_complex_list_item(attribute_to_set, index: int, list_item, options: SerialisationOptions) -> None:
+    for k, v in list_item.items():
+        set_value_by_dictitem(
+            attribute_to_set.waarde[index],
+            k,
+            v,
+            waarde_shortcut=options.waarde_shortcut,
+            rdf=options.rdf,
+            cast_datetime=options.cast_datetime,
+            allow_non_otl_conform_attributes=options.allow_non_otl_conform_attributes,
+            warn_for_non_otl_conform_attributes=options.warn_for_non_otl_conform_attributes,
+        )
 
 
 def _set_shortcut_item_value(attribute_to_set, index: int, list_item) -> None:

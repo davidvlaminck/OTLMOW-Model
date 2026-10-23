@@ -57,7 +57,7 @@ def is_valid_relation_using_relation_uri(relation_uri: str, source: Optional[Rel
     source_typeURI = _require_type_uri(source, source_typeURI, 'source')
     target_typeURI = _require_type_uri(target, target_typeURI, 'target')
 
-    if 'lgc.' in source_typeURI or 'lgc.' in target_typeURI:
+    if _is_legacy(source_typeURI, target_typeURI):
         return True
 
     if source is None:
@@ -74,11 +74,19 @@ def is_valid_relation_using_relation_uri(relation_uri: str, source: Optional[Rel
     if target is None:
         target = dynamic_create_instance_from_uri(class_uri=target_typeURI, model_directory=model_directory)
 
+    return _is_allowed_relation_in_mro(target, relation, relation_uri, source_typeURI, target_typeURI)
+
+
+def _is_legacy(source_typeURI: str, target_typeURI: str) -> bool:
+    return 'lgc.' in source_typeURI or 'lgc.' in target_typeURI
+
+
+def _is_allowed_relation_in_mro(target, relation: dict, relation_uri: str, source_typeURI: str,
+                                target_typeURI: str) -> bool:
     for base in inspect.getmro(type(target)):
         base_type_uri = _get_member(base, 'typeURI')
         if base_type_uri in relation:
             return _is_allowed_relation(relation[base_type_uri], relation_uri, source_typeURI, target_typeURI)
-
     return False
 
 

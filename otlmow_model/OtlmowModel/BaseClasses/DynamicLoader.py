@@ -171,20 +171,32 @@ def _import_module(namespace: str, class_name: str, model_directory: Optional[Pa
     if model_directory is None:
         model_directory = _default_model_directory()
 
-    namespace_path = '' if namespace == '' else f'{get_titlecase_from_ns(namespace)}.'
-    module_path = f'OtlmowModel.Classes.{namespace_path}{class_name}'
+    module_path = _module_path(namespace, class_name)
 
     try:
-        if str(model_directory) not in sys.path:
-            sys.path.insert(1, str(model_directory))
+        _ensure_model_directory_on_path(model_directory)
         return importlib.import_module(module_path)
     except ModuleNotFoundError as e:
-        error = CouldNotCreateInstanceError(
-            f'When dynamically creating an object of class {class_name}, the import failed. '
-        )
-        if model_directory_given:
-            error.message += 'Make sure you are directing to the (parent) directory where OtlmowModel is located in.'
-        raise error from e
+        raise _import_error(class_name, model_directory_given) from e
+
+
+def _module_path(namespace: str, class_name: str) -> str:
+    namespace_path = '' if namespace == '' else f'{get_titlecase_from_ns(namespace)}.'
+    return f'OtlmowModel.Classes.{namespace_path}{class_name}'
+
+
+def _ensure_model_directory_on_path(model_directory: Path) -> None:
+    if str(model_directory) not in sys.path:
+        sys.path.insert(1, str(model_directory))
+
+
+def _import_error(class_name: str, model_directory_given: bool) -> CouldNotCreateInstanceError:
+    error = CouldNotCreateInstanceError(
+        f'When dynamically creating an object of class {class_name}, the import failed. '
+    )
+    if model_directory_given:
+        error.message += 'Make sure you are directing to the (parent) directory where OtlmowModel is located in.'
+    return error
 
 
 def _default_model_directory() -> Path:

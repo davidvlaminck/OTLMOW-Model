@@ -112,6 +112,23 @@ class _Keuzelijst(KeuzelijstField):
     options: ClassVar[dict] = {'a': KeuzelijstWaarde(invulwaarde='a', objectUri='https://example.com#a')}
 
 
+class _KeuzelijstMultiple(KeuzelijstField):
+    options: ClassVar[dict] = {
+        'a': KeuzelijstWaarde(invulwaarde='a', objectUri='https://example.com#a'),
+        'b': KeuzelijstWaarde(invulwaarde='b', objectUri='https://example.com#b'),
+    }
+
+
+class _SimpleList(OTLObject):
+    typeURI = 'https://example.com#SimpleList'
+
+    def __init__(self):
+        super().__init__()
+        self._dts = _attr(DateTimeField, 'dts', owner=self, kardinaliteit_max='*')
+        self._ds = _attr(DateField, 'ds', owner=self, kardinaliteit_max='*')
+        self._tms = _attr(TimeField, 'tms', owner=self, kardinaliteit_max='*')
+
+
 class _Shortcut(OTLObject):
     typeURI = 'https://example.com#Shortcut'
 
@@ -463,3 +480,161 @@ def test_set_value_by_dictitem_rdf_by_uri():
     instance = _Simple()
     set_value_by_dictitem(instance, 'https://example.com#T.s', 'new string', rdf=True)
     assert instance._s.waarde == 'new string'
+
+
+def test_create_dict_omits_a_complex_value_without_content():
+    instance = _Complex()
+    instance._doc.waarde = _DocWaarden()
+
+    d = create_dict_from_asset(instance)
+    assert d == {'typeURI': 'https://example.com#Complex'}
+
+
+def test_rdf_dict_omits_a_complex_value_without_content():
+    instance = _Complex()
+    instance._doc.waarde = _DocWaarden()
+
+    d = create_dict_from_asset(instance, rdf=True)
+    assert d == {'@type': 'https://example.com#Complex'}
+
+
+def test_create_dict_casts_lists_of_dates_times_and_datetimes():
+    instance = _SimpleList()
+    instance._dts.waarde = [datetime(2022, 2, 2, 12, 30, 30)]
+    instance._ds.waarde = [date(2022, 2, 2)]
+    instance._tms.waarde = [time(12, 30, 30)]
+
+    d = create_dict_from_asset(instance, cast_datetime=True)
+    assert d['dts'] == ['2022-02-02T12:30:30']
+    assert d['ds'] == ['2022-02-02']
+    assert d['tms'] == ['12:30:30']
+
+
+def test_rdf_dict_formats_a_list_of_datetimes():
+    instance = _SimpleList()
+    instance._dts.waarde = [datetime(2022, 2, 2, 12, 30, 30)]
+
+    d = create_dict_from_asset(instance, rdf=True, cast_datetime=True)
+    assert d['https://example.com#T.dts'] == ['2022-02-02 12:30:30']
+
+
+def test_create_dict_non_standard_attribute_starting_with_underscore_raises():
+    instance = _Simple()
+    instance._private_attribute = 'x'
+
+    with pytest.raises(ValueError, match='can not start with "_"'):
+        create_dict_from_asset(instance)
+
+
+def test_rdf_dict_with_a_non_standard_attribute():
+    instance = _Simple()
+    instance.non_standard_attribute = 'waarde-2'
+
+    with pytest.warns(NonStandardAttributeWarning):
+        d = create_dict_from_asset(instance, rdf=True)
+    assert d['non_standard_attribute'] == 'waarde-2'
+
+
+def test_rdf_dict_with_a_cleared_simple_attribute():
+    instance = _Simple()
+    instance._i = _attr(IntegerField, 'i', owner=instance, clearing_value=88888888)
+    instance._i.waarde = 1
+    instance._i.mark_to_be_cleared = True
+
+    d = create_dict_from_asset(instance, rdf=True)
+    assert d['https://example.com#T.i'] == 88888888
+
+
+def test_rdf_dict_marks_the_children_of_a_cleared_complex_attribute():
+    instance = _Complex()
+    instance._doc.waarde = _DocWaarden()
+    instance._doc.waarde._bestandsnaam.waarde = 'report.pdf'
+    instance._doc.mark_to_be_cleared = True
+
+    d = create_dict_from_asset(instance, rdf=True)
+    assert d['https://example.com#T.doc'] == {'https://example.com#T.bestandsnaam': '88888888'}
+
+
+def test_rdf_dict_shortcut_with_waarde_shortcut():
+    instance = _Shortcut()
+    instance._kw.add_empty_value()
+    instance._kw.waarde._waarde.waarde = '12.5'
+
+    d = create_dict_from_asset(instance, rdf=True, waarde_shortcut=True)
+    assert d == {'https://example.com#T.kw': '12.5', '@type': 'https://example.com#Shortcut'}
+
+
+def test_create_dict_rdf_keuzelijst_with_a_list_of_options():
+    instance = _Simple()
+    instance._k = _attr(_KeuzelijstMultiple, 'k', owner=instance, kardinaliteit_max='*')
+    instance._k.waarde = ['a', 'b']
+
+    d = create_dict_from_asset(instance, rdf=True)
+    assert d['https://example.com#T.k'] == ['https://example.com#a', 'https://example.com#b']
+
+
+def test_create_dict_rdf_keuzelijst_with_a_list_with_none():
+    instance = _Simple()
+    instance._k = _attr(_KeuzelijstMultiple, 'k', owner=instance, kardinaliteit_max='*')
+    instance._k.waarde = [None]
+
+    d = create_dict_from_asset(instance, rdf=True)
+    assert d['https://example.com#T.k'] == []
+
+
+def test_make_string_version_with_a_nested_dict():
+    d = {'typeURI': 'https://example.com#T', 'nested': {'a': 1}}
+
+    lines = _make_string_version_from_dict(d, level=1, indent=4, prefix='    ')
+    assert lines == ['    nested :', '        a : 1']
+
+
+def test_make_string_version_with_a_list_of_dicts():
+    d = {'typeURI': 'https://example.com#T', 'items': [{'a': 1}, {'b': 2}]}
+
+    lines = _make_string_version_from_dict(d, level=1, indent=4, prefix='    ')
+    assert lines == ['    items :', '    [0] a : 1', '    [1] b : 2']
+
+
+def test_make_string_version_marks_a_float_clearing_value():
+    d = {'typeURI': 'https://example.com#T', 'dec': 88888888.0}
+
+    lines = _make_string_version_from_dict(d, level=1, indent=4, prefix='    ')
+    assert lines == ['    dec : 88888888 <value_marked_to_be_cleared>']
+
+
+def test_make_string_version_truncates_a_list_with_eleven_items():
+    d = {'typeURI': 'https://example.com#T', 'items': [str(n) for n in range(11)]}
+
+    lines = _make_string_version_from_dict(d, level=1, indent=4, prefix='    ')
+    assert '    ...(1 more item)' in lines
+
+
+def test_clean_dict_of_none_is_none():
+    assert clean_dict(None) is None
+
+
+def test_set_value_by_dictitem_complex_list_creates_the_missing_items():
+    instance = _Complex()
+
+    set_value_by_dictitem(instance, 'docs', [{'bestandsnaam': 'a.pdf'}, {'bestandsnaam': 'b.pdf'}])
+    assert len(instance._docs.waarde) == 2
+    assert instance._docs.waarde[1]._bestandsnaam.waarde == 'b.pdf'
+
+
+def test_set_value_by_dictitem_shortcut_list_value():
+    instance = _Shortcut()
+    instance._kws.waarde = []
+    instance._kws.add_empty_value()
+
+    set_value_by_dictitem(instance, 'kws', ['12.5'], waarde_shortcut=True)
+    assert instance._kws.waarde[0]._waarde.waarde == '12.5'
+
+
+def test_set_value_by_dictitem_shortcut_clearing_value_in_a_list():
+    instance = _Shortcut()
+    instance._kws.waarde = []
+    instance._kws.add_empty_value()
+
+    set_value_by_dictitem(instance, 'kws', ['88888888'], waarde_shortcut=True)
+    assert instance._kws.waarde[0]._waarde.mark_to_be_cleared is True

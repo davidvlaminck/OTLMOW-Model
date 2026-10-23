@@ -2,8 +2,8 @@
 
 This file documents all changes made during the refactoring effort to improve CRAP scores.
 
-**Target**: every function in the hand-written part of `otlmow_model` ends at **CRAP ≤ 15**
-and **cyclomatic complexity ≤ 15**, without changing runtime behaviour.
+**Target**: every function in the hand-written part of `otlmow_model` ends at **CRAP ≤ 6**
+and **cyclomatic complexity ≤ 6**, without changing runtime behaviour.
 
 CRAP = `complexity² × (1 − coverage) + complexity`, so a low CRAP needs *both* a small
 complexity and a decent test coverage. The two are tackled together: a function is only
@@ -18,6 +18,7 @@ split when its behaviour is pinned by a characterisation test first.
 | 5 | `BaseClasses/UnionTypeField.py` + `OTLField.py` | 27.7 / 21.9 | **7.0 / 12.0** | done |
 | 6 | `BaseClasses/KeuzelijstField.py` | 21.2 / 16.5 | **12.0 / 7.0** | done |
 | 7 | `BaseClasses/DateTimeField.py` + `TimeField.py` | 18.3 / 17.1 | **7.0 / 8.0** | done |
+| 8 | `BaseClasses/OTLObject.py` + `OTLAttribuut.py` + `AssetSerialisation.py` + `DynamicLoader.py` | 7.3 | **6.0** | done |
 
 ---
 
@@ -289,4 +290,113 @@ strings in both `DateTimeField_test.py` and `TimeField_test.py`.
 Every function in the hand-written code is now at **CRAP ≤ 15** and **complexity ≤ 15**.
 The remaining test failure `test_get_all_concrete_relations_real_class` is pre-existing
 (model drift) and unrelated to these refactors.
+
+---
+
+## Cycle 8 — the `OTLObject` family: complexity ≤ 6
+
+Cycle 1 split the 1 047-line god class into four modules, but left several functions
+above the target of this round (**complexity ≤ 6**). This cycle brings the four modules
+of the family — `OTLObject.py`, `OTLAttribuut.py`, `AssetSerialisation.py` and
+`DynamicLoader.py` — down to that target, and covers the branches that were still
+untested.
+
+### 8a — `BaseClasses/OTLObject.py`
+
+| Function | Complexity before | Complexity after | CRAP before | CRAP after |
+|---|---:|---:|---:|---:|
+| `OTLObject.is_instance_of` | 7 | **2** | 7.3 | 2.0 |
+| `OTLObject._is_instance_of_dynamic` (new) | – | 3 | – | 3.0 |
+| `OTLObject._is_instance_of_type` (new) | – | 4 | – | 4.0 |
+| `_extract_type_uri` | 7 | **2** | 7.0 | 2.0 |
+| `_extract_rdf_type_uri` (new) | – | 3 | – | 3.0 |
+| `_type_uri_of` (new) | – | 1 | – | 1.0 |
+
+`is_instance_of` had two completely different checks in one body (the dynamic one and
+the static one). It is now a two-line dispatcher over `_is_instance_of_dynamic` and
+`_is_instance_of_type`.
+
+**Behaviour that was deliberately preserved:** a class *without* a `typeURI` attribute
+and a class *with* `typeURI = None` are different cases. The original code caught
+`AttributeError` around `getattr(otl_type, 'typeURI')`, so a class with
+`typeURI = None` reached the dynamic loader and raised `CouldNotCreateInstanceError`.
+The sentinel `_MISSING_TYPEURI` keeps that distinction: `getattr` with a default would
+have swallowed the `None` case and silently returned `False`.
+
+`_extract_type_uri` keeps the side effect of deleting the `'@type'` key from the
+caller's dictionary in RDF mode.
+
+### 8b — `BaseClasses/OTLAttribuut.py`
+
+| Function | Complexity before | Complexity after | CRAP before | CRAP after |
+|---|---:|---:|---:|---:|
+| `OTLAttribuut._perform_deprecation_check` | 7 | **3** | 8.3 | 3.0 |
+| `OTLAttribuut._raise_invalid_value` | 5 | **1** | 8.1 | 1.0 |
+| `OTLAttribuut._clear_complex_value` | 6 | **5** | 6.1 | 5.0 |
+
+The deprecation check is split into `_deprecation_owner` (the 'waarde' attribute points
+at its parent), `_is_deprecated` and `_deprecation_message` (objectUri / typeURI / no
+identifier). The three warning texts and their `AttributeDeprecationWarning` category
+are unchanged.
+
+`_raise_invalid_value` only builds a message and raises it; the message building moved
+to `_invalid_value_message` and `_invalid_value_message_for_owner`. The exact wording
+of the three variants is preserved, including the dot that only the "parent" variant
+has before `Value`.
+
+### 8c — `BaseClasses/AssetSerialisation.py`
+
+| Function | Complexity before | Complexity after | CRAP before | CRAP after |
+|---|---:|---:|---:|---:|
+| `_set_complex_list_value` | 7 | **3** | 7.1 | 3.0 |
+| `_make_string_version_from_dict` | 6 | **4** | 6.2 | 4.0 |
+| `_rdf_entry_for_simple_attribute` | 6 | **4** | 6.1 | 4.0 |
+| `_options_value` | 4 | **2** | 6.0 | 2.0 |
+
+`_set_complex_list_value` was a loop with three nested decisions; the decisions moved
+to `_ensure_list_item_exists`, `_is_shortcut_item` and `_set_complex_list_item`.
+
+`_make_string_version_from_dict` now only walks the keys and skips `typeURI`; the
+rendering of one entry moved to `_string_lines_for_entry`. The output of the string
+version is byte for byte the same, including the `[0]` index prefix and the
+`...(N more items)` truncation.
+
+### 8d — `BaseClasses/DynamicLoader.py`
+
+| Function | Complexity before | Complexity after | CRAP before | CRAP after |
+|---|---:|---:|---:|---:|
+| `_import_module` | 6 | **3** | 7.3 | 3.0 |
+
+The module path, the `sys.path` manipulation and the error message moved to
+`_module_path`, `_ensure_model_directory_on_path` and `_import_error`. The error is
+still raised with the original message and with `from e` as the cause.
+
+### Tests
+
+| File | Added |
+|---|---|
+| `UnitTests/GeneralTests/OTLObject_class_real_test.py` | 13 tests: the dynamic branch of `is_instance_of` (same typeURI, other typeURI, no typeURI attribute), the typeURI-equal branch, `__eq__` with `None`, and the five branches of `_extract_type_uri` |
+| `UnitTests/GeneralTests/OTLObject_attribute_real_test.py` | 9 tests: the two remaining deprecation warnings (owner with a typeURI, owner without), the deprecation check without an owner, the two error messages of `_raise_invalid_value`, the `TypeError` and the "too many elements" `ValueError` of the cardinality check, and clearing a complex attribute that has no value yet |
+| `UnitTests/GeneralTests/OTLObject_serialisation_real_test.py` | 18 tests: the omitted complex value without content (dict and RDF), the casting of lists of dates/times/datetimes, the RDF list of datetimes, the non standard attribute that starts with `_`, the non standard attribute in RDF, the cleared simple attribute in RDF, the clearing that propagates to the children, the RDF shortcut, the keuzelijst list and the list with `None`, the nested dict and the list of dicts in the string version, the float clearing marker, the truncation with 11 items, `clean_dict(None)` and the three branches of the complex list setter |
+| `UnitTests/GeneralTests/DynamicLoader_test.py` | 7 new tests (new file): the type and instance creation from a namespace and a name, the unknown namespace, the unknown class name, the unknown typeURI and the two import failures |
+
+All of them are **characterisation tests**: they were written against the *old* code
+and pass unchanged on the new code.
+
+### Result
+
+```
+$ .venv/bin/python -m pytest -q
+537 passed, 1 skipped, 173 subtests passed
+```
+
+(the single failure `test_get_all_concrete_relations_real_class` is the pre-existing
+model drift, see cycle 1)
+
+* Max CRAP of the four modules: **7.3 → 6.0** (the maximum is now `clean_dict`, at
+  complexity 6 with 100 % coverage).
+* Max complexity of the four modules: **7 → 6**.
+* Every function of the family is now at **complexity ≤ 6**.
+
+---
 

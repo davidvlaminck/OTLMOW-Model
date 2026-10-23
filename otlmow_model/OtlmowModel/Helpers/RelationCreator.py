@@ -119,22 +119,13 @@ def create_relation(relation_type: type[RelatieObject], source: Optional[Relatio
     _warn_object_and_type_uri('source', source, source_typeURI)
     _warn_object_and_type_uri('target', target, target_typeURI)
 
-    source_aim_id, target_aim_id = None, None
-    source_is_legacy = source is None and 'lgc.' in source_typeURI
-    target_is_legacy = target is None and 'lgc.' in target_typeURI
-
-    if source is None:
-        source, source_is_legacy, source_aim_id = _instantiate(source_typeURI, source_uuid,
-                                                                model_directory)
-    if target is None:
-        target, target_is_legacy, target_aim_id = _instantiate(target_typeURI, target_uuid,
-                                                                model_directory)
+    source, source_is_legacy, source_aim_id = _resolve_end(
+        source, source_typeURI, source_uuid, model_directory)
+    target, target_is_legacy, target_aim_id = _resolve_end(
+        target, target_typeURI, target_uuid, model_directory)
 
     if not (source_is_legacy or target_is_legacy):
-        valid = is_valid_relation(source=source, target=target, relation_type=relation_type)
-        if not valid:
-            raise CouldNotCreateRelationError(
-                "Can't create an invalid relation_type, please validate relations first")
+        _require_valid_relation(source, target, relation_type)
 
     relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI,
                                                      model_directory=model_directory)
@@ -146,9 +137,7 @@ def create_relation(relation_type: type[RelatieObject], source: Optional[Relatio
                                      source_is_legacy)
     doel_segment = _set_relation_end(relation_type, 'doel', target_aim_id, target, target_typeURI,
                                      target_is_legacy)
-    relation_id = bron_segment + '_-_' + doel_segment
-
-    relation_id = relation_type.__class__.__name__ + '_-_' + relation_id
+    relation_id = relation_type.__class__.__name__ + '_-_' + bron_segment + '_-_' + doel_segment
 
     relation_type.assetId.identificator = relation_id
     relation_type.assetId.toegekendDoor = 'OTLMOW'
@@ -157,6 +146,24 @@ def create_relation(relation_type: type[RelatieObject], source: Optional[Relatio
     relation_type.doel.typeURI = target_typeURI if target_is_legacy else target.typeURI
 
     return relation_type
+
+
+def _resolve_end(obj: Optional[RelationInteractor], typeURI: Optional[str], uuid: Optional[str],
+                 model_directory: Path) -> tuple[RelationInteractor, bool, Optional[str]]:
+    """Return the object, whether it is a legacy object and its aim id."""
+    is_legacy = obj is None and 'lgc.' in typeURI
+    aim_id = None
+    if obj is None:
+        obj, is_legacy, aim_id = _instantiate(typeURI, uuid, model_directory)
+    return obj, is_legacy, aim_id
+
+
+def _require_valid_relation(source: RelationInteractor, target: RelationInteractor,
+                             relation_type: type[RelatieObject]) -> None:
+    valid = is_valid_relation(source=source, target=target, relation_type=relation_type)
+    if not valid:
+        raise CouldNotCreateRelationError(
+            "Can't create an invalid relation_type, please validate relations first")
 
 
 def create_betrokkenerelation(rol: str, source: Optional[RelationInteractor] = None,

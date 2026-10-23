@@ -63,6 +63,8 @@ TYPEURI_KEY = 'typeURI'
 RDF_TYPEURI_KEY = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI'
 TYPEURI_KEYS = {TYPEURI_KEY, RDF_TYPEURI_KEY}
 
+_MISSING_TYPEURI = object()
+
 T = TypeVar('T', bound='OTLObject')
 
 
@@ -170,26 +172,25 @@ class OTLObject(object):
 
     def is_instance_of(self, otl_type: type, dynamic_created: bool = False, model_directory: Optional[Path] = None):
         if dynamic_created:
-            if model_directory is None:
-                model_directory = _default_model_directory()
-            try:
-                otl_type_typeURI = getattr(otl_type, 'typeURI')
-            except AttributeError:
-                return False
-            dynamic_created_type = dynamic_create_type_from_uri(otl_type_typeURI, model_directory=model_directory)
-            return isinstance(self, dynamic_created_type)
+            return self._is_instance_of_dynamic(otl_type, model_directory)
+        return self._is_instance_of_type(otl_type)
 
-        check = isinstance(self, otl_type)
-        if check:
-            return True
-
-        try:
-            otl_type_typeURI = getattr(otl_type, 'typeURI')
-        except AttributeError:
+    def _is_instance_of_dynamic(self, otl_type: type, model_directory: Optional[Path]) -> bool:
+        otl_type_typeURI = _type_uri_of(otl_type)
+        if otl_type_typeURI is _MISSING_TYPEURI:
             return False
+        if model_directory is None:
+            model_directory = _default_model_directory()
+        dynamic_created_type = dynamic_create_type_from_uri(otl_type_typeURI, model_directory=model_directory)
+        return isinstance(self, dynamic_created_type)
 
-        t = type(self)
-        if t.typeURI == otl_type_typeURI:
+    def _is_instance_of_type(self, otl_type: type) -> bool:
+        if isinstance(self, otl_type):
+            return True
+        otl_type_typeURI = _type_uri_of(otl_type)
+        if otl_type_typeURI is _MISSING_TYPEURI:
+            return False
+        if type(self).typeURI == otl_type_typeURI:
             return True
         return issubclass(self.__class__, otl_type)
 
@@ -290,15 +291,29 @@ class OTLObject(object):
 
 
 def _extract_type_uri(input_dict: dict[str, Any], rdf: bool, default_type_uri: str) -> Union[str, None]:
-    if not rdf and TYPEURI_KEY in input_dict:
-        return input_dict[TYPEURI_KEY]
-    if rdf and RDF_TYPEURI_KEY in input_dict:
+    if rdf:
+        return _extract_rdf_type_uri(input_dict, default_type_uri)
+    return input_dict.get(TYPEURI_KEY, default_type_uri)
+
+
+def _extract_rdf_type_uri(input_dict: dict[str, Any], default_type_uri: str) -> Union[str, None]:
+    if RDF_TYPEURI_KEY in input_dict:
         return input_dict[RDF_TYPEURI_KEY]
-    if rdf and '@type' in input_dict:
+    if '@type' in input_dict:
         type_uri = input_dict['@type']
         del input_dict['@type']
         return type_uri
     return default_type_uri
+
+
+def _type_uri_of(otl_type: type) -> Any:
+    """Return the typeURI of a class.
+
+    A class without a typeURI attribute and a class with a typeURI of None are
+    different cases: the first one cannot be resolved, the second one is a
+    value that the dynamic loader has to reject.
+    """
+    return getattr(otl_type, 'typeURI', _MISSING_TYPEURI)
 
 
 def _default_model_directory() -> Path:

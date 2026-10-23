@@ -2,6 +2,7 @@ import logging
 import warnings
 import random
 
+from difflib import get_close_matches
 from typing import Dict, Optional, Any
 
 from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
@@ -31,26 +32,10 @@ class KeuzelijstField(OTLField):
         if not isinstance(value, str):
             raise TypeError(f'{value} is not the correct type. Expecting a string')
         if value not in attribuut.field.options.keys():
-            # Find the closest matches within the options
-            from difflib import get_close_matches
-            closest_matches = get_close_matches(value, attribuut.field.options.keys(), n=5, cutoff=0.9)
-            closest_matches_string = '", "'.join(closest_matches)
-
-            error = InvalidOptionError(
-                f'{value} is not a valid option for {attribuut.naam}, '
-                f'find the valid options using print(meta_info(<object>, attribute="{attribuut.naam}"))\n'
-                f'Did you mean one of these? "{closest_matches_string}"')
-            error.closest_matches = closest_matches
-            raise error
+            raise _invalid_option_error(value, attribuut)
 
         option_value = attribuut.field.options[value]
-        if option_value.status == 'uitgebruik':
-            warnings.warn(message=f'{value} is a deprecated value for {attribuut.naam}, '
-                                  f'please refrain from using this value.',
-                          category=AttributeDeprecationWarning)
-        elif option_value.status == 'verwijderd':
-            logging.error(f'{value} is no longer a valid value for {attribuut.naam}.')
-            raise RemovedOptionError(f'{value} is no longer a valid value for {attribuut.naam}.')
+        _check_option_status(option_value, value, attribuut)
         return True
 
     def __str__(self) -> str:
@@ -75,13 +60,44 @@ deprecated_version: {self.deprecated_version}"""
         if value in field.options.keys():
             return value
 
-        if value.startswith('http'):
-            option = next((o for o in field.options.values() if o.objectUri == value), None)
-            if option is not None:
-                return option.invulwaarde
-        else:
-            option = next((o for o in field.options.values() if o.label == value), None)
-            if option is not None:
-                return option.invulwaarde
+        option = _find_option(value, field)
+        if option is None:
+            return value
+        return option.invulwaarde
 
-        return value
+
+def _find_option(value: str, field) -> Optional[KeuzelijstWaarde]:
+    if value.startswith('http'):
+        return _find_option_by_uri(value, field)
+    return _find_option_by_label(value, field)
+
+
+def _invalid_option_error(value: str, attribuut) -> InvalidOptionError:
+    """Build the error of an option that is not in the list, with the closest matches."""
+    closest_matches = get_close_matches(value, attribuut.field.options.keys(), n=5, cutoff=0.9)
+    closest_matches_string = '", "'.join(closest_matches)
+
+    error = InvalidOptionError(
+        f'{value} is not a valid option for {attribuut.naam}, '
+        f'find the valid options using print(meta_info(<object>, attribute="{attribuut.naam}"))\n'
+        f'Did you mean one of these? "{closest_matches_string}"')
+    error.closest_matches = closest_matches
+    return error
+
+
+def _check_option_status(option_value: KeuzelijstWaarde, value: str, attribuut) -> None:
+    if option_value.status == 'uitgebruik':
+        warnings.warn(message=f'{value} is a deprecated value for {attribuut.naam}, '
+                              f'please refrain from using this value.',
+                      category=AttributeDeprecationWarning)
+    elif option_value.status == 'verwijderd':
+        logging.error(f'{value} is no longer a valid value for {attribuut.naam}.')
+        raise RemovedOptionError(f'{value} is no longer a valid value for {attribuut.naam}.')
+
+
+def _find_option_by_uri(value: str, field) -> Optional[KeuzelijstWaarde]:
+    return next((option for option in field.options.values() if option.objectUri == value), None)
+
+
+def _find_option_by_label(value: str, field) -> Optional[KeuzelijstWaarde]:
+    return next((option for option in field.options.values() if option.label == value), None)

@@ -12,6 +12,7 @@ the dynamic loader were split out (code_quality/REFACTOR_LOG.md).
 import pytest
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import (
     OTLObject,
+    _extract_type_uri,
     dynamic_create_instance_from_uri,
     dynamic_create_type_from_uri,
 )
@@ -20,6 +21,7 @@ from otlmow_model.OtlmowModel.Exceptions.AttributeDeprecationWarning import Attr
 from otlmow_model.OtlmowModel.Exceptions.CouldNotCreateInstanceError import CouldNotCreateInstanceError
 
 KLIMATISATIE_URI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie'
+KABELGOOT_URI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Kabelgoot'
 AIM_OBJECT_TYPEURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI'
 
 
@@ -157,6 +159,66 @@ def test_is_instance_of_without_typeuri():
         pass
 
     assert not _Simple().is_instance_of(_NoTypeUri)
+
+
+def test_is_instance_of_with_equal_typeuri_but_another_class():
+    class _SameTypeUri:
+        typeURI = 'https://example.com#Simple'
+
+    assert _Simple().is_instance_of(_SameTypeUri) is True
+
+
+def test_is_instance_of_dynamic_created_with_the_same_typeuri():
+    klimatisatie = dynamic_create_type_from_uri(KLIMATISATIE_URI)
+    instance = klimatisatie()
+    assert instance.is_instance_of(klimatisatie, dynamic_created=True) is True
+
+
+def test_is_instance_of_dynamic_created_with_another_typeuri():
+    klimatisatie = dynamic_create_type_from_uri(KLIMATISATIE_URI)
+    kabelgoot = dynamic_create_type_from_uri(KABELGOOT_URI)
+    instance = klimatisatie()
+    assert instance.is_instance_of(kabelgoot, dynamic_created=True) is False
+
+
+def test_is_instance_of_dynamic_created_without_typeuri_attribute():
+    class _NoTypeUri:
+        pass
+
+    assert _Simple().is_instance_of(_NoTypeUri, dynamic_created=True) is False
+
+
+def test_eq_with_none_is_false():
+    assert (_Simple() == None) is False  # noqa: E711
+
+
+def test_extract_type_uri_returns_the_typeuri_key():
+    assert _extract_type_uri({'typeURI': KLIMATISATIE_URI}, rdf=False, default_type_uri='x') == KLIMATISATIE_URI
+
+
+def test_extract_type_uri_falls_back_to_the_default():
+    assert _extract_type_uri({}, rdf=False, default_type_uri='x') == 'x'
+
+
+def test_extract_type_uri_rdf_returns_the_rdf_typeuri_key():
+    input_dict = {AIM_OBJECT_TYPEURI: KLIMATISATIE_URI}
+    assert _extract_type_uri(input_dict, rdf=True, default_type_uri='x') == KLIMATISATIE_URI
+    assert AIM_OBJECT_TYPEURI in input_dict
+
+
+def test_extract_type_uri_rdf_removes_the_at_type_key():
+    input_dict = {'@type': KLIMATISATIE_URI}
+    assert _extract_type_uri(input_dict, rdf=True, default_type_uri='x') == KLIMATISATIE_URI
+    assert '@type' not in input_dict
+
+
+def test_extract_type_uri_rdf_falls_back_to_the_default():
+    assert _extract_type_uri({}, rdf=True, default_type_uri='x') == 'x'
+
+
+def test_extract_type_uri_rdf_ignores_the_plain_typeuri_key():
+    input_dict = {'typeURI': KLIMATISATIE_URI}
+    assert _extract_type_uri(input_dict, rdf=True, default_type_uri='x') == 'x'
 
 
 def test_return_is_otl_object():

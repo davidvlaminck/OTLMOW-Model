@@ -74,6 +74,10 @@ class WKTValidator:
                 cls.validate_coords_list(coords, geo_type)
                 for coords in coords_list
             )
+        return cls._validate_coords_for_level_3(coords_list, geo_type)
+
+    @classmethod
+    def _validate_coords_for_level_3(cls, coords_list: list, geo_type: str) -> bool:
         for coords in coords_list:
             for coords2 in coords:
                 if not cls.validate_coords_list(coords2, geo_type):
@@ -95,19 +99,22 @@ class WKTValidator:
         if len(coords_list) < min_point:
             return False
 
-        for point in coords_list:
-            if geo_type.endswith(' Z') and len(point) != len_point:
-                return False
-            if not geo_type.endswith(' Z') and len(point) != len_point:
-                return False
+        return all(cls._point_is_valid(point, len_point) for point in coords_list)
 
-            val_0 = point[0]
-            if val_0 < 14637.2 or val_0 > 291015.3:
-                return False
-            val_1 = point[1]
-            if val_1 < 22608.2 or val_1 > 246424.3:
-                return False
-            if len_point == 3 and point[2] > 700:
-                return False
+    @classmethod
+    def _point_is_valid(cls, point, len_point: int) -> bool:
+        if len(point) != len_point:
+            return False
+        if not cls._x_is_valid(point[0]):
+            return False
+        if not cls._y_is_valid(point[1]):
+            return False
+        return not (len_point == 3 and point[2] > 700)
 
-        return True
+    @classmethod
+    def _x_is_valid(cls, value) -> bool:
+        return not (value < 14637.2 or value > 291015.3)
+
+    @classmethod
+    def _y_is_valid(cls, value) -> bool:
+        return not (value < 22608.2 or value > 246424.3)

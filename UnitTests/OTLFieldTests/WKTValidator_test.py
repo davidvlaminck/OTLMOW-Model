@@ -69,3 +69,22 @@ def test_validate_wkt_y_out_of_range_is_invalid():
 def test_validate_wkt_z_too_high_is_invalid():
     assert not WKTValidator.validate_wkt("POINT Z (200001 200002 999)")
 
+
+def test_validate_wkt_multipolygon_with_an_invalid_inner_ring_is_invalid():
+    assert not WKTValidator.validate_wkt(
+        "MULTIPOLYGON (((200010 200020, 200030 200040, 200050 200060, 200010 200020), "
+        "(200110 999999, 200130 200140, 200150 200160, 200110 999999)))")
+
+
+def test_validate_coords_list_with_too_few_points_is_invalid():
+    assert WKTValidator.validate_coords_list([(200001.0, 200002.0)], 'LINESTRING') is False
+
+
+def test_validate_coords_list_with_a_wrong_number_of_coordinates_is_invalid():
+    assert WKTValidator.validate_coords_list([(200001.0, 200002.0, 3.0)], 'POINT') is False
+    assert WKTValidator.validate_coords_list([(200001.0, 200002.0)], 'POINT Z') is False
+
+
+def test_validate_coords_list_with_an_x_out_of_range_is_invalid():
+    assert WKTValidator.validate_coords_list([(999999.0, 200002.0)], 'POINT') is False
+

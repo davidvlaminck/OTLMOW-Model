@@ -2,11 +2,13 @@ import base64
 import warnings
 from collections import defaultdict
 from pathlib import Path
-from typing import Iterable, List, Dict
+from typing import Iterable, List, Dict, Optional
 
 from ..BaseClasses.OTLObject import OTLObject, create_dict_from_asset, dynamic_create_instance_from_ns_and_name
 from ..Helpers.GenericHelper import validate_guid
 from ..Helpers.generated_lists import get_hardcoded_relation_dict
+
+_MISSING_PROPERTY = object()
 
 
 def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict:
@@ -25,25 +27,35 @@ def print_overview_assets(objects: Iterable[OTLObject]) -> None:
 def remove_duplicates_in_iterable_based_on_property(iterable: Iterable[OTLObject], property_name: str) -> []:
     d = {}
     for asset in iterable:
-        item = asset
-        last = property_name
-        while '.' in last:
-            first = last.split('.')[0]
-            last = last.split('.', 1)[1]
-            if hasattr(item, first):
-                item = getattr(item, first)
-                if isinstance(item, list):
-                    raise NotImplementedError(
-                        "can't use remove_duplicates_in_iterable_based_on_property() when the property value is a list")
-        if hasattr(item, last):
-            item_prop = getattr(item, last)
-            if isinstance(item_prop, list):
+        item_prop = _property_value(asset, property_name)
+        if item_prop is _MISSING_PROPERTY:
+            continue
+        d.setdefault(str(item_prop), asset)
+    return list(d.values())
+
+
+def _property_value(asset, property_name: str):
+    """Return the value of a (dot notation) property of an asset.
+
+    Returns ``_MISSING_PROPERTY`` when the asset does not have the property.
+    """
+    item = asset
+    last = property_name
+    while '.' in last:
+        first = last.split('.')[0]
+        last = last.split('.', 1)[1]
+        if hasattr(item, first):
+            item = getattr(item, first)
+            if isinstance(item, list):
                 raise NotImplementedError(
                     "can't use remove_duplicates_in_iterable_based_on_property() when the property value is a list")
-            item_prop_str = str(item_prop)
-            if item_prop_str not in d:
-                d[item_prop_str] = asset
-    return list(d.values())
+    if not hasattr(item, last):
+        return _MISSING_PROPERTY
+    item_prop = getattr(item, last)
+    if isinstance(item_prop, list):
+        raise NotImplementedError(
+            "can't use remove_duplicates_in_iterable_based_on_property() when the property value is a list")
+    return item_prop
 
 
 def compare_two_lists_of_objects_object_level(first_list: List[OTLObject], second_list: List[OTLObject],
@@ -64,13 +76,17 @@ def custom_dict_diff(first_dict, second_dict):
             diff_dict[k] = v
             continue
         if orig_v != v:
-            if isinstance(v, dict) and isinstance(orig_v, dict):
-                result_dict = custom_dict_diff(orig_v, v)
-                if result_dict != {}:
-                    diff_dict[k] = custom_dict_diff(orig_v, v)
-            else:
-                diff_dict[k] = v
+            diff_dict.update(_diff_of_value(orig_v, v, k))
     return diff_dict
+
+
+def _diff_of_value(orig_v, v, key):
+    if isinstance(v, dict) and isinstance(orig_v, dict):
+        result_dict = custom_dict_diff(orig_v, v)
+        if result_dict == {}:
+            return {}
+        return {key: result_dict}
+    return {key: v}
 
 
 def compare_two_lists_of_objects_attribute_level(first_list: List[OTLObject], second_list: List[OTLObject],
@@ -83,32 +99,40 @@ def compare_two_lists_of_objects_attribute_level(first_list: List[OTLObject], se
         current_file_path = Path(__file__)
         model_directory = current_file_path.parent.parent.parent
 
-    l1 = list(map(lambda x: create_dict_from_asset(x), first_list))
-    verify_asset_id_is_unique_within_list(l1)
-
-    l2 = list(map(lambda x: create_dict_from_asset(x), second_list))
-    verify_asset_id_is_unique_within_list(l2)
+    l1 = _dict_list_of(first_list)
+    l2 = _dict_list_of(second_list)
 
     l1_dict_list = {dict_asset['assetId']['identificator']: dict_asset for dict_asset in l1}
-    l1_dict_list_keys = list(l1_dict_list.keys())
 
     diff_list = []
     for d in l2:
-        asset_id = d['assetId']['identificator']
-        if asset_id not in l1_dict_list_keys:
-            diff_list.append(d)
-            continue
-        orig_dict = l1_dict_list[asset_id]
-        if orig_dict == d:
-            continue
-        diff_dict = custom_dict_diff(orig_dict, d)
-        if diff_dict == {}:
-            continue
-        diff_dict['assetId'] = {'identificator': asset_id}
-        diff_dict['typeURI'] = orig_dict['typeURI']
-        diff_list.append(diff_dict)
+        diff = _diff_for_asset(d, l1_dict_list)
+        if diff is not None:
+            diff_list.append(diff)
 
-    return list(map(lambda x: OTLObject.from_dict(x, model_directory), diff_list))
+    return [OTLObject.from_dict(x, model_directory) for x in diff_list]
+
+
+def _dict_list_of(objects: list[OTLObject]) -> list[dict]:
+    dict_list = [create_dict_from_asset(x) for x in objects]
+    verify_asset_id_is_unique_within_list(dict_list)
+    return dict_list
+
+
+def _diff_for_asset(asset_dict: dict, l1_dict_list: dict):
+    """Return the difference of one asset, or None when there is none."""
+    asset_id = asset_dict['assetId']['identificator']
+    if asset_id not in l1_dict_list:
+        return asset_dict
+    orig_dict = l1_dict_list[asset_id]
+    if orig_dict == asset_dict:
+        return None
+    diff_dict = custom_dict_diff(orig_dict, asset_dict)
+    if diff_dict == {}:
+        return None
+    diff_dict['assetId'] = {'identificator': asset_id}
+    diff_dict['typeURI'] = orig_dict['typeURI']
+    return diff_dict
 
 
 def verify_asset_id_is_unique_within_list(dict_list: List[Dict]) -> bool:
@@ -164,14 +188,25 @@ def is_aim_id(aim_id: str, model_directory: Path = None) -> bool:
     if not short_uri_encoded:
         return False
 
+    short_uri = _decode_short_uri(short_uri_encoded)
+    if short_uri is None:
+        return False
+    return _is_known_short_uri(short_uri, model_directory)
+
+
+def _decode_short_uri(short_uri_encoded: str) -> Optional[str]:
+    """Decode the base64 encoded short uri, or None when it is not ascii."""
     if missing_padding := len(short_uri_encoded) % 4:
         short_uri_encoded += '=' * (4 - missing_padding)
 
     short_uri_bytes = base64.b64decode(short_uri_encoded)
     try:
-        short_uri = short_uri_bytes.decode('ascii')
+        return short_uri_bytes.decode('ascii')
     except UnicodeDecodeError:
-        return False
+        return None
+
+
+def _is_known_short_uri(short_uri: str, model_directory: Path) -> bool:
     try:
         if short_uri == 'purl:Agent':
             return True
