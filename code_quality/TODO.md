@@ -1,0 +1,4 @@
+3. File-based import (no sys.path, no collisions)
+Replace importlib.import_module(module_path) with importlib.util.spec_from_file_location(unique_name, file_path) where unique_name = f"_otlmow_{hash(model_directory)}_{namespace}_{class_name}" and file_path = model_directory/OtlmowModel/Classes/.../{class_name}.py.
+Cache keyed by (model_directory, namespace, class_name) → module. Relative imports inside the module resolve via the module's __package__/__spec__.parent; set __package__ correctly and insert the unique package aliases into sys.modules so ...BaseClasses resolves (reuse conftest aliasing pattern per unique name).
+Fully deterministic, supports multiple models in one process, no sys.path pollution. Cost: more code, must handle package init modules.
