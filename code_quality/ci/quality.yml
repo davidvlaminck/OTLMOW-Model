@@ -53,7 +53,7 @@ jobs:
         # minimum version this package supports.
         # Note: `uv sync` removes tools that are not in the lock file, so install
         # the quality tools explicitly instead of using `uv sync`.
-        run: uv pip install ruff==0.17.0 "mypy<2" radon bandit vulture
+        run: uv pip install ruff==0.17.0 "mypy<2" radon bandit vulture pip-audit
 
       - name: Tests and coverage
         env:
@@ -82,6 +82,14 @@ jobs:
       - name: Security
         continue-on-error: true
         run: uv run bandit -q -r otlmow_model
+
+      - name: Dependency audit
+        continue-on-error: true
+        # pip-audit is the only tool that can see whether a pinned dependency
+        # carries a known CVE; bandit scans the source and cannot. It audits
+        # the local environment (--local) because pip-audit does not understand
+        # uv lock files.
+        run: uv run pip-audit --local --format json
 
       - name: Dead code
         continue-on-error: true

@@ -1,7 +1,7 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-23",
   "repo": "otlmow_model",
-  "commit": "0597d8b26",
+  "commit": "83664c24b",
   "thresholds": {
     "ruff_issues": 0,
     "ruff_format_files": 0,
@@ -13,124 +13,161 @@
     "bandit_high": 0,
     "dead_code": 0,
     "god_classes": 0,
-    "unparsable_files": 0
+    "unparsable_files": 0,
+    "pip_audit_vulns": 0
   },
   "metrics": {
-    "ruff_issues": 723,
-    "ruff_format_files": 78,
-    "mypy_errors": 669,
+    "ruff_issues": 737,
+    "ruff_format_files": 77,
+    "mypy_errors": 309,
     "coverage_percent": 95.8,
     "coverage_branch_percent": 91.2,
-    "max_crap": 6.0,
-    "max_complexity": 6,
-    "bandit_high": 0,
+    "max_crap": 11.0,
+    "max_complexity": 11,
+    "bandit_high": 1,
     "dead_code": 0,
     "god_classes": 0,
-    "unparsable_files": 0
+    "unparsable_files": 0,
+    "pip_audit_vulns": 95
   },
   "enforced_gates": [],
   "failed_gates": [],
   "all_gates_met": false,
   "lead_target": {
-    "file": "otlmow_model/OtlmowModel/BaseClasses/AssetSerialisation.py",
-    "name": "clean_dict",
+    "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
+    "name": "_import_module",
     "block_type": "function",
-    "complexity": 6,
+    "complexity": 11,
     "coverage": 100.0,
-    "crap": 6.0,
-    "lineno": 327
+    "crap": 11.0,
+    "lineno": 171
   },
   "hotspots": [
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
-      "commits": 58,
-      "lines_changed": 3137,
+      "commits": 60,
+      "lines_changed": 3197,
       "max_complexity": 6,
-      "score": 18822
+      "score": 19182
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/AssetSerialisation.py",
-      "commits": 1,
-      "lines_changed": 549,
+      "commits": 2,
+      "lines_changed": 630,
       "max_complexity": 6,
-      "score": 3294
+      "score": 3780
     },
     {
       "file": "otlmow_model/OtlmowModel/Helpers/RelationCreator.py",
-      "commits": 18,
-      "lines_changed": 477,
+      "commits": 19,
+      "lines_changed": 518,
       "max_complexity": 6,
-      "score": 2862
+      "score": 3108
     },
     {
       "file": "otlmow_model/OtlmowModel/Helpers/OTLObjectHelper.py",
-      "commits": 16,
-      "lines_changed": 343,
+      "commits": 17,
+      "lines_changed": 472,
       "max_complexity": 6,
-      "score": 2058
+      "score": 2832
     },
     {
-      "file": "otlmow_model/OtlmowModel/Helpers/RelationValidator.py",
-      "commits": 12,
-      "lines_changed": 314,
-      "max_complexity": 6,
-      "score": 1884
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/OTLAttribuut.py",
-      "commits": 1,
-      "lines_changed": 362,
-      "max_complexity": 5,
-      "score": 1810
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
+      "commits": 2,
+      "lines_changed": 223,
+      "max_complexity": 11,
+      "score": 2453
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
       "commits": 10,
       "lines_changed": 292,
+      "max_complexity": 8,
+      "score": 2336
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/OTLAttribuut.py",
+      "commits": 2,
+      "lines_changed": 442,
       "max_complexity": 5,
-      "score": 1460
+      "score": 2210
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
       "commits": 13,
       "lines_changed": 301,
-      "max_complexity": 4,
-      "score": 1204
+      "max_complexity": 7,
+      "score": 2107
     },
     {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/MetaInfo.py",
-      "commits": 9,
-      "lines_changed": 179,
+      "file": "otlmow_model/OtlmowModel/Helpers/RelationValidator.py",
+      "commits": 13,
+      "lines_changed": 326,
       "max_complexity": 6,
-      "score": 1074
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/KeuzelijstField.py",
-      "commits": 11,
-      "lines_changed": 163,
-      "max_complexity": 6,
-      "score": 978
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "commits": 1,
-      "lines_changed": 191,
-      "max_complexity": 5,
-      "score": 955
+      "score": 1956
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
+      "commits": 12,
+      "lines_changed": 276,
+      "max_complexity": 7,
+      "score": 1932
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/MetaInfo.py",
+      "commits": 10,
+      "lines_changed": 302,
+      "max_complexity": 6,
+      "score": 1812
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/KeuzelijstField.py",
+      "commits": 12,
+      "lines_changed": 233,
+      "max_complexity": 6,
+      "score": 1398
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
+      "commits": 9,
+      "lines_changed": 201,
+      "max_complexity": 6,
+      "score": 1206
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
       "commits": 11,
-      "lines_changed": 175,
-      "max_complexity": 5,
-      "score": 875
+      "lines_changed": 192,
+      "max_complexity": 6,
+      "score": 1152
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/WKTValidator.py",
-      "commits": 5,
-      "lines_changed": 171,
+      "commits": 6,
+      "lines_changed": 208,
       "max_complexity": 5,
-      "score": 855
+      "score": 1040
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
+      "commits": 10,
+      "lines_changed": 122,
+      "max_complexity": 8,
+      "score": 976
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/Helpers/GenericHelper.py",
+      "commits": 9,
+      "lines_changed": 176,
+      "max_complexity": 5,
+      "score": 880
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/OTLField.py",
+      "commits": 11,
+      "lines_changed": 214,
+      "max_complexity": 4,
+      "score": 856
     },
     {
       "file": "otlmow_model/OtlmowModel/Helpers/generated_lists.py",
@@ -138,13 +175,6 @@
       "lines_changed": 211,
       "max_complexity": 4,
       "score": 844
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
-      "commits": 8,
-      "lines_changed": 128,
-      "max_complexity": 6,
-      "score": 768
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/LegacyObject.py",
@@ -161,32 +191,18 @@
       "score": 684
     },
     {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
+      "file": "otlmow_model/OtlmowModel/BaseClasses/UnionTypeField.py",
       "commits": 10,
-      "lines_changed": 122,
+      "lines_changed": 103,
       "max_complexity": 5,
-      "score": 610
+      "score": 515
     },
     {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/OTLField.py",
-      "commits": 10,
-      "lines_changed": 152,
-      "max_complexity": 4,
-      "score": 608
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/Helpers/GenericHelper.py",
-      "commits": 8,
-      "lines_changed": 119,
-      "max_complexity": 5,
-      "score": 595
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
-      "commits": 10,
-      "lines_changed": 124,
-      "max_complexity": 4,
-      "score": 496
+      "file": "otlmow_model/OtlmowModel/BaseClasses/RelationInteractor.py",
+      "commits": 6,
+      "lines_changed": 84,
+      "max_complexity": 6,
+      "score": 504
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/WKTField.py",
@@ -194,20 +210,6 @@
       "lines_changed": 90,
       "max_complexity": 5,
       "score": 450
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/UnionTypeField.py",
-      "commits": 9,
-      "lines_changed": 66,
-      "max_complexity": 5,
-      "score": 330
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/RelationInteractor.py",
-      "commits": 5,
-      "lines_changed": 51,
-      "max_complexity": 6,
-      "score": 306
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/URIField.py",
@@ -13771,29 +13773,31 @@
     "RUF013": 14,
     "PLR2004": 13,
     "UP006": 12,
-    "W292": 10,
+    "W292": 12,
     "PLR0913": 9,
     "PLR0917": 9,
     "UP035": 9,
     "PTH123": 8,
+    "F401": 7,
     "F403": 7,
     "UP004": 7,
-    "F401": 6,
     "LOG015": 6,
+    "PLC0415": 6,
     "C417": 5,
+    "TRY300": 5,
     "S602": 4,
     "SIM118": 4,
-    "TRY300": 4,
+    "B010": 3,
     "E401": 3,
+    "F841": 3,
     "N806": 3,
-    "PLC0415": 3,
     "PLR0915": 3,
     "T201": 3,
     "W291": 3,
     "A002": 2,
-    "B010": 2,
+    "B904": 2,
     "E722": 2,
-    "F841": 2,
+    "PLR0911": 2,
     "PLW0108": 2,
     "PLW0602": 2,
     "PT012": 2,
@@ -13806,13 +13810,13 @@
     "TRY301": 2,
     "UP009": 2,
     "ARG002": 1,
-    "B904": 1,
     "BLE001": 1,
     "E712": 1,
     "F405": 1,
     "F541": 1,
     "G004": 1,
     "N801": 1,
+    "N813": 1,
     "PERF203": 1,
     "PIE790": 1,
     "PLC0207": 1,
@@ -13824,12 +13828,58 @@
     "RUF010": 1,
     "RUF015": 1,
     "RUF043": 1,
+    "S324": 1,
     "SIM201": 1,
     "TRY004": 1,
     "UP008": 1,
     "W293": 1
   },
   "crap": [
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
+      "name": "_import_module",
+      "block_type": "function",
+      "complexity": 11,
+      "coverage": 100.0,
+      "crap": 11.0,
+      "lineno": 171
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
+      "name": "convert_to_correct_type",
+      "block_type": "method",
+      "complexity": 8,
+      "coverage": 100.0,
+      "crap": 8.0,
+      "lineno": 22
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
+      "name": "convert_to_correct_type",
+      "block_type": "method",
+      "complexity": 8,
+      "coverage": 93.8,
+      "crap": 8.0,
+      "lineno": 28
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
+      "name": "convert_to_correct_type",
+      "block_type": "method",
+      "complexity": 7,
+      "coverage": 100.0,
+      "crap": 7.0,
+      "lineno": 22
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
+      "name": "convert_to_correct_type",
+      "block_type": "method",
+      "complexity": 7,
+      "coverage": 100.0,
+      "crap": 7.0,
+      "lineno": 30
+    },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/AssetSerialisation.py",
       "name": "clean_dict",
@@ -13838,6 +13888,15 @@
       "coverage": 100.0,
       "crap": 6.0,
       "lineno": 327
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
+      "name": "convert_to_correct_type",
+      "block_type": "method",
+      "complexity": 6,
+      "coverage": 100.0,
+      "crap": 6.0,
+      "lineno": 21
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
@@ -13891,7 +13950,7 @@
       "complexity": 6,
       "coverage": 93.3,
       "crap": 6.0,
-      "lineno": 197
+      "lineno": 198
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/RelationInteractor.py",
@@ -14002,31 +14061,13 @@
       "lineno": 263
     },
     {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
-      "name": "convert_to_correct_type",
-      "block_type": "method",
-      "complexity": 5,
-      "coverage": 100.0,
-      "crap": 5.0,
-      "lineno": 22
-    },
-    {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
       "name": "dynamic_create_type_from_ns_and_name",
       "block_type": "function",
       "complexity": 5,
       "coverage": 100.0,
       "crap": 5.0,
-      "lineno": 18
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
-      "name": "convert_to_correct_type",
-      "block_type": "method",
-      "complexity": 5,
-      "coverage": 100.0,
-      "crap": 5.0,
-      "lineno": 22
+      "lineno": 20
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/KeuzelijstField.py",
@@ -14102,21 +14143,12 @@
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
-      "name": "_convert_other",
-      "block_type": "method",
-      "complexity": 5,
-      "coverage": 90.0,
-      "crap": 5.0,
-      "lineno": 39
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
       "name": "_convert_string",
       "block_type": "method",
       "complexity": 5,
       "coverage": 100.0,
       "crap": 5.0,
-      "lineno": 76
+      "lineno": 72
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/UnionTypeField.py",
@@ -14179,7 +14211,7 @@
       "complexity": 4,
       "coverage": 62.5,
       "crap": 4.8,
-      "lineno": 107
+      "lineno": 103
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/NonNegIntegerField.py",
@@ -14206,7 +14238,7 @@
       "complexity": 4,
       "coverage": 83.3,
       "crap": 4.1,
-      "lineno": 62
+      "lineno": 74
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/AssetSerialisation.py",
@@ -14362,40 +14394,13 @@
       "lineno": 565
     },
     {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
-      "name": "convert_to_correct_type",
-      "block_type": "method",
-      "complexity": 4,
-      "coverage": 100.0,
-      "crap": 4.0,
-      "lineno": 21
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
-      "name": "convert_to_correct_type",
-      "block_type": "method",
-      "complexity": 4,
-      "coverage": 100.0,
-      "crap": 4.0,
-      "lineno": 30
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
-      "name": "_convert_other",
-      "block_type": "method",
-      "complexity": 4,
-      "coverage": 100.0,
-      "crap": 4.0,
-      "lineno": 41
-    },
-    {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
       "name": "_convert_string",
       "block_type": "method",
       "complexity": 4,
       "coverage": 100.0,
       "crap": 4.0,
-      "lineno": 69
+      "lineno": 65
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
@@ -14404,7 +14409,7 @@
       "complexity": 4,
       "coverage": 100.0,
       "crap": 4.0,
-      "lineno": 95
+      "lineno": 91
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
@@ -14413,7 +14418,16 @@
       "complexity": 4,
       "coverage": 100.0,
       "crap": 4.0,
-      "lineno": 99
+      "lineno": 101
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
+      "name": "_convert_from_str",
+      "block_type": "method",
+      "complexity": 4,
+      "coverage": 100.0,
+      "crap": 4.0,
+      "lineno": 64
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLAttribuut.py",
@@ -14503,7 +14517,7 @@
       "complexity": 4,
       "coverage": 88.9,
       "crap": 4.0,
-      "lineno": 186
+      "lineno": 187
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/RelationInteractor.py",
@@ -14513,15 +14527,6 @@
       "coverage": 87.5,
       "crap": 4.0,
       "lineno": 39
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
-      "name": "convert_to_correct_type",
-      "block_type": "method",
-      "complexity": 4,
-      "coverage": 100.0,
-      "crap": 4.0,
-      "lineno": 28
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/UnionTypeField.py",
@@ -14665,7 +14670,16 @@
       "complexity": 2,
       "coverage": 25.0,
       "crap": 3.7,
-      "lineno": 51
+      "lineno": 47
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
+      "name": "_get_class_dict",
+      "block_type": "function",
+      "complexity": 2,
+      "coverage": 33.3,
+      "crap": 3.2,
+      "lineno": 92
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
@@ -14831,16 +14845,7 @@
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
-      "name": "_convert_other",
-      "block_type": "method",
-      "complexity": 3,
-      "coverage": 100.0,
-      "crap": 3.0,
-      "lineno": 29
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
-      "name": "_convert_string",
+      "name": "_convert_from_str",
       "block_type": "method",
       "complexity": 3,
       "coverage": 100.0,
@@ -14849,30 +14854,21 @@
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
-      "name": "_convert_other",
-      "block_type": "method",
-      "complexity": 3,
-      "coverage": 100.0,
-      "crap": 3.0,
-      "lineno": 35
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
       "name": "validate",
       "block_type": "method",
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 89
+      "lineno": 100
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "name": "_import_module",
+      "name": "_create_type_from_class_dict_entry",
       "block_type": "function",
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 169
+      "lineno": 146
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
@@ -14881,16 +14877,16 @@
       "complexity": 3,
       "coverage": 83.3,
       "crap": 3.0,
-      "lineno": 60
+      "lineno": 48
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
-      "name": "_convert_string",
+      "name": "_convert_from_float",
       "block_type": "method",
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 46
+      "lineno": 52
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
@@ -15052,7 +15048,7 @@
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 110
+      "lineno": 111
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -15061,7 +15057,7 @@
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 154
+      "lineno": 155
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -15070,7 +15066,7 @@
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 177
+      "lineno": 178
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -15079,7 +15075,7 @@
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 298
+      "lineno": 299
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/RelationInteractor.py",
@@ -15106,7 +15102,7 @@
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 102
+      "lineno": 98
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/URIField.py",
@@ -15259,16 +15255,7 @@
       "complexity": 2,
       "coverage": 50.0,
       "crap": 2.5,
-      "lineno": 108
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "name": "_get_class_dict",
-      "block_type": "function",
-      "complexity": 2,
-      "coverage": 60.0,
-      "crap": 2.3,
-      "lineno": 90
+      "lineno": 104
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/AssetSerialisation.py",
@@ -15286,7 +15273,7 @@
       "complexity": 2,
       "coverage": 75.0,
       "crap": 2.1,
-      "lineno": 101
+      "lineno": 97
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLAttribuut.py",
@@ -15439,43 +15426,43 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 57
+      "lineno": 69
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
-      "name": "_convert_datetime",
+      "name": "_convert_from_datetime",
       "block_type": "method",
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 44
+      "lineno": 47
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
-      "name": "_convert_int",
+      "name": "_convert_from_int",
       "block_type": "method",
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 52
+      "lineno": 59
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
-      "name": "_convert_string",
+      "name": "_convert_from_str",
       "block_type": "method",
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 62
+      "lineno": 68
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
-      "name": "_convert_string_with_slashes",
+      "name": "_convert_from_str_with_slashes",
       "block_type": "method",
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 71
+      "lineno": 77
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
@@ -15484,7 +15471,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 82
+      "lineno": 88
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
@@ -15493,7 +15480,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 51
+      "lineno": 47
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
@@ -15502,7 +15489,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 59
+      "lineno": 55
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
@@ -15511,7 +15498,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 86
+      "lineno": 82
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
@@ -15520,7 +15507,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 74
+      "lineno": 76
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
@@ -15529,124 +15516,25 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 122
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "name": "_closest_class_name_matches",
-      "block_type": "function",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 128
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "name": "_create_type_from_class_dict_entry",
-      "block_type": "function",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 144
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "name": "_module_path",
-      "block_type": "function",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 183
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "name": "_ensure_model_directory_on_path",
-      "block_type": "function",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 188
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "name": "_import_error",
-      "block_type": "function",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 193
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
-      "name": "_convert_other",
-      "block_type": "method",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 35
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
-      "name": "_warn_bool_converted",
-      "block_type": "method",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 46
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
-      "name": "_warn_string_converted",
-      "block_type": "method",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 53
+      "lineno": 124
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
-      "name": "_convert_float",
+      "name": "_convert_from_bool",
       "block_type": "method",
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 37
+      "lineno": 40
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
-      "name": "_convert_other",
+      "name": "_convert_from_fallback",
       "block_type": "method",
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 61
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
-      "name": "_warn_bool_converted",
-      "block_type": "method",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 70
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
-      "name": "_warn_float_converted",
-      "block_type": "method",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 77
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
-      "name": "_warn_string_converted",
-      "block_type": "method",
-      "complexity": 2,
-      "coverage": 100.0,
-      "crap": 2.0,
-      "lineno": 84
+      "lineno": 82
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/KeuzelijstField.py",
@@ -15790,7 +15678,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 165
+      "lineno": 166
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -15799,7 +15687,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 172
+      "lineno": 173
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -15808,7 +15696,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 292
+      "lineno": 293
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/RelationInteractor.py",
@@ -15835,7 +15723,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 59
+      "lineno": 55
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
@@ -15844,7 +15732,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 67
+      "lineno": 63
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/URIField.py",
@@ -16060,7 +15948,7 @@
       "complexity": 1,
       "coverage": 50.0,
       "crap": 1.1,
-      "lineno": 69
+      "lineno": 81
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/ComplexField.py",
@@ -16078,7 +15966,7 @@
       "complexity": 1,
       "coverage": 50.0,
       "crap": 1.1,
-      "lineno": 95
+      "lineno": 106
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
@@ -16087,7 +15975,7 @@
       "complexity": 1,
       "coverage": 50.0,
       "crap": 1.1,
-      "lineno": 98
+      "lineno": 109
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
@@ -16096,7 +15984,7 @@
       "complexity": 1,
       "coverage": 50.0,
       "crap": 1.1,
-      "lineno": 118
+      "lineno": 114
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DavieRelatieAttributes.py",
@@ -16168,7 +16056,7 @@
       "complexity": 1,
       "coverage": 50.0,
       "crap": 1.1,
-      "lineno": 71
+      "lineno": 59
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
@@ -16285,7 +16173,7 @@
       "complexity": 1,
       "coverage": 50.0,
       "crap": 1.1,
-      "lineno": 111
+      "lineno": 107
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/URIField.py",
@@ -16361,12 +16249,84 @@
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
+      "name": "_convert_from_none",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 33
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
+      "name": "_convert_from_bool",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 37
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
+      "name": "_convert_from_int",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 57
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
+      "name": "_convert_from_fallback",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 64
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/BooleanField.py",
       "name": "create_dummy_data",
       "block_type": "method",
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 73
+      "lineno": 85
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
+      "name": "_convert_from_none",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 38
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
+      "name": "_convert_from_bool",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 42
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
+      "name": "_convert_from_date",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 55
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
+      "name": "_convert_from_fallback",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 95
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
@@ -16375,7 +16335,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 102
+      "lineno": 113
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateField.py",
@@ -16384,7 +16344,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 109
+      "lineno": 120
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
@@ -16393,7 +16353,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 122
+      "lineno": 118
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py",
@@ -16402,7 +16362,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 129
+      "lineno": 125
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DavieRelatieAttributes.py",
@@ -16420,7 +16380,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 39
+      "lineno": 41
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
@@ -16429,7 +16389,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 60
+      "lineno": 62
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
@@ -16438,16 +16398,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 132
-    },
-    {
-      "file": "otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py",
-      "name": "_default_model_directory",
-      "block_type": "function",
-      "complexity": 1,
-      "coverage": 100.0,
-      "crap": 1.0,
-      "lineno": 202
+      "lineno": 134
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py",
@@ -16456,7 +16407,25 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 68
+      "lineno": 56
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
+      "name": "_convert_from_none",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 36
+    },
+    {
+      "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
+      "name": "_convert_from_int",
+      "block_type": "method",
+      "complexity": 1,
+      "coverage": 100.0,
+      "crap": 1.0,
+      "lineno": 48
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/IntegerField.py",
@@ -16627,7 +16596,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 107
+      "lineno": 108
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -16636,7 +16605,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 118
+      "lineno": 119
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -16645,7 +16614,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 159
+      "lineno": 160
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -16654,7 +16623,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 162
+      "lineno": 163
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -16663,7 +16632,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 258
+      "lineno": 259
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -16672,7 +16641,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 308
+      "lineno": 309
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/OTLObject.py",
@@ -16681,7 +16650,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 318
+      "lineno": 319
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/RelationInteractor.py",
@@ -16699,7 +16668,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 96
+      "lineno": 92
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
@@ -16708,7 +16677,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 115
+      "lineno": 111
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/UnionTypeField.py",
@@ -16896,6 +16865,176 @@
     "count": 0,
     "classes": []
   },
+  "pip_audit": {
+    "available": true,
+    "vulns": 95,
+    "dependencies": 112,
+    "vulnerable": 11,
+    "exit_code": 1,
+    "detail": [
+      {
+        "name": "bleach",
+        "version": "6.3.0",
+        "vulns": [
+          "GHSA-g75f-g53v-794x",
+          "GHSA-gj48-438w-jh9v",
+          "GHSA-8rfp-98v4-mmr6"
+        ]
+      },
+      {
+        "name": "lxml",
+        "version": "6.0.2",
+        "vulns": [
+          "PYSEC-2026-87",
+          "PYSEC-2026-87"
+        ]
+      },
+      {
+        "name": "mistune",
+        "version": "3.2.0",
+        "vulns": [
+          "PYSEC-2026-168",
+          "PYSEC-2026-2651",
+          "PYSEC-2026-2206",
+          "PYSEC-2026-168",
+          "PYSEC-2026-2207",
+          "PYSEC-2026-2652",
+          "PYSEC-2026-2217",
+          "PYSEC-2026-2214",
+          "PYSEC-2026-2215",
+          "PYSEC-2026-2212",
+          "PYSEC-2026-2216",
+          "PYSEC-2026-2213",
+          "PYSEC-2026-2218",
+          "PYSEC-2026-2208",
+          "PYSEC-2026-2211",
+          "PYSEC-2026-2210",
+          "PYSEC-2026-2206",
+          "PYSEC-2026-2209",
+          "PYSEC-2026-2207",
+          "PYSEC-2026-2651",
+          "PYSEC-2026-2652",
+          "PYSEC-2026-2216",
+          "PYSEC-2026-2215",
+          "PYSEC-2026-2210",
+          "PYSEC-2026-2214",
+          "PYSEC-2026-2217",
+          "PYSEC-2026-2218",
+          "PYSEC-2026-2213",
+          "PYSEC-2026-2211"
+        ]
+      },
+      {
+        "name": "nbconvert",
+        "version": "7.16.6",
+        "vulns": [
+          "PYSEC-2026-1691",
+          "PYSEC-2026-2230",
+          "PYSEC-2026-2229",
+          "PYSEC-2026-1691",
+          "PYSEC-2026-2230",
+          "PYSEC-2026-2229"
+        ]
+      },
+      {
+        "name": "pip",
+        "version": "25.1.1",
+        "vulns": [
+          "PYSEC-2026-1795",
+          "PYSEC-2026-1796",
+          "PYSEC-2026-2875",
+          "PYSEC-2026-2876",
+          "PYSEC-2026-196",
+          "PYSEC-2026-1795",
+          "PYSEC-2026-1796",
+          "PYSEC-2026-196",
+          "PYSEC-2026-2875",
+          "PYSEC-2026-2876",
+          "PYSEC-2026-3721",
+          "PYSEC-2026-3721"
+        ]
+      },
+      {
+        "name": "pyarrow",
+        "version": "23.0.0",
+        "vulns": [
+          "PYSEC-2026-113",
+          "PYSEC-2026-113"
+        ]
+      },
+      {
+        "name": "pygments",
+        "version": "2.19.2",
+        "vulns": [
+          "PYSEC-2026-2987",
+          "PYSEC-2026-2987"
+        ]
+      },
+      {
+        "name": "pytest",
+        "version": "8.4.1",
+        "vulns": [
+          "PYSEC-2026-1845",
+          "PYSEC-2026-1845"
+        ]
+      },
+      {
+        "name": "soupsieve",
+        "version": "2.8.3",
+        "vulns": [
+          "PYSEC-2026-3072",
+          "PYSEC-2026-3071",
+          "PYSEC-2026-3072",
+          "PYSEC-2026-3071",
+          "PYSEC-2026-4170",
+          "PYSEC-2026-4171"
+        ]
+      },
+      {
+        "name": "tornado",
+        "version": "6.5.1",
+        "vulns": [
+          "PYSEC-2026-2287",
+          "PYSEC-2026-140",
+          "PYSEC-2026-2287",
+          "PYSEC-2026-140",
+          "PYSEC-2026-3388",
+          "PYSEC-2026-3387",
+          "PYSEC-2026-3389",
+          "PYSEC-2025-266",
+          "PYSEC-2025-265",
+          "PYSEC-2025-267",
+          "PYSEC-2026-2287",
+          "PYSEC-2026-3387",
+          "PYSEC-2026-3388",
+          "PYSEC-2026-3389",
+          "PYSEC-2025-265",
+          "PYSEC-2025-267",
+          "PYSEC-2025-266",
+          "PYSEC-2026-3928",
+          "GHSA-pw6j-qg29-8w7f",
+          "GHSA-chx6-46f5-w4vp",
+          "GHSA-c2m8-h5v5-343r",
+          "GHSA-3hv7-mjh2-fv65",
+          "GHSA-8423-8fgw-73vq"
+        ]
+      },
+      {
+        "name": "uv",
+        "version": "0.7.19",
+        "vulns": [
+          "PYSEC-2026-2001",
+          "PYSEC-2026-2295",
+          "PYSEC-2026-2001",
+          "PYSEC-2026-2295",
+          "PYSEC-2026-4321",
+          "GHSA-w476-p2h3-79g9",
+          "GHSA-pjjw-68hj-v9mw",
+          "GHSA-4gg8-gxpx-9rph"
+        ]
+      }
+    ]
+  },
   "excluded": [
     "otlmow_model/OtlmowModel/Classes",
     "otlmow_model/OtlmowModel/Datatypes",
@@ -16911,7 +17050,7 @@
     },
     {
       "group": "hand-written",
-      "statements": 2313,
+      "statements": 2317,
       "line_percent": 95.8,
       "branches": 816,
       "branch_percent": 91.2
@@ -16926,6 +17065,7 @@
     "bandit": true,
     "vulture": true,
     "radon": true,
-    "pytest": true
+    "pytest": true,
+    "pip-audit": true
   }
 }

@@ -48,6 +48,7 @@ DEFAULT_THRESHOLDS = {
     'dead_code': 0,
     'god_classes': 0,
     'unparsable_files': 0,
+    'pip_audit_vulns': 0,
 }
 
 # Generated trees of this repository. They are rewritten by the daily
@@ -77,6 +78,7 @@ GATES = {
     'dead-code': ('dead_code', False),
     'god-classes': ('god_classes', False),
     'radon-parse': ('unparsable_files', False),
+    'pip-audit': ('pip_audit_vulns', False),
 }
 
 # The tool that produces the metric of a gate. A gate whose tool is missing
@@ -93,7 +95,11 @@ GATE_TOOLS = {
     'dead-code': 'vulture',
     'god-classes': 'ast',
     'radon-parse': 'radon',
+    'pip-audit': 'pip-audit',
 }
+
+# Maximum number of CVE identifiers shown per package in the report.
+MAX_VULN_DISPLAY = 8
 
 
 def _run(command: list[str], cwd: Path | str = REPO_ROOT, env: dict[str, str] | None = None) -> tuple[int, str]:
@@ -103,6 +109,21 @@ def _run(command: list[str], cwd: Path | str = REPO_ROOT, env: dict[str, str] | 
     except FileNotFoundError:
         return 127, ''
     return completed.returncode, completed.stdout + completed.stderr
+
+
+def _run_stdout(command: list[str], cwd: Path | str = REPO_ROOT, env: dict[str, str] | None = None) -> tuple[int, str]:
+    """Run a command and return its exit code and stdout only.
+
+    Some tools print a human summary to stderr (pip-audit prints "Found N
+    known vulnerabilities in M packages"). Combining stdout and stderr breaks
+    the JSON parsers of every tool that has a `--format json` flag, because the
+    stderr line is not valid JSON.
+    """
+    try:
+        completed = subprocess.run(command, cwd=cwd, capture_output=True, text=True, check=False, env=env)
+    except FileNotFoundError:
+        return 127, ''
+    return completed.returncode, completed.stdout
 
 
 def _tool(name: str) -> list[str] | None:
@@ -343,6 +364,64 @@ def run_vulture(source: str, excludes: tuple[str, ...] = ()) -> dict[str, Any]:
     return {'available': True, 'items': len(items), 'exit_code': code, 'sample': items[:20]}
 
 
+def run_pip_audit() -> dict[str, Any]:
+    """Count known CVEs in the locked dependencies.
+
+    pip-audit audits the environment (or a lock file) against the OSV database.
+    It is the only tool that catches dependency vulnerabilities; bandit scans
+    the source for unsafe calls but cannot see whether a pinned dependency is
+    itself vulnerable.
+
+    The audit runs against the local environment (`--local`): `pip-audit
+    --locked` only understands pip-style lock files, and this repository is
+    managed by `uv`, whose lock file is `uv.lock`. Auditing the environment
+    covers every installed dependency, including the ones the tests exercise.
+    """
+    command = _tool('pip-audit')
+    if command is None:
+        return {'available': False, 'vulns': 0, 'dependencies': 0, 'vulnerable': 0}
+    audit_command = [
+        *command,
+        '--local',
+        '--format',
+        'json',
+    ]
+    code, output = _run_stdout(audit_command)
+    if code not in (0, 1):
+        # A non-zero, non-one exit means the audit could not run at all.
+        return {
+            'available': True,
+            'vulns': 0,
+            'dependencies': 0,
+            'vulnerable': 0,
+            'error': output.strip()[:500],
+        }
+    try:
+        data = json.loads(output or '{}')
+    except json.JSONDecodeError:
+        return {
+            'available': True,
+            'vulns': 0,
+            'dependencies': 0,
+            'vulnerable': 0,
+            'error': output.strip()[:500],
+        }
+    deps = data.get('dependencies', [])
+    vulnerable = [dep for dep in deps if dep.get('vulns')]
+    vuln_count = sum(len(dep.get('vulns', [])) for dep in vulnerable)
+    return {
+        'available': True,
+        'vulns': vuln_count,
+        'dependencies': len(deps),
+        'vulnerable': len(vulnerable),
+        'exit_code': code,
+        'detail': [
+            {'name': dep['name'], 'version': dep['version'], 'vulns': [v['id'] for v in dep['vulns']]}
+            for dep in vulnerable
+        ][:20],
+    }
+
+
 GOD_CLASS_METHOD_THRESHOLD = 30
 GOD_CLASS_SIZE_THRESHOLD = 30000
 
@@ -492,6 +571,12 @@ def render_thresholds(snapshot: dict[str, Any]) -> list[str]:
             'unparsable_files',
             False,
             f'{metrics["unparsable_files"]}',
+        ),
+        (
+            'known CVEs in locked dependencies',
+            'pip_audit_vulns',
+            False,
+            f'{metrics["pip_audit_vulns"]}',
         ),
     ]
     lines = [
@@ -654,6 +739,34 @@ def render_unparsable(snapshot: dict[str, Any]) -> list[str]:
     return lines
 
 
+def render_pip_audit(snapshot: dict[str, Any]) -> list[str]:
+    """Render the vulnerable dependencies found by pip-audit."""
+    audit = snapshot.get('pip_audit') or {}
+    detail = audit.get('detail') or []
+    if not detail:
+        return []
+    lines = [
+        '## Known CVEs in the locked dependencies',
+        '',
+        '`pip-audit --local --format json` audits the installed environment '
+        'against the OSV database. The count above is the total number of '
+        'vulnerabilities; bandit scans the source and cannot see whether a '
+        'pinned dependency is itself vulnerable. The audit runs against the '
+        'local environment rather than `uv.lock` because pip-audit does not '
+        'understand uv lock files.',
+        '',
+        '| Package | Version | CVEs |',
+        '|---|---|---|',
+    ]
+    lines.extend(
+        f'| `{item["name"]}` | {item["version"]} | {", ".join(item["vulns"][:MAX_VULN_DISPLAY])}'
+        f'{"…" if len(item["vulns"]) > MAX_VULN_DISPLAY else ""} |'
+        for item in detail
+    )
+    lines.append('')
+    return lines
+
+
 def render_lead_target(snapshot: dict[str, Any]) -> list[str]:
     """Render the lead refactor target."""
     lead = snapshot.get('lead_target')
@@ -706,15 +819,17 @@ def render_history(history: list[dict[str, Any]]) -> list[str]:
     lines = [
         '## History',
         '',
-        '| Date | Coverage % | Branch % | Ruff | MyPy | Max CRAP | Max complexity | Result |',
-        '|---|---:|---:|---:|---:|---:|---:|---|',
+        '| Date | Coverage % | Branch % | Ruff | MyPy | Max CRAP | Max complexity | CVEs | Result |',
+        '|---|---:|---:|---:|---:|---:|---:|---:|---|',
     ]
     lines.extend(
         f'| {entry["date"]} | {entry["metrics"]["coverage_percent"]} '
         f'| {entry["metrics"].get("coverage_branch_percent", "-")} '
         f'| {entry["metrics"]["ruff_issues"]} '
         f'| {entry["metrics"]["mypy_errors"]} | {entry["metrics"]["max_crap"]} '
-        f'| {entry["metrics"]["max_complexity"]} | {entry.get("result", "")} |'
+        f'| {entry["metrics"]["max_complexity"]} '
+        f'| {entry["metrics"].get("pip_audit_vulns", "-")} '
+        f'| {entry.get("result", "")} |'
         for entry in history[-10:]
     )
     lines.append('')
@@ -730,6 +845,7 @@ def render_report(snapshot: dict[str, Any], history: list[dict[str, Any]], regre
     lines += render_missing_tools(snapshot)
     lines += render_coverage_split(snapshot)
     lines += render_unparsable(snapshot)
+    lines += render_pip_audit(snapshot)
     lines += render_lead_target(snapshot)
     lines += render_hotspots(snapshot)
     lines += render_ruff_rules(snapshot)
@@ -807,6 +923,7 @@ def collect(args: argparse.Namespace) -> dict[str, Any]:
     vulture = run_vulture(args.source, excludes)
     god_classes = detect_god_classes(args.source, excludes)
     unparsable = find_unparsable(args.source, excludes)
+    pip_audit = run_pip_audit()
 
     crap_rows: list[dict[str, Any]] = []
     if Path(args.coverage).exists():
@@ -830,6 +947,7 @@ def collect(args: argparse.Namespace) -> dict[str, Any]:
         'dead_code': vulture.get('items', 0),
         'god_classes': god_classes.get('count', 0),
         'unparsable_files': len(unparsable),
+        'pip_audit_vulns': pip_audit.get('vulns', 0),
     }
 
     tools = {
@@ -839,6 +957,7 @@ def collect(args: argparse.Namespace) -> dict[str, Any]:
         'vulture': vulture.get('available', False),
         'radon': bool(crap_rows) or bool(unparsable),
         'pytest': pytest_result.get('available', False),
+        'pip-audit': pip_audit.get('available', False),
     }
 
     return {
@@ -852,6 +971,7 @@ def collect(args: argparse.Namespace) -> dict[str, Any]:
         'package_branch': package_branch,
         'unparsable': unparsable,
         'god_classes': god_classes,
+        'pip_audit': pip_audit,
         'ruff_per_rule': ruff['per_rule'],
     }
 
@@ -882,6 +1002,7 @@ def build_snapshot(
         'ruff_per_rule': collected['ruff_per_rule'],
         'crap': crap_rows,
         'god_classes_detail': collected['god_classes'],
+        'pip_audit': collected['pip_audit'],
         'excluded': list(collected['excludes']),
         'coverage_split': collected['split'],
         'coverage_package_percent': round(collected['package_line'], 1),
