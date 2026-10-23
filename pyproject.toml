@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "otlmow_model"
-version = "2.21.0.2"
+version = "2.21.0.3"
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: 3", "Programming Language :: Python :: 3.9", "Programming Language :: Python :: 3.10", "Programming Language :: Python :: 3.11", "Programming Language :: Python :: 3.12", "Programming Language :: Python :: 3.13", "Programming Language :: Python :: 3.14", "Operating System :: OS Independent", "Development Status :: 5 - Production/Stable", "Environment :: Console", "Intended Audience :: Developers", "Intended Audience :: Information Technology", "License :: OSI Approved :: GNU General Public License v3 (GPLv3)", "Natural Language :: Dutch", "Topic :: Software Development", "Topic :: Software Development :: Libraries :: Python Modules", "Topic :: Software Development :: Quality Assurance",]
 requires-python = ">=3.9"
@@ -51,13 +51,6 @@ module = [ "otlmow_model.OtlmowModel.Classes.*", "otlmow_model.OtlmowModel.Datat
 follow_imports = "skip"
 ignore_errors = true
 
-[tool.setuptools.package-data]
-"*" = [ "generated_info.json",]
-
-[tool.pytest.ini_options]
-testpaths = [ "UnitTests",]
-addopts = "-ra"
-
 [tool.ruff.lint]
 select = [ "E", "F", "I", "B", "C4", "UP", "PYI", "PT", "RUF", "S", "BLE", "TRY", "FLY", "A", "C", "PL", "Q", "RET", "N", "W", "T20", "G", "LOG", "PIE", "SIM", "PERF", "ARG", "TID", "PTH",]
 ignore = [ "E501",]
@@ -66,8 +59,12 @@ ignore = [ "E501",]
 docstring-code-format = true
 quote-style = "single"
 
-[tool.setuptools.packages.find]
-include = [ "otlmow_model*",]
+[tool.setuptools.package-data]
+"*" = [ "generated_info.json",]
+
+[tool.pytest.ini_options]
+testpaths = [ "UnitTests",]
+addopts = "-ra"
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
@@ -78,3 +75,6 @@ docstring-quotes = "double"
 "UnitTests/**" = [ "S101", "N802", "N803", "N815", "PLR2004", "PT006", "PT011",]
 "model_update/**" = [ "T201", "S603", "S607",]
 "code_quality/scripts/*.py" = [ "T201", "S603",]
+
+[tool.setuptools.packages.find]
+include = [ "otlmow_model*",]
