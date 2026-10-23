@@ -6,8 +6,8 @@ import warnings
 
 import pytest
 
-from UnitTests.TestModel.OtlmowModel.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
-from UnitTests.TestModel.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
+from otlmow_model.OtlmowModel.Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
+from otlmow_model.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
