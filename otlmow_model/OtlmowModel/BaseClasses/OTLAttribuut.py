@@ -223,7 +223,7 @@ class OTLAttribuut:
 
     def _convert_value(self, value):
         converted_value = self.field.convert_to_correct_type(value)
-        if hasattr(self.field, 'options') and self.field.options is not None:
+        if hasattr(self.field, 'convert_to_invulwaarde'):
             converted_value = self.field.convert_to_invulwaarde(converted_value, self.field)
         return converted_value
 

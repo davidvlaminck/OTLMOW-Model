@@ -264,7 +264,7 @@ def test_is_aim_id_valid_model_directory():
 
 def test_is_aim_id_valid():
     aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'  # AllCasesTestClass
-    assert is_aim_id(aim_id)
+    assert is_aim_id(aim_id, model_directory=model_directory_path)
 
     aim_id = '12345678-1234-1234-1234-123456789012-cHVybDpBZ2VudA' # Agent
     assert is_aim_id(aim_id)
