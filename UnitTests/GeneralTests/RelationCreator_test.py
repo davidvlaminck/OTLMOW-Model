@@ -212,3 +212,32 @@ def test_create_relation_uses_default_model_directory():
     assert relation is not None
     assert relation.assetId.identificator == 'Bevestiging_-_another_-_all_cases'
 
+
+def test_create_betrokkenerelation():
+    source_agent = Agent()
+    source_agent.agentId.identificator = 'source_agent'
+    target_agent = Agent()
+    target_agent.agentId.identificator = 'target_agent'
+    agent_typeURI = 'http://purl.org/dc/terms/Agent'
+
+    relation = create_betrokkenerelation(rol='eigenaar', source=source_agent, source_typeURI=agent_typeURI,
+                                         target=target_agent, target_typeURI=agent_typeURI)
+    assert relation is not None
+    assert relation.rol == 'eigenaar'
+    assert relation.typeURI == HeeftBetrokkene.typeURI
+    assert relation.bronAssetId.identificator == 'source_agent'
+    assert relation.doelAssetId.identificator == 'target_agent'
+
+
+def test_create_betrokkenerelation_with_uuid_and_typeURI():
+    source_uuid = '00000000-0000-0000-0000-000000000000'
+    target_uuid = '11111111-1111-1111-1111-111111111111'
+    agent_typeURI = 'http://purl.org/dc/terms/Agent'
+
+    relation = create_betrokkenerelation(rol='klant', source_typeURI=agent_typeURI, source_uuid=source_uuid,
+                                         target_typeURI=agent_typeURI, target_uuid=target_uuid)
+    assert relation is not None
+    assert relation.rol == 'klant'
+    assert relation.bronAssetId.identificator == source_uuid + '-cHVybDpBZ2VudA'
+    assert relation.doelAssetId.identificator == target_uuid + '-cHVybDpBZ2VudA'
+
