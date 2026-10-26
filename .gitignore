@@ -3,3 +3,7 @@
 **/.pytest_cache
 **/__pycache__
 .coverage
+/mutants/otlmow_model/*
+/mutants/mutmut-stats.json
+/mutants/pyproject.toml
+/mutants/uv.lock
