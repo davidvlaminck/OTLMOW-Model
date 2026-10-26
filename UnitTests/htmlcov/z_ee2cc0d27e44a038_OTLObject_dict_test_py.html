@@ -5,7 +5,7 @@
     <title>Coverage for UnitTests/GeneralTests/OTLObject_dict_test.py: 100%</title>
     <link rel="icon" sizes="32x32" href="favicon_32_cb_c827f16f.png">
     <link rel="stylesheet" href="style_cb_4667309f.css" type="text/css">
-    <script src="coverage_html_cb_15cffcd0.js" defer></script>
+    <script src="coverage_html_cb_54cfdca1.js" defer></script>
 </head>
 <body class="pyfile">
 <header>
@@ -60,12 +60,12 @@
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
         <p class="text">
-            <a id="prevFileLink" class="nav" href="z_ee2cc0d27e44a038_OTLObjectHelper_test_py.html">&#xab; prev</a> &nbsp; &nbsp;
+            <a id="prevFileLink" class="nav" href="z_ee2cc0d27e44a038_OTLObject_class_real_test_py.html">&#xab; prev</a> &nbsp; &nbsp;
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
-            <a id="nextFileLink" class="nav" href="z_ee2cc0d27e44a038_OTLObject_test_py.html">&#xbb; next</a>
+            <a id="nextFileLink" class="nav" href="z_ee2cc0d27e44a038_OTLObject_serialisation_real_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.16.2">coverage.py v7.16.2</a>,
-            created at 2026-09-29 18:36 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.17.0">coverage.py v7.17.0</a>,
+            created at 2026-10-26 08:59 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -91,8 +91,8 @@
     <p class="pln"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t"><span class="key">from</span> <span class="nam">UnitTests</span><span class="op">.</span><span class="nam">TestModel</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">Classes</span><span class="op">.</span><span class="nam">ImplementatieElement</span><span class="op">.</span><span class="nam">AIMObject</span> <span class="key">import</span> <span class="nam">AIMObject</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t"><span class="key">from</span> <span class="nam">UnitTests</span><span class="op">.</span><span class="nam">TestModel</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">Classes</span><span class="op">.</span><span class="nam">Onderdeel</span><span class="op">.</span><span class="nam">AllCasesTestClass</span> <span class="key">import</span> <span class="nam">AllCasesTestClass</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t"><span class="key">from</span> <span class="nam">UnitTests</span><span class="op">.</span><span class="nam">TestModel</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">BaseClasses</span><span class="op">.</span><span class="nam">OTLObject</span> <span class="key">import</span> <span class="nam">OTLObject</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t"><span class="key">from</span> <span class="nam">UnitTests</span><span class="op">.</span><span class="nam">TestModel</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">Exceptions</span><span class="op">.</span><span class="nam">NonStandardAttributeWarning</span> <span class="key">import</span> <span class="nam">NonStandardAttributeWarning</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">BaseClasses</span><span class="op">.</span><span class="nam">OTLObject</span> <span class="key">import</span> <span class="nam">OTLObject</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t"><span class="key">from</span> <span class="nam">otlmow_model</span><span class="op">.</span><span class="nam">OtlmowModel</span><span class="op">.</span><span class="nam">Exceptions</span><span class="op">.</span><span class="nam">NonStandardAttributeWarning</span> <span class="key">import</span> <span class="nam">NonStandardAttributeWarning</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t"><span class="nam">model_directory_path</span> <span class="op">=</span> <span class="nam">Path</span><span class="op">(</span><span class="nam">__file__</span><span class="op">)</span><span class="op">.</span><span class="nam">parent</span><span class="op">.</span><span class="nam">parent</span> <span class="op">/</span> <span class="str">&#x27;TestModel&#x27;</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -1028,12 +1028,12 @@
 <footer>
     <div class="content">
         <p>
-            <a class="nav" href="z_ee2cc0d27e44a038_OTLObjectHelper_test_py.html">&#xab; prev</a> &nbsp; &nbsp;
+            <a class="nav" href="z_ee2cc0d27e44a038_OTLObject_class_real_test_py.html">&#xab; prev</a> &nbsp; &nbsp;
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
-            <a class="nav" href="z_ee2cc0d27e44a038_OTLObject_test_py.html">&#xbb; next</a>
+            <a class="nav" href="z_ee2cc0d27e44a038_OTLObject_serialisation_real_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.16.2">coverage.py v7.16.2</a>,
-            created at 2026-09-29 18:36 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.17.0">coverage.py v7.17.0</a>,
+            created at 2026-10-26 08:59 +0000
         </p>
     </div>
 </footer>

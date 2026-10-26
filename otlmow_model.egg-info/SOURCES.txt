@@ -7,6 +7,7 @@ otlmow_model.egg-info/dependency_links.txt
 otlmow_model.egg-info/requires.txt
 otlmow_model.egg-info/top_level.txt
 otlmow_model/OtlmowModel/generated_info.json
+otlmow_model/OtlmowModel/BaseClasses/AssetSerialisation.py
 otlmow_model/OtlmowModel/BaseClasses/BooleanField.py
 otlmow_model/OtlmowModel/BaseClasses/CachedProperty.py
 otlmow_model/OtlmowModel/BaseClasses/ComplexField.py
@@ -14,6 +15,7 @@ otlmow_model/OtlmowModel/BaseClasses/DateField.py
 otlmow_model/OtlmowModel/BaseClasses/DateTimeField.py
 otlmow_model/OtlmowModel/BaseClasses/DavieRelatieAttributes.py
 otlmow_model/OtlmowModel/BaseClasses/DteAssetType.py
+otlmow_model/OtlmowModel/BaseClasses/DynamicLoader.py
 otlmow_model/OtlmowModel/BaseClasses/FloatOrDecimalField.py
 otlmow_model/OtlmowModel/BaseClasses/IntegerField.py
 otlmow_model/OtlmowModel/BaseClasses/KeuzelijstField.py
@@ -23,6 +25,7 @@ otlmow_model/OtlmowModel/BaseClasses/LiteralField.py
 otlmow_model/OtlmowModel/BaseClasses/MetaInfo.py
 otlmow_model/OtlmowModel/BaseClasses/NonNegIntegerField.py
 otlmow_model/OtlmowModel/BaseClasses/OTLAsset.py
+otlmow_model/OtlmowModel/BaseClasses/OTLAttribuut.py
 otlmow_model/OtlmowModel/BaseClasses/OTLField.py
 otlmow_model/OtlmowModel/BaseClasses/OTLObject.py
 otlmow_model/OtlmowModel/BaseClasses/RelationInteractor.py
@@ -286,6 +289,7 @@ otlmow_model/OtlmowModel/Classes/Installatie/Hameistijl.py
 otlmow_model/OtlmowModel/Classes/Installatie/Hanger.py
 otlmow_model/OtlmowModel/Classes/Installatie/Hefportiek.py
 otlmow_model/OtlmowModel/Classes/Installatie/Heftoren.py
+otlmow_model/OtlmowModel/Classes/Installatie/HijsEnHefwerktuig.py
 otlmow_model/OtlmowModel/Classes/Installatie/HoogtebegrenzerInstallatie.py
 otlmow_model/OtlmowModel/Classes/Installatie/HorizontaleConstructieplaat.py
 otlmow_model/OtlmowModel/Classes/Installatie/Hulppost.py
@@ -365,6 +369,7 @@ otlmow_model/OtlmowModel/Classes/Installatie/Taatsmechanisme.py
 otlmow_model/OtlmowModel/Classes/Installatie/Tandheugelmechanisme.py
 otlmow_model/OtlmowModel/Classes/Installatie/Tandkransmechanisme.py
 otlmow_model/OtlmowModel/Classes/Installatie/Tegengewichtkist.py
+otlmow_model/OtlmowModel/Classes/Installatie/Telefooncentrale.py
 otlmow_model/OtlmowModel/Classes/Installatie/TijdelijkeBerlinerwandTussenschot.py
 otlmow_model/OtlmowModel/Classes/Installatie/TijdelijkeOpslagplaats.py
 otlmow_model/OtlmowModel/Classes/Installatie/TijdelijkeWaterkerendeConstructie.py
@@ -769,6 +774,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/Bouwput.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Bovenbouw.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Braam.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Brandblusser.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Branddetector.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Brandhaspel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Brandleiding.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Brandnetelruigte.py
@@ -814,6 +820,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/DNBHoogspanning.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/DNBLaagspanning.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Damwand.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Datakabel.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Debietmeter.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Dekzerkprofiel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/DetectieCamera.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Detectieverwerkingseenheid.py
@@ -886,6 +893,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/Flens.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Flenskoppeling.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Flitscamera.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/ForfaitaireAansluiting.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Frequentieregelaar.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/FunderingOpStaal.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Funderingsmassief.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Funderingspaal.py
@@ -898,6 +906,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/Gassensor.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/GeexpandeerdPolystyreen.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/GekleurdWegvlakMarkering.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Geleideconstructie.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Geleidingssteun.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Geleidingsverlichting.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Geleidingswand.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/GeluidswerendeConstructie.py
@@ -933,6 +942,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/Halsbeugeloog.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Halsbeugelpen.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Halsbeugelschoen.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Handbediening.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Handbrandmelder.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Handwiel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Hardware.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/HeeftAanvullendeGeometrie.py
@@ -948,6 +958,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/HeeftVPlan.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Heestermassief.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/HeischraalGrasland.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Hijsinstallatie.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Hijspunt.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Hoofdschakelaar.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Hoogtebegrenzer.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Hoogtedetectie.py
@@ -982,6 +993,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/IsInspectieVan.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/IsNetwerkECC.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/IsSWGehostOp.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/IsSWOnderdeelVan.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/KWSAfscheider.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Kabelgoot.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Kabelladder.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Kabelleidingdoorvoer.py
@@ -1022,6 +1034,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/Lichtmast.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Lichtnagel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Lichtsensor.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Lichtzuil.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Lift.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/LigtOp.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/LijnvormigElementMarkering.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Lockerkast.py
@@ -1029,6 +1042,8 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/Lockermanagementmodule.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/LogischePoort.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Loofhout.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/LoopTerminationAndProtection.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Loopkat.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Loopprofiel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Loopvloer.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/LuchtkwaliteitControleUnit.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/LuchtkwaliteitZenderOntvanger.py
@@ -1150,6 +1165,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/RingMechanisch.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Rioleringsbuis.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Riooltoegang.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Rol.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Roltrap.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Rolwagenchassis.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Rookdetector.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Rookkoepel.py
@@ -1184,6 +1200,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/Slotcilinder.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Sluisvloertegel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/SluitAanOp.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Smeernippel.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Softstarter.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Software.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/SoilmixwandElement.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Sokkel.py
@@ -1228,9 +1245,11 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/StuurklepBrandleiding.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Stuwconstructie.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/TGCUitbreidingsModule.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/TLCfiPoort.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/TTSegment.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Taatspen.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Taatspot.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Taatsschoen.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Takel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Taludgoot.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Tandheugel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Tandkrans.py
@@ -1240,6 +1259,7 @@ otlmow_model/OtlmowModel/Classes/Onderdeel/Tank.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/TechnischePut.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Tegenmateriaal.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Telecomkabel.py
+otlmow_model/OtlmowModel/Classes/Onderdeel/Telefoontoestel.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Temperatuursensor.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Ternairmengselverharding.py
 otlmow_model/OtlmowModel/Classes/Onderdeel/Terugkeer.py
@@ -1594,6 +1614,7 @@ otlmow_model/OtlmowModel/Datatypes/KlBeschermbuisMateriaal.py
 otlmow_model/OtlmowModel/Datatypes/KlBeschermingMaaischade.py
 otlmow_model/OtlmowModel/Datatypes/KlBeschermingWapeningType.py
 otlmow_model/OtlmowModel/Datatypes/KlBeschermingsklasse.py
+otlmow_model/OtlmowModel/Datatypes/KlBeslotenheidPlaats.py
 otlmow_model/OtlmowModel/Datatypes/KlBestratingAfwerking.py
 otlmow_model/OtlmowModel/Datatypes/KlBestratingOpvulsoort.py
 otlmow_model/OtlmowModel/Datatypes/KlBestratingSteenverband.py
@@ -1640,6 +1661,7 @@ otlmow_model/OtlmowModel/Datatypes/KlBouwputType.py
 otlmow_model/OtlmowModel/Datatypes/KlBrandblusserBlusmiddel.py
 otlmow_model/OtlmowModel/Datatypes/KlBrandblusserGewicht.py
 otlmow_model/OtlmowModel/Datatypes/KlBrandblusserType.py
+otlmow_model/OtlmowModel/Datatypes/KlBranddetectorSensortype.py
 otlmow_model/OtlmowModel/Datatypes/KlBrandhaspelMerk.py
 otlmow_model/OtlmowModel/Datatypes/KlBrandhaspelModelnaam.py
 otlmow_model/OtlmowModel/Datatypes/KlBrandkromme.py
@@ -1662,6 +1684,7 @@ otlmow_model/OtlmowModel/Datatypes/KlCabineStandaardtype.py
 otlmow_model/OtlmowModel/Datatypes/KlCalamiteitsbordType.py
 otlmow_model/OtlmowModel/Datatypes/KlCalamiteitsbordVorm.py
 otlmow_model/OtlmowModel/Datatypes/KlCameraBeeldverwerkingstype.py
+otlmow_model/OtlmowModel/Datatypes/KlCameraDoeleinde.py
 otlmow_model/OtlmowModel/Datatypes/KlCameraMerk.py
 otlmow_model/OtlmowModel/Datatypes/KlCameraModelnaam.py
 otlmow_model/OtlmowModel/Datatypes/KlCapacitieveNiveaumetingMerk.py
@@ -1884,12 +1907,14 @@ otlmow_model/OtlmowModel/Datatypes/KlKabelmofVerbinding.py
 otlmow_model/OtlmowModel/Datatypes/KlKabelnettoegangNetwerksoort.py
 otlmow_model/OtlmowModel/Datatypes/KlKamerKlasse.py
 otlmow_model/OtlmowModel/Datatypes/KlKerendeKarakterSluis.py
+otlmow_model/OtlmowModel/Datatypes/KlKeuringsTypeElektrisch.py
 otlmow_model/OtlmowModel/Datatypes/KlKeuringsresultaat.py
 otlmow_model/OtlmowModel/Datatypes/KlKlRadioheruitzendInstallatieModelnaam.py
 otlmow_model/OtlmowModel/Datatypes/KlKlassePlantjaar.py
 otlmow_model/OtlmowModel/Datatypes/KlKleurMarkering.py
 otlmow_model/OtlmowModel/Datatypes/KlKleurPlooibaken.py
 otlmow_model/OtlmowModel/Datatypes/KlKleurReflector.py
+otlmow_model/OtlmowModel/Datatypes/KlKleurStandaard.py
 otlmow_model/OtlmowModel/Datatypes/KlKleurSupp.py
 otlmow_model/OtlmowModel/Datatypes/KlKlimatisatieMerk.py
 otlmow_model/OtlmowModel/Datatypes/KlKlimatisatieModelnaam.py
@@ -1939,6 +1964,7 @@ otlmow_model/OtlmowModel/Datatypes/KlLaagRol.py
 otlmow_model/OtlmowModel/Datatypes/KlLampTypeIVSB.py
 otlmow_model/OtlmowModel/Datatypes/KlLantaarnLamptype.py
 otlmow_model/OtlmowModel/Datatypes/KlLantaarnVormgeving.py
+otlmow_model/OtlmowModel/Datatypes/KlLenstypeLEDVerlichting.py
 otlmow_model/OtlmowModel/Datatypes/KlLetterCijfer.py
 otlmow_model/OtlmowModel/Datatypes/KlLetterCijferType.py
 otlmow_model/OtlmowModel/Datatypes/KlLetterVerschaald.py
@@ -1992,6 +2018,7 @@ otlmow_model/OtlmowModel/Datatypes/KlMateriaalDeklaag.py
 otlmow_model/OtlmowModel/Datatypes/KlMateriaalDragendeStructuurBrugdeel.py
 otlmow_model/OtlmowModel/Datatypes/KlMateriaalDraineerlaag.py
 otlmow_model/OtlmowModel/Datatypes/KlMateriaalGolfplaat.py
+otlmow_model/OtlmowModel/Datatypes/KlMateriaalKuipKWSAfscheider.py
 otlmow_model/OtlmowModel/Datatypes/KlMateriaalLadder.py
 otlmow_model/OtlmowModel/Datatypes/KlMateriaalLeuning.py
 otlmow_model/OtlmowModel/Datatypes/KlMateriaalLoopvloer.py
@@ -2014,11 +2041,15 @@ otlmow_model/OtlmowModel/Datatypes/KlMeetcelNauwkeurigheidsvermogen.py
 otlmow_model/OtlmowModel/Datatypes/KlMeetcelVeiligheidsfactor.py
 otlmow_model/OtlmowModel/Datatypes/KlMeetmicrofoonMerk.py
 otlmow_model/OtlmowModel/Datatypes/KlMeetmicrofoonModelnaam.py
+otlmow_model/OtlmowModel/Datatypes/KlMeetprincipeDebietmeter.py
+otlmow_model/OtlmowModel/Datatypes/KlMerkDebietmeter.py
 otlmow_model/OtlmowModel/Datatypes/KlMerkRookdetector.py
 otlmow_model/OtlmowModel/Datatypes/KlMeteoFotoBeschrijving.py
 otlmow_model/OtlmowModel/Datatypes/KlMetselverband.py
 otlmow_model/OtlmowModel/Datatypes/KlMobieleNetwerktechnologie.py
+otlmow_model/OtlmowModel/Datatypes/KlModelnaamDebietmeter.py
 otlmow_model/OtlmowModel/Datatypes/KlModelnaamRookdetector.py
+otlmow_model/OtlmowModel/Datatypes/KlMontagewijzeDebietmeter.py
 otlmow_model/OtlmowModel/Datatypes/KlMotorbeveiligingMerk.py
 otlmow_model/OtlmowModel/Datatypes/KlMotorbeveiligingModelnaam.py
 otlmow_model/OtlmowModel/Datatypes/KlMotorbeveiligingType.py
@@ -2296,6 +2327,7 @@ otlmow_model/OtlmowModel/Datatypes/KlTransformatorTrafobeveiliging.py
 otlmow_model/OtlmowModel/Datatypes/KlTrekdraadEncoderNiveaumetingMerk.py
 otlmow_model/OtlmowModel/Datatypes/KlTrekdraadEncoderNiveaumetingModelnaam.py
 otlmow_model/OtlmowModel/Datatypes/KlTsklepAfsluiterMateriaal.py
+otlmow_model/OtlmowModel/Datatypes/KlTypeAandrijvingTakel.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeAfwateringsgeul.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeAnker.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeAnkerplaat.py
@@ -2306,6 +2338,7 @@ otlmow_model/OtlmowModel/Datatypes/KlTypeBeschermlaag.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeBeschoeiing.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeBetonnenProfiel.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeBevestigingBolder.py
+otlmow_model/OtlmowModel/Datatypes/KlTypeBevestigingHijspunt.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeBevestigingLadder.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeBevestigingRail.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeBeweegbaarBrugdeel.py
@@ -2323,6 +2356,7 @@ otlmow_model/OtlmowModel/Datatypes/KlTypeExterneNaspanning.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeFendering.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeGebouwgebruik.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeGeleidewerk.py
+otlmow_model/OtlmowModel/Datatypes/KlTypeGeleidingssteun.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeGlijmateriaal.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeGrendel.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeGrondanker.py
@@ -2331,7 +2365,6 @@ otlmow_model/OtlmowModel/Datatypes/KlTypeHars.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeHoogtebegrenzer.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeHorizontalePlaat.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeIVSB.py
-otlmow_model/OtlmowModel/Datatypes/KlTypeKabelsteun.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeKlem.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeKokervoeg.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeLandhoofd.py
@@ -2351,6 +2384,7 @@ otlmow_model/OtlmowModel/Datatypes/KlTypeSpankabel.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeStralingsscherm.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeSuppCBV.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeTWC.py
+otlmow_model/OtlmowModel/Datatypes/KlTypeTakel.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeTrekker.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeVakwerkElement.py
 otlmow_model/OtlmowModel/Datatypes/KlTypeVerankeringBrugdekvoeg.py

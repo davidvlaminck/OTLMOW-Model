@@ -1124,7 +1124,7 @@ wheels = [
 
 [[package]]
 name = "otlmow-model"
-version = "2.20.4.0"
+version = "2.21.0.3"
 source = { editable = "." }
 
 [package.optional-dependencies]
