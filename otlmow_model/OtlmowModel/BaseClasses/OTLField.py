@@ -19,29 +19,8 @@ class OTLField:
     def validate(cls, value: Any, attribuut) -> bool:
         if not attribuut.field.waardeObject:
             return
-        if isinstance(value, list):
-            for list_item in value:
-                if not isinstance(list_item, attribuut.field.waardeObject):
-                    raise ValueError(
-                        f'{attribuut.objectUri} is a complex datatype. Set the values through the attributes. '
-                        f'Use .attr_type_info() for more info')
-        elif not isinstance(value, attribuut.field.waardeObject):
-            raise ValueError(
-                f'{attribuut.objectUri} is a complex datatype. Set the values through the attributes. '
-                f'Use .attr_type_info() for more info')
-        validation = True
-        for attr in value:
-            if attr.waarde is None:
-                continue
-            if attr.kardinaliteit_max != '1':
-                for value_item in attr.waarde:
-                    if not attr.field.validate(value_item, attr):
-                        validation = False
-                        break
-            elif not attr.field.validate(attr.waarde, attr):
-                validation = False
-                break
-        return validation
+        _check_complex_type(value, attribuut)
+        return _validate_attributes(value)
 
     @classmethod
     def value_default(cls, value: Any) -> Any:
@@ -64,3 +43,40 @@ deprecated_version: {self.deprecated_version}"""
     @classmethod
     def create_dummy_data(cls):
         raise NotImplementedError()
+
+
+def _check_complex_type(value: Any, attribuut) -> None:
+    """Raise when the value is not a complex datatype (or a list of them)."""
+    if isinstance(value, list):
+        for list_item in value:
+            _check_complex_type_item(list_item, attribuut)
+        return
+    _check_complex_type_item(value, attribuut)
+
+
+def _check_complex_type_item(item: Any, attribuut) -> None:
+    if not isinstance(item, attribuut.field.waardeObject):
+        raise ValueError(
+            f'{attribuut.objectUri} is a complex datatype. Set the values through the attributes. '
+            f'Use .attr_type_info() for more info')
+
+
+def _validate_attributes(value: Any) -> bool:
+    validation = True
+    for attr in value:
+        if attr.waarde is None:
+            continue
+        if not _validate_attribute(attr):
+            validation = False
+            break
+    return validation
+
+
+def _validate_attribute(attr) -> bool:
+    if attr.kardinaliteit_max != '1':
+        return _validate_attribute_list(attr)
+    return attr.field.validate(attr.waarde, attr)
+
+
+def _validate_attribute_list(attr) -> bool:
+    return bool(all(attr.field.validate(value_item, attr) for value_item in attr.waarde))

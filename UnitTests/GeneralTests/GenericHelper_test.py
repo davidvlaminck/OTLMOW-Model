@@ -1,7 +1,7 @@
 import pytest
 
 from otlmow_model.OtlmowModel.Helpers.GenericHelper import get_titlecase_from_ns, get_aim_id_from_uuid_and_typeURI, \
-    get_shortened_uri, get_ns_and_name_from_uri
+    get_shortened_uri, get_ns_and_name_from_uri, get_class_directory_from_ns
 
 
 def test_get_titlecase_from_ns(subtests):
@@ -96,3 +96,12 @@ def test_get_ns_and_name_from_uri():
 
     with pytest.raises(ValueError):
         get_ns_and_name_from_uri('invalid_uri')
+
+
+def test_get_class_directory_from_ns():
+    assert get_class_directory_from_ns('onderdeel') == 'Classes/Onderdeel'
+    assert get_class_directory_from_ns('installatie') == 'Classes/Installatie'
+    assert get_class_directory_from_ns('abstracten') == 'Classes/Abstracten'
+
+    with pytest.raises(ValueError):
+        get_class_directory_from_ns('wrong input')

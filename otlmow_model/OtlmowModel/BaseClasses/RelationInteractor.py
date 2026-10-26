@@ -26,18 +26,21 @@ class RelationInteractor:
         for relation in self._valid_relations:
             for target in self._valid_relations[relation]:
                 for direction, deprecated in self._valid_relations[relation][target].items():
-                    if class_dict[target]['abstract']:
-                        for subclass in get_concrete_subclasses_from_class_dict(target, model_directory=model_directory):
-                            if direction == 'o':
-                                yield self.typeURI, relation, subclass, '', deprecated
-                            elif direction == 'i':
-                                yield subclass, relation, self.typeURI, '', deprecated
-                            elif direction == 'u':
-                                yield self.typeURI, relation, subclass, 'Unspecified', deprecated
-                    else:
-                        if direction == 'o':
-                            yield self.typeURI, relation, target, '', deprecated
-                        elif direction == 'i':
-                            yield target, relation, self.typeURI, '', deprecated
-                        elif direction == 'u':
-                            yield self.typeURI, relation, target, 'Unspecified', deprecated
+                    for concrete_target in self._concrete_targets(target, class_dict, model_directory):
+                        relation_tuple = self._relation_tuple(relation, concrete_target, direction, deprecated)
+                        if relation_tuple is not None:
+                            yield relation_tuple
+
+    def _concrete_targets(self, target, class_dict, model_directory):
+        if class_dict[target]['abstract']:
+            return get_concrete_subclasses_from_class_dict(target, model_directory=model_directory)
+        return [target]
+
+    def _relation_tuple(self, relation, target, direction, deprecated):
+        if direction == 'o':
+            return self.typeURI, relation, target, '', deprecated
+        if direction == 'i':
+            return target, relation, self.typeURI, '', deprecated
+        if direction == 'u':
+            return self.typeURI, relation, target, 'Unspecified', deprecated
+        return None

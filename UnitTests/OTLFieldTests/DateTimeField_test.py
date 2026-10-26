@@ -49,6 +49,15 @@ def test_convert_to_correct_type_with_warnings(value, expected, caplog):
         assert DateTimeField.convert_to_correct_type(value) == expected
 
 
+@pytest.mark.parametrize("value, expected", [
+    ('2020-02-02T10:11:12', datetime.datetime(2020, 2, 2, 10, 11, 12)),
+    ('2020-02-02T10:11:12.123456', datetime.datetime(2020, 2, 2, 10, 11, 12, 123456)),
+])
+def test_convert_to_correct_type_with_separator(value, expected, caplog):
+    with pytest.warns(IncorrectTypeWarning):
+        assert DateTimeField.convert_to_correct_type(value) == expected
+
+
 @pytest.mark.parametrize("value", [
     'a', 0.1, '0.1', object(), [], {}, True, False, '24:99:00'
 ])

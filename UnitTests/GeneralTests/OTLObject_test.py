@@ -2,6 +2,7 @@ from datetime import datetime, date, time
 from pathlib import Path
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 import pytest
@@ -12,10 +13,10 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
-from UnitTests.TestModel.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, \
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, create_dict_from_asset, \
     dynamic_create_instance_from_uri, dynamic_create_type_from_uri
-from UnitTests.TestModel.OtlmowModel.Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
-from UnitTests.TestModel.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
+from otlmow_model.OtlmowModel.Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
+from otlmow_model.OtlmowModel.Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
@@ -524,11 +525,11 @@ def test_make_string_version_nested_no_kard():
     instance.testComplexType.testComplexType2.testKwantWrd.waarde = 1.1
 
     info_string = str(instance)
-    expected = '<AllCasesTestClass> object\n'\
-               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n'\
-               '    testComplexType :\n'\
-               '        testComplexType2 :\n'\
-               '            testKwantWrd :\n'\
+    expected = '<AllCasesTestClass> object\n' \
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+               '    testComplexType :\n' \
+               '        testComplexType2 :\n' \
+               '            testKwantWrd :\n' \
                '                waarde : 1.1'
 
     assert info_string == expected
@@ -539,11 +540,11 @@ def test_make_string_version_nested_kard():
     instance.testComplexTypeMetKard[0].testComplexType2MetKard[0].testKwantWrd.waarde = 1.1
 
     info_string = str(instance)
-    expected = '<AllCasesTestClass> object\n'\
-               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n'\
-               '    testComplexTypeMetKard :\n'\
-               '    [0] testComplexType2MetKard :\n'\
-               '    [0] [0] testKwantWrd :\n'\
+    expected = '<AllCasesTestClass> object\n' \
+               '    typeURI : https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass\n' \
+               '    testComplexTypeMetKard :\n' \
+               '    [0] testComplexType2MetKard :\n' \
+               '    [0] [0] testKwantWrd :\n' \
                '    [0] [0]     waarde : 1.1'
 
     assert info_string == expected
@@ -1003,6 +1004,7 @@ def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes_no_
     assert rdf_dict == expected
     assert len(recwarn) == 0
 
+
 def test_create_ld_dict_from_asset_non_standard_attributes_simple_attributes_with_warning(recwarn):
     instance2 = AllCasesTestClass()
     instance2.toestand = 'in-gebruik'
@@ -1156,7 +1158,7 @@ def test_isinstance_checks():
     assert dynamically_created_instance.is_instance_of(AllCasesTestClass)
     assert not dynamically_created_instance.is_instance_of(str)
     assert "OTLObject" in [cls.__name__ for cls in dynamically_created_instance.__class__.mro()]
-    #assert dynamically_created_instance.is_instance_of(OTLObject)
+    # assert dynamically_created_instance.is_instance_of(OTLObject)
 
     dynamic_aim_object_type = dynamic_create_type_from_uri(
         AIMObject.typeURI, model_directory=model_directory_path)
@@ -1774,4 +1776,9 @@ def test_get_all_concrete_relations_real_class():
         (
             'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject',
             'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt',
-            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie', '', '')]
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie', '', ''),
+        (
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Laagspanningsbord',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt',
+            'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klimatisatie','', ''),
+    ]

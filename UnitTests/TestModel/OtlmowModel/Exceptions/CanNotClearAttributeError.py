@@ -1,2 +1,0 @@
-class CanNotClearAttributeError(Exception):
-    pass

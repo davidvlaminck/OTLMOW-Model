@@ -33,40 +33,56 @@ class WKTValidator:
 
     @classmethod
     def validate_wkt(cls, input_string: str) -> bool:
-        if '(' not in input_string or ')' not in input_string:
+        if not cls._has_parentheses(input_string):
             return False
         input_string = input_string.upper()
         geo_type = input_string.split(' (')[0]
-
-        if geo_type not in (
-                'POINT', 'POINT Z', 'LINESTRING', 'LINESTRING Z', 'POLYGON', 'POLYGON Z', 'MULTIPOINT', 'MULTIPOINT Z',
-                'MULTILINESTRING', 'MULTILINESTRING Z', 'MULTIPOLYGON', 'MULTIPOLYGON Z', 'GEOMETRYCOLLECTION'):
+        if not cls._is_supported_geo_type(geo_type):
             return False
 
         coords_list = cls.get_coords_list_from_wkt_string(input_string)
-
         level = cls.coord_params[geo_type]['level']
-        if level == 1 and not isinstance(coords_list[0], tuple):
+        if not cls._coord_shape_is_valid(coords_list, level):
             return False
-        elif level == 2 and not isinstance(coords_list[0][0], tuple):
-            return False
-        elif level == 3 and not isinstance(coords_list[0][0][0], tuple):
-            return False
-        # TODO: if level == 0
+        return cls._validate_coords_for_level(coords_list, geo_type, level)
 
+    @classmethod
+    def _has_parentheses(cls, input_string: str) -> bool:
+        return '(' in input_string and ')' in input_string
+
+    @classmethod
+    def _is_supported_geo_type(cls, geo_type: str) -> bool:
+        return geo_type in (
+            'POINT', 'POINT Z', 'LINESTRING', 'LINESTRING Z', 'POLYGON', 'POLYGON Z',
+            'MULTIPOINT', 'MULTIPOINT Z', 'MULTILINESTRING', 'MULTILINESTRING Z',
+            'MULTIPOLYGON', 'MULTIPOLYGON Z', 'GEOMETRYCOLLECTION')
+
+    @classmethod
+    def _coord_shape_is_valid(cls, coords_list: list, level: int) -> bool:
+        if level == 1:
+            return isinstance(coords_list[0], tuple)
+        if level == 2:
+            return isinstance(coords_list[0][0], tuple)
+        return isinstance(coords_list[0][0][0], tuple)
+
+    @classmethod
+    def _validate_coords_for_level(cls, coords_list: list, geo_type: str, level: int) -> bool:
         if level == 1:
             return cls.validate_coords_list(coords_list, geo_type)
-        elif level == 2:
+        if level == 2:
             return all(
                 cls.validate_coords_list(coords, geo_type)
                 for coords in coords_list
             )
-        elif level == 3:
-            for coords in coords_list:
-                for coords2 in coords:
-                    if not cls.validate_coords_list(coords2, geo_type):
-                        return False
-            return True
+        return cls._validate_coords_for_level_3(coords_list, geo_type)
+
+    @classmethod
+    def _validate_coords_for_level_3(cls, coords_list: list, geo_type: str) -> bool:
+        for coords in coords_list:
+            for coords2 in coords:
+                if not cls.validate_coords_list(coords2, geo_type):
+                    return False
+        return True
 
     @classmethod
     def get_coords_list_from_wkt_string(cls, input_string) -> List:
@@ -83,19 +99,22 @@ class WKTValidator:
         if len(coords_list) < min_point:
             return False
 
-        for point in coords_list:
-            if geo_type.endswith(' Z') and len(point) != len_point:
-                return False
-            if not geo_type.endswith(' Z') and len(point) != len_point:
-                return False
+        return all(cls._point_is_valid(point, len_point) for point in coords_list)
 
-            val_0 = point[0]
-            if val_0 < 14637.2 or val_0 > 291015.3:
-                return False
-            val_1 = point[1]
-            if val_1 < 22608.2 or val_1 > 246424.3:
-                return False
-            if len_point == 3 and point[2] > 700:
-                return False
+    @classmethod
+    def _point_is_valid(cls, point, len_point: int) -> bool:
+        if len(point) != len_point:
+            return False
+        if not cls._x_is_valid(point[0]):
+            return False
+        if not cls._y_is_valid(point[1]):
+            return False
+        return not (len_point == 3 and point[2] > 700)
 
-        return True
+    @classmethod
+    def _x_is_valid(cls, value) -> bool:
+        return not (value < 14637.2 or value > 291015.3)
+
+    @classmethod
+    def _y_is_valid(cls, value) -> bool:
+        return not (value < 22608.2 or value > 246424.3)

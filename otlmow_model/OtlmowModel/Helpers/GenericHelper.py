@@ -16,6 +16,24 @@ def get_shortened_uri(object_uri: str):
     return shorter_uri
 
 
+LEGACY_CLASS_NAMES = {
+    'RIS': 'RISLegacy',
+    'Fietstel': 'FietstelLegacy',
+    'Brug': 'BeweegbareBrug',
+    'Voedingskeuzeschakelaar': 'VKS',
+}
+
+NS_TITLES = {
+    'abstracten': 'Abstracten',
+    'implementatieelement': 'ImplementatieElement',
+    'installatie': 'Installatie',
+    'legacy': 'Legacy',
+    'levenscyclus': 'Levenscyclus',
+    'onderdeel': 'Onderdeel',
+    'proefenmeting': 'ProefEnMeting',
+}
+
+
 def get_ns_and_name_from_uri(object_uri):
     if object_uri == 'http://purl.org/dc/terms/Agent':
         return 'purl', 'Agent'
@@ -23,20 +41,14 @@ def get_ns_and_name_from_uri(object_uri):
     short_uri_array = short_uri.split('#')
     ns, name = short_uri_array[0], short_uri_array[1]
     if ns.startswith('lgc:'):
-        if '.' in name:
-            name = name.replace('.', '_')
-        if '-' in name:
-            name = name.replace('-', '_')
-        if name == "RIS":
-            name = "RISLegacy"
-        elif name == 'Fietstel':
-            name = 'FietstelLegacy'
-        elif name == 'Brug':
-            name = 'BeweegbareBrug'
-        elif name == 'Voedingskeuzeschakelaar':
-            name = 'VKS'
-        return 'legacy', name
+        return 'legacy', _get_legacy_name(name)
     return ns, name
+
+
+def _get_legacy_name(name: str) -> str:
+    name = name.replace('.', '_')
+    name = name.replace('-', '_')
+    return LEGACY_CLASS_NAMES.get(name, name)
 
 
 def get_class_directory_from_ns(ns):
@@ -47,22 +59,9 @@ def get_titlecase_from_ns(ns: str) -> str:
     ns = ns.lower()
     if ns == 'purl':
         return None
-    elif ns == 'abstracten':
-        return 'Abstracten'
-    elif ns == 'implementatieelement':
-        return 'ImplementatieElement'
-    elif ns == 'installatie':
-        return 'Installatie'
-    elif ns == 'legacy':
-        return 'Legacy'
-    elif ns == 'levenscyclus':
-        return 'Levenscyclus'
-    elif ns == 'onderdeel':
-        return 'Onderdeel'
-    elif ns == 'proefenmeting':
-        return 'ProefEnMeting'
-    else:
-        raise ValueError()
+    if ns in NS_TITLES:
+        return NS_TITLES[ns]
+    raise ValueError()
 
 
 def get_aim_id_from_uuid_and_typeURI(uuid: str, type_uri: str):

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from otlmow_model.OtlmowModel.Helpers.RelationCreator import create_relation
+from otlmow_model.OtlmowModel.Helpers.RelationCreator import create_relation, create_betrokkenerelation
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
@@ -9,6 +9,8 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevest
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
 
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import dynamic_create_instance_from_ns_and_name
+from otlmow_model.OtlmowModel.Classes.Agent import Agent
+from otlmow_model.OtlmowModel.Classes.Onderdeel.HeeftBetrokkene import HeeftBetrokkene
 from otlmow_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
 from otlmow_model.OtlmowModel.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
 from otlmow_model.OtlmowModel.Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
@@ -177,3 +179,65 @@ def test_create_relation_legacy():
     assert relation.assetId.identificator == 'Voedt_-_00000000-0000-0000-0000-000000000000-bGdjOmluc3RhbGxhdGllI0thc3Q_-_all_cases'
     assert relation.bron.typeURI == legacy_uri
     assert relation.doel.typeURI == all_cases.typeURI
+
+
+def test_create_relation_from_agent_uuid():
+    source_uuid = '00000000-0000-0000-0000-000000000000'
+    target_uuid = '11111111-1111-1111-1111-111111111111'
+    agent_typeURI = 'http://purl.org/dc/terms/Agent'
+
+    relation = create_relation(source_typeURI=agent_typeURI, source_uuid=source_uuid,
+                               target_typeURI=agent_typeURI, target_uuid=target_uuid,
+                               relation_type=HeeftBetrokkene)
+    assert relation is not None
+    assert relation.bronAssetId.identificator == source_uuid + '-cHVybDpBZ2VudA'
+    assert relation.doelAssetId.identificator == target_uuid + '-cHVybDpBZ2VudA'
+
+
+def test_create_relation_from_agent_without_agent_id_raises():
+    source_agent = Agent()
+    target_agent = Agent()
+
+    with pytest.raises(AttributeError, match='agentId.identificator'):
+        create_relation(source=source_agent, target=target_agent, relation_type=HeeftBetrokkene)
+
+
+def test_create_relation_uses_default_model_directory():
+    all_cases = AllCasesTestClass()
+    all_cases.assetId.identificator = 'all_cases'
+    another = AnotherTestClass()
+    another.assetId.identificator = 'another'
+
+    relation = create_relation(source=another, target=all_cases, relation_type=Bevestiging)
+    assert relation is not None
+    assert relation.assetId.identificator == 'Bevestiging_-_another_-_all_cases'
+
+
+def test_create_betrokkenerelation():
+    source_agent = Agent()
+    source_agent.agentId.identificator = 'source_agent'
+    target_agent = Agent()
+    target_agent.agentId.identificator = 'target_agent'
+    agent_typeURI = 'http://purl.org/dc/terms/Agent'
+
+    relation = create_betrokkenerelation(rol='eigenaar', source=source_agent, source_typeURI=agent_typeURI,
+                                         target=target_agent, target_typeURI=agent_typeURI)
+    assert relation is not None
+    assert relation.rol == 'eigenaar'
+    assert relation.typeURI == HeeftBetrokkene.typeURI
+    assert relation.bronAssetId.identificator == 'source_agent'
+    assert relation.doelAssetId.identificator == 'target_agent'
+
+
+def test_create_betrokkenerelation_with_uuid_and_typeURI():
+    source_uuid = '00000000-0000-0000-0000-000000000000'
+    target_uuid = '11111111-1111-1111-1111-111111111111'
+    agent_typeURI = 'http://purl.org/dc/terms/Agent'
+
+    relation = create_betrokkenerelation(rol='klant', source_typeURI=agent_typeURI, source_uuid=source_uuid,
+                                         target_typeURI=agent_typeURI, target_uuid=target_uuid)
+    assert relation is not None
+    assert relation.rol == 'klant'
+    assert relation.bronAssetId.identificator == source_uuid + '-cHVybDpBZ2VudA'
+    assert relation.doelAssetId.identificator == target_uuid + '-cHVybDpBZ2VudA'
+

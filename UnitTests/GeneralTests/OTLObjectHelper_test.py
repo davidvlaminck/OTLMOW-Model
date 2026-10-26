@@ -10,7 +10,7 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
-from UnitTests.TestModel.OtlmowModel.Helpers.OTLObjectHelper import count_assets_by_type, \
+from otlmow_model.OtlmowModel.Helpers.OTLObjectHelper import count_assets_by_type, \
     remove_duplicates_in_iterable_based_on_property, \
     compare_two_lists_of_objects_object_level, verify_asset_id_is_unique_within_list, \
     compare_two_lists_of_objects_attribute_level, custom_dict_diff, is_relation, is_directional_relation, is_aim_id
@@ -264,7 +264,7 @@ def test_is_aim_id_valid_model_directory():
 
 def test_is_aim_id_valid():
     aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'  # AllCasesTestClass
-    assert is_aim_id(aim_id)
+    assert is_aim_id(aim_id, model_directory=model_directory_path)
 
     aim_id = '12345678-1234-1234-1234-123456789012-cHVybDpBZ2VudA' # Agent
     assert is_aim_id(aim_id)

@@ -20,33 +20,55 @@ class BooleanField(OTLField):
     @classmethod
     def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[bool]:
         if value is None or value == '-':
-            return None
+            return cls._convert_from_none()
         if isinstance(value, bool):
-            return value
+            return cls._convert_from_bool(value)
         if isinstance(value, str):
-            if value.lower() == 'false':
-                if log_warnings:
-                    warnings.warn(category=IncorrectTypeWarning,
-                                  message='Assigned a string to a boolean datatype. '
-                                          'Automatically converted to the correct type. Please change the type')
-                return False
-            elif value.lower() == 'true':
-                if log_warnings:
-                    warnings.warn(category=IncorrectTypeWarning,
-                                  message='Assigned a string to a boolean datatype. '
-                                          'Automatically converted to the correct type. Please change the type')
-                return True
-            else:
-                raise CouldNotConvertToCorrectTypeError(
-                    f'{value} could not be converted to correct type (implied by {cls.__name__})')
-        elif isinstance(value, int):
-            if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned an integer to a boolean datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
-            return value != 0
+            return cls._convert_from_str(value, log_warnings)
+        if isinstance(value, int):
+            return cls._convert_from_int(value, log_warnings)
+        return cls._convert_from_fallback(value)
+
+    @classmethod
+    def _convert_from_none(cls) -> None:
+        return None
+
+    @classmethod
+    def _convert_from_bool(cls, value: bool) -> bool:
+        return value
+
+    @classmethod
+    def _convert_from_str(cls, value: str, log_warnings: bool) -> bool:
+        lowered_value = value.lower()
+        if lowered_value == 'false':
+            cls._warn_converted(
+                log_warnings, 'Assigned a string to a boolean datatype. '
+                              'Automatically converted to the correct type. Please change the type')
+            return False
+        if lowered_value == 'true':
+            cls._warn_converted(
+                log_warnings, 'Assigned a string to a boolean datatype. '
+                              'Automatically converted to the correct type. Please change the type')
+            return True
         raise CouldNotConvertToCorrectTypeError(
             f'{value} could not be converted to correct type (implied by {cls.__name__})')
+
+    @classmethod
+    def _convert_from_int(cls, value: int, log_warnings: bool) -> bool:
+        cls._warn_converted(
+            log_warnings, 'Assigned an integer to a boolean datatype. '
+                          'Automatically converted to the correct type. Please change the type')
+        return value != 0
+
+    @classmethod
+    def _convert_from_fallback(cls, value: Any) -> bool:
+        raise CouldNotConvertToCorrectTypeError(
+            f'{value} could not be converted to correct type (implied by {cls.__name__})')
+
+    @classmethod
+    def _warn_converted(cls, log_warnings: bool, message: str) -> None:
+        if log_warnings:
+            warnings.warn(category=IncorrectTypeWarning, message=message)
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
