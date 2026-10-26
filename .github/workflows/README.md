@@ -26,13 +26,23 @@ Handles package releases automatically after a successful update or when a tag i
 - Builds the package
 - Publishes to PyPI
 
-### 4. unittest.yml
+### 4. quality.yml
+Runs the quality gate on pushes to `master` and pull requests.
+- Checks out the repository
+- Installs Python 3.11 and project dependencies
+- Runs tests with coverage
+- Runs lint, format check, type check, security, and dead-code analysis
+- Enforces quality gates (ratchet, security, dead-code) that can block a merge
+- Excludes the generated model from checks
+- Uploads a QA report artifact
+
+### 5. unittest.yml
 Runs the full test suite on multiple OSes and Python versions for every push.
 - Checks out the repository
 - Installs dependencies for each matrix combination
 - Runs unittests and notebook tests
 
-### 5. zip_source.yml
+### 6. zip_source.yml
 Creates a zip archive of the source code after a release or on demand.
 - Checks out the repository
 - Zips the source code

@@ -29,22 +29,22 @@ on:
 
 jobs:
   quality:
-    name: Quality gate for Python 3.9
+    name: Quality gate for Python 3.11
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
 
-      - name: Install uv with Python 3.9
+      - name: Install uv with Python 3.11
         # The gate runs on the lowest supported Python version, because the type
         # and lint results differ per version.
         uses: astral-sh/setup-uv@v7
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install project dependencies
         run: |
-          uv venv --python 3.9
+          uv venv --python 3.11
           uv pip install -r pyproject.toml --extra test
 
       - name: Install quality tools
