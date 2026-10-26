@@ -118,3 +118,10 @@ module = [
 follow_imports = "skip"
 ignore_errors = true
 
+
+[tool.mutmut]
+source_paths = ["otlmow_model/OtlmowModel/BaseClasses"]
+pytest_add_cli_args_test_selection = ["../UnitTests"]
+also_copy = ["otlmow_model/OtlmowModel/Helpers", "otlmow_model/OtlmowModel/Classes", "otlmow_model/OtlmowModel/generated_info.json"]
+debug = true
+do_not_mutate = []
