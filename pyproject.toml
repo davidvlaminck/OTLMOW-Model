@@ -51,6 +51,13 @@ module = [ "otlmow_model.OtlmowModel.Classes.*", "otlmow_model.OtlmowModel.Datat
 follow_imports = "skip"
 ignore_errors = true
 
+[tool.mutmut]
+source_paths = [ "otlmow_model/OtlmowModel/BaseClasses",]
+pytest_add_cli_args_test_selection = [ "../UnitTests",]
+also_copy = [ "otlmow_model/OtlmowModel/Helpers", "otlmow_model/OtlmowModel/Classes", "otlmow_model/OtlmowModel/generated_info.json",]
+debug = true
+do_not_mutate = []
+
 [tool.ruff.lint]
 select = [ "E", "F", "I", "B", "C4", "UP", "PYI", "PT", "RUF", "S", "BLE", "TRY", "FLY", "A", "C", "PL", "Q", "RET", "N", "W", "T20", "G", "LOG", "PIE", "SIM", "PERF", "ARG", "TID", "PTH",]
 ignore = [ "E501",]
@@ -78,10 +85,3 @@ docstring-quotes = "double"
 
 [tool.setuptools.packages.find]
 include = [ "otlmow_model*",]
-
-[tool.mutmut]
-source_paths = ["otlmow_model/OtlmowModel/BaseClasses"]
-pytest_add_cli_args_test_selection = ["../UnitTests"]
-also_copy = ["otlmow_model/OtlmowModel/Helpers", "otlmow_model/OtlmowModel/Classes", "otlmow_model/OtlmowModel/generated_info.json"]
-debug = true
-do_not_mutate = []
