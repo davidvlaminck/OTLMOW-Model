@@ -45,7 +45,12 @@ class KlBeschermbuisMateriaal(KeuzelijstField):
         'rvs': KeuzelijstWaarde(invulwaarde='rvs',
                                 label='RVS',
                                 status='ingebruik',
-                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeschermbuisMateriaal/rvs')
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeschermbuisMateriaal/rvs'),
+        'verzinkt-staal': KeuzelijstWaarde(invulwaarde='verzinkt-staal',
+                                           label='Verzinkt staal',
+                                           status='ingebruik',
+                                           definitie='Staal dat ter bescherming tegen corrosie is voorzien van een zinklaag, ook gegalvaniseerd staal genoemd.',
+                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeschermbuisMateriaal/verzinkt-staal')
     }
 
     @classmethod
