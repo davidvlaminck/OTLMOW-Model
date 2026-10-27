@@ -2,7 +2,7 @@ name: Automatic update
 run-name: Automatic update of class model
 on:
   schedule:
-    - cron: "0 4 * * *" # every day at 4am
+    - cron: "17 20 * * *" # every day at 8:17pm UTC. GitHub's schedule queue is best-effort and can delay this by several hours; with the drift this repo sees (~4-6h) it lands around night in CET. For guaranteed timing, trigger via `gh workflow run` (workflow_dispatch is available).
   workflow_dispatch:
 
 jobs:

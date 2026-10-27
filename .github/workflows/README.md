@@ -5,11 +5,13 @@ This folder contains all GitHub Actions workflows for this repository. Each work
 ## Workflows
 
 ### 1. auto_update.yml
-Automates the update of the class model. Runs daily at 4am and on manual trigger.
+Automates the update of the class model. Runs daily on a schedule and on manual trigger.
 - Checks out the repository
 - Installs Python and dependencies
 - Runs the automatic update script
 - Commits and pushes changes
+
+Note: the schedule is best-effort — GitHub's Actions queue can delay it by several hours. For guaranteed timing, run it manually with `gh workflow run auto_update.yml` or from the Actions tab.
 
 ### 2. coverage.yml
 Generates a coverage report for the codebase on pushes and pull requests to `master`.
