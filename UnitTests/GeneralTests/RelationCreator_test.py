@@ -220,8 +220,7 @@ def test_create_betrokkenerelation():
     target_agent.agentId.identificator = 'target_agent'
     agent_typeURI = 'http://purl.org/dc/terms/Agent'
 
-    relation = create_betrokkenerelation(rol='eigenaar', source=source_agent, source_typeURI=agent_typeURI,
-                                         target=target_agent, target_typeURI=agent_typeURI)
+    relation = create_betrokkenerelation(rol='eigenaar', source=source_agent, target=target_agent)
     assert relation is not None
     assert relation.rol == 'eigenaar'
     assert relation.typeURI == HeeftBetrokkene.typeURI

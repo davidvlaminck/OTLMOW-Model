@@ -70,7 +70,9 @@ def _set_relation_end(relation_type: RelatieObject, end: str, aim_id: str, insta
         asset_id_attribute.identificator = aim_id
         asset_id_attribute.toegekendDoor = 'AWV'
         segment = aim_id
-    elif typeURI == 'http://purl.org/dc/terms/Agent':
+        return segment
+    actual_typeURI = typeURI if typeURI is not None else getattr(instance, 'typeURI', None)
+    if actual_typeURI == 'http://purl.org/dc/terms/Agent':
         asset_id_attribute.identificator = instance.agentId.identificator
         asset_id_attribute.toegekendDoor = instance.agentId.toegekendDoor
         segment = instance.agentId.identificator

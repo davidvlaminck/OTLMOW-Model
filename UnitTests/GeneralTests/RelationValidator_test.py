@@ -187,11 +187,10 @@ def test_is_valid_relation_using_relation_uri_base_class_of_target_can_be_deprec
 
 def test_is_valid_relation_using_relation_uri_instantiates_the_target_when_only_a_typeURI_is_given():
     agent = Agent()
-    # Baanlichaam is a concrete subclass of the abstract AIMObject, which is the
-    # target type that Agent declares for the HeeftBetrokkene relation.
     assert not is_valid_relation_using_relation_uri(
         relation_uri='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene',
         source=agent,
-        target_typeURI='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Baanlichaam')
+        target_typeURI='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass',
+        model_directory=model_directory)
 
 
