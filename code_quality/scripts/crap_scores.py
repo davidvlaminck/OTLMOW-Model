@@ -34,11 +34,7 @@ CRAP_MONITOR = 10.0
 # auto_update workflow, so they are never refactored by hand and must not
 # dominate the ranking. Adapt this list when the bundle is copied to another
 # repository (see code_quality/README.md section 19).
-DEFAULT_EXCLUDES = (
-    'otlmow_model/OtlmowModel/Classes',
-    'otlmow_model/OtlmowModel/Datatypes',
-    'otlmow_model/OtlmowModel/Helpers/all_classes.py',
-)
+DEFAULT_EXCLUDES = ()
 
 
 @dataclass

@@ -34,12 +34,6 @@ in `pyproject.toml`.
 | Relative imports beyond the package root | breaks packaging | `TID252` | absolute imports |
 | `os.path` string concatenation | breaks on Windows paths | `PTH` | `pathlib.Path` |
 
-`TID252` is **disabled for the package** in this repository, on purpose: the
-package is imported under a second name as well
-(`UnitTests/TestModel/OtlmowModel`), and an absolute import would silently
-import the real package instead of the copy. The rule is switched off with a
-per-file ignore, not with a `# noqa`.
-
 ## Logging
 
 | Anti-pattern | Why it hurts | Ruff rule | Fix |
@@ -88,3 +82,6 @@ result = subprocess.run(cmd, shell=True)  # noqa: S602 - required for the legacy
 ```
 
 A `# noqa` without a reason is a review rejection.
+
+See `MANUAL-CONVENTIONS.md` for conventions that have no ruff rule (e.g.
+membership tests). That file is the append-only log for new manual rules.

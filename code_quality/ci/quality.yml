@@ -11,7 +11,7 @@
 # The workflow runs on the lowest supported Python version as well, because type
 # and lint results differ per version.
 #
-# The generated model (otlmow_model/OtlmowModel/Classes and .../Datatypes) is
+# The generated model (<package>/OtlmowModel/Classes and .../Datatypes) is
 # excluded from the lint, type, security, dead-code and complexity checks: it is
 # rewritten by the daily auto_update workflow and is never edited by hand. The
 # ruff configuration does that exclusion (see pyproject.toml); the `--exclude`
@@ -29,27 +29,27 @@ on:
 
 jobs:
   quality:
-    name: Quality gate for Python 3.9
+    name: Quality gate for Python 3.11
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
 
-      - name: Install uv with Python 3.9
+      - name: Install uv with Python 3.11
         # The gate runs on the lowest supported Python version, because the type
         # and lint results differ per version.
         uses: astral-sh/setup-uv@v7
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install project dependencies
         run: |
-          uv venv --python 3.9
+          uv venv --python 3.11
           uv pip install -r pyproject.toml --extra test
 
       - name: Install quality tools
         # Pin ruff: a new release can introduce new findings and break the gate.
-        # mypy must stay < 2: mypy 2.x refuses to target Python 3.9, which is the
+        # mypy must stay < 2: mypy 2.x refuses to target Python 3.11, which is the
         # minimum version this package supports.
         # Note: `uv sync` removes tools that are not in the lock file, so install
         # the quality tools explicitly instead of using `uv sync`.
@@ -83,17 +83,13 @@ jobs:
         continue-on-error: true
         run: uv run bandit -q -r otlmow_model
 
-      - name: Dependency audit
-        continue-on-error: true
-        # pip-audit is the only tool that can see whether a pinned dependency
-        # carries a known CVE; bandit scans the source and cannot. It audits
-        # the local environment (--local) because pip-audit does not understand
-        # uv lock files.
-        run: uv run pip-audit --local --format json
-
       - name: Dead code
         continue-on-error: true
         run: uv run vulture otlmow_model --min-confidence 80
+
+      - name: Dependency audit
+        continue-on-error: true
+        run: uv run pip-audit
 
       - name: Quality gates
         # The gates that block a merge, on top of the ratchet that every run
@@ -108,6 +104,9 @@ jobs:
             --source otlmow_model \
             --tooling model_update \
             --exclude otlmow_model/OtlmowModel/Classes,otlmow_model/OtlmowModel/Datatypes,otlmow_model/OtlmowModel/Helpers/all_classes.py \
+            --skip-tests \
+            --no-history \
+            --fail-on bandit,dead-code
             --skip-tests \
             --no-history \
             --fail-on bandit,dead-code
