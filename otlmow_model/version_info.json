@@ -1,8 +1,8 @@
 {
     "current": {
-        "model_version": "2.21.0.4",
+        "model_version": "2.21.0.5",
         "otl_version": "2.21.0",
-        "created_at": "2026-10-27T23:45:51",
+        "created_at": "2026-10-29T00:00:30",
         "created_by": "automatic_update.py"
     },
     "history": {
@@ -1815,6 +1815,14 @@
             "enums_updated": [
                 "KlLichtmastMasttype",
                 "KlWvLichtmastArmlengte"
+            ]
+        },
+        "2.21.0.5": {
+            "previous_version": "2.21.0.4",
+            "updated_class_model": false,
+            "updated_enums": true,
+            "enums_updated": [
+                "KlKleurStandaard"
             ]
         }
     }
