@@ -25,7 +25,7 @@ class KlBijlageType(KeuzelijstField):
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/berekeningsnota'),
         'elektrisch-schema': KeuzelijstWaarde(invulwaarde='elektrisch-schema',
                                               label='elektrisch schema',
-                                              status='ingebruik',
+                                              status='uitgebruik',
                                               definitie='elektrisch schema',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBijlageType/elektrisch-schema'),
         'foto': KeuzelijstWaarde(invulwaarde='foto',
