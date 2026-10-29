@@ -83,7 +83,7 @@ def get_aim_id_from_uuid_and_typeURI(uuid: str, type_uri: str):
 
 
 def validate_guid(uuid: str) -> Match | None:
-    uuid_pattern = "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    uuid_pattern = '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
     return re.match(uuid_pattern, uuid)
 
 

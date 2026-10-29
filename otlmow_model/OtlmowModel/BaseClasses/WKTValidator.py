@@ -15,7 +15,7 @@ class WKTValidator:
         'MULTILINESTRING Z': {'level': 2, 'min': 2, 'len_point': 3},
         'MULTIPOLYGON': {'level': 3, 'min': 3, 'len_point': 2},
         'MULTIPOLYGON Z': {'level': 3, 'min': 3, 'len_point': 3},
-        'GEOMETRYCOLLECTION': 0
+        'GEOMETRYCOLLECTION': 0,
     }
 
     @classmethod
@@ -53,9 +53,20 @@ class WKTValidator:
     @classmethod
     def _is_supported_geo_type(cls, geo_type: str) -> bool:
         return geo_type in (
-            'POINT', 'POINT Z', 'LINESTRING', 'LINESTRING Z', 'POLYGON', 'POLYGON Z',
-            'MULTIPOINT', 'MULTIPOINT Z', 'MULTILINESTRING', 'MULTILINESTRING Z',
-            'MULTIPOLYGON', 'MULTIPOLYGON Z', 'GEOMETRYCOLLECTION')
+            'POINT',
+            'POINT Z',
+            'LINESTRING',
+            'LINESTRING Z',
+            'POLYGON',
+            'POLYGON Z',
+            'MULTIPOINT',
+            'MULTIPOINT Z',
+            'MULTILINESTRING',
+            'MULTILINESTRING Z',
+            'MULTIPOLYGON',
+            'MULTIPOLYGON Z',
+            'GEOMETRYCOLLECTION',
+        )
 
     @classmethod
     def _coord_shape_is_valid(cls, coords_list: list, level: int) -> bool:
@@ -70,10 +81,7 @@ class WKTValidator:
         if level == 1:
             return cls.validate_coords_list(coords_list, geo_type)
         if level == 2:
-            return all(
-                cls.validate_coords_list(coords, geo_type)
-                for coords in coords_list
-            )
+            return all(cls.validate_coords_list(coords, geo_type) for coords in coords_list)
         return cls._validate_coords_for_level_3(coords_list, geo_type)
 
     @classmethod

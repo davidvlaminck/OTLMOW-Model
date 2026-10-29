@@ -15,30 +15,39 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 download_otl_from_github = False
 try:
-    urllib.request.urlretrieve('https://wegenenverkeer.data.vlaanderen.be/doc/implementatiemodel/master/html/OTL.db',
-                           'OTL.db')
+    urllib.request.urlretrieve(
+        'https://wegenenverkeer.data.vlaanderen.be/doc/implementatiemodel/master/html/OTL.db', 'OTL.db'
+    )
     if not Path('OTL.db').exists():
         download_otl_from_github = True
 except:
     download_otl_from_github = True
 if download_otl_from_github:
-    urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master"
-                               "/InputFiles/latest/OTL.db", 'OTL.db')
+    urllib.request.urlretrieve(
+        'https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/InputFiles/latest/OTL.db', 'OTL.db'
+    )
 
 download_ga_from_github = False
 try:
-    urllib.request.urlretrieve('https://wegenenverkeer.data.vlaanderen.be/doc/implementatiemodel/master/html/Geometrie_Artefact.db',
-                               'Geometrie_Artefact.db')
+    urllib.request.urlretrieve(
+        'https://wegenenverkeer.data.vlaanderen.be/doc/implementatiemodel/master/html/Geometrie_Artefact.db',
+        'Geometrie_Artefact.db',
+    )
     if not Path('Geometrie_Artefact.db').exists():
         download_ga_from_github = True
 except:
     download_ga_from_github = True
 if download_ga_from_github:
-    urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master"
-                               "/InputFiles/latest/Geometrie_Artefact.db", 'Geometrie_Artefact.db')
+    urllib.request.urlretrieve(
+        'https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/InputFiles/latest/Geometrie_Artefact.db',
+        'Geometrie_Artefact.db',
+    )
 
-urllib.request.urlretrieve("https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder"
-                           "/settings_otlmow_modelbuilder.json", 'settings_otlmow_modelbuilder.json')
+urllib.request.urlretrieve(
+    'https://github.com/davidvlaminck/OTLMOW-ModelBuilder/raw/master/otlmow_modelbuilder'
+    '/settings_otlmow_modelbuilder.json',
+    'settings_otlmow_modelbuilder.json',
+)
 
 current_dir = Path(__file__).parent
 otl_subset_path = Path(current_dir / 'OTL.db')
@@ -49,15 +58,23 @@ settings_path = Path(current_dir / 'settings_otlmow_modelbuilder.json')
 with OSLOInMemoryCreator(otl_subset_path) as memory_creator:
     version = memory_creator.get_otl_version()
 
-ModelBuilder.build_otl_datamodel(otl_subset_location=otl_subset_path, geometry_artefact_location=GA_file_path,
-                                 directory=model_directory, settings_path=settings_path,
-                                 environment='prd')
+ModelBuilder.build_otl_datamodel(
+    otl_subset_location=otl_subset_path,
+    geometry_artefact_location=GA_file_path,
+    directory=model_directory,
+    settings_path=settings_path,
+    environment='prd',
+)
 
 version_info_file_path = current_dir.parent / 'otlmow_model' / 'version_info.json'
 print(current_dir.parent)
 enums_updated = ModelUpdater.find_changed_enums()
-ModelUpdater.update_model(version_info_file_path=version_info_file_path, otl_version=version,
-                          created_by='automatic_update.py', enums_updated=enums_updated)
+ModelUpdater.update_model(
+    version_info_file_path=version_info_file_path,
+    otl_version=version,
+    created_by='automatic_update.py',
+    enums_updated=enums_updated,
+)
 
 with open(version_info_file_path, encoding='utf-8') as file:
     version_info = json.load(file)

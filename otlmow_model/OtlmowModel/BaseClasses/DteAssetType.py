@@ -14,7 +14,8 @@ class DteAssetTypeWaarden(WaardenObject):
             label='typeURI',
             objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI',
             definition='De uri van het assettype.',
-            owner=self)
+            owner=self,
+        )
 
     @property
     def typeURI(self):
@@ -28,6 +29,7 @@ class DteAssetTypeWaarden(WaardenObject):
 
 class DteAssetType(ComplexField):
     """Complex datatype om het assettype te benoemen"""
+
     naam = 'DteAssetType'
     label = 'AssetType'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DteAssetType'

@@ -8,7 +8,6 @@ class cached_property(object):
     the value::
 
         class Foo(object):
-
             @cached_property
             def foo(self):
                 # calculate something important here

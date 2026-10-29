@@ -32,9 +32,11 @@ def _meta_info_of_nested_attribute(obj: Union[OTLObject, OTLAttribuut], attribut
 
 
 def _meta_info_otl_object(otl_object: OTLObject) -> str:
-    object_string = f'Showing metadata of {otl_object.__class__.__name__}:\n' \
-                    f'typeURI: {getattr(otl_object, "typeURI", "")}\n' \
-                    f'definition: {otl_object.__doc__}\n'
+    object_string = (
+        f'Showing metadata of {otl_object.__class__.__name__}:\n'
+        f'typeURI: {getattr(otl_object, "typeURI", "")}\n'
+        f'definition: {otl_object.__doc__}\n'
+    )
 
     if hasattr(otl_object, 'deprecated_version') and getattr(otl_object, 'deprecated_version', None):
         object_string += f'deprecated since {otl_object.deprecated_version}\n'
@@ -51,9 +53,11 @@ def _meta_info_otl_object(otl_object: OTLObject) -> str:
 
 
 def _meta_info_attribute(attribute: OTLAttribuut) -> str:
-    object_string = f'Showing metadata of {getattr(attribute, "naam", "")}:\n' \
-                    f'typeURI: {getattr(attribute, "objectUri", "")}\n' \
-                    f'definition: {getattr(attribute, "definition", "")}\n'
+    object_string = (
+        f'Showing metadata of {getattr(attribute, "naam", "")}:\n'
+        f'typeURI: {getattr(attribute, "objectUri", "")}\n'
+        f'definition: {getattr(attribute, "definition", "")}\n'
+    )
 
     if hasattr(attribute, 'deprecated_version') and attribute.deprecated_version != '':
         object_string += f'deprecated since {attribute.deprecated_version}\n'
@@ -87,9 +91,7 @@ def _valid_values_of(field) -> str:
 
 def _option_line(key, option) -> str:
     status = getattr(option, 'status', '')
-    status_display = {
-        'uitgebruik': '(waarde uit gebruik!)'
-    }.get(status, '')
+    status_display = {'uitgebruik': '(waarde uit gebruik!)'}.get(status, '')
     status_note = f' {status_display}' if status_display else ''
     return f'{key}{status_note}'
 
@@ -97,8 +99,7 @@ def _option_line(key, option) -> str:
 def _full_list_hint(field) -> str:
     naam = getattr(field, 'naam', '')
     codelist = getattr(field, 'codelist', '')
-    return (f'    ...\nFor the full list, review the '
-            f'class {naam} or go to {codelist}\n')
+    return f'    ...\nFor the full list, review the class {naam} or go to {codelist}\n'
 
 
 def _attributes_of(field) -> str:
@@ -121,4 +122,3 @@ def _attribute_line(attr) -> str:
     if hasattr(attr, 'deprecated_version') and getattr(attr, 'deprecated_version', ''):
         attr_line += f' <deprecated since {attr.deprecated_version}>'
     return attr_line
-

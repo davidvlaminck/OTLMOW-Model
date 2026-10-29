@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 import pytest
@@ -36,32 +37,21 @@ def test_validate():
         BooleanField.validate(1.0, boolean_attribute)
 
 
-@pytest.mark.parametrize("value, expected", [
-    (None, None),
-    (True, True),
-    (False, False)
-])
+@pytest.mark.parametrize('value, expected', [(None, None), (True, True), (False, False)])
 def test_convert_to_correct_type(subtests, value, expected):
     with subtests.test(msg='Correct values'):
         assert BooleanField.convert_to_correct_type(value) == expected
 
 
-@pytest.mark.parametrize("value", [
-    'a', '1', 'y', 'Y', object(), [], {}
-])
+@pytest.mark.parametrize('value', ['a', '1', 'y', 'Y', object(), [], {}])
 def test_convert_to_incorrect_type(value):
     with pytest.raises(CouldNotConvertToCorrectTypeError):
         BooleanField.convert_to_correct_type(value)
 
 
-@pytest.mark.parametrize("value, expected", [
-    ('true', True),
-    ('True', True),
-    ('false', False),
-    ('False', False),
-    (1, True),
-    (0, False)
-])
+@pytest.mark.parametrize(
+    'value, expected', [('true', True), ('True', True), ('false', False), ('False', False), (1, True), (0, False)]
+)
 def test_convert_to_correct_type_with_warning(subtests, value, expected, caplog):
     with pytest.warns(IncorrectTypeWarning):
         assert BooleanField.convert_to_correct_type(value) == expected

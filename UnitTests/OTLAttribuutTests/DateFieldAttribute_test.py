@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 import datetime
@@ -26,7 +27,7 @@ def test_datefield_with_correct_input(subtests):
         assert instance.testDateField == datetime.date(2020, 1, 1)
 
 
-def test_datefield_with_datetime_val(subtests,caplog):
+def test_datefield_with_datetime_val(subtests, caplog):
     instance = AllCasesTestClass()
     with subtests.test(msg='empty instance'):
         assert instance.testDateField is None

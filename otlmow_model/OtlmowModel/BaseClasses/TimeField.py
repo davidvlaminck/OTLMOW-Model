@@ -16,6 +16,7 @@ from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 class TimeField(OTLField):
     """Beschrijft een tekstregel volgens http://www.w3.org/2001/XMLSchema#string."""
+
     naam = 'Time'
     objectUri = 'http://www.w3.org/2001/XMLSchema#time'
     definition = 'Beschrijft een datum volgens http://www.w3.org/2001/XMLSchema#time.'
@@ -32,7 +33,8 @@ class TimeField(OTLField):
             return value
         if isinstance(value, bool):
             raise CouldNotConvertToCorrectTypeError(
-                f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                f'{value} could not be converted to correct type (implied by {cls.__name__})'
+            )
         if isinstance(value, datetime):
             return cls._convert_datetime(value, log_warnings)
         if isinstance(value, date):
@@ -46,46 +48,54 @@ class TimeField(OTLField):
     @classmethod
     def _convert_datetime(cls, value: datetime, log_warnings: bool) -> time:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a datetime to a time datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a datetime to a time datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         return time(value.hour, value.minute, value.second)
 
     @classmethod
     def _convert_date(cls, log_warnings: bool) -> time:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a date to a time datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a date to a time datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         return time()
 
     @classmethod
     def _convert_int(cls, value: int, log_warnings: bool) -> time:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned an integer to a time datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned an integer to a time datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         timestamp = datetime.fromtimestamp(value, timezone.utc)
         return time(timestamp.hour, timestamp.minute, timestamp.second)
 
     @classmethod
     def _convert_string(cls, value: str, log_warnings: bool) -> time:
         try:
-            dt = datetime.strptime(value, "%H:%M:%S")
+            dt = datetime.strptime(value, '%H:%M:%S')
         except ValueError:
             try:
-                dt = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
+                dt = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
             except ValueError:
                 try:
-                    dt = datetime.strptime(value, "%d/%m/%Y %H:%M:%S")
+                    dt = datetime.strptime(value, '%d/%m/%Y %H:%M:%S')
                 except Exception as e:
                     raise CouldNotConvertToCorrectTypeError(
                         f'{value} could not be converted to correct type (implied by {cls.__name__})'
                     ) from e
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a string to a time datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a string to a time datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         return time(dt.hour, dt.minute, dt.second)
 
     @classmethod
@@ -102,7 +112,7 @@ class TimeField(OTLField):
 
     @classmethod
     def value_default(cls, value: time) -> str | None:
-        return None if value is None else value.strftime("%H:%M:%S")
+        return None if value is None else value.strftime('%H:%M:%S')
 
     def __str__(self) -> str:
         return OTLField.__str__(self)

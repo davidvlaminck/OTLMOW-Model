@@ -10,6 +10,7 @@ from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 class StringField(OTLField):
     """Beschrijft een tekstregel volgens http://www.w3.org/2001/XMLSchema#string."""
+
     naam = 'String'
     objectUri = 'http://www.w3.org/2001/XMLSchema#string'
     definition = 'Beschrijft een tekstregel volgens http://www.w3.org/2001/XMLSchema#string.'
@@ -25,14 +26,18 @@ class StringField(OTLField):
         if isinstance(value, str):
             return value
         if isinstance(value, (list, dict)):
-            raise CouldNotConvertToCorrectTypeError(f'The given value of object of type {type(value)} could not be '
-                                                    f'converted to string (implied by {cls.__name__})')
+            raise CouldNotConvertToCorrectTypeError(
+                f'The given value of object of type {type(value)} could not be '
+                f'converted to string (implied by {cls.__name__})'
+            )
         try:
             str_val = str(value)
             if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned a non-string to a string datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
+                warnings.warn(
+                    category=IncorrectTypeWarning,
+                    message='Assigned a non-string to a string datatype. '
+                    'Automatically converted to the correct type. Please change the type',
+                )
             return str_val
         except TypeError as e:
             raise CouldNotConvertToCorrectTypeError(

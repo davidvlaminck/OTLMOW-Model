@@ -7,6 +7,7 @@ from .IntegerField import IntegerField
 
 class NonNegIntegerField(IntegerField):
     """Beschrijft een natuurlijk getal volgens http://www.w3.org/2001/XMLSchema#nonNegativeInteger."""
+
     naam = 'NonNegativeInteger'
     objectUri = 'http://www.w3.org/2001/XMLSchema#nonNegativeInteger'
     definition = 'Beschrijft een natuurlijk getal volgens http://www.w3.org/2001/XMLSchema#nonNegativeInteger.'

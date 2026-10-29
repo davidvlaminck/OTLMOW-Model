@@ -8,6 +8,7 @@ from ..Exceptions.WrongGeometryTypeError import WrongGeometryTypeError
 
 class WKTField(StringField):
     """Een geometrie waarde in WKT-string vorm."""
+
     naam = 'WKT'
     objectUri = ''
     definition = ''
@@ -16,9 +17,7 @@ class WKTField(StringField):
 
     @classmethod
     def convert_to_correct_type(cls, value: str, log_warnings: bool = True) -> str:
-        return (value.replace(' Z(', ' Z (').replace('T(', 'T (')
-                .replace('G(', 'G (').replace('N(', 'N ('))
-
+        return value.replace(' Z(', ' Z (').replace('T(', 'T (').replace('G(', 'G (').replace('N(', 'N (')
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
@@ -31,8 +30,10 @@ class WKTField(StringField):
             if geo_type not in attribuut.owner._geometry_types:
                 expected_types = ' and '.join(sorted(attribuut.owner._geometry_types))
                 verkorte_uri = attribuut.owner.typeURI.split('#')[1]
-                error_msg = f"Asset type {verkorte_uri} shouldn't be assigned a {geo_type} as geometry, " \
-                            f"valid types are {expected_types}"
+                error_msg = (
+                    f"Asset type {verkorte_uri} shouldn't be assigned a {geo_type} as geometry, "
+                    f'valid types are {expected_types}'
+                )
                 raise WrongGeometryTypeError(error_msg)
         return True
 

@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 import pytest
@@ -91,7 +92,9 @@ def test_fuzzy_matching():
     with pytest.raises(InvalidOptionError) as excinfo:
         instance.testKeuzelijst = 'waarde-4a'
 
-    assert (str(excinfo.value) ==
-            'waarde-4a is not a valid option for testKeuzelijst, find the valid options using print(meta_info('
-            '<object>, attribute="testKeuzelijst"))\nDid you mean one of these? "waarde-4"')
+    assert (
+        str(excinfo.value)
+        == 'waarde-4a is not a valid option for testKeuzelijst, find the valid options using print(meta_info('
+        '<object>, attribute="testKeuzelijst"))\nDid you mean one of these? "waarde-4"'
+    )
     assert excinfo.value.closest_matches == ['waarde-4']

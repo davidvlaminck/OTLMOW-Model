@@ -354,6 +354,7 @@ def run_pip_audit() -> dict[str, Any]:
 
 def check_membership_tests(paths: list[str]) -> int:
     import re
+
     count = 0
     for p in paths:
         if not p:
@@ -396,7 +397,13 @@ def run_lint_imports() -> dict[str, Any]:
             violations += 1
     if violations == 0 and code != 0:
         violations = 1
-    return {'available': True, 'violations': violations, 'status': 'violations' if violations else ('ok' if code == 0 else 'unknown'), 'exit_code': code, 'sample': output.strip()[:500]}
+    return {
+        'available': True,
+        'violations': violations,
+        'status': 'violations' if violations else ('ok' if code == 0 else 'unknown'),
+        'exit_code': code,
+        'sample': output.strip()[:500],
+    }
 
 
 def run_vulture(source: str, excludes: tuple[str, ...] = ()) -> dict[str, Any]:
@@ -564,8 +571,14 @@ def render_thresholds(snapshot: dict[str, Any]) -> list[str]:
             f'{metrics["unparsable_files"]}',
         ),
         ('manual conventions', 'manual_conventions', False, f'{metrics["manual_conventions"]}'),
-        ('import cycles/architecture', 'import_architecture_violations', False,
-         'not enabled' if metrics.get('import_architecture_status') == 'not enabled' else str(metrics.get('import_architecture_violations', 0))),
+        (
+            'import cycles/architecture',
+            'import_architecture_violations',
+            False,
+            'not enabled'
+            if metrics.get('import_architecture_status') == 'not enabled'
+            else str(metrics.get('import_architecture_violations', 0)),
+        ),
     ]
     lines = [
         f'# QA Report — {snapshot["repo"]}',
@@ -584,10 +597,16 @@ def render_thresholds(snapshot: dict[str, Any]) -> list[str]:
         glyph = (
             '🔴'
             if (metric == 'ruff_format_files' and format_files < 0)
-            else ('⚪' if label == 'import cycles/architecture' and current == 'not enabled' else status(metrics.get(metric, 0), thresholds.get(metric, 0), higher_is_better))
+            else (
+                '⚪'
+                if label == 'import cycles/architecture' and current == 'not enabled'
+                else status(metrics.get(metric, 0), thresholds.get(metric, 0), higher_is_better)
+            )
         )
         comparison = '≥' if higher_is_better else '≤'
-        threshold_display = '—' if label == 'import cycles/architecture' and current == 'not enabled' else thresholds.get(metric, 0)
+        threshold_display = (
+            '—' if label == 'import cycles/architecture' and current == 'not enabled' else thresholds.get(metric, 0)
+        )
         lines.append(f'| {label} | {comparison} {threshold_display} | {current} | {glyph} |')
     lines.append('')
     return lines

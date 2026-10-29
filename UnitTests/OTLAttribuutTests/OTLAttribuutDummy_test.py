@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 from datetime import date, datetime, time
@@ -34,7 +35,7 @@ def test_dummy_StringFieldMetKard():
     attr.fill_with_dummy_data()
 
     generated_dummy_waarde = attr.get_waarde()
-    assert  generated_dummy_waarde is not None
+    assert generated_dummy_waarde is not None
     assert isinstance(generated_dummy_waarde, list)
     assert len(generated_dummy_waarde) == 1
     assert isinstance(generated_dummy_waarde[0], str)

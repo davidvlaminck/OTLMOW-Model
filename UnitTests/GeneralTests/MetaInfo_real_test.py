@@ -24,9 +24,15 @@ class _Waarden(WaardenObject):
     def __init__(self):
         self._parent = None
         self._is_waarden_object = True
-        self._nested = OTLAttribuut(field=StringField, naam='nested', label='nested',
-                                     objectUri='https://example.com#T.nested', owner=self,
-                                     kardinaliteit_min='0', kardinaliteit_max='*')
+        self._nested = OTLAttribuut(
+            field=StringField,
+            naam='nested',
+            label='nested',
+            objectUri='https://example.com#T.nested',
+            owner=self,
+            kardinaliteit_min='0',
+            kardinaliteit_max='*',
+        )
 
 
 class _Complex(ComplexField):
@@ -35,9 +41,12 @@ class _Complex(ComplexField):
 
 class _Keuzelijst(KeuzelijstField):
     options: ClassVar[dict] = {
-        f'opt{i}': KeuzelijstWaarde(invulwaarde=f'opt{i}', label=f'opt{i}',
-                                     objectUri=f'https://example.com#{i}',
-                                     status='uitgebruik' if i == 0 else '')
+        f'opt{i}': KeuzelijstWaarde(
+            invulwaarde=f'opt{i}',
+            label=f'opt{i}',
+            objectUri=f'https://example.com#{i}',
+            status='uitgebruik' if i == 0 else '',
+        )
         for i in range(12)
     }
 
@@ -49,13 +58,17 @@ class _Simple(OTLObject):
 
     def __init__(self):
         super().__init__()
-        self._naam = OTLAttribuut(field=StringField, naam='naam', label='naam',
-                                  objectUri='https://example.com#T.naam', owner=self,
-                                  definition='the name', deprecated_version='2.0.0')
-        self._k = OTLAttribuut(field=_Keuzelijst, naam='k', label='k',
-                               objectUri='https://example.com#T.k', owner=self)
-        self._c = OTLAttribuut(field=_Complex, naam='c', label='c',
-                               objectUri='https://example.com#T.c', owner=self)
+        self._naam = OTLAttribuut(
+            field=StringField,
+            naam='naam',
+            label='naam',
+            objectUri='https://example.com#T.naam',
+            owner=self,
+            definition='the name',
+            deprecated_version='2.0.0',
+        )
+        self._k = OTLAttribuut(field=_Keuzelijst, naam='k', label='k', objectUri='https://example.com#T.k', owner=self)
+        self._c = OTLAttribuut(field=_Complex, naam='c', label='c', objectUri='https://example.com#T.c', owner=self)
 
 
 def test_meta_info_of_an_object():
@@ -74,10 +87,7 @@ def test_meta_info_of_an_object():
 def test_meta_info_of_an_attribute():
     result = meta_info(_Simple(), attribute='naam')
     assert result == (
-        'Showing metadata of naam:\n'
-        'typeURI: https://example.com#T.naam\n'
-        'definition: the name\n'
-        'deprecated since 2.0.0'
+        'Showing metadata of naam:\ntypeURI: https://example.com#T.naam\ndefinition: the name\ndeprecated since 2.0.0'
     )
 
 
@@ -103,11 +113,7 @@ def test_meta_info_of_a_complex_attribute():
 
 def test_meta_info_of_a_nested_attribute():
     result = meta_info(_Simple(), attribute='c.nested')
-    assert result == (
-        'Showing metadata of nested:\n'
-        'typeURI: https://example.com#T.nested\n'
-        'definition: '
-    )
+    assert result == ('Showing metadata of nested:\ntypeURI: https://example.com#T.nested\ndefinition: ')
 
 
 def test_meta_info_of_an_unknown_attribute_raises():

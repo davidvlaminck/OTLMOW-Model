@@ -1,4 +1,3 @@
-
 class InvalidOptionError(ValueError):
     """
     Exception raised when an invalid option is provided.

@@ -80,16 +80,18 @@ def _invalid_option_error(value: str, attribuut) -> InvalidOptionError:
     error = InvalidOptionError(
         f'{value} is not a valid option for {attribuut.naam}, '
         f'find the valid options using print(meta_info(<object>, attribute="{attribuut.naam}"))\n'
-        f'Did you mean one of these? "{closest_matches_string}"')
+        f'Did you mean one of these? "{closest_matches_string}"'
+    )
     error.closest_matches = closest_matches
     return error
 
 
 def _check_option_status(option_value: KeuzelijstWaarde, value: str, attribuut) -> None:
     if option_value.status == 'uitgebruik':
-        warnings.warn(message=f'{value} is a deprecated value for {attribuut.naam}, '
-                              f'please refrain from using this value.',
-                      category=AttributeDeprecationWarning)
+        warnings.warn(
+            message=f'{value} is a deprecated value for {attribuut.naam}, please refrain from using this value.',
+            category=AttributeDeprecationWarning,
+        )
     elif option_value.status == 'verwijderd':
         logging.error(f'{value} is no longer a valid value for {attribuut.naam}.')
         raise RemovedOptionError(f'{value} is no longer a valid value for {attribuut.naam}.')

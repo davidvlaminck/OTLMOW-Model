@@ -13,7 +13,7 @@ def instantiate_single_class_with_asset_creator():
     assert mof is not None
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     classes_to_instantiate = {}
 
     class_location = Path(ROOT_DIR) / '../otlmow_model/Classes/'
@@ -31,15 +31,18 @@ if __name__ == "__main__":
 
     classes_to_instantiate['Agent'] = class_location / 'Agent'
     classes_to_instantiate['ActivityComplex'] = class_location / 'ImplementatieElement' / 'ActivityComplex'
-    classes_to_instantiate[
-        'ElectricityAppurtenance'] = class_location / 'ImplementatieElement' / 'ElectricityAppurtenance'
+    classes_to_instantiate['ElectricityAppurtenance'] = (
+        class_location / 'ImplementatieElement' / 'ElectricityAppurtenance'
+    )
     classes_to_instantiate['Derdenobject'] = class_location / 'ImplementatieElement' / 'Derdenobject'
     classes_to_instantiate['ElectricityCable'] = class_location / 'ImplementatieElement' / 'ElectricityCable'
     classes_to_instantiate['Pipe'] = class_location / 'ImplementatieElement' / 'Pipe'
-    classes_to_instantiate[
-        'TelecommunicationsAppurtenance'] = class_location / 'ImplementatieElement' / 'TelecommunicationsAppurtenance'
-    classes_to_instantiate[
-        'TelecommunicationsCable'] = class_location / 'ImplementatieElement' / 'TelecommunicationsCable'
+    classes_to_instantiate['TelecommunicationsAppurtenance'] = (
+        class_location / 'ImplementatieElement' / 'TelecommunicationsAppurtenance'
+    )
+    classes_to_instantiate['TelecommunicationsCable'] = (
+        class_location / 'ImplementatieElement' / 'TelecommunicationsCable'
+    )
 
     for class_name, file_path in classes_to_instantiate.items():
         try:

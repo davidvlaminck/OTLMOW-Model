@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 import pytest
@@ -9,7 +10,6 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import A
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.DeprecatedTestClass import DeprecatedTestClass
 from otlmow_model.OtlmowModel.BaseClasses.MetaInfo import meta_info
 from otlmow_model.OtlmowModel.Exceptions.ClassDeprecationWarning import ClassDeprecationWarning
-
 
 
 def test_meta_info_on_deprecated_attribute():
@@ -26,42 +26,46 @@ def test_meta_info_on_deprecated_class():
     with pytest.warns(ClassDeprecationWarning):
         instance = DeprecatedTestClass()
         result = meta_info(instance)
-        expected = 'Showing metadata of DeprecatedTestClass:\n' \
-                   'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DeprecatedTestClass\n' \
-                   'definition: Deprecated TestClass\n' \
-                   'deprecated since 2.0.0\n' \
-                   'attributes:\n' \
-                   '    assetId (type: DtcIdentificator)\n' \
-                   '    assetVersie (type: DtcAssetVersie)\n' \
-                   '    bestekPostNummer (type: String)\n' \
-                   '    datumOprichtingObject (type: Date)\n' \
-                   '    geometry (type: WKT)\n' \
-                   '    isActief (type: Boolean)\n' \
-                   '    notitie (type: String)\n' \
-                   '    standaardBestekPostNummer (type: String)\n' \
-                   '    theoretischeLevensduur (type: KwantWrdInMaand)\n' \
-                   '    toestand (type: KlAIMToestand)'
+        expected = (
+            'Showing metadata of DeprecatedTestClass:\n'
+            'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DeprecatedTestClass\n'
+            'definition: Deprecated TestClass\n'
+            'deprecated since 2.0.0\n'
+            'attributes:\n'
+            '    assetId (type: DtcIdentificator)\n'
+            '    assetVersie (type: DtcAssetVersie)\n'
+            '    bestekPostNummer (type: String)\n'
+            '    datumOprichtingObject (type: Date)\n'
+            '    geometry (type: WKT)\n'
+            '    isActief (type: Boolean)\n'
+            '    notitie (type: String)\n'
+            '    standaardBestekPostNummer (type: String)\n'
+            '    theoretischeLevensduur (type: KwantWrdInMaand)\n'
+            '    toestand (type: KlAIMToestand)'
+        )
         assert result == expected
 
 
 def test_meta_info_on_otl_object():
     instance = AnotherTestClass()
     result = meta_info(instance)
-    expected = 'Showing metadata of AnotherTestClass:\n' \
-               'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass\n' \
-               'definition: Just another TestClass to test relations\n' \
-               'attributes:\n' \
-               '    assetId (type: DtcIdentificator)\n' \
-               '    assetVersie (type: DtcAssetVersie)\n' \
-               '    bestekPostNummer (type: String)\n' \
-               '    datumOprichtingObject (type: Date)\n' \
-               '    deprecatedString (type: String) <deprecated since 2.0.0>\n' \
-               '    geometry (type: WKT)\n' \
-               '    isActief (type: Boolean)\n' \
-               '    notitie (type: String)\n' \
-               '    standaardBestekPostNummer (type: String)\n' \
-               '    theoretischeLevensduur (type: KwantWrdInMaand)\n' \
-               '    toestand (type: KlAIMToestand)'
+    expected = (
+        'Showing metadata of AnotherTestClass:\n'
+        'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass\n'
+        'definition: Just another TestClass to test relations\n'
+        'attributes:\n'
+        '    assetId (type: DtcIdentificator)\n'
+        '    assetVersie (type: DtcAssetVersie)\n'
+        '    bestekPostNummer (type: String)\n'
+        '    datumOprichtingObject (type: Date)\n'
+        '    deprecatedString (type: String) <deprecated since 2.0.0>\n'
+        '    geometry (type: WKT)\n'
+        '    isActief (type: Boolean)\n'
+        '    notitie (type: String)\n'
+        '    standaardBestekPostNummer (type: String)\n'
+        '    theoretischeLevensduur (type: KwantWrdInMaand)\n'
+        '    toestand (type: KlAIMToestand)'
+    )
     assert result == expected
 
 
@@ -76,18 +80,20 @@ def test_meta_info_on_otl_attribute():
     instance = AnotherTestClass()
 
     result = meta_info(instance, attribute='toestand')
-    expected = 'Showing metadata of toestand:\n' \
-               'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand\n' \
-               'definition: Geeft de actuele stand in de levenscyclus van het object.\n' \
-               'valid values:\n' \
-               '    geannuleerd\n' \
-               '    gepland\n' \
-               '    in-gebruik\n' \
-               '    in-ontwerp\n' \
-               '    in-opbouw\n' \
-               '    overgedragen\n' \
-               '    uit-gebruik\n' \
-               '    verwijderd'
+    expected = (
+        'Showing metadata of toestand:\n'
+        'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand\n'
+        'definition: Geeft de actuele stand in de levenscyclus van het object.\n'
+        'valid values:\n'
+        '    geannuleerd\n'
+        '    gepland\n'
+        '    in-gebruik\n'
+        '    in-ontwerp\n'
+        '    in-opbouw\n'
+        '    overgedragen\n'
+        '    uit-gebruik\n'
+        '    verwijderd'
+    )
 
     assert result == expected
 
@@ -96,12 +102,14 @@ def test_meta_info_on_otl_attribute_Dtc():
     instance = AnotherTestClass()
 
     result = meta_info(instance, attribute='assetId')
-    expected = 'Showing metadata of assetId:\n' \
-               'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId\n' \
-               'definition: Unieke identificatie van de asset zoals toegekend door de assetbeheerder of n.a.v. eerste aanlevering door de leverancier.\n' \
-               'attributes:\n' \
-               '    identificator (type: String)\n' \
-               '    toegekendDoor (type: String)'
+    expected = (
+        'Showing metadata of assetId:\n'
+        'typeURI: https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId\n'
+        'definition: Unieke identificatie van de asset zoals toegekend door de assetbeheerder of n.a.v. eerste aanlevering door de leverancier.\n'
+        'attributes:\n'
+        '    identificator (type: String)\n'
+        '    toegekendDoor (type: String)'
+    )
     assert result == expected
 
     result2 = meta_info(instance._assetId)

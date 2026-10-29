@@ -14,28 +14,32 @@ def generate_version_info(file_path: Path):
         file_path.unlink()
 
     with open(file_path, 'w', encoding='utf-8') as file:
-        json.dump({
-            "current": {
-                "model_version": "2.9.5.0",
-                "otl_version": "2.9.0",
-                "created_at": "2023-12-14T16:05:00",
-                "created_by": "david.vlaminck"
-            },
-            "history": {
-                "2.9.4.0": {
-                    "previous_version": None,
-                    "updated_class_model": False,
-                    "updated_enums": False,
-                    "enums_updated": []
+        json.dump(
+            {
+                'current': {
+                    'model_version': '2.9.5.0',
+                    'otl_version': '2.9.0',
+                    'created_at': '2023-12-14T16:05:00',
+                    'created_by': 'david.vlaminck',
                 },
-                "2.9.5.0": {
-                    "previous_version": "2.9.4.0",
-                    "updated_class_model": False,
-                    "updated_enums": False,
-                    "enums_updated": []
-                }
-            }
-        }, file, indent=4)
+                'history': {
+                    '2.9.4.0': {
+                        'previous_version': None,
+                        'updated_class_model': False,
+                        'updated_enums': False,
+                        'enums_updated': [],
+                    },
+                    '2.9.5.0': {
+                        'previous_version': '2.9.4.0',
+                        'updated_class_model': False,
+                        'updated_enums': False,
+                        'enums_updated': [],
+                    },
+                },
+            },
+            file,
+            indent=4,
+        )
 
 
 def test_update_model_same_version():
@@ -43,8 +47,12 @@ def test_update_model_same_version():
     generate_version_info(version_info_file_path)
 
     # When no update is required the updater writes a status file MODEL_UPDATED=false
-    ModelUpdater.update_model(version_info_file_path=version_info_file_path,
-                              otl_version='2.9.0', created_by='david.vlaminck', enums_updated=[])
+    ModelUpdater.update_model(
+        version_info_file_path=version_info_file_path,
+        otl_version='2.9.0',
+        created_by='david.vlaminck',
+        enums_updated=[],
+    )
 
     # The status file is written to the repository's model_update folder
     status_file = Path(__file__).parent.parent.parent / 'model_update' / 'model_update_status.txt'
@@ -60,8 +68,12 @@ def test_update_model_new_version():
     version_info_file_path = fake_github_root_path / 'otlmow_model' / 'version_info.json'
     generate_version_info(version_info_file_path)
 
-    ModelUpdater.update_model(version_info_file_path=version_info_file_path,
-                              otl_version='2.10.0', created_by='david.vlaminck', enums_updated=[])
+    ModelUpdater.update_model(
+        version_info_file_path=version_info_file_path,
+        otl_version='2.10.0',
+        created_by='david.vlaminck',
+        enums_updated=[],
+    )
 
     with open(version_info_file_path, encoding='utf-8') as file:
         written_data = json.load(file)
@@ -101,16 +113,20 @@ def test_find_changed_enums(manage_kl_files):
 
 
 @pytest.mark.parametrize(
-    "model_version, otl_version, updated_class_model, updated_enums, expected",
+    'model_version, otl_version, updated_class_model, updated_enums, expected',
     [
         ('2.9.0.0', '2.9.0', False, False, '2.9.0.0'),
         ('2.9.0.0', '2.9.0', False, True, '2.9.0.1'),
         ('2.9.0.0', '2.10.0', True, True, '2.10.0.0'),
-        ('2.9.1.0', '2.9.1', True, True, '2.9.2.0')
+        ('2.9.1.0', '2.9.1', True, True, '2.9.2.0'),
     ],
-    ids=["no_update", "update_enums", "update_major_version", "update_minor_version"]
+    ids=['no_update', 'update_enums', 'update_major_version', 'update_minor_version'],
 )
 def test_update_model_version(model_version, otl_version, updated_class_model, updated_enums, expected):
-    result = ModelUpdater.update_model_version(model_version=model_version, otl_version=otl_version,
-                                               updated_class_model=updated_class_model, updated_enums=updated_enums)
+    result = ModelUpdater.update_model_version(
+        model_version=model_version,
+        otl_version=otl_version,
+        updated_class_model=updated_class_model,
+        updated_enums=updated_enums,
+    )
     assert result == expected

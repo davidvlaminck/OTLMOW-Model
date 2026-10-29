@@ -4,6 +4,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def get_size(obj, seen=None):
     """Recursively finds size of objects in bytes"""
     size = sys.getsizeof(obj)
@@ -29,8 +30,10 @@ def get_size(obj, seen=None):
         try:
             size += sum((get_size(i, seen) for i in obj))
         except TypeError:
-            logging.exception("Unable to get size of %r. This may lead to incorrect sizes. Please report this error.", obj)
-    if hasattr(obj, '__slots__'): # can have __slots__ with __dict__
+            logging.exception(
+                'Unable to get size of %r. This may lead to incorrect sizes. Please report this error.', obj
+            )
+    if hasattr(obj, '__slots__'):  # can have __slots__ with __dict__
         size += sum(get_size(getattr(obj, s), seen) for s in obj.__slots__ if hasattr(obj, s))
-        
+
     return size

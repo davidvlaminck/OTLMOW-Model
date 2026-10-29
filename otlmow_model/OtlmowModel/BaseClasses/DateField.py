@@ -10,6 +10,7 @@ from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 class DateField(OTLField):
     """Beschrijft een datum volgens http://www.w3.org/2001/XMLSchema#date."""
+
     naam = 'Date'
     objectUri = 'http://www.w3.org/2001/XMLSchema#date'
     definition = 'Beschrijft een datum volgens http://www.w3.org/2001/XMLSchema#date.'
@@ -41,14 +42,17 @@ class DateField(OTLField):
     @classmethod
     def _convert_from_bool(cls, value: bool) -> date:
         raise CouldNotConvertToCorrectTypeError(
-            f'{value} could not be converted to correct type (implied by {cls.__name__})')
+            f'{value} could not be converted to correct type (implied by {cls.__name__})'
+        )
 
     @classmethod
     def _convert_from_datetime(cls, value: datetime, log_warnings: bool) -> date:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a datetime to a date datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a datetime to a date datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         return date(value.year, value.month, value.day)
 
     @classmethod
@@ -58,16 +62,18 @@ class DateField(OTLField):
     @classmethod
     def _convert_from_int(cls, value: int, log_warnings: bool) -> date:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a int to a date datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a int to a date datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         timestamp = datetime.fromtimestamp(value, timezone.utc)
         return date(timestamp.year, timestamp.month, timestamp.day)
 
     @classmethod
     def _convert_from_str(cls, value: str, log_warnings: bool) -> date:
         try:
-            dt = datetime.strptime(value, "%Y-%m-%d")
+            dt = datetime.strptime(value, '%Y-%m-%d')
         except ValueError:
             return cls._convert_from_str_with_slashes(value, log_warnings)
         cls._warn_string_converted(log_warnings)
@@ -76,7 +82,7 @@ class DateField(OTLField):
     @classmethod
     def _convert_from_str_with_slashes(cls, value: str, log_warnings: bool) -> date:
         try:
-            dt = datetime.strptime(value, "%d/%m/%Y")
+            dt = datetime.strptime(value, '%d/%m/%Y')
         except ValueError as e:
             raise CouldNotConvertToCorrectTypeError(
                 f'{value} could not be converted to correct type (implied by {cls.__name__})'
@@ -87,14 +93,17 @@ class DateField(OTLField):
     @classmethod
     def _warn_string_converted(cls, log_warnings: bool) -> None:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a string to a date datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a string to a date datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
 
     @classmethod
     def _convert_from_fallback(cls, value: Any) -> date:
         raise CouldNotConvertToCorrectTypeError(
-            f'{value} could not be converted to correct type (implied by {cls.__name__})')
+            f'{value} could not be converted to correct type (implied by {cls.__name__})'
+        )
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
@@ -104,7 +113,7 @@ class DateField(OTLField):
 
     @classmethod
     def value_default(cls, value: date) -> str:
-        return value.strftime("%Y-%m-%d")
+        return value.strftime('%Y-%m-%d')
 
     def __str__(self) -> str:
         return OTLField.__str__(self)
@@ -118,5 +127,4 @@ class DateField(OTLField):
 
     @classmethod
     def create_dummy_data(cls) -> date:
-        return DateField.random_date(start=date(2000, 1, 1),
-                                     end=date(2020, 1, 1))
+        return DateField.random_date(start=date(2000, 1, 1), end=date(2020, 1, 1))

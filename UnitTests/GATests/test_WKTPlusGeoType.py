@@ -75,6 +75,8 @@ def test_invalid_geometry_based_on_geometry_artefact():
     instance = PointPolygonTestClass()
     with pytest.raises(WrongGeometryTypeError) as wrong_geometry_exception:
         instance.geometry = 'LINESTRING Z (200001 200002 10, 200003 200004 20)'
-    expected_msg = "Asset type PointPolygonTestClass shouldn't be assigned a LINESTRING Z as geometry, " \
-                   "valid types are POINT Z and POLYGON Z"
+    expected_msg = (
+        "Asset type PointPolygonTestClass shouldn't be assigned a LINESTRING Z as geometry, "
+        'valid types are POINT Z and POLYGON Z'
+    )
     assert expected_msg == wrong_geometry_exception.value.args[0]

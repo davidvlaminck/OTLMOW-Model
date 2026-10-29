@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 import pytest
@@ -21,20 +22,20 @@ def test_ErrorsOnInstantiateAbstractClasses():
 
 def test_TestAssignmentsOnSameClasses():
     instance = AllCasesTestClass()
-    assert instance.typeURI == "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass"
+    assert instance.typeURI == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'
     assert isinstance(instance, AllCasesTestClass)
     assert isinstance(instance, AIMObject)
     instance2 = AllCasesTestClass()
 
-    instance.notitie = "notitie1"
-    instance2.notitie = "notitie2"
-    assert instance.notitie == "notitie1"
-    assert instance2.notitie == "notitie2"
+    instance.notitie = 'notitie1'
+    instance2.notitie = 'notitie2'
+    assert instance.notitie == 'notitie1'
+    assert instance2.notitie == 'notitie2'
 
     instance3 = AllCasesTestClass()
     assert instance3.notitie is None
 
-    instance3.notitie = "notitie3"
-    assert instance.notitie == "notitie1"
-    assert instance2.notitie == "notitie2"
-    assert instance3.notitie == "notitie3"
+    instance3.notitie = 'notitie3'
+    assert instance.notitie == 'notitie1'
+    assert instance2.notitie == 'notitie2'
+    assert instance3.notitie == 'notitie3'

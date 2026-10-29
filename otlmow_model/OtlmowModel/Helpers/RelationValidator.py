@@ -9,8 +9,12 @@ from ..Classes.ImplementatieElement.RelatieObject import RelatieObject
 from ..Exceptions.RelationDeprecationWarning import RelationDeprecationWarning
 
 
-def is_valid_relation_instance(source: RelationInteractor, relation_instance: RelatieObject,
-                               target: RelationInteractor, model_directory: Path = None) -> bool:
+def is_valid_relation_instance(
+    source: RelationInteractor,
+    relation_instance: RelatieObject,
+    target: RelationInteractor,
+    model_directory: Path = None,
+) -> bool:
     """
     Verifies if a relation would be valid between a source and a target, given the instance of that relation
 
@@ -24,15 +28,19 @@ def is_valid_relation_instance(source: RelationInteractor, relation_instance: Re
     :type: str
     :return: 'True' if the relation would be valid, 'False' otherwise
     """
-    return is_valid_relation(source=source, target=target, relation_type=type(relation_instance),
-                             model_directory=model_directory)
+    return is_valid_relation(
+        source=source, target=target, relation_type=type(relation_instance), model_directory=model_directory
+    )
 
 
-def is_valid_relation_using_relation_uri(relation_uri: str, source: RelationInteractor | None = None,
-                                         source_typeURI: str | None = None,
-                                         target: RelationInteractor | None = None,
-                                         target_typeURI: str | None = None,
-                                         model_directory: Path = None) -> bool:
+def is_valid_relation_using_relation_uri(
+    relation_uri: str,
+    source: RelationInteractor | None = None,
+    source_typeURI: str | None = None,
+    target: RelationInteractor | None = None,
+    target_typeURI: str | None = None,
+    model_directory: Path = None,
+) -> bool:
     """
     Verifies if a relation would be valid between a source and a target, given a relation_type type. Exactly one of
     source or source_typeURI must not be None. Exactly one of target or target_typeURI must not be None.
@@ -81,8 +89,9 @@ def _is_legacy(source_typeURI: str, target_typeURI: str) -> bool:
     return 'lgc.' in source_typeURI or 'lgc.' in target_typeURI
 
 
-def _is_allowed_relation_in_mro(target, relation: dict, relation_uri: str, source_typeURI: str,
-                                target_typeURI: str) -> bool:
+def _is_allowed_relation_in_mro(
+    target, relation: dict, relation_uri: str, source_typeURI: str, target_typeURI: str
+) -> bool:
     for base in inspect.getmro(type(target)):
         base_type_uri = _get_member(base, 'typeURI')
         if base_type_uri in relation:
@@ -90,12 +99,13 @@ def _is_allowed_relation_in_mro(target, relation: dict, relation_uri: str, sourc
     return False
 
 
-def _override_actor(actor: RelationInteractor | None, actor_typeURI: str | None, name: str,
-                    model_directory: Path = None):
+def _override_actor(
+    actor: RelationInteractor | None, actor_typeURI: str | None, name: str, model_directory: Path = None
+):
     if actor is not None and actor_typeURI is not None:
         warnings.warn(
-            f'both {name} and {name}_typeURI are not None. Overriding {name} by instantiating it',
-            RuntimeWarning)
+            f'both {name} and {name}_typeURI are not None. Overriding {name} by instantiating it', RuntimeWarning
+        )
         actor = dynamic_create_instance_from_uri(class_uri=actor_typeURI, model_directory=model_directory)
     return actor, actor_typeURI
 
@@ -108,22 +118,27 @@ def _require_type_uri(actor: RelationInteractor | None, actor_typeURI: str | Non
     return actor_typeURI
 
 
-def _is_allowed_relation(entry: dict, relation_uri: str, source_typeURI: str,
-                         target_typeURI: str) -> bool:
+def _is_allowed_relation(entry: dict, relation_uri: str, source_typeURI: str, target_typeURI: str) -> bool:
     if 'i' in entry and 'o' not in entry:
         return False
     deprecated_value = list(entry.values())[0]
     if deprecated_value != '':
         warnings.warn(
             message=f'the relation_type of type {relation_uri} between assets of types '
-                    f'{source_typeURI} and {target_typeURI} is deprecated since version {deprecated_value}',
-            category=RelationDeprecationWarning)
+            f'{source_typeURI} and {target_typeURI} is deprecated since version {deprecated_value}',
+            category=RelationDeprecationWarning,
+        )
     return True
 
 
-def is_valid_relation(relation_type: Type[RelatieObject], source: RelationInteractor | None = None,
-                      source_typeURI: str | None = None, target: RelationInteractor | None = None,
-                      target_typeURI: str | None = None, model_directory: Path = None) -> bool:
+def is_valid_relation(
+    relation_type: Type[RelatieObject],
+    source: RelationInteractor | None = None,
+    source_typeURI: str | None = None,
+    target: RelationInteractor | None = None,
+    target_typeURI: str | None = None,
+    model_directory: Path = None,
+) -> bool:
     """
     Verifies if a relation would be valid between a source and a target, given a relation_type type. Exactly one of
     source or source_typeURI must not be None. Exactly one of target or target_typeURI must not be None.
@@ -142,8 +157,13 @@ def is_valid_relation(relation_type: Type[RelatieObject], source: RelationIntera
     :return: 'True' if the relation would be valid, 'False' otherwise
     """
     return is_valid_relation_using_relation_uri(
-        relation_uri=relation_type.typeURI, source=source, source_typeURI=source_typeURI,
-        target=target, target_typeURI=target_typeURI, model_directory=model_directory)
+        relation_uri=relation_type.typeURI,
+        source=source,
+        source_typeURI=source_typeURI,
+        target=target,
+        target_typeURI=target_typeURI,
+        model_directory=model_directory,
+    )
 
 
 def _get_member(obj, name):

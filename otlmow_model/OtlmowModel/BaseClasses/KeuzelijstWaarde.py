@@ -1,6 +1,7 @@
 class KeuzelijstWaarde:
-    def __init__(self, invulwaarde: str = '', label: str = '', definitie: str = '', objectUri: str = '',
-                 status: str = ''):
+    def __init__(
+        self, invulwaarde: str = '', label: str = '', definitie: str = '', objectUri: str = '', status: str = ''
+    ):
         self.invulwaarde: str = invulwaarde
         self.label: str = label
         self.definitie: str = definitie

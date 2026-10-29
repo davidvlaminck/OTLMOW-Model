@@ -19,10 +19,7 @@ def _validate_against_members(value: Any, attribuut) -> bool:
 
 
 def _invalid_value_message(attribuut) -> str:
-    return (
-        f'Invalid value for {attribuut.naam}, '
-        f'check attr_type_info to see what kind of values are valid.'
-    )
+    return f'Invalid value for {attribuut.naam}, check attr_type_info to see what kind of values are valid.'
 
 
 class UnionTypeField(OTLField):

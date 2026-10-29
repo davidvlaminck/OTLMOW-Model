@@ -9,6 +9,7 @@ from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 class BooleanField(OTLField):
     """Beschrijft een tekstregel volgens http://www.w3.org/2001/XMLSchema#string."""
+
     naam = 'Boolean'
     objectUri = 'http://www.w3.org/2001/XMLSchema#boolean'
     definition = 'Beschrijft een boolean volgens http://www.w3.org/2001/XMLSchema#boolean.'
@@ -42,28 +43,36 @@ class BooleanField(OTLField):
         lowered_value = value.lower()
         if lowered_value == 'false':
             cls._warn_converted(
-                log_warnings, 'Assigned a string to a boolean datatype. '
-                              'Automatically converted to the correct type. Please change the type')
+                log_warnings,
+                'Assigned a string to a boolean datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
             return False
         if lowered_value == 'true':
             cls._warn_converted(
-                log_warnings, 'Assigned a string to a boolean datatype. '
-                              'Automatically converted to the correct type. Please change the type')
+                log_warnings,
+                'Assigned a string to a boolean datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
             return True
         raise CouldNotConvertToCorrectTypeError(
-            f'{value} could not be converted to correct type (implied by {cls.__name__})')
+            f'{value} could not be converted to correct type (implied by {cls.__name__})'
+        )
 
     @classmethod
     def _convert_from_int(cls, value: int, log_warnings: bool) -> bool:
         cls._warn_converted(
-            log_warnings, 'Assigned an integer to a boolean datatype. '
-                          'Automatically converted to the correct type. Please change the type')
+            log_warnings,
+            'Assigned an integer to a boolean datatype. '
+            'Automatically converted to the correct type. Please change the type',
+        )
         return value != 0
 
     @classmethod
     def _convert_from_fallback(cls, value: Any) -> bool:
         raise CouldNotConvertToCorrectTypeError(
-            f'{value} could not be converted to correct type (implied by {cls.__name__})')
+            f'{value} could not be converted to correct type (implied by {cls.__name__})'
+        )
 
     @classmethod
     def _warn_converted(cls, log_warnings: bool, message: str) -> None:

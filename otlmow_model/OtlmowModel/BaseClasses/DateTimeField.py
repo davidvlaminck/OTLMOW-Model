@@ -12,6 +12,7 @@ from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 class DateTimeField(OTLField):
     """Beschrijft een datum volgens http://www.w3.org/2001/XMLSchema#dateTime."""
+
     naam = 'DateTime'
     objectUri = 'http://www.w3.org/2001/XMLSchema#dateTime'
     definition = 'Beschrijft een datum volgens http://www.w3.org/2001/XMLSchema#dateTime.'
@@ -32,7 +33,8 @@ class DateTimeField(OTLField):
             return None
         if isinstance(value, bool):
             raise CouldNotConvertToCorrectTypeError(
-                f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                f'{value} could not be converted to correct type (implied by {cls.__name__})'
+            )
         if isinstance(value, datetime.datetime):
             return value
         if isinstance(value, datetime.date):
@@ -46,20 +48,25 @@ class DateTimeField(OTLField):
     @classmethod
     def _convert_date(cls, value: datetime.date, log_warnings: bool) -> datetime.datetime:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a date to a datetime datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a date to a datetime datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         return datetime.datetime(year=value.year, month=value.month, day=value.day)
 
     @classmethod
     def _convert_int(cls, value: int, log_warnings: bool) -> datetime.datetime:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a int to a datetime datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a int to a datetime datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         timestamp = datetime.datetime.fromtimestamp(value, datetime.timezone.utc)
-        return datetime.datetime(timestamp.year, timestamp.month, timestamp.day, timestamp.hour,
-                                 timestamp.minute, timestamp.second)
+        return datetime.datetime(
+            timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute, timestamp.second
+        )
 
     @classmethod
     def _convert_string(cls, value: str, log_warnings: bool) -> datetime.datetime:
@@ -73,9 +80,11 @@ class DateTimeField(OTLField):
                     f'{value} could not be converted to correct type (implied by {cls.__name__})'
                 ) from e
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a string to a datetime datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a string to a datetime datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         return dt
 
     @classmethod
@@ -104,12 +113,13 @@ class DateTimeField(OTLField):
         if value is None:
             return None
         if not isinstance(value, datetime.datetime):
-            raise TypeError(f'Expecting datetime.datetime in {cls.__name__} and got {type(value)} when trying to '
-                            f'parse {value}')
+            raise TypeError(
+                f'Expecting datetime.datetime in {cls.__name__} and got {type(value)} when trying to parse {value}'
+            )
         if value.microsecond > 0:
-            return value.strftime("%Y-%m-%dT%H:%M:%S.%f")
+            return value.strftime('%Y-%m-%dT%H:%M:%S.%f')
         else:
-            return value.strftime("%Y-%m-%dT%H:%M:%S")
+            return value.strftime('%Y-%m-%dT%H:%M:%S')
 
     def __str__(self) -> str:
         return OTLField.__str__(self)
@@ -123,5 +133,4 @@ class DateTimeField(OTLField):
 
     @classmethod
     def create_dummy_data(cls) -> datetime.datetime:
-        return DateTimeField.random_date(start=datetime.datetime(2000, 1, 1),
-                                         end=datetime.datetime(2020, 1, 1))
+        return DateTimeField.random_date(start=datetime.datetime(2000, 1, 1), end=datetime.datetime(2020, 1, 1))

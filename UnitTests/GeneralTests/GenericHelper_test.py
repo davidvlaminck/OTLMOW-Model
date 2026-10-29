@@ -1,7 +1,12 @@
 import pytest
 
-from otlmow_model.OtlmowModel.Helpers.GenericHelper import get_titlecase_from_ns, get_aim_id_from_uuid_and_typeURI, \
-    get_shortened_uri, get_ns_and_name_from_uri, get_class_directory_from_ns
+from otlmow_model.OtlmowModel.Helpers.GenericHelper import (
+    get_titlecase_from_ns,
+    get_aim_id_from_uuid_and_typeURI,
+    get_shortened_uri,
+    get_ns_and_name_from_uri,
+    get_class_directory_from_ns,
+)
 
 
 def test_get_titlecase_from_ns(subtests):
@@ -12,7 +17,7 @@ def test_get_titlecase_from_ns(subtests):
         'installatie': 'Installatie',
         'levenscyclus': 'Levenscyclus',
         'onderdeel': 'Onderdeel',
-        'proefenmeting': 'ProefEnMeting'
+        'proefenmeting': 'ProefEnMeting',
     }.items():
         with subtests.test(msg=f'testing {ns_input}, expecting {expected_output}'):
             assert get_titlecase_from_ns(ns_input) == expected_output
@@ -60,6 +65,7 @@ def test_get_aim_id_from_uuid_and_typeURI_type_uri_not_a_uri():
 
     with pytest.raises(ValueError):
         get_aim_id_from_uuid_and_typeURI(uuid, type_uri)
+
 
 def test_get_shortened_uri():
     object_uri = 'https://lgc.data.wegenenverkeer.be/ns/installatie#AB'

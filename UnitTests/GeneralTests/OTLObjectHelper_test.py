@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 from pathlib import Path
@@ -10,19 +11,28 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AnotherTestClass import AnotherTestClass
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.Voedt import Voedt
-from otlmow_model.OtlmowModel.Helpers.OTLObjectHelper import count_assets_by_type, \
-    remove_duplicates_in_iterable_based_on_property, \
-    compare_two_lists_of_objects_object_level, verify_asset_id_is_unique_within_list, \
-    compare_two_lists_of_objects_attribute_level, custom_dict_diff, is_relation, is_directional_relation, is_aim_id
+from otlmow_model.OtlmowModel.Helpers.OTLObjectHelper import (
+    count_assets_by_type,
+    remove_duplicates_in_iterable_based_on_property,
+    compare_two_lists_of_objects_object_level,
+    verify_asset_id_is_unique_within_list,
+    compare_two_lists_of_objects_attribute_level,
+    custom_dict_diff,
+    is_relation,
+    is_directional_relation,
+    is_aim_id,
+)
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
 
 def test_count_assets_by_type():
     assets = [Bevestiging(), AllCasesTestClass(), AllCasesTestClass(), AnotherTestClass()]
-    expected_dict = {'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging': 1,
-                     'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass': 2,
-                     'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass': 1}
+    expected_dict = {
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging': 1,
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass': 2,
+        'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass': 1,
+    }
     assert count_assets_by_type(assets) == expected_dict
 
 
@@ -50,8 +60,9 @@ def test_remove_duplicates_in_iterable_based_on_complex_property():
     v.testComplexType.testComplexType2.testStringField = '2'
     testset = [t, u, v]
     expected_result = [t, v]
-    result = remove_duplicates_in_iterable_based_on_property(testset,
-                                                             'testComplexType.testComplexType2.testStringField')
+    result = remove_duplicates_in_iterable_based_on_property(
+        testset, 'testComplexType.testComplexType2.testStringField'
+    )
 
     assert result == expected_result
 
@@ -63,8 +74,9 @@ def test_remove_duplicates_in_iterable_based_on_complex_property_list():
     testset = [t]
 
     with pytest.raises(NotImplementedError):
-        remove_duplicates_in_iterable_based_on_property(testset,
-                                                        'testComplexType.testComplexType2MetKard.testStringField')
+        remove_duplicates_in_iterable_based_on_property(
+            testset, 'testComplexType.testComplexType2MetKard.testStringField'
+        )
 
 
 def test_get_diff_from_two_lists_empty_one():
@@ -138,7 +150,8 @@ def test_verify_asset_id_is_unique_incorrect_dict_lists(subtests):
     with subtests.test(msg='not unique ids'):
         with pytest.raises(ValueError):
             verify_asset_id_is_unique_within_list(
-                [{'assetId': {'identificator': '1'}}, {'assetId': {'identificator': '1'}}])
+                [{'assetId': {'identificator': '1'}}, {'assetId': {'identificator': '1'}}]
+            )
     with subtests.test(msg='None in asset id'):
         with pytest.raises(ValueError):
             verify_asset_id_is_unique_within_list([{'assetId': {'identificator': None}}])
@@ -170,9 +183,11 @@ def test_compare_two_lists_return_minimal_changed_attribute():
     d2 = {'toestand': 'in-gebruik', 'geometry': 'POINT Z (200000 200000 0)', 'assetId': {'identificator': '1'}}
     list_two = [AllCasesTestClass.from_dict(d2, model_directory=model_directory_path)]
 
-    expected = [AllCasesTestClass.from_dict(
-        {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}},
-        model_directory=model_directory_path)]
+    expected = [
+        AllCasesTestClass.from_dict(
+            {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}}, model_directory=model_directory_path
+        )
+    ]
     result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
@@ -183,9 +198,11 @@ def test_compare_two_lists_return_minimal_missing_attribute():
     d2 = {'toestand': 'in-gebruik', 'geometry': 'POINT Z (200000 200000 0)', 'assetId': {'identificator': '1'}}
     list_two = [AllCasesTestClass.from_dict(d2, model_directory=model_directory_path)]
 
-    expected = [AllCasesTestClass.from_dict(
-        {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}},
-        model_directory=model_directory_path)]
+    expected = [
+        AllCasesTestClass.from_dict(
+            {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}}, model_directory=model_directory_path
+        )
+    ]
     result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
@@ -248,8 +265,10 @@ def test_is_directional_relation():
     assert is_directional_relation(Voedt(), model_directory=model_directory_path)
 
 
-@pytest.mark.skip(reason='This test fails when run together with other tests because of '
-                         'dynamic_create_asset_from_ns_and_name using sys.path')
+@pytest.mark.skip(
+    reason='This test fails when run together with other tests because of '
+    'dynamic_create_asset_from_ns_and_name using sys.path'
+)
 def test_is_aim_id_invalid_warning():
     aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'  # AllCasesTestClass
     with pytest.warns(ImportWarning):
@@ -266,16 +285,19 @@ def test_is_aim_id_valid():
     aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'  # AllCasesTestClass
     assert is_aim_id(aim_id, model_directory=model_directory_path)
 
-    aim_id = '12345678-1234-1234-1234-123456789012-cHVybDpBZ2VudA' # Agent
+    aim_id = '12345678-1234-1234-1234-123456789012-cHVybDpBZ2VudA'  # Agent
     assert is_aim_id(aim_id)
 
 
-@pytest.mark.parametrize('aim_id', [
-    '12345678-1234-1234-1234-123456789012',
-    '12345678-1234-1234-1234-123456789012-',
-    '12345678-1234-1234-1234-123456789012--',
-    '1',
-    '12345678-1234-1234-1234-123456789012-25kZXJkZWVsI1RMQ2ZpUG9vcnQ' # removed one char from valid encoded typeURI
-])
+@pytest.mark.parametrize(
+    'aim_id',
+    [
+        '12345678-1234-1234-1234-123456789012',
+        '12345678-1234-1234-1234-123456789012-',
+        '12345678-1234-1234-1234-123456789012--',
+        '1',
+        '12345678-1234-1234-1234-123456789012-25kZXJkZWVsI1RMQ2ZpUG9vcnQ',  # removed one char from valid encoded typeURI
+    ],
+)
 def test_is_aim_id_invalid(aim_id):
     assert not is_aim_id(aim_id)

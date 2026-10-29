@@ -3,5 +3,5 @@ import pytest
 
 os.chdir(pathlib.Path.cwd())
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     pytest.main(['-v'])

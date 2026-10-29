@@ -9,10 +9,13 @@ import re
 class URIField(StringField):
     """Een tekstwaarde die een verwijzing naar meer informatie van het element bevat
     volgens http://www.w3.org/2001/XMLSchema#anyURI ."""
+
     naam = 'AnyURI'
     objectUri = 'http://www.w3.org/2001/XMLSchema#anyURI'
-    definition = ('Een tekstwaarde die een verwijzing naar meer informatie van het element bevat '
-                  'volgens http://www.w3.org/2001/XMLSchema#anyURI.')
+    definition = (
+        'Een tekstwaarde die een verwijzing naar meer informatie van het element bevat '
+        'volgens http://www.w3.org/2001/XMLSchema#anyURI.'
+    )
     label = 'URI'
     usagenote = 'https://www.w3.org/TR/xmlschema-2/#anyURI'
 
@@ -30,11 +33,13 @@ class URIField(StringField):
 
         regex = re.compile(
             r'^(?:http|ftp)s?://'
-            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'
             r'localhost|'
-            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  
-            r'(?::\d+)?' 
-            r'(?:/?|[/?]\S+)$', re.IGNORECASE)  # django url validation regex
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'
+            r'(?::\d+)?'
+            r'(?:/?|[/?]\S+)$',
+            re.IGNORECASE,
+        )  # django url validation regex
         return re.match(regex, value) is not None
 
     def __str__(self) -> str:
@@ -42,5 +47,4 @@ class URIField(StringField):
 
     @classmethod
     def create_dummy_data(cls) -> str:
-        return 'http://' + ''.join(random.choice(string.ascii_letters)
-                                   for _ in range(random.randint(5, 15))) + '.dummy'
+        return 'http://' + ''.join(random.choice(string.ascii_letters) for _ in range(random.randint(5, 15))) + '.dummy'

@@ -19,7 +19,7 @@ def get_hardcoded_relation_dict(model_directory: Path | None = None) -> dict[str
 
     generated_info_path = model_directory / 'OtlmowModel' / 'generated_info.json'
     if not generated_info_path.exists():
-        raise FileNotFoundError(f"Generated info file not found at {generated_info_path}")
+        raise FileNotFoundError(f'Generated info file not found at {generated_info_path}')
 
     with open(generated_info_path) as f:
         generated_info_dict = json.load(f)
@@ -38,13 +38,14 @@ def get_hardcoded_class_dict(model_directory: Path | None = None) -> dict[str, A
 
     generated_info_path = model_directory / 'OtlmowModel' / 'generated_info.json'
     if not generated_info_path.exists():
-        raise FileNotFoundError(f"Generated info file not found at {generated_info_path}")
+        raise FileNotFoundError(f'Generated info file not found at {generated_info_path}')
 
     with open(generated_info_path) as f:
         generated_info_dict = json.load(f)
     global_class_dict_by_model[model_dir_str] = generated_info_dict['classes']
 
     return global_class_dict_by_model[model_dir_str]  # type: ignore[no-any-return]
+
 
 def get_concrete_subclasses_from_class_dict(base_uri: str, model_directory: Path | None = None) -> Iterable[str]:
     class_dict = get_hardcoded_class_dict(model_directory)

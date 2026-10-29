@@ -10,6 +10,7 @@ from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 class FloatOrDecimalField(OTLField):
     """Beschrijft een decimaal getal volgens http://www.w3.org/2001/XMLSchema#decimal."""
+
     naam = 'Decimal'
     objectUri = 'http://www.w3.org/2001/XMLSchema#decimal'
     definition = 'Beschrijft een decimaal getal volgens http://www.w3.org/2001/XMLSchema#decimal.'
@@ -24,9 +25,11 @@ class FloatOrDecimalField(OTLField):
             return None
         if isinstance(value, bool):
             if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned a boolean to a decimal datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
+                warnings.warn(
+                    category=IncorrectTypeWarning,
+                    message='Assigned a boolean to a decimal datatype. '
+                    'Automatically converted to the correct type. Please change the type',
+                )
             return value
         if isinstance(value, float):
             return value
@@ -35,9 +38,11 @@ class FloatOrDecimalField(OTLField):
         try:
             float_value = float(value)
             if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned a string to a decimal datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
+                warnings.warn(
+                    category=IncorrectTypeWarning,
+                    message='Assigned a string to a decimal datatype. '
+                    'Automatically converted to the correct type. Please change the type',
+                )
             return float_value
         except (ValueError, TypeError) as e:
             raise CouldNotConvertToCorrectTypeError(

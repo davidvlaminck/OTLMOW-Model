@@ -18,8 +18,7 @@ def _default_model_directory(model_directory: Path | None) -> Path:
     return model_directory
 
 
-def _require_exactly_one(name: str, obj: RelationInteractor | None, typeURI: str | None,
-                         uuid: str | None) -> None:
+def _require_exactly_one(name: str, obj: RelationInteractor | None, typeURI: str | None, uuid: str | None) -> None:
     if obj is None and (typeURI is None or uuid is None):
         raise ValueError(f'Exactly one of {name} or ({name}_typeURI + {name}_uuid) needs to be not None.')
 
@@ -27,8 +26,8 @@ def _require_exactly_one(name: str, obj: RelationInteractor | None, typeURI: str
 def _warn_object_and_type_uri(name: str, obj: RelationInteractor | None, typeURI: str | None) -> None:
     if obj is not None and typeURI is not None:
         warnings.warn(
-            f'both {name} and {name}_typeURI are not None. Using {name} and ignoring {name}_type_uri.',
-            RuntimeWarning)
+            f'both {name} and {name}_typeURI are not None. Using {name} and ignoring {name}_type_uri.', RuntimeWarning
+        )
 
 
 def _resolve_aim_id(uuid: str | None, typeURI: str | None) -> tuple[str, bool]:
@@ -49,21 +48,23 @@ def _instantiate(typeURI: str, uuid: str | None, model_directory: Path) -> tuple
     return instance, is_legacy, aim_id
 
 
-def _require_valid_id(instance: RelationInteractor, name: str,
-                      is_legacy: bool) -> None:
+def _require_valid_id(instance: RelationInteractor, name: str, is_legacy: bool) -> None:
     if not is_legacy:
         if instance.typeURI == 'http://purl.org/dc/terms/Agent' and instance.agentId.identificator is None:
             raise AttributeError(
                 f'In order to create a relation_type, the {name} needs to have a valid agentId '
-                f'({name}.agentId.identificator)')
+                f'({name}.agentId.identificator)'
+            )
         elif instance.typeURI != 'http://purl.org/dc/terms/Agent' and instance.assetId.identificator is None:
             raise AttributeError(
                 f'In order to create a relation_type, the {name} needs to have a valid assetId '
-                f'({name}.assetId.identificator)')
+                f'({name}.assetId.identificator)'
+            )
 
 
-def _set_relation_end(relation_type: RelatieObject, end: str, aim_id: str, instance: RelationInteractor,
-                      typeURI: str, is_legacy: bool) -> str:
+def _set_relation_end(
+    relation_type: RelatieObject, end: str, aim_id: str, instance: RelationInteractor, typeURI: str, is_legacy: bool
+) -> str:
     asset_id_attribute = getattr(relation_type, f'{end}AssetId')
     if is_legacy:
         asset_id_attribute.identificator = aim_id
@@ -82,11 +83,16 @@ def _set_relation_end(relation_type: RelatieObject, end: str, aim_id: str, insta
     return segment
 
 
-def create_relation(relation_type: type[RelatieObject], source: RelationInteractor | None = None,
-                    target: RelationInteractor | None = None,
-                    source_uuid: str | None = None, source_typeURI: str | None = None,
-                    target_uuid: str | None = None, target_typeURI: str | None = None,
-                    model_directory: Path = None) -> RelatieObject | None:
+def create_relation(
+    relation_type: type[RelatieObject],
+    source: RelationInteractor | None = None,
+    target: RelationInteractor | None = None,
+    source_uuid: str | None = None,
+    source_typeURI: str | None = None,
+    target_uuid: str | None = None,
+    target_typeURI: str | None = None,
+    model_directory: Path = None,
+) -> RelatieObject | None:
     """
     Instantiates a relation, if valid, between instantiated objects, given a specific relation type.
     Instead of instantiated objects, valid guids and typeURI's can be provided, for source and/or target.
@@ -120,24 +126,19 @@ def create_relation(relation_type: type[RelatieObject], source: RelationInteract
     _warn_object_and_type_uri('source', source, source_typeURI)
     _warn_object_and_type_uri('target', target, target_typeURI)
 
-    source, source_is_legacy, source_aim_id = _resolve_end(
-        source, source_typeURI, source_uuid, model_directory)
-    target, target_is_legacy, target_aim_id = _resolve_end(
-        target, target_typeURI, target_uuid, model_directory)
+    source, source_is_legacy, source_aim_id = _resolve_end(source, source_typeURI, source_uuid, model_directory)
+    target, target_is_legacy, target_aim_id = _resolve_end(target, target_typeURI, target_uuid, model_directory)
 
     if not (source_is_legacy or target_is_legacy):
         _require_valid_relation(source, target, relation_type)
 
-    relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI,
-                                                     model_directory=model_directory)
+    relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI, model_directory=model_directory)
 
     _require_valid_id(source, 'source', source_is_legacy)
     _require_valid_id(target, 'target', target_is_legacy)
 
-    bron_segment = _set_relation_end(relation_type, 'bron', source_aim_id, source, source_typeURI,
-                                     source_is_legacy)
-    doel_segment = _set_relation_end(relation_type, 'doel', target_aim_id, target, target_typeURI,
-                                     target_is_legacy)
+    bron_segment = _set_relation_end(relation_type, 'bron', source_aim_id, source, source_typeURI, source_is_legacy)
+    doel_segment = _set_relation_end(relation_type, 'doel', target_aim_id, target, target_typeURI, target_is_legacy)
     relation_id = relation_type.__class__.__name__ + '_-_' + bron_segment + '_-_' + doel_segment
 
     relation_type.assetId.identificator = relation_id
@@ -149,8 +150,9 @@ def create_relation(relation_type: type[RelatieObject], source: RelationInteract
     return relation_type
 
 
-def _resolve_end(obj: RelationInteractor | None, typeURI: str | None, uuid: str | None,
-                 model_directory: Path) -> tuple[RelationInteractor, bool, str | None]:
+def _resolve_end(
+    obj: RelationInteractor | None, typeURI: str | None, uuid: str | None, model_directory: Path
+) -> tuple[RelationInteractor, bool, str | None]:
     """Return the object, whether it is a legacy object and its aim id."""
     is_legacy = obj is None and 'lgc.' in typeURI
     aim_id = None
@@ -159,21 +161,33 @@ def _resolve_end(obj: RelationInteractor | None, typeURI: str | None, uuid: str 
     return obj, is_legacy, aim_id
 
 
-def _require_valid_relation(source: RelationInteractor, target: RelationInteractor,
-                             relation_type: type[RelatieObject]) -> None:
+def _require_valid_relation(
+    source: RelationInteractor, target: RelationInteractor, relation_type: type[RelatieObject]
+) -> None:
     valid = is_valid_relation(source=source, target=target, relation_type=relation_type)
     if not valid:
-        raise CouldNotCreateRelationError(
-            "Can't create an invalid relation_type, please validate relations first")
+        raise CouldNotCreateRelationError("Can't create an invalid relation_type, please validate relations first")
 
 
-def create_betrokkenerelation(rol: str, source: RelationInteractor | None = None,
-                              target: Agent | None = None,
-                              source_uuid: str | None = None, source_typeURI: str | None = None,
-                              target_uuid: str | None = None, target_typeURI: str | None = None,
-                              model_directory: Path = None) -> HeeftBetrokkene | None:
-    relation = create_relation(source=source, target=target, source_uuid=source_uuid, source_typeURI=source_typeURI,
-                               target_uuid=target_uuid, target_typeURI=target_typeURI, model_directory=model_directory,
-                               relation_type=HeeftBetrokkene)
+def create_betrokkenerelation(
+    rol: str,
+    source: RelationInteractor | None = None,
+    target: Agent | None = None,
+    source_uuid: str | None = None,
+    source_typeURI: str | None = None,
+    target_uuid: str | None = None,
+    target_typeURI: str | None = None,
+    model_directory: Path = None,
+) -> HeeftBetrokkene | None:
+    relation = create_relation(
+        source=source,
+        target=target,
+        source_uuid=source_uuid,
+        source_typeURI=source_typeURI,
+        target_uuid=target_uuid,
+        target_typeURI=target_typeURI,
+        model_directory=model_directory,
+        relation_type=HeeftBetrokkene,
+    )
     relation.rol = rol
     return relation

@@ -11,6 +11,7 @@ makes the import machinery pick them up: Python looks a module up in
 sys.modules before it looks at the filesystem. The tests then always
 execute the code in otlmow_model/OtlmowModel.
 """
+
 import importlib
 import pkgutil
 import sys

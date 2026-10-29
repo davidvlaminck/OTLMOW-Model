@@ -12,7 +12,6 @@ from ..Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ..Classes.ImplementatieElement.AIMVersie import AIMVersie
 
 
-
 class NaamField(StringField):
     def __init__(self, naam: str, label: str, objectUri: str, definition: str, owner):
         super().__init__(naam, label, objectUri, definition, owner)
@@ -59,35 +58,43 @@ class LegacyObject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationIntera
     def __init__(self):
         super().__init__()
 
-        self._assetId = OTLAttribuut(field=DtcIdentificator,
-                                     naam='assetId',
-                                     label='asset-id',
-                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId',
-                                     definition='Unieke identificatie van de asset zoals toegekend door de assetbeheerder of n.a.v. eerste aanlevering door de leverancier.',
-                                     owner=self)
+        self._assetId = OTLAttribuut(
+            field=DtcIdentificator,
+            naam='assetId',
+            label='asset-id',
+            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId',
+            definition='Unieke identificatie van de asset zoals toegekend door de assetbeheerder of n.a.v. eerste aanlevering door de leverancier.',
+            owner=self,
+        )
 
-        self._naam = OTLAttribuut(field=NaamField,
-                                  naam='naam',
-                                  label='naam',
-                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMNaamObject.naam',
-                                  usagenote='Dient leeg of consistent te zijn met het naampad indien het naampad attribuut aanwezig en gekend is.',
-                                  definition='De mensleesbare naam van een asset zoals dit bv. ook terug te vinden is op een etiket op het object zelf. De assetbeheerder kent deze naam toe of geeft de opdracht om deze toe te kennen. Indien een object een algemeen gangbare naam heeft zoals bv. bij een waterloop dan wordt deze gebruikt.',
-                                  owner=self)
+        self._naam = OTLAttribuut(
+            field=NaamField,
+            naam='naam',
+            label='naam',
+            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMNaamObject.naam',
+            usagenote='Dient leeg of consistent te zijn met het naampad indien het naampad attribuut aanwezig en gekend is.',
+            definition='De mensleesbare naam van een asset zoals dit bv. ook terug te vinden is op een etiket op het object zelf. De assetbeheerder kent deze naam toe of geeft de opdracht om deze toe te kennen. Indien een object een algemeen gangbare naam heeft zoals bv. bij een waterloop dan wordt deze gebruikt.',
+            owner=self,
+        )
 
-        self._naampad = OTLAttribuut(field=NaampadField,
-                                     naam='naampad',
-                                     label='naampad',
-                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#NaampadObject.naampad',
-                                     usagenote='Dient consistent te zijn met de naam.',
-                                     definition='Een set van objecten (bv. collecties) die aanduiden waar het object zich bevindt in de objectenboom (EM-Infra).',
-                                     owner=self)
+        self._naampad = OTLAttribuut(
+            field=NaampadField,
+            naam='naampad',
+            label='naampad',
+            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#NaampadObject.naampad',
+            usagenote='Dient consistent te zijn met de naam.',
+            definition='Een set van objecten (bv. collecties) die aanduiden waar het object zich bevindt in de objectenboom (EM-Infra).',
+            owner=self,
+        )
 
-        self._notitie = OTLAttribuut(field=StringField,
-                                     naam='notitie',
-                                     label='notitie',
-                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.notitie',
-                                     definition='Extra notitie voor het object.',
-                                     owner=self)
+        self._notitie = OTLAttribuut(
+            field=StringField,
+            naam='notitie',
+            label='notitie',
+            objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.notitie',
+            definition='Extra notitie voor het object.',
+            owner=self,
+        )
 
     @property
     def assetId(self) -> DtcIdentificatorWaarden:

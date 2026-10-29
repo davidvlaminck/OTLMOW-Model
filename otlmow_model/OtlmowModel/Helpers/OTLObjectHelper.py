@@ -48,20 +48,23 @@ def _property_value(asset, property_name: str):
             item = getattr(item, first)
             if isinstance(item, list):
                 raise NotImplementedError(
-                    "can't use remove_duplicates_in_iterable_based_on_property() when the property value is a list")
+                    "can't use remove_duplicates_in_iterable_based_on_property() when the property value is a list"
+                )
     if not hasattr(item, last):
         return _MISSING_PROPERTY
     item_prop = getattr(item, last)
     if isinstance(item_prop, list):
         raise NotImplementedError(
-            "can't use remove_duplicates_in_iterable_based_on_property() when the property value is a list")
+            "can't use remove_duplicates_in_iterable_based_on_property() when the property value is a list"
+        )
     return item_prop
 
 
-def compare_two_lists_of_objects_object_level(first_list: List[OTLObject], second_list: List[OTLObject],
-                                              model_directory=None) -> List:
+def compare_two_lists_of_objects_object_level(
+    first_list: List[OTLObject], second_list: List[OTLObject], model_directory=None
+) -> List:
     """Given two lists of objects return the differences from the second list compared to the first list.
-    Returns full objects from the second list when unmatched with the first list. """
+    Returns full objects from the second list when unmatched with the first list."""
     l1 = list(map(lambda x: create_dict_from_asset(x), first_list))
     l2 = list(map(lambda x: create_dict_from_asset(x), second_list))
     diff_list = [d for d in l2 if d not in l1]
@@ -89,12 +92,13 @@ def _diff_of_value(orig_v, v, key):
     return {key: v}
 
 
-def compare_two_lists_of_objects_attribute_level(first_list: List[OTLObject], second_list: List[OTLObject],
-                                                 model_directory: Path = None) -> List:
+def compare_two_lists_of_objects_attribute_level(
+    first_list: List[OTLObject], second_list: List[OTLObject], model_directory: Path = None
+) -> List:
     """
     Given two lists of objects return the differences from the second list compared to the first list.
     Assumes both lists have objects with a unique assetId. Returns partial objects (on attribute level)
-    from the second list when unmatched with the first list. """
+    from the second list when unmatched with the first list."""
     if model_directory is None:
         current_file_path = Path(__file__)
         model_directory = current_file_path.parent.parent.parent
@@ -140,8 +144,9 @@ def verify_asset_id_is_unique_within_list(dict_list: List[Dict]) -> bool:
     for asset_dict in dict_list:
         asset_id = asset_dict['assetId']['identificator']
         if asset_id is None:
-            raise ValueError(f'This list has a None value for assetId for at least one asset in this list:\n'
-                             f'{asset_dict}')
+            raise ValueError(
+                f'This list has a None value for assetId for at least one asset in this list:\n{asset_dict}'
+            )
         asset_d = d.get(asset_id)
         if asset_d is not None:
             raise ValueError(f"There are non-unique assetId's in assets in this list: {asset_id}")
@@ -214,7 +219,10 @@ def _is_known_short_uri(short_uri: str, model_directory: Path) -> bool:
         instance = dynamic_create_instance_from_ns_and_name(ns, name, model_directory=model_directory)
         return instance is not None
     except ModuleNotFoundError:
-        warnings.warn('Could not import the module for the given aim_id, did you forget the model_directory?', category=ImportWarning)
+        warnings.warn(
+            'Could not import the module for the given aim_id, did you forget the model_directory?',
+            category=ImportWarning,
+        )
         return False
     except ValueError:
         return False

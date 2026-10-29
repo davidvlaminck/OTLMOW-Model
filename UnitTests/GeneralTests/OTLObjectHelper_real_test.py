@@ -40,8 +40,9 @@ class _Simple(OTLObject):
 
     def __init__(self):
         super().__init__()
-        self._naam = OTLAttribuut(field=StringField, naam='naam', label='naam',
-                                  objectUri='https://example.com#T.naam', owner=self)
+        self._naam = OTLAttribuut(
+            field=StringField, naam='naam', label='naam', objectUri='https://example.com#T.naam', owner=self
+        )
 
     @property
     def naam(self):
@@ -101,7 +102,8 @@ def test_verify_asset_id_is_unique_within_list_with_a_none_identificator():
 def test_verify_asset_id_is_unique_within_list_with_duplicates():
     with pytest.raises(ValueError, match="non-unique assetId's"):
         verify_asset_id_is_unique_within_list(
-            [{'assetId': {'identificator': '1'}}, {'assetId': {'identificator': '1'}}])
+            [{'assetId': {'identificator': '1'}}, {'assetId': {'identificator': '1'}}]
+        )
 
 
 def test_custom_dict_diff_of_new_and_changed_keys():
@@ -164,7 +166,8 @@ def test_is_aim_id_of_the_agent():
 
 def test_is_aim_id_of_an_unknown_class_warns():
     aim_id = get_aim_id_from_uuid_and_typeURI(
-        UUID, 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DoesNotExistClass')
+        UUID, 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DoesNotExistClass'
+    )
     with pytest.warns(ImportWarning):
         assert is_aim_id(aim_id) is False
 
@@ -179,13 +182,16 @@ def test_is_aim_id_with_a_short_uri_without_a_hash():
     assert is_aim_id(f'{UUID}-{encoded}') is False
 
 
-@pytest.mark.parametrize('aim_id', [
-    '',
-    '12345678-1234-1234-1234-123456789012',
-    '12345678-1234-1234-1234-123456789012-',
-    '1',
-    '12345678-1234-1234-1234-123456789012-25kZXJkZWVsI1RMQ2ZpUG9vcnQ',
-])
+@pytest.mark.parametrize(
+    'aim_id',
+    [
+        '',
+        '12345678-1234-1234-1234-123456789012',
+        '12345678-1234-1234-1234-123456789012-',
+        '1',
+        '12345678-1234-1234-1234-123456789012-25kZXJkZWVsI1RMQ2ZpUG9vcnQ',
+    ],
+)
 def test_is_aim_id_of_an_invalid_aim_id(aim_id):
     assert is_aim_id(aim_id) is False
 

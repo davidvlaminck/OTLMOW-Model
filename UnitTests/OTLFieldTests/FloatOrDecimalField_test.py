@@ -23,36 +23,23 @@ def test_validate():
         FloatOrDecimalField.validate(object(), float_attribute)
 
 
-@pytest.mark.parametrize("value, expected", [
-    (None, None),
-    (1.0, 1),
-    (-2, -2),
-    (decimal.Decimal(1), 1.0),
-    (-2.345, -2.345)
-])
+@pytest.mark.parametrize(
+    'value, expected', [(None, None), (1.0, 1), (-2, -2), (decimal.Decimal(1), 1.0), (-2.345, -2.345)]
+)
 def test_convert_to_correct_type(subtests, value, expected, caplog):
     with subtests.test(msg='Correct values'):
         assert FloatOrDecimalField.convert_to_correct_type(value) == expected
         assert len(caplog.records) == 0
 
 
-@pytest.mark.parametrize("value, expected", [
-    (True, 1.0),
-    (False, 0.0),
-    ('-1', -1.0),
-    ('2.0000', 2.0)
-])
+@pytest.mark.parametrize('value, expected', [(True, 1.0), (False, 0.0), ('-1', -1.0), ('2.0000', 2.0)])
 def test_convert_to_correct_type_with_warning(subtests, value, expected, caplog):
     with pytest.warns(IncorrectTypeWarning):
         assert FloatOrDecimalField.convert_to_correct_type(value) == expected
 
-@pytest.mark.parametrize("value", [
-    'a', object(), [], {}
-])
+
+@pytest.mark.parametrize('value', ['a', object(), [], {}])
 def test_convert_to_incorrect_type(subtests, value):
     with subtests.test(msg='Incorrect values'):
         with pytest.raises(CouldNotConvertToCorrectTypeError):
             FloatOrDecimalField.convert_to_correct_type(value)
-
-
-

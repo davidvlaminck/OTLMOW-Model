@@ -10,6 +10,7 @@ from ..warnings.IncorrectTypeWarning import IncorrectTypeWarning
 
 class IntegerField(OTLField):
     """Beschrijft een geheel getal volgens http://www.w3.org/2001/XMLSchema#integer."""
+
     naam = 'Integer'
     objectUri = 'http://www.w3.org/2001/XMLSchema#integer'
     definition = 'Beschrijft een DateField getal volgens http://www.w3.org/2001/XMLSchema#integer.'
@@ -39,9 +40,11 @@ class IntegerField(OTLField):
     @classmethod
     def _convert_from_bool(cls, value: bool, log_warnings: bool) -> int:
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a boolean to a integer datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a boolean to a integer datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         return value
 
     @classmethod
@@ -53,11 +56,14 @@ class IntegerField(OTLField):
         i = int(value)
         if value - i != 0:
             raise CouldNotConvertToCorrectTypeError(
-                f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                f'{value} could not be converted to correct type (implied by {cls.__name__})'
+            )
         if log_warnings:
-            warnings.warn(category=IncorrectTypeWarning,
-                          message='Assigned a float/decimal to a integer datatype. '
-                                  'Automatically converted to the correct type. Please change the type')
+            warnings.warn(
+                category=IncorrectTypeWarning,
+                message='Assigned a float/decimal to a integer datatype. '
+                'Automatically converted to the correct type. Please change the type',
+            )
         return i
 
     @classmethod
@@ -67,11 +73,14 @@ class IntegerField(OTLField):
             int_value = int(float_value)
             if int_value != float_value:
                 raise CouldNotConvertToCorrectTypeError(
-                    f'{value} could not be converted to correct type (implied by {cls.__name__})')
+                    f'{value} could not be converted to correct type (implied by {cls.__name__})'
+                )
             if log_warnings:
-                warnings.warn(category=IncorrectTypeWarning,
-                              message='Assigned a string to a integer datatype. '
-                                      'Automatically converted to the correct type. Please change the type')
+                warnings.warn(
+                    category=IncorrectTypeWarning,
+                    message='Assigned a string to a integer datatype. '
+                    'Automatically converted to the correct type. Please change the type',
+                )
             return int_value
         except Exception as e:
             raise CouldNotConvertToCorrectTypeError(

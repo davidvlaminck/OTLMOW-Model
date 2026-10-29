@@ -18,6 +18,7 @@ from otlmow_model.OtlmowModel.Exceptions.RelationDeprecationWarning import Relat
 
 model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
+
 def test_create_valid_relation():
     all_cases = AllCasesTestClass()
     all_cases.assetId.identificator = 'all_cases'
@@ -72,76 +73,133 @@ def test_create_relation_different_input_parameters(subtests):
 
     with subtests.test(msg='testing if there are enough not None parameters'):
         with pytest.raises(ValueError):
-            create_relation(source=None, source_typeURI=None, source_uuid='', target=all_cases,
-                            relation_type=Bevestiging,
-                            model_directory=model_directory_path)
+            create_relation(
+                source=None,
+                source_typeURI=None,
+                source_uuid='',
+                target=all_cases,
+                relation_type=Bevestiging,
+                model_directory=model_directory_path,
+            )
         with pytest.raises(ValueError):
-            create_relation(source=None, source_typeURI='', source_uuid=None, target=all_cases,
-                            relation_type=Bevestiging,
-                            model_directory=model_directory_path)
+            create_relation(
+                source=None,
+                source_typeURI='',
+                source_uuid=None,
+                target=all_cases,
+                relation_type=Bevestiging,
+                model_directory=model_directory_path,
+            )
         with pytest.raises(ValueError):
-            create_relation(target=None, target_typeURI=None, target_uuid='', source=all_cases,
-                            relation_type=Bevestiging,
-                            model_directory=model_directory_path)
+            create_relation(
+                target=None,
+                target_typeURI=None,
+                target_uuid='',
+                source=all_cases,
+                relation_type=Bevestiging,
+                model_directory=model_directory_path,
+            )
         with pytest.raises(ValueError):
-            create_relation(target=None, target_typeURI='', target_uuid=None, source=all_cases,
-                            relation_type=Bevestiging,
-                            model_directory=model_directory_path)
+            create_relation(
+                target=None,
+                target_typeURI='',
+                target_uuid=None,
+                source=all_cases,
+                relation_type=Bevestiging,
+                model_directory=model_directory_path,
+            )
 
     with subtests.test(msg='testing uuid format'):
-        relation = create_relation(source_typeURI=another.typeURI, target=all_cases,
-                                   source_uuid='00000000-0000-0000-0000-000000000000',
-                                   relation_type=Bevestiging, model_directory=model_directory_path)
+        relation = create_relation(
+            source_typeURI=another.typeURI,
+            target=all_cases,
+            source_uuid='00000000-0000-0000-0000-000000000000',
+            relation_type=Bevestiging,
+            model_directory=model_directory_path,
+        )
         assert relation is not None
 
-        relation = create_relation(target_typeURI=another.typeURI, source=all_cases,
-                                   target_uuid='00000000-0000-0000-0000-000000000000',
-                                   relation_type=Bevestiging, model_directory=model_directory_path)
+        relation = create_relation(
+            target_typeURI=another.typeURI,
+            source=all_cases,
+            target_uuid='00000000-0000-0000-0000-000000000000',
+            relation_type=Bevestiging,
+            model_directory=model_directory_path,
+        )
         assert relation is not None
 
         with pytest.raises(ValueError):
-            create_relation(source_typeURI=another.typeURI, source_uuid='', target=all_cases,
-                            relation_type=Bevestiging, model_directory=model_directory_path)
+            create_relation(
+                source_typeURI=another.typeURI,
+                source_uuid='',
+                target=all_cases,
+                relation_type=Bevestiging,
+                model_directory=model_directory_path,
+            )
 
         with pytest.raises(ValueError):
-            create_relation(target_typeURI=another.typeURI, target_uuid='', source=all_cases,
-                            relation_type=Bevestiging, model_directory=model_directory_path)
+            create_relation(
+                target_typeURI=another.typeURI,
+                target_uuid='',
+                source=all_cases,
+                relation_type=Bevestiging,
+                model_directory=model_directory_path,
+            )
 
     with subtests.test(msg='testing for warning if there are too many not None parameters'):
         with pytest.warns(RuntimeWarning):
-            create_relation(source=another, source_typeURI=another.typeURI, source_uuid='', target=all_cases,
-                            relation_type=Bevestiging,
-                            model_directory=model_directory_path)
+            create_relation(
+                source=another,
+                source_typeURI=another.typeURI,
+                source_uuid='',
+                target=all_cases,
+                relation_type=Bevestiging,
+                model_directory=model_directory_path,
+            )
         with pytest.warns(RuntimeWarning):
-            create_relation(source=another, target=all_cases, target_typeURI=all_cases.typeURI,
-                            relation_type=Bevestiging)
+            create_relation(
+                source=another, target=all_cases, target_typeURI=all_cases.typeURI, relation_type=Bevestiging
+            )
 
     with subtests.test(msg='creating relations using uuid and typeURI'):
-        relation = create_relation(source_typeURI=another.typeURI, source_uuid='00000000-0000-0000-0000-000000000000',
-                                   target=all_cases, relation_type=Bevestiging,
-                                   model_directory=model_directory_path)
+        relation = create_relation(
+            source_typeURI=another.typeURI,
+            source_uuid='00000000-0000-0000-0000-000000000000',
+            target=all_cases,
+            relation_type=Bevestiging,
+            model_directory=model_directory_path,
+        )
         assert relation is not None
         assert relation.typeURI == Bevestiging.typeURI
-        assert relation.bronAssetId.identificator == '00000000-0000-0000-0000-000000000000' \
-                                                     '-b25kZXJkZWVsI0Fub3RoZXJUZXN0Q2xhc3M'
+        assert (
+            relation.bronAssetId.identificator == '00000000-0000-0000-0000-000000000000'
+            '-b25kZXJkZWVsI0Fub3RoZXJUZXN0Q2xhc3M'
+        )
         assert relation.doelAssetId.identificator == all_cases.assetId.identificator
         assert relation.bron.typeURI == another.typeURI
         assert relation.doel.typeURI == all_cases.typeURI
 
-        relation = create_relation(target_typeURI=another.typeURI, target_uuid='00000000-0000-0000-0000-000000000000',
-                                   source=all_cases, relation_type=Bevestiging,
-                                   model_directory=model_directory_path)
+        relation = create_relation(
+            target_typeURI=another.typeURI,
+            target_uuid='00000000-0000-0000-0000-000000000000',
+            source=all_cases,
+            relation_type=Bevestiging,
+            model_directory=model_directory_path,
+        )
         assert relation is not None
         assert relation.typeURI == Bevestiging.typeURI
-        assert relation.doelAssetId.identificator == '00000000-0000-0000-0000-000000000000' \
-                                                     '-b25kZXJkZWVsI0Fub3RoZXJUZXN0Q2xhc3M'
+        assert (
+            relation.doelAssetId.identificator == '00000000-0000-0000-0000-000000000000'
+            '-b25kZXJkZWVsI0Fub3RoZXJUZXN0Q2xhc3M'
+        )
         assert relation.bronAssetId.identificator == all_cases.assetId.identificator
         assert relation.bron.typeURI == all_cases.typeURI
         assert relation.doel.typeURI == another.typeURI
 
     with subtests.test(msg='creating relations using instances of objects'):
-        relation = create_relation(source=another, target=all_cases, relation_type=Bevestiging,
-                                   model_directory=model_directory_path)
+        relation = create_relation(
+            source=another, target=all_cases, relation_type=Bevestiging, model_directory=model_directory_path
+        )
         assert relation is not None
         assert relation.typeURI == Bevestiging.typeURI
         assert relation.bronAssetId.identificator == another.assetId.identificator
@@ -156,11 +214,18 @@ def test_create_relation_different_input_parameters(subtests):
         type_uri_beheersys = 'https://lgc.data.wegenenverkeer.be/ns/installatie#Beheersys'
         kast.assetId.identificator = '0000'
 
-        relation = create_relation(source=kast, target_uuid=uuid, target_typeURI=type_uri_beheersys,
-                                   relation_type=HoortBij)
+        relation = create_relation(
+            source=kast, target_uuid=uuid, target_typeURI=type_uri_beheersys, relation_type=HoortBij
+        )
         assert relation is not None
-        assert relation.doelAssetId.identificator == '847a91b3-569d-4bae-87bf-7e148e8f7de9-bGdjOmluc3RhbGxhdGllI0JlaGVlcnN5cw'
-        assert relation.assetId.identificator == 'HoortBij_-_0000_-_847a91b3-569d-4bae-87bf-7e148e8f7de9-bGdjOmluc3RhbGxhdGllI0JlaGVlcnN5cw'
+        assert (
+            relation.doelAssetId.identificator
+            == '847a91b3-569d-4bae-87bf-7e148e8f7de9-bGdjOmluc3RhbGxhdGllI0JlaGVlcnN5cw'
+        )
+        assert (
+            relation.assetId.identificator
+            == 'HoortBij_-_0000_-_847a91b3-569d-4bae-87bf-7e148e8f7de9-bGdjOmluc3RhbGxhdGllI0JlaGVlcnN5cw'
+        )
         assert relation.bron.typeURI == kast.typeURI
         assert relation.doel.typeURI == type_uri_beheersys
 
@@ -171,12 +236,16 @@ def test_create_relation_legacy():
     legacy_asset_uuid = '00000000-0000-0000-0000-000000000000'
     legacy_uri = 'https://lgc.data.wegenenverkeer.be/ns/installatie#Kast'
 
-    relation = create_relation(source_uuid=legacy_asset_uuid, source_typeURI=legacy_uri, target=all_cases,
-                               relation_type=Voedt)
+    relation = create_relation(
+        source_uuid=legacy_asset_uuid, source_typeURI=legacy_uri, target=all_cases, relation_type=Voedt
+    )
     assert relation is not None
     assert relation.bronAssetId.identificator == '00000000-0000-0000-0000-000000000000-bGdjOmluc3RhbGxhdGllI0thc3Q'
     assert relation.doelAssetId.identificator == 'all_cases'
-    assert relation.assetId.identificator == 'Voedt_-_00000000-0000-0000-0000-000000000000-bGdjOmluc3RhbGxhdGllI0thc3Q_-_all_cases'
+    assert (
+        relation.assetId.identificator
+        == 'Voedt_-_00000000-0000-0000-0000-000000000000-bGdjOmluc3RhbGxhdGllI0thc3Q_-_all_cases'
+    )
     assert relation.bron.typeURI == legacy_uri
     assert relation.doel.typeURI == all_cases.typeURI
 
@@ -186,9 +255,13 @@ def test_create_relation_from_agent_uuid():
     target_uuid = '11111111-1111-1111-1111-111111111111'
     agent_typeURI = 'http://purl.org/dc/terms/Agent'
 
-    relation = create_relation(source_typeURI=agent_typeURI, source_uuid=source_uuid,
-                               target_typeURI=agent_typeURI, target_uuid=target_uuid,
-                               relation_type=HeeftBetrokkene)
+    relation = create_relation(
+        source_typeURI=agent_typeURI,
+        source_uuid=source_uuid,
+        target_typeURI=agent_typeURI,
+        target_uuid=target_uuid,
+        relation_type=HeeftBetrokkene,
+    )
     assert relation is not None
     assert relation.bronAssetId.identificator == source_uuid + '-cHVybDpBZ2VudA'
     assert relation.doelAssetId.identificator == target_uuid + '-cHVybDpBZ2VudA'
@@ -233,10 +306,14 @@ def test_create_betrokkenerelation_with_uuid_and_typeURI():
     target_uuid = '11111111-1111-1111-1111-111111111111'
     agent_typeURI = 'http://purl.org/dc/terms/Agent'
 
-    relation = create_betrokkenerelation(rol='klant', source_typeURI=agent_typeURI, source_uuid=source_uuid,
-                                         target_typeURI=agent_typeURI, target_uuid=target_uuid)
+    relation = create_betrokkenerelation(
+        rol='klant',
+        source_typeURI=agent_typeURI,
+        source_uuid=source_uuid,
+        target_typeURI=agent_typeURI,
+        target_uuid=target_uuid,
+    )
     assert relation is not None
     assert relation.rol == 'klant'
     assert relation.bronAssetId.identificator == source_uuid + '-cHVybDpBZ2VudA'
     assert relation.doelAssetId.identificator == target_uuid + '-cHVybDpBZ2VudA'
-

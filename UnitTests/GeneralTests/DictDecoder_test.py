@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
@@ -40,7 +41,10 @@ def test_get_attribute_by_name_dte_kard_shortcut_False():
     instance.testEenvoudigTypeMetKard[0].waarde = '1'
     attr = get_attribute_by_name(instance, key='testEenvoudigTypeMetKard')
     assert attr is not None
-    assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard'
+    assert (
+        attr.objectUri
+        == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard'
+    )
 
 
 def test_get_attribute_by_name_complex_kard():
@@ -48,53 +52,78 @@ def test_get_attribute_by_name_complex_kard():
     instance.testComplexTypeMetKard[0].testStringField = '1'
     attr = get_attribute_by_name(instance, key='testComplexTypeMetKard')
     assert attr is not None
-    assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard'
+    assert (
+        attr.objectUri
+        == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard'
+    )
 
 
 def test_get_attribute_by_uri_simple():
     instance = AllCasesTestClass()
-    attr = get_attribute_by_uri(instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand')
+    attr = get_attribute_by_uri(
+        instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand'
+    )
     assert attr is not None
     assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand'
 
 
 def test_get_attribute_by_uri_complex():
     instance = AllCasesTestClass()
-    attr = get_attribute_by_uri(instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId')
+    attr = get_attribute_by_uri(
+        instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId'
+    )
     assert attr is not None
     assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId'
 
 
 def test_get_attribute_by_uri_union():
     instance = AllCasesTestClass()
-    attr = get_attribute_by_uri(instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionType')
+    attr = get_attribute_by_uri(
+        instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionType'
+    )
     assert attr is not None
     assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testUnionType'
 
 
 def test_get_attribute_by_uri_kwant_wrd_shortcut_False():
     instance = AllCasesTestClass()
-    attr = get_attribute_by_uri(instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd')
+    attr = get_attribute_by_uri(
+        instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd'
+    )
     assert attr is not None
     assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testKwantWrd'
 
 
 def test_get_attribute_by_uri_dte_kard_shortcut_False():
     instance = AllCasesTestClass()
-    attr = get_attribute_by_uri(instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard')
+    attr = get_attribute_by_uri(
+        instance,
+        key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard',
+    )
     assert attr is not None
-    assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard'
+    assert (
+        attr.objectUri
+        == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testEenvoudigTypeMetKard'
+    )
 
 
 def test_get_attribute_by_uri_complex_kard():
     instance = AllCasesTestClass()
     attr = get_attribute_by_uri(
-        instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard')
+        instance, key='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard'
+    )
     assert attr is not None
-    assert attr.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard'
+    assert (
+        attr.objectUri
+        == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass.testComplexTypeMetKard'
+    )
 
     attr2 = get_attribute_by_uri(
         instance.testComplexTypeMetKard[0],
-        key='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField')
+        key='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField',
+    )
     assert attr2 is not None
-    assert attr2.objectUri == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField'
+    assert (
+        attr2.objectUri
+        == 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcTestComplexType.testStringField'
+    )

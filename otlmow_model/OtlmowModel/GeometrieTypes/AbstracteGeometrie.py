@@ -10,12 +10,14 @@ class AbstracteGeometrie(ABC):
         super().__init__()
         if not hasattr(self, '_geometry_types'):
             self._geometry_types = []
-        self._geometry = OTLAttribuut(field=WKTField,
-                                      naam='geometry',
-                                      label='geometry',
-                                      objectUri='https://loc.data.wegenenverkeer.be/ns/implementatieelement#Locatie.geometrie',
-                                      definition='geometry voor DAVIE',
-                                      owner=self)
+        self._geometry = OTLAttribuut(
+            field=WKTField,
+            naam='geometry',
+            label='geometry',
+            objectUri='https://loc.data.wegenenverkeer.be/ns/implementatieelement#Locatie.geometrie',
+            definition='geometry voor DAVIE',
+            owner=self,
+        )
 
     @property
     def geometry(self):

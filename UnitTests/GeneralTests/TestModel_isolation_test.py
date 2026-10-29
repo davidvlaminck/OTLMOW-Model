@@ -11,6 +11,7 @@ coming back, the others prove that the code the tests execute is the
 repository's runtime - through the static import path and through the
 dynamic importer, which loads the test datamodel under a third namespace.
 """
+
 import sys
 from pathlib import Path
 
@@ -46,10 +47,12 @@ def test_statically_imported_test_datamodel_executes_the_repository_runtime():
 
 def test_dynamically_imported_test_datamodel_executes_the_repository_runtime():
     instance = dynamic_create_instance_from_uri(
-        ALL_CASES_TEST_CLASS_URI, model_directory=Path(__file__).parent.parent / 'TestModel')
+        ALL_CASES_TEST_CLASS_URI, model_directory=Path(__file__).parent.parent / 'TestModel'
+    )
     assert isinstance(_first_attribute(instance), OTLAttribuut)
 
 
 def test_the_re_exported_attribuut_is_the_same_object():
     from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut as re_exported
+
     assert re_exported is OTLAttribuut

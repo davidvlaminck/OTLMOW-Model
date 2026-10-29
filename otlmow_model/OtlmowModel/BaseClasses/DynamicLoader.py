@@ -15,9 +15,7 @@ if TYPE_CHECKING:
 _imported_modules = {}
 
 
-def dynamic_create_type_from_ns_and_name(
-    namespace: str, class_name: str, model_directory: Path | None = None
-) -> type:
+def dynamic_create_type_from_ns_and_name(namespace: str, class_name: str, model_directory: Path | None = None) -> type:
     """Loads the OTL class module and attempts to return the type using the name and namespace of the class
 
     :param namespace: namespace of the class
@@ -141,9 +139,7 @@ def _class_uri_not_found_error(class_dict: dict, class_uri: str) -> CouldNotCrea
     raise error
 
 
-def _create_type_from_class_dict_entry(
-    class_dict_entry: dict[str, str], model_directory: Path | None = None
-) -> type:
+def _create_type_from_class_dict_entry(class_dict_entry: dict[str, str], model_directory: Path | None = None) -> type:
     """Creates a type from a class dictionary entry.
 
     :param class_dict_entry: dictionary containing the class information

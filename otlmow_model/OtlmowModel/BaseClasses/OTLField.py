@@ -58,7 +58,8 @@ def _check_complex_type_item(item: Any, attribuut) -> None:
     if not isinstance(item, attribuut.field.waardeObject):
         raise ValueError(
             f'{attribuut.objectUri} is a complex datatype. Set the values through the attributes. '
-            f'Use .attr_type_info() for more info')
+            f'Use .attr_type_info() for more info'
+        )
 
 
 def _validate_attributes(value: Any) -> bool:
