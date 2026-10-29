@@ -833,7 +833,7 @@ def render_report(snapshot: dict[str, Any], history: list[dict[str, Any]], regre
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     """Parse the command line arguments."""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source', default='src')
+    parser.add_argument('--source', default='otlmow_model')
     parser.add_argument('--tests', default='UnitTests')
     parser.add_argument('--scripts', default='code_quality/scripts')
     parser.add_argument('--tooling', default='')
