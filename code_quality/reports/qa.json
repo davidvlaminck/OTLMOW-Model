@@ -1,7 +1,7 @@
 {
   "date": "2026-10-28",
   "repo": "otlmow_model",
-  "commit": "bee1e6eb9",
+  "commit": "9e8350573",
   "thresholds": {
     "ruff_issues": 0,
     "ruff_format_files": 0,
@@ -21,7 +21,7 @@
   "metrics": {
     "ruff_issues": 0,
     "ruff_format_files": 75,
-    "mypy_errors": 305,
+    "mypy_errors": 292,
     "coverage_percent": 96.5,
     "coverage_branch_percent": 92.9,
     "max_crap": 9.0,
@@ -13897,7 +13897,7 @@
       "complexity": 6,
       "coverage": 100.0,
       "crap": 6.0,
-      "lineno": 24
+      "lineno": 25
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/StringField.py",
@@ -14453,9 +14453,9 @@
       "name": "_relation_tuple",
       "block_type": "method",
       "complexity": 4,
-      "coverage": 87.5,
+      "coverage": 85.7,
       "crap": 4.0,
-      "lineno": 39
+      "lineno": 40
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/UnionTypeField.py",
@@ -14588,18 +14588,18 @@
       "name": "get_hardcoded_relation_dict",
       "block_type": "function",
       "complexity": 4,
-      "coverage": 92.3,
+      "coverage": 91.7,
       "crap": 4.0,
-      "lineno": 11
+      "lineno": 12
     },
     {
       "file": "otlmow_model/OtlmowModel/Helpers/generated_lists.py",
       "name": "get_hardcoded_class_dict",
       "block_type": "function",
       "complexity": 4,
-      "coverage": 92.3,
+      "coverage": 91.7,
       "crap": 4.0,
-      "lineno": 30
+      "lineno": 31
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
@@ -15004,7 +15004,7 @@
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 11
+      "lineno": 12
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/StringField.py",
@@ -15157,7 +15157,7 @@
       "complexity": 3,
       "coverage": 100.0,
       "crap": 3.0,
-      "lineno": 48
+      "lineno": 49
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",
@@ -15688,7 +15688,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 34
+      "lineno": 35
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/StringField.py",
@@ -15769,7 +15769,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 5
+      "lineno": 8
     },
     {
       "file": "otlmow_model/OtlmowModel/Exceptions/InvalidOptionError.py",
@@ -15778,7 +15778,7 @@
       "complexity": 2,
       "coverage": 100.0,
       "crap": 2.0,
-      "lineno": 6
+      "lineno": 9
     },
     {
       "file": "otlmow_model/OtlmowModel/GeometrieTypes/AbstracteGeometrie.py",
@@ -16651,7 +16651,7 @@
       "complexity": 1,
       "coverage": 100.0,
       "crap": 1.0,
-      "lineno": 19
+      "lineno": 20
     },
     {
       "file": "otlmow_model/OtlmowModel/BaseClasses/TimeField.py",

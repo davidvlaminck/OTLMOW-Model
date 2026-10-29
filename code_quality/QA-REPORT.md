@@ -3,7 +3,7 @@
 > GENERATED FILE — produced by `code_quality/scripts/qa_report.py`.
 > Do not edit by hand; edit the thresholds in the script instead.
 
-Generated: 2026-10-28 · commit `bee1e6eb9`
+Generated: 2026-10-28 · commit `9e8350573`
 
 ## Thresholds (gate)
 
@@ -11,7 +11,7 @@ Generated: 2026-10-28 · commit `bee1e6eb9`
 |---|---|---|---|
 | ruff issues | ≤ 0 | 0 | 🟢 |
 | files needing `ruff format` | ≤ 0 | 75 | 🔴 |
-| mypy errors | ≤ 0 | 305 | 🔴 |
+| mypy errors | ≤ 0 | 292 | 🔴 |
 | test coverage (lines, owned code) | ≥ 80.0 | 96.5 % | 🟢 |
 | test coverage (branches, owned code) | ≥ 75.0 | 92.9 % | 🟢 |
 | max CRAP score | ≤ 6.0 | 9.0 | 🔴 |
@@ -70,3 +70,4 @@ Verify with `code_quality/README.md` §7 before touching it: the behaviour must 
 | 2026-10-27 | 0.0 | 0.0 | 0 | 1 | 0.0 | 0 | red |
 | 2026-10-28 | 96.3 | 0.0 | 0 | 305 | 9.0 | 8 | red |
 | 2026-10-28 | 96.5 | 92.9 | 0 | 305 | 9.0 | 8 | red |
+| 2026-10-28 | 96.5 | 92.9 | 0 | 292 | 9.0 | 8 | red |
