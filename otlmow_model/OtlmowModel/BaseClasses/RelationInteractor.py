@@ -21,7 +21,7 @@ class RelationInteractor:
 
         self._valid_relations = {}
 
-    def _get_all_concrete_relations(self, model_directory: Path = None):
+    def _get_all_concrete_relations(self, model_directory: Path | None = None):
         class_dict = get_hardcoded_class_dict(model_directory)
         for relation in self._valid_relations:
             for target in self._valid_relations[relation]:
@@ -31,7 +31,7 @@ class RelationInteractor:
                         if relation_tuple is not None:
                             yield relation_tuple
 
-    def _concrete_targets(self, target, class_dict, model_directory):
+    def _concrete_targets(self, target, class_dict, model_directory: Path | None = None):
         if class_dict[target]['abstract']:
             return get_concrete_subclasses_from_class_dict(target, model_directory=model_directory)
         return [target]

@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 import random
 import warnings
 from datetime import time, datetime, date, timezone
-from typing import Optional, Any
+from typing import Any
 
 from .OTLField import OTLField
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
@@ -25,7 +25,7 @@ class TimeField(OTLField):
     native_type = time
 
     @classmethod
-    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[time]:
+    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> time | None:
         if value is None:
             return None
         if isinstance(value, time):
@@ -101,7 +101,7 @@ class TimeField(OTLField):
         return True
 
     @classmethod
-    def value_default(cls, value: time) -> Optional[str]:
+    def value_default(cls, value: time) -> str | None:
         return None if value is None else value.strftime("%H:%M:%S")
 
     def __str__(self) -> str:

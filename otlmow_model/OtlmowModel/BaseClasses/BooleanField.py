@@ -1,6 +1,6 @@
 import random
 import warnings
-from typing import Optional, Any
+from typing import Any
 
 from .OTLField import OTLField
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
@@ -18,7 +18,7 @@ class BooleanField(OTLField):
     native_type = bool
 
     @classmethod
-    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[bool]:
+    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> bool | None:
         if value is None or value == '-':
             return cls._convert_from_none()
         if isinstance(value, bool):

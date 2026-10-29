@@ -3,7 +3,7 @@ import warnings
 import random
 
 from difflib import get_close_matches
-from typing import Dict, Optional, Any
+from typing import Dict, Any
 
 from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from ..Exceptions.InvalidOptionError import InvalidOptionError
@@ -19,7 +19,7 @@ class KeuzelijstField(OTLField):
     native_type = str
 
     @classmethod
-    def create_dummy_data_keuzelijst(cls, options) -> Optional[str]:
+    def create_dummy_data_keuzelijst(cls, options) -> str | None:
         in_gebruik_values = list(filter(lambda option: option.status == 'ingebruik', options.values()))
         if len(in_gebruik_values) == 0:
             return None
@@ -51,7 +51,7 @@ deprecated_version: {self.deprecated_version}"""
         return s
 
     @staticmethod
-    def convert_to_invulwaarde(value: str, field) -> Optional[str]:
+    def convert_to_invulwaarde(value: str, field) -> str | None:
         if value is None or value == '':
             return value
         if value == '-':
@@ -66,7 +66,7 @@ deprecated_version: {self.deprecated_version}"""
         return option.invulwaarde
 
 
-def _find_option(value: str, field) -> Optional[KeuzelijstWaarde]:
+def _find_option(value: str, field) -> KeuzelijstWaarde | None:
     if value.startswith('http'):
         return _find_option_by_uri(value, field)
     return _find_option_by_label(value, field)
@@ -95,9 +95,9 @@ def _check_option_status(option_value: KeuzelijstWaarde, value: str, attribuut) 
         raise RemovedOptionError(f'{value} is no longer a valid value for {attribuut.naam}.')
 
 
-def _find_option_by_uri(value: str, field) -> Optional[KeuzelijstWaarde]:
+def _find_option_by_uri(value: str, field) -> KeuzelijstWaarde | None:
     return next((option for option in field.options.values() if option.objectUri == value), None)
 
 
-def _find_option_by_label(value: str, field) -> Optional[KeuzelijstWaarde]:
+def _find_option_by_label(value: str, field) -> KeuzelijstWaarde | None:
     return next((option for option in field.options.values() if option.label == value), None)

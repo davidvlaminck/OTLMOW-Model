@@ -3,7 +3,7 @@ import logging
 import warnings
 from datetime import timedelta
 from random import randrange
-from typing import Optional, Any
+from typing import Any
 
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
 from .OTLField import OTLField
@@ -27,7 +27,7 @@ class DateTimeField(OTLField):
         return True
 
     @classmethod
-    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[datetime.datetime]:
+    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> datetime.datetime | None:
         if value is None:
             return None
         if isinstance(value, bool):
@@ -100,7 +100,7 @@ class DateTimeField(OTLField):
         return '%d/%m/%Y %H:%M:%S'
 
     @classmethod
-    def value_default(cls, value: datetime.datetime) -> Optional[str]:
+    def value_default(cls, value: datetime.datetime) -> str | None:
         if value is None:
             return None
         if not isinstance(value, datetime.datetime):

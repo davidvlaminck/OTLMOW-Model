@@ -1,7 +1,7 @@
 import inspect
 import warnings
 from pathlib import Path
-from typing import Type, Optional
+from typing import Type
 
 from ..BaseClasses.OTLObject import dynamic_create_instance_from_uri
 from ..BaseClasses.RelationInteractor import RelationInteractor
@@ -28,10 +28,10 @@ def is_valid_relation_instance(source: RelationInteractor, relation_instance: Re
                              model_directory=model_directory)
 
 
-def is_valid_relation_using_relation_uri(relation_uri: str, source: Optional[RelationInteractor] = None,
-                                         source_typeURI: Optional[str] = None,
-                                         target: Optional[RelationInteractor] = None,
-                                         target_typeURI: Optional[str] = None,
+def is_valid_relation_using_relation_uri(relation_uri: str, source: RelationInteractor | None = None,
+                                         source_typeURI: str | None = None,
+                                         target: RelationInteractor | None = None,
+                                         target_typeURI: str | None = None,
                                          model_directory: Path = None) -> bool:
     """
     Verifies if a relation would be valid between a source and a target, given a relation_type type. Exactly one of
@@ -90,7 +90,7 @@ def _is_allowed_relation_in_mro(target, relation: dict, relation_uri: str, sourc
     return False
 
 
-def _override_actor(actor: Optional[RelationInteractor], actor_typeURI: Optional[str], name: str,
+def _override_actor(actor: RelationInteractor | None, actor_typeURI: str | None, name: str,
                     model_directory: Path = None):
     if actor is not None and actor_typeURI is not None:
         warnings.warn(
@@ -100,7 +100,7 @@ def _override_actor(actor: Optional[RelationInteractor], actor_typeURI: Optional
     return actor, actor_typeURI
 
 
-def _require_type_uri(actor: Optional[RelationInteractor], actor_typeURI: Optional[str], name: str) -> str:
+def _require_type_uri(actor: RelationInteractor | None, actor_typeURI: str | None, name: str) -> str:
     if actor is not None and actor_typeURI is None:
         actor_typeURI = actor.typeURI
     if actor_typeURI is None:
@@ -121,9 +121,9 @@ def _is_allowed_relation(entry: dict, relation_uri: str, source_typeURI: str,
     return True
 
 
-def is_valid_relation(relation_type: Type[RelatieObject], source: Optional[RelationInteractor] = None,
-                      source_typeURI: Optional[str] = None, target: Optional[RelationInteractor] = None,
-                      target_typeURI: Optional[str] = None, model_directory: Path = None) -> bool:
+def is_valid_relation(relation_type: Type[RelatieObject], source: RelationInteractor | None = None,
+                      source_typeURI: str | None = None, target: RelationInteractor | None = None,
+                      target_typeURI: str | None = None, model_directory: Path = None) -> bool:
     """
     Verifies if a relation would be valid between a source and a target, given a relation_type type. Exactly one of
     source or source_typeURI must not be None. Exactly one of target or target_typeURI must not be None.

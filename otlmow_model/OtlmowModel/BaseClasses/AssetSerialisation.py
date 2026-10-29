@@ -1,6 +1,6 @@
 import warnings
 from datetime import date, datetime, time
-from typing import Any, TYPE_CHECKING, Optional, Union
+from typing import Any, TYPE_CHECKING, Union
 
 from ..Exceptions.NonStandardAttributeWarning import NonStandardAttributeWarning
 from .DateTimeField import DateTimeField
@@ -105,7 +105,7 @@ def _create_dict_from_list(asset: list, options: SerialisationOptions) -> list[A
     return items
 
 
-def _create_dict_from_object(asset, options: SerialisationOptions) -> Optional[dict[str, Any]]:
+def _create_dict_from_object(asset, options: SerialisationOptions) -> dict[str, Any] | None:
     d = {}
     for attr_key, attr in vars(asset).items():
         if attr_key in SKIPPED_ATTRIBUTE_KEYS:
@@ -186,7 +186,7 @@ def _shortcut_value(attr):
     return _shortcut_single_value(attr.waarde)
 
 
-def _shortcut_list_value(waarde) -> Optional[list[Any]]:
+def _shortcut_list_value(waarde) -> list[Any] | None:
     item_list = [_shortcut_item_value(item) for item in waarde]
     return item_list if len(item_list) > 0 else None
 
@@ -234,7 +234,7 @@ def _recursive_create_rdf_dict_from_asset(asset, options: SerialisationOptions) 
     return _create_rdf_dict_from_object(asset, options)
 
 
-def _create_rdf_dict_from_list(asset: list, options: SerialisationOptions) -> Optional[list[Any]]:
+def _create_rdf_dict_from_list(asset: list, options: SerialisationOptions) -> list[Any] | None:
     items = []
     for item in asset:
         dict_item = _recursive_create_rdf_dict_from_asset(item, options)
@@ -243,7 +243,7 @@ def _create_rdf_dict_from_list(asset: list, options: SerialisationOptions) -> Op
     return items if len(items) > 0 else None
 
 
-def _create_rdf_dict_from_object(asset, options: SerialisationOptions) -> Optional[dict[str, Any]]:
+def _create_rdf_dict_from_object(asset, options: SerialisationOptions) -> dict[str, Any] | None:
     d = {}
     for attr_key, attr in vars(asset).items():
         if attr_key in SKIPPED_ATTRIBUTE_KEYS:
@@ -324,7 +324,7 @@ def _options_list_value(attr) -> list[Any]:
     return [attr.field.options[list_item].objectUri for list_item in attr.waarde]
 
 
-def clean_dict(d) -> Optional[dict[str, Any]]:
+def clean_dict(d) -> dict[str, Any] | None:
     """Recursively remove None values and empty dicts from input dict"""
     if d is None:
         return None

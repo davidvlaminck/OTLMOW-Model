@@ -1,7 +1,6 @@
 import math
 import random
 import warnings
-from typing import Optional
 
 from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from ..Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
@@ -368,9 +367,9 @@ def _is_in_union_waarden(owner) -> bool:
     return isinstance(owner.owner, UnionWaarden)
 
 
-def get_attribute_by_uri(instance_or_attribute, key: str) -> Optional[OTLAttribuut]:
+def get_attribute_by_uri(instance_or_attribute, key: str) -> OTLAttribuut | None:
     return next((v for v in instance_or_attribute if v.objectUri == key), None)
 
 
-def get_attribute_by_name(instance_or_attribute, key: str) -> Optional[OTLAttribuut]:
+def get_attribute_by_name(instance_or_attribute, key: str) -> OTLAttribuut | None:
     return getattr(instance_or_attribute, f'_{key}', None)

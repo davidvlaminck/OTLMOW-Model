@@ -1,7 +1,7 @@
 import warnings
 from datetime import date, datetime, timedelta, timezone
 from random import randrange
-from typing import Optional, Any
+from typing import Any
 
 from .OTLField import OTLField
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
@@ -19,7 +19,7 @@ class DateField(OTLField):
     native_type = date
 
     @classmethod
-    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[date]:
+    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> date | None:
         if value is None:
             return cls._convert_from_none()
         if isinstance(value, bool):

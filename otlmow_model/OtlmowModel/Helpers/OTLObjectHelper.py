@@ -2,7 +2,7 @@ import base64
 import warnings
 from collections import defaultdict
 from pathlib import Path
-from typing import Iterable, List, Dict, Optional
+from typing import Iterable, List, Dict
 
 from ..BaseClasses.OTLObject import OTLObject, create_dict_from_asset, dynamic_create_instance_from_ns_and_name
 from ..Helpers.GenericHelper import validate_guid
@@ -194,7 +194,7 @@ def is_aim_id(aim_id: str, model_directory: Path = None) -> bool:
     return _is_known_short_uri(short_uri, model_directory)
 
 
-def _decode_short_uri(short_uri_encoded: str) -> Optional[str]:
+def _decode_short_uri(short_uri_encoded: str) -> str | None:
     """Decode the base64 encoded short uri, or None when it is not ascii."""
     if missing_padding := len(short_uri_encoded) % 4:
         short_uri_encoded += '=' * (4 - missing_padding)

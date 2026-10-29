@@ -1,7 +1,7 @@
 import warnings
 from collections.abc import Generator
 from pathlib import Path
-from typing import Any, Optional, TypeVar, Union
+from typing import Any, TypeVar, Union
 
 from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from ..Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
@@ -170,12 +170,12 @@ class OTLObject(object):
             value, warn_for_non_otl_conform_attributes=False
         )
 
-    def is_instance_of(self, otl_type: type, dynamic_created: bool = False, model_directory: Optional[Path] = None):
+    def is_instance_of(self, otl_type: type, dynamic_created: bool = False, model_directory: Path | None = None):
         if dynamic_created:
             return self._is_instance_of_dynamic(otl_type, model_directory)
         return self._is_instance_of_type(otl_type)
 
-    def _is_instance_of_dynamic(self, otl_type: type, model_directory: Optional[Path]) -> bool:
+    def _is_instance_of_dynamic(self, otl_type: type, model_directory: Path | None) -> bool:
         otl_type_typeURI = _type_uri_of(otl_type)
         if otl_type_typeURI is _MISSING_TYPEURI:
             return False
@@ -198,7 +198,7 @@ class OTLObject(object):
     def from_dict(
         cls: T,
         input_dict: dict[str, Any],
-        model_directory: Optional[Path] = None,
+        model_directory: Path | None = None,
         rdf: bool = False,
         cast_datetime: bool = False,
         waarde_shortcut: bool = False,

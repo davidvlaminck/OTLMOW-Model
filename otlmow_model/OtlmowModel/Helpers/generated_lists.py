@@ -1,14 +1,15 @@
 import json
 from collections.abc import Iterable
 from pathlib import Path
+from typing import Any
 
-global_relation_dict_by_model: dict = {}
-global_class_dict_by_model: dict = {}
+global_relation_dict_by_model: dict[str, Any] = {}
+global_class_dict_by_model: dict[str, Any] = {}
 
 MODEL_ROOT_PATH = Path(__file__).parent.parent.parent
 
 
-def get_hardcoded_relation_dict(model_directory: Path = None) -> dict:
+def get_hardcoded_relation_dict(model_directory: Path | None = None) -> dict[str, Any]:
     global global_relation_dict_by_model
     if model_directory is None:
         model_directory = MODEL_ROOT_PATH
@@ -24,10 +25,10 @@ def get_hardcoded_relation_dict(model_directory: Path = None) -> dict:
         generated_info_dict = json.load(f)
     global_relation_dict_by_model[model_dir_str] = generated_info_dict['relations']
 
-    return global_relation_dict_by_model[model_dir_str]
+    return global_relation_dict_by_model[model_dir_str]  # type: ignore[no-any-return]
 
 
-def get_hardcoded_class_dict(model_directory: Path = None) -> dict:
+def get_hardcoded_class_dict(model_directory: Path | None = None) -> dict[str, Any]:
     global global_class_dict_by_model
     if model_directory is None:
         model_directory = MODEL_ROOT_PATH
@@ -43,9 +44,9 @@ def get_hardcoded_class_dict(model_directory: Path = None) -> dict:
         generated_info_dict = json.load(f)
     global_class_dict_by_model[model_dir_str] = generated_info_dict['classes']
 
-    return global_class_dict_by_model[model_dir_str]
+    return global_class_dict_by_model[model_dir_str]  # type: ignore[no-any-return]
 
-def get_concrete_subclasses_from_class_dict(base_uri: str, model_directory: Path = None) -> Iterable[str]:
+def get_concrete_subclasses_from_class_dict(base_uri: str, model_directory: Path | None = None) -> Iterable[str]:
     class_dict = get_hardcoded_class_dict(model_directory)
     for subclass in class_dict[base_uri]['direct_subclasses']:
         if not class_dict[subclass]['abstract']:

@@ -1,6 +1,6 @@
 import random
 import string
-from typing import Optional, Any
+from typing import Any
 
 from .StringField import StringField
 import re
@@ -17,7 +17,7 @@ class URIField(StringField):
     usagenote = 'https://www.w3.org/TR/xmlschema-2/#anyURI'
 
     @classmethod
-    def convert_to_correct_type(cls, value: str, log_warnings=True) -> Optional[str]:
+    def convert_to_correct_type(cls, value: str, log_warnings=True) -> str | None:
         value = StringField.convert_to_correct_type(value, log_warnings=log_warnings)
         if value is not None and value.startswith('/eminfra'):
             return f'https://apps.mow.vlaanderen.be{value}'

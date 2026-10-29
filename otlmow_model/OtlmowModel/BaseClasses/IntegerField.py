@@ -1,7 +1,7 @@
 import decimal
 import random
 import warnings
-from typing import Optional, Any
+from typing import Any
 
 from .OTLField import OTLField
 from ..Exceptions.CouldNotConvertToCorrectTypeError import CouldNotConvertToCorrectTypeError
@@ -19,7 +19,7 @@ class IntegerField(OTLField):
     native_type = int
 
     @classmethod
-    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> Optional[int]:
+    def convert_to_correct_type(cls, value: Any, log_warnings: bool = True) -> int | None:
         if value is None:
             return cls._convert_from_none()
         if isinstance(value, bool):

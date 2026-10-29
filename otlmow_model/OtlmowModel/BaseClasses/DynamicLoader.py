@@ -3,7 +3,7 @@ import sys
 from difflib import get_close_matches
 from pathlib import Path
 from types import ModuleType
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 from ..Exceptions.CouldNotCreateInstanceError import CouldNotCreateInstanceError
 from ..Helpers.generated_lists import get_hardcoded_class_dict
@@ -16,7 +16,7 @@ _imported_modules = {}
 
 
 def dynamic_create_type_from_ns_and_name(
-    namespace: str, class_name: str, model_directory: Optional[Path] = None
+    namespace: str, class_name: str, model_directory: Path | None = None
 ) -> type:
     """Loads the OTL class module and attempts to return the type using the name and namespace of the class
 
@@ -37,7 +37,7 @@ def dynamic_create_type_from_ns_and_name(
 
 
 def dynamic_create_instance_from_ns_and_name(
-    namespace: str, class_name: str, model_directory: Optional[Path] = None
+    namespace: str, class_name: str, model_directory: Path | None = None
 ) -> 'OTLObject':
     """Loads the OTL class module and attempts to instantiate the class using the name and namespace of the class.
     Caches imported modules for performance improvement.
@@ -57,7 +57,7 @@ def dynamic_create_instance_from_ns_and_name(
     return type_()
 
 
-def dynamic_create_instance_from_uri(class_uri: str, model_directory: Optional[Path] = None) -> 'OTLObject':
+def dynamic_create_instance_from_uri(class_uri: str, model_directory: Path | None = None) -> 'OTLObject':
     """Loads the OTL class module and attempts to instantiate the class using the URI of the class.
 
     :param class_uri: URI of the class
@@ -71,7 +71,7 @@ def dynamic_create_instance_from_uri(class_uri: str, model_directory: Optional[P
     return type_()
 
 
-def dynamic_create_type_from_uri(class_uri: str, model_directory: Optional[Path] = None) -> type:
+def dynamic_create_type_from_uri(class_uri: str, model_directory: Path | None = None) -> type:
     """Loads the OTL class module and attempts to return the type using the URI of the class.
 
     :param class_uri: URI of the class
@@ -87,7 +87,7 @@ def dynamic_create_type_from_uri(class_uri: str, model_directory: Optional[Path]
     raise _class_uri_not_found_error(class_dict=class_dict, class_uri=class_uri)
 
 
-def _get_class_dict(model_directory: Optional[Path] = None) -> dict:
+def _get_class_dict(model_directory: Path | None = None) -> dict:
     try:
         return get_hardcoded_class_dict(model_directory=model_directory)
     except FileNotFoundError as e:
@@ -142,7 +142,7 @@ def _class_uri_not_found_error(class_dict: dict, class_uri: str) -> CouldNotCrea
 
 
 def _create_type_from_class_dict_entry(
-    class_dict_entry: dict[str, str], model_directory: Optional[Path] = None
+    class_dict_entry: dict[str, str], model_directory: Path | None = None
 ) -> type:
     """Creates a type from a class dictionary entry.
 
@@ -166,7 +166,7 @@ def _create_type_from_class_dict_entry(
     return getattr(mod, class_name)
 
 
-def _import_module(namespace: str, class_name: str, model_directory: Optional[Path] = None) -> ModuleType:
+def _import_module(namespace: str, class_name: str, model_directory: Path | None = None) -> ModuleType:
     model_directory_given = model_directory is not None
     if model_directory is None:
         model_directory = _default_model_directory()
