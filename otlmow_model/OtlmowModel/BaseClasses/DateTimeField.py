@@ -90,7 +90,7 @@ class DateTimeField(OTLField):
     @classmethod
     def _convert_fallback(cls, value: Any) -> datetime.datetime:
         try:
-            return datetime.datetime(value)
+            return datetime.datetime.fromisoformat(str(value))
         except Exception as exc:
             raise CouldNotConvertToCorrectTypeError(
                 f'{value} could not be converted to correct type (implied by {cls.__name__})'

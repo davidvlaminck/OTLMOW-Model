@@ -23,7 +23,7 @@ class KeuzelijstField(OTLField):
         in_gebruik_values = list(filter(lambda option: option.status == 'ingebruik', options.values()))
         if len(in_gebruik_values) == 0:
             return None
-        return random.choice(list(map(lambda x: x.invulwaarde, in_gebruik_values)))
+        return str(random.choice(list(map(lambda x: x.invulwaarde, in_gebruik_values))))
 
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
