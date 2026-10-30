@@ -2,7 +2,7 @@ from typing import List, Any
 
 
 class WKTValidator:
-    coord_params = {
+    coord_params: dict[str, Any] = {
         'POINT': {'level': 1, 'min': 1, 'len_point': 2},
         'POINT Z': {'level': 1, 'min': 1, 'len_point': 3},
         'LINESTRING': {'level': 1, 'min': 2, 'len_point': 2},
@@ -69,7 +69,7 @@ class WKTValidator:
         )
 
     @classmethod
-    def _coord_shape_is_valid(cls, coords_list: list, level: int) -> bool:
+    def _coord_shape_is_valid(cls, coords_list: list[Any], level: int) -> bool:
         if level == 1:
             return isinstance(coords_list[0], tuple)
         if level == 2:
@@ -77,15 +77,15 @@ class WKTValidator:
         return isinstance(coords_list[0][0][0], tuple)
 
     @classmethod
-    def _validate_coords_for_level(cls, coords_list: list, geo_type: str, level: int) -> bool:
+    def _validate_coords_for_level(cls, coords_list: list[Any], geo_type: str, level: int) -> bool:
         if level == 1:
-            return cls.validate_coords_list(coords_list, geo_type)
+            return bool(cls.validate_coords_list(coords_list, geo_type))
         if level == 2:
             return all(cls.validate_coords_list(coords, geo_type) for coords in coords_list)
         return cls._validate_coords_for_level_3(coords_list, geo_type)
 
     @classmethod
-    def _validate_coords_for_level_3(cls, coords_list: list, geo_type: str) -> bool:
+    def _validate_coords_for_level_3(cls, coords_list: list[Any], geo_type: str) -> bool:
         for coords in coords_list:
             for coords2 in coords:
                 if not cls.validate_coords_list(coords2, geo_type):
@@ -93,14 +93,14 @@ class WKTValidator:
         return True
 
     @classmethod
-    def get_coords_list_from_wkt_string(cls, input_string) -> List:
+    def get_coords_list_from_wkt_string(cls, input_string) -> List[Any]:
         coords_string = input_string.split(' (')[1][:-1].replace(', ', ',').replace(' ,', ',')
-        coords_list = []
+        coords_list: list[Any] = []
         cls.split_and_add_to_list(coords_list, coords_string)
         return coords_list
 
     @classmethod
-    def validate_coords_list(cls, coords_list, geo_type):
+    def validate_coords_list(cls, coords_list: list[Any], geo_type: str) -> bool:
         len_point = cls.coord_params[geo_type]['len_point']
         min_point = cls.coord_params[geo_type]['min']
 
