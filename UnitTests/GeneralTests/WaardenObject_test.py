@@ -1,4 +1,5 @@
 import pytest
+from typing import cast, Any
 
 from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import AllCasesTestClass
 
@@ -36,4 +37,4 @@ def test__iter__(subtests):
 
     with subtests.test(msg='non waarden attribute'):
         with pytest.raises(TypeError):
-            assert [attr.objectUri for attr in instance.testStringField] == []
+            assert [cast(Any, attr).objectUri for attr in instance.testStringField] == []

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Any
 
 
 class WKTValidator:
@@ -19,11 +19,11 @@ class WKTValidator:
     }
 
     @classmethod
-    def split_and_add_to_list(cls, coords_list: list, coords_str: str):
+    def split_and_add_to_list(cls, coords_list: list[Any], coords_str: str):
         if coords_str.startswith('('):
             coords_str = coords_str[1:-1]
             for new_coords_str in coords_str.split('),('):
-                new_list = []
+                new_list: list[Any] = []
                 cls.split_and_add_to_list(coords_list=new_list, coords_str=new_coords_str)
                 coords_list.append(new_list)
         else:
