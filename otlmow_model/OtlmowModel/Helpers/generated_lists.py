@@ -15,7 +15,7 @@ def get_hardcoded_relation_dict(model_directory: Path | None = None) -> dict[str
         model_directory = MODEL_ROOT_PATH
     model_dir_str = str(model_directory)
     if model_dir_str in global_relation_dict_by_model:
-        return global_relation_dict_by_model[model_dir_str]
+        return global_relation_dict_by_model[model_dir_str]  # type: ignore[no-any-return]
 
     generated_info_path = model_directory / 'OtlmowModel' / 'generated_info.json'
     if not generated_info_path.exists():
@@ -34,7 +34,7 @@ def get_hardcoded_class_dict(model_directory: Path | None = None) -> dict[str, A
         model_directory = MODEL_ROOT_PATH
     model_dir_str = str(model_directory)
     if model_dir_str in global_class_dict_by_model:
-        return global_class_dict_by_model[model_dir_str]
+        return global_class_dict_by_model[model_dir_str]  # type: ignore[no-any-return]
 
     generated_info_path = model_directory / 'OtlmowModel' / 'generated_info.json'
     if not generated_info_path.exists():

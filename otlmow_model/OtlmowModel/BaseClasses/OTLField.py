@@ -18,7 +18,7 @@ class OTLField:
     @classmethod
     def validate(cls, value: Any, attribuut) -> bool:
         if not attribuut.field.waardeObject:
-            return
+            return True
         _check_complex_type(value, attribuut)
         return _validate_attributes(value)
 
@@ -76,7 +76,7 @@ def _validate_attributes(value: Any) -> bool:
 def _validate_attribute(attr) -> bool:
     if attr.kardinaliteit_max != '1':
         return _validate_attribute_list(attr)
-    return attr.field.validate(attr.waarde, attr)
+    return bool(attr.field.validate(attr.waarde, attr))
 
 
 def _validate_attribute_list(attr) -> bool:

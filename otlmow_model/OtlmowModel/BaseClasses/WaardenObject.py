@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from typing import Generator
+from typing import Generator, Any
 
 from ..Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
 
@@ -10,7 +10,7 @@ class WaardenObject:
         self._parent = None
         self._is_waarden_object: bool = True
 
-    def __iter__(self) -> Generator:
+    def __iter__(self) -> Generator[Any, None, None]:
         for k, v in vars(self).items():
             if k in {
                 '_parent',
