@@ -60,6 +60,8 @@ class OTLAttribuut:
         self.readonlyValue = None
         self.mark_to_be_cleared: bool = False
         self.waarde: Any = None
+        self._add_empty_value_handler = None
+        self._add_value_handler = None
         self.is_otl_attribute: bool = True
         self.field: type[OTLField] = field
 
@@ -85,7 +87,7 @@ class OTLAttribuut:
                     prev_value.append(new_value_object)
                     self.set_waarde(prev_value)
 
-            self.__dict__["add_empty_value"] = add_empty_value
+            self._add_empty_value_handler = add_empty_value
 
         if kardinaliteit_max != '1':
 
@@ -96,16 +98,19 @@ class OTLAttribuut:
                 values.append(value)
                 self.set_waarde(values)
 
-            self.__dict__["add_value"] = add_value
+            self._add_value_handler = add_value
 
         if readonly:
             self.__dict__['waarde'] = readonlyValue
 
     def add_value(self, value):
-        raise MethodNotApplicableError(
-            'This attribute does not have a cardinality other than 1 so simply assign your value directly instead of '
-            'using this method'
-        )
+        impl = self._add_value_handler
+        if impl is None:
+            raise MethodNotApplicableError(
+                'This attribute does not have a cardinality other than 1 so simply assign your value directly instead of '
+                'using this method'
+            )
+        impl(value)
 
     def get_waarde(self):
         if self.field.waardeObject and self.waarde is None:
@@ -114,11 +119,15 @@ class OTLAttribuut:
 
     def add_empty_value(self):
         """Helper method for datatypes UnionType, ComplexType, KwantWrd and Dte to add the underlying waarde object"""
-        if not self.field.waardeObject:
-            raise MethodNotApplicableError(
-                'In order to use this method this object must be one of these types: UnionType, ComplexType, KwantWrd, '
-                'Dte'
-            )
+        impl = self._add_empty_value_handler
+        if impl is None:
+            if not self.field.waardeObject:
+                raise MethodNotApplicableError(
+                    'In order to use this method this object must be one of these types: UnionType, ComplexType, KwantWrd, '
+                    'Dte'
+                )
+            return
+        impl()
 
     def clear_value(self) -> None:
         if self.readonly:
