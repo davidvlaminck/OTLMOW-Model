@@ -1,14 +1,14 @@
 import datetime
 import json
 from pathlib import Path
-from typing import List
+from typing import List, Any
 
 GITHUB_ROOT = Path(__file__).parent.parent
 
 
 class ModelUpdater:
     @classmethod
-    def update_model(cls, version_info_file_path: Path, otl_version: str, created_by: str, enums_updated: list):
+    def update_model(cls, version_info_file_path: Path, otl_version: str, created_by: str, enums_updated: list[Any]):
         with open(version_info_file_path, encoding='utf-8') as file:
             version_info = json.load(file)
 
@@ -63,7 +63,7 @@ class ModelUpdater:
             f.write('MODEL_UPDATED=true\n')
 
     @classmethod
-    def find_changed_enums(cls, model_path: str = 'otlmow_model/OtlmowModel') -> List:
+    def find_changed_enums(cls, model_path: str = 'otlmow_model/OtlmowModel') -> List[Any]:
         from subprocess import Popen, PIPE
 
         cmd = 'git status --porcelain'
