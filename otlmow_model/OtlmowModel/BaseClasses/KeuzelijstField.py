@@ -47,7 +47,7 @@ label: {self.label}
 usagenote: {self.usagenote}
 deprecated_version: {self.deprecated_version}"""
         s += '\npossible values:\n'
-        s += '\n'.join(list(map(lambda x: '    ' + x.print(), self.options.values())))
+        s += '\n'.join(list(map(lambda x: '    ' + str(x), self.options.values())))
         return s
 
     @staticmethod

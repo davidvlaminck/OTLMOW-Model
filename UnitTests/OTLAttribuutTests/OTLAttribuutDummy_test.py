@@ -15,6 +15,8 @@ from otlmow_model.OtlmowModel.BaseClasses.DateTimeField import DateTimeField
 from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.OtlmowModel.BaseClasses.IntegerField import IntegerField
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
+from typing import cast
+from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 from otlmow_model.OtlmowModel.BaseClasses.TimeField import TimeField
 
@@ -104,7 +106,7 @@ def test_dummy_KeuzelijstField():
     generated_dummy_waarde = attr.get_waarde()
     assert generated_dummy_waarde is not None
     assert isinstance(generated_dummy_waarde, str)
-    assert generated_dummy_waarde in attr.field.options.keys()
+    assert generated_dummy_waarde in cast(KeuzelijstField, attr.field).options.keys()
 
 
 def test_dummy_KwantWrdField():

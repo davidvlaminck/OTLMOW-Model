@@ -40,22 +40,22 @@ def _instantiate(typeURI: str, uuid: str | None, model_directory: Path) -> tuple
     aim_id, is_legacy = _resolve_aim_id(uuid, typeURI)
     instance = dynamic_create_instance_from_uri(class_uri=typeURI, model_directory=model_directory)
     if typeURI == 'http://purl.org/dc/terms/Agent':
-        instance.agentId.identificator = aim_id
-        instance.agentId.toegekendDoor = 'AWV'
+        instance._get_id().identificator = aim_id
+        instance._get_id().toegekendDoor = 'AWV'
     else:
-        instance.assetId.identificator = aim_id
-        instance.assetId.toegekendDoor = 'AWV'
+        instance._get_id().identificator = aim_id
+        instance._get_id().toegekendDoor = 'AWV'
     return instance, is_legacy, aim_id
 
 
 def _require_valid_id(instance: RelationInteractor, name: str, is_legacy: bool) -> None:
     if not is_legacy:
-        if instance.typeURI == 'http://purl.org/dc/terms/Agent' and instance.agentId.identificator is None:
+        if instance.typeURI == 'http://purl.org/dc/terms/Agent' and instance._get_id().identificator is None:
             raise AttributeError(
                 f'In order to create a relation_type, the {name} needs to have a valid agentId '
                 f'({name}.agentId.identificator)'
             )
-        elif instance.typeURI != 'http://purl.org/dc/terms/Agent' and instance.assetId.identificator is None:
+        elif instance.typeURI != 'http://purl.org/dc/terms/Agent' and instance._get_id().identificator is None:
             raise AttributeError(
                 f'In order to create a relation_type, the {name} needs to have a valid assetId '
                 f'({name}.assetId.identificator)'
@@ -71,15 +71,10 @@ def _set_relation_end(
         asset_id_attribute.toegekendDoor = 'AWV'
         segment = aim_id
         return segment
-    actual_typeURI = typeURI if typeURI is not None else getattr(instance, 'typeURI', None)
-    if actual_typeURI == 'http://purl.org/dc/terms/Agent':
-        asset_id_attribute.identificator = instance.agentId.identificator
-        asset_id_attribute.toegekendDoor = instance.agentId.toegekendDoor
-        segment = instance.agentId.identificator
-    else:
-        asset_id_attribute.identificator = instance.assetId.identificator
-        asset_id_attribute.toegekendDoor = instance.assetId.toegekendDoor
-        segment = instance.assetId.identificator
+    id_obj = instance._get_id()
+    asset_id_attribute.identificator = id_obj.identificator
+    asset_id_attribute.toegekendDoor = id_obj.toegekendDoor
+    segment = id_obj.identificator
     return segment
 
 

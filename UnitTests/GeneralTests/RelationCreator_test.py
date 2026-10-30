@@ -212,7 +212,7 @@ def test_create_relation_different_input_parameters(subtests):
         kast = dynamic_create_instance_from_ns_and_name(namespace='onderdeel', class_name='Wegkantkast')
         uuid: str = '847a91b3-569d-4bae-87bf-7e148e8f7de9'
         type_uri_beheersys = 'https://lgc.data.wegenenverkeer.be/ns/installatie#Beheersys'
-        kast.assetId.identificator = '0000'
+        kast._get_id().identificator = '0000'
 
         relation = create_relation(
             source=kast, target_uuid=uuid, target_typeURI=type_uri_beheersys, relation_type=HoortBij

@@ -90,7 +90,7 @@ def _get_class_dict(model_directory: Path | None = None) -> dict:
         return get_hardcoded_class_dict(model_directory=model_directory)
     except FileNotFoundError as e:
         raise CouldNotCreateInstanceError(
-            e.message + '\nMake sure you are directing to the (parent) directory where OtlmowModel is located in.'
+            str(e) + '\nMake sure you are directing to the (parent) directory where OtlmowModel is located in.'
         ) from e
 
 

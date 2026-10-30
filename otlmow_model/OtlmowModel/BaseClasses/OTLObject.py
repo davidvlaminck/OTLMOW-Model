@@ -116,6 +116,9 @@ class OTLObject(object):
             raise ValueError(f'attribute {attribute_name} does not exist')
         attr.clear_value()
 
+    def _get_id(self) -> Any:
+        return getattr(self, 'assetId', None) or getattr(self, 'agentId', None)
+
     def create_dict_from_asset(
         self,
         waarde_shortcut: bool = False,
