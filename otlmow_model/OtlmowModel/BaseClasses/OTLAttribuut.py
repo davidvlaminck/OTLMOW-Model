@@ -5,6 +5,7 @@ import warnings
 from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from ..Exceptions.CanNotClearAttributeError import CanNotClearAttributeError
 from ..Exceptions.MethodNotApplicableError import MethodNotApplicableError
+from typing import Any
 from .OTLField import OTLField
 from .UnionTypeField import UnionTypeField
 from .UnionWaarden import UnionWaarden
@@ -58,7 +59,7 @@ class OTLAttribuut:
         self.owner = owner
         self.readonlyValue = None
         self.mark_to_be_cleared: bool = False
-        self.waarde = None
+        self.waarde: Any = None
         self.is_otl_attribute: bool = True
         self.field: type[OTLField] = field
 
@@ -84,7 +85,7 @@ class OTLAttribuut:
                     prev_value.append(new_value_object)
                     self.set_waarde(prev_value)
 
-            self.add_empty_value = add_empty_value
+            self.__dict__["add_empty_value"] = add_empty_value
 
         if kardinaliteit_max != '1':
 
@@ -95,7 +96,7 @@ class OTLAttribuut:
                 values.append(value)
                 self.set_waarde(values)
 
-            self.add_value = add_value
+            self.__dict__["add_value"] = add_value
 
         if readonly:
             self.__dict__['waarde'] = readonlyValue
