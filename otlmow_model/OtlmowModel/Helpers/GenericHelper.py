@@ -55,7 +55,7 @@ def get_class_directory_from_ns(ns):
     return f'Classes/{get_titlecase_from_ns(ns)}'
 
 
-def get_titlecase_from_ns(ns: str) -> str:
+def get_titlecase_from_ns(ns: str) -> str | None:
     ns = ns.lower()
     if ns == 'purl':
         return None
@@ -82,7 +82,7 @@ def get_aim_id_from_uuid_and_typeURI(uuid: str, type_uri: str):
     return f'{uuid}-{encoded_uri}'
 
 
-def validate_guid(uuid: str) -> Match | None:
+def validate_guid(uuid: str) -> Match[str] | None:
     uuid_pattern = '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
     return re.match(uuid_pattern, uuid)
 
