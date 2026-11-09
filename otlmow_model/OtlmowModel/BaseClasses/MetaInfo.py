@@ -14,7 +14,7 @@ def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = '') -> str |
     return None
 
 
-def _meta_info_of_attribute(obj: Union[OTLObject, OTLAttribuut], attribute: str) -> str:
+def _meta_info_of_attribute(obj: Union[OTLObject, OTLAttribuut], attribute: str) -> str | None:
     if '.' in attribute:
         return _meta_info_of_nested_attribute(obj, attribute)
     if hasattr(obj, '_' + attribute):
@@ -22,7 +22,7 @@ def _meta_info_of_attribute(obj: Union[OTLObject, OTLAttribuut], attribute: str)
     raise ValueError(f"'{attribute}' does not exist, please check the spelling")
 
 
-def _meta_info_of_nested_attribute(obj: Union[OTLObject, OTLAttribuut], attribute: str) -> str:
+def _meta_info_of_nested_attribute(obj: Union[OTLObject, OTLAttribuut], attribute: str) -> str | None:
     first = attribute.split('.')[0]
     rest = attribute.split('.', 1)[1]
     if hasattr(obj, '_' + first):

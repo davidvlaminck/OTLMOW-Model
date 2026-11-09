@@ -108,7 +108,7 @@ class LegacyObject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationIntera
     @property
     def naam(self) -> str | None:
         """De mensleesbare naam van een asset zoals dit bv. ook terug te vinden is op een etiket op het object zelf. De assetbeheerder kent deze naam toe of geeft de opdracht om deze toe te kennen. Indien een object een algemeen gangbare naam heeft zoals bv. bij een waterloop dan wordt deze gebruikt."""
-        return self._naam.get_waarde()
+        v = self._naam.get_waarde(); return str(v) if v is not None else None
 
     @naam.setter
     def naam(self, value):
@@ -117,7 +117,7 @@ class LegacyObject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationIntera
     @property
     def naampad(self) -> str | None:
         """Een set van objecten (bv. collecties) die aanduiden waar het object zich bevindt in de objectenboom (EM-Infra)."""
-        return self._naampad.get_waarde()
+        v = self._naampad.get_waarde(); return str(v) if v is not None else None
 
     @naampad.setter
     def naampad(self, value):
@@ -126,7 +126,7 @@ class LegacyObject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationIntera
     @property
     def notitie(self) -> str | None:
         """Extra notitie voor het object."""
-        return self._notitie.get_waarde()
+        v = self._notitie.get_waarde(); return str(v) if v is not None else None
 
     @notitie.setter
     def notitie(self, value):

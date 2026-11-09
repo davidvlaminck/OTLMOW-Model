@@ -65,6 +65,6 @@ def test_naampad_assign():
     with pytest.raises(ValueError):
         naampad_object.naam = '456'
 
-    naampad_object = NaamClass()
-    naampad_object.naam = '123'
-    assert naampad_object.naam == '123'
+    naam_only = NaamClass()
+    naam_only.naam = '123'
+    assert naam_only.naam == '123'

@@ -24,7 +24,7 @@ model_directory_path = Path(__file__).parent.parent / 'TestModel'
 
 def test_from_dict_typeURI_in_dict():
     input_dict = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
-    instance = OTLObject.from_dict(input_dict, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(input_dict, model_directory=model_directory_path)
     assert instance is not None
     assert AllCasesTestClass.typeURI == instance.typeURI
 
@@ -33,7 +33,7 @@ def test_from_dict_rdf_typeURI_in_dict():
     input_dict = {
         'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI':
             'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
-    instance = OTLObject.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
+    instance: Any = OTLObject.from_dict(input_dict, model_directory=model_directory_path, rdf=True)
     assert instance is not None
     assert AllCasesTestClass.typeURI == instance.typeURI
 
@@ -647,7 +647,7 @@ def test_create_dict_from_asset_non_standard_attributes_warnings_suppressed(subt
         instance.non_standard_attribute_no_warning = 'waarde-2'
 
         d = instance.to_dict(warn_for_non_otl_conform_attributes=False)
-        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testStringField': 'string',
                     'non_standard_attribute_no_warning': 'waarde-2'}
@@ -664,7 +664,7 @@ def test_create_dict_from_asset_non_standard_attributes(subtests):
 
         with pytest.warns(NonStandardAttributeWarning):
             d = instance.to_dict()
-            expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+            expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                         'testBooleanField': True,
                         'testStringField': 'string',
                         'non_standard_attribute': 'waarde-2'}
@@ -681,7 +681,7 @@ def test_create_dict_from_asset_non_standard_attributes(subtests):
 
         with pytest.warns(NonStandardAttributeWarning):
             d = instance.to_dict()
-            expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+            expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                         'testBooleanField': True,
                         'testStringField': 'string',
                         'non_standard_attribute': 'waarde-2',
@@ -700,7 +700,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType.testBooleanField = True
 
         d = instance.to_dict()
-        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testComplexType': {
                         'testBooleanField': True,
                         'testStringField': 'string'}}
@@ -715,7 +715,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testDateField = date(year=2022, month=2, day=2)
 
         d = instance.to_dict()
-        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': date(year=2022, month=2, day=2),
                     'testDecimalField': 1.5,
@@ -724,7 +724,7 @@ def test_create_dict_from_asset_testclass(subtests):
         assert d == expected
 
         d = instance.to_dict(cast_datetime=True)
-        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': '2022-02-02',
                     'testDecimalField': 1.5,
@@ -742,7 +742,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance._testDecimalFieldMetKard.add_value(2.5)
 
         d = instance.to_dict()
-        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testDecimalFieldMetKard': [1.5, 2.5],
                     'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
                     'testStringFieldMetKard': ['string', 'string 2']}
@@ -757,13 +757,13 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testKwantWrdMetKard[1].waarde = 5.5
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': 3.5,
                     'testKwantWrdMetKard': [4.5, 5.5]}
         assert d == expected
 
         d = instance.to_dict(waarde_shortcut=False)
-        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': {'waarde': 3.5},
                     'testKwantWrdMetKard': [{'waarde': 4.5}, {'waarde': 5.5}]}
         assert d == expected
@@ -778,8 +778,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType._testStringFieldMetKard.add_value('string 2 in complex')
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected: dict[str, Any] = {
-            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexType': {'testBooleanField': True,
                                 'testStringField': 'string',
                                 'testKwantWrd': 1.5,
@@ -802,8 +801,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected: dict[str, Any] = {
-            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexTypeMetKard': [
                 {'testBooleanField': True,
                  'testStringField': 'string 1'},
@@ -1359,7 +1357,7 @@ def test_from_dict_clear_value_int():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testIntegerField': 88888888}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testIntegerField is None
@@ -1397,7 +1395,7 @@ def test_from_dict_clear_value_enum():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testKeuzelijst': '88888888'}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testKeuzelijst is None
@@ -1408,7 +1406,7 @@ def test_from_dict_clear_value_str():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testStringField': '88888888'}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testStringField is None
@@ -1432,7 +1430,7 @@ def test_from_dict_clear_value_str_kard():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testStringFieldMetKard': '88888888'}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testStringFieldMetKard is None
@@ -1456,7 +1454,7 @@ def test_from_dict_clear_value_enum_kard():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testKeuzelijstMetKard': '88888888'}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testKeuzelijstMetKard is None
@@ -1480,7 +1478,7 @@ def test_from_dict_clear_value_decimal():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testDecimalField': 88888888}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testDecimalField is None
@@ -1520,7 +1518,7 @@ def test_from_dict_clear_value_datetime_types():
         'testDateField': '88888888',
         'testTimeField': '88888888',
         'testDateTimeField': '88888888'}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testDateField is None
@@ -1548,7 +1546,7 @@ def test_from_dict_clear_value_bool():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testBooleanField': '88888888'}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testBooleanField is None
@@ -1602,7 +1600,7 @@ def test_from_dict_clear_value_kwant_wrd_kard():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testKwantWrdMetKard': [{'waarde': 88888888.0}, {'waarde': 88888888.0}]}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testKwantWrdMetKard[0].waarde is None
@@ -1613,7 +1611,7 @@ def test_from_dict_clear_value_kwant_wrd_kard():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testKwantWrdMetKard': [88888888.0, 88888888.0]}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testKwantWrdMetKard[0].waarde is None
@@ -1624,7 +1622,7 @@ def test_from_dict_clear_value_kwant_wrd_kard():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testKwantWrdMetKard': [88888888.0]}
-    instance = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
+    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testKwantWrdMetKard[0]._waarde.mark_to_be_cleared
@@ -1664,7 +1662,7 @@ def test_from_dict_illegal_attributes():
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'assetId': {'identificator': '88888888'}}
     with pytest.raises(Exception) as excinfo:
-        instance = OTLObject.from_dict(d, model_directory=model_directory_path)
+        instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path)
     assert excinfo.type.__name__ == CanNotClearAttributeError.__name__
 
 
