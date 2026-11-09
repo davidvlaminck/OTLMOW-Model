@@ -2,7 +2,7 @@ import base64
 import warnings
 from collections import defaultdict
 from pathlib import Path
-from typing import Iterable, List, Dict
+from typing import Iterable, List, Dict, Any
 
 from ..BaseClasses.OTLObject import OTLObject, create_dict_from_asset, dynamic_create_instance_from_ns_and_name
 from ..Helpers.GenericHelper import validate_guid
@@ -11,10 +11,10 @@ from ..Helpers.generated_lists import get_hardcoded_relation_dict
 _MISSING_PROPERTY = object()
 
 
-def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict:
-    d = defaultdict(int)
+def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict[str, int]:
+    d: defaultdict[str, int] = defaultdict(int)
     for i in objects:
-        d[i.typeURI] += 1
+        d[i.typeURI or ""] += 1
     return d
 
 
@@ -24,8 +24,8 @@ def print_overview_assets(objects: Iterable[OTLObject]) -> None:
 
 
 # TODO move to converter (this is using a dotnotation)
-def remove_duplicates_in_iterable_based_on_property(iterable: Iterable[OTLObject], property_name: str) -> []:
-    d = {}
+def remove_duplicates_in_iterable_based_on_property(iterable: Iterable[OTLObject], property_name: str) -> list[OTLObject]:
+    d: dict[str, OTLObject] = {}
     for asset in iterable:
         item_prop = _property_value(asset, property_name)
         if item_prop is _MISSING_PROPERTY:
@@ -61,8 +61,8 @@ def _property_value(asset, property_name: str):
 
 
 def compare_two_lists_of_objects_object_level(
-    first_list: List[OTLObject], second_list: List[OTLObject], model_directory=None
-) -> List:
+    first_list: List[OTLObject], second_list: List[OTLObject], model_directory: Path | None = None
+) -> List[OTLObject]:
     """Given two lists of objects return the differences from the second list compared to the first list.
     Returns full objects from the second list when unmatched with the first list."""
     l1 = list(map(lambda x: create_dict_from_asset(x), first_list))
@@ -71,8 +71,8 @@ def compare_two_lists_of_objects_object_level(
     return list(map(lambda x: OTLObject.from_dict(x, model_directory), diff_list))
 
 
-def custom_dict_diff(first_dict, second_dict):
-    diff_dict = {}
+def custom_dict_diff(first_dict: dict[str, Any], second_dict: dict[str, Any]) -> dict[str, Any]:
+    diff_dict: dict[str, Any] = {}
     for k, v in second_dict.items():
         orig_v = first_dict.get(k)
         if orig_v is None:
@@ -93,8 +93,8 @@ def _diff_of_value(orig_v, v, key):
 
 
 def compare_two_lists_of_objects_attribute_level(
-    first_list: List[OTLObject], second_list: List[OTLObject], model_directory: Path = None
-) -> List:
+    first_list: List[OTLObject], second_list: List[OTLObject], model_directory: Path | None = None
+) -> List[OTLObject]:
     """
     Given two lists of objects return the differences from the second list compared to the first list.
     Assumes both lists have objects with a unique assetId. Returns partial objects (on attribute level)
@@ -106,7 +106,7 @@ def compare_two_lists_of_objects_attribute_level(
     l1 = _dict_list_of(first_list)
     l2 = _dict_list_of(second_list)
 
-    l1_dict_list = {dict_asset['assetId']['identificator']: dict_asset for dict_asset in l1}
+    l1_dict_list = {dict_asset['assetId']['identificator']: dict_asset for dict_asset in l1 if isinstance(dict_asset, dict)}
 
     diff_list = []
     for d in l2:
@@ -117,13 +117,13 @@ def compare_two_lists_of_objects_attribute_level(
     return [OTLObject.from_dict(x, model_directory) for x in diff_list]
 
 
-def _dict_list_of(objects: list[OTLObject]) -> list[dict]:
+def _dict_list_of(objects: list[OTLObject]) -> list[dict[str, Any]]:
     dict_list = [create_dict_from_asset(x) for x in objects]
     verify_asset_id_is_unique_within_list(dict_list)
     return dict_list
 
 
-def _diff_for_asset(asset_dict: dict, l1_dict_list: dict):
+def _diff_for_asset(asset_dict: dict[str, Any], l1_dict_list: dict[str, Any]) -> dict[str, Any] | None:
     """Return the difference of one asset, or None when there is none."""
     asset_id = asset_dict['assetId']['identificator']
     if asset_id not in l1_dict_list:
@@ -139,38 +139,43 @@ def _diff_for_asset(asset_dict: dict, l1_dict_list: dict):
     return diff_dict
 
 
-def verify_asset_id_is_unique_within_list(dict_list: List[Dict]) -> bool:
-    d = {}
+def verify_asset_id_is_unique_within_list(dict_list: List[Dict[str, Any]]) -> bool:
+    d: dict[str, dict[str, Any]] = {}
     for asset_dict in dict_list:
         asset_id = asset_dict['assetId']['identificator']
         if asset_id is None:
             raise ValueError(
                 f'This list has a None value for assetId for at least one asset in this list:\n{asset_dict}'
             )
-        asset_d = d.get(asset_id)
+        asset_d = d.get(str(asset_id))
         if asset_d is not None:
             raise ValueError(f"There are non-unique assetId's in assets in this list: {asset_id}")
-        d[asset_dict['assetId']['identificator']] = asset_dict
+        d[str(asset_id)] = asset_dict
     return True
 
 
-def is_relation(otl_object: OTLObject, model_directory=Path(__file__).parent.parent.parent) -> bool:
+def is_relation(otl_object: OTLObject, model_directory: Path | None = None) -> bool:
     type_uri = otl_object.typeURI
+    if model_directory is None:
+        model_directory = Path(__file__).parent.parent.parent
     relation_dict = get_hardcoded_relation_dict(model_directory=model_directory)
-    if type_uri in relation_dict:
-        return True
+    return bool(type_uri is not None and type_uri in relation_dict)
 
 
-def is_directional_relation(otl_object: OTLObject, model_directory=Path(__file__).parent.parent.parent) -> bool:
+def is_directional_relation(otl_object: OTLObject, model_directory: Path | None = None) -> bool:
     type_uri = otl_object.typeURI
+    if model_directory is None:
+        model_directory = Path(__file__).parent.parent.parent
     relation_dict = get_hardcoded_relation_dict(model_directory=model_directory)
+    if type_uri is None:
+        return False
     relation_info = relation_dict.get(type_uri)
     if relation_info is None:
         return False
-    return relation_dict[type_uri]['directional']
+    return bool(relation_info.get('directional'))
 
 
-def is_aim_id(aim_id: str, model_directory: Path = None) -> bool:
+def is_aim_id(aim_id: str, model_directory: Path | None = None) -> bool:
     """
     Checks if the aim_id is valid. An aim_id is valid if it is a valid guid followed by a base64 encoded shortened uri.
     :param aim_id: the aim_id to be validated
@@ -196,6 +201,8 @@ def is_aim_id(aim_id: str, model_directory: Path = None) -> bool:
     short_uri = _decode_short_uri(short_uri_encoded)
     if short_uri is None:
         return False
+    if model_directory is None:
+        model_directory = Path(__file__).parent.parent.parent
     return _is_known_short_uri(short_uri, model_directory)
 
 
