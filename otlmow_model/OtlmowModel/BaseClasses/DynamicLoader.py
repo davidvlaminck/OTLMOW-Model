@@ -3,7 +3,7 @@ import sys
 from difflib import get_close_matches
 from pathlib import Path
 from types import ModuleType
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, cast
 
 from ..Exceptions.CouldNotCreateInstanceError import CouldNotCreateInstanceError
 from ..Helpers.generated_lists import get_hardcoded_class_dict
@@ -12,7 +12,7 @@ from ..Helpers.GenericHelper import get_titlecase_from_ns
 if TYPE_CHECKING:
     from .OTLObject import OTLObject
 
-_imported_modules = {}
+_imported_modules: dict[Any, Any] = {}
 
 
 def dynamic_create_type_from_ns_and_name(namespace: str, class_name: str, model_directory: Path | None = None) -> type:
@@ -85,7 +85,7 @@ def dynamic_create_type_from_uri(class_uri: str, model_directory: Path | None = 
     raise _class_uri_not_found_error(class_dict=class_dict, class_uri=class_uri)
 
 
-def _get_class_dict(model_directory: Path | None = None) -> dict:
+def _get_class_dict(model_directory: Path | None = None) -> dict[str, Any]:
     try:
         return get_hardcoded_class_dict(model_directory=model_directory)
     except FileNotFoundError as e:
@@ -94,7 +94,7 @@ def _get_class_dict(model_directory: Path | None = None) -> dict:
         ) from e
 
 
-def _class_not_found_error(class_dict: dict, namespace: str, class_name: str) -> CouldNotCreateInstanceError:
+def _class_not_found_error(class_dict: dict[str, Any], namespace: str, class_name: str) -> CouldNotCreateInstanceError:
     error = CouldNotCreateInstanceError(
         f'The combination of the namespace {namespace} and the class name {class_name} is not found in the hardcoded '
         f'class dictionary.'
@@ -117,17 +117,17 @@ def _class_not_found_error(class_dict: dict, namespace: str, class_name: str) ->
     raise error
 
 
-def _namespace_suggestion_message(class_dict: dict, namespace: str) -> str:
+def _namespace_suggestion_message(class_dict: dict[str, Any], namespace: str) -> str:
     closest_matches = get_close_matches(namespace, {c['ns'] for c in class_dict.values()}, n=5, cutoff=0.8)
     closest_matches_string = '", "'.join(closest_matches)
     return f'\nDid you mean one of these namespaces? "{closest_matches_string}"'
 
 
-def _closest_class_name_matches(class_dict: dict, class_name: str) -> list:
+def _closest_class_name_matches(class_dict: dict[str, Any], class_name: str) -> list[str]:
     return get_close_matches(class_name, {c['name'] for c in class_dict.values()}, n=5, cutoff=0.8)
 
 
-def _class_uri_not_found_error(class_dict: dict, class_uri: str) -> CouldNotCreateInstanceError:
+def _class_uri_not_found_error(class_dict: dict[str, Any], class_uri: str) -> CouldNotCreateInstanceError:
     closest_matches = get_close_matches(class_uri, class_dict.keys(), n=5, cutoff=0.8)
     closest_matches_string = '", "'.join(closest_matches)
 
