@@ -1,6 +1,6 @@
 import base64
 import re
-from typing import Match
+from re import Match
 
 from ..BaseClasses.URIField import URIField
 
