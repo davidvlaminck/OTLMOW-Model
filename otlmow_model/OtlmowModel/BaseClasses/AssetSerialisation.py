@@ -76,13 +76,14 @@ def create_dict_from_asset(
         warn_for_non_otl_conform_attributes=warn_for_non_otl_conform_attributes,
     )
 
+    d: dict[str, Any] | list[Any] | None
     if rdf:
         d = _recursive_create_rdf_dict_from_asset(otl_object, options)
     else:
         d = _recursive_create_dict_from_asset(otl_object, options)
-
-    if d is None:
+    if not isinstance(d, dict):
         d = {}
+
     if rdf:
         d['@type'] = otl_object.typeURI
     else:
@@ -90,13 +91,13 @@ def create_dict_from_asset(
     return d
 
 
-def _recursive_create_dict_from_asset(asset, options: SerialisationOptions) -> Union[dict[str, Any], list[Any]]:
+def _recursive_create_dict_from_asset(asset, options: SerialisationOptions) -> Union[dict[str, Any], list[Any], None]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         return _create_dict_from_list(asset, options)
     return _create_dict_from_object(asset, options)
 
 
-def _create_dict_from_list(asset: list, options: SerialisationOptions) -> list[Any]:
+def _create_dict_from_list(asset: list[Any], options: SerialisationOptions) -> list[Any]:
     items = []
     for item in asset:
         dict_item = _recursive_create_dict_from_asset(item, options)
@@ -228,13 +229,13 @@ def _non_standard_attribute_entry(attr_key: str, attr, asset, options: Serialisa
     return {attr_key: attr}
 
 
-def _recursive_create_rdf_dict_from_asset(asset, options: SerialisationOptions) -> Union[dict[str, Any], list[Any]]:
+def _recursive_create_rdf_dict_from_asset(asset, options: SerialisationOptions) -> Union[dict[str, Any], list[Any], None]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         return _create_rdf_dict_from_list(asset, options)
     return _create_rdf_dict_from_object(asset, options)
 
 
-def _create_rdf_dict_from_list(asset: list, options: SerialisationOptions) -> list[Any] | None:
+def _create_rdf_dict_from_list(asset: list[Any], options: SerialisationOptions) -> list[Any] | None:
     items = []
     for item in asset:
         dict_item = _recursive_create_rdf_dict_from_asset(item, options)
@@ -386,7 +387,7 @@ def _mark_cleared_value(value):
     return value
 
 
-def _list_lines(value: list, level: int, indent: int, prefix: str) -> list[Any]:
+def _list_lines(value: list[Any], level: int, indent: int, prefix: str) -> list[str]:
     lines = []
     for index, item in enumerate(value):
         if index == 10:
@@ -401,7 +402,7 @@ def _list_lines(value: list, level: int, indent: int, prefix: str) -> list[Any]:
     return lines
 
 
-def _truncation_line(value: list, prefix: str) -> str:
+def _truncation_line(value: list[Any], prefix: str) -> str:
     if len(value) == 11:
         return f'{prefix}...(1 more item)'
     return f'{prefix}...({len(value) - 10} more items)'
@@ -478,7 +479,7 @@ def _set_non_standard_attribute(instance_or_attribute, key: str, value, options:
 def _is_clearing_value(value, attribute_to_set) -> bool:
     if value == attribute_to_set.field.clearing_value:
         return True
-    return value == [attribute_to_set.field.clearing_value]
+    return bool(value == [attribute_to_set.field.clearing_value])
 
 
 def _set_complex_value(attribute_to_set, value, options: SerialisationOptions) -> None:
