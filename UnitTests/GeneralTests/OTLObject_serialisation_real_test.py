@@ -12,7 +12,7 @@ almost untested on the real package (``_recursive_create_dict_from_asset``,
 """
 
 from datetime import date, datetime, time
-from typing import ClassVar
+from typing import ClassVar, Any
 
 import pytest
 from otlmow_model.OtlmowModel.BaseClasses.AssetSerialisation import _make_string_version_from_dict
@@ -109,11 +109,11 @@ class _KwantWrdField(ComplexField):
 
 
 class _Keuzelijst(KeuzelijstField):
-    options: ClassVar[dict] = {'a': KeuzelijstWaarde(invulwaarde='a', objectUri='https://example.com#a')}
+    options: ClassVar[dict[str, Any]] = {'a': KeuzelijstWaarde(invulwaarde='a', objectUri='https://example.com#a')}
 
 
 class _KeuzelijstMultiple(KeuzelijstField):
-    options: ClassVar[dict] = {
+    options: ClassVar[dict[str, Any]] = {
         'a': KeuzelijstWaarde(invulwaarde='a', objectUri='https://example.com#a'),
         'b': KeuzelijstWaarde(invulwaarde='b', objectUri='https://example.com#b'),
     }
