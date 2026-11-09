@@ -337,7 +337,8 @@ def clean_dict(d) -> dict[str, Any] | None:
                 del d[k]
         if v is None:
             del d[k]
-    return d
+    result: dict[str, Any] | None = d
+    return result
 
 
 def build_string_version(asset, indent: int = 4) -> str:
