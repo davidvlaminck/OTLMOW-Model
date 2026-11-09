@@ -16,6 +16,14 @@ class _LeafField(OTLField):
     def validate(cls, value, attribuut):
         return True
 
+    def __str__(self) -> str:
+        return ''
+
+
+class _ConcreteOTLField(OTLField):
+    def __str__(self) -> str:
+        return ''
+
 
 class _ComplexAttr:
     """Duck-typed stand-in for one attribute of a complex (waardeObject) value."""
@@ -23,13 +31,16 @@ class _ComplexAttr:
     def __init__(self, waarde, kardinaliteit_max='1'):
         self.waarde = waarde
         self.kardinaliteit_max = kardinaliteit_max
-        self.field = _LeafField()
+        self.field: OTLField = _LeafField()
 
 
 class _ComplexField(OTLField):
     """A field that wraps a complex (waardeObject) datatype."""
 
     waardeObject = _ComplexAttr
+
+    def __str__(self) -> str:
+        return ''
 
 
 class _FieldAttribuut:
@@ -41,7 +52,7 @@ class _FieldAttribuut:
 
 
 def test_validate_returns_none_without_waarde_object():
-    attribute = _FieldAttribuut(OTLField())
+    attribute = _FieldAttribuut(_ConcreteOTLField())
     assert OTLField.validate('whatever', attribute) is None
 
 
@@ -70,6 +81,9 @@ def test_validate_complex_list_with_invalid_attribute():
         def validate(cls, value, attribuut):
             return False
 
+        def __str__(self) -> str:
+            return ''
+
     bad_attr = _ComplexAttr('a')
     bad_attr.field = _FailingLeafField()
     assert OTLField.validate([bad_attr], attribute) is False
@@ -87,6 +101,9 @@ def test_validate_cardinality_list_with_invalid_item():
         @classmethod
         def validate(cls, value, attribuut):
             return False
+
+        def __str__(self) -> str:
+            return ''
 
     bad_attr = _ComplexAttr('a', kardinaliteit_max='*')
     bad_attr.field = _FailingLeafField()

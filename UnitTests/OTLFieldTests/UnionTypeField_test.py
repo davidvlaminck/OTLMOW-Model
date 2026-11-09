@@ -18,6 +18,9 @@ class _LeafField(OTLField):
     def validate(cls, value, attribuut):
         return True
 
+    def __str__(self) -> str:
+        return ''
+
 
 class _FailingLeafField(OTLField):
     """A field whose ``validate`` always rejects its value."""
@@ -26,6 +29,9 @@ class _FailingLeafField(OTLField):
     def validate(cls, value, attribuut):
         return False
 
+    def __str__(self) -> str:
+        return ''
+
 
 class _RaisingLeafField(OTLField):
     """A field whose ``validate`` raises instead of returning a boolean."""
@@ -33,6 +39,9 @@ class _RaisingLeafField(OTLField):
     @classmethod
     def validate(cls, value, attribuut):
         raise ValueError('boom')
+
+    def __str__(self) -> str:
+        return ''
 
 
 class _UnionMemberAttr:
