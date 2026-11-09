@@ -8,10 +8,10 @@ def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = '') -> str:
     if attribute != '':
         return _meta_info_of_attribute(obj, attribute)
     if hasattr(obj, 'return_is_otl_object') and obj.return_is_otl_object():
-        return _meta_info_otl_object(obj)
+        return _meta_info_otl_object(obj)  # type: ignore[arg-type]
     if hasattr(obj, 'is_otl_attribute') and obj.is_otl_attribute:
-        return _meta_info_attribute(obj)
-    return None
+        return _meta_info_attribute(obj)  # type: ignore[arg-type]
+    return ''
 
 
 def _meta_info_of_attribute(obj: Union[OTLObject, OTLAttribuut], attribute: str) -> str:
