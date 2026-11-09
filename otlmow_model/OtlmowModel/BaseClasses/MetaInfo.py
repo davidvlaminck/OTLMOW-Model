@@ -45,7 +45,7 @@ def _meta_info_otl_object(otl_object: OTLObject) -> str:
 
     for attr in otl_object:
         attr_line = f'    {getattr(attr, "naam", "")} (type: {getattr(getattr(attr, "field", None), "naam", "")})'
-        if hasattr(attr, 'deprecated_version') and getattr(attr, 'deprecated_version', ''):
+        if getattr(attr, 'deprecated_version', ''):
             attr_line += f' <deprecated since {attr.deprecated_version}>'
         object_string += attr_line + '\n'
 
@@ -119,6 +119,6 @@ def _attribute_line(attr) -> str:
     if kard_min != '1' or kard_max != '1':
         attr_line += f', cardinality: {kard_min}-{kard_max}'
     attr_line += ')'
-    if hasattr(attr, 'deprecated_version') and getattr(attr, 'deprecated_version', ''):
+    if getattr(attr, 'deprecated_version', ''):
         attr_line += f' <deprecated since {attr.deprecated_version}>'
     return attr_line
