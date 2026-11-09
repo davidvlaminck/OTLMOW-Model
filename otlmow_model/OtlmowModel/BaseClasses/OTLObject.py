@@ -227,7 +227,7 @@ class OTLObject(object):
         :type: bool
         :return: returns an instance where the values of the attributes matches the given dictionary
         :rtype: OTLObject"""
-        type_uri = _extract_type_uri(input_dict=input_dict, rdf=rdf, default_type_uri=cls.typeURI or "")
+        type_uri = _extract_type_uri(input_dict=input_dict, rdf=rdf, default_type_uri=cls.typeURI)
 
         if type_uri is None:
             raise ValueError(
@@ -293,14 +293,14 @@ class OTLObject(object):
         )
 
 
-def _extract_type_uri(input_dict: dict[str, Any], rdf: bool, default_type_uri: str) -> Union[str, None]:
+def _extract_type_uri(input_dict: dict[str, Any], rdf: bool, default_type_uri: str | None) -> Union[str, None]:
     if rdf:
         return _extract_rdf_type_uri(input_dict, default_type_uri)
     value = input_dict.get(TYPEURI_KEY, default_type_uri)
     return value if isinstance(value, str) else default_type_uri
 
 
-def _extract_rdf_type_uri(input_dict: dict[str, Any], default_type_uri: str) -> Union[str, None]:
+def _extract_rdf_type_uri(input_dict: dict[str, Any], default_type_uri: str | None) -> Union[str, None]:
     if RDF_TYPEURI_KEY in input_dict:
         v = input_dict[RDF_TYPEURI_KEY]
         if isinstance(v, str):

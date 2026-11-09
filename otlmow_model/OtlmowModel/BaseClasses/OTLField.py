@@ -16,9 +16,9 @@ class OTLField:
     native_type: Any = None
 
     @classmethod
-    def validate(cls, value: Any, attribuut) -> bool:
+    def validate(cls, value: Any, attribuut) -> bool | None:
         if not attribuut.field.waardeObject:
-            return True
+            return None
         _check_complex_type(value, attribuut)
         return _validate_attributes(value)
 

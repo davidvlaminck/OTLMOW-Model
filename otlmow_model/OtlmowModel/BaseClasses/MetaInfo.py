@@ -3,7 +3,7 @@ from typing import Union
 from .OTLObject import OTLObject, OTLAttribuut
 
 
-def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = '') -> str:
+def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = '') -> str | None:
     """Returns metadata of the object or attribute"""
     if attribute != '':
         return _meta_info_of_attribute(obj, attribute)
@@ -11,7 +11,7 @@ def meta_info(obj: Union[OTLObject, OTLAttribuut], attribute: str = '') -> str:
         return _meta_info_otl_object(obj)  # type: ignore[arg-type]
     if hasattr(obj, 'is_otl_attribute') and obj.is_otl_attribute:
         return _meta_info_attribute(obj)  # type: ignore[arg-type]
-    return ''
+    return None
 
 
 def _meta_info_of_attribute(obj: Union[OTLObject, OTLAttribuut], attribute: str) -> str:

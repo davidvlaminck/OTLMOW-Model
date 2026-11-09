@@ -19,10 +19,8 @@ class NaamClass:
         )
 
     @property
-    def naam(self) -> str:
-        """De mensleesbare naam van een asset zoals dit bv. ook terug te vinden is op een etiket op het object zelf. De assetbeheerder kent deze naam toe of geeft de opdracht om deze toe te kennen. Indien een object een algemeen gangbare naam heeft zoals bv. bij een waterloop dan wordt deze gebruikt."""
-        v = self._naam.get_waarde()
-        return "" if v is None else str(v)
+    def naam(self):
+        return self._naam.get_waarde()
 
     @naam.setter
     def naam(self, value):
@@ -43,10 +41,8 @@ class NaampadClass(NaamClass):
         )
 
     @property
-    def naampad(self) -> str:
-        """De mensleesbare naam van een asset zoals dit bv. ook terug te vinden is op een etiket op het object zelf. De assetbeheerder kent deze naam toe of geeft de opdracht om deze toe te kennen. Indien een object een algemeen gangbare naam heeft zoals bv. bij een waterloop dan wordt deze gebruikt."""
-        v = self._naampad.get_waarde()
-        return "" if v is None else str(v)
+    def naampad(self):
+        return self._naampad.get_waarde()
 
     @naampad.setter
     def naampad(self, value):
@@ -69,6 +65,6 @@ def test_naampad_assign():
     with pytest.raises(ValueError):
         naampad_object.naam = '456'
 
-    naam_object = NaamClass()
-    naam_object.naam = '123'
-    assert naam_object.naam == '123'
+    naampad_object = NaamClass()
+    naampad_object.naam = '123'
+    assert naampad_object.naam == '123'
