@@ -52,7 +52,8 @@ def dynamic_create_instance_from_ns_and_name(
     type_ = dynamic_create_type_from_ns_and_name(
         namespace=namespace, class_name=class_name, model_directory=model_directory
     )
-    return type_()
+    instance: "OTLObject" = type_()
+    return instance
 
 
 def dynamic_create_instance_from_uri(class_uri: str, model_directory: Path | None = None) -> 'OTLObject':
@@ -66,7 +67,8 @@ def dynamic_create_instance_from_uri(class_uri: str, model_directory: Path | Non
     :rtype: OTLObject
     """
     type_ = dynamic_create_type_from_uri(class_uri, model_directory=model_directory)
-    return type_()
+    instance: "OTLObject" = type_()
+    return instance
 
 
 def dynamic_create_type_from_uri(class_uri: str, model_directory: Path | None = None) -> type:
@@ -159,7 +161,8 @@ def _create_type_from_class_dict_entry(class_dict_entry: dict[str, str], model_d
         mod = _import_module(namespace=namespace, class_name=class_name, model_directory=model_directory)
         _imported_modules[module_key] = mod
 
-    return getattr(mod, class_name)
+    cls: type = getattr(mod, class_name)
+    return cls
 
 
 def _import_module(namespace: str, class_name: str, model_directory: Path | None = None) -> ModuleType:
