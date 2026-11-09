@@ -265,10 +265,6 @@ def test_is_directional_relation():
     assert is_directional_relation(Voedt(), model_directory=model_directory_path)
 
 
-@pytest.mark.skip(
-    reason='This test fails when run together with other tests because of '
-    'dynamic_create_asset_from_ns_and_name using sys.path'
-)
 def test_is_aim_id_invalid_warning():
     aim_id = '12345678-1234-1234-1234-123456789012-b25kZXJkZWVsI0FsbENhc2VzVGVzdENsYXNz'  # AllCasesTestClass
     with pytest.warns(ImportWarning):
