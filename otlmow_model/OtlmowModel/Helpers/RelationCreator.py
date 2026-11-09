@@ -70,8 +70,7 @@ def _set_relation_end(
     if is_legacy:
         asset_id_attribute.identificator = aim_id
         asset_id_attribute.toegekendDoor = 'AWV'
-        segment: str = aim_id
-        return segment
+        return aim_id
     id_obj = instance._get_id()
     asset_id_attribute.identificator = id_obj.identificator
     asset_id_attribute.toegekendDoor = id_obj.toegekendDoor

@@ -1,3 +1,4 @@
+from typing import Any
 from pathlib import Path
 
 import pytest
@@ -209,7 +210,7 @@ def test_create_relation_different_input_parameters(subtests):
         assert relation.doel.typeURI == all_cases.typeURI
 
     with subtests.test(msg='real test'):
-        kast = dynamic_create_instance_from_ns_and_name(namespace='onderdeel', class_name='Wegkantkast')
+        kast: Any = dynamic_create_instance_from_ns_and_name(namespace='onderdeel', class_name='Wegkantkast')
         uuid: str = '847a91b3-569d-4bae-87bf-7e148e8f7de9'
         type_uri_beheersys = 'https://lgc.data.wegenenverkeer.be/ns/installatie#Beheersys'
         kast._get_id().identificator = '0000'

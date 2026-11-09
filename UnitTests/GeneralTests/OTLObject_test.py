@@ -1,3 +1,4 @@
+from typing import Any
 from datetime import datetime, date, time
 from pathlib import Path
 import sys
@@ -38,7 +39,7 @@ def test_from_dict_rdf_typeURI_in_dict():
 
 
 def test_from_dict_abstract_class_no_typeURI_in_dict():
-    input_dict = {}
+    input_dict: dict[str, object] = {}
     with pytest.raises(ValueError):
         OTLObject.from_dict(input_dict, model_directory=model_directory_path)
     with pytest.raises(ValueError):
@@ -365,7 +366,7 @@ def test_change_typeURI():
         instance.typeURI = 'https://www.new-uri.com/'
 
     with pytest.raises(ValueError):
-        instance.typeURI = None
+        setattr(instance, 'typeURI', None)
 
 
 def test_fill_with_dummy_data():
@@ -646,7 +647,7 @@ def test_create_dict_from_asset_non_standard_attributes_warnings_suppressed(subt
         instance.non_standard_attribute_no_warning = 'waarde-2'
 
         d = instance.to_dict(warn_for_non_otl_conform_attributes=False)
-        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testStringField': 'string',
                     'non_standard_attribute_no_warning': 'waarde-2'}
@@ -663,7 +664,7 @@ def test_create_dict_from_asset_non_standard_attributes(subtests):
 
         with pytest.warns(NonStandardAttributeWarning):
             d = instance.to_dict()
-            expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+            expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                         'testBooleanField': True,
                         'testStringField': 'string',
                         'non_standard_attribute': 'waarde-2'}
@@ -680,7 +681,7 @@ def test_create_dict_from_asset_non_standard_attributes(subtests):
 
         with pytest.warns(NonStandardAttributeWarning):
             d = instance.to_dict()
-            expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+            expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                         'testBooleanField': True,
                         'testStringField': 'string',
                         'non_standard_attribute': 'waarde-2',
@@ -699,7 +700,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType.testBooleanField = True
 
         d = instance.to_dict()
-        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testComplexType': {
                         'testBooleanField': True,
                         'testStringField': 'string'}}
@@ -714,7 +715,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testDateField = date(year=2022, month=2, day=2)
 
         d = instance.to_dict()
-        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': date(year=2022, month=2, day=2),
                     'testDecimalField': 1.5,
@@ -723,7 +724,7 @@ def test_create_dict_from_asset_testclass(subtests):
         assert d == expected
 
         d = instance.to_dict(cast_datetime=True)
-        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': '2022-02-02',
                     'testDecimalField': 1.5,
@@ -741,7 +742,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance._testDecimalFieldMetKard.add_value(2.5)
 
         d = instance.to_dict()
-        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testDecimalFieldMetKard': [1.5, 2.5],
                     'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
                     'testStringFieldMetKard': ['string', 'string 2']}
@@ -756,13 +757,13 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testKwantWrdMetKard[1].waarde = 5.5
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': 3.5,
                     'testKwantWrdMetKard': [4.5, 5.5]}
         assert d == expected
 
         d = instance.to_dict(waarde_shortcut=False)
-        expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected: dict[str, Any] = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': {'waarde': 3.5},
                     'testKwantWrdMetKard': [{'waarde': 4.5}, {'waarde': 5.5}]}
         assert d == expected
@@ -777,7 +778,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType._testStringFieldMetKard.add_value('string 2 in complex')
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected = {
+        expected: dict[str, Any] = {
             'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexType': {'testBooleanField': True,
                                 'testStringField': 'string',
@@ -801,7 +802,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected = {
+        expected: dict[str, Any] = {
             'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexTypeMetKard': [
                 {'testBooleanField': True,
