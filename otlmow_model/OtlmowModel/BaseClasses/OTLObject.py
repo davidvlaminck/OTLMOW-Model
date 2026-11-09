@@ -69,7 +69,7 @@ T = TypeVar('T', bound='OTLObject')
 
 
 class OTLObject(object):
-    typeURI: str = None
+    typeURI: str | None = None
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
     def __setattr__(self, name, value):
@@ -199,7 +199,7 @@ class OTLObject(object):
 
     @classmethod
     def from_dict(
-        cls: T,
+        cls: type[T],
         input_dict: dict[str, Any],
         model_directory: Path | None = None,
         rdf: bool = False,
@@ -227,7 +227,7 @@ class OTLObject(object):
         :type: bool
         :return: returns an instance where the values of the attributes matches the given dictionary
         :rtype: OTLObject"""
-        type_uri = _extract_type_uri(input_dict=input_dict, rdf=rdf, default_type_uri=cls.typeURI)
+        type_uri = _extract_type_uri(input_dict=input_dict, rdf=rdf, default_type_uri=cls.typeURI or "")
 
         if type_uri is None:
             raise ValueError(
@@ -296,16 +296,20 @@ class OTLObject(object):
 def _extract_type_uri(input_dict: dict[str, Any], rdf: bool, default_type_uri: str) -> Union[str, None]:
     if rdf:
         return _extract_rdf_type_uri(input_dict, default_type_uri)
-    return input_dict.get(TYPEURI_KEY, default_type_uri)
+    value = input_dict.get(TYPEURI_KEY, default_type_uri)
+    return value if isinstance(value, str) else default_type_uri
 
 
 def _extract_rdf_type_uri(input_dict: dict[str, Any], default_type_uri: str) -> Union[str, None]:
     if RDF_TYPEURI_KEY in input_dict:
-        return input_dict[RDF_TYPEURI_KEY]
+        v = input_dict[RDF_TYPEURI_KEY]
+        if isinstance(v, str):
+            return v
+        return default_type_uri or None
     if '@type' in input_dict:
         type_uri = input_dict['@type']
         del input_dict['@type']
-        return type_uri
+        return type_uri if isinstance(type_uri, str) else default_type_uri or None
     return default_type_uri
 
 
