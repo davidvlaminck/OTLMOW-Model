@@ -13,8 +13,8 @@ from ..Classes.ImplementatieElement.AIMVersie import AIMVersie
 
 
 class NaamField(StringField):
-    def __init__(self, naam: str, label: str, objectUri: str, definition: str, owner):
-        super().__init__(naam, label, objectUri, definition, owner)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     @classmethod
     def validate(cls, value, attribuut) -> bool:
@@ -23,7 +23,7 @@ class NaamField(StringField):
         if re.match(r'^[\w.\-]*$', value) is None:
             return False
         if hasattr(attribuut.owner, 'naampad') and attribuut.owner.naampad is not None:
-            return attribuut.owner.naampad.split('/')[-1] == value
+            return bool(attribuut.owner.naampad.split('/')[-1] == value)
         return True
 
     @classmethod
@@ -32,15 +32,15 @@ class NaamField(StringField):
 
 
 class NaampadField(NaamField):
-    def __init__(self, naam: str, label: str, objectUri: str, definition: str, owner):
-        super().__init__(naam, label, objectUri, definition, owner)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     @classmethod
     def validate(cls, value, attribuut) -> bool:
         if re.match(r'^[\w.\-]+[/[\w.\-]+]*$', value) is None:
             return False
         if attribuut.owner.naam is not None:
-            return value.split('/')[-1] == attribuut.owner.naam
+            return bool(value.split('/')[-1] == attribuut.owner.naam)
         return True
 
     @classmethod
@@ -108,7 +108,8 @@ class LegacyObject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationIntera
     @property
     def naam(self) -> str:
         """De mensleesbare naam van een asset zoals dit bv. ook terug te vinden is op een etiket op het object zelf. De assetbeheerder kent deze naam toe of geeft de opdracht om deze toe te kennen. Indien een object een algemeen gangbare naam heeft zoals bv. bij een waterloop dan wordt deze gebruikt."""
-        return self._naam.get_waarde()
+        value = self._naam.get_waarde()
+        return str(value) if value is not None else ""
 
     @naam.setter
     def naam(self, value):
@@ -117,7 +118,8 @@ class LegacyObject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationIntera
     @property
     def naampad(self) -> str:
         """Een set van objecten (bv. collecties) die aanduiden waar het object zich bevindt in de objectenboom (EM-Infra)."""
-        return self._naampad.get_waarde()
+        value = self._naampad.get_waarde()
+        return str(value) if value is not None else ""
 
     @naampad.setter
     def naampad(self, value):
@@ -126,7 +128,8 @@ class LegacyObject(AIMDBStatus, AIMToestand, AIMVersie, OTLAsset, RelationIntera
     @property
     def notitie(self) -> str:
         """Extra notitie voor het object."""
-        return self._notitie.get_waarde()
+        value = self._notitie.get_waarde()
+        return str(value) if value is not None else ""
 
     @notitie.setter
     def notitie(self, value):

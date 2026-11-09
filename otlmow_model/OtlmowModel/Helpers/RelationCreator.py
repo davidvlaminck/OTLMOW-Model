@@ -1,5 +1,6 @@
 import warnings
 from pathlib import Path
+from typing import Any
 
 from ..BaseClasses.OTLObject import dynamic_create_instance_from_uri
 from ..BaseClasses.RelationInteractor import RelationInteractor
@@ -30,13 +31,13 @@ def _warn_object_and_type_uri(name: str, obj: RelationInteractor | None, typeURI
         )
 
 
-def _resolve_aim_id(uuid: str | None, typeURI: str | None) -> tuple[str, bool]:
+def _resolve_aim_id(uuid: str, typeURI: str) -> tuple[str, bool]:
     if not validate_guid(uuid):
         raise ValueError(f'{uuid} is not a valid guid format.')
     return get_aim_id_from_uuid_and_typeURI(uuid, typeURI), 'lgc.' in typeURI
 
 
-def _instantiate(typeURI: str, uuid: str | None, model_directory: Path) -> tuple[RelationInteractor, bool, str]:
+def _instantiate(typeURI: str, uuid: str, model_directory: Path) -> tuple[RelationInteractor, bool, str]:
     aim_id, is_legacy = _resolve_aim_id(uuid, typeURI)
     instance = dynamic_create_instance_from_uri(class_uri=typeURI, model_directory=model_directory)
     if typeURI == 'http://purl.org/dc/terms/Agent':
@@ -45,10 +46,10 @@ def _instantiate(typeURI: str, uuid: str | None, model_directory: Path) -> tuple
     else:
         instance._get_id().identificator = aim_id
         instance._get_id().toegekendDoor = 'AWV'
-    return instance, is_legacy, aim_id
+    return instance, is_legacy, aim_id  # type: ignore[return-value]
 
 
-def _require_valid_id(instance: RelationInteractor, name: str, is_legacy: bool) -> None:
+def _require_valid_id(instance: Any, name: str, is_legacy: bool) -> None:
     if not is_legacy:
         if instance.typeURI == 'http://purl.org/dc/terms/Agent' and instance._get_id().identificator is None:
             raise AttributeError(
@@ -63,18 +64,18 @@ def _require_valid_id(instance: RelationInteractor, name: str, is_legacy: bool) 
 
 
 def _set_relation_end(
-    relation_type: RelatieObject, end: str, aim_id: str, instance: RelationInteractor, typeURI: str, is_legacy: bool
+    relation_type: RelatieObject, end: str, aim_id: str, instance: Any, typeURI: str | None, is_legacy: bool
 ) -> str:
     asset_id_attribute = getattr(relation_type, f'{end}AssetId')
     if is_legacy:
         asset_id_attribute.identificator = aim_id
         asset_id_attribute.toegekendDoor = 'AWV'
-        segment = aim_id
+        segment: str = aim_id
         return segment
     id_obj = instance._get_id()
     asset_id_attribute.identificator = id_obj.identificator
     asset_id_attribute.toegekendDoor = id_obj.toegekendDoor
-    segment = id_obj.identificator
+    segment: str = id_obj.identificator
     return segment
 
 
@@ -86,7 +87,7 @@ def create_relation(
     source_typeURI: str | None = None,
     target_uuid: str | None = None,
     target_typeURI: str | None = None,
-    model_directory: Path = None,
+    model_directory: Path | None = None,
 ) -> RelatieObject | None:
     """
     Instantiates a relation, if valid, between instantiated objects, given a specific relation type.
@@ -127,31 +128,32 @@ def create_relation(
     if not (source_is_legacy or target_is_legacy):
         _require_valid_relation(source, target, relation_type)
 
-    relation_type = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI, model_directory=model_directory)
+    relation_instance: Any = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI, model_directory=model_directory)
 
     _require_valid_id(source, 'source', source_is_legacy)
     _require_valid_id(target, 'target', target_is_legacy)
 
-    bron_segment = _set_relation_end(relation_type, 'bron', source_aim_id, source, source_typeURI, source_is_legacy)
-    doel_segment = _set_relation_end(relation_type, 'doel', target_aim_id, target, target_typeURI, target_is_legacy)
-    relation_id = relation_type.__class__.__name__ + '_-_' + bron_segment + '_-_' + doel_segment
+    bron_segment = _set_relation_end(relation_instance, 'bron', source_aim_id or '', source, source_typeURI, source_is_legacy)
+    doel_segment = _set_relation_end(relation_instance, 'doel', target_aim_id or '', target, target_typeURI, target_is_legacy)
+    relation_id = relation_instance.__class__.__name__ + '_-_' + bron_segment + '_-_' + doel_segment
 
-    relation_type.assetId.identificator = relation_id
-    relation_type.assetId.toegekendDoor = 'OTLMOW'
+    relation_instance.assetId.identificator = relation_id
+    relation_instance.assetId.toegekendDoor = 'OTLMOW'
 
-    relation_type.bron.typeURI = source_typeURI if source_is_legacy else source.typeURI
-    relation_type.doel.typeURI = target_typeURI if target_is_legacy else target.typeURI
+    relation_instance.bron.typeURI = source_typeURI if source_is_legacy else source.typeURI
+    relation_instance.doel.typeURI = target_typeURI if target_is_legacy else target.typeURI
 
-    return relation_type
+    return relation_instance
 
 
 def _resolve_end(
     obj: RelationInteractor | None, typeURI: str | None, uuid: str | None, model_directory: Path
 ) -> tuple[RelationInteractor, bool, str | None]:
     """Return the object, whether it is a legacy object and its aim id."""
-    is_legacy = obj is None and 'lgc.' in typeURI
+    is_legacy = obj is None and typeURI is not None and 'lgc.' in typeURI
     aim_id = None
     if obj is None:
+        assert typeURI is not None and uuid is not None
         obj, is_legacy, aim_id = _instantiate(typeURI, uuid, model_directory)
     return obj, is_legacy, aim_id
 
@@ -172,7 +174,7 @@ def create_betrokkenerelation(
     source_typeURI: str | None = None,
     target_uuid: str | None = None,
     target_typeURI: str | None = None,
-    model_directory: Path = None,
+    model_directory: Path | None = None,
 ) -> HeeftBetrokkene | None:
     relation = create_relation(
         source=source,
@@ -184,5 +186,6 @@ def create_betrokkenerelation(
         model_directory=model_directory,
         relation_type=HeeftBetrokkene,
     )
-    relation.rol = rol
+    if relation is not None:
+        relation.rol = rol
     return relation
