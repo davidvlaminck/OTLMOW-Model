@@ -25,7 +25,7 @@ def test_full_test_on_testclass_kard_1(subtests):
 
     with subtests.test(msg='assigning to readonly field of kwantWrdField with kard 1'):
         with pytest.raises(AttributeError):
-            instance.testKwantWrd.standaardEenheid = 'A'
+            setattr(instance.testKwantWrd, 'standaardEenheid', 'A')
 
 
 def test_full_test_on_testclass_kard_more(subtests):

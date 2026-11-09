@@ -51,7 +51,7 @@ deprecated_version: {self.deprecated_version}"""
         return s
 
     @staticmethod
-    def convert_to_invulwaarde(value: str, field) -> str | None:
+    def convert_to_invulwaarde(value: str | None, field) -> str | None:
         if value is None or value == '':
             return value
         if value == '-':
