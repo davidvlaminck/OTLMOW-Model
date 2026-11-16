@@ -4,6 +4,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 
 from datetime import date, datetime, time
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -39,7 +40,7 @@ def test_from_dict_rdf_typeURI_in_dict():
 
 
 def test_from_dict_abstract_class_no_typeURI_in_dict():
-    input_dict = {}
+    input_dict: dict[str, Any] = {}
     with pytest.raises(ValueError):
         OTLObject.from_dict(input_dict, model_directory=model_directory_path)
     with pytest.raises(ValueError):

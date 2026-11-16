@@ -4,6 +4,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -81,7 +82,7 @@ def test_remove_duplicates_in_iterable_based_on_complex_property_list():
 
 def test_get_diff_from_two_lists_empty_one():
     instance = AllCasesTestClass()
-    list_one = []
+    list_one: list[Any] = []
     list_two = [instance]
 
     expected = [instance]
@@ -94,7 +95,7 @@ def test_get_diff_from_two_lists_one_one():
     list_one = [instance]
     list_two = [instance]
 
-    expected = []
+    expected: list[Any] = []
     result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
@@ -104,7 +105,7 @@ def test_get_diff_from_two_lists_one_one_using_dict():
     list_one = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
     list_two = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
 
-    expected = []
+    expected: list[Any] = []
     result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
@@ -112,9 +113,9 @@ def test_get_diff_from_two_lists_one_one_using_dict():
 def test_get_diff_from_two_lists_one_two():
     instance = AllCasesTestClass()
     list_one = [instance]
-    list_two = [instance, instance]
+    list_two: list[Any] = [instance, instance]
 
-    expected = []
+    expected: list[Any] = []
     result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
@@ -122,9 +123,9 @@ def test_get_diff_from_two_lists_one_two():
 def test_get_diff_from_two_lists_one_empty():
     instance = AllCasesTestClass()
     list_one = [instance]
-    list_two = []
+    list_two: list[Any] = []
 
-    expected = []
+    expected: list[Any] = []
     result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
@@ -162,14 +163,14 @@ def test_compare_two_lists_return_minimal_identical_objects():
     list_one = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
     list_two = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
 
-    expected = []
+    expected: list[Any] = []
     result = compare_two_lists_of_objects_attribute_level(list_one, list_two, model_directory=model_directory_path)
     assert result == expected
 
 
 def test_compare_two_lists_return_minimal_missing_object():
     d = {'toestand': 'in-gebruik', 'assetId': {'identificator': '1'}}
-    list_one = []
+    list_one: list[Any] = []
     list_two = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
 
     expected = [AllCasesTestClass.from_dict(d, model_directory=model_directory_path)]
@@ -208,12 +209,12 @@ def test_compare_two_lists_return_minimal_missing_attribute():
 
 
 def test_custom_dict_diff():
-    d1 = {}
+    d1: dict[str, Any] = {}
     d2 = {'a': 1}
     result1 = custom_dict_diff(d1, d2)
     expected1 = {'a': 1}
     result2 = custom_dict_diff(d2, d1)
-    expected2 = {}
+    expected2: dict[str, Any] = {}
     assert result1 == expected1
     assert result2 == expected2
 
