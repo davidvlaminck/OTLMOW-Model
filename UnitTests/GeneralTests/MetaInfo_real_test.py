@@ -93,7 +93,7 @@ def test_meta_info_of_an_attribute():
 
 def test_meta_info_of_a_keuzelijst_attribute():
     result = meta_info(_Simple(), attribute='k')
-    assert result.startswith('Showing metadata of k:\ntypeURI: https://example.com#T.k\ndefinition: \nvalid values:\n')
+    assert result is not None and result.startswith('Showing metadata of k:\ntypeURI: https://example.com#T.k\ndefinition: \nvalid values:\n')
     assert '    opt0 (waarde uit gebruik!)\n' in result
     assert '    opt9\n' in result
     assert '    ...\nFor the full list, review the class' in result

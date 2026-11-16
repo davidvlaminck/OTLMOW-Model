@@ -13,9 +13,9 @@ from UnitTests.TestModel.OtlmowModel.Classes.Onderdeel.AllCasesTestClass import 
 
 def test_ErrorsOnInstantiateAbstractClasses():
     with pytest.raises(TypeError):
-        AIMDBStatus()
+        AIMDBStatus()  # type: ignore[abstract]
     with pytest.raises(TypeError):
-        AIMToestand()
+        AIMToestand()  # type: ignore[abstract]
     with pytest.raises(TypeError):
         AIMObject()
 
