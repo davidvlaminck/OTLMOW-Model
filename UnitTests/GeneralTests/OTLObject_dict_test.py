@@ -458,7 +458,7 @@ def test_create_dict_from_asset_testclass(subtests):
 
         d = instance.to_dict()
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-                    'testDecimalFieldMetKard': [1.5, 2.5],
+                    'testDecimalFieldMetKard': [1.5, 2.5],  # type: ignore[list-item]
                     'testIntegerFieldMetKard' : [],
                     'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
                     'testStringFieldMetKard': ['string', 'string 2']}

@@ -1610,7 +1610,7 @@ def test_from_dict_clear_value_kwant_wrd_kard():
 
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testKwantWrdMetKard': [88888888.0, 88888888.0]}
+        'testKwantWrdMetKard': [88888888.0, 88888888.0]}  # type: ignore[list-item]
     instance = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
@@ -1621,7 +1621,7 @@ def test_from_dict_clear_value_kwant_wrd_kard():
 
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-        'testKwantWrdMetKard': [88888888.0]}
+        'testKwantWrdMetKard': [88888888.0]}  # type: ignore[list-item]
     instance = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
