@@ -757,13 +757,13 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testKwantWrdMetKard[1].waarde = 5.5
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': 3.5,
                     'testKwantWrdMetKard': [4.5, 5.5]}
         assert d == expected
 
         d = instance.to_dict(waarde_shortcut=False)
-        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': {'waarde': 3.5},
                     'testKwantWrdMetKard': [{'waarde': 4.5}, {'waarde': 5.5}]}
         assert d == expected
@@ -778,7 +778,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexType._testStringFieldMetKard.add_value('string 2 in complex')
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected: dict[str, Any] = {            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected = {            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexType': {'testBooleanField': True,
                                 'testStringField': 'string',
                                 'testKwantWrd': 1.5,
@@ -801,7 +801,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testComplexTypeMetKard[1].testComplexType2MetKard[1].testStringField = 'second string in complex'
 
         d = instance.to_dict(waarde_shortcut=True)
-        expected: dict[str, Any] = {            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected = {            'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexTypeMetKard': [
                 {'testBooleanField': True,
                  'testStringField': 'string 1'},
@@ -1611,7 +1611,7 @@ def test_from_dict_clear_value_kwant_wrd_kard():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testKwantWrdMetKard': [88888888.0, 88888888.0]}
-    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testKwantWrdMetKard[0].waarde is None
@@ -1622,7 +1622,7 @@ def test_from_dict_clear_value_kwant_wrd_kard():
     d = {
         'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
         'testKwantWrdMetKard': [88888888.0]}
-    instance: Any = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
+    instance = OTLObject.from_dict(d, model_directory=model_directory_path, waarde_shortcut=True)
 
     assert instance.typeURI == AllCasesTestClass.typeURI
     assert instance.testKwantWrdMetKard[0]._waarde.mark_to_be_cleared
