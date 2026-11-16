@@ -475,14 +475,14 @@ def test_create_dict_from_asset_testclass(subtests):
 
         d = instance.to_dict(waarde_shortcut=True)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-                    'testKwantWrd': 3.5,
-                    'testKwantWrdMetKard': [4.5, 5.5]}
+                    'testKwantWrd': 3.5,  # type: ignore[dict-item]
+                    'testKwantWrdMetKard': [4.5, 5.5]}  # type: ignore[list-item]
         assert d == expected
 
         d = instance.to_dict(waarde_shortcut=False)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testKwantWrd': {'waarde': 3.5},
-                    'testKwantWrdMetKard': [{'waarde': 4.5}, {'waarde': 5.5}]}
+                    'testKwantWrdMetKard': [{'waarde': 4.5}, {'waarde': 5.5}]}  # type: ignore[list-item]
         assert d == expected
 
     with subtests.test(msg='complex attributes'):
