@@ -34,7 +34,7 @@ def test_count_assets_by_type():
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass': 2,
         'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AnotherTestClass': 1,
     }
-    assert count_assets_by_type(assets) == expected_dict
+    assert count_assets_by_type(assets) == expected_dict  # type: ignore[arg-type]
 
 
 def test_remove_duplicates_in_iterable_based_on_property():
@@ -86,7 +86,7 @@ def test_get_diff_from_two_lists_empty_one():
     list_two = [instance]
 
     expected = [instance]
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)  # type: ignore[arg-type]
     assert result == expected
 
 
@@ -96,7 +96,7 @@ def test_get_diff_from_two_lists_one_one():
     list_two = [instance]
 
     expected: list[Any] = []
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)  # type: ignore[arg-type]
     assert result == expected
 
 
@@ -116,7 +116,7 @@ def test_get_diff_from_two_lists_one_two():
     list_two: list[Any] = [instance, instance]
 
     expected: list[Any] = []
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)  # type: ignore[arg-type]
     assert result == expected
 
 
@@ -126,7 +126,7 @@ def test_get_diff_from_two_lists_one_empty():
     list_two: list[Any] = []
 
     expected: list[Any] = []
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)  # type: ignore[arg-type]
     assert result == expected
 
 
@@ -138,7 +138,7 @@ def test_get_diff_from_two_lists_one_one_different():
     list_two = [instance2]
 
     expected = [instance2]
-    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)
+    result = compare_two_lists_of_objects_object_level(list_one, list_two, model_directory=model_directory_path)  # type: ignore[arg-type]
     assert result[0].to_dict() == expected[0].to_dict()
 
 

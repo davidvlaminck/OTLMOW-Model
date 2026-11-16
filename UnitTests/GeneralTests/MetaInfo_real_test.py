@@ -128,4 +128,4 @@ def test_meta_info_of_an_unknown_nested_attribute_raises():
 
 
 def test_meta_info_of_an_object_without_metadata_returns_none():
-    assert meta_info(object()) is None
+    assert meta_info(object()) is None  # type: ignore[arg-type]

@@ -137,7 +137,7 @@ def test_clear_value_with_unknown_attribute_raises():
 
 def test_clear_value_without_attribute_name_raises():
     with pytest.raises(ValueError, match='attribute_name is None'):
-        _Simple().clear_value(None)
+        _Simple().clear_value(None)  # type: ignore[arg-type]
 
 
 def test_fill_with_dummy_data_fills_attributes():
