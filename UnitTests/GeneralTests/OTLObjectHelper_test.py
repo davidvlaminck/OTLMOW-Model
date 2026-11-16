@@ -228,18 +228,18 @@ def test_custom_dict_diff():
     assert result2 == expected2
 
     d1 = {'a': [1, 2]}
-    d2 = {'a': [1]}
+    d2 = {'a': [1]}  # type: ignore[dict-item]
     result1 = custom_dict_diff(d1, d2)
-    expected1 = {'a': [1]}
+    expected1 = {'a': [1]}  # type: ignore[dict-item]
     result2 = custom_dict_diff(d2, d1)
     expected2 = {'a': [1, 2]}
     assert result1 == expected1
     assert result2 == expected2
 
     d1 = {'a': {'a1': 1}}
-    d2 = {'a': {'a1': 1, 'a2': 2}}
+    d2 = {'a': {'a1': 1, 'a2': 2}}  # type: ignore[dict-item]
     result1 = custom_dict_diff(d1, d2)
-    expected1 = {'a': {'a2': 2}}
+    expected1 = {'a': {'a2': 2}}  # type: ignore[dict-item]
     result2 = custom_dict_diff(d2, d1)
     expected2 = {}
     assert result1 == expected1

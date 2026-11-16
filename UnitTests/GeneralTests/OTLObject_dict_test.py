@@ -431,18 +431,18 @@ def test_create_dict_from_asset_testclass(subtests):
 
         d = instance.to_dict()
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-                    'testBooleanField': True,
-                    'testDateField': date(year=2022, month=2, day=2),
-                    'testDecimalField': 1.5,
+                    'testBooleanField': True,  # type: ignore[dict-item]
+                    'testDateField': date(year=2022, month=2, day=2),  # type: ignore[dict-item]
+                    'testDecimalField': 1.5,  # type: ignore[dict-item]
                     'testKeuzelijst': 'waarde-2',
                     'testStringField': 'string'}
         assert d == expected
 
         d = instance.to_dict(cast_datetime=True)
         expected = {'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
-                    'testBooleanField': True,
+                    'testBooleanField': True,  # type: ignore[dict-item]
                     'testDateField': '2022-02-02',
-                    'testDecimalField': 1.5,
+                    'testDecimalField': 1.5,  # type: ignore[dict-item]
                     'testKeuzelijst': 'waarde-2',
                     'testStringField': 'string'}
         assert d == expected
