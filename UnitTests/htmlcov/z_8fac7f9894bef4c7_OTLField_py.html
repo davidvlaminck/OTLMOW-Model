@@ -64,8 +64,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="z_8fac7f9894bef4c7_OTLObject_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.17.0">coverage.py v7.17.0</a>,
-            created at 2026-10-29 23:06 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.17.3">coverage.py v7.17.3</a>,
+            created at 2026-11-16 12:17 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -98,9 +98,9 @@
     <p class="run"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">    <span class="nam">native_type</span><span class="op">:</span> <span class="nam">Any</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">    <span class="op">@</span><span class="nam">classmethod</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">    <span class="key">def</span> <span class="nam">validate</span><span class="op">(</span><span class="nam">cls</span><span class="op">,</span> <span class="nam">value</span><span class="op">:</span> <span class="nam">Any</span><span class="op">,</span> <span class="nam">attribuut</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="nam">bool</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">    <span class="key">def</span> <span class="nam">validate</span><span class="op">(</span><span class="nam">cls</span><span class="op">,</span> <span class="nam">value</span><span class="op">:</span> <span class="nam">Any</span><span class="op">,</span> <span class="nam">attribuut</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="nam">bool</span> <span class="op">|</span> <span class="key">None</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">        <span class="key">if</span> <span class="key">not</span> <span class="nam">attribuut</span><span class="op">.</span><span class="nam">field</span><span class="op">.</span><span class="nam">waardeObject</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">            <span class="key">return</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">            <span class="key">return</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">        <span class="nam">_check_complex_type</span><span class="op">(</span><span class="nam">value</span><span class="op">,</span> <span class="nam">attribuut</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">        <span class="key">return</span> <span class="nam">_validate_attributes</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t24" href="#t24">24</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -158,7 +158,7 @@
     <p class="run"><span class="n"><a id="t76" href="#t76">76</a></span><span class="t"><span class="key">def</span> <span class="nam">_validate_attribute</span><span class="op">(</span><span class="nam">attr</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="nam">bool</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t77" href="#t77">77</a></span><span class="t">    <span class="key">if</span> <span class="nam">attr</span><span class="op">.</span><span class="nam">kardinaliteit_max</span> <span class="op">!=</span> <span class="str">&#x27;1&#x27;</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t78" href="#t78">78</a></span><span class="t">        <span class="key">return</span> <span class="nam">_validate_attribute_list</span><span class="op">(</span><span class="nam">attr</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t79" href="#t79">79</a></span><span class="t">    <span class="key">return</span> <span class="nam">attr</span><span class="op">.</span><span class="nam">field</span><span class="op">.</span><span class="nam">validate</span><span class="op">(</span><span class="nam">attr</span><span class="op">.</span><span class="nam">waarde</span><span class="op">,</span> <span class="nam">attr</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t79" href="#t79">79</a></span><span class="t">    <span class="key">return</span> <span class="nam">bool</span><span class="op">(</span><span class="nam">attr</span><span class="op">.</span><span class="nam">field</span><span class="op">.</span><span class="nam">validate</span><span class="op">(</span><span class="nam">attr</span><span class="op">.</span><span class="nam">waarde</span><span class="op">,</span> <span class="nam">attr</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t80" href="#t80">80</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t81" href="#t81">81</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t82" href="#t82">82</a></span><span class="t"><span class="key">def</span> <span class="nam">_validate_attribute_list</span><span class="op">(</span><span class="nam">attr</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="nam">bool</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -171,8 +171,8 @@
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a class="nav" href="z_8fac7f9894bef4c7_OTLObject_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.17.0">coverage.py v7.17.0</a>,
-            created at 2026-10-29 23:06 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.17.3">coverage.py v7.17.3</a>,
+            created at 2026-11-16 12:17 +0000
         </p>
     </div>
 </footer>
