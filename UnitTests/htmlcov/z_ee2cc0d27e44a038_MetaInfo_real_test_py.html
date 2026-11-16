@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="z_ee2cc0d27e44a038_MetaInfo_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.17.3">coverage.py v7.17.3</a>,
-            created at 2026-11-16 12:17 +0000
+            created at 2026-11-16 22:37 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -122,7 +122,7 @@
     <p class="pln"><span class="n"><a id="t40" href="#t40">40</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t41" href="#t41">41</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t42" href="#t42">42</a></span><span class="t"><span class="key">class</span> <span class="nam">_Keuzelijst</span><span class="op">(</span><span class="nam">KeuzelijstField</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t43" href="#t43">43</a></span><span class="t">    <span class="nam">options</span><span class="op">:</span> <span class="nam">ClassVar</span><span class="op">[</span><span class="nam">dict</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t43" href="#t43">43</a></span><span class="t">    <span class="nam">options</span><span class="op">:</span> <span class="nam">dict</span><span class="op">[</span><span class="nam">str</span><span class="op">,</span> <span class="nam">KeuzelijstWaarde</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
     <p class="run run2"><span class="n"><a id="t44" href="#t44">44</a></span><span class="t">        <span class="fst">f&#x27;</span><span class="fst">opt</span><span class="op">{</span><span class="nam">i</span><span class="op">}</span><span class="fst">&#x27;</span><span class="op">:</span> <span class="nam">KeuzelijstWaarde</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
     <p class="run run2"><span class="n"><a id="t45" href="#t45">45</a></span><span class="t">            <span class="nam">invulwaarde</span><span class="op">=</span><span class="fst">f&#x27;</span><span class="fst">opt</span><span class="op">{</span><span class="nam">i</span><span class="op">}</span><span class="fst">&#x27;</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="run run2"><span class="n"><a id="t46" href="#t46">46</a></span><span class="t">            <span class="nam">label</span><span class="op">=</span><span class="fst">f&#x27;</span><span class="fst">opt</span><span class="op">{</span><span class="nam">i</span><span class="op">}</span><span class="fst">&#x27;</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
@@ -175,7 +175,7 @@
     <p class="pln"><span class="n"><a id="t93" href="#t93">93</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t94" href="#t94">94</a></span><span class="t"><span class="key">def</span> <span class="nam">test_meta_info_of_a_keuzelijst_attribute</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t95" href="#t95">95</a></span><span class="t">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">meta_info</span><span class="op">(</span><span class="nam">_Simple</span><span class="op">(</span><span class="op">)</span><span class="op">,</span> <span class="nam">attribute</span><span class="op">=</span><span class="str">&#x27;k&#x27;</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t96" href="#t96">96</a></span><span class="t">    <span class="key">assert</span> <span class="nam">result</span><span class="op">.</span><span class="nam">startswith</span><span class="op">(</span><span class="str">&#x27;Showing metadata of k:\ntypeURI: https://example.com#T.k\ndefinition: \nvalid values:\n&#x27;</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t96" href="#t96">96</a></span><span class="t">    <span class="key">assert</span> <span class="nam">result</span> <span class="key">is</span> <span class="key">not</span> <span class="key">None</span> <span class="key">and</span> <span class="nam">result</span><span class="op">.</span><span class="nam">startswith</span><span class="op">(</span><span class="str">&#x27;Showing metadata of k:\ntypeURI: https://example.com#T.k\ndefinition: \nvalid values:\n&#x27;</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t97" href="#t97">97</a></span><span class="t">    <span class="key">assert</span> <span class="str">&#x27;    opt0 (waarde uit gebruik!)\n&#x27;</span> <span class="key">in</span> <span class="nam">result</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t98" href="#t98">98</a></span><span class="t">    <span class="key">assert</span> <span class="str">&#x27;    opt9\n&#x27;</span> <span class="key">in</span> <span class="nam">result</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t99" href="#t99">99</a></span><span class="t">    <span class="key">assert</span> <span class="str">&#x27;    ...\nFor the full list, review the class&#x27;</span> <span class="key">in</span> <span class="nam">result</span>&nbsp;</span><span class="r"></span></p>
@@ -210,7 +210,7 @@
     <p class="pln"><span class="n"><a id="t128" href="#t128">128</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t129" href="#t129">129</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t130" href="#t130">130</a></span><span class="t"><span class="key">def</span> <span class="nam">test_meta_info_of_an_object_without_metadata_returns_none</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t131" href="#t131">131</a></span><span class="t">    <span class="key">assert</span> <span class="nam">meta_info</span><span class="op">(</span><span class="nam">object</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="key">is</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t131" href="#t131">131</a></span><span class="t">    <span class="key">assert</span> <span class="nam">meta_info</span><span class="op">(</span><span class="nam">object</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="key">is</span> <span class="key">None</span>  <span class="com"># type: ignore[arg-type]</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -220,7 +220,7 @@
             <a class="nav" href="z_ee2cc0d27e44a038_MetaInfo_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.17.3">coverage.py v7.17.3</a>,
-            created at 2026-11-16 12:17 +0000
+            created at 2026-11-16 22:37 +0000
         </p>
     </div>
 </footer>
