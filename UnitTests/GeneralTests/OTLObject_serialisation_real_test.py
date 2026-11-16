@@ -109,11 +109,11 @@ class _KwantWrdField(ComplexField):
 
 
 class _Keuzelijst(KeuzelijstField):
-    options: ClassVar[dict[str, Any]] = {'a': KeuzelijstWaarde(invulwaarde='a', objectUri='https://example.com#a')}
+    options: dict[str, Any] = {'a': KeuzelijstWaarde(invulwaarde='a', objectUri='https://example.com#a')}
 
 
 class _KeuzelijstMultiple(KeuzelijstField):
-    options: ClassVar[dict[str, Any]] = {
+    options: dict[str, Any] = {
         'a': KeuzelijstWaarde(invulwaarde='a', objectUri='https://example.com#a'),
         'b': KeuzelijstWaarde(invulwaarde='b', objectUri='https://example.com#b'),
     }
@@ -282,7 +282,7 @@ def test_set_value_by_dictitem_complex_recursive():
 
 def test_set_value_by_dictitem_none_instance_raises():
     with pytest.raises(ValueError, match='cannot be None'):
-        set_value_by_dictitem(None, 's', 'x')  # type: ignore[arg-type]
+        set_value_by_dictitem(None, 's', 'x')
 
 
 def test_set_value_by_dictitem_empty_key_raises():
@@ -418,7 +418,7 @@ def test_create_dict_shortcut_cleared_value():
 def test_create_dict_rdf_keuzelijst_uses_option_uri():
     instance = _Simple()
     instance._k = _attr(_Keuzelijst, 'k', owner=instance)
-    instance._k.waarde = 'a'
+    instance._k.waarde = 'a'  # type: ignore[attr-defined]
 
     d = create_dict_from_asset(instance, rdf=True)
     assert d == {'https://example.com#T.k': 'https://example.com#a', '@type': 'https://example.com#Simple'}

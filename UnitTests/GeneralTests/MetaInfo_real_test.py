@@ -40,7 +40,7 @@ class _Complex(ComplexField):
 
 
 class _Keuzelijst(KeuzelijstField):
-    options: ClassVar[dict] = {
+    options: dict[str, KeuzelijstWaarde] = {
         f'opt{i}': KeuzelijstWaarde(
             invulwaarde=f'opt{i}',
             label=f'opt{i}',
