@@ -568,8 +568,8 @@ def test_to_dict_with_non_standardised_attributes(subtests, caplog):
 
         o = OTLObject.from_dict(d, model_directory=model_directory_path, warn_for_non_otl_conform_attributes=False)
         assert len(caplog.records) == 0
-        assert o.non_standardized_attribute == 'random'
-        assert o.testStringField == 'string'
+        assert o.non_standardized_attribute == 'random'  # type: ignore[attr-defined]
+        assert o.testStringField == 'string'  # type: ignore[attr-defined]
         assert o.typeURI == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'
 
     with subtests.test(msg='non-standard simple attribute, warnings not suppressed and allowed'):
@@ -578,8 +578,8 @@ def test_to_dict_with_non_standardised_attributes(subtests, caplog):
                  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'}
 
             o = OTLObject.from_dict(d, model_directory=model_directory_path)
-            assert o.non_standardized_attribute == 'random'
-            assert o.testStringField == 'string'
+            assert o.non_standardized_attribute == 'random'  # type: ignore[attr-defined]
+            assert o.testStringField == 'string'  # type: ignore[attr-defined]
             assert o.typeURI == 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass'
 
 

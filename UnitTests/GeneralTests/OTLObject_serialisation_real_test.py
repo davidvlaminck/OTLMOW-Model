@@ -567,7 +567,7 @@ def test_rdf_dict_shortcut_with_waarde_shortcut():
 def test_create_dict_rdf_keuzelijst_with_a_list_of_options():
     instance = _Simple()
     instance._k = _attr(_KeuzelijstMultiple, 'k', owner=instance, kardinaliteit_max='*')
-    instance._k.waarde = ['a', 'b']
+    instance._k.waarde = ['a', 'b']  # type: ignore[attr-defined]
 
     d = create_dict_from_asset(instance, rdf=True)
     assert d['https://example.com#T.k'] == ['https://example.com#a', 'https://example.com#b']
@@ -576,7 +576,7 @@ def test_create_dict_rdf_keuzelijst_with_a_list_of_options():
 def test_create_dict_rdf_keuzelijst_with_a_list_with_none():
     instance = _Simple()
     instance._k = _attr(_KeuzelijstMultiple, 'k', owner=instance, kardinaliteit_max='*')
-    instance._k.waarde = [None]
+    instance._k.waarde = [None]  # type: ignore[attr-defined]
 
     d = create_dict_from_asset(instance, rdf=True)
     assert d['https://example.com#T.k'] == []
