@@ -25,7 +25,7 @@ KLIMATISATIE_URI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Klima
 
 def test_dynamic_create_type_from_ns_and_name():
     created_type = dynamic_create_type_from_ns_and_name('onderdeel', 'Klimatisatie')
-    assert created_type.typeURI == KLIMATISATIE_URI
+    assert created_type.typeURI == KLIMATISATIE_URI  # type: ignore[attr-defined]
 
 
 def test_dynamic_create_instance_from_ns_and_name():

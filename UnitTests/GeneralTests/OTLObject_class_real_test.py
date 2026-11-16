@@ -57,7 +57,7 @@ def test_setattr_typeuri_with_none_value_raises_type_error():
 def test_setattr_other_attribute_is_allowed():
     instance = _Simple()
     instance.other = 'value'
-    assert instance.other == 'value'
+    assert instance.other == 'value'  # type: ignore[attr-defined]
 
 
 def test_from_dict_with_typeuri():
@@ -79,7 +79,7 @@ def test_from_dict_with_rdf_at_type_removes_at_type():
 
 def test_from_dict_without_typeuri_uses_class_typeuri():
     klimatisatie = dynamic_create_type_from_uri(KLIMATISATIE_URI)
-    instance = klimatisatie.from_dict({'naam': 'x'})
+    instance = klimatisatie.from_dict({'naam': 'x'})  # type: ignore[attr-defined]
     assert instance.typeURI == KLIMATISATIE_URI
 
 

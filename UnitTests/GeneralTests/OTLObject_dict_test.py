@@ -522,9 +522,9 @@ def test_create_dict_from_asset_testclass(subtests):
         expected = {
             'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
             'testComplexTypeMetKard': [
-                {'testBooleanField': True,
+                 {'testBooleanField': True,  # type: ignore[list-item]
                  'testStringField': 'string 1'},
-                {'testBooleanField': False,
+                 {'testBooleanField': False,  # type: ignore[list-item]
                  'testStringField': 'string 2',
                  'testComplexType2': {'testStringField': 'string in complex'},
                  'testComplexType2MetKard': [{'testStringField': 'first string in complex'},

@@ -141,7 +141,7 @@ def test_compare_two_lists_of_objects_attribute_level_with_a_missing_asset():
 
     result = compare_two_lists_of_objects_attribute_level([first], [second])
     assert len(result) == 1
-    assert result[0].assetId.identificator == '2'
+    assert result[0].assetId.identificator == '2'  # type: ignore[attr-defined]
 
 
 def test_is_relation():
@@ -210,7 +210,7 @@ def test_compare_two_lists_of_objects_object_level_returns_the_new_assets():
 
     result = compare_two_lists_of_objects_object_level([first], [second])
     assert len(result) == 1
-    assert result[0].assetId.identificator == '2'
+    assert result[0].assetId.identificator == '2'  # type: ignore[attr-defined]
 
 
 def test_compare_two_lists_of_objects_object_level_returns_nothing_for_equal_assets():
