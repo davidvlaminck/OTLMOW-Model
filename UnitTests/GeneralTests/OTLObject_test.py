@@ -681,7 +681,7 @@ def test_create_dict_from_asset_non_standard_attributes(subtests):
 
         with pytest.warns(NonStandardAttributeWarning):
             d = instance.to_dict()
-            expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+            expected = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                         'testBooleanField': True,
                         'testStringField': 'string',
                         'non_standard_attribute': 'waarde-2',
@@ -715,7 +715,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance.testDateField = date(year=2022, month=2, day=2)
 
         d = instance.to_dict()
-        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': date(year=2022, month=2, day=2),
                     'testDecimalField': 1.5,
@@ -724,7 +724,7 @@ def test_create_dict_from_asset_testclass(subtests):
         assert d == expected
 
         d = instance.to_dict(cast_datetime=True)
-        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testBooleanField': True,
                     'testDateField': '2022-02-02',
                     'testDecimalField': 1.5,
@@ -742,7 +742,7 @@ def test_create_dict_from_asset_testclass(subtests):
         instance._testDecimalFieldMetKard.add_value(2.5)
 
         d = instance.to_dict()
-        expected: dict[str, Any] = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
+        expected = {  'typeURI': 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#AllCasesTestClass',
                     'testDecimalFieldMetKard': [1.5, 2.5],
                     'testKeuzelijstMetKard': ['waarde-1', 'waarde-2'],
                     'testStringFieldMetKard': ['string', 'string 2']}
