@@ -59,7 +59,11 @@ DEFAULT_THRESHOLDS = {
 # part of the coverage measurement: the model is the product.
 # Adapt this list when the bundle is copied to another repository
 # (see code_quality/README.md section 19).
-DEFAULT_EXCLUDES = ()
+DEFAULT_EXCLUDES = (
+    'otlmow_model/OtlmowModel/Classes',
+    'otlmow_model/OtlmowModel/Datatypes',
+    'otlmow_model/OtlmowModel/Helpers/all_classes.py',
+)
 
 # The gates that can be enforced on their own: the name, the metric it reads
 # and whether a higher value is better. The ratchet is not in this list: it is
@@ -174,7 +178,7 @@ def run_ruff_format(source: str, tests: str, scripts: str, tooling: str = '') ->
     return result
 
 
-def run_mypy(source: str, tests: str, scripts: str, tooling: str = '') -> dict[str, Any]:
+def run_mypy(source: str, tests: str, scripts: str, tooling: str = '', excludes: tuple[str, ...] = ()) -> dict[str, Any]:
     """Count mypy errors."""
     command = _tool('mypy')
     if command is None:
@@ -193,6 +197,8 @@ def run_mypy(source: str, tests: str, scripts: str, tooling: str = '') -> dict[s
         tests,
         scripts,
     ]
+    for exclude in excludes:
+        mypy_command.extend(['--exclude', exclude])
     if tooling:
         mypy_command.append(tooling)
     code, output = _run(mypy_command)
@@ -429,6 +435,11 @@ def detect_god_classes(source: str, excludes: tuple[str, ...] = ()) -> dict[str,
     source_path = REPO_ROOT / source
     if not source_path.exists():
         return {'available': False, 'count': 0, 'classes': []}
+    generated_prefixes = (
+        'otlmow_model/OtlmowModel/Classes',
+        'otlmow_model/OtlmowModel/Datatypes',
+        'otlmow_model/OtlmowModel/Helpers/all_classes.py',
+    )
     for py_file in source_path.rglob('*.py'):
         if '__pycache__' in str(py_file) or 'TestModel' in str(py_file):
             continue
@@ -437,6 +448,8 @@ def detect_god_classes(source: str, excludes: tuple[str, ...] = ()) -> dict[str,
         except ValueError:
             relative = py_file.as_posix()
         if any(relative.startswith(exclude) for exclude in excludes):
+            continue
+        if any(relative.startswith(prefix) for prefix in generated_prefixes):
             continue
         try:
             with py_file.open(encoding='utf-8') as f:
@@ -894,7 +907,7 @@ def collect(args: argparse.Namespace) -> dict[str, Any]:
 
     ruff = run_ruff(args.source, args.tests, args.scripts)
     ruff_format = run_ruff_format(args.source, args.tests, args.scripts)
-    mypy = run_mypy(args.source, args.tests, args.scripts)
+    mypy = run_mypy(args.source, args.tests, args.scripts, excludes=excludes)
     pytest_result = run_pytest(args.source, args.coverage, args.skip_tests)
     bandit = run_bandit(args.source, excludes)
     vulture = run_vulture(args.source, excludes)

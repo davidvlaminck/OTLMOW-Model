@@ -113,5 +113,51 @@
     },
     "ruff_per_rule": {},
     "result": "red"
+  },
+  {
+    "date": "2026-10-30",
+    "commit": "487e0248e",
+    "metrics": {
+      "ruff_issues": 0,
+      "ruff_format_files": 2,
+      "mypy_errors": 290,
+      "coverage_percent": 89.0,
+      "coverage_branch_percent": 89.1,
+      "max_crap": 0.0,
+      "max_complexity": 0,
+      "bandit_high": 0,
+      "dead_code": 1217,
+      "pip_audit_vulns": 0,
+      "god_classes": 26,
+      "unparsable_files": 0,
+      "manual_conventions": 0,
+      "import_architecture_violations": 0,
+      "import_architecture_status": "not enabled"
+    },
+    "ruff_per_rule": {},
+    "result": "red"
+  },
+  {
+    "date": "2026-11-17",
+    "commit": "4390f8376",
+    "metrics": {
+      "ruff_issues": 0,
+      "ruff_format_files": 2,
+      "mypy_errors": 0,
+      "coverage_percent": 96.5,
+      "coverage_branch_percent": 92.9,
+      "max_crap": 9.0,
+      "max_complexity": 8,
+      "bandit_high": 0,
+      "dead_code": 0,
+      "pip_audit_vulns": 0,
+      "god_classes": 0,
+      "unparsable_files": 0,
+      "manual_conventions": 0,
+      "import_architecture_violations": 0,
+      "import_architecture_status": "not enabled"
+    },
+    "ruff_per_rule": {},
+    "result": "red"
   }
 ]
