@@ -52,7 +52,7 @@ def dynamic_create_instance_from_ns_and_name(
     type_ = dynamic_create_type_from_ns_and_name(
         namespace=namespace, class_name=class_name, model_directory=model_directory
     )
-    instance: "OTLObject" = type_()
+    instance: 'OTLObject' = type_()
     return instance
 
 
@@ -67,7 +67,7 @@ def dynamic_create_instance_from_uri(class_uri: str, model_directory: Path | Non
     :rtype: OTLObject
     """
     type_ = dynamic_create_type_from_uri(class_uri, model_directory=model_directory)
-    instance: "OTLObject" = type_()
+    instance: 'OTLObject' = type_()
     return instance
 
 
