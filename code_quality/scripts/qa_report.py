@@ -178,7 +178,9 @@ def run_ruff_format(source: str, tests: str, scripts: str, tooling: str = '') ->
     return result
 
 
-def run_mypy(source: str, tests: str, scripts: str, tooling: str = '', excludes: tuple[str, ...] = ()) -> dict[str, Any]:
+def run_mypy(
+    source: str, tests: str, scripts: str, tooling: str = '', excludes: tuple[str, ...] = ()
+) -> dict[str, Any]:
     """Count mypy errors."""
     command = _tool('mypy')
     if command is None:

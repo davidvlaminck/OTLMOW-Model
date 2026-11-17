@@ -229,8 +229,9 @@ def _non_standard_attribute_entry(attr_key: str, attr, asset, options: Serialisa
     return {attr_key: attr}
 
 
-def _recursive_create_rdf_dict_from_asset(asset, options: SerialisationOptions
-                                          ) -> Union[dict[str, Any], list[Any], None]:
+def _recursive_create_rdf_dict_from_asset(
+    asset, options: SerialisationOptions
+) -> Union[dict[str, Any], list[Any], None]:
     if isinstance(asset, list) and not isinstance(asset, dict):
         return _create_rdf_dict_from_list(asset, options)
     return _create_rdf_dict_from_object(asset, options)
