@@ -207,7 +207,7 @@ class OTLObject(object):
         waarde_shortcut: bool = False,
         allow_non_otl_conform_attributes: bool = True,
         warn_for_non_otl_conform_attributes: bool = True,
-    ) -> "OTLObject":
+    ) -> 'OTLObject':
         """Alternative constructor. Allows the instantiation of an object using a dictionary. Either start from the
         appropriate class or add a typeURI entry to the dictionary to get an instance of that type.
 
