@@ -127,13 +127,19 @@ def create_relation(
     if not (source_is_legacy or target_is_legacy):
         _require_valid_relation(source, target, relation_type)
 
-    relation_instance: Any = dynamic_create_instance_from_uri(class_uri=relation_type.typeURI, model_directory=model_directory)
+    relation_instance: Any = dynamic_create_instance_from_uri(
+        class_uri=relation_type.typeURI, model_directory=model_directory
+    )
 
     _require_valid_id(source, 'source', source_is_legacy)
     _require_valid_id(target, 'target', target_is_legacy)
 
-    bron_segment = _set_relation_end(relation_instance, 'bron', source_aim_id or '', source, source_typeURI, source_is_legacy)
-    doel_segment = _set_relation_end(relation_instance, 'doel', target_aim_id or '', target, target_typeURI, target_is_legacy)
+    bron_segment = _set_relation_end(
+        relation_instance, 'bron', source_aim_id or '', source, source_typeURI, source_is_legacy
+    )
+    doel_segment = _set_relation_end(
+        relation_instance, 'doel', target_aim_id or '', target, target_typeURI, target_is_legacy
+    )
     relation_id = relation_instance.__class__.__name__ + '_-_' + bron_segment + '_-_' + doel_segment
 
     relation_instance.assetId.identificator = relation_id

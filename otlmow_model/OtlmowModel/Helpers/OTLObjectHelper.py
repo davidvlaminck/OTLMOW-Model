@@ -14,7 +14,7 @@ _MISSING_PROPERTY = object()
 def count_assets_by_type(objects: Iterable[OTLObject]) -> defaultdict[str, int]:
     d: defaultdict[str, int] = defaultdict(int)
     for i in objects:
-        d[i.typeURI or ""] += 1
+        d[i.typeURI or ''] += 1
     return d
 
 
@@ -24,7 +24,9 @@ def print_overview_assets(objects: Iterable[OTLObject]) -> None:
 
 
 # TODO move to converter (this is using a dotnotation)
-def remove_duplicates_in_iterable_based_on_property(iterable: Iterable[OTLObject], property_name: str) -> list[OTLObject]:
+def remove_duplicates_in_iterable_based_on_property(
+    iterable: Iterable[OTLObject], property_name: str
+) -> list[OTLObject]:
     d: dict[str, OTLObject] = {}
     for asset in iterable:
         item_prop = _property_value(asset, property_name)
@@ -106,7 +108,9 @@ def compare_two_lists_of_objects_attribute_level(
     l1 = _dict_list_of(first_list)
     l2 = _dict_list_of(second_list)
 
-    l1_dict_list = {dict_asset['assetId']['identificator']: dict_asset for dict_asset in l1 if isinstance(dict_asset, dict)}
+    l1_dict_list = {
+        dict_asset['assetId']['identificator']: dict_asset for dict_asset in l1 if isinstance(dict_asset, dict)
+    }
 
     diff_list = []
     for d in l2:
