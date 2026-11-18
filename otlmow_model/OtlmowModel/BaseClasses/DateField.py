@@ -25,6 +25,10 @@ class DateField(OTLField):
             return cls._convert_from_none()
         if isinstance(value, bool):
             return cls._convert_from_bool(value)
+        return cls._convert_from_other(value, log_warnings)
+
+    @classmethod
+    def _convert_from_other(cls, value: Any, log_warnings: bool) -> date:
         if isinstance(value, datetime):
             return cls._convert_from_datetime(value, log_warnings)
         if isinstance(value, date):

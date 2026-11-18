@@ -35,6 +35,10 @@ class DateTimeField(OTLField):
             raise CouldNotConvertToCorrectTypeError(
                 f'{value} could not be converted to correct type (implied by {cls.__name__})'
             )
+        return cls._convert_other(value, log_warnings)
+
+    @classmethod
+    def _convert_other(cls, value: Any, log_warnings: bool) -> datetime.datetime:
         if isinstance(value, datetime.datetime):
             return value
         if isinstance(value, datetime.date):
