@@ -1,13 +1,13 @@
 _missing = object()
 
 
-class cached_property(object):
+class cached_property:  # noqa: N801
     """A decorator that converts a function into a lazy property.  The
     function wrapped is called the first time to retrieve the result
     and then that calculated result is used the next time you access
     the value::
 
-        class Foo(object):
+        class Foo:
             @cached_property
             def foo(self):
                 # calculate something important here
@@ -31,7 +31,7 @@ class cached_property(object):
         self.__doc__ = doc or func.__doc__
         self.func = func
 
-    def __get__(self, obj, type=None):
+    def __get__(self, obj, owner=None):
         if obj is None:
             return self
         value = obj.__dict__.get(self.__name__, _missing)
