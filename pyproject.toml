@@ -82,6 +82,12 @@ docstring-quotes = "double"
 "UnitTests/**" = [ "S101", "N802", "N803", "N815", "PLR2004", "PT006", "PT011",]
 "model_update/**" = [ "T201", "S603", "S607",]
 "code_quality/scripts/*.py" = [ "T201", "S603",]
+"otlmow_model/OtlmowModel/Classes/Abstracten/BegroeidVoorkomen.py" = [ "PLR0915",]
+"otlmow_model/OtlmowModel/Classes/Abstracten/Behuizing.py" = [ "PLR0915",]
+"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijDagOfWV.py" = ["PLC2401"]
+"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNacht.py" = ["PLC2401"]
+"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNachtNatWegdek.py" = ["PLC2401"]
+"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNachtRegenweer.py" = ["PLC2401"]
 
 [tool.setuptools.packages.find]
 include = [ "otlmow_model*",]
