@@ -3,7 +3,8 @@ import warnings
 import random
 
 from difflib import get_close_matches
-from typing import Dict, Any
+from types import MappingProxyType
+from typing import Any
 
 from ..Exceptions.AttributeDeprecationWarning import AttributeDeprecationWarning
 from ..Exceptions.InvalidOptionError import InvalidOptionError
@@ -13,7 +14,7 @@ from .KeuzelijstWaarde import KeuzelijstWaarde
 
 
 class KeuzelijstField(OTLField):
-    options: Dict[str, KeuzelijstWaarde] = {}
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({})
     codelist = ''
     clearing_value = '88888888'
     native_type = str
