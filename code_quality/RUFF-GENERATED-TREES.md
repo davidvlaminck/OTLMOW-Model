@@ -37,30 +37,6 @@ Scope: `otlmow_model/OtlmowModel/Classes`, `otlmow_model/OtlmowModel/Datatypes`.
 - `otlmow_model/OtlmowModel/Classes/Abstracten/AOWSType.py:2` — `from ...BaseClasses.OTLObject import OTLAttribuut`
 - `otlmow_model/OtlmowModel/Classes/Abstracten/Aangrijping.py:2` — `from abc import abstractmethod`
 
-### A003 — builtin shadowed by class method
-
-- `otlmow_model/OtlmowModel/Classes/ImplementatieElement/Bijlage.py:38` — `@type.setter`
-
-### UP006 — use `list` instead of `List`
-
-- `otlmow_model/OtlmowModel/Classes/Abstracten/AfschermendeConstructie.py:162` — `def testrapport(self) -> List[DtcDocumentWaarden]:`
-- `otlmow_model/OtlmowModel/Classes/Abstracten/AfschermendeConstructie.py:180` — `def video(self) -> List[DtcDocumentWaarden]:`
-
-### UP035 — import from `collections.abc`
-
-- `otlmow_model/OtlmowModel/Classes/Abstracten/AfschermendeConstructie.py:2` — `from typing import List`
-- `otlmow_model/OtlmowModel/Classes/Abstracten/AfwijkendeKantopsluiting.py:2` — `from typing import List`
-
-### Q003 — quotes to avoid escaping
-
-- `otlmow_model/OtlmowModel/Datatypes/KlFiguratieCode.py:126` — `'PL-A\'': KeuzelijstWaarde(invulwaarde='PL-A\'',`
-- `otlmow_model/OtlmowModel/Datatypes/KlFiguratieCode.py:126` — `'PL-A\'': KeuzelijstWaarde(invulwaarde='PL-A\'',`
-
-### PLR0915 — too many statements
-
-- `otlmow_model/OtlmowModel/Classes/Abstracten/BegroeidVoorkomen.py:22` — `def __init__(self):`
-- `otlmow_model/OtlmowModel/Classes/Abstracten/Behuizing.py:18` — `def __init__(self):`
-
 ### RUF001 — ambiguous Unicode character in string
 
 - `otlmow_model/OtlmowModel/Classes/Installatie/Koker.py:102` — `definition='...lengte × totale breedte...'` (ambiguous `×` MULTIPLICATION SIGN)
@@ -71,20 +47,10 @@ Scope: `otlmow_model/OtlmowModel/Classes`, `otlmow_model/OtlmowModel/Datatypes`.
 - `otlmow_model/OtlmowModel/Classes/Abstracten/AanhorighedenBrug.py:22` — `pass`
 - `otlmow_model/OtlmowModel/Classes/Abstracten/AanhorigheidKoker.py:20` — `pass`
 
-### Q004 — unnecessary escape on inner quote
-
-- `otlmow_model/OtlmowModel/Datatypes/KlFiguratieCode.py:127` — `label="PL-A\'",`
-- `otlmow_model/OtlmowModel/Datatypes/KlFiguratieCode.py:137` — `label="PL-B1\'",`
-
 ### RUF002 — ambiguous Unicode character in docstring
 
 - `otlmow_model/OtlmowModel/Classes/Installatie/Koker.py:177` — `"""...lengte × totale breedte..."""` (ambiguous `×` MULTIPLICATION SIGN)
 - `otlmow_model/OtlmowModel/Classes/Installatie/Zoutbijlaadplaats.py:11` — `"""Site in het beheer..."""` (ambiguous `'` RIGHT SINGLE QUOTATION MARK)
-
-### F811 — redefinition of unused name
-
-- `otlmow_model/OtlmowModel/Classes/Abstracten/DNB.py:3` — `from datetime import date, date, date`
-- `otlmow_model/OtlmowModel/Classes/Abstracten/DNB.py:3` — `from datetime import date, date, date`
 
 ### N801 — class name should use CapWords
 
