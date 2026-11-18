@@ -26,7 +26,7 @@ class NaamClass:
 
 
 @pytest.mark.parametrize(
-    'value, expected, id',
+    'value, expected, number',
     [
         ('validName123', True, 'valid_alphanumeric'),
         ('valid.name-123', True, 'valid_with_special_chars'),
@@ -36,6 +36,6 @@ class NaamClass:
         ('invalid@name', False, 'invalid_with_at_symbol'),
     ],
 )
-def test_validate(value, expected, id):
+def test_validate(value, expected, number):
     result = NaamField.validate(value, NaamClass()._naam)
     assert result == expected, f"Test case '{id}' failed: expected {expected} but got {result}"
