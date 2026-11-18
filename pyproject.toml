@@ -28,7 +28,7 @@ update = [ "otlmow_modelbuilder", "toml",]
 line-length = 120
 target-version = "py311"
 src = [ "otlmow_model", "UnitTests", "model_update",]
-extend-exclude = [ "UnitTests/TestModel", "otlmow_model/OtlmowModel/Classes", "otlmow_model/OtlmowModel/Datatypes", "otlmow_model/OtlmowModel/Helpers/all_classes.py",]
+extend-exclude = [ "UnitTests/TestModel", "otlmow_model/OtlmowModel/Classes", "otlmow_model/OtlmowModel/Datatypes", "otlmow_model/OtlmowModel/Helpers/all_classes.py", ]
 
 [tool.mypy]
 python_version = "3.11"
