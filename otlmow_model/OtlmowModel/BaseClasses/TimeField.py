@@ -35,6 +35,10 @@ class TimeField(OTLField):
             raise CouldNotConvertToCorrectTypeError(
                 f'{value} could not be converted to correct type (implied by {cls.__name__})'
             )
+        return cls._convert_non_time(value, log_warnings)
+
+    @classmethod
+    def _convert_non_time(cls, value: Any, log_warnings: bool) -> time:
         if isinstance(value, datetime):
             return cls._convert_datetime(value, log_warnings)
         if isinstance(value, date):

@@ -31,10 +31,13 @@ class FloatOrDecimalField(OTLField):
                     'Automatically converted to the correct type. Please change the type',
                 )
             return value
-        if isinstance(value, float):
-            return value
-        if isinstance(value, (int, decimal.Decimal)):
+        if isinstance(value, (float, int, decimal.Decimal)):
             return float(value)
+        return cls._convert_string_value(value, log_warnings)
+
+
+    @classmethod
+    def _convert_string_value(cls, value: Any, log_warnings: bool) -> float:
         try:
             float_value = float(value)
             if log_warnings:
