@@ -8,7 +8,7 @@ Scope: `otlmow_model/OtlmowModel/Classes`, `otlmow_model/OtlmowModel/Datatypes`.
 
 | Rule | Count | Description |
 |---|---|---|
-| **UP009** | 2,557 | Remove unnecessary `object` base class |
+| **UP009** | 2,557 | Remove unnecessary `# coding=utf-8` declaration |
 | **RUF012** | 1,016 | Mutable default value for class attribute |
 | **I001** | 651 | Import block is un-sorted or un-formatted |
 | **A003** | 250 | Python builtin is shadowed by class method |
@@ -27,15 +27,10 @@ Scope: `otlmow_model/OtlmowModel/Classes`, `otlmow_model/OtlmowModel/Datatypes`.
 
 ## Per-rule examples
 
-### UP009 — unnecessary `object` base class
+### UP009 — unnecessary UTF-8 encoding declaration
 
 - `otlmow_model/OtlmowModel/Classes/Abstracten/AOWSType.py:1` — `# coding=utf-8`
 - `otlmow_model/OtlmowModel/Classes/Abstracten/Aangrijping.py:1` — `# coding=utf-8`
-
-### RUF012 — mutable class attribute
-
-- `otlmow_model/OtlmowModel/Datatypes/AntiParkeerpaalType.py:15` — `options = {`
-- `otlmow_model/OtlmowModel/Datatypes/KLLuidsprekerVormgeving.py:14` — `options = {`
 
 ### I001 — import block unsorted
 
@@ -66,10 +61,10 @@ Scope: `otlmow_model/OtlmowModel/Classes`, `otlmow_model/OtlmowModel/Datatypes`.
 - `otlmow_model/OtlmowModel/Classes/Abstracten/BegroeidVoorkomen.py:22` — `def __init__(self):`
 - `otlmow_model/OtlmowModel/Classes/Abstracten/Behuizing.py:18` — `def __init__(self):`
 
-### RUF001 — ambiguous multiplication sign in string
+### RUF001 — ambiguous Unicode character in string
 
-- `otlmow_model/OtlmowModel/Classes/Installatie/Koker.py:102` — `definition='...lengte × totale breedte...'`
-- `otlmow_model/OtlmowModel/Classes/Onderdeel/Bevestigingssteun.py:57` — `definition='De lengte van de bevestigingssteun in  millimeter.'`
+- `otlmow_model/OtlmowModel/Classes/Installatie/Koker.py:102` — `definition='...lengte × totale breedte...'` (ambiguous `×` MULTIPLICATION SIGN)
+- `otlmow_model/OtlmowModel/Datatypes/KlWetenschappelijkeSoortnaam.py:1080` — `label='Photinia × fraseri'` (ambiguous `×` MULTIPLICATION SIGN)
 
 ### PIE790 — unnecessary `pass`
 
@@ -81,15 +76,10 @@ Scope: `otlmow_model/OtlmowModel/Classes`, `otlmow_model/OtlmowModel/Datatypes`.
 - `otlmow_model/OtlmowModel/Datatypes/KlFiguratieCode.py:127` — `label="PL-A\'",`
 - `otlmow_model/OtlmowModel/Datatypes/KlFiguratieCode.py:137` — `label="PL-B1\'",`
 
-### PLC2401 — non-ASCII function name
+### RUF002 — ambiguous Unicode character in docstring
 
-- `otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijDagOfWV.py:31` — `def luminantiecoëfficiënt(self) -> float:`
-- `otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijDagOfWV.py:36` — `def luminantiecoëfficiënt(self, value):`
-
-### RUF002 — ambiguous multiplication sign in docstring
-
-- `otlmow_model/OtlmowModel/Classes/Installatie/Koker.py:177` — `"""...lengte × totale breedte..."""`
-- `otlmow_model/OtlmowModel/Classes/Installatie/Zoutbijlaadplaats.py:11` — `"""Site in het beheer..."""`
+- `otlmow_model/OtlmowModel/Classes/Installatie/Koker.py:177` — `"""...lengte × totale breedte..."""` (ambiguous `×` MULTIPLICATION SIGN)
+- `otlmow_model/OtlmowModel/Classes/Installatie/Zoutbijlaadplaats.py:11` — `"""Site in het beheer..."""` (ambiguous `'` RIGHT SINGLE QUOTATION MARK)
 
 ### F811 — redefinition of unused name
 
