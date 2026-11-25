@@ -13,6 +13,11 @@ class KlWvLedLichtpunthoogte(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedLichtpunthoogte'
     options = {
+        '0': KeuzelijstWaarde(invulwaarde='0',
+                              label='0',
+                              status='ingebruik',
+                              definitie='0',
+                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedLichtpunthoogte/0'),
         '10': KeuzelijstWaarde(invulwaarde='10',
                                label='10',
                                status='ingebruik',

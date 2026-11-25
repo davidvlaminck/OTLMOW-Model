@@ -13,6 +13,11 @@ class KlSignaalkabelType(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignaalkabelType'
     options = {
+        'afg-mbzh': KeuzelijstWaarde(invulwaarde='afg-mbzh',
+                                     label='AFG-MBZH',
+                                     status='ingebruik',
+                                     definitie='Halogeenvrije afgeschermde signaalkabel met functiebehoud.',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSignaalkabelType/afg-mbzh'),
         'coax': KeuzelijstWaarde(invulwaarde='coax',
                                  label='coax',
                                  status='ingebruik',
@@ -33,6 +38,11 @@ class KlSignaalkabelType(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='coax RG59',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSignaalkabelType/coax-rg59'),
+        'edv-pimf': KeuzelijstWaarde(invulwaarde='edv-pimf',
+                                     label='EDV-PiMF',
+                                     status='ingebruik',
+                                     definitie='Een soepele, afgeschermde data- en signaalkabel met lage capaciteit voor storingsvrije signaaloverdracht.',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSignaalkabelType/edv-pimf'),
         'elec': KeuzelijstWaarde(invulwaarde='elec',
                                  label='ELEC',
                                  status='ingebruik',

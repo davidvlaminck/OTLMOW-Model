@@ -41,7 +41,7 @@ class KlStortsteenType(KeuzelijstField):
         'kunststeenslag': KeuzelijstWaarde(invulwaarde='kunststeenslag',
                                            label='kunststeenslag',
                                            status='ingebruik',
-                                           definitie='brokken van betonpuin',
+                                           definitie='steenslag van kunstmatig granulaat',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStortsteenType/kunststeenslag'),
         'natuursteenslag': KeuzelijstWaarde(invulwaarde='natuursteenslag',
                                             label='natuursteenslag',

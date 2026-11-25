@@ -1,5 +1,6 @@
 # coding=utf-8
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
+from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
@@ -12,6 +13,11 @@ class KlToegangspoortModelnaam(KeuzelijstField):
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangspoortModelnaam'
     options = {
+        'terminus': KeuzelijstWaarde(invulwaarde='terminus',
+                                     label='Terminus',
+                                     status='ingebruik',
+                                     definitie='Terminus',
+                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangspoortModelnaam/terminus')
     }
 
     @classmethod

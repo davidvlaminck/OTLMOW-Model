@@ -23,6 +23,11 @@ class KlVerlichtingstoestelInclinatiehoek(KeuzelijstField):
                                status='ingebruik',
                                definitie='10',
                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelInclinatiehoek/10'),
+        '10-2': KeuzelijstWaarde(invulwaarde='10-2',
+                                 label='-10',
+                                 status='ingebruik',
+                                 definitie='-10',
+                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelInclinatiehoek/10-2'),
         '15': KeuzelijstWaarde(invulwaarde='15',
                                label='15',
                                status='ingebruik',
@@ -32,7 +37,12 @@ class KlVerlichtingstoestelInclinatiehoek(KeuzelijstField):
                               label='5',
                               status='ingebruik',
                               definitie='5',
-                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelInclinatiehoek/5')
+                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelInclinatiehoek/5'),
+        '5-2': KeuzelijstWaarde(invulwaarde='5-2',
+                                label='-5',
+                                status='ingebruik',
+                                definitie='-5',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelInclinatiehoek/5-2')
     }
 
     @classmethod
