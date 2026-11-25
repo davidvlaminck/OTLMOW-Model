@@ -1,14 +1,14 @@
 import json
 import logging
-import toml  # type: ignore[import-untyped]
 import urllib.request
 from pathlib import Path
-from subprocess import Popen, PIPE
+from subprocess import PIPE, Popen
 
+import toml  # type: ignore[import-untyped]
 from otlmow_modelbuilder.ModelBuilder import ModelBuilder  # type: ignore[import-not-found]
 from otlmow_modelbuilder.OSLOInMemoryCreator import OSLOInMemoryCreator  # type: ignore[import-not-found]
 
-from model_update.ModelUpdater import ModelUpdater
+from ModelUpdater import ModelUpdater
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
