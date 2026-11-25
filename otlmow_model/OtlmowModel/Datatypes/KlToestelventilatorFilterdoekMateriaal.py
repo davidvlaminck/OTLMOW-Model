@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +13,8 @@ class KlToestelventilatorFilterdoekMateriaal(KeuzelijstField):
     definition = 'Keuzelijst die de verschillende materialen bevat waaruit de filterdoek van een toestelventilator vervaardigd kan zijn.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToestelventilatorFilterdoekMateriaal'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +13,8 @@ class KlToestelventilatorModelnaam(KeuzelijstField):
     definition = 'Lijst met modelnamen van ventilatoren gebruikt voor de koeling van toestellen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToestelventilatorModelnaam'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

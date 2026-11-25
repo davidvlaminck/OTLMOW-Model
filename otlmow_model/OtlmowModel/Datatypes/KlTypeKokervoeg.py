@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +13,8 @@ class KlTypeKokervoeg(KeuzelijstField):
     definition = 'De verschillende types kokervoegen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeKokervoeg'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

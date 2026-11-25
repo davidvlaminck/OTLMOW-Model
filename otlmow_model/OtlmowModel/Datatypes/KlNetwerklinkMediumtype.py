@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlNetwerklinkMediumtype(KeuzelijstField):
     definition = 'Mogelijke waarden voor het type drager waarlangs data door de link getransporteerd wordt.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerklinkMediumtype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'andere': KeuzelijstWaarde(invulwaarde='andere',
                                    label='andere',
                                    status='ingebruik',
@@ -38,7 +40,7 @@ class KlNetwerklinkMediumtype(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='De link tussen de netwerkpoorten wordt gerealiseerd via een UTP kabel.',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerklinkMediumtype/utp')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

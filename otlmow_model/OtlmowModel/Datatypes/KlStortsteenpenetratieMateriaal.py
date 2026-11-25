@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlStortsteenpenetratieMateriaal(KeuzelijstField):
     definition = 'Het materiaal met welk de stortstenen worden gepenetreerd.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStortsteenpenetratieMateriaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'asfalt': KeuzelijstWaarde(invulwaarde='asfalt',
                                    label='asfalt',
                                    status='ingebruik',
@@ -21,7 +23,7 @@ class KlStortsteenpenetratieMateriaal(KeuzelijstField):
                                   label='beton',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStortsteenpenetratieMateriaal/beton')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

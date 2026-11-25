@@ -1,11 +1,15 @@
 # coding=utf-8
-from typing import List
+from typing import ClassVar
+
+from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Signalisatie import Signalisatie
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
-from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ...Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
+from ...Datatypes.DtcExterneReferentie import (
+    DtcExterneReferentie,
+    DtcExterneReferentieWaarden,
+)
 from ...Datatypes.KlOperationeleStatus import KlOperationeleStatus
 from ...Datatypes.KlPositieSoort import KlPositieSoort
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
@@ -18,13 +22,17 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanzicht', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling', 'o', None),  # o = direction: outgoing
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pictogram', 'i', None),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanzicht', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling', direction='o')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pictogram', direction='i')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._afbeelding = OTLAttribuut(field=DtcDocument,
                                         naam='afbeelding',
@@ -69,7 +77,7 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
                                         owner=self)
 
     @property
-    def afbeelding(self) -> List[DtcDocumentWaarden]:
+    def afbeelding(self) -> list[DtcDocumentWaarden]:
         """Grafische weergave van de opstelling geplaatst op het openbaar domein."""
         return self._afbeelding.get_waarde()
 
@@ -105,7 +113,7 @@ class Verkeersbordopstelling(Signalisatie, AIMObject, PuntGeometrie):
         self._positieTovRijweg.set_waarde(value, owner=self)
 
     @property
-    def wegSegment(self) -> List[DtcExterneReferentieWaarden]:
+    def wegSegment(self) -> list[DtcExterneReferentieWaarden]:
         """Wegsegment waarbij de verkeersbordopstelling geplaatst is."""
         return self._wegSegment.get_waarde()
 

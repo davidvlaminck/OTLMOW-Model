@@ -1,13 +1,17 @@
 # coding=utf-8
-from typing import List
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+from typing import ClassVar
+
+from ...BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.StringField import StringField
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ...Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
+from ...Datatypes.DtcExterneReferentie import (
+    DtcExterneReferentie,
+    DtcExterneReferentieWaarden,
+)
 from ...Datatypes.KlVerkeerstekenWettelijkeStatus import KlVerkeerstekenWettelijkeStatus
-from ...BaseClasses.StringField import StringField
 from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
@@ -18,12 +22,16 @@ class Verkeersteken(AIMObject, GeenGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersteken'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersteken', 'o', None),  # o = direction: outgoing
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VerkeersbordVerkeersteken', 'o', None),  # o = direction: outgoing
+    ]
+
     @abstractmethod
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersteken', direction='o')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VerkeersbordVerkeersteken', direction='o')  # o = direction: outgoing
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._adres = OTLAttribuut(field=DtcAdres,
                                    naam='adres',
@@ -91,7 +99,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._adres.set_waarde(value, owner=self)
 
     @property
-    def afbeelding(self) -> List[DtcDocumentWaarden]:
+    def afbeelding(self) -> list[DtcDocumentWaarden]:
         """Foto van het verkeersteken."""
         return self._afbeelding.get_waarde()
 
@@ -100,7 +108,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._afbeelding.set_waarde(value, owner=self)
 
     @property
-    def mobiliteitsMaatregel(self) -> List[DtcExterneReferentieWaarden]:
+    def mobiliteitsMaatregel(self) -> list[DtcExterneReferentieWaarden]:
         """Externe referentie naar een maatregel om de beweging en verplaatsing van de weggebruiker op het openbaar domein of privé domein met openbaar karakter te organiseren."""
         return self._mobiliteitsMaatregel.get_waarde()
 
@@ -118,7 +126,7 @@ class Verkeersteken(AIMObject, GeenGeometrie):
         self._plaatsbeschrijving.set_waarde(value, owner=self)
 
     @property
-    def signalisatieVergunning(self) -> List[DtcExterneReferentieWaarden]:
+    def signalisatieVergunning(self) -> list[DtcExterneReferentieWaarden]:
         """Externe referentie naar een vergunning voor het tijdelijk aanbrengen of wijzigen van signalisatie op het openbaar domein of privaat domein met openbaar karakter."""
         return self._signalisatieVergunning.get_waarde()
 

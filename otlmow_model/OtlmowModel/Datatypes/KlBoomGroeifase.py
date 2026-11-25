@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlBoomGroeifase(KeuzelijstField):
     definition = 'De verschillende fases van beheer volgens de verschillende levensfases.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomGroeifase'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dood': KeuzelijstWaarde(invulwaarde='dood',
                                  label='dood',
                                  status='ingebruik',
@@ -38,7 +40,7 @@ class KlBoomGroeifase(KeuzelijstField):
                                           status='ingebruik',
                                           definitie='De periode van de kroonontwikkeling - beheer gericht op in stand houden van de boom (onderhoudssnoei)',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBoomGroeifase/volwassenfase')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

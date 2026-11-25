@@ -1,4 +1,6 @@
 # coding=utf-8
+from typing import ClassVar
+
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlEcoEcoductType import KlEcoEcoductType
@@ -12,14 +14,18 @@ class Ecoduct(AIMObject, VlakGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Ecoduct'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElement', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Geleiding', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gronddam', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afscherming', 'i', None),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ConstructieElement', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Geleiding', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Laag', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Gronddam', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Afscherming', direction='i')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._type = OTLAttribuut(field=KlEcoEcoductType,
                                   naam='type',
@@ -28,11 +34,10 @@ class Ecoduct(AIMObject, VlakGeometrie):
                                   definition='Het type van ecoduct, zoals bv ecoveloduct, bermbrug,….',
                                   owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het type van ecoduct, zoals bv ecoveloduct, bermbrug,…."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

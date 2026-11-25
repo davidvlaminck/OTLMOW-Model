@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlVormSchermelement(KeuzelijstField):
     definition = 'Deze keuzelijst geeft aan of het schermelement recht of gebogen is.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVormSchermelement'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gebogen': KeuzelijstWaarde(invulwaarde='gebogen',
                                     label='gebogen',
                                     status='ingebruik',
@@ -23,7 +25,7 @@ class KlVormSchermelement(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='recht',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVormSchermelement/recht')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

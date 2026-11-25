@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlTypeAnker(KeuzelijstField):
     definition = 'De mogelijke type ankers.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeAnker'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ingeboord': KeuzelijstWaarde(invulwaarde='ingeboord',
                                       label='ingeboord',
                                       status='ingebruik',
@@ -25,7 +27,7 @@ class KlTypeAnker(KeuzelijstField):
                                                                 label='voorgespannen ankers met tegenplaat',
                                                                 status='ingebruik',
                                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeAnker/voorgespannen-ankers-met-tegenplaat')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

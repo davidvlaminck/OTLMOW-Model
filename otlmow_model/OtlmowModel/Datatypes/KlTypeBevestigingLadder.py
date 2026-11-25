@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +13,8 @@ class KlTypeBevestigingLadder(KeuzelijstField):
     definition = 'De verschillende wijzen waarop een ladder aan een constructie bevestigd kan worden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBevestigingLadder'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

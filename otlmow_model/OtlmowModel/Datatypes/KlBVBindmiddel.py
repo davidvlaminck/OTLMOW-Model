@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlBVBindmiddel(KeuzelijstField):
     definition = 'De mogelijke bindmiddelen bij de bitumineuze verharding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBVBindmiddel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bindmiddel-met-additieven': KeuzelijstWaarde(invulwaarde='bindmiddel-met-additieven',
                                                       label='bindmiddel met additieven',
                                                       status='ingebruik',
@@ -63,7 +65,7 @@ class KlBVBindmiddel(KeuzelijstField):
                                             status='ingebruik',
                                             definitie='polymeerbitumen',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBVBindmiddel/polymeerbitumen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

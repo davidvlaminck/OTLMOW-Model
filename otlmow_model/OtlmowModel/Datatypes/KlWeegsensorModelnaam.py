@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlWeegsensorModelnaam(KeuzelijstField):
     definition = 'De modelnaam van de weegsensor.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWeegsensorModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'lineas-wim-sensor-9195gc41': KeuzelijstWaarde(invulwaarde='lineas-wim-sensor-9195gc41',
                                                        label='Lineas WIM Sensor 9195GC41',
                                                        status='ingebruik',
@@ -23,7 +25,7 @@ class KlWeegsensorModelnaam(KeuzelijstField):
                                                        status='ingebruik',
                                                        definitie='Lineas WIM Sensor 9195GC51',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWeegsensorModelnaam/lineas-wim-sensor-9195gc51')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

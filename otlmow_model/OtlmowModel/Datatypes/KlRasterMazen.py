@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlRasterMazen(KeuzelijstField):
     definition = 'Types van de mazen in het ecoraster.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRasterMazen'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'fijnmazig': KeuzelijstWaarde(invulwaarde='fijnmazig',
                                       label='fijnmazig',
                                       status='ingebruik',
@@ -23,7 +25,7 @@ class KlRasterMazen(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='Een grofmazig raster.',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRasterMazen/grofmazig')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

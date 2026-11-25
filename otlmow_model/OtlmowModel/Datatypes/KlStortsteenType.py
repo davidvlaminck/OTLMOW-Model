@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlStortsteenType(KeuzelijstField):
     definition = 'Stortsteen types.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStortsteenType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'brokken-van-betonpuin': KeuzelijstWaarde(invulwaarde='brokken-van-betonpuin',
                                                   label='brokken van betonpuin',
                                                   status='ingebruik',
@@ -63,7 +65,7 @@ class KlStortsteenType(KeuzelijstField):
                                             status='ingebruik',
                                             definitie='een natuursteen van onregelmatige vorm',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStortsteenType/ruwe-breuksteen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

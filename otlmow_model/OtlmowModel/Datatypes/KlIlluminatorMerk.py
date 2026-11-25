@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +13,8 @@ class KlIlluminatorMerk(KeuzelijstField):
     definition = 'De mogelijke merken van een illuminator.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIlluminatorMerk'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

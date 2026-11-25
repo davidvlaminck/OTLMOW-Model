@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlWegbermType(KeuzelijstField):
     definition = 'Types van wegberm die de plaats ten opzichte van de weg aangeven.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegbermType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'buitenberm': KeuzelijstWaarde(invulwaarde='buitenberm',
                                        label='buitenberm',
                                        status='ingebruik',
@@ -28,7 +30,7 @@ class KlWegbermType(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Wegberm tussen twee rijbanen van een weg met meer dan één rijbaan, de middenberm uitgezonderd. ',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegbermType/tussenberm')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

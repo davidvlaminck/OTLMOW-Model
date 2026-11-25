@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlSpanningsomvormerMerk(KeuzelijstField):
     definition = 'Lijst van merknamen van spanningsomvormers volgens de fabrikant.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSpanningsomvormerMerk'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'eltek': KeuzelijstWaarde(invulwaarde='eltek',
                                   label='Eltek',
                                   status='ingebruik',
@@ -33,7 +35,7 @@ class KlSpanningsomvormerMerk(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Puls',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpanningsomvormerMerk/puls')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

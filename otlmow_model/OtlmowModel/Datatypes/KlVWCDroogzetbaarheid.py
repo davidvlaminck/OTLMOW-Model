@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlVWCDroogzetbaarheid(KeuzelijstField):
     definition = 'Geeft aan of het constructiefhoofd al dan niet droog gezet kan worden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVWCDroogzetbaarheid'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'enkel-deurkamer-droogzetbaar': KeuzelijstWaarde(invulwaarde='enkel-deurkamer-droogzetbaar',
                                                          label='enkel deurkamer droogzetbaar',
                                                          status='ingebruik',
@@ -29,7 +31,7 @@ class KlVWCDroogzetbaarheid(KeuzelijstField):
                                                   label='volledig droogzetbaar',
                                                   status='ingebruik',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVWCDroogzetbaarheid/volledig-droogzetbaar')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

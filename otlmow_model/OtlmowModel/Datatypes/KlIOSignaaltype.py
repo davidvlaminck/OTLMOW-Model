@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlIOSignaaltype(KeuzelijstField):
     definition = 'Geeft aan of de IO-kaart werkt met een digitaal of met een analoog signaal.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOSignaaltype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'analoog': KeuzelijstWaarde(invulwaarde='analoog',
                                     label='analoog',
                                     status='ingebruik',
@@ -21,7 +23,7 @@ class KlIOSignaaltype(KeuzelijstField):
                                      label='digitaal',
                                      status='ingebruik',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOSignaaltype/digitaal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

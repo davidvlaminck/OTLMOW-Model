@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlDekselKlasse(KeuzelijstField):
     definition = 'Klassen van het deksel van de bovenbouw.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDekselKlasse'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'C250-(voetpad)': KeuzelijstWaarde(invulwaarde='C250-(voetpad)',
                                            label='C250 (voetpad)',
                                            status='ingebruik',
@@ -33,7 +35,7 @@ class KlDekselKlasse(KeuzelijstField):
                                                status='ingebruik',
                                                definitie='F900 (vliegvelden)',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselKlasse/F900-(vliegvelden)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

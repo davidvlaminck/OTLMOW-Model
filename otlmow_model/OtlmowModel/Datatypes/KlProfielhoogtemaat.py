@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlProfielhoogtemaat(KeuzelijstField):
     definition = 'Voorgedefinieerde hoogtemaat van een profiel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlProfielhoogtemaat'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '100': KeuzelijstWaarde(invulwaarde='100',
                                 label='100',
                                 status='ingebruik',
@@ -158,7 +160,7 @@ class KlProfielhoogtemaat(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='900',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlProfielhoogtemaat/900')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

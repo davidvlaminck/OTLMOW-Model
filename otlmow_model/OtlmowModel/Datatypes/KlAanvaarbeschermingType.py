@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +15,7 @@ class KlAanvaarbeschermingType(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.14.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAanvaarbeschermingType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'andere': KeuzelijstWaarde(invulwaarde='andere',
                                    label='Andere',
                                    status='ingebruik',
@@ -39,7 +41,7 @@ class KlAanvaarbeschermingType(KeuzelijstField):
                                                        status='verwijderd',
                                                        definitie='Niet opgenomen in de lijst',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAanvaarbeschermingType/niet-opgenomen-in-de-lijst')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

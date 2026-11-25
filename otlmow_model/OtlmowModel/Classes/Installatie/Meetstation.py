@@ -1,8 +1,9 @@
 # coding=utf-8
-from typing import List
+from typing import ClassVar
+
+from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcMeteoFoto import DtcMeteoFoto, DtcMeteoFotoWaarden
 from ...Datatypes.KlLokaalTerreinType import KlLokaalTerreinType
@@ -19,17 +20,21 @@ class Meetstation(NaampadObject, PuntGeometrie):
 
     deprecated_version = '2.14.0'
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', 'i', '2.14.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', 'i', '2.14.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor', 'i', '2.14.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera', 'i', '2.14.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IoTSensor', 'i', '2.14.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC', 'i', '2.14.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PMU', 'i', '2.14.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Referentiepunt', 'i', '2.14.0'),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='i', deprecated='2.14.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', direction='i', deprecated='2.14.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Sensor', direction='i', deprecated='2.14.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Camera', direction='i', deprecated='2.14.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IoTSensor', direction='i', deprecated='2.14.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PLC', direction='i', deprecated='2.14.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PMU', direction='i', deprecated='2.14.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Referentiepunt', direction='i', deprecated='2.14.0')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._beoordelingLokaleTerrein = OTLAttribuut(field=KlLokaalTerreinType,
                                                       naam='beoordelingLokaleTerrein',
@@ -111,7 +116,7 @@ class Meetstation(NaampadObject, PuntGeometrie):
                                                 owner=self)
 
     @property
-    def beoordelingLokaleTerrein(self) -> List[str]:
+    def beoordelingLokaleTerrein(self) -> list[str]:
         """Het soort terrein waarin het meetstation staat met betrekking tot het reliëf en de vegetatie."""
         return self._beoordelingLokaleTerrein.get_waarde()
 
@@ -120,7 +125,7 @@ class Meetstation(NaampadObject, PuntGeometrie):
         self._beoordelingLokaleTerrein.set_waarde(value, owner=self)
 
     @property
-    def foto(self) -> List[DtcMeteoFotoWaarden]:
+    def foto(self) -> list[DtcMeteoFotoWaarden]:
         """De verschillende foto's van het meetstation."""
         return self._foto.get_waarde()
 
@@ -129,7 +134,7 @@ class Meetstation(NaampadObject, PuntGeometrie):
         self._foto.set_waarde(value, owner=self)
 
     @property
-    def keuringsrapport(self) -> List[DtcDocumentWaarden]:
+    def keuringsrapport(self) -> list[DtcDocumentWaarden]:
         """Het rapport dat 5 jaarlijks wordt opgesteld met details over het meetstation."""
         return self._keuringsrapport.get_waarde()
 
@@ -147,7 +152,7 @@ class Meetstation(NaampadObject, PuntGeometrie):
         self._masterOfBridgeSensor.set_waarde(value, owner=self)
 
     @property
-    def nabijheidVanHindernissen(self) -> List[KwantWrdInMeterWaarden]:
+    def nabijheidVanHindernissen(self) -> list[KwantWrdInMeterWaarden]:
         """De afstand tot een hindernis in de nabijheid."""
         return self._nabijheidVanHindernissen.get_waarde()
 
@@ -156,7 +161,7 @@ class Meetstation(NaampadObject, PuntGeometrie):
         self._nabijheidVanHindernissen.set_waarde(value, owner=self)
 
     @property
-    def nabijheidVanWaterlopen(self) -> List[KwantWrdInMeterWaarden]:
+    def nabijheidVanWaterlopen(self) -> list[KwantWrdInMeterWaarden]:
         """De afstand tot een waterloop in de nabijheid."""
         return self._nabijheidVanWaterlopen.get_waarde()
 
@@ -165,7 +170,7 @@ class Meetstation(NaampadObject, PuntGeometrie):
         self._nabijheidVanWaterlopen.set_waarde(value, owner=self)
 
     @property
-    def onderhoudsrapport(self) -> List[DtcDocumentWaarden]:
+    def onderhoudsrapport(self) -> list[DtcDocumentWaarden]:
         """Het rapport dat jaarlijks wordt opgesteld met details over het onderhoud van het meetstation."""
         return self._onderhoudsrapport.get_waarde()
 
@@ -174,7 +179,7 @@ class Meetstation(NaampadObject, PuntGeometrie):
         self._onderhoudsrapport.set_waarde(value, owner=self)
 
     @property
-    def sitePhysicsRapport(self) -> List[DtcDocumentWaarden]:
+    def sitePhysicsRapport(self) -> list[DtcDocumentWaarden]:
         """Beschrijvend overzichtsrapport van het meteostation."""
         return self._sitePhysicsRapport.get_waarde()
 

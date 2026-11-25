@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlGraadVanStatischeBepaaldheid(KeuzelijstField):
     definition = 'De statische bepaaldheid van het brugdeel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGraadVanStatischeBepaaldheid'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'hyperstatisch': KeuzelijstWaarde(invulwaarde='hyperstatisch',
                                           label='Hyperstatisch',
                                           status='ingebruik',
@@ -23,7 +25,7 @@ class KlGraadVanStatischeBepaaldheid(KeuzelijstField):
                                         status='ingebruik',
                                         definitie='Statisch bepaald. De reacties en inwendige krachten zijn te berekenen met de statica.',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGraadVanStatischeBepaaldheid/isostatisch')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlNetwerkkaartModelnaam(KeuzelijstField):
     definition = 'Modelnamen voor Netwerkkaarten.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkkaartModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ASC105': KeuzelijstWaarde(invulwaarde='ASC105',
                                    label='ASC105',
                                    status='ingebruik',
@@ -327,7 +329,7 @@ class KlNetwerkkaartModelnaam(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='OTN CWDM filter met 1 kanaal Smartoptics',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkkaartModelnaam/t-oadm-2-4')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

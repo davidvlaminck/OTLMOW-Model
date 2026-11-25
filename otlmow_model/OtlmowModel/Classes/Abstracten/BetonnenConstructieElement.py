@@ -1,8 +1,11 @@
 # coding=utf-8
-from typing import List
+from abc import ABC, abstractmethod
+
 from ...BaseClasses.OTLObject import OTLAttribuut
-from abc import abstractmethod, ABC
-from ...Datatypes.DtcBetonspecificaties import DtcBetonspecificaties, DtcBetonspecificatiesWaarden
+from ...Datatypes.DtcBetonspecificaties import (
+    DtcBetonspecificaties,
+    DtcBetonspecificatiesWaarden,
+)
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlUitvoeringsmethode import KlUitvoeringsmethode
 
@@ -55,7 +58,7 @@ class BetonnenConstructieElement(ABC):
                                            owner=self)
 
     @property
-    def bekistingsplan(self) -> List[DtcDocumentWaarden]:
+    def bekistingsplan(self) -> list[DtcDocumentWaarden]:
         """Een plan die bekistingsmaten bevat en ook alle maten van alle mogelijke uitsparingen die er kunnen zijn."""
         return self._bekistingsplan.get_waarde()
 

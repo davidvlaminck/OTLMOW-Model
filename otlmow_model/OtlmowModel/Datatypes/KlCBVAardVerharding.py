@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlCBVAardVerharding(KeuzelijstField):
     definition = 'Mogelijke waarden voor de aard van de cement/beton verharding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCBVAardVerharding'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'doorgaand-gewapend-beton': KeuzelijstWaarde(invulwaarde='doorgaand-gewapend-beton',
                                                      label='doorgaand gewapend beton',
                                                      status='ingebruik',
@@ -63,7 +65,7 @@ class KlCBVAardVerharding(KeuzelijstField):
                                                            status='ingebruik',
                                                            definitie='Verharding van staalvezelbeton zonder deuvels.',
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCBVAardVerharding/staalvezelbeton-zonder-deuvels')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

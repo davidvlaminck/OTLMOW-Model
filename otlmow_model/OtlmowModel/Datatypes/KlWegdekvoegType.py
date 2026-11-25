@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlWegdekvoegType(KeuzelijstField):
     definition = 'Vormen van wegdekvoeg.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegdekvoegType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'DGB-compoundvoeg': KeuzelijstWaarde(invulwaarde='DGB-compoundvoeg',
                                              label='DGB compoundvoeg',
                                              status='ingebruik',
@@ -24,10 +26,10 @@ class KlWegdekvoegType(KeuzelijstField):
                                             definitie='Een dwarse voeg die het uitzetten en krimpen van materialen, ook wel werking genoemd, opvangt.',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegdekvoegType/dwarse-werkvoeg'),
         'geëxtrudeerde-voegband': KeuzelijstWaarde(invulwaarde='geëxtrudeerde-voegband',
-                                                   label='geëxtrudeerde voegband',
-                                                   status='ingebruik',
-                                                   definitie='Een geëxtrudeerde voegband die het uitzetten en krimpen van materialen, ook wel werking genoemd, opvangt.',
-                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegdekvoegType/geëxtrudeerde-voegband'),
+                                                    label='geëxtrudeerde voegband',
+                                                    status='ingebruik',
+                                                    definitie='Een geëxtrudeerde voegband die het uitzetten en krimpen van materialen, ook wel werking genoemd, opvangt.',
+                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegdekvoegType/geëxtrudeerde-voegband'),
         'isolatievoeg-tussen-bestaande-constructie-en-betonverharding': KeuzelijstWaarde(invulwaarde='isolatievoeg-tussen-bestaande-constructie-en-betonverharding',
                                                                                          label='isolatievoeg tussen bestaande constructie en betonverharding',
                                                                                          status='ingebruik',
@@ -73,7 +75,7 @@ class KlWegdekvoegType(KeuzelijstField):
                                                   status='ingebruik',
                                                   definitie='Een voorgevormde voegband die het uitzetten en krimpen van materialen, ook wel werking genoemd, opvangt.',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegdekvoegType/voorgevormde-voegband')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

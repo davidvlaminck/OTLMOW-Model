@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +13,8 @@ class KlAntenneUitvoeringsType(KeuzelijstField):
     definition = 'Het uitvoeringstype van een antenne bepaalt de richting(en) waarover de antenne signaal kan ontvangen en uitsturen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAntenneUitvoeringsType'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

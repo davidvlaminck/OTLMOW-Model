@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlElectricitySubthema(KeuzelijstField):
     definition = 'Lijst voor classificatie van elektrische kabels en appurtenances.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElectricitySubthema'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'elektriciteitdistributiehoogspanning': KeuzelijstWaarde(invulwaarde='elektriciteitdistributiehoogspanning',
                                                                  label='elektriciteitDistributieHoogspanning',
                                                                  status='ingebruik',
@@ -41,7 +43,7 @@ class KlElectricitySubthema(KeuzelijstField):
                                                          label='elektriciteitVerkeerslichten',
                                                          status='ingebruik',
                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElectricitySubthema/elektriciteitverkeerslichten')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

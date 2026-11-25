@@ -1,21 +1,27 @@
 # coding=utf-8
-from typing import List
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
 from ..BaseClasses.ComplexField import ComplexField
-from ..Datatypes.DtcBeschermingVraatschade import DtcBeschermingVraatschade, DtcBeschermingVraatschadeWaarden
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..Datatypes.DtcBeschermingVraatschade import (
+    DtcBeschermingVraatschade,
+    DtcBeschermingVraatschadeWaarden,
+)
 from ..Datatypes.KlAantalBoompalen import KlAantalBoompalen
 from ..Datatypes.KlBeschermingMaaischade import KlBeschermingMaaischade
 from ..Datatypes.KlBoomVerankering import KlBoomVerankering
 from ..Datatypes.KlBoomVerankeringtype import KlBoomVerankeringtype
 from ..Datatypes.KlGroeiplaatsverbetering import KlGroeiplaatsverbetering
-from ..Datatypes.KlMateriaalBeschermingVraatschade import KlMateriaalBeschermingVraatschade
+from ..Datatypes.KlMateriaalBeschermingVraatschade import (
+    KlMateriaalBeschermingVraatschade,
+)
 from ..Datatypes.KlPlantmaatHoogte import KlPlantmaatHoogte
 from ..Datatypes.KlPlantmaatOmtrek import KlPlantmaatOmtrek
 from ..Datatypes.KlPlantwijze import KlPlantwijze
 from ..Datatypes.KlVegetatieWortel import KlVegetatieWortel
-from ..Datatypes.KlVormAanleveringHoutigeVegetatie import KlVormAanleveringHoutigeVegetatie
+from ..Datatypes.KlVormAanleveringHoutigeVegetatie import (
+    KlVormAanleveringHoutigeVegetatie,
+)
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -142,7 +148,7 @@ class DtcAanlegBoomvormWaarden(WaardenObject):
         self._boompaalconstructie.set_waarde(value, owner=self._parent)
 
     @property
-    def groeiplaatsverbetering(self) -> List[str]:
+    def groeiplaatsverbetering(self) -> list[str]:
         """De techniek waarmee de groeiplaats wordt verbeterd met als doel de levensverwachting en de conditie van de vegetatie te verbeteren."""
         return self._groeiplaatsverbetering.get_waarde()
 

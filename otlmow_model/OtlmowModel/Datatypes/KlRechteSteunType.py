@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlRechteSteunType(KeuzelijstField):
     definition = 'Keuzelijst die de verschillende types rechte steunen aanduidt.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRechteSteunType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'VRI-met-zwanehals': KeuzelijstWaarde(invulwaarde='VRI-met-zwanehals',
                                               label='VRI met zwanehals',
                                               status='verwijderd',
@@ -48,7 +50,7 @@ class KlRechteSteunType(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='Een paal met zwanehals (verwijzing naar de bocht in de paal).',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRechteSteunType/zwanehals')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

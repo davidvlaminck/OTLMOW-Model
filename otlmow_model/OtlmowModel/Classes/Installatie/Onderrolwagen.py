@@ -1,9 +1,11 @@
 # coding=utf-8
+from typing import ClassVar
+
+from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Geleidingsmechanisme import Geleidingsmechanisme
 from ...Classes.Abstracten.StaalsoortObject import StaalsoortObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KwantWrdInTon import KwantWrdInTon, KwantWrdInTonWaarden
 
 
@@ -14,16 +16,20 @@ class Onderrolwagen(Geleidingsmechanisme, StaalsoortObject, AIMNaamObject):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Onderrolwagen'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Glijgeleiding', 'u', None),  # u = unidirectional
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Rolgeleiding', 'u', None),  # u = unidirectional
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Bufferinstallatie', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Railconstructie', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rol', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rolwagenchassis', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wiel', 'i', None),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Glijgeleiding', direction='u')  # u = unidirectional
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Rolgeleiding', direction='u')  # u = unidirectional
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Bufferinstallatie', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Railconstructie', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rol', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Rolwagenchassis', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Wiel', direction='i')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._gewicht = OTLAttribuut(field=KwantWrdInTon,
                                      naam='gewicht',

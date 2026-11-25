@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlMIVMeetpuntAfmetingen(KeuzelijstField):
     definition = 'Lijst van standaardafmetingen van een lus van een MIV meetpunt.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMIVMeetpuntAfmetingen'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1-5x1-8': KeuzelijstWaarde(invulwaarde='1-5x1-8',
                                     label='1.5x1.8',
                                     status='verwijderd',
@@ -43,7 +45,7 @@ class KlMIVMeetpuntAfmetingen(KeuzelijstField):
                                               status='ingebruik',
                                               definitie='Standaard (1.5x1.8)',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVMeetpuntAfmetingen/standaard-1-5x1-8')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

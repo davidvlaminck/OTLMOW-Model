@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlOnderbouwType(KeuzelijstField):
     definition = 'Types van onderbouw.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOnderbouwType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bitumengebonden-fundering': KeuzelijstWaarde(invulwaarde='bitumengebonden-fundering',
                                                       label='bitumengebonden fundering',
                                                       status='ingebruik',
@@ -228,7 +230,7 @@ class KlOnderbouwType(KeuzelijstField):
                                                 status='ingebruik',
                                                 definitie='Fundering van zandcement met stut',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOnderbouwType/zandcement-met-stut')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

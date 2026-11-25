@@ -1,9 +1,9 @@
 # coding=utf-8
-from typing import List
-from datetime import date, date
+from datetime import date
+
+from ...BaseClasses.DateField import DateField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.DirectioneleRelatie import DirectioneleRelatie
-from ...BaseClasses.DateField import DateField
 from ...Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
 from ...Datatypes.KlBetrokkenheidRol import KlBetrokkenheidRol
 
@@ -76,7 +76,7 @@ class HeeftBetrokkene(DirectioneleRelatie):
         self._rol.set_waarde(value, owner=self)
 
     @property
-    def specifiekeContactinfo(self) -> List[DtcContactinfoWaarden]:
+    def specifiekeContactinfo(self) -> list[DtcContactinfoWaarden]:
         """Specifieke contactgegevens van de betrokken agent met betrekking tot het gekoppelde object."""
         return self._specifiekeContactinfo.get_waarde()
 

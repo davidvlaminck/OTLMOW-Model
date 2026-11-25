@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlHandbedieningType(KeuzelijstField):
     definition = 'Types van handbediening voor toestellen bevestigd aan een kast.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHandbedieningType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'drukknop': KeuzelijstWaarde(invulwaarde='drukknop',
                                      label='drukknop',
                                      status='ingebruik',
@@ -25,7 +27,7 @@ class KlHandbedieningType(KeuzelijstField):
                                            label='sleutelcontact',
                                            status='ingebruik',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHandbedieningType/sleutelcontact')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlLEACTypeEindstuk(KeuzelijstField):
     definition = 'De verschillende types eindstukken.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACTypeEindstuk'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'naar-beneden-afgebogen': KeuzelijstWaarde(invulwaarde='naar-beneden-afgebogen',
                                                    label='naar beneden afgebogen',
                                                    status='ingebruik',
@@ -28,7 +30,7 @@ class KlLEACTypeEindstuk(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='uitgebogen',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACTypeEindstuk/uitgebogen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

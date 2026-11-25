@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,12 +14,12 @@ class KlTypeBadge(KeuzelijstField):
     definition = 'De verschillende badgetypes.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBadge'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'facilitair-bedrijf': KeuzelijstWaarde(invulwaarde='facilitair-bedrijf',
                                                label='Facilitair bedrijf',
                                                status='ingebruik',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBadge/facilitair-bedrijf')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

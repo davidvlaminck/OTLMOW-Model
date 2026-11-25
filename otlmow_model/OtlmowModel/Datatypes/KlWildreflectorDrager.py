@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlWildreflectorDrager(KeuzelijstField):
     definition = 'Mogelijke dragers van een wildreflector.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWildreflectorDrager'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'houten-paal': KeuzelijstWaarde(invulwaarde='houten-paal',
                                         label='houten paal',
                                         status='ingebruik',
@@ -23,7 +25,7 @@ class KlWildreflectorDrager(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='metalen paal als drager.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWildreflectorDrager/metalen-paal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

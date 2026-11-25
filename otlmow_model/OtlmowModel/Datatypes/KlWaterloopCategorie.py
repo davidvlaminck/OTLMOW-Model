@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlWaterloopCategorie(KeuzelijstField):
     definition = 'De verschillende categorieën van een waterloop.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWaterloopCategorie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'onbevaarbaar-cat1': KeuzelijstWaarde(invulwaarde='onbevaarbaar-cat1',
                                               label='Onbevaarbaar cat1',
                                               status='ingebruik',
@@ -25,7 +27,7 @@ class KlWaterloopCategorie(KeuzelijstField):
                                               label='Onbevaarbaar cat3',
                                               status='ingebruik',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWaterloopCategorie/onbevaarbaar-cat3')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

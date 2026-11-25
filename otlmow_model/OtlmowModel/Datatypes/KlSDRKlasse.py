@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlSDRKlasse(KeuzelijstField):
     definition = 'De verhouding tussen de wanddikte en de diameter van de persleiding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSDRKlasse'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '11': KeuzelijstWaarde(invulwaarde='11',
                                label='11',
                                status='ingebruik',
@@ -23,7 +25,7 @@ class KlSDRKlasse(KeuzelijstField):
                                status='ingebruik',
                                definitie='17',
                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSDRKlasse/17')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

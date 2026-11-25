@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlZijdenType(KeuzelijstField):
     definition = 'Het type van de zijden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZijdenType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gebogen': KeuzelijstWaarde(invulwaarde='gebogen',
                                     label='Gebogen',
                                     status='ingebruik',
@@ -38,7 +40,7 @@ class KlZijdenType(KeuzelijstField):
                                     status='ingebruik',
                                     definitie='Schuine zijden.',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlZijdenType/schuine')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

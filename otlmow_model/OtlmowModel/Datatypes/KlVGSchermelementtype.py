@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlVGSchermelementtype(KeuzelijstField):
     definition = 'Het type vlak-schermelement.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVGSchermelementtype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'schermelement-bevestigd-tegen-de-profielen': KeuzelijstWaarde(invulwaarde='schermelement-bevestigd-tegen-de-profielen',
                                                                        label='schermelement bevestigd tegen de profielen',
                                                                        status='ingebruik',
@@ -28,7 +30,7 @@ class KlVGSchermelementtype(KeuzelijstField):
                                                            status='ingebruik',
                                                            definitie='schermelement zonder profielen',
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVGSchermelementtype/schermelement-zonder-profielen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

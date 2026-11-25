@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlEcoEcoductType(KeuzelijstField):
     definition = 'Types van ecoduct.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoEcoductType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bermbrug': KeuzelijstWaarde(invulwaarde='bermbrug',
                                      label='bermbrug',
                                      status='ingebruik',
@@ -28,7 +30,7 @@ class KlEcoEcoductType(KeuzelijstField):
                                         status='ingebruik',
                                         definitie='Een brug hoofdzakelijk in gebruik voor natuur, gecombineerd met een fietspad.',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEcoEcoductType/ecoveloduct')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

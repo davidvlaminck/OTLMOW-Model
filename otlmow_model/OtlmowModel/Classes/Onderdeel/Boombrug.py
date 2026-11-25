@@ -1,4 +1,6 @@
 # coding=utf-8
+from typing import ClassVar
+
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlEcoBoombrugType import KlEcoBoombrugType
@@ -13,12 +15,16 @@ class Boombrug(AIMObject, LijnGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boombrug'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom', 'u', None),  # u = unidirectional
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom', 'u', '2.0.0'),  # u = unidirectional
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug', 'u', None),  # u = unidirectional
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom', direction='u')  # u = unidirectional
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom', direction='u', deprecated='2.0.0')  # u = unidirectional
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Seinbrug', direction='u')  # u = unidirectional
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._hoogte = OTLAttribuut(field=KwantWrdInMeter,
                                     naam='hoogte',
@@ -59,11 +65,10 @@ class Boombrug(AIMObject, LijnGeometrie):
     def lengte(self, value):
         self._lengte.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het type van boombrug."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

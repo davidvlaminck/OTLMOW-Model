@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlTypeBevestigingHijspunt(KeuzelijstField):
     definition = 'De mogelijke wijzen waarop een hijspunt aan de bouwkundige constructie is bevestigd.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBevestigingHijspunt'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'chemisch-verankerd': KeuzelijstWaarde(invulwaarde='chemisch-verankerd',
                                                label='chemisch verankerd',
                                                status='ingebruik',
@@ -33,7 +35,7 @@ class KlTypeBevestigingHijspunt(KeuzelijstField):
                                            label='ingebetonneerd',
                                            status='ingebruik',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBevestigingHijspunt/ingebetonneerd')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

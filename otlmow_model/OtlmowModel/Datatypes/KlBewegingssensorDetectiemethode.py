@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlBewegingssensorDetectiemethode(KeuzelijstField):
     definition = 'De methode waarvolgens de detectie gebeurt.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBewegingssensorDetectiemethode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'actief-infrarood-(air)': KeuzelijstWaarde(invulwaarde='actief-infrarood-(air)',
                                                    label='actief infrarood (AIR)',
                                                    status='ingebruik',
@@ -25,7 +27,7 @@ class KlBewegingssensorDetectiemethode(KeuzelijstField):
                                                     label='passief infrarood (PIR)',
                                                     status='ingebruik',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBewegingssensorDetectiemethode/passief-infrarood-(pir)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlDivergentiepuntbebakeningselementType(KeuzelijstField):
     definition = 'De vormen van het divergentiepuntbebakeningselement.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDivergentiepuntbebakeningselementType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'klein-model': KeuzelijstWaarde(invulwaarde='klein-model',
                                         label='klein model',
                                         status='ingebruik',
@@ -23,7 +25,7 @@ class KlDivergentiepuntbebakeningselementType(KeuzelijstField):
                                             status='ingebruik',
                                             definitie='Divergentiepuntbebakeningselement van 2 meter diameter (folie type 2).',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDivergentiepuntbebakeningselementType/standaard-model')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlDraagConstrBijzondertransport(KeuzelijstField):
     definition = 'De mogelijkheden en manieren waarop een steun geschikt is om bijzonder transport mogelijk te maken.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDraagConstrBijzondertransport'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'afkoppelbaar': KeuzelijstWaarde(invulwaarde='afkoppelbaar',
                                          label='afkoppelbaar',
                                          status='ingebruik',
@@ -33,7 +35,7 @@ class KlDraagConstrBijzondertransport(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Het object is kantelbaar.',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDraagConstrBijzondertransport/kantelbaar')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

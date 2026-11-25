@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlGekleurdWVCode(KeuzelijstField):
     definition = 'Codes voor een gekleurd wegvlak.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGekleurdWVCode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'GW-FOP': KeuzelijstWaarde(invulwaarde='GW-FOP',
                                    label='GW-FOP',
                                    status='ingebruik',
@@ -63,7 +65,7 @@ class KlGekleurdWVCode(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='Gekleurd wegvlak voor voetgangers-oversteekplaats.',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGekleurdWVCode/GW-VOP')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

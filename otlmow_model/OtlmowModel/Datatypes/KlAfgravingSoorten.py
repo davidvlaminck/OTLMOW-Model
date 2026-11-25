@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlAfgravingSoorten(KeuzelijstField):
     definition = 'De specificatie van type handeling bij afgraving.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfgravingSoorten'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '20-cm': KeuzelijstWaarde(invulwaarde='20-cm',
                                   label='20 cm',
                                   status='ingebruik',
@@ -28,7 +30,7 @@ class KlAfgravingSoorten(KeuzelijstField):
                                                     status='ingebruik',
                                                     definitie='De afgraving in plaatselijke uitvoering omvat het wegnemen van de bouwlaag van bedding, taluds, ondervlak, dijken en/of bermen.',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfgravingSoorten/plaatselijke-uitvoering')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

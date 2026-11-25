@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,12 +14,12 @@ class KlMeetcelVeiligheidsfactor(KeuzelijstField):
     definition = 'Verhouding tussen de toegekende primaire limietstroom van de meetcel en de toegekende primaire stroom.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMeetcelVeiligheidsfactor'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'fS-5': KeuzelijstWaarde(invulwaarde='fS-5',
                                  label='fS 5',
                                  status='ingebruik',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMeetcelVeiligheidsfactor/fS-5')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlVerlichtingstoestelInclinatiehoek(KeuzelijstField):
     definition = 'De inclinatiehoek geeft aan hoeveel het verlichtingstoestel naar voren of naar achteren is gekanteld ten opzichte van de horizontale stand. Deze informatie wordt uitgedrukt in graden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerlichtingstoestelInclinatiehoek'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '0': KeuzelijstWaarde(invulwaarde='0',
                               label='0',
                               status='ingebruik',
@@ -43,7 +45,7 @@ class KlVerlichtingstoestelInclinatiehoek(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='-5',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelInclinatiehoek/5-2')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

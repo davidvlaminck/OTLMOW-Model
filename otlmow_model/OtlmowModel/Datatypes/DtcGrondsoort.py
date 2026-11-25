@@ -1,8 +1,7 @@
 # coding=utf-8
-from typing import List
+from ..BaseClasses.ComplexField import ComplexField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
-from ..BaseClasses.ComplexField import ComplexField
 from ..Datatypes.DtcGrondbijmenging import DtcGrondbijmenging, DtcGrondbijmengingWaarden
 from ..Datatypes.KlGrondHoofdnaamCode import KlGrondHoofdnaamCode
 
@@ -29,7 +28,7 @@ class DtcGrondsoortWaarden(WaardenObject):
                                            owner=self)
 
     @property
-    def bijmenging(self) -> List[DtcGrondbijmengingWaarden]:
+    def bijmenging(self) -> list[DtcGrondbijmengingWaarden]:
         """Lithologisch hoofdbestanddeel (als code) van de laag zoals gebruikt bij Databank Ondergrond Vlaanderen (gecodeerde lithologie en geotechnische codering)."""
         return self._bijmenging.get_waarde()
 

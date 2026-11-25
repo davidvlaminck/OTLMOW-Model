@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlKabelmofType(KeuzelijstField):
     definition = 'Types voor kabel- en leidingmoffen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelmofType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'geldoos': KeuzelijstWaarde(invulwaarde='geldoos',
                                     label='geldoos',
                                     status='ingebruik',
@@ -25,7 +27,7 @@ class KlKabelmofType(KeuzelijstField):
                                      label='HDPE mof',
                                      status='ingebruik',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelmofType/hdpe-mof')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

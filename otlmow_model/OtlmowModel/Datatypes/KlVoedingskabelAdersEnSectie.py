@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlVoedingskabelAdersEnSectie(KeuzelijstField):
     definition = 'Lijst van mogelijke waarden volgens de catalogusposten van het standaardbestek voor de samenstelling van een voedingskabel volgens het aantal aders en hun dikte in vierkante millimeter.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVoedingskabelAdersEnSectie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1-x-1.5-mm2': KeuzelijstWaarde(invulwaarde='1-x-1.5-mm2',
                                         label='1 x 1.5 mm²',
                                         status='uitgebruik',
@@ -583,7 +585,7 @@ class KlVoedingskabelAdersEnSectie(KeuzelijstField):
                                                            status='uitgebruik',
                                                            definitie='uitgebruik',
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVoedingskabelAdersEnSectie/zonder-bijkomende-specificatie')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

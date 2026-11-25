@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +15,7 @@ class KlBoomConflicten(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomConflicten'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'andere': KeuzelijstWaarde(invulwaarde='andere',
                                    label='andere',
                                    status='ingebruik',
@@ -59,7 +61,7 @@ class KlBoomConflicten(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='Boomwortels die (weg)verhardingselementen opdrukken',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBoomConflicten/wortelopdruk')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

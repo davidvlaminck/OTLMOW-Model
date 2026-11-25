@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlKwaliteitsklasseHout(KeuzelijstField):
     definition = 'De kwaliteitsindeling van hout met betrekking op vervormingen, scheuren en kwasten.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKwaliteitsklasseHout'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'klasse-a': KeuzelijstWaarde(invulwaarde='klasse-a',
                                      label='Klasse A',
                                      status='ingebruik',
@@ -33,7 +35,7 @@ class KlKwaliteitsklasseHout(KeuzelijstField):
                                               status='ingebruik',
                                               definitie='Zwaardere houtsoorten uit de tropen, zoals vb.: azobé (afkomstig uit tropische bossen in Afrika). ',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKwaliteitsklasseHout/tropisch-hardhout')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

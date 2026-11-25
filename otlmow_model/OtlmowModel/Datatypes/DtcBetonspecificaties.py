@@ -1,16 +1,18 @@
 # coding=utf-8
-from typing import List
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
 from ..BaseClasses.ComplexField import ComplexField
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WaardenObject import WaardenObject
 from ..Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ..Datatypes.KlBetonmilieuklasse import KlBetonmilieuklasse
 from ..Datatypes.KlBetonomgevingsklasse import KlBetonomgevingsklasse
 from ..Datatypes.KlBetonsterkteklasse import KlBetonsterkteklasse
 from ..Datatypes.KlGebruiksdomein import KlGebruiksdomein
 from ..Datatypes.KlToeslagmiddelBeton import KlToeslagmiddelBeton
-from ..Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from ..Datatypes.KwantWrdInMillimeter import (
+    KwantWrdInMillimeter,
+    KwantWrdInMillimeterWaarden,
+)
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
@@ -129,7 +131,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
                                              owner=self)
 
     @property
-    def betondekking(self) -> List[KwantWrdInMillimeterWaarden]:
+    def betondekking(self) -> list[KwantWrdInMillimeterWaarden]:
         """De afstand in millimeter tussen de buitenkant van het beton (het oppervlak van het beton) tot het dichtstbijzijnde wapeningsstaal."""
         return self._betondekking.get_waarde()
 
@@ -138,7 +140,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._betondekking.set_waarde(value, owner=self._parent)
 
     @property
-    def betonmilieuklassen(self) -> List[str]:
+    def betonmilieuklassen(self) -> list[str]:
         """Milieuklassen (X-klassen) leggen rechtstreeks de link met bepaalde aantastingsmechanismen, waaraan de betonconstructie (of een onderdeel ervan) wordt blootgesteld tijdens het gebruik. Er kunnen meerdere milieuklassen van toepassing zijn."""
         return self._betonmilieuklassen.get_waarde()
 
@@ -147,7 +149,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._betonmilieuklassen.set_waarde(value, owner=self._parent)
 
     @property
-    def betonomgevingsklassen(self) -> List[str]:
+    def betonomgevingsklassen(self) -> list[str]:
         """De omgeving waaraan de betonconstructie (of een onderdeel ervan) wordt blootgesteld tijdens het gebruik. Er kunnen meerdere omgevingsklassen van toepassing zijn."""
         return self._betonomgevingsklassen.get_waarde()
 
@@ -255,7 +257,7 @@ class DtcBetonspecificatiesWaarden(WaardenObject):
         self._technischeFicheSpecificatiesBeton.set_waarde(value, owner=self._parent)
 
     @property
-    def toeslagmiddelen(self) -> List[str]:
+    def toeslagmiddelen(self) -> list[str]:
         """Materialen die aan het beton worden toegevoegd om vb.: een beter geheel te maken, holle ruimten te vullen waardoor de sterkte toeneemt, ruimten met minder massa te creëren,... Dit kunnen er meerdere zijn."""
         return self._toeslagmiddelen.get_waarde()
 

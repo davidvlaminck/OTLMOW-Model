@@ -1,10 +1,9 @@
 # coding=utf-8
-from typing import List
+from ..BaseClasses.ComplexField import ComplexField
+from ..BaseClasses.IntegerField import IntegerField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
-from ..BaseClasses.ComplexField import ComplexField
 from ..Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ..BaseClasses.IntegerField import IntegerField
 from ..Datatypes.KlGCMeetMethode import KlGCMeetMethode
 from ..Datatypes.KlLEGCNorm import KlLEGCNorm
 from ..Datatypes.KlLEGCTestType import KlLEGCTestType
@@ -111,7 +110,7 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
         self._norm.set_waarde(value, owner=self._parent)
 
     @property
-    def testrapport(self) -> List[DtcDocumentWaarden]:
+    def testrapport(self) -> list[DtcDocumentWaarden]:
         """Documentbijlage met de resultaten van de test."""
         return self._testrapport.get_waarde()
 
@@ -119,14 +118,13 @@ class DtcGeluidstestRapportWaarden(WaardenObject):
     def testrapport(self, value):
         self._testrapport.set_waarde(value, owner=self._parent)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het type van de test."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self._parent)
+    type = property(_get_type, _set_type)
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

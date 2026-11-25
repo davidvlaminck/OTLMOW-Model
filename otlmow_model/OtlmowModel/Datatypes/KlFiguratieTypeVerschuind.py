@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlFiguratieTypeVerschuind(KeuzelijstField):
     definition = 'Types van verschuinde figuratiemarkering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFiguratieTypeVerschuind'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'STOP-(smal-schuin)': KeuzelijstWaarde(invulwaarde='STOP-(smal-schuin)',
                                                label='STOP (smal schuin)',
                                                status='ingebruik',
@@ -23,7 +25,7 @@ class KlFiguratieTypeVerschuind(KeuzelijstField):
                                            status='ingebruik',
                                            definitie='Omgekeerde driehoek markering groot en schuin type.',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieTypeVerschuind/groot-(schuin)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

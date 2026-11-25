@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +14,7 @@ class KlAlgMimeType(KeuzelijstField):
     definition = 'De mime types van bestanden (AWVDocument) beperkt tot mime types voor toegelaten bestandstypen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgMimeType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'application-acad': KeuzelijstWaarde(invulwaarde='application-acad',
                                              label='application/acad',
                                              status='ingebruik',
@@ -111,7 +113,7 @@ class KlAlgMimeType(KeuzelijstField):
                                       label='video/avi',
                                       status='ingebruik',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAlgMimeType/video-avi')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

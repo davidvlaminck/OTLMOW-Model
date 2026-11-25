@@ -1,4 +1,6 @@
 # coding=utf-8
+from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +15,7 @@ class KlANPRModelnaam(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.9.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlANPRModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'G1': KeuzelijstWaarde(invulwaarde='G1',
                                label='G1',
                                status='ingebruik',
@@ -46,7 +48,7 @@ class KlANPRModelnaam(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Vega',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlANPRModelnaam/vega')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):
