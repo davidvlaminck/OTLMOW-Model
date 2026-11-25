@@ -123,7 +123,10 @@ def run_ruff(source: str, tests: str, scripts: str, tooling: str = '') -> dict[s
     command = _tool('ruff')
     if command is None:
         return {'available': False, 'total': 0, 'per_rule': {}, 'fixable': 0}
-    code, output = _run([*command, 'check', '--output-format=json', source, tests, scripts, tooling])
+    cmd = [*command, 'check', '--output-format=json', source, tests, scripts]
+    if tooling:
+        cmd.append(tooling)
+    code, output = _run(cmd)
     try:
         findings = json.loads(output or '[]')
     except json.JSONDecodeError:
@@ -384,7 +387,7 @@ MANUAL_CHECKS = [check_membership_tests]
 
 def run_manual_conventions(source: str, tests: str, scripts: str, tooling: str = '') -> dict[str, Any]:
     """Run all registered manual-convention checks and sum their counts."""
-    paths = [source, tests, scripts, tooling]
+    paths = [p for p in (source, tests, scripts, tooling) if p]
     total = sum(check(paths) for check in MANUAL_CHECKS)
     return {'available': True, 'items': total}
 
