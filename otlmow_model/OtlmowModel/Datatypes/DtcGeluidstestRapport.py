@@ -1,9 +1,9 @@
 # coding=utf-8
-from ..BaseClasses.ComplexField import ComplexField
-from ..BaseClasses.IntegerField import IntegerField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
+from ..BaseClasses.ComplexField import ComplexField
 from ..Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
+from ..BaseClasses.IntegerField import IntegerField
 from ..Datatypes.KlGCMeetMethode import KlGCMeetMethode
 from ..Datatypes.KlLEGCNorm import KlLEGCNorm
 from ..Datatypes.KlLEGCTestType import KlLEGCTestType

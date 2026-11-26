@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBSSType(KeuzelijstField):
     definition = 'Types van betonstraatsteen en betontegel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBSSType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gekleurde-met-anorganische-pigmenten': KeuzelijstWaarde(invulwaarde='gekleurde-met-anorganische-pigmenten',
                                                                  label='gekleurde met anorganische pigmenten',
                                                                  status='ingebruik',
@@ -33,7 +34,7 @@ class KlBSSType(KeuzelijstField):
                                                                      status='ingebruik',
                                                                      definitie='Witte betonstraatstenen met kleurondersteunende granulaten.',
                                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBSSType/witte-met-kleurondersteunende-granulaten')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

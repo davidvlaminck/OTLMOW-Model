@@ -1,12 +1,9 @@
 # coding=utf-8
 from ..BaseClasses.OTLObject import OTLAttribuut
+from ..Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm, DtcAfmetingBxlInCmWaarden
+from ..Datatypes.DtcAfmetingDiameterInCm import DtcAfmetingDiameterInCm, DtcAfmetingDiameterInCmWaarden
 from ..BaseClasses.UnionTypeField import UnionTypeField
 from ..BaseClasses.UnionWaarden import UnionWaarden
-from ..Datatypes.DtcAfmetingBxlInCm import DtcAfmetingBxlInCm, DtcAfmetingBxlInCmWaarden
-from ..Datatypes.DtcAfmetingDiameterInCm import (
-    DtcAfmetingDiameterInCm,
-    DtcAfmetingDiameterInCmWaarden,
-)
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit

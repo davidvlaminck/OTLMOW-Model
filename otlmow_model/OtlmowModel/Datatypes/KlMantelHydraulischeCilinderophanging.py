@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMantelHydraulischeCilinderophanging(KeuzelijstField):
     definition = 'De wijze van ophanging van de mantel van een hydraulische cilinder.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMantelHydraulischeCilinderophanging'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'astappen': KeuzelijstWaarde(invulwaarde='astappen',
                                      label='astappen',
                                      status='ingebruik',
@@ -21,7 +22,7 @@ class KlMantelHydraulischeCilinderophanging(KeuzelijstField):
                                     label='eindoog',
                                     status='ingebruik',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMantelHydraulischeCilinderophanging/eindoog')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

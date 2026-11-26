@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +12,8 @@ class KlMateriaalStraatkap(KeuzelijstField):
     definition = 'Het materiaal van een straatkap verwijst naar de specifieke bouwstof of samenstelling waaruit het deksel bestaat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMateriaalStraatkap'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

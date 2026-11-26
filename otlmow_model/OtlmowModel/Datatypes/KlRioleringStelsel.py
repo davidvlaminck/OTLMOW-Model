@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlRioleringStelsel(KeuzelijstField):
     definition = 'Stelsels van de riool.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRioleringStelsel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'drain': KeuzelijstWaarde(invulwaarde='drain',
                                   label='drain',
                                   status='ingebruik',
@@ -38,7 +39,7 @@ class KlRioleringStelsel(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Stelsel bedoeld voor de afvoer van vervuild water. Het deksel van dit stelsel kan de code DWA (sterk geconcentreerd afvalwater), DRWA (combinatie van regenwater en afvalwater) of W (eigendom van de watermaatschappij) hebben.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRioleringStelsel/vuil')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

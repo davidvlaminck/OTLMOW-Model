@@ -155,11 +155,10 @@ class BrandwerendeBekleding(BekledingComponent):
     def testnorm(self, value):
         self._testnorm.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """De verschijningsvorm of applicatiemethode van het materiaal, zoals plaat, paneel, gespoten materiaal of intumescerende coating."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Proef import Proef
 from ...BaseClasses.BooleanField import BooleanField
@@ -47,7 +46,7 @@ class ProefNaderOnderzoekTomograaf(Proef, PuntGeometrie, LijnGeometrie, VlakGeom
         self._inclusiefElektrisch.set_waarde(value, owner=self)
 
     @property
-    def naderOnderzoekTomograaf(self) -> List[DtcDocumentWaarden]:
+    def naderOnderzoekTomograaf(self) -> list[DtcDocumentWaarden]:
         """Het resultaat van de tomograaf proef."""
         return self._naderOnderzoekTomograaf.get_waarde()
 

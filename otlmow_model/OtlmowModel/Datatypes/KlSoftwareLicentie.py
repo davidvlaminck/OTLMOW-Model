@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSoftwareLicentie(KeuzelijstField):
     definition = 'De licentievorm van de software.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSoftwareLicentie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'commercieel': KeuzelijstWaarde(invulwaarde='commercieel',
                                         label='commercieel',
                                         status='ingebruik',
@@ -37,7 +38,7 @@ class KlSoftwareLicentie(KeuzelijstField):
                                       label='shareware',
                                       status='ingebruik',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSoftwareLicentie/shareware')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

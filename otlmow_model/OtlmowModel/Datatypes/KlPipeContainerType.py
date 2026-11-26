@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPipeContainerType(KeuzelijstField):
     definition = 'Lijst met types van pies voor het oude AKELA-type Pipe.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPipeContainerType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'kabelenleidinggoot': KeuzelijstWaarde(invulwaarde='kabelenleidinggoot',
                                                label='kabelEnLeidingGoot',
                                                status='ingebruik',
@@ -21,7 +22,7 @@ class KlPipeContainerType(KeuzelijstField):
                                        label='mantelbuis',
                                        status='ingebruik',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPipeContainerType/mantelbuis')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

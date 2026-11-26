@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIntercomUitvoering(KeuzelijstField):
     definition = 'Keuzelijst met types voor intercomtoestellen naargelang hun functie in het gesloten netwerk'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIntercomUitvoering'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'antwoordpost': KeuzelijstWaarde(invulwaarde='antwoordpost',
                                          label='antwoordpost',
                                          status='ingebruik',
@@ -33,7 +34,7 @@ class KlIntercomUitvoering(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Toestel waarmee een gebruiker rechtstreeks een ander toestel binnen een lokaal netwerk kan contacteren of een centrale hoofdpost.',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIntercomUitvoering/oproeppost')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

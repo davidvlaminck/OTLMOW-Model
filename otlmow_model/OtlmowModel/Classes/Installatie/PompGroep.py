@@ -1,16 +1,11 @@
 # coding=utf-8
-from typing import ClassVar
-
-from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlPompGroepMerk import KlPompGroepMerk
 from ...Datatypes.KlPompGroepModelnaam import KlPompGroepModelnaam
 from ...Datatypes.KlPompSoort import KlPompSoort
-from ...Datatypes.KwantWrdInKubiekeMeterPerUur import (
-    KwantWrdInKubiekeMeterPerUur,
-    KwantWrdInKubiekeMeterPerUurWaarden,
-)
+from ...Datatypes.KwantWrdInKubiekeMeterPerUur import KwantWrdInKubiekeMeterPerUur, KwantWrdInKubiekeMeterPerUurWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -22,20 +17,16 @@ class PompGroep(AIMNaamObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#PompGroep'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Schakelketting', 'u', None),  # u = unidirectional
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#PompSchroefEnWaaier', 'i', None),  # i = direction: incoming
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koppeling', 'i', None),  # i = direction: incoming
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Overbrenging', 'i', None),  # i = direction: incoming
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompstation', 'o', None),  # o = direction: outgoing
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor', 'i', None),  # i = direction: incoming
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pomphuis', 'i', None),  # i = direction: incoming
-    ]
-
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relations(self._VALID_RELATIONS)
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Schakelketting', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#PompSchroefEnWaaier', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Koppeling', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Overbrenging', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Pompstation', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Pomphuis', direction='i')  # i = direction: incoming
 
         self._heeftIdentificatieplaat = OTLAttribuut(field=BooleanField,
                                                      naam='heeftIdentificatieplaat',

@@ -25,11 +25,10 @@ class Handbediening(AIMNaamObject, PuntGeometrie):
                                   definition='Het gebruikte type voor handbediening langs de buitenkant van een kast voor sturing van systemen binnenin.',
                                   owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het gebruikte type voor handbediening langs de buitenkant van een kast voor sturing van systemen binnenin."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

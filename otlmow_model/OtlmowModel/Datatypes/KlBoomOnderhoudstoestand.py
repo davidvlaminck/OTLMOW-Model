@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlBoomOnderhoudstoestand(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.12.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomOnderhoudstoestand'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'niet-op-beeld-achterstallig': KeuzelijstWaarde(invulwaarde='niet-op-beeld-achterstallig',
                                                         label='niet op beeld-achterstallig',
                                                         status='ingebruik',
@@ -34,7 +35,7 @@ class KlBoomOnderhoudstoestand(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='De boom heeft een tijdige en goede begeleidings- of onderhoudssnoei en ziet er uit zoals hij er hoort uit te zien.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBoomOnderhoudstoestand/op-beeld')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

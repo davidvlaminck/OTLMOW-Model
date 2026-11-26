@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlClusterClusterdoel(KeuzelijstField):
     definition = 'De reden waarom de custer is opgezet.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlClusterClusterdoel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'groeperen-resources': KeuzelijstWaarde(invulwaarde='groeperen-resources',
                                                 label='groeperen resources',
                                                 status='ingebruik',
@@ -21,7 +22,7 @@ class KlClusterClusterdoel(KeuzelijstField):
                                         label='redundantie',
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlClusterClusterdoel/redundantie')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

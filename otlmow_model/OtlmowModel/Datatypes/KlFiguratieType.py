@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlFiguratieType(KeuzelijstField):
     definition = 'Types van figuratiemarkering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFiguratieType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '2e-afslag-links-(5m)': KeuzelijstWaarde(invulwaarde='2e-afslag-links-(5m)',
                                                  label='2e afslag links (5m)',
                                                  status='ingebruik',
@@ -159,20 +160,20 @@ class KlFiguratieType(KeuzelijstField):
                                   definitie='Omgekeerde driehoek markering groot type.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieType/groot'),
         'groter-dan-22.75-m²': KeuzelijstWaarde(invulwaarde='groter-dan-22.75-m²',
-                                                label='groter dan 22.75 m²',
-                                                status='ingebruik',
-                                                definitie='Lettermarkering bus met arcering.',
-                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieType/groter-dan-22.75-m²'),
+                                                 label='groter dan 22.75 m²',
+                                                 status='ingebruik',
+                                                 definitie='Lettermarkering bus met arcering.',
+                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieType/groter-dan-22.75-m²'),
         'klein': KeuzelijstWaarde(invulwaarde='klein',
                                   label='klein',
                                   status='ingebruik',
                                   definitie='Omgekeerde driehoek markering klein type.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieType/klein'),
         'kleiner-dan-22.75-m²': KeuzelijstWaarde(invulwaarde='kleiner-dan-22.75-m²',
-                                                 label='kleiner dan 22.75 m²',
-                                                 status='ingebruik',
-                                                 definitie='Lettermarkering bus met arcering.',
-                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieType/kleiner-dan-22.75-m²'),
+                                                  label='kleiner dan 22.75 m²',
+                                                  status='ingebruik',
+                                                  definitie='Lettermarkering bus met arcering.',
+                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieType/kleiner-dan-22.75-m²'),
         'kruising-sporen': KeuzelijstWaarde(invulwaarde='kruising-sporen',
                                             label='kruising sporen',
                                             status='ingebruik',
@@ -348,7 +349,7 @@ class KlFiguratieType(KeuzelijstField):
                                              status='ingebruik',
                                              definitie='Symbool woon-werkverkeer.',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieType/woon-werkverkeer')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

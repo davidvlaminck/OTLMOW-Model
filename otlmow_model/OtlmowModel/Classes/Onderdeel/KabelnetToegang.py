@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...BaseClasses.IntegerField import IntegerField
@@ -83,7 +82,7 @@ class KabelnetToegang(NaampadObject, PuntGeometrie):
         self._kabelnetURL.set_waarde(value, owner=self)
 
     @property
-    def netwerkSoort(self) -> List[str]:
+    def netwerkSoort(self) -> list[str]:
         """Type netwerk dat bereikbaar is via het toegangspunt."""
         return self._netwerkSoort.get_waarde()
 

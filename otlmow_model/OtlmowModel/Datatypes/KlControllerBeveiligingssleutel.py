@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,12 +13,12 @@ class KlControllerBeveiligingssleutel(KeuzelijstField):
     definition = 'De encryptie die wordt toegepast om de verbinding tussen lokaal en centraal te beveiligen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlControllerBeveiligingssleutel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'AES-256': KeuzelijstWaarde(invulwaarde='AES-256',
                                     label='AES-256',
                                     status='ingebruik',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlControllerBeveiligingssleutel/AES-256')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

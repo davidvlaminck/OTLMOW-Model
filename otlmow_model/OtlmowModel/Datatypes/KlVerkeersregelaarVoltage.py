@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVerkeersregelaarVoltage(KeuzelijstField):
     definition = 'Keuzelijst met de voorkomende voltages gebruikt voor verkeersregelaars.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeersregelaarVoltage'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '230': KeuzelijstWaarde(invulwaarde='230',
                                 label='230',
                                 status='ingebruik',
@@ -25,7 +26,7 @@ class KlVerkeersregelaarVoltage(KeuzelijstField):
                                label='42',
                                status='ingebruik',
                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeersregelaarVoltage/42')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

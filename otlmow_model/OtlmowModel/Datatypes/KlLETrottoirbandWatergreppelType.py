@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLETrottoirbandWatergreppelType(KeuzelijstField):
     definition = 'De vormen van een trottoirband_watergreppel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLETrottoirbandWatergreppelType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'type-III-A': KeuzelijstWaarde(invulwaarde='type-III-A',
                                        label='type III A',
                                        status='ingebruik',
@@ -38,7 +39,7 @@ class KlLETrottoirbandWatergreppelType(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='type III E',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLETrottoirbandWatergreppelType/type-III-E')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

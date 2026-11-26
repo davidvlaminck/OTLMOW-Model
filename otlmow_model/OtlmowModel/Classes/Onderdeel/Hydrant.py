@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Brandvoorziening import Brandvoorziening
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -54,7 +53,7 @@ class Hydrant(Brandvoorziening, NaampadObject):
                                        owner=self)
 
     @property
-    def diameter(self) -> List[KwantWrdInInchWaarden]:
+    def diameter(self) -> list[KwantWrdInInchWaarden]:
         """Diameter van het aftappunt."""
         return self._diameter.get_waarde()
 

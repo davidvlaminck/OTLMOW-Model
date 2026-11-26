@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLetterCijfer(KeuzelijstField):
     definition = 'De mogelijke letters en cijfers voor een letter- of cijfermarkering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLetterCijfer'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '-': KeuzelijstWaarde(invulwaarde='-',
                               label='-',
                               status='ingebruik',
@@ -199,16 +200,16 @@ class KlLetterCijfer(KeuzelijstField):
                               definitie='Letter z.',
                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLetterCijfer/z'),
         'â': KeuzelijstWaarde(invulwaarde='â',
-                              label='â',
-                              status='ingebruik',
-                              definitie='Letter â.',
-                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLetterCijfer/â'),
+                               label='â',
+                               status='ingebruik',
+                               definitie='Letter â.',
+                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLetterCijfer/â'),
         'é': KeuzelijstWaarde(invulwaarde='é',
-                              label='é',
-                              status='ingebruik',
-                              definitie='Letter é.',
-                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLetterCijfer/é')
-    }
+                               label='é',
+                               status='ingebruik',
+                               definitie='Letter é.',
+                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLetterCijfer/é')
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLichtmastBotsNormering(KeuzelijstField):
     definition = 'Lijst van mogelijke waarden voor botsnormering van lichtmasten.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtmastBotsNormering'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '100HE1': KeuzelijstWaarde(invulwaarde='100HE1',
                                    label='100HE1',
                                    status='ingebruik',
@@ -142,7 +143,7 @@ class KlLichtmastBotsNormering(KeuzelijstField):
                                                        status='ingebruik',
                                                        definitie='Mast heeft geen botsvriendelijke normering.',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastBotsNormering/niet-botsvriendelijke-mast')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

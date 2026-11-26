@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlAardingAardingsstelsel(KeuzelijstField):
     definition = 'Lijst van mogelijke aardinggsstelsels.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAardingAardingsstelsel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gemeenschappelijk': KeuzelijstWaarde(invulwaarde='gemeenschappelijk',
                                               label='gemeenschappelijk',
                                               status='ingebruik',
@@ -28,7 +29,7 @@ class KlAardingAardingsstelsel(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Een aardingsstelsel waarin de aardingen (LS, N, HS) niet met elkaar verbonden zijn.',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAardingAardingsstelsel/gescheiden')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

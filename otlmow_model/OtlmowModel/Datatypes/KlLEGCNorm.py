@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEGCNorm(KeuzelijstField):
     definition = 'De mogelijke normen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEGCNorm'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'NBN-EN-1793-1': KeuzelijstWaarde(invulwaarde='NBN-EN-1793-1',
                                           label='NBN EN 1793-1',
                                           status='ingebruik',
@@ -33,7 +34,7 @@ class KlLEGCNorm(KeuzelijstField):
                                           status='ingebruik',
                                           definitie="Beproevingsmethode deel 6 'In-situ waarden van luchtgeluidisolatie onder directe geluidsveldcondities'",
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEGCNorm/NBN-EN-1793-6')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBouwmethode(KeuzelijstField):
     definition = 'Keuzelijst om aan te geven welke bouwmethode gebruikt is om het koker element tot stand te brengen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBouwmethode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'box-in-box': KeuzelijstWaarde(invulwaarde='box-in-box',
                                        label='Box in Box',
                                        status='ingebruik',
@@ -45,7 +46,7 @@ class KlBouwmethode(KeuzelijstField):
                                  label='Zink',
                                  status='ingebruik',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBouwmethode/zink')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

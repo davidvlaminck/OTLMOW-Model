@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSlagrichting(KeuzelijstField):
     definition = 'De mogelijke slagrichting van een staalkabel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSlagrichting'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'links-afwisselende-slag-(lh-al)': KeuzelijstWaarde(invulwaarde='links-afwisselende-slag-(lh-al)',
                                                             label='links-afwisselende slag (LH-AL)',
                                                             status='ingebruik',
@@ -37,7 +38,7 @@ class KlSlagrichting(KeuzelijstField):
                                                     label='rechts-langslag (RH-LL)',
                                                     status='ingebruik',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSlagrichting/rechts-langslag-(rh-ll)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

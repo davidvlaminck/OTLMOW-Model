@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBSSRandafwerking(KeuzelijstField):
     definition = 'De verschillende manieren van de randafwerking van de verharding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBSSRandafwerking'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'biscchopsmutsen': KeuzelijstWaarde(invulwaarde='biscchopsmutsen',
                                             label='biscchopsmutsen',
                                             status='verwijderd',
@@ -38,7 +39,7 @@ class KlBSSRandafwerking(KeuzelijstField):
                                              status='ingebruik',
                                              definitie='Een kantsteen die wordt toegepast wanneer de betonstraatsteen in keperverband wordt gestraat.',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBSSRandafwerking/kardinaalsmutsen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

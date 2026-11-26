@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
 from ...Datatypes.KlBijlageType import KlBijlageType
@@ -30,11 +29,10 @@ class Bijlage(AbstracteAanvullendeGeometrie, GeenGeometrie):
                                   definition='De typering of categorie van de bijlage.',
                                   owner=self)
 
-    @property
-    def type(self) -> List[str]:
+    def _get_type(self) -> list[str]:
         """De typering of categorie van de bijlage."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

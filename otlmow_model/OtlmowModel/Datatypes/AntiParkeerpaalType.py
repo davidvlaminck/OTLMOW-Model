@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class AntiParkeerpaalType(KeuzelijstField):
     definition = 'De vormen van een anti-parkeerpaal.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/AntiParkeerpaalType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'conischeTrottoirpaalAmsterdammer': KeuzelijstWaarde(invulwaarde='conischeTrottoirpaalAmsterdammer',
                                                              label='conischeTrottoirpaalAmsterdammer',
                                                              status='ingebruik',
@@ -23,7 +24,7 @@ class AntiParkeerpaalType(KeuzelijstField):
                                            status='ingebruik',
                                            definitie='Een paal voorzien van een diamantkop en op de hoeken 4 vellingkanten.',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/AntiParkeerpaalType/diamantkoppaal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

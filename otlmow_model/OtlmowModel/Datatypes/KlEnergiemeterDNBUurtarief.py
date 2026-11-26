@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlEnergiemeterDNBUurtarief(KeuzelijstField):
     definition = 'Type uurtarief vb enkelvoudig, dubbelvoudig,...'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEnergiemeterDNBUurtarief'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dubbelvoudig': KeuzelijstWaarde(invulwaarde='dubbelvoudig',
                                          label='dubbelvoudig',
                                          status='ingebruik',
@@ -25,7 +26,7 @@ class KlEnergiemeterDNBUurtarief(KeuzelijstField):
                                         label='enkelvoudig',
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEnergiemeterDNBUurtarief/enkelvoudig')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

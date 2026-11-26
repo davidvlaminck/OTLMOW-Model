@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.HoutigeVegetatie import HoutigeVegetatie
 from ...Datatypes.KlGroeiplaatsverbetering import KlGroeiplaatsverbetering
@@ -49,7 +48,7 @@ class OpgaandeHoutigeVegetatie(HoutigeVegetatie, LijnGeometrie, VlakGeometrie):
                                   owner=self)
 
     @property
-    def groeiplaatsverbetering(self) -> List[str]:
+    def groeiplaatsverbetering(self) -> list[str]:
         """De techniek waarmee de groeiplaats wordt verbeterd met als doel de levensverwachting en de conditie van de vegetatie te verbeteren."""
         return self._groeiplaatsverbetering.get_waarde()
 
@@ -75,11 +74,10 @@ class OpgaandeHoutigeVegetatie(HoutigeVegetatie, LijnGeometrie, VlakGeometrie):
     def natuurstreefbeeld(self, value):
         self._natuurstreefbeeld.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het type van de opgaande houtige vegetatie."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

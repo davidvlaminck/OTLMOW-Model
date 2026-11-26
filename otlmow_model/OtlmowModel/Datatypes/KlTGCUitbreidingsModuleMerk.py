@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +12,8 @@ class KlTGCUitbreidingsModuleMerk(KeuzelijstField):
     definition = 'Keuzelijst met merknamen van uitbreidingsmodules van een toegangscontroller.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTGCUitbreidingsModuleMerk'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

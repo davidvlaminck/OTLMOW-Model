@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.Signalisatie import Signalisatie
@@ -215,7 +214,7 @@ class Markering(Signalisatie, AIMObject):
         self._opvatting.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche(s) van de markering."""
         return self._technischeFiche.get_waarde()
 

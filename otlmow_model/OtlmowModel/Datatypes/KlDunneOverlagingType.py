@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDunneOverlagingType(KeuzelijstField):
     definition = 'Types van dunne overlaging.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDunneOverlagingType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'SME-D1': KeuzelijstWaarde(invulwaarde='SME-D1',
                                    label='SME-D1',
                                    status='ingebruik',
@@ -38,7 +39,7 @@ class KlDunneOverlagingType(KeuzelijstField):
                                                                    status='ingebruik',
                                                                    definitie='De waterdichte toplaag is een meerlaags vloeibaar aangebracht systeem om de drager (beton, staal, ...) te beschermen tegen waterinfiltratie.',
                                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDunneOverlagingType/waterdichte-toplaag-zonder-instrooi-ng')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

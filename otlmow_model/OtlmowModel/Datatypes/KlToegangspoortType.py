@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlToegangspoortType(KeuzelijstField):
     definition = 'Lijst met types voor toegangspoorten volgens de manier waarop de poort opent.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangspoortType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'draaipoort': KeuzelijstWaarde(invulwaarde='draaipoort',
                                        label='draaipoort',
                                        status='ingebruik',
@@ -25,7 +26,7 @@ class KlToegangspoortType(KeuzelijstField):
                                          label='vleugelpoort',
                                          status='ingebruik',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangspoortType/vleugelpoort')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

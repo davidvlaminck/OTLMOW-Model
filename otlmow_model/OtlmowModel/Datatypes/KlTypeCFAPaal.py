@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeCFAPaal(KeuzelijstField):
     definition = 'De soort van de CFA-paal.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeCFAPaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'met-beperkte-grondverdringing-beperkte-grondontspanning': KeuzelijstWaarde(invulwaarde='met-beperkte-grondverdringing-beperkte-grondontspanning',
                                                                                     label='Met beperkte grondverdringing/beperkte grondontspanning',
                                                                                     status='ingebruik',
@@ -23,7 +24,7 @@ class KlTypeCFAPaal(KeuzelijstField):
                                                                          status='ingebruik',
                                                                          definitie='CFA-paal zonder speciale voorzieningen om grondontspanning te voorkomen.',
                                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeCFAPaal/met-uitgraving-van-de-grond-grondontspanning')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

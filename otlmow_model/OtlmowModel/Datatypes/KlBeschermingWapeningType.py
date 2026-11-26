@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBeschermingWapeningType(KeuzelijstField):
     definition = 'De mogelijke wapeningen gebruikt bij de oa. fundering (wapeningsnet,geotextiel,geogrids).'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeschermingWapeningType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gelast-geplastificeerd-gaas': KeuzelijstWaarde(invulwaarde='gelast-geplastificeerd-gaas',
                                                         label='gelast geplastificeerd gaas',
                                                         status='ingebruik',
@@ -33,7 +34,7 @@ class KlBeschermingWapeningType(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='Een raster van onderling verbonden stalen staven of draden om oa. trekspanningen op te nemen en scheurvorming te beperken.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeschermingWapeningType/wapeningsnet')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDynBordRVMSMerk(KeuzelijstField):
     definition = 'Keuzelijst met de gangbare merken van RVMS borden. De merken verwijzen doorgaans naar de fabrikant of leverancier.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordRVMSMerk'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dms': KeuzelijstWaarde(invulwaarde='dms',
                                 label='DMS',
                                 status='ingebruik',
@@ -23,7 +24,7 @@ class KlDynBordRVMSMerk(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='Swarco',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRVMSMerk/swarco')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -115,7 +114,7 @@ class GeluidwerendeConstructie(AIMNaamObject, LijnGeometrie):
         self._minMaxSchermhoogte.set_waarde(value, owner=self)
 
     @property
-    def overzichtsafbeelding(self) -> List[DtcDocumentWaarden]:
+    def overzichtsafbeelding(self) -> list[DtcDocumentWaarden]:
         """Dit een overzichtsfoto van de hele constructie. Op basis van deze afbeelding kan je snel bekijken hoe de kleur of hoogte varieert over het verloop van de geluidswerende constructie."""
         return self._overzichtsafbeelding.get_waarde()
 
@@ -124,7 +123,7 @@ class GeluidwerendeConstructie(AIMNaamObject, LijnGeometrie):
         self._overzichtsafbeelding.set_waarde(value, owner=self)
 
     @property
-    def rekennota(self) -> List[DtcDocumentWaarden]:
+    def rekennota(self) -> list[DtcDocumentWaarden]:
         """Dit is een document waarin allerlei berekeningen bijgehouden worden omtrent de stabiliteit en sterkte van de geluidswerende constructie (oa de variatie in statische belasting en windbelasting over het verloop van geluidswerende constructie)."""
         return self._rekennota.get_waarde()
 
@@ -133,7 +132,7 @@ class GeluidwerendeConstructie(AIMNaamObject, LijnGeometrie):
         self._rekennota.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """Dit document geeft volgende zaken mee: producent, productnaam (type), beschrijving van de geplaatste constructie, certificatie (CE en ISO), montage, akoestische karakteristieken, duurzaamheid en brandwerende kenmerken."""
         return self._technischeFiche.get_waarde()
 

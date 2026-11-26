@@ -1,18 +1,13 @@
 # coding=utf-8
-from abc import abstractmethod
-from typing import ClassVar
-
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...BaseClasses.StringField import StringField
+from abc import abstractmethod
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...Datatypes.KlHardwareCdDvdTape import KlHardwareCdDvdTape
 from ...Datatypes.KlHardwareDomein import KlHardwareDomein
 from ...Datatypes.KlHardwareOS import KlHardwareOS
-from ...Datatypes.KwantWrdInGigabyte import (
-    KwantWrdInGigabyte,
-    KwantWrdInGigabyteWaarden,
-)
+from ...Datatypes.KwantWrdInGigabyte import KwantWrdInGigabyte, KwantWrdInGigabyteWaarden
+from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -22,18 +17,14 @@ class HardwareToegang(NaampadObject):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#HardwareToegang'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GPU', 'u', None),  # u = unidirectional
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PCIKaart', 'u', None),  # u = unidirectional
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsSWGehostOp', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Software', 'i', None),  # i = direction: incoming
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', 'u', None),  # u = unidirectional
-    ]
-
     @abstractmethod
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relations(self._VALID_RELATIONS)
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#GPU', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#PCIKaart', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsSWGehostOp', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Software', direction='i')  # i = direction: incoming
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', direction='u')  # u = unidirectional
 
         self._CPU = OTLAttribuut(field=StringField,
                                  naam='CPU',

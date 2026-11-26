@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlHoppinzuilType(KeuzelijstField):
     definition = 'De types van een analoge hoppinzuil.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHoppinzuilType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'analoog-groot': KeuzelijstWaarde(invulwaarde='analoog-groot',
                                           label='Analoog groot',
                                           status='ingebruik',
@@ -23,7 +24,7 @@ class KlHoppinzuilType(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='Hoppinzuil met een minimale afmeting van 40x3x200 cm waarop de veranderlijke informatie analoog (op papier/sticker) wordt weergegeven.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHoppinzuilType/analoog-mini')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

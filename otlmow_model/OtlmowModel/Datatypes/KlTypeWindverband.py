@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeWindverband(KeuzelijstField):
     definition = 'Het type windverband.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeWindverband'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'horizontaal-boven': KeuzelijstWaarde(invulwaarde='horizontaal-boven',
                                               label='Horizontaal boven',
                                               status='ingebruik',
@@ -28,7 +29,7 @@ class KlTypeWindverband(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='Verticaal',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeWindverband/verticaal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,6 +1,4 @@
 # coding=utf-8
-from typing import ClassVar
-
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Sensoropstelling import Sensoropstelling
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -15,17 +13,13 @@ class OptischeWegdeksensor(Sensoropstelling, AIMNaamObject):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OptischeWegdeksensor'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', 'u', None),  # u = unidirectional
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ThermoHygrometer', 'u', None),  # u = unidirectional
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement', 'u', None),  # u = unidirectional
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', 'i', None),  # i = direction: incoming
-    ]
-
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relations(self._VALID_RELATIONS)
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Draagconstructie', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#ThermoHygrometer', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkelement', direction='u')  # u = unidirectional
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='i')  # i = direction: incoming
 
         self._merk = OTLAttribuut(field=KlOptischeWegdeksensorMerk,
                                   naam='merk',

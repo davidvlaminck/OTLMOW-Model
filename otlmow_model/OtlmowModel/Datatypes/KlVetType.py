@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVetType(KeuzelijstField):
     definition = 'De verschillende soorten vet die kunnen worden gebruikt voor smering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVetType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'biologisch-vet': KeuzelijstWaarde(invulwaarde='biologisch-vet',
                                            label='biologisch vet',
                                            status='ingebruik',
@@ -21,7 +22,7 @@ class KlVetType(KeuzelijstField):
                                             label='synthetisch vet',
                                             status='ingebruik',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVetType/synthetisch-vet')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

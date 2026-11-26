@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeSuppCBV(KeuzelijstField):
     definition = 'Keuzelijst om het type van de toegevoegde supplementen van de CBV te bepalen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeSuppCBV'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'figureren-betonoppervlak-in-de-massa-gekleurd': KeuzelijstWaarde(invulwaarde='figureren-betonoppervlak-in-de-massa-gekleurd',
                                                                           label='figureren betonoppervlak in de massa gekleurd',
                                                                           status='ingebruik',
@@ -23,7 +24,7 @@ class KlTypeSuppCBV(KeuzelijstField):
                                                                         status='ingebruik',
                                                                         definitie='Supplementen voor het bekomen van een gekleurde 2 laagse deklaag van CBV.',
                                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeSuppCBV/figureren-betonoppervlak-met-kleurverharder')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

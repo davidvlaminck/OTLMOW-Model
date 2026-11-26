@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeFendering(KeuzelijstField):
     definition = 'De keuzelijst die de verschillende types van fendering bevat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeFendering'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'arch-(vb.-pi.-omega...)': KeuzelijstWaarde(invulwaarde='arch-(vb.-pi.-omega...)',
                                                     label='arch (vb. pi, omega,..)',
                                                     status='ingebruik',
@@ -37,7 +38,7 @@ class KlTypeFendering(KeuzelijstField):
                                        label='wielfender',
                                        status='ingebruik',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeFendering/wielfender')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

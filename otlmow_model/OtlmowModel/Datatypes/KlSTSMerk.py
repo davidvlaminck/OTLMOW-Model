@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +12,8 @@ class KlSTSMerk(KeuzelijstField):
     definition = 'Lijst van merknamen volgens de fabrikant van automatische omschakelaars (Static Transfer Switch).'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSTSMerk'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

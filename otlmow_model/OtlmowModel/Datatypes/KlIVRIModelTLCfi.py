@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIVRIModelTLCfi(KeuzelijstField):
     definition = 'De modelnaam van de TLC-fi poort.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIModelTLCfi'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'civa-2020': KeuzelijstWaarde(invulwaarde='civa-2020',
                                       label='CIVA 2020',
                                       status='ingebruik',
@@ -28,7 +29,7 @@ class KlIVRIModelTLCfi(KeuzelijstField):
                                           status='ingebruik',
                                           definitie='TLC-FI broker',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIModelTLCfi/tlc-fi-broker')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

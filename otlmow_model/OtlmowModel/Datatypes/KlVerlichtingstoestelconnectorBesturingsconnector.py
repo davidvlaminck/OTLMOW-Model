@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVerlichtingstoestelconnectorBesturingsconnector(KeuzelijstField):
     definition = 'Type van connector verwerkt in de behuizing van het verlichtingstoestel voor de aansluiting van de module voor lokale afstandsbediening en -bewaking.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerlichtingstoestelconnectorBesturingsconnector'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '5-pin': KeuzelijstWaarde(invulwaarde='5-pin',
                                   label='5 PIN',
                                   status='ingebruik',
@@ -31,7 +32,7 @@ class KlVerlichtingstoestelconnectorBesturingsconnector(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Nema 7 pins connector',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelconnectorBesturingsconnector/nema-7-pin')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

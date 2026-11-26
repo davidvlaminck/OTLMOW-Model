@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIVRIModelRIS(KeuzelijstField):
     definition = 'De modelnaam van de RIS.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIVRIModelRIS'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'cloudris': KeuzelijstWaarde(invulwaarde='cloudris',
                                      label='CloudRIS',
                                      status='ingebruik',
@@ -28,7 +29,7 @@ class KlIVRIModelRIS(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='VirtualACU',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIVRIModelRIS/virtualacu')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

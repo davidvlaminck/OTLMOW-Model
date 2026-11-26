@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEMarkeringCode(KeuzelijstField):
     definition = 'Codes van de markering op lijnvormige elementen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEMarkeringCode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'DIV-BIG': KeuzelijstWaarde(invulwaarde='DIV-BIG',
                                     label='DIV-BIG',
                                     status='ingebruik',
@@ -33,7 +34,7 @@ class KlLEMarkeringCode(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='De code voor LE markering New Jersey',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEMarkeringCode/DIV-NJ')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPictogramSymbool(KeuzelijstField):
     definition = 'De mogelijke symbolen op het pictogram.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPictogramSymbool'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'brandblusser': KeuzelijstWaarde(invulwaarde='brandblusser',
                                          label='brandblusser',
                                          status='ingebruik',
@@ -67,7 +68,7 @@ class KlPictogramSymbool(KeuzelijstField):
                                         status='ingebruik',
                                         definitie='Aankondiging van de dichtstbijzijnde nooduitgang, in de aangeduide richting. De afstand in meter is aangeduid op het pictogram (F52bis).',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPictogramSymbool/vluchtroute')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

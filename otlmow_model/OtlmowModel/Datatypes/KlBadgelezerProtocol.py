@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,12 +13,12 @@ class KlBadgelezerProtocol(KeuzelijstField):
     definition = 'Lijst van protocollen gebruikt door badgelezers.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBadgelezerProtocol'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'rs485': KeuzelijstWaarde(invulwaarde='rs485',
                                   label='RS485',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBadgelezerProtocol/rs485')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

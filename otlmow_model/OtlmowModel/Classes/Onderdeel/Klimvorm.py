@@ -1,11 +1,8 @@
 # coding=utf-8
-from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.VegetatieElement import VegetatieElement
-from ...Datatypes.KwantWrdInVierkanteMeter import (
-    KwantWrdInVierkanteMeter,
-    KwantWrdInVierkanteMeterWaarden,
-)
+from ...BaseClasses.BooleanField import BooleanField
+from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 

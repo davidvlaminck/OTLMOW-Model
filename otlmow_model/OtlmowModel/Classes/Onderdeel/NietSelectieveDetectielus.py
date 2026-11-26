@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SelNietSelLus import SelNietSelLus
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -89,7 +88,7 @@ class NietSelectieveDetectielus(SelNietSelLus, NaampadObject):
         self._isRichtingsgevoelig.set_waarde(value, owner=self)
 
     @property
-    def soortVoertuig(self) -> List[str]:
+    def soortVoertuig(self) -> list[str]:
         """Type voertuig dat de detectielus volgens zijn instellingen kan detecteren."""
         return self._soortVoertuig.get_waarde()
 

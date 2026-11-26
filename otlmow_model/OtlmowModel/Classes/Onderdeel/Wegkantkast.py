@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Buitenkast import Buitenkast
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -85,7 +84,7 @@ class Wegkantkast(Buitenkast, NaampadObject):
                                   owner=self)
 
     @property
-    def elektrischSchema(self) -> List[DtcDocumentWaarden]:
+    def elektrischSchema(self) -> list[DtcDocumentWaarden]:
         """Elektrisch aansluitschema van de kast."""
         return self._elektrischSchema.get_waarde()
 
@@ -103,7 +102,7 @@ class Wegkantkast(Buitenkast, NaampadObject):
         self._heeftMaaibescherming.set_waarde(value, owner=self)
 
     @property
-    def mplan(self) -> List[DtcDocumentWaarden]:
+    def mplan(self) -> list[DtcDocumentWaarden]:
         """Mechanisch plan van de volledige installatie. Er wordt één plan toegevoegd per installatie/techniek die op de kast is aangesloten."""
         return self._mplan.get_waarde()
 
@@ -111,11 +110,10 @@ class Wegkantkast(Buitenkast, NaampadObject):
     def mplan(self, value):
         self._mplan.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Type van de wegkantkast volgens de gangbare types."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

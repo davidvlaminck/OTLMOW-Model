@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSignaalkabelType(KeuzelijstField):
     definition = 'Lijst met types voor signalisatiekabels volgens de gebruikte materialen zoals opgenomen in het Standaarbestek 270.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignaalkabelType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'afg-mbzh': KeuzelijstWaarde(invulwaarde='afg-mbzh',
                                      label='AFG-MBZH',
                                      status='ingebruik',
@@ -150,7 +151,7 @@ class KlSignaalkabelType(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='XLPE',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSignaalkabelType/xlpe')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

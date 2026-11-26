@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -205,7 +204,7 @@ class Camera(SerienummerObject, NaampadObject, PuntGeometrie):
                                              owner=self)
 
     @property
-    def beeldverwerkingsinstelling(self) -> List[DtcCameraBeeldverwerkingWaarden]:
+    def beeldverwerkingsinstelling(self) -> list[DtcCameraBeeldverwerkingWaarden]:
         """Geeft aan welke types beeldverwerking die camera zelf uitvoert dus zonder gebruik te maken van een externe verwerkingseenheid."""
         return self._beeldverwerkingsinstelling.get_waarde()
 
@@ -358,7 +357,7 @@ class Camera(SerienummerObject, NaampadObject, PuntGeometrie):
         self._spectrum.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """Technische fiche van dit element met opsplitsing tussen CCTV, AID en PTZ-camera's."""
         return self._technischeFiche.get_waarde()
 

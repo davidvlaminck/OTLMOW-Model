@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEACSchokindex(KeuzelijstField):
     definition = 'De verschillende schokindices.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACSchokindex'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'a': KeuzelijstWaarde(invulwaarde='a',
                               label='a',
                               status='ingebruik',
@@ -28,7 +29,7 @@ class KlLEACSchokindex(KeuzelijstField):
                               status='ingebruik',
                               definitie='ASI <= 1.9',
                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACSchokindex/c')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

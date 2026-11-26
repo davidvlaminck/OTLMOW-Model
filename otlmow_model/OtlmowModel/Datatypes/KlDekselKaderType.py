@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDekselKaderType(KeuzelijstField):
     definition = 'Types van dekselkader.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDekselKaderType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'enkelvoudig-gietijzeren-controleluik': KeuzelijstWaarde(invulwaarde='enkelvoudig-gietijzeren-controleluik',
                                                                  label='enkelvoudig gietijzeren controleluik',
                                                                  status='ingebruik',
@@ -68,7 +69,7 @@ class KlDekselKaderType(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='type 9',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselKaderType/type-9')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

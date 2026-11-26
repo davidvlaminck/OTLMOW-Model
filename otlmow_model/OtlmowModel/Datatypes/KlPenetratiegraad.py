@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPenetratiegraad(KeuzelijstField):
     definition = 'De graad van penetratie.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPenetratiegraad'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'half-gepenetreerd': KeuzelijstWaarde(invulwaarde='half-gepenetreerd',
                                               label='half gepenetreerd',
                                               status='ingebruik',
@@ -21,7 +22,7 @@ class KlPenetratiegraad(KeuzelijstField):
                                                     label='vol en zat genepetreerd',
                                                     status='ingebruik',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPenetratiegraad/vol-en-zat-genepetreerd')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

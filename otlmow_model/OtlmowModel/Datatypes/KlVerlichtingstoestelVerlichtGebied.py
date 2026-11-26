@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVerlichtingstoestelVerlichtGebied(KeuzelijstField):
     definition = 'Het gebied op de wegbaan of het object dat verlicht wordt door het verlichtingstoestel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerlichtingstoestelVerlichtGebied'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'afrit': KeuzelijstWaarde(invulwaarde='afrit',
                                   label='afrit',
                                   status='ingebruik',
@@ -84,7 +85,7 @@ class KlVerlichtingstoestelVerlichtGebied(KeuzelijstField):
                                       label='wisselaar',
                                       status='ingebruik',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerlichtingstoestelVerlichtGebied/wisselaar')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

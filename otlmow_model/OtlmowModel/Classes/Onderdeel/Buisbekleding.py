@@ -1,16 +1,11 @@
 # coding=utf-8
-from typing import ClassVar
-
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlBekledingPlaats import KlBekledingPlaats
 from ...Datatypes.KlBuisbekledingUitvoeringswijze import KlBuisbekledingUitvoeringswijze
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from ...Datatypes.KwantWrdInMillimeter import (
-    KwantWrdInMillimeter,
-    KwantWrdInMillimeterWaarden,
-)
+from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
 from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 
@@ -21,14 +16,10 @@ class Buisbekleding(AIMObject, LijnGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Buisbekleding'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis', 'u', None),  # u = unidirectional
-    ]
-
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relations(self._VALID_RELATIONS)
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Buis', direction='u')  # u = unidirectional
 
         self._laagdikte = OTLAttribuut(field=KwantWrdInMillimeter,
                                        naam='laagdikte',

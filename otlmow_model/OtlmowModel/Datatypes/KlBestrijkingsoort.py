@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBestrijkingsoort(KeuzelijstField):
     definition = 'Soorten van bestrijking.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestrijkingsoort'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'eenlaagse-met-dubbele-begrinding-(EBDB)': KeuzelijstWaarde(invulwaarde='eenlaagse-met-dubbele-begrinding-(EBDB)',
                                                                     label='eenlaagse met dubbele begrinding (EBDB)',
                                                                     status='ingebruik',
@@ -28,7 +29,7 @@ class KlBestrijkingsoort(KeuzelijstField):
                                             status='ingebruik',
                                             definitie='tweelaagse bestrijking (TB)',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBestrijkingsoort/tweelaagse-(TB)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

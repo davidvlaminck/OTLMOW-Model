@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPersleidingMateriaal(KeuzelijstField):
     definition = 'Materialen van de persleiding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPersleidingMateriaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'buizen-van-PVC-voor-drukleidingen.-PN-10': KeuzelijstWaarde(invulwaarde='buizen-van-PVC-voor-drukleidingen.-PN-10',
                                                                      label='buizen van PVC voor drukleidingen. PN 10',
                                                                      status='ingebruik',
@@ -34,30 +35,30 @@ class KlPersleidingMateriaal(KeuzelijstField):
                                                             definitie='buizen van GALVA voor hydranten.',
                                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-galva-voor-hydranten'),
         'buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-10.-SN-10000-N-m²': KeuzelijstWaarde(invulwaarde='buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-10.-SN-10000-N-m²',
-                                                                                                                                  label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 10. SN 10000 N-m²',
-                                                                                                                                  status='ingebruik',
-                                                                                                                                  definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 10, SN 10000 N/m²',
-                                                                                                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-10.-SN-10000-N-m²'),
+                                                                                                                                   label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 10. SN 10000 N-m²',
+                                                                                                                                   status='ingebruik',
+                                                                                                                                   definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 10, SN 10000 N/m²',
+                                                                                                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-10.-SN-10000-N-m²'),
         'buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-10.-SN-5000-N-m²': KeuzelijstWaarde(invulwaarde='buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-10.-SN-5000-N-m²',
-                                                                                                                                 label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 10. SN 5000 N-m²',
-                                                                                                                                 status='ingebruik',
-                                                                                                                                 definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 10, SN 5000 N/m²',
-                                                                                                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-10.-SN-5000-N-m²'),
-        'buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-16.-SN-10000-N-m²': KeuzelijstWaarde(invulwaarde='buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-16.-SN-10000-N-m²',
-                                                                                                                                  label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 16. SN 10000 N-m²',
+                                                                                                                                  label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 10. SN 5000 N-m²',
                                                                                                                                   status='ingebruik',
-                                                                                                                                  definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 16, SN 10000 N/m²',
-                                                                                                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-16.-SN-10000-N-m²'),
+                                                                                                                                  definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 10, SN 5000 N/m²',
+                                                                                                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-10.-SN-5000-N-m²'),
+        'buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-16.-SN-10000-N-m²': KeuzelijstWaarde(invulwaarde='buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-16.-SN-10000-N-m²',
+                                                                                                                                   label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 16. SN 10000 N-m²',
+                                                                                                                                   status='ingebruik',
+                                                                                                                                   definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 16, SN 10000 N/m²',
+                                                                                                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-16.-SN-10000-N-m²'),
         'buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-6.-SN-10000-N-m²': KeuzelijstWaarde(invulwaarde='buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-6.-SN-10000-N-m²',
-                                                                                                                                 label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 6. SN 10000 N-m²',
-                                                                                                                                 status='ingebruik',
-                                                                                                                                 definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 6, SN 10000 N/m²',
-                                                                                                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-6.-SN-10000-N-m²'),
+                                                                                                                                  label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 6. SN 10000 N-m²',
+                                                                                                                                  status='ingebruik',
+                                                                                                                                  definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 6, SN 10000 N/m²',
+                                                                                                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-6.-SN-10000-N-m²'),
         'buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-6.-SN-5000-N-m²': KeuzelijstWaarde(invulwaarde='buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-6.-SN-5000-N-m²',
-                                                                                                                                label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 6. SN 5000 N-m²',
-                                                                                                                                status='ingebruik',
-                                                                                                                                definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 6, SN 5000 N/m²',
-                                                                                                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-6.-SN-5000-N-m²'),
+                                                                                                                                 label='buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk. PN 6. SN 5000 N-m²',
+                                                                                                                                 status='ingebruik',
+                                                                                                                                 definitie='Buizen van gevuld en glasvezelversterkt polyesterhars voor leidingen onder druk, PN 6, SN 5000 N/m²',
+                                                                                                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-van-gevuld-en-glasvezelversterkt-polyesterhars-voor-leidingen-onder-druk.-PN-6.-SN-5000-N-m²'),
         'buizen-van-koolstofstaal': KeuzelijstWaarde(invulwaarde='buizen-van-koolstofstaal',
                                                      label='buizen van koolstofstaal',
                                                      status='ingebruik',
@@ -88,7 +89,7 @@ class KlPersleidingMateriaal(KeuzelijstField):
                                                                               status='ingebruik',
                                                                               definitie='Buizen voor polyethyleen voor drukleidingen, PN 6',
                                                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPersleidingMateriaal/buizen-voor-polyethyleen-voor-drukleidingen.-PN-6')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

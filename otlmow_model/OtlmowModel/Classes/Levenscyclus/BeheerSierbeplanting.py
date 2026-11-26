@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...BaseClasses.BooleanField import BooleanField
@@ -43,7 +42,7 @@ class BeheerSierbeplanting(AIMObject, VlakGeometrie):
                                          owner=self)
 
     @property
-    def beheeroptie(self) -> List[str]:
+    def beheeroptie(self) -> list[str]:
         """Aanduiding van welk beheer wordt toegepast op de sierbeplanting."""
         return self._beheeroptie.get_waarde()
 

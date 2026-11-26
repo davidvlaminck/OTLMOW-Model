@@ -1,6 +1,5 @@
 # coding=utf-8
 from abc import abstractmethod
-
 from ...Classes.Abstracten.StaalsoortObject import StaalsoortObject
 from ...Classes.Abstracten.TechnischDocument import TechnischDocument
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie

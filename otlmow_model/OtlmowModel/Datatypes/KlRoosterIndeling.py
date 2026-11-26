@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlRoosterIndeling(KeuzelijstField):
     definition = 'Deze keuzelijst geeft aan hoe het rooster ingedeeld is: met zijdelingse opvang of dat er sprake is van een 1-delig of 2-delig rooster.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRoosterIndeling'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1-delig': KeuzelijstWaarde(invulwaarde='1-delig',
                                     label='1-delig',
                                     status='ingebruik',
@@ -28,7 +29,7 @@ class KlRoosterIndeling(KeuzelijstField):
                                                status='ingebruik',
                                                definitie='zijdelingse opvang',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRoosterIndeling/zijdelingse-opvang')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLumenOutput(KeuzelijstField):
     definition = 'Mogelijke waarden uitgedrukt in Lumens.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLumenOutput'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1000': KeuzelijstWaarde(invulwaarde='1000',
                                  label='1000',
                                  status='ingebruik',
@@ -423,7 +424,7 @@ class KlLumenOutput(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='91900',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLumenOutput/91900')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

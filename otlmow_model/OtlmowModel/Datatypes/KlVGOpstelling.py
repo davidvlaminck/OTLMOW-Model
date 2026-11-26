@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVGOpstelling(KeuzelijstField):
     definition = 'Beschrijft de oriëntatie van het geplaatste schermelement tov de weg. De oriëntatie van vlakke schermen kan naast loodrecht op het maaiveld ook schuin naar achter hellend of schuin naar voor hellend zijn.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVGOpstelling'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gebogen': KeuzelijstWaarde(invulwaarde='gebogen',
                                     label='gebogen',
                                     status='ingebruik',
@@ -48,7 +49,7 @@ class KlVGOpstelling(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='Verticaal',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVGOpstelling/verticaal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BevestigingGC import BevestigingGC
 from ...Classes.Abstracten.Voedingspunt import Voedingspunt
@@ -83,7 +82,7 @@ class Zonnepaneel(BevestigingGC, Voedingspunt):
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technsiche fiche als bijlage van het zonnepaneel."""
         return self._technischeFiche.get_waarde()
 

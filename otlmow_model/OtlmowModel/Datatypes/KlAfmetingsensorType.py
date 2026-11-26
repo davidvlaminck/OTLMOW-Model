@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlAfmetingsensorType(KeuzelijstField):
     definition = 'Het type van de afmetingsensor.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfmetingsensorType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '2D-LIDAR': KeuzelijstWaarde(invulwaarde='2D-LIDAR',
                                      label='2D-LIDAR',
                                      status='ingebruik',
@@ -25,7 +26,7 @@ class KlAfmetingsensorType(KeuzelijstField):
                                   label='radar',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfmetingsensorType/radar')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

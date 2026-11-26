@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlCorrosieCategorie(KeuzelijstField):
     definition = 'De mogelijke corrosiecategorieën.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCorrosieCategorie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'c1-zeer-laag': KeuzelijstWaarde(invulwaarde='c1-zeer-laag',
                                          label='C1 - Zeer Laag',
                                          status='ingebruik',
@@ -63,7 +64,7 @@ class KlCorrosieCategorie(KeuzelijstField):
                                                                                   status='ingebruik',
                                                                                   definitie='Immersie met kathodische bescherming  Havengebieden met constructies zoals sluisdeuren, dammen, pieren,  kaaimuren, offshore-constructies.',
                                                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCorrosieCategorie/im4-zeewater-of-brakwater-met-kathodische-bescherming')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

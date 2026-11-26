@@ -48,11 +48,10 @@ class Doorgang(AIMObject, PuntGeometrie):
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Bepaling van het type van doorgang (sas, nooddeur) (voorlopig opgenomen in figuur 8-4-1)."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

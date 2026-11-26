@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +12,8 @@ class KlTestnorm(KeuzelijstField):
     definition = 'Keuzelijst met de normen of standaarden (bv. NBN EN 13501) volgens dewelke de brandwerende eigenschappen van het materiaal zijn getest en gecertificeerd.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTestnorm'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

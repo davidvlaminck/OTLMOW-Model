@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -103,7 +102,7 @@ class Behuizing(AIMNaamObject):
         self._adres.set_waarde(value, owner=self)
 
     @property
-    def risicoanalyse(self) -> List[DtcDocumentWaarden]:
+    def risicoanalyse(self) -> list[DtcDocumentWaarden]:
         """Een bestandsbijlage met de risicoanalyse voor werken in en rond een behuizing."""
         return self._risicoanalyse.get_waarde()
 

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEACObstakelbeveiligerType(KeuzelijstField):
     definition = 'De verschillende types van obstakelbeveiliger.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACObstakelbeveiligerType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'afstoppend-(NR)': KeuzelijstWaarde(invulwaarde='afstoppend-(NR)',
                                             label='afstoppend (NR)',
                                             status='ingebruik',
@@ -23,7 +24,7 @@ class KlLEACObstakelbeveiligerType(KeuzelijstField):
                                           status='ingebruik',
                                           definitie='Obstakelbeveiliger brengt het voertuig niet tot stilstand maar terug in de juiste richting',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACObstakelbeveiligerType/geleidend-(R)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

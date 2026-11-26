@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMarkeringWaarborgperiode(KeuzelijstField):
     definition = 'Opties om de waarborgperiode aan te duiden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMarkeringWaarborgperiode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1-jaar': KeuzelijstWaarde(invulwaarde='1-jaar',
                                    label='1 jaar',
                                    status='ingebruik',
@@ -33,7 +34,7 @@ class KlMarkeringWaarborgperiode(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='Waarborgperiode van 6 jaar.',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMarkeringWaarborgperiode/6-jaar')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

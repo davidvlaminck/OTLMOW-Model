@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
@@ -165,7 +164,7 @@ class BegroeidVoorkomen(AIMObject):
         self._oppervlakte.set_waarde(value, owner=self)
 
     @property
-    def soort(self) -> List[DtcVegetatieSoortnaamWaarden]:
+    def soort(self) -> list[DtcVegetatieSoortnaamWaarden]:
         """Met deze eigenschap worden de Nederlandse soortnaam, wetenschappelijke soortnaam en de soortcode van de meest voorkomende soorten binnen het begroeid oppervlak weergegeven."""
         return self._soort.get_waarde()
 

@@ -1,6 +1,5 @@
 # coding=utf-8
 from datetime import datetime
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Proef import Proef
 from ...BaseClasses.DateTimeField import DateTimeField
@@ -237,7 +236,7 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
         self._conflicten.set_waarde(value, owner=self)
 
     @property
-    def gebreken(self) -> List[str]:
+    def gebreken(self) -> list[str]:
         """Een visueel defect aan een boom wat dient gemonitord te worden."""
         return self._gebreken.get_waarde()
 

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTGCUitbreidingsModuleType(KeuzelijstField):
     definition = 'Keuzelijst om het type uitbreidingsmodule van een toeganscontroller te specifiëren.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTGCUitbreidingsModuleType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'deurmodule': KeuzelijstWaarde(invulwaarde='deurmodule',
                                        label='Deurmodule',
                                        status='ingebruik',
@@ -21,7 +22,7 @@ class KlTGCUitbreidingsModuleType(KeuzelijstField):
                                      label='IOModule',
                                      status='ingebruik',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTGCUitbreidingsModuleType/iomodule')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

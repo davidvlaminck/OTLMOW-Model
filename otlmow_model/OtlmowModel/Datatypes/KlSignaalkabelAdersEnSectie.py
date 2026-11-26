@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSignaalkabelAdersEnSectie(KeuzelijstField):
     definition = 'Lijst van mogelijke waarden volgens de catalogusposten van het standaardbestek voor de samenstelling van een signalisatiekabel volgens het aantal aders en hun sectie in vierkante millimeter.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignaalkabelAdersEnSectie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1.5': KeuzelijstWaarde(invulwaarde='1.5',
                                 label='1.5',
                                 status='ingebruik',
@@ -437,7 +438,7 @@ class KlSignaalkabelAdersEnSectie(KeuzelijstField):
                                                            label='zonder bijkomende specificatie',
                                                            status='ingebruik',
                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSignaalkabelAdersEnSectie/zonder-bijkomende-specificatie')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

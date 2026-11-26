@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMarkeringssysteem(KeuzelijstField):
     definition = 'De mogelijke markeringssystemen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMarkeringssysteem'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'geluidsproducerend': KeuzelijstWaarde(invulwaarde='geluidsproducerend',
                                                label='Geluidsproducerend',
                                                status='ingebruik',
@@ -28,7 +29,7 @@ class KlMarkeringssysteem(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Een vlak systeem is een film met constante dosering. De wegmarkering wordt nagestrooid met kleine glasparels. ',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMarkeringssysteem/vlak')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

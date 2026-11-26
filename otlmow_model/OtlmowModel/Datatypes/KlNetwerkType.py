@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlNetwerkType(KeuzelijstField):
     definition = 'Zie ook http://inspire.ec.europa.eu/codelist/UtilityNetworkTypeExtendedValue. Codelijst van types voor nutsvoorzieningennetwerken volgens IMKL.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'crosstheme': KeuzelijstWaarde(invulwaarde='crosstheme',
                                        label='crossTheme',
                                        status='ingebruik',
@@ -53,7 +54,7 @@ class KlNetwerkType(KeuzelijstField):
                                              status='ingebruik',
                                              definitie='De Klasse hoort in het telecomnet.',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkType/telecommunicatie')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

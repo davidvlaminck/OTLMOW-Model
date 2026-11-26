@@ -20,12 +20,12 @@ class ProefZichtbaarheidBijNacht(Proef, PuntGeometrie, LijnGeometrie, VlakGeomet
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering', direction='o')  # o = direction: outgoing
 
         self._retrotreflectiecoëfficiënt = OTLAttribuut(field=FloatOrDecimalField,
-                                                        naam='retrotreflectiecoëfficiënt',
-                                                        label='retrotreflectiecoëfficiënt',
-                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefZichtbaarheidBijNacht.retrotreflectiecoëfficiënt',
-                                                        usagenote='uitgedrukt in mcd. m-2.lux-1',
-                                                        definition='De maat voor het retroreflecterend vermogen van een markering bij nacht.',
-                                                        owner=self)
+                                                          naam='retrotreflectiecoëfficiënt',
+                                                          label='retrotreflectiecoëfficiënt',
+                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefZichtbaarheidBijNacht.retrotreflectiecoëfficiënt',
+                                                          usagenote='uitgedrukt in mcd. m-2.lux-1',
+                                                          definition='De maat voor het retroreflecterend vermogen van een markering bij nacht.',
+                                                          owner=self)
 
     @property
     def retrotreflectiecoëfficiënt(self) -> float:

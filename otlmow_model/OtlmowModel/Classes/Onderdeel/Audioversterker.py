@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -73,7 +72,7 @@ class Audioversterker(AIMNaamObject, PuntGeometrie):
         self._dnsNaam.set_waarde(value, owner=self)
 
     @property
-    def ipAdres(self) -> List[DteIPv4AdresWaarden]:
+    def ipAdres(self) -> list[DteIPv4AdresWaarden]:
         """Het IP-adres van de audioversterker."""
         return self._ipAdres.get_waarde()
 

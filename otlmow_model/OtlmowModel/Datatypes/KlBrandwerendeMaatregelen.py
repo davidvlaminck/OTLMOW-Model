@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBrandwerendeMaatregelen(KeuzelijstField):
     definition = 'Keuzelijst dat het brandwerenheidstype van de kokcercel terug geeft.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBrandwerendeMaatregelen'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'brandwerende-bespuiting': KeuzelijstWaarde(invulwaarde='brandwerende-bespuiting',
                                                     label='brandwerende bespuiting',
                                                     status='ingebruik',
@@ -38,7 +39,7 @@ class KlBrandwerendeMaatregelen(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Er zijn geen brandwerende maatregelen aanwezig.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBrandwerendeMaatregelen/geen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

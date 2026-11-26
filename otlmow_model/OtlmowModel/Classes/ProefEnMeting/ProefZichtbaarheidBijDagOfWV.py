@@ -20,12 +20,12 @@ class ProefZichtbaarheidBijDagOfWV(Proef, PuntGeometrie, LijnGeometrie, VlakGeom
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering', direction='o')  # o = direction: outgoing
 
         self._luminantiecoëfficiënt = OTLAttribuut(field=FloatOrDecimalField,
-                                                   naam='luminantiecoëfficiënt',
-                                                   label='luminantiecoëfficient',
-                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefZichtbaarheidBijDagOfWV.luminantiecoëfficiënt',
-                                                   usagenote='uitgedrukt in mcd. m-2.lux-1',
-                                                   definition='De verhouding van de luminantie van het oppervlak in een gegeven richting en de verlichtingssterkte op het oppervlak.',
-                                                   owner=self)
+                                                     naam='luminantiecoëfficiënt',
+                                                     label='luminantiecoëfficient',
+                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefZichtbaarheidBijDagOfWV.luminantiecoëfficiënt',
+                                                     usagenote='uitgedrukt in mcd. m-2.lux-1',
+                                                     definition='De verhouding van de luminantie van het oppervlak in een gegeven richting en de verlichtingssterkte op het oppervlak.',
+                                                     owner=self)
 
     @property
     def luminantiecoëfficiënt(self) -> float:

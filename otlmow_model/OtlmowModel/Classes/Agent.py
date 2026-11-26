@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ..Classes.ImplementatieElement.AIMVersie import AIMVersie
@@ -58,7 +57,7 @@ class Agent(AIMDBStatus, AIMVersie, RelationInteractor, OTLObject):
         self._agentId.set_waarde(value, owner=self)
 
     @property
-    def contactinfo(self) -> List[DtcContactinfoWaarden]:
+    def contactinfo(self) -> list[DtcContactinfoWaarden]:
         """Algemene contactgegevens voor de agent."""
         return self._contactinfo.get_waarde()
 

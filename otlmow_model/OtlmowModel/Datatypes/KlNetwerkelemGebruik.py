@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlNetwerkelemGebruik(KeuzelijstField):
     definition = 'Keuzelijst met de verschillende mogelijke netwerkstructuren waarbinnen een netwerkelement kan ingezet worden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkelemGebruik'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '4g-wireless-router': KeuzelijstWaarde(invulwaarde='4g-wireless-router',
                                                label='4G wireless router',
                                                status='ingebruik',
@@ -78,7 +79,7 @@ class KlNetwerkelemGebruik(KeuzelijstField):
                                               status='ingebruik',
                                               definitie='Het netwerkelement is een Wifi access point.',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkelemGebruik/wifi-access-point')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

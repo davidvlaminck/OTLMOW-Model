@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSchoorhoek(KeuzelijstField):
     definition = 'De schoorhoek van het object, uitgedrukt in 1 op x (vb.: 1/4).'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSchoorhoek'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1-20': KeuzelijstWaarde(invulwaarde='1-20',
                                  label='1/20',
                                  status='ingebruik',
@@ -33,7 +34,7 @@ class KlSchoorhoek(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='Een schoorhoek van 1 op 5.',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSchoorhoek/1-5')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

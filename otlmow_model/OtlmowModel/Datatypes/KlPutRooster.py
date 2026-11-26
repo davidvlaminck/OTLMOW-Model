@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlPutRooster(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.1.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPutRooster'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gietijzeren-rooster-met-zichtvlak-x-hoogte-min.-480-x-330-x-180-mm': KeuzelijstWaarde(invulwaarde='gietijzeren-rooster-met-zichtvlak-x-hoogte-min.-480-x-330-x-180-mm',
                                                                                                label='gietijzeren rooster met zichtvlak x hoogte min. 480 x 330 x 180 mm',
                                                                                                status='ingebruik',
@@ -84,7 +85,7 @@ class KlPutRooster(KeuzelijstField):
                                                                                                        status='ingebruik',
                                                                                                        definitie='volledig gietijzeren straatkolk zichtvlak x hoogte: min. 785 x 300 x 655 mm',
                                                                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPutRooster/volledig-gietijzeren-straatkolk-zichtvlak-x-hoogte-min.-785-x-300-x-655-mm')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

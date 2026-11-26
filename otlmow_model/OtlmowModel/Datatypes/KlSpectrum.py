@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSpectrum(KeuzelijstField):
     definition = 'Mogelijke spectra'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSpectrum'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dag': KeuzelijstWaarde(invulwaarde='dag',
                                 label='Dag',
                                 status='ingebruik',
@@ -33,7 +34,7 @@ class KlSpectrum(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='Zichtbaar - nacht',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSpectrum/nacht')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

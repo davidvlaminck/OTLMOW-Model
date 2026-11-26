@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEGCTestType(KeuzelijstField):
     definition = 'Het test type van het geluidswerend scherm.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEGCTestType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'geluidsabsorptie': KeuzelijstWaarde(invulwaarde='geluidsabsorptie',
                                              label='geluidsabsorptie',
                                              status='ingebruik',
@@ -23,7 +24,7 @@ class KlLEGCTestType(KeuzelijstField):
                                                  status='ingebruik',
                                                  definitie='Proef : De ééngetalsaanduiding voor luchtgeluidsisolatie.',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEGCTestType/luchtgeluidsisolatie')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

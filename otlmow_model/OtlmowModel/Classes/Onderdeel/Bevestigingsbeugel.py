@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BevestigingGC import BevestigingGC
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -115,7 +114,7 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
                                   owner=self)
 
     @property
-    def berekeningsnota(self) -> List[DtcDocumentWaarden]:
+    def berekeningsnota(self) -> list[DtcDocumentWaarden]:
         """Document met de berekeningsnota van de bevestigingsbeugel."""
         return self._berekeningsnota.get_waarde()
 
@@ -124,7 +123,7 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
         self._berekeningsnota.set_waarde(value, owner=self)
 
     @property
-    def constructieEnMontageplan(self) -> List[DtcDocumentWaarden]:
+    def constructieEnMontageplan(self) -> list[DtcDocumentWaarden]:
         """Document met het constructie- en montageplan van de bevestigingsbeugel."""
         return self._constructieEnMontageplan.get_waarde()
 
@@ -160,7 +159,7 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
         self._materiaalBevestigingsbeugel.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de bevestigingsbeugel."""
         return self._technischeFiche.get_waarde()
 
@@ -168,11 +167,10 @@ class Bevestigingsbeugel(BevestigingGC, AIMNaamObject):
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het type van de bevestigingsbeugel."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +12,8 @@ class KlTelecomkabelTypeSpecificatie(KeuzelijstField):
     definition = 'Lijst met mogelijke specificaties van het type van de telecomkabel volgens een vaste lijst om bv. de brandklasse mee te geven.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTelecomkabelTypeSpecificatie'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

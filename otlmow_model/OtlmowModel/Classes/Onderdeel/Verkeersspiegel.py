@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Signalisatie import Signalisatie
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
@@ -44,7 +43,7 @@ class Verkeersspiegel(Signalisatie, AIMObject, PuntGeometrie):
                                   owner=self)
 
     @property
-    def bijlageDocument(self) -> List[DtcDocumentWaarden]:
+    def bijlageDocument(self) -> list[DtcDocumentWaarden]:
         """Een document met dossiernummer waardoor men kan terugkoppelen naar de vergunning."""
         return self._bijlageDocument.get_waarde()
 

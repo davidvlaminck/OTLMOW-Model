@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlNeerslagsensorType(KeuzelijstField):
     definition = 'Het type van de neerslagsensor.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNeerslagsensorType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'capacitief': KeuzelijstWaarde(invulwaarde='capacitief',
                                        label='capacitief',
                                        status='ingebruik',
@@ -28,7 +29,7 @@ class KlNeerslagsensorType(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='Detecteert neerslag (sneeuw, regen, hagel) door gebruik te maken van radartechnologie. Dit type sensor zendt radargolven uit en analyseert de reflectie van deze golven op vallende neerslag.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNeerslagsensorType/radar')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

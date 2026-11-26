@@ -1,12 +1,10 @@
 # coding=utf-8
-from abc import abstractmethod
-from typing import ClassVar
-
-from ...BaseClasses.IntegerField import IntegerField
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...BaseClasses.StringField import StringField
+from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
+from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlEnergiemeterMetertype import KlEnergiemeterMetertype
+from ...BaseClasses.StringField import StringField
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -17,15 +15,11 @@ class Energiemeter(AIMNaamObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Energiemeter'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#MeteropnameEnergiemeter', 'i', None),  # i = direction: incoming
-    ]
-
     @abstractmethod
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relations(self._VALID_RELATIONS)
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#MeteropnameEnergiemeter', direction='i')  # i = direction: incoming
 
         self._aantalTelwerken = OTLAttribuut(field=IntegerField,
                                              naam='aantalTelwerken',

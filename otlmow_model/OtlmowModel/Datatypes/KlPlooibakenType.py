@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPlooibakenType(KeuzelijstField):
     definition = 'vormen van een plooibaken.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlooibakenType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'plooibaken-diameter-130-mm---M24': KeuzelijstWaarde(invulwaarde='plooibaken-diameter-130-mm---M24',
                                                              label='plooibaken diameter 130 mm - M24',
                                                              status='ingebruik',
@@ -33,7 +34,7 @@ class KlPlooibakenType(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='Verkeerszuil',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPlooibakenType/verkeerszuil')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

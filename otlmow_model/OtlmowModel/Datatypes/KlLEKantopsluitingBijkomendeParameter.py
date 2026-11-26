@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEKantopsluitingBijkomendeParameter(KeuzelijstField):
     definition = 'Gedetailleerder typeren van de kantopsluiting.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEKantopsluitingBijkomendeParameter'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'eindschikking-voor-schampkant': KeuzelijstWaarde(invulwaarde='eindschikking-voor-schampkant',
                                                           label='eindschikking voor schampkant',
                                                           status='ingebruik',
@@ -59,15 +60,15 @@ class KlLEKantopsluitingBijkomendeParameter(KeuzelijstField):
                                                                                                                                 definitie='Gebogen trottoirband of trottoirband-watergreppel, met straal kleiner of gelijk aan 5m met verticaal geplaatste reflectoren.',
                                                                                                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantopsluitingBijkomendeParameter/gebogen-trottoirband-of-Trottoirband-watergreppel-straal-kleiner-of-gelijk-5m-reflectoren-verticaal'),
         'hoekstukken.-hoek-90°-of-270°': KeuzelijstWaarde(invulwaarde='hoekstukken.-hoek-90°-of-270°',
-                                                          label='hoekstukken. hoek 90° of 270°',
-                                                          status='ingebruik',
-                                                          definitie='hoekstukken waarbij de hoek gelijk is aan 90° of 270°',
-                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantopsluitingBijkomendeParameter/hoekstukken.-hoek-90°-of-270°'),
+                                                            label='hoekstukken. hoek 90° of 270°',
+                                                            status='ingebruik',
+                                                            definitie='hoekstukken waarbij de hoek gelijk is aan 90° of 270°',
+                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantopsluitingBijkomendeParameter/hoekstukken.-hoek-90°-of-270°'),
         'hoekstukken.-hoek-verschillend-90°-of-270°': KeuzelijstWaarde(invulwaarde='hoekstukken.-hoek-verschillend-90°-of-270°',
-                                                                       label='hoekstukken. hoek verschillend 90° of 270°',
-                                                                       status='ingebruik',
-                                                                       definitie='Hoekstukken, hoek verschillend van 90° of 270°',
-                                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantopsluitingBijkomendeParameter/hoekstukken.-hoek-verschillend-90°-of-270°'),
+                                                                         label='hoekstukken. hoek verschillend 90° of 270°',
+                                                                         status='ingebruik',
+                                                                         definitie='Hoekstukken, hoek verschillend van 90° of 270°',
+                                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantopsluitingBijkomendeParameter/hoekstukken.-hoek-verschillend-90°-of-270°'),
         'overgangstrottoirbanden': KeuzelijstWaarde(invulwaarde='overgangstrottoirbanden',
                                                     label='overgangstrottoirbanden',
                                                     status='ingebruik',
@@ -108,7 +109,7 @@ class KlLEKantopsluitingBijkomendeParameter(KeuzelijstField):
                                                                status='ingebruik',
                                                                definitie='trottoirbanden voor minder-validen',
                                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantopsluitingBijkomendeParameter/trottoirbanden-voor-minder-validen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

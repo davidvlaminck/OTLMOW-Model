@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -223,7 +222,7 @@ class Laagspanningsbord(NaampadObject, PuntGeometrie):
         self._aardingsnet.set_waarde(value, owner=self)
 
     @property
-    def elektrischSchema(self) -> List[DtcDocumentWaarden]:
+    def elektrischSchema(self) -> list[DtcDocumentWaarden]:
         """Het elektrisch aansluitschema van het laagspanningsbord."""
         return self._elektrischSchema.get_waarde()
 
@@ -232,7 +231,7 @@ class Laagspanningsbord(NaampadObject, PuntGeometrie):
         self._elektrischSchema.set_waarde(value, owner=self)
 
     @property
-    def kabelberekeningsnota(self) -> List[DtcDocumentWaarden]:
+    def kabelberekeningsnota(self) -> list[DtcDocumentWaarden]:
         """De verzameling van alle berekeningen uitgevoerd om de secties en maximale lengtes van de kabels, gebruikt in de installatie, te bepalen."""
         return self._kabelberekeningsnota.get_waarde()
 

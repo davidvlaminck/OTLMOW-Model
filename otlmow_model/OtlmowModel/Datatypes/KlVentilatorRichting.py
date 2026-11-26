@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVentilatorRichting(KeuzelijstField):
     definition = 'Keuzelijst die aangeeft of de luchtstroom in één richting of beide richtingen kan plaatsvinden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVentilatorRichting'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bidirectioneel': KeuzelijstWaarde(invulwaarde='bidirectioneel',
                                            label='bidirectioneel',
                                            status='ingebruik',
@@ -21,7 +22,7 @@ class KlVentilatorRichting(KeuzelijstField):
                                             label='unidirectioneel',
                                             status='ingebruik',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVentilatorRichting/unidirectioneel')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIoTSensortype(KeuzelijstField):
     definition = 'De mogelijke types van IoT sensoren.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIoTSensortype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'chloridesensor': KeuzelijstWaarde(invulwaarde='chloridesensor',
                                            label='chloridesensor',
                                            status='ingebruik',
@@ -38,7 +39,7 @@ class KlIoTSensortype(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Een sensor die de hellingshoek of kanteling van een object of constructie meet ten opzichte van een referentievlak (meestal het horizontale vlak of de zwaartekrachtrichting).',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIoTSensortype/tiltsensor')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
@@ -160,7 +159,7 @@ class Spanningsomvormer(ElektrischComponentennummerObject, SerienummerObject, AI
         self._modelnaam.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiches als bijlage."""
         return self._technischeFiche.get_waarde()
 

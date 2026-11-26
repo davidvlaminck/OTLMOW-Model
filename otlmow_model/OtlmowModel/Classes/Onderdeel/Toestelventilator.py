@@ -1,22 +1,11 @@
 # coding=utf-8
-from typing import ClassVar
-
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.Abstracten.ElektrischComponentennummerObject import (
-    ElektrischComponentennummerObject,
-)
+from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...Datatypes.DtcAfmetingBxlInMm import (
-    DtcAfmetingBxlInMm,
-    DtcAfmetingBxlInMmWaarden,
-)
-from ...Datatypes.KlToestelventilatorFilterdoekKlasse import (
-    KlToestelventilatorFilterdoekKlasse,
-)
-from ...Datatypes.KlToestelventilatorFilterdoekMateriaal import (
-    KlToestelventilatorFilterdoekMateriaal,
-)
+from ...Datatypes.DtcAfmetingBxlInMm import DtcAfmetingBxlInMm, DtcAfmetingBxlInMmWaarden
+from ...Datatypes.KlToestelventilatorFilterdoekKlasse import KlToestelventilatorFilterdoekKlasse
+from ...Datatypes.KlToestelventilatorFilterdoekMateriaal import KlToestelventilatorFilterdoekMateriaal
 from ...Datatypes.KlToestelventilatorMerk import KlToestelventilatorMerk
 from ...Datatypes.KlToestelventilatorModelnaam import KlToestelventilatorModelnaam
 from ...Datatypes.KwantWrdInWatt import KwantWrdInWatt, KwantWrdInWattWaarden
@@ -30,14 +19,10 @@ class Toestelventilator(ElektrischComponentennummerObject, SerienummerObject, AI
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Toestelventilator'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor', 'u', None),  # u = unidirectional
-    ]
-
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relations(self._VALID_RELATIONS)
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Elektromotor', direction='u')  # u = unidirectional
 
         self._filterdoekAfmeting = OTLAttribuut(field=DtcAfmetingBxlInMm,
                                                 naam='filterdoekAfmeting',

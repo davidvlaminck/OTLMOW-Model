@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBVMengseltype(KeuzelijstField):
     definition = 'het mengseltype van de butimineuze verharding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBVMengseltype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'AB-1B': KeuzelijstWaarde(invulwaarde='AB-1B',
                                   label='AB-1B',
                                   status='ingebruik',
@@ -303,7 +304,7 @@ class KlBVMengseltype(KeuzelijstField):
                                     status='ingebruik',
                                     definitie='ZOAP-B1',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBVMengseltype/zoap-b1')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

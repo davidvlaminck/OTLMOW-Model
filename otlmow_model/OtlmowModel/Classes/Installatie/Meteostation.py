@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.MeetstationAbstract import MeetstationAbstract
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -75,7 +74,7 @@ class Meteostation(MeetstationAbstract, NaampadObject):
                                              owner=self)
 
     @property
-    def beoordelingLokaleTerrein(self) -> List[str]:
+    def beoordelingLokaleTerrein(self) -> list[str]:
         """Het soort terrein waarin het meetstation staat met betrekking tot het reliëf en de vegetatie."""
         return self._beoordelingLokaleTerrein.get_waarde()
 
@@ -93,7 +92,7 @@ class Meteostation(MeetstationAbstract, NaampadObject):
         self._masterOfBridgeSensor.set_waarde(value, owner=self)
 
     @property
-    def nabijheidVanHindernissen(self) -> List[KwantWrdInMeterWaarden]:
+    def nabijheidVanHindernissen(self) -> list[KwantWrdInMeterWaarden]:
         """De afstand tot een hindernis in de nabijheid."""
         return self._nabijheidVanHindernissen.get_waarde()
 
@@ -102,7 +101,7 @@ class Meteostation(MeetstationAbstract, NaampadObject):
         self._nabijheidVanHindernissen.set_waarde(value, owner=self)
 
     @property
-    def nabijheidVanWaterlopen(self) -> List[KwantWrdInMeterWaarden]:
+    def nabijheidVanWaterlopen(self) -> list[KwantWrdInMeterWaarden]:
         """De afstand tot een waterloop in de nabijheid."""
         return self._nabijheidVanWaterlopen.get_waarde()
 
@@ -111,7 +110,7 @@ class Meteostation(MeetstationAbstract, NaampadObject):
         self._nabijheidVanWaterlopen.set_waarde(value, owner=self)
 
     @property
-    def sitePhysicsRapport(self) -> List[DtcDocumentWaarden]:
+    def sitePhysicsRapport(self) -> list[DtcDocumentWaarden]:
         """Beschrijvend overzichtsrapport van het meteostation."""
         return self._sitePhysicsRapport.get_waarde()
 
@@ -120,7 +119,7 @@ class Meteostation(MeetstationAbstract, NaampadObject):
         self._sitePhysicsRapport.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiches als bijlage."""
         return self._technischeFiche.get_waarde()
 

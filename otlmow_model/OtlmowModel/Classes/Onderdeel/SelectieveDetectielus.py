@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SelNietSelLus import SelNietSelLus
 from ...BaseClasses.BooleanField import BooleanField
@@ -52,7 +51,7 @@ class SelectieveDetectielus(SelNietSelLus):
         self._heeftMeerdereKruisingen.set_waarde(value, owner=self)
 
     @property
-    def soortLus(self) -> List[str]:
+    def soortLus(self) -> list[str]:
         """Type detectielus vb bus, tram,..."""
         return self._soortLus.get_waarde()
 

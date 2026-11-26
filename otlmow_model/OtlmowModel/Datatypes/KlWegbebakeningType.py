@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWegbebakeningType(KeuzelijstField):
     definition = 'De vormen van wegbebakening.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegbebakeningType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'type-1-(new-jersey-reclip)': KeuzelijstWaarde(invulwaarde='type-1-(new-jersey-reclip)',
                                                        label='type 1 (new jersey reclip)',
                                                        status='ingebruik',
@@ -43,7 +44,7 @@ class KlWegbebakeningType(KeuzelijstField):
                                                         status='ingebruik',
                                                         definitie='Type C (vangrail trapezium)',
                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegbebakeningType/type-C-(vangrail-trapezium)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

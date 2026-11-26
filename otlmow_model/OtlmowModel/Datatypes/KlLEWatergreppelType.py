@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEWatergreppelType(KeuzelijstField):
     definition = 'Types van watergreppel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEWatergreppelType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'type-II-A-2': KeuzelijstWaarde(invulwaarde='type-II-A-2',
                                         label='type II A 2',
                                         status='ingebruik',
@@ -38,7 +39,7 @@ class KlLEWatergreppelType(KeuzelijstField):
                                         status='ingebruik',
                                         definitie='type II E 2',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEWatergreppelType/type-II-E-2')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

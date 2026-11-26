@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBestratingselementAfmetingLxB(KeuzelijstField):
     definition = 'De afmetingen of aanduidingen voor bestrating van betonstraatstenen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBestratingselementAfmetingLxB'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1000-x-1000': KeuzelijstWaarde(invulwaarde='1000-x-1000',
                                         label='1000 x 1000',
                                         status='ingebruik',
@@ -78,7 +79,7 @@ class KlBestratingselementAfmetingLxB(KeuzelijstField):
                                                                      status='ingebruik',
                                                                      definitie='afmetingen volgens de opdrachtdocumenten',
                                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBestratingselementAfmetingLxB/afmetingen-volgens-de-opdrachtdocumenten')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

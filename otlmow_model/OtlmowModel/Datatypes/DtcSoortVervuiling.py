@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.ComplexField import ComplexField
@@ -27,7 +26,7 @@ class DtcSoortVervuilingWaarden(WaardenObject):
                                              owner=self)
 
     @property
-    def microgramPerKilogram(self) -> List[KwantWrdInMicrogramPerKilogramWaarden]:
+    def microgramPerKilogram(self) -> list[KwantWrdInMicrogramPerKilogramWaarden]:
         """De concentratie van de vervuiling kan in µg/kg bepaalt worden."""
         return self._microgramPerKilogram.get_waarde()
 

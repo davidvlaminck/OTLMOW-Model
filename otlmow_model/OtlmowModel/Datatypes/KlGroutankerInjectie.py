@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGroutankerInjectie(KeuzelijstField):
     definition = 'Manier waarop het groutanker wordt uitgevoerd.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGroutankerInjectie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'igu-(injection-globale-et-unitaire)': KeuzelijstWaarde(invulwaarde='igu-(injection-globale-et-unitaire)',
                                                                 label='IGU (Injection Globale et Unitaire)',
                                                                 status='ingebruik',
@@ -21,7 +22,7 @@ class KlGroutankerInjectie(KeuzelijstField):
                                                                     label='IRS (Injection Répétitive et Sélective)',
                                                                     status='ingebruik',
                                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGroutankerInjectie/irs-(injection-repetitive-et-selective)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

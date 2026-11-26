@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlFolieType(KeuzelijstField):
     definition = 'Types van folie.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFolieType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'folietype-1': KeuzelijstWaarde(invulwaarde='folietype-1',
                                         label='folietype 1',
                                         status='ingebruik',
@@ -38,7 +39,7 @@ class KlFolieType(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='folietype 3b',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFolieType/folietype-3b')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

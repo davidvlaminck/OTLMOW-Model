@@ -1,11 +1,9 @@
 # coding=utf-8
-from ..BaseClasses.ComplexField import ComplexField
 from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.StringField import StringField
 from ..BaseClasses.WaardenObject import WaardenObject
-from ..Datatypes.KlLEKantopsluitingBijkomendeParameter import (
-    KlLEKantopsluitingBijkomendeParameter,
-)
+from ..BaseClasses.ComplexField import ComplexField
+from ..Datatypes.KlLEKantopsluitingBijkomendeParameter import KlLEKantopsluitingBijkomendeParameter
+from ..BaseClasses.StringField import StringField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

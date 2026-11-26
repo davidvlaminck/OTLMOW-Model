@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWalsmethode(KeuzelijstField):
     definition = 'De manier waarop het staal is gewalst.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWalsmethode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'koud': KeuzelijstWaarde(invulwaarde='koud',
                                  label='Koud',
                                  status='ingebruik',
@@ -23,7 +24,7 @@ class KlWalsmethode(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Heet staal wordt vervormd onder druk van persen en walsen.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWalsmethode/warm')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

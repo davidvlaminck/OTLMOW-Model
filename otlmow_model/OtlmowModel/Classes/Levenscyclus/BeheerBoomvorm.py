@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlBeheerBoomvorm import KlBeheerBoomvorm
@@ -36,7 +35,7 @@ class BeheerBoomvorm(AIMObject, VlakGeometrie):
                                          owner=self)
 
     @property
-    def beheeroptie(self) -> List[str]:
+    def beheeroptie(self) -> list[str]:
         """Behandelingswijzen van bomen."""
         return self._beheeroptie.get_waarde()
 

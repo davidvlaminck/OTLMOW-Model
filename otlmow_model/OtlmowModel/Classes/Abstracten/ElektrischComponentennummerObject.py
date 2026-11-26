@@ -1,7 +1,6 @@
 # coding=utf-8
-from abc import ABC, abstractmethod
-
 from ...BaseClasses.OTLObject import OTLAttribuut
+from abc import abstractmethod, ABC
 from ...BaseClasses.StringField import StringField
 
 

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVentilatorGebruik(KeuzelijstField):
     definition = 'Keuzelijst die de types van gebruik voor de ventilator aangeeft.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVentilatorGebruik'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dwarsventilatie-aanzuigunit': KeuzelijstWaarde(invulwaarde='dwarsventilatie-aanzuigunit',
                                                         label='dwarsventilatie aanzuigunit',
                                                         status='verwijderd',
@@ -38,7 +39,7 @@ class KlVentilatorGebruik(KeuzelijstField):
                                             status='ingebruik',
                                             definitie='Een ventilatie-eenheid die lucht in de langsrichting in de tunnel verplaatst.',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVentilatorGebruik/langsventilator')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

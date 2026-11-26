@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeBalk(KeuzelijstField):
     definition = 'De soort balk.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeBalk'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'balk-ligger': KeuzelijstWaarde(invulwaarde='balk-ligger',
                                         label='Balk/ligger',
                                         status='ingebruik',
@@ -28,7 +29,7 @@ class KlTypeBalk(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='Aaneengesloten en doorlopende balk die op een constructie komt te staan. Een ringbalk dient meestal om de spatkrachten op te vangen.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeBalk/ringbalk')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

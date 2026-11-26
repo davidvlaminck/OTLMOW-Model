@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLokaalTerreinType(KeuzelijstField):
     definition = 'Lokale terrein types.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLokaalTerreinType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'andere-gelieve-te-omschrijven-in-extra-notitie-voor-het-object': KeuzelijstWaarde(invulwaarde='andere-gelieve-te-omschrijven-in-extra-notitie-voor-het-object',
                                                                                            label='Andere (gelieve te omschrijven in extra notitie voor het object)',
                                                                                            status='ingebruik',
@@ -63,7 +64,7 @@ class KlLokaalTerreinType(KeuzelijstField):
                                               status='ingebruik',
                                               definitie='Vlak zonder bomen',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLokaalTerreinType/vlak-zonder-bomen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

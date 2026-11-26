@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SoftwareToegang import SoftwareToegang
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -151,7 +150,7 @@ class Software(SoftwareToegang, NaampadObject, PuntGeometrie):
         self._onlineDocumentatie.set_waarde(value, owner=self)
 
     @property
-    def poortenconfiguratie(self) -> List[DtcSoftwarePoortconfiguratieWaarden]:
+    def poortenconfiguratie(self) -> list[DtcSoftwarePoortconfiguratieWaarden]:
         """Beschrijft welke poort voor welke service gebruikt wordt."""
         return self._poortenconfiguratie.get_waarde()
 

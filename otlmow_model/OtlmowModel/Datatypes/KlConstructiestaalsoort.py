@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlConstructiestaalsoort(KeuzelijstField):
     definition = 'De soort van staal.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlConstructiestaalsoort'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '34crnimo6-aisi-4340-sncm439-jis-g4103': KeuzelijstWaarde(invulwaarde='34crnimo6-aisi-4340-sncm439-jis-g4103',
                                                                   label='34CrNiMo6 -- AISI 4340 -- SNCM439 (JIS G4103)',
                                                                   status='ingebruik',
@@ -328,7 +329,7 @@ class KlConstructiestaalsoort(KeuzelijstField):
                                                                       status='ingebruik',
                                                                       definitie='X6CrNiMoTi17-12-2 -- AISI 316Ti -- SUS316Ti (JIS)',
                                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/x6crnimoti17-12-2-aisi-316ti-sus316ti-jis')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

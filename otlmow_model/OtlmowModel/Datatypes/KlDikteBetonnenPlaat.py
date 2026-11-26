@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDikteBetonnenPlaat(KeuzelijstField):
     definition = 'De dikte van de betonnen plaat, opgedeeld in categorieën.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDikteBetonnenPlaat'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'groter-dan-1000mm': KeuzelijstWaarde(invulwaarde='groter-dan-1000mm',
                                               label='Groter dan 1000mm',
                                               status='ingebruik',
@@ -33,7 +34,7 @@ class KlDikteBetonnenPlaat(KeuzelijstField):
                                                                  status='ingebruik',
                                                                  definitie='De dikte van de betonnen plaat is tussen 600 millimeter en/of gelijk aan 1000 millimeter.',
                                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDikteBetonnenPlaat/tussen-600mm-en-of-gelijk-aan-1000mm')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

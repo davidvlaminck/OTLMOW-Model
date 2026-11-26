@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlFiguratieSoort(KeuzelijstField):
     definition = 'Soorten van figuratie markering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFiguratieSoort'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'aanduiding-bebouwde-kom---snelheidsbeperking-(50)': KeuzelijstWaarde(invulwaarde='aanduiding-bebouwde-kom---snelheidsbeperking-(50)',
                                                                               label='aanduiding bebouwde kom - snelheidsbeperking (50)',
                                                                               status='ingebruik',
@@ -68,7 +69,7 @@ class KlFiguratieSoort(KeuzelijstField):
                                               status='ingebruik',
                                               definitie='Een visgraatmarkering.',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFiguratieSoort/visgraatmarkering')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

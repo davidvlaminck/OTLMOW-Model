@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeTakel(KeuzelijstField):
     definition = 'De mogelijke types takel, geclassificeerd op basis van constructie en werkingsprincipe.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeTakel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'kabeltakel': KeuzelijstWaarde(invulwaarde='kabeltakel',
                                        label='kabeltakel',
                                        status='ingebruik',
@@ -25,7 +26,7 @@ class KlTypeTakel(KeuzelijstField):
                                             label='staaldraadtakel',
                                             status='ingebruik',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeTakel/staaldraadtakel')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

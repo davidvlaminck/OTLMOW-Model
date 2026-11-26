@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlCameraBeeldverwerkingstype(KeuzelijstField):
     definition = 'Lijst met mogelijke types van beeldverwerking eigen aan een camera (in tegenstelling tot beeldverwerking door andere assets).'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCameraBeeldverwerkingstype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'adr': KeuzelijstWaarde(invulwaarde='adr',
                                 label='ADR',
                                 status='ingebruik',
@@ -33,7 +34,7 @@ class KlCameraBeeldverwerkingstype(KeuzelijstField):
                                           status='ingebruik',
                                           definitie='Surface state',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraBeeldverwerkingstype/surface-state')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

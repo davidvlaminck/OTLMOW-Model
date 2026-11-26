@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Ventilatie import Ventilatie
 from ...BaseClasses.BooleanField import BooleanField
@@ -111,7 +110,7 @@ class Ventilator(Ventilatie):
         self._heeftTrillingsmeting.set_waarde(value, owner=self)
 
     @property
-    def standen(self) -> List[KwantWrdInProcentWaarden]:
+    def standen(self) -> list[KwantWrdInProcentWaarden]:
         """Met de standen van de ventilator kan de draaisnelheid en soms ook de draairichting van de de bladen van de ventilator bepaald worden."""
         return self._standen.get_waarde()
 

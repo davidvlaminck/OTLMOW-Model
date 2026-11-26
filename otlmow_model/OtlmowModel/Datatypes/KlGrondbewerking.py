@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGrondbewerking(KeuzelijstField):
     definition = 'Lijst van mogelijke grondbewerkingen die uitgevoerd kunnen worden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrondbewerking'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'diepscheuren': KeuzelijstWaarde(invulwaarde='diepscheuren',
                                          label='diepscheuren',
                                          status='ingebruik',
@@ -68,7 +69,7 @@ class KlGrondbewerking(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='Het door middel van een ronde veer of (kooi)rol verkruimelen van de bovenste laag van de bewerkte grond tot op een diepte van 0,05 m tot wanneer een vlakke en fijne ondergrond wordt verkregen.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrondbewerking/verkruimelen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

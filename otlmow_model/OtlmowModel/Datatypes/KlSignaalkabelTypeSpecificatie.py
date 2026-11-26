@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSignaalkabelTypeSpecificatie(KeuzelijstField):
     definition = 'Lijst met mogelijke specificaties van het type van de signaalkabel volgens een vaste lijst om bv. de brandklasse mee te geven.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignaalkabelTypeSpecificatie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'cca-s3-d2-a3': KeuzelijstWaarde(invulwaarde='cca-s3-d2-a3',
                                          label='Cca s3 d2 a3',
                                          status='ingebruik',
@@ -28,7 +29,7 @@ class KlSignaalkabelTypeSpecificatie(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Rf1h',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSignaalkabelTypeSpecificatie/rf1h')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

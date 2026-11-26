@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlHechtspecie(KeuzelijstField):
     definition = 'Keuzelijst met hecht specie van gestapelde ruwe steen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHechtspecie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gebiedseigen-grond': KeuzelijstWaarde(invulwaarde='gebiedseigen-grond',
                                                label='gebiedseigen grond',
                                                status='ingebruik',
@@ -23,7 +24,7 @@ class KlHechtspecie(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='zandcement',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHechtspecie/zandcement')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

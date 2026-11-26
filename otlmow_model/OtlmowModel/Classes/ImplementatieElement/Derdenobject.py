@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
@@ -92,7 +91,7 @@ class Derdenobject(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor, OTLA
         self._contactgegevens.set_waarde(value, owner=self)
 
     @property
-    def foto(self) -> List[DtcDocumentWaarden]:
+    def foto(self) -> list[DtcDocumentWaarden]:
         """Een foto van het derdenobject die eventuele detailinformatie weergeeft."""
         return self._foto.get_waarde()
 

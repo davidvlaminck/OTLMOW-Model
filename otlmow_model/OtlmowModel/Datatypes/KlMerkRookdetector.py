@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,13 +14,13 @@ class KlMerkRookdetector(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.21.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMerkRookdetector'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'kidde': KeuzelijstWaarde(invulwaarde='kidde',
                                   label='Kidde',
                                   status='ingebruik',
                                   definitie='Kidde',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMerkRookdetector/kidde')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

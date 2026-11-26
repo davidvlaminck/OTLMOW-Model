@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMotorsturingType(KeuzelijstField):
     definition = 'Lijst met types van motorsturingen'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMotorsturingType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dc-motorsturing': KeuzelijstWaarde(invulwaarde='dc-motorsturing',
                                             label='DC motorsturing',
                                             status='ingebruik',
@@ -26,7 +27,7 @@ class KlMotorsturingType(KeuzelijstField):
                                         label='softstarter',
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMotorsturingType/softstarter')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

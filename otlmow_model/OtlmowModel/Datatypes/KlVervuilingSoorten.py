@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,13 +13,13 @@ class KlVervuilingSoorten(KeuzelijstField):
     definition = 'De specificatie van de vastgestelde vervuiling van de grond.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVervuilingSoorten'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'pfos': KeuzelijstWaarde(invulwaarde='pfos',
                                  label='PFOS',
                                  status='ingebruik',
                                  definitie='Perfluoroctaansulfonaten zijn chemische stoffen die behoren tot de bredere PFAS (perfluorinated alkylated substances), een grote familie van duizenden synthetische stoffen met meerdere fluoratomen.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVervuilingSoorten/pfos')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

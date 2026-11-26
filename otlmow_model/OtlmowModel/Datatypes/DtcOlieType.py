@@ -1,6 +1,5 @@
 # coding=utf-8
 from datetime import date
-from typing import List
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
@@ -68,7 +67,7 @@ class DtcOlieTypeWaarden(WaardenObject):
                                     owner=self)
 
     @property
-    def additievenOlie(self) -> List[str]:
+    def additievenOlie(self) -> list[str]:
         """Geeft aan welke additieven er aan de olie zijn toegevoegd."""
         return self._additievenOlie.get_waarde()
 

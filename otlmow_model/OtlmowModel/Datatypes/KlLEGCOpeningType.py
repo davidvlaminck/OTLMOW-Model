@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlLEGCOpeningType(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.1.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEGCOpeningType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dienstopening': KeuzelijstWaarde(invulwaarde='dienstopening',
                                           label='dienstopening',
                                           status='verwijderd',
@@ -34,7 +35,7 @@ class KlLEGCOpeningType(KeuzelijstField):
                                           status='verwijderd',
                                           definitie='vluchtopening',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEGCOpeningType/vluchtopening')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlElektromotorBeschermingsgraad(KeuzelijstField):
     definition = "De beschmeringsgraad van een elektromotor, uitgerdukt als 'IP', gevolgd door 2 cijfers."
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElektromotorBeschermingsgraad'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ip20': KeuzelijstWaarde(invulwaarde='ip20',
                                  label='IP20',
                                  status='ingebruik',
@@ -28,7 +29,7 @@ class KlElektromotorBeschermingsgraad(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='IP54',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorBeschermingsgraad/ip54')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

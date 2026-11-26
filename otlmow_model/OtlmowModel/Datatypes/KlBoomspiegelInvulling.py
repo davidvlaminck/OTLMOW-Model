@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBoomspiegelInvulling(KeuzelijstField):
     definition = 'Keuzelijst, die de manieren om de boomspiegel in te vullen, oplijst.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomspiegelInvulling'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'andere': KeuzelijstWaarde(invulwaarde='andere',
                                    label='andere',
                                    status='ingebruik',
@@ -78,7 +79,7 @@ class KlBoomspiegelInvulling(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='In de boomspiegel is verharding aanwezig tot op minder dan 30cm van de stamvoet',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBoomspiegelInvulling/verharding')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

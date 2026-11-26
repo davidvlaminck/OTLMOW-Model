@@ -1,11 +1,7 @@
 # coding=utf-8
-from abc import abstractmethod
-
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Datatypes.KwantWrdInCentimeter import (
-    KwantWrdInCentimeter,
-    KwantWrdInCentimeterWaarden,
-)
+from abc import abstractmethod
+from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 

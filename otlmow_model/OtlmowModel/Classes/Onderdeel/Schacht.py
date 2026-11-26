@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.PutRelatie import PutRelatie
 from ...BaseClasses.BooleanField import BooleanField
@@ -129,7 +128,7 @@ class Schacht(PutRelatie, VlakGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de schacht."""
         return self._technischeFiche.get_waarde()
 

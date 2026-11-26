@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Kast import Kast
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -31,7 +30,7 @@ class IndoorKast(Kast, NaampadObject):
                                    owner=self)
 
     @property
-    def mplan(self) -> List[DtcDocumentWaarden]:
+    def mplan(self) -> list[DtcDocumentWaarden]:
         """Mechanisch plan van de volledige installatie. Er wordt 1 plan toegevoegd per installatie/techniek die op de kast is aangesloten."""
         return self._mplan.get_waarde()
 

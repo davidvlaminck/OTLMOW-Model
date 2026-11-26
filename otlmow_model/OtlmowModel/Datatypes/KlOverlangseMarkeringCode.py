@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlOverlangseMarkeringCode(KeuzelijstField):
     definition = 'Codes van de overlangse markering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOverlangseMarkeringCode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'BAD-0.20': KeuzelijstWaarde(invulwaarde='BAD-0.20',
                                      label='BAD 0.20',
                                      status='ingebruik',
@@ -118,7 +119,7 @@ class KlOverlangseMarkeringCode(KeuzelijstField):
                                                 status='ingebruik',
                                                 definitie='Onderbroken overlangse aslijn spitsstrook markering.',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOverlangseMarkeringCode/SAO-0.20-x-10-(2.5)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

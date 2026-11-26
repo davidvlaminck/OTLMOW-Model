@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlToegangsprocedureAandachtspunt(KeuzelijstField):
     definition = 'De soorten aandachtspunten voor toegang tot een object.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangsprocedureAandachtspunt'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'botser-nodig': KeuzelijstWaarde(invulwaarde='botser-nodig',
                                          label='botser nodig',
                                          status='ingebruik',
@@ -28,7 +29,7 @@ class KlToegangsprocedureAandachtspunt(KeuzelijstField):
                                                       status='ingebruik',
                                                       definitie='Het object kan niet bereikt worden met een machine voor bijvoorbeeld reiniging, onderhoud of vervanging.',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangsprocedureAandachtspunt/niet-machinaal-bereikbaar')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

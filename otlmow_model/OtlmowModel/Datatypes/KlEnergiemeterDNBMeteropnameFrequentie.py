@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlEnergiemeterDNBMeteropnameFrequentie(KeuzelijstField):
     definition = 'Frequentie waarmee de meterstand opgenomen wordt door de netbeheerder.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEnergiemeterDNBMeteropnameFrequentie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'AMR': KeuzelijstWaarde(invulwaarde='AMR',
                                 label='AMR',
                                 status='ingebruik',
@@ -28,7 +29,7 @@ class KlEnergiemeterDNBMeteropnameFrequentie(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='jaarlijkse meter opname',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEnergiemeterDNBMeteropnameFrequentie/YMR')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

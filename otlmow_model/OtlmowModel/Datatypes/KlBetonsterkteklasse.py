@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBetonsterkteklasse(KeuzelijstField):
     definition = 'De klasse waarin de sterkte van beton wordt uitgedrukt.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBetonsterkteklasse'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'c-12-15': KeuzelijstWaarde(invulwaarde='c-12-15',
                                     label='C12/15',
                                     status='ingebruik',
@@ -98,7 +99,7 @@ class KlBetonsterkteklasse(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='C van Concrete (Beton). 90 is de karakteristieke druksterkte bij beproeving op cilinders, 105 is deze bij kubussen. Beiden uitgedrukt in MPa.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-90-105')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlElektromotorBouwvorm(KeuzelijstField):
     definition = 'Keuzelijst voor de bouwvorm van een elektromotor volgens de IM-code (International Mounting).'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElektromotorBouwvorm'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'im-b14---im-3601': KeuzelijstWaarde(invulwaarde='im-b14---im-3601',
                                              label='IM B14 / IM 3601',
                                              status='ingebruik',
@@ -77,7 +78,7 @@ class KlElektromotorBouwvorm(KeuzelijstField):
                                             label='IM V6 / IM 1031',
                                             status='ingebruik',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElektromotorBouwvorm/im-v6---im-1031')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

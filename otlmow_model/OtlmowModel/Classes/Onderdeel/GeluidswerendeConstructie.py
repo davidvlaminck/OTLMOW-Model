@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.LijnvormigElement import LijnvormigElement
 from ...BaseClasses.BooleanField import BooleanField
@@ -286,7 +285,7 @@ class GeluidswerendeConstructie(LijnvormigElement, LijnGeometrie):
         self._kleur.set_waarde(value, owner=self)
 
     @property
-    def materiaalKarakteristiek(self) -> List[DtcGCMateriaalKarakteristiekWaarden]:
+    def materiaalKarakteristiek(self) -> list[DtcGCMateriaalKarakteristiekWaarden]:
         """Het materiaal van de geluidswerende constructie en het geluidskarakteristiek van het materiaal."""
         return self._materiaalKarakteristiek.get_waarde()
 
@@ -322,7 +321,7 @@ class GeluidswerendeConstructie(LijnvormigElement, LijnGeometrie):
         self._overzichtSchermhoogte.set_waarde(value, owner=self)
 
     @property
-    def schermelement(self) -> List[str]:
+    def schermelement(self) -> list[str]:
         """Het type van schermelement."""
         return self._schermelement.get_waarde()
 
@@ -331,7 +330,7 @@ class GeluidswerendeConstructie(LijnvormigElement, LijnGeometrie):
         self._schermelement.set_waarde(value, owner=self)
 
     @property
-    def schermtype(self) -> List[str]:
+    def schermtype(self) -> list[str]:
         """Bepaling van een vlak of niet-vlak scherm. Een vlak scherm zijn alle schermtypes die getest kunnen worden volgens de normen NBN EN 1793-1 NBN EN 1793-2.
 De niet-vlakke schermen zijn de schermen die niet kunnen getest worden volgens de normen NBN EN 1793-1 NBN EN 1793-2."""
         return self._schermtype.get_waarde()
@@ -350,7 +349,7 @@ De niet-vlakke schermen zijn de schermen die niet kunnen getest worden volgens d
         self._statischeBelasting.set_waarde(value, owner=self)
 
     @property
-    def testrapport(self) -> List[DtcDocumentWaarden]:
+    def testrapport(self) -> list[DtcDocumentWaarden]:
         """De testresultaten van een geluidswerende constructie."""
         return self._testrapport.get_waarde()
 
@@ -377,7 +376,7 @@ De niet-vlakke schermen zijn de schermen die niet kunnen getest worden volgens d
         self._totaleOppervlakte.set_waarde(value, owner=self)
 
     @property
-    def videoVoertuigkering(self) -> List[DtcDocumentWaarden]:
+    def videoVoertuigkering(self) -> list[DtcDocumentWaarden]:
         """Video van de testen op geluidswerende constructies."""
         return self._videoVoertuigkering.get_waarde()
 

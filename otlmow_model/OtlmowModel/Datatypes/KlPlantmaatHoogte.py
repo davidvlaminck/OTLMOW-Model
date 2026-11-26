@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPlantmaatHoogte(KeuzelijstField):
     definition = 'Keuzelijst die de hoogte in centimeter gemeten van de stamvoet tot de top met een minimum en maximum waarde oplijst.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlantmaatHoogte'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '100-125': KeuzelijstWaarde(invulwaarde='100-125',
                                     label='100-125',
                                     status='ingebruik',
@@ -68,7 +69,7 @@ class KlPlantmaatHoogte(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='80/100',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPlantmaatHoogte/80-100')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

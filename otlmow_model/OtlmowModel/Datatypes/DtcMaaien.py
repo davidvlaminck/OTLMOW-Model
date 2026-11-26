@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
@@ -64,7 +63,7 @@ class DtcMaaienWaarden(WaardenObject):
                                      owner=self)
 
     @property
-    def frequentie(self) -> List[str]:
+    def frequentie(self) -> list[str]:
         """Het aantal keer dat er gemaaid wordt per jaar."""
         return self._frequentie.get_waarde()
 
@@ -118,7 +117,7 @@ class DtcMaaienWaarden(WaardenObject):
         self._klepelmaaierToegelaten.set_waarde(value, owner=self._parent)
 
     @property
-    def periode(self) -> List[str]:
+    def periode(self) -> list[str]:
         """De maand waarin het maaien wordt uitgevoerd."""
         return self._periode.get_waarde()
 

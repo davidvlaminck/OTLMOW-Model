@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTelecommunicationsAppurtenanceType(KeuzelijstField):
     definition = 'Lijst van types voor telecommunications appurtenance.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTelecommunicationsAppurtenanceType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'spliceclosure': KeuzelijstWaarde(invulwaarde='spliceclosure',
                                           label='spliceClosure',
                                           status='ingebruik',
@@ -22,7 +23,7 @@ class KlTelecommunicationsAppurtenanceType(KeuzelijstField):
                                         status='ingebruik',
                                         definitie='termination',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecommunicationsAppurtenanceType/termination')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

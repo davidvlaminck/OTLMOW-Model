@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcCompacteBatterij import DtcCompacteBatterij, DtcCompacteBatterijWaarden
@@ -88,7 +87,7 @@ class IoTSensor(AIMNaamObject, PuntGeometrie):
         self._batterij.set_waarde(value, owner=self)
 
     @property
-    def gemetenParameters(self) -> List[str]:
+    def gemetenParameters(self) -> list[str]:
         """De mogelijke parameters die kunnen gemeten worden door de IoT-sensor."""
         return self._gemetenParameters.get_waarde()
 

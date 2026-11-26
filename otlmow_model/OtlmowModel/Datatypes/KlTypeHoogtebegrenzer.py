@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeHoogtebegrenzer(KeuzelijstField):
     definition = 'De mogelijke types van een hoogtebegrenzer.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeHoogtebegrenzer'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'balk': KeuzelijstWaarde(invulwaarde='balk',
                                  label='balk',
                                  status='ingebruik',
@@ -25,7 +26,7 @@ class KlTypeHoogtebegrenzer(KeuzelijstField):
                                   label='koker',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeHoogtebegrenzer/koker')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,6 +1,5 @@
 # coding=utf-8
 from datetime import date
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.Cabine import Cabine
 from ...BaseClasses.BooleanField import BooleanField
@@ -74,7 +73,7 @@ class HSCabine(Cabine):
                                                                 owner=self)
 
     @property
-    def elektrischSchema(self) -> List[DtcDocumentWaarden]:
+    def elektrischSchema(self) -> list[DtcDocumentWaarden]:
         """Elektrisch aansluitschema van de HS cabine."""
         return self._elektrischSchema.get_waarde()
 

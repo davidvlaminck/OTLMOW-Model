@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlHardwareOS(KeuzelijstField):
     definition = 'vb : Windows 10 SP1, Windows 10 SP2, unix.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHardwareOS'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'cent-os-linux-7-core': KeuzelijstWaarde(invulwaarde='cent-os-linux-7-core',
                                                  label='CentOS Linux 7 (Core)',
                                                  status='ingebruik',
@@ -35,7 +36,7 @@ class KlHardwareOS(KeuzelijstField):
                                            label='windows 10 SP2',
                                            status='ingebruik',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHardwareOS/windows-10-SP2')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

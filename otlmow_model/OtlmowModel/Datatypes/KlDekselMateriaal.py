@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDekselMateriaal(KeuzelijstField):
     definition = 'Het materiaal waaruit het deksel bestaat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDekselMateriaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'anders': KeuzelijstWaarde(invulwaarde='anders',
                                    label='anders',
                                    status='ingebruik',
@@ -49,20 +50,20 @@ class KlDekselMateriaal(KeuzelijstField):
                                             definitie='grijs gietijzer',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselMateriaal/grijs-gietijzer'),
         'ongeïdentificeerd-materiaal': KeuzelijstWaarde(invulwaarde='ongeïdentificeerd-materiaal',
-                                                        label='ongeïdentificeerd materiaal',
-                                                        status='ingebruik',
-                                                        definitie='ongeïdentificeerd materiaal',
-                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselMateriaal/ongeïdentificeerd-materiaal'),
+                                                         label='ongeïdentificeerd materiaal',
+                                                         status='ingebruik',
+                                                         definitie='ongeïdentificeerd materiaal',
+                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselMateriaal/ongeïdentificeerd-materiaal'),
         'ongeïdentificeerd-type-ijzer-of-staal': KeuzelijstWaarde(invulwaarde='ongeïdentificeerd-type-ijzer-of-staal',
-                                                                  label='ongeïdentificeerd type ijzer of staal',
-                                                                  status='ingebruik',
-                                                                  definitie='ongeïdentificeerd type ijzer of staal',
-                                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselMateriaal/ongeïdentificeerd-type-ijzer-of-staal'),
+                                                                   label='ongeïdentificeerd type ijzer of staal',
+                                                                   status='ingebruik',
+                                                                   definitie='ongeïdentificeerd type ijzer of staal',
+                                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselMateriaal/ongeïdentificeerd-type-ijzer-of-staal'),
         'ongeïdentificeerd-type-kunststof': KeuzelijstWaarde(invulwaarde='ongeïdentificeerd-type-kunststof',
-                                                             label='ongeïdentificeerd type kunststof',
-                                                             status='ingebruik',
-                                                             definitie='ongeïdentificeerd type kunststof',
-                                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselMateriaal/ongeïdentificeerd-type-kunststof'),
+                                                              label='ongeïdentificeerd type kunststof',
+                                                              status='ingebruik',
+                                                              definitie='ongeïdentificeerd type kunststof',
+                                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselMateriaal/ongeïdentificeerd-type-kunststof'),
         'smeedijzer': KeuzelijstWaarde(invulwaarde='smeedijzer',
                                        label='smeedijzer',
                                        status='ingebruik',
@@ -73,7 +74,7 @@ class KlDekselMateriaal(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='staal',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDekselMateriaal/staal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

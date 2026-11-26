@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEACUitbuigingstype(KeuzelijstField):
     definition = 'De mogelijke uitbuigingstypes.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACUitbuigingstype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'type-1': KeuzelijstWaarde(invulwaarde='type-1',
                                    label='type 1',
                                    status='ingebruik',
@@ -23,7 +24,7 @@ class KlLEACUitbuigingstype(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='Uitbuiging op wegen vanaf 90 km/h, L = 25 meter',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACUitbuigingstype/type-2')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

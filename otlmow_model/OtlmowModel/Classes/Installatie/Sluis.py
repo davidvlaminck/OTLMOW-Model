@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.OntwerpwaterstandStreefpeil import OntwerpwaterstandStreefpeil
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
@@ -121,7 +120,7 @@ class Sluis(OntwerpwaterstandStreefpeil, AIMNaamObject):
                                          owner=self)
 
     @property
-    def breedte(self) -> List[KwantWrdInMeterWaarden]:
+    def breedte(self) -> list[KwantWrdInMeterWaarden]:
         """De afstand tussen de dagkanten van de vaste constructie, uitgedrukt in meter."""
         return self._breedte.get_waarde()
 
@@ -166,7 +165,7 @@ class Sluis(OntwerpwaterstandStreefpeil, AIMNaamObject):
         self._kerendeKarakter.set_waarde(value, owner=self)
 
     @property
-    def lengte(self) -> List[KwantWrdInMeterWaarden]:
+    def lengte(self) -> list[KwantWrdInMeterWaarden]:
         """Lengte langs de kolkwand tussen de meest afwaartse deurkas/-kamer en de meest opwaartse deurkas/-kamer of het opwaarts hoog gefundeerd sluishoofd."""
         return self._lengte.get_waarde()
 
@@ -175,7 +174,7 @@ class Sluis(OntwerpwaterstandStreefpeil, AIMNaamObject):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def ontwerpSchip(self) -> List[DtcOntwerpSchipWaarden]:
+    def ontwerpSchip(self) -> list[DtcOntwerpSchipWaarden]:
         """Schip met afmetingen dat wordt gekozen voor het ontwerp en de berekeningen van de sluis, dat representatief is voor het gemiddelde of typische scheepsverkeer dat naar verwachting de sluis zal gebruiken."""
         return self._ontwerpSchip.get_waarde()
 

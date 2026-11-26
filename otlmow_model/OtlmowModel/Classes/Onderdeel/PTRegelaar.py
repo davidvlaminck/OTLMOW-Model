@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -103,7 +102,7 @@ class PTRegelaar(NaampadObject, PuntGeometrie):
         self._communicatiewijze.set_waarde(value, owner=self)
 
     @property
-    def lijnnummers(self) -> List[DtcDocumentWaarden]:
+    def lijnnummers(self) -> list[DtcDocumentWaarden]:
         """Nummers van de PT lijnen die connecteren met de PT regelaar."""
         return self._lijnnummers.get_waarde()
 
@@ -139,7 +138,7 @@ class PTRegelaar(NaampadObject, PuntGeometrie):
         self._protocol.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiches van een PTRegelaar."""
         return self._technischeFiche.get_waarde()
 
@@ -148,7 +147,7 @@ class PTRegelaar(NaampadObject, PuntGeometrie):
         self._technischeFiche.set_waarde(value, owner=self)
 
     @property
-    def voertuignummers(self) -> List[str]:
+    def voertuignummers(self) -> list[str]:
         """Nummers van de voertuigen die connecteren met de PT regelaar."""
         return self._voertuignummers.get_waarde()
 

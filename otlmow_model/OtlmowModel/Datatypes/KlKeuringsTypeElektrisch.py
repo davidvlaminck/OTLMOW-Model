@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlKeuringsTypeElektrisch(KeuzelijstField):
     definition = 'De mogelijke keuringstypes voor de elektrische keuring.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKeuringsTypeElektrisch'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'eerste-keuring': KeuzelijstWaarde(invulwaarde='eerste-keuring',
                                            label='eerste keuring',
                                            status='ingebruik',
@@ -28,7 +29,7 @@ class KlKeuringsTypeElektrisch(KeuzelijstField):
                                                status='ingebruik',
                                                definitie='Keuring die op regelmatige of wettelijk voorgeschreven tijdstippen wordt herhaald om na te gaan of een elektrische installatie nog steeds voldoet aan de geldende veiligheidsvoorschriften en wettelijke vereisten.',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKeuringsTypeElektrisch/periodieke-keuring')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

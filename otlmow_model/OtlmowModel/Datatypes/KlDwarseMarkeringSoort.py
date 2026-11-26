@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDwarseMarkeringSoort(KeuzelijstField):
     definition = 'Soorten van dwarse markering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDwarseMarkeringSoort'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'afremmingsstreep': KeuzelijstWaarde(invulwaarde='afremmingsstreep',
                                              label='afremmingsstreep',
                                              status='ingebruik',
@@ -73,7 +74,7 @@ class KlDwarseMarkeringSoort(KeuzelijstField):
                                                               status='ingebruik',
                                                               definitie='Een locatie op de rijbaan die bestemd is voor voetgangers om over te steken.',
                                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDwarseMarkeringSoort/voetgangers-oversteekplaats-(VOP)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -69,7 +68,7 @@ class VerkeersbordConcept(AIMNaamObject, GeenGeometrie):
                                               owner=self)
 
     @property
-    def afbeelding(self) -> List[DtcDocumentWaarden]:
+    def afbeelding(self) -> list[DtcDocumentWaarden]:
         """De afbeelding van het verkeersbordconcept."""
         return self._afbeelding.get_waarde()
 

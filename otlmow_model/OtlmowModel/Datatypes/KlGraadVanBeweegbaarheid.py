@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGraadVanBeweegbaarheid(KeuzelijstField):
     definition = 'Op welke manier het brugdeel kan bewegen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGraadVanBeweegbaarheid'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'beweegbaar': KeuzelijstWaarde(invulwaarde='beweegbaar',
                                        label='Beweegbaar',
                                        status='ingebruik',
@@ -23,7 +24,7 @@ class KlGraadVanBeweegbaarheid(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Het brugdeel is vast en beweegt niet.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGraadVanBeweegbaarheid/vast')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

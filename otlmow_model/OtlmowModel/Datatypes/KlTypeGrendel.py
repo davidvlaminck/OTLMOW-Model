@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeGrendel(KeuzelijstField):
     definition = 'Lijst van mogelijke types grendels.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeGrendel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'klauw': KeuzelijstWaarde(invulwaarde='klauw',
                                   label='klauw',
                                   status='ingebruik',
@@ -21,7 +22,7 @@ class KlTypeGrendel(KeuzelijstField):
                                 label='pen',
                                 status='ingebruik',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeGrendel/pen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

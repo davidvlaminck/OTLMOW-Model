@@ -33,14 +33,13 @@ class DtcSupplementenCBVWaarden(WaardenObject):
     def kleur(self, value):
         self._kleur.set_waarde(value, owner=self._parent)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het type van de supplementen toegevoegd aan de verharding."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self._parent)
+    type = property(_get_type, _set_type)
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

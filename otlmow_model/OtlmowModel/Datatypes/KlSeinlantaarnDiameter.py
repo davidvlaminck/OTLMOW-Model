@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSeinlantaarnDiameter(KeuzelijstField):
     definition = 'Keuzelijst met de verschillende voorkomende diameter-waarden voor Seinlantaarn.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSeinlantaarnDiameter'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '100': KeuzelijstWaarde(invulwaarde='100',
                                 label='100',
                                 status='ingebruik',
@@ -25,7 +26,7 @@ class KlSeinlantaarnDiameter(KeuzelijstField):
                                 label='300',
                                 status='ingebruik',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSeinlantaarnDiameter/300')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

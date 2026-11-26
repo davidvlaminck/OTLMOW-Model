@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLESchampkantType(KeuzelijstField):
     definition = 'Types van de schampkant.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLESchampkantType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'aanrijbescherming': KeuzelijstWaarde(invulwaarde='aanrijbescherming',
                                               label='Aanrijbescherming',
                                               status='ingebruik',
@@ -68,7 +69,7 @@ class KlLESchampkantType(KeuzelijstField):
                                                     status='ingebruik',
                                                     definitie='Geprefabriceerde zeer lage (betonnen) veiligheidsstootband die over haar gehele lengte in de bodem is ingewerkt. Deze zijn overwegend parallel aan de hartlijn van de wegbaan georiënteerd en worden individueel geplaatst. ',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLESchampkantType/varkensrug-of-biggenrug')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

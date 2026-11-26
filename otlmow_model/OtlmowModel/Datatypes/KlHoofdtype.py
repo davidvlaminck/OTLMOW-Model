@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlHoofdtype(KeuzelijstField):
     definition = 'De mogelijke types hoofd van een constructiehoofd.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHoofdtype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '(afwaarts)benedenhoofd': KeuzelijstWaarde(invulwaarde='(afwaarts)benedenhoofd',
                                                    label='(afwaarts)benedenhoofd',
                                                    status='ingebruik',
@@ -25,7 +26,7 @@ class KlHoofdtype(KeuzelijstField):
                                         label='middenhoofd',
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHoofdtype/middenhoofd')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

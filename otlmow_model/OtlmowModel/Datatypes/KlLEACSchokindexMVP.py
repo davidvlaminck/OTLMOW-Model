@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEACSchokindexMVP(KeuzelijstField):
     definition = 'Head injury criteria (HIC) van een motorvangplank.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACSchokindexMVP'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'level-1': KeuzelijstWaarde(invulwaarde='level-1',
                                     label='level 1',
                                     status='ingebruik',
@@ -23,7 +24,7 @@ class KlLEACSchokindexMVP(KeuzelijstField):
                                     status='ingebruik',
                                     definitie='Krachten op hoofd en nek worden tot levensgevaarlijk tijdens test',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACSchokindexMVP/level-2')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

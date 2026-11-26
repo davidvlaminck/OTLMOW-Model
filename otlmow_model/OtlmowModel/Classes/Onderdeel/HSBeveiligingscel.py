@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...BaseClasses.BooleanField import BooleanField
@@ -138,7 +137,7 @@ class HSBeveiligingscel(NaampadObject, PuntGeometrie):
                                                   owner=self)
 
     @property
-    def elektrischSchema(self) -> List[DtcDocumentWaarden]:
+    def elektrischSchema(self) -> list[DtcDocumentWaarden]:
         """Elektrisch aansluitschema van de HS beveiligingscel."""
         return self._elektrischSchema.get_waarde()
 

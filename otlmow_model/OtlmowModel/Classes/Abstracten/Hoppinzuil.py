@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
@@ -120,7 +119,7 @@ class Hoppinzuil(AIMObject, PuntGeometrie):
                                         owner=self)
 
     @property
-    def weergegevenVervoersmodiOpKaart(self) -> List[str]:
+    def weergegevenVervoersmodiOpKaart(self) -> list[str]:
         """De verschillende beschikbare vervoersmodi die op de bijhorende kaart worden weergegeven."""
         return self._weergegevenVervoersmodiOpKaart.get_waarde()
 

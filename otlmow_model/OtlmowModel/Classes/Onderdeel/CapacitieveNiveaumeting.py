@@ -3,9 +3,7 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Niveaumeting import Niveaumeting
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
 from ...Datatypes.KlCapacitieveNiveaumetingMerk import KlCapacitieveNiveaumetingMerk
-from ...Datatypes.KlCapacitieveNiveaumetingModelnaam import (
-    KlCapacitieveNiveaumetingModelnaam,
-)
+from ...Datatypes.KlCapacitieveNiveaumetingModelnaam import KlCapacitieveNiveaumetingModelnaam
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

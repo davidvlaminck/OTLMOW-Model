@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlMarkeringSoort(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.18.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMarkeringSoort'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'geprefabriceerd': KeuzelijstWaarde(invulwaarde='geprefabriceerd',
                                             label='geprefabriceerd',
                                             status='ingebruik',
@@ -44,7 +45,7 @@ class KlMarkeringSoort(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Wegenverf die zich uitstekend leent tot de markering van openbare wegen. Wegenverf is een vloeibaar product dat vaste stoffen zoals bindmiddel, stoffen die kleuren reflecteren, vulstoffen en additieven bevat.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMarkeringSoort/verf')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlAlgWeekdagen(KeuzelijstField):
     definition = 'Lijst van de verschillende weekdagen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgWeekdagen'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dinsdag': KeuzelijstWaarde(invulwaarde='dinsdag',
                                     label='dinsdag',
                                     status='ingebruik',
@@ -53,7 +54,7 @@ class KlAlgWeekdagen(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='De dag van een week tussen zaterdag en maandag.',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAlgWeekdagen/zondag')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

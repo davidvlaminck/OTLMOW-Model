@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,13 +13,13 @@ class KlLetterVerschaaldType(KeuzelijstField):
     definition = 'De mogelijke types van een individueel verschaalde lettermarkering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLetterVerschaaldType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'versmald---Hoofdletters-(basishoogte-0.4-meter)': KeuzelijstWaarde(invulwaarde='versmald---Hoofdletters-(basishoogte-0.4-meter)',
                                                                             label='versmald - Hoofdletters (basishoogte 0.4 meter)',
                                                                             status='ingebruik',
                                                                             definitie='Versmalde hoofdletters bij verschaling (basishoogte 0.4 meter)',
                                                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLetterVerschaaldType/versmald---Hoofdletters-(basishoogte-0.4-meter)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

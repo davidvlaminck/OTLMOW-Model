@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGebruikersType(KeuzelijstField):
     definition = 'Geeft weer welke gebruikers op elk element van de koker.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGebruikersType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'autosnelweg': KeuzelijstWaarde(invulwaarde='autosnelweg',
                                         label='autosnelweg',
                                         status='verwijderd',
@@ -77,7 +78,7 @@ class KlGebruikersType(KeuzelijstField):
                                               status='verwijderd',
                                               definitie='wegverkeer (TERN)',
                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGebruikersType/wegverkeer-(tern)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlHoutigeType(KeuzelijstField):
     definition = 'Types van houtige vegetatie.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHoutigeType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bomen---bos': KeuzelijstWaarde(invulwaarde='bomen---bos',
                                         label='bomen - bos',
                                         status='ingebruik',
@@ -23,7 +24,7 @@ class KlHoutigeType(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='Een houtkant is een lijnvormige begroeiing met houtgewas (combinatie van bomen en struiken) met een minimale breedte van 3meter en meer en minstens 1 plantrij. ',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHoutigeType/houtkant')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

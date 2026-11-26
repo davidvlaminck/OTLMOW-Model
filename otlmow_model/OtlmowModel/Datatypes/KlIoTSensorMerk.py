@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIoTSensorMerk(KeuzelijstField):
     definition = 'IoT-senor merken.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIoTSensorMerk'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'com-sens': KeuzelijstWaarde(invulwaarde='com-sens',
                                      label='COM&SENS',
                                      status='ingebruik',
@@ -38,7 +39,7 @@ class KlIoTSensorMerk(KeuzelijstField):
                                                status='ingebruik',
                                                definitie='SYSCOM Instruments',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIoTSensorMerk/syscom-instruments')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

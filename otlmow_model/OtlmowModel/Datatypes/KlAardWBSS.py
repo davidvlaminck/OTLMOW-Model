@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlAardWBSS(KeuzelijstField):
     definition = 'De mogelijke vormen die ervoor zorgen dat hemelwater infiltreert langs de waterdoorlatende betonstraatsteen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAardWBSS'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'met-drainageopeningen': KeuzelijstWaarde(invulwaarde='met-drainageopeningen',
                                                   label='met drainageopeningen',
                                                   status='ingebruik',
@@ -28,7 +29,7 @@ class KlAardWBSS(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='Vorm voor waterdoorlatende betonstraatsteen waarbij hemelwater infiltreert doorheen de betonstraatsteen.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAardWBSS/poreus-beton')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

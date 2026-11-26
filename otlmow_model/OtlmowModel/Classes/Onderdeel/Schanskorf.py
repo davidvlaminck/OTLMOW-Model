@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereVerharding import AndereVerharding
 from ...BaseClasses.BooleanField import BooleanField
@@ -135,7 +134,7 @@ class Schanskorf(AndereVerharding):
         self._materiaalVulling.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de schanskorven als bijlage."""
         return self._technischeFiche.get_waarde()
 
@@ -143,14 +142,13 @@ class Schanskorf(AndereVerharding):
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Duidt het type schanskorf aan."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)
 
     @property
     def vorm(self) -> str:

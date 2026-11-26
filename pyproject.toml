@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "otlmow_model"
-version = "2.21.1.0"
+version = "2.21.1.1"
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: 3", "Programming Language :: Python :: 3.9", "Programming Language :: Python :: 3.10", "Programming Language :: Python :: 3.11", "Programming Language :: Python :: 3.12", "Programming Language :: Python :: 3.13", "Programming Language :: Python :: 3.14", "Operating System :: OS Independent", "Development Status :: 5 - Production/Stable", "Environment :: Console", "Intended Audience :: Developers", "Intended Audience :: Information Technology", "License :: OSI Approved :: GNU General Public License v3 (GPLv3)", "Natural Language :: Dutch", "Topic :: Software Development", "Topic :: Software Development :: Libraries :: Python Modules", "Topic :: Software Development :: Quality Assurance",]
 requires-python = ">=3.11"
@@ -28,7 +28,7 @@ update = [ "otlmow_modelbuilder", "toml",]
 line-length = 120
 target-version = "py311"
 src = [ "otlmow_model", "UnitTests", "model_update",]
-extend-exclude = [ "UnitTests/TestModel", "otlmow_model/OtlmowModel/Classes", "otlmow_model/OtlmowModel/Datatypes", "otlmow_model/OtlmowModel/Helpers/all_classes.py", ]
+extend-exclude = [ "UnitTests/TestModel", "otlmow_model/OtlmowModel/Classes", "otlmow_model/OtlmowModel/Datatypes", "otlmow_model/OtlmowModel/Helpers/all_classes.py",]
 
 [tool.mypy]
 python_version = "3.11"
@@ -61,10 +61,7 @@ do_not_mutate = []
 [tool.ruff.lint]
 select = [ "E", "F", "I", "B", "C4", "UP", "PYI", "PT", "RUF", "S", "BLE", "TRY", "FLY", "A", "C", "PL", "Q", "RET", "N", "W", "T20", "G", "LOG", "PIE", "SIM", "PERF", "ARG", "TID", "PTH",]
 ignore = [ "E501",]
-extend-select = [
-    "SIM",  # flake8-simplify (catches redundant conditions & nested logic)
-    "PLR",  # Pylint Refactor (catches too many returns, args, or branches)
-]
+extend-select = [ "SIM", "PLR",]
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -88,10 +85,10 @@ docstring-quotes = "double"
 "code_quality/scripts/*.py" = [ "T201", "S603",]
 "otlmow_model/OtlmowModel/Classes/Abstracten/BegroeidVoorkomen.py" = [ "PLR0915",]
 "otlmow_model/OtlmowModel/Classes/Abstracten/Behuizing.py" = [ "PLR0915",]
-"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijDagOfWV.py" = ["PLC2401"]
-"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNacht.py" = ["PLC2401"]
-"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNachtNatWegdek.py" = ["PLC2401"]
-"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNachtRegenweer.py" = ["PLC2401"]
+"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijDagOfWV.py" = [ "PLC2401",]
+"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNacht.py" = [ "PLC2401",]
+"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNachtNatWegdek.py" = [ "PLC2401",]
+"otlmow_model/OtlmowModel/Classes/ProefEnMeting/ProefZichtbaarheidBijNachtRegenweer.py" = [ "PLC2401",]
 
 [tool.setuptools.packages.find]
 include = [ "otlmow_model*",]

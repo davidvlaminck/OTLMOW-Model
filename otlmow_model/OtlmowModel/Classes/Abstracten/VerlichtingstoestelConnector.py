@@ -1,10 +1,7 @@
 # coding=utf-8
-from abc import ABC, abstractmethod
-
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Datatypes.KlVerlichtingstoestelconnectorBesturingsconnector import (
-    KlVerlichtingstoestelconnectorBesturingsconnector,
-)
+from abc import abstractmethod, ABC
+from ...Datatypes.KlVerlichtingstoestelconnectorBesturingsconnector import KlVerlichtingstoestelconnectorBesturingsconnector
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

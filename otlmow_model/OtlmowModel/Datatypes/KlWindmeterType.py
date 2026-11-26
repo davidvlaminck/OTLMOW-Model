@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWindmeterType(KeuzelijstField):
     definition = 'Types van windmeters.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWindmeterType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ultrasoon': KeuzelijstWaarde(invulwaarde='ultrasoon',
                                       label='Ultrasoon',
                                       status='ingebruik',
@@ -31,7 +32,7 @@ class KlWindmeterType(KeuzelijstField):
                                          label='windsnelheid',
                                          status='ingebruik',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWindmeterType/windsnelheid')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

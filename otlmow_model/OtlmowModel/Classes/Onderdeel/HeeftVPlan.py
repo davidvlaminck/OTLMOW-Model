@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.DirectioneleRelatie import DirectioneleRelatie
 from ...Datatypes.DtcDienstdatum import DtcDienstdatum, DtcDienstdatumWaarden
@@ -24,7 +23,7 @@ class HeeftVPlan(DirectioneleRelatie):
                                          owner=self)
 
     @property
-    def dienstdatum(self) -> List[DtcDienstdatumWaarden]:
+    def dienstdatum(self) -> list[DtcDienstdatumWaarden]:
         """De datum(s) waarop een Vplan indienst of uitdienst werd genomen."""
         return self._dienstdatum.get_waarde()
 

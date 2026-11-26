@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBetrokkenheidRol(KeuzelijstField):
     definition = 'Keuzelijst met mogelijke waarden voor de rol waarmee een agent betrokken is bij een object.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBetrokkenheidRol'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'beheerder': KeuzelijstWaarde(invulwaarde='beheerder',
                                       label='beheerder',
                                       status='ingebruik',
@@ -75,7 +76,7 @@ class KlBetrokkenheidRol(KeuzelijstField):
                                                          status='ingebruik',
                                                          definitie='Beslist waarom (het doel) en hoe (de middelen) persoonsgegevens (op de beelden) worden verzameld en gebruikt. De organisatie(s) die bepaalt/beslist waarom en  hoe de camerabeelden worden verwerkt (= het doel bepalen) en daarvoor verantwoordelijk is (bvb. zorgen voor veilige bewaring).',
                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetrokkenheidRol/verwerkingsverantwoordelijke')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

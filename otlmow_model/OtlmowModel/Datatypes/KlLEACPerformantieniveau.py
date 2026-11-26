@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEACPerformantieniveau(KeuzelijstField):
     definition = 'De verschillende performantieniveaus van de afschermende constructies.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACPerformantieniveau'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '100': KeuzelijstWaarde(invulwaarde='100',
                                 label='100',
                                 status='ingebruik',
@@ -38,7 +39,7 @@ class KlLEACPerformantieniveau(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Obstakelbeveiliger beperkt getest aan 80km/h ',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACPerformantieniveau/80-1')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

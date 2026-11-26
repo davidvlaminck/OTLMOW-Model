@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeRandafwerking(KeuzelijstField):
     definition = 'De lijst verschillende types randafwerking.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeRandafwerking'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'deksteen': KeuzelijstWaarde(invulwaarde='deksteen',
                                      label='deksteen',
                                      status='ingebruik',
@@ -28,7 +29,7 @@ class KlTypeRandafwerking(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='Niet-dragend, lineair element dat langs de rand van een brugdek, verharding of constructie wordt aangebracht om een fysieke en visuele begrenzing of opsluiting te vormen tussen verschillende zones.',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeRandafwerking/randsteen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

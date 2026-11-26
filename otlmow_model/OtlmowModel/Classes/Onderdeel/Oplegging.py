@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...BaseClasses.BooleanField import BooleanField
@@ -69,7 +68,7 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
                                                                     owner=self)
 
     @property
-    def bewegingsvrijheidInHetVlak(self) -> List[str]:
+    def bewegingsvrijheidInHetVlak(self) -> list[str]:
         """De bewegingsvrijheid in het vlak. Er kunnen meerdere mogelijkheden zijn."""
         return self._bewegingsvrijheidInHetVlak.get_waarde()
 
@@ -78,7 +77,7 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
         self._bewegingsvrijheidInHetVlak.set_waarde(value, owner=self)
 
     @property
-    def overigeFuncties(self) -> List[str]:
+    def overigeFuncties(self) -> list[str]:
         """De overige functies van de oplegging."""
         return self._overigeFuncties.get_waarde()
 
@@ -95,14 +94,13 @@ class Oplegging(AIMNaamObject, PuntGeometrie):
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """De soort oplegging."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)
 
     @property
     def zijnNegatieveSteunpuntreactiesAanwezig(self) -> bool:

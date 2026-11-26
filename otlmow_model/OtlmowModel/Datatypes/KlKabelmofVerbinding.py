@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlKabelmofVerbinding(KeuzelijstField):
     definition = 'Lijst van mogelijke types van verbindigen die een kabelmof kan realiseren.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKabelmofVerbinding'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'doorverbinding': KeuzelijstWaarde(invulwaarde='doorverbinding',
                                            label='doorverbinding',
                                            status='ingebruik',
@@ -29,7 +30,7 @@ class KlKabelmofVerbinding(KeuzelijstField):
                                   label='Y-mof',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKabelmofVerbinding/y-mof')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,24 +1,17 @@
 # coding=utf-8
-from ..BaseClasses.BooleanField import BooleanField
-from ..BaseClasses.ComplexField import ComplexField
-from ..BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
-from ..Datatypes.DtcBeschermingVraatschade import (
-    DtcBeschermingVraatschade,
-    DtcBeschermingVraatschadeWaarden,
-)
+from ..BaseClasses.BooleanField import BooleanField
+from ..BaseClasses.ComplexField import ComplexField
+from ..Datatypes.DtcBeschermingVraatschade import DtcBeschermingVraatschade, DtcBeschermingVraatschadeWaarden
 from ..Datatypes.KlBeschermingMaaischade import KlBeschermingMaaischade
-from ..Datatypes.KlMateriaalBeschermingVraatschade import (
-    KlMateriaalBeschermingVraatschade,
-)
+from ..Datatypes.KlMateriaalBeschermingVraatschade import KlMateriaalBeschermingVraatschade
 from ..Datatypes.KlPlantmaatHoogte import KlPlantmaatHoogte
 from ..Datatypes.KlPlantmaatOmtrek import KlPlantmaatOmtrek
 from ..Datatypes.KlVegetatiePlantverband import KlVegetatiePlantverband
 from ..Datatypes.KlVegetatieWortel import KlVegetatieWortel
-from ..Datatypes.KlVormAanleveringHoutigeVegetatie import (
-    KlVormAanleveringHoutigeVegetatie,
-)
+from ..Datatypes.KlVormAanleveringHoutigeVegetatie import KlVormAanleveringHoutigeVegetatie
+from ..BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

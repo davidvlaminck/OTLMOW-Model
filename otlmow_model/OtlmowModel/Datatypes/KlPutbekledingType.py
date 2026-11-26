@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPutbekledingType(KeuzelijstField):
     definition = 'Types van putbekleding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPutbekledingType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'solventvrije-kunsthars': KeuzelijstWaarde(invulwaarde='solventvrije-kunsthars',
                                                    label='solventvrije kunsthars',
                                                    status='ingebruik',
@@ -23,7 +24,7 @@ class KlPutbekledingType(KeuzelijstField):
                                                                    status='ingebruik',
                                                                    definitie='solventvrije vezelversterkte epoxyhars',
                                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPutbekledingType/solventvrije-vezelversterkte-epoxyhars')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

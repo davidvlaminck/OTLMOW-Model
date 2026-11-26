@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDroogzetbaarheidOmloopriool(KeuzelijstField):
     definition = 'De keuzelijst die de verschillende manieren van droogzetbaarheid van de omloopriool bevat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDroogzetbaarheidOmloopriool'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gedeeltelijke-droogzetbaar-enkel-t.p.v.-schuif': KeuzelijstWaarde(invulwaarde='gedeeltelijke-droogzetbaar-enkel-t.p.v.-schuif',
                                                                            label='gedeeltelijke droogzetbaar enkel t.p.v. schuif',
                                                                            status='ingebruik',
@@ -33,7 +34,7 @@ class KlDroogzetbaarheidOmloopriool(KeuzelijstField):
                                                   label='volledig droogzetbaar',
                                                   status='ingebruik',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDroogzetbaarheidOmloopriool/volledig-droogzetbaar')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

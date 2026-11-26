@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMIVLuskaartType(KeuzelijstField):
     definition = 'Mogelijke types voor de uitvoering van luskaarten van Meten In Vlaanderen'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMIVLuskaartType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '19-inch': KeuzelijstWaarde(invulwaarde='19-inch',
                                     label='19 inch',
                                     status='ingebruik',
@@ -36,7 +37,7 @@ class KlMIVLuskaartType(KeuzelijstField):
                                           label='IP-detectoren',
                                           status='ingebruik',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVLuskaartType/ip-detectoren')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

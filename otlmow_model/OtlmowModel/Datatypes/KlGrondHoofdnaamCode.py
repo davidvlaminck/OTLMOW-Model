@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +12,8 @@ class KlGrondHoofdnaamCode(KeuzelijstField):
     definition = 'De hoofdnaamcode van de grond.Namespace :http://interpretatie.kern.schemas.dov.vlaanderen.be/GecodeerdHoofdnaamCodesEnumType.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrondHoofdnaamCode'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

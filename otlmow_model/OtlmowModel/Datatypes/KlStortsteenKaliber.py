@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlStortsteenKaliber(KeuzelijstField):
     definition = 'Mogelijke kalibers van stortsteen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStortsteenKaliber'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'CP-90-180A': KeuzelijstWaarde(invulwaarde='CP-90-180A',
                                        label='CP 90/180A',
                                        status='ingebruik',
@@ -103,7 +104,7 @@ class KlStortsteenKaliber(KeuzelijstField):
                                              status='ingebruik',
                                              definitie='korrelmaat 40/80',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStortsteenKaliber/korrelmaat-40-80')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

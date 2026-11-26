@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeOpstellingLadder(KeuzelijstField):
     definition = 'Lijst met de verschillende opties voor de opstelling van een ladder.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeOpstellingLadder'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'inbouw': KeuzelijstWaarde(invulwaarde='inbouw',
                                    label='inbouw',
                                    status='ingebruik',
@@ -21,7 +22,7 @@ class KlTypeOpstellingLadder(KeuzelijstField):
                                    label='opbouw',
                                    status='ingebruik',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeOpstellingLadder/opbouw')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

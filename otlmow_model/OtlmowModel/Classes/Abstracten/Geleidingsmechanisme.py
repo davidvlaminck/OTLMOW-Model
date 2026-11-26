@@ -1,9 +1,8 @@
 # coding=utf-8
-from abc import abstractmethod
-
-from ...BaseClasses.IntegerField import IntegerField
 from ...BaseClasses.OTLObject import OTLAttribuut
+from abc import abstractmethod
 from ...Classes.Abstracten.TechnischDocument import TechnischDocument
+from ...BaseClasses.IntegerField import IntegerField
 from ...Datatypes.KlSmeringType import KlSmeringType
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 

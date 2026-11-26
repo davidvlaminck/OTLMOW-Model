@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGrachtdoorsnede(KeuzelijstField):
     definition = 'De mogelijke doorsnedes van de gracht.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrachtdoorsnede'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'groter-dan-1-5-m': KeuzelijstWaarde(invulwaarde='groter-dan-1-5-m',
                                              label='groter dan 1.5 m²',
                                              status='ingebruik',
@@ -23,7 +24,7 @@ class KlGrachtdoorsnede(KeuzelijstField):
                                                         status='ingebruik',
                                                         definitie='<= 1.5 m²',
                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrachtdoorsnede/kleiner-of-gelijk-aan-1-5-m')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

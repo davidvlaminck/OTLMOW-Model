@@ -1,6 +1,5 @@
 # coding=utf-8
 from datetime import date
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
@@ -94,7 +93,7 @@ class AIMObject(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor, OTLAsse
         self._assetId.set_waarde(value, owner=self)
 
     @property
-    def bestekPostNummer(self) -> List[str]:
+    def bestekPostNummer(self) -> list[str]:
         """Een verwijzing naar een postnummer uit het specifieke bestek waar het object mee verband houdt."""
         return self._bestekPostNummer.get_waarde()
 
@@ -121,7 +120,7 @@ class AIMObject(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor, OTLAsse
         self._notitie.set_waarde(value, owner=self)
 
     @property
-    def standaardBestekPostNummer(self) -> List[str]:
+    def standaardBestekPostNummer(self) -> list[str]:
         """Een verwijzing naar een postnummer uit het standaardbestek waar het object mee verband houdt. De notatie van het postnummer moet overeenkomen met de notatie die gebruikt is in de catalogi van standaardbestekken, bijvoorbeeld postnummer 0701.20404G."""
         return self._standaardBestekPostNummer.get_waarde()
 

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
@@ -92,7 +91,7 @@ class Toegangsprocedure(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor,
                                          owner=self)
 
     @property
-    def aandachtspunt(self) -> List[str]:
+    def aandachtspunt(self) -> list[str]:
         """Aandachtspunten waar men rekening mee moet houden, die een impact hebben op de toegankelijkheid van een object."""
         return self._aandachtspunt.get_waarde()
 
@@ -110,7 +109,7 @@ class Toegangsprocedure(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor,
         self._assetId.set_waarde(value, owner=self)
 
     @property
-    def bijlage(self) -> List[DtcToegangsprocedureBijlageWaarden]:
+    def bijlage(self) -> list[DtcToegangsprocedureBijlageWaarden]:
         """Bijlages, onder de vorm van een beschrijving en/of een document en/of een URL, die aanvullende informatie bevatten over de toegangsprocedure."""
         return self._bijlage.get_waarde()
 
@@ -137,7 +136,7 @@ class Toegangsprocedure(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor,
         self._omschrijving.set_waarde(value, owner=self)
 
     @property
-    def toegangstijden(self) -> List[DtcToegangsprocedureToegangstijdenWaarden]:
+    def toegangstijden(self) -> list[DtcToegangsprocedureToegangstijdenWaarden]:
         """De dagen/uren van de dag waarop de procedure geldt."""
         return self._toegangstijden.get_waarde()
 
@@ -146,7 +145,7 @@ class Toegangsprocedure(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor,
         self._toegangstijden.set_waarde(value, owner=self)
 
     @property
-    def typeBadge(self) -> List[str]:
+    def typeBadge(self) -> list[str]:
         """Het soort badge dat wordt gebruikt om toegang te verkijgen."""
         return self._typeBadge.get_waarde()
 
@@ -155,7 +154,7 @@ class Toegangsprocedure(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor,
         self._typeBadge.set_waarde(value, owner=self)
 
     @property
-    def typeSleutel(self) -> List[str]:
+    def typeSleutel(self) -> list[str]:
         """Het soort sleutel dat wordt gebruikt om toegang te verkrijgen."""
         return self._typeSleutel.get_waarde()
 

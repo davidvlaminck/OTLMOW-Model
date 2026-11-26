@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWvLedLichtpunthoogte(KeuzelijstField):
     definition = 'Hoogte van het lichtpunt ten opzichte van de rijweg.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedLichtpunthoogte'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '0': KeuzelijstWaarde(invulwaarde='0',
                               label='0',
                               status='ingebruik',
@@ -253,7 +254,7 @@ class KlWvLedLichtpunthoogte(KeuzelijstField):
                                 status='uitgebruik',
                                 definitie='H20',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedLichtpunthoogte/H20')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
 from ...Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
@@ -87,7 +86,7 @@ class Put(ABC):
         self._maaiveldpeil.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de put."""
         return self._technischeFiche.get_waarde()
 

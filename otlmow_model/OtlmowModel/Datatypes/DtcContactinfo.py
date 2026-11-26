@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.ComplexField import ComplexField
@@ -87,7 +86,7 @@ class DtcContactinfoWaarden(WaardenObject):
         self._adres.set_waarde(value, owner=self._parent)
 
     @property
-    def beschikbaarheid(self) -> List[DtcOpeningsurenSpecificatieWaarden]:
+    def beschikbaarheid(self) -> list[DtcOpeningsurenSpecificatieWaarden]:
         """Periode waarin contact kan worden opgenomen."""
         return self._beschikbaarheid.get_waarde()
 

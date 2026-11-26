@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlOnderwaterkruisingAanlegWijze(KeuzelijstField):
     definition = 'Lijst met mogelijke manieren van aanleg waarmee onderwaterkruisingen kunnen gerealiseerd worden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOnderwaterkruisingAanlegWijze'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ingegoten-in-sluis': KeuzelijstWaarde(invulwaarde='ingegoten-in-sluis',
                                                label='ingegoten in sluis',
                                                status='ingebruik',
@@ -28,7 +29,7 @@ class KlOnderwaterkruisingAanlegWijze(KeuzelijstField):
                                                       status='ingebruik',
                                                       definitie='Buizen in of op de bodem van een waterweg die afgedekt worden met gewicht in de vorm van zandzakken, grote metalen stukken of arduinen blokken.',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOnderwaterkruisingAanlegWijze/met-zandzakken-vastgelegd')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

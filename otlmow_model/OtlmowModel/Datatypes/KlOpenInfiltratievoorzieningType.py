@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,13 +13,13 @@ class KlOpenInfiltratievoorzieningType(KeuzelijstField):
     definition = 'De mogelijke types van een open infiltratievoorziening.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOpenInfiltratievoorzieningType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'wadi': KeuzelijstWaarde(invulwaarde='wadi',
                                  label='wadi',
                                  status='ingebruik',
                                  definitie='Een wadi (Water Afvoer Drainage Infiltratie) is een met grind en zand gevulde kom of bekken dat zowel water kan vasthouden als laten infiltreren. ',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOpenInfiltratievoorzieningType/wadi')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

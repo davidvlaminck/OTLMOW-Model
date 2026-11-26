@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSterktereeks(KeuzelijstField):
     definition = 'De stabiliteitklasse van de buis.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSterktereeks'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'GVP-SN10000-N-M2': KeuzelijstWaarde(invulwaarde='GVP-SN10000-N-M2',
                                              label='GVP SN10000 N/M2',
                                              status='ingebruik',
@@ -118,7 +119,7 @@ class KlSterktereeks(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='R135',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterktereeks/r135')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

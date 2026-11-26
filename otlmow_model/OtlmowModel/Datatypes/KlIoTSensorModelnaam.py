@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIoTSensorModelnaam(KeuzelijstField):
     definition = 'IoT-sensor modelnamen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIoTSensorModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'cs-ext': KeuzelijstWaarde(invulwaarde='cs-ext',
                                    label='CS-EXT',
                                    status='ingebruik',
@@ -38,7 +39,7 @@ class KlIoTSensorModelnaam(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='TP-01',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIoTSensorModelnaam/tp-01')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

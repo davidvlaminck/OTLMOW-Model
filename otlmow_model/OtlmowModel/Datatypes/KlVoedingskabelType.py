@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVoedingskabelType(KeuzelijstField):
     definition = 'Lijst met types voor energie- en installatiekabels volgens de gebruikte materialen zoals opgenomen in het Standaarbestek 270.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVoedingskabelType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'eaxecwb': KeuzelijstWaarde(invulwaarde='eaxecwb',
                                     label='EAXeCWB',
                                     status='ingebruik',
@@ -162,7 +163,7 @@ class KlVoedingskabelType(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='XVG',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVoedingskabelType/xvg')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

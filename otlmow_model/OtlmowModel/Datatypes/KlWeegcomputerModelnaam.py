@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,13 +13,13 @@ class KlWeegcomputerModelnaam(KeuzelijstField):
     definition = 'De modelnaam van de weegcomputer.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWeegcomputerModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'maxxis-5-pr5900': KeuzelijstWaarde(invulwaarde='maxxis-5-pr5900',
                                             label='Maxxis 5 PR5900',
                                             status='ingebruik',
                                             definitie='Maxxis 5 PR5900',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWeegcomputerModelnaam/maxxis-5-pr5900')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

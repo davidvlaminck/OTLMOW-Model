@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlAlgIngressProtectionCode(KeuzelijstField):
     definition = "De IP-codering als een aanduiding voor de mate van beveiliging van de constructie van elektrische of elektronische apparatuur tegen eigen schade door gebruik in 'vijandige omgevingen' en tegen eventueel gevaar voor de gebruiker volgens IEC 60529."
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgIngressProtectionCode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'i-p-44': KeuzelijstWaarde(invulwaarde='i-p-44',
                                    label='IP44',
                                    status='uitgebruik',
@@ -108,7 +109,7 @@ class KlAlgIngressProtectionCode(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='IPx4',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAlgIngressProtectionCode/ipx4')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,9 +1,8 @@
 # coding=utf-8
-from datetime import date
-
-from ...BaseClasses.DateField import DateField
+from datetime import date, date
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.DirectioneleRelatie import DirectioneleRelatie
+from ...BaseClasses.DateField import DateField
 from ...Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
 from ...Datatypes.KlBetrokkenheidRol import KlBetrokkenheidRol
 

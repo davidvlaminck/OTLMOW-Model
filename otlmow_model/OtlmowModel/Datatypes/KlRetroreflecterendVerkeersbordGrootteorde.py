@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlRetroreflecterendVerkeersbordGrootteorde(KeuzelijstField):
     definition = 'Opties om de grootteorde van een RetroreflecterendVerkeersbord aan te geven zoals gedefinieerd in SB250.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRetroreflecterendVerkeersbordGrootteorde'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'groot': KeuzelijstWaarde(invulwaarde='groot',
                                   label='groot',
                                   status='ingebruik',
@@ -25,7 +26,7 @@ class KlRetroreflecterendVerkeersbordGrootteorde(KeuzelijstField):
                                         label='middelgroot',
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRetroreflecterendVerkeersbordGrootteorde/middelgroot')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

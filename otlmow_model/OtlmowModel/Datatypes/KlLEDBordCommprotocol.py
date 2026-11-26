@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEDBordCommprotocol(KeuzelijstField):
     definition = 'De mogelijke opties voor het communicatieprotocol gebruikt bij de aansturing van een LEDBord type.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEDBordCommprotocol'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ethernet': KeuzelijstWaarde(invulwaarde='ethernet',
                                      label='ethernet',
                                      status='ingebruik',
@@ -23,7 +24,7 @@ class KlLEDBordCommprotocol(KeuzelijstField):
                                     status='ingebruik',
                                     definitie='serieel',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEDBordCommprotocol/serieel')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

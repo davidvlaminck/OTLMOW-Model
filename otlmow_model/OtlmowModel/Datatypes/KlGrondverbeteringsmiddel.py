@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGrondverbeteringsmiddel(KeuzelijstField):
     definition = 'Het verwerken van bodemverbeteringsmiddelen omvat het gelijkmatig spreiden ervan op bepaalde grondoppervlakken en/of het verwerken in plantputten.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrondverbeteringsmiddel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bezanden': KeuzelijstWaarde(invulwaarde='bezanden',
                                      label='bezanden',
                                      status='ingebruik',
@@ -28,7 +29,7 @@ class KlGrondverbeteringsmiddel(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='Groencompost is een product verkregen door een gecontroleerde aerobe compostering van groenafval tot volledige rijping, voorafgegaan of gevolgd door mechanische behandelingen.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrondverbeteringsmiddel/groencompost')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

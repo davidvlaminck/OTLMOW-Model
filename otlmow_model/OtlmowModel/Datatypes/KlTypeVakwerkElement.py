@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeVakwerkElement(KeuzelijstField):
     definition = 'Het type van vakwerk-element.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeVakwerkElement'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bovenregel': KeuzelijstWaarde(invulwaarde='bovenregel',
                                        label='Bovenregel',
                                        status='ingebruik',
@@ -33,7 +34,7 @@ class KlTypeVakwerkElement(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='Verticale staaf bij vakwerk.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeVakwerkElement/stijl')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlCabineLokaalKlasse(KeuzelijstField):
     definition = 'Lijst van waarden voor de classificatie van de hoogspanningscabine als lokaal volgens Synergrid.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCabineLokaalKlasse'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'BB00': KeuzelijstWaarde(invulwaarde='BB00',
                                  label='BB00',
                                  status='ingebruik',
@@ -41,7 +42,7 @@ class KlCabineLokaalKlasse(KeuzelijstField):
                                  label='BB50',
                                  status='ingebruik',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCabineLokaalKlasse/BB50')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

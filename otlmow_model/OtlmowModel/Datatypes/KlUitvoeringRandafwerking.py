@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlUitvoeringRandafwerking(KeuzelijstField):
     definition = 'De lijst met verschillende types uitvoering van de randafwerking.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUitvoeringRandafwerking'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'losse-elementen': KeuzelijstWaarde(invulwaarde='losse-elementen',
                                             label='losse elementen',
                                             status='ingebruik',
@@ -28,7 +29,7 @@ class KlUitvoeringRandafwerking(KeuzelijstField):
                                                  status='ingebruik',
                                                  definitie='Uitvoeringswijze waarbij de randafwerking op de werf in situ wordt gerealiseerd door het storten van materiaal in een bekisting, resulterend in een monolithisch geheel.',
                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUitvoeringRandafwerking/ter-plaatste-gestort')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

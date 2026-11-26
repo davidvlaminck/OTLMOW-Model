@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVerkeerslichtMasker(KeuzelijstField):
     definition = 'Keuzelijst met de gangbare types masker die op een verkeerslicht zijn aangebracht.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeerslichtMasker'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'driehoek': KeuzelijstWaarde(invulwaarde='driehoek',
                                      label='driehoek',
                                      status='ingebruik',
@@ -59,13 +60,13 @@ class KlVerkeerslichtMasker(KeuzelijstField):
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeerslichtMasker/pijl-rechts'),
         'schuine-balk-+45°': KeuzelijstWaarde(invulwaarde='schuine-balk-+45°',
-                                              label='schuine balk +45°',
-                                              status='ingebruik',
-                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeerslichtMasker/schuine-balk-+45°'),
+                                               label='schuine balk +45°',
+                                               status='ingebruik',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeerslichtMasker/schuine-balk-+45°'),
         'schuine-balk--45°': KeuzelijstWaarde(invulwaarde='schuine-balk--45°',
-                                              label='schuine balk -45°',
-                                              status='ingebruik',
-                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeerslichtMasker/schuine-balk--45°'),
+                                               label='schuine balk -45°',
+                                               status='ingebruik',
+                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeerslichtMasker/schuine-balk--45°'),
         'verticale-balk': KeuzelijstWaarde(invulwaarde='verticale-balk',
                                            label='verticale balk',
                                            status='ingebruik',
@@ -82,7 +83,7 @@ class KlVerkeerslichtMasker(KeuzelijstField):
                                        label='volle lens',
                                        status='ingebruik',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVerkeerslichtMasker/volle-lens')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

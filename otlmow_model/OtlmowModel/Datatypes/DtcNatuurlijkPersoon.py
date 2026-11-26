@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
@@ -82,7 +81,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._achternaam.set_waarde(value, owner=self._parent)
 
     @property
-    def adres(self) -> List[DtcAdresWaarden]:
+    def adres(self) -> list[DtcAdresWaarden]:
         """Het adres."""
         return self._adres.get_waarde()
 
@@ -91,7 +90,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._adres.set_waarde(value, owner=self._parent)
 
     @property
-    def emailadres(self) -> List[str]:
+    def emailadres(self) -> list[str]:
         """Het emailadres."""
         return self._emailadres.get_waarde()
 
@@ -100,7 +99,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._emailadres.set_waarde(value, owner=self._parent)
 
     @property
-    def fax(self) -> List[str]:
+    def fax(self) -> list[str]:
         """De faxnummer."""
         return self._fax.get_waarde()
 
@@ -127,7 +126,7 @@ class DtcNatuurlijkPersoonWaarden(WaardenObject):
         self._heeftFaxVoorkeur.set_waarde(value, owner=self._parent)
 
     @property
-    def telefoonnnummer(self) -> List[str]:
+    def telefoonnnummer(self) -> list[str]:
         """Het telefoonnummer."""
         return self._telefoonnnummer.get_waarde()
 

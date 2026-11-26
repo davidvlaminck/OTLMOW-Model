@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlWvLedTussenafstand(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.4.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedTussenafstand'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'S015': KeuzelijstWaarde(invulwaarde='S015',
                                  label='S015',
                                  status='ingebruik',
@@ -66,7 +67,7 @@ class KlWvLedTussenafstand(KeuzelijstField):
                                  label='S100',
                                  status='ingebruik',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedTussenafstand/S100')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

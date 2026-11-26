@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlUitvoeringswijzeBoorpaal(KeuzelijstField):
     definition = 'De manier waarop de boorpaal is uitgevoerd.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUitvoeringswijzeBoorpaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'met-bentoniet-zonder-voerbuis': KeuzelijstWaarde(invulwaarde='met-bentoniet-zonder-voerbuis',
                                                           label='met bentoniet zonder voerbuis',
                                                           status='ingebruik',
@@ -25,7 +26,7 @@ class KlUitvoeringswijzeBoorpaal(KeuzelijstField):
                                          label='met voerbuis',
                                          status='ingebruik',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUitvoeringswijzeBoorpaal/met-voerbuis')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

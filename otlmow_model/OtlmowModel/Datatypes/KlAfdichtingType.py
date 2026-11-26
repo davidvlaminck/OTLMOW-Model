@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlAfdichtingType(KeuzelijstField):
     definition = 'De verschillende types afdichtingen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAfdichtingType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gietasfalt': KeuzelijstWaarde(invulwaarde='gietasfalt',
                                        label='gietasfalt',
                                        status='ingebruik',
@@ -28,7 +29,7 @@ class KlAfdichtingType(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='Een membraan of vlies is een dunne, vlakke structuur die twee ruimtes van elkaar scheidt.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAfdichtingType/membraan')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

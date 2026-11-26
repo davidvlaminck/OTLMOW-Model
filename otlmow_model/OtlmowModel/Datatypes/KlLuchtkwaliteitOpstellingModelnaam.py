@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLuchtkwaliteitOpstellingModelnaam(KeuzelijstField):
     definition = 'De modelnaam van een onderdeel uit een luchtkwaliteitsinstallatie.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLuchtkwaliteitOpstellingModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'VICOTEC321': KeuzelijstWaarde(invulwaarde='VICOTEC321',
                                        label='VICOTEC321',
                                        status='ingebruik',
@@ -34,7 +35,7 @@ class KlLuchtkwaliteitOpstellingModelnaam(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='VisGuard 2',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuchtkwaliteitOpstellingModelnaam/visguard-2')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

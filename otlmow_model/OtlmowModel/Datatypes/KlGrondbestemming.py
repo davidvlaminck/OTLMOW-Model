@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGrondbestemming(KeuzelijstField):
     definition = 'De bestemmingen of doelen van de grond.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGrondbestemming'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'buiten-werfzone-of-top': KeuzelijstWaarde(invulwaarde='buiten-werfzone-of-top',
                                                    label='buiten werfzone of TOP',
                                                    status='ingebruik',
@@ -43,7 +44,7 @@ class KlGrondbestemming(KeuzelijstField):
                                                         status='ingebruik',
                                                         definitie='Grond voor tijdelijke opslag in de werfzone.',
                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGrondbestemming/tijdelijke-werfopslagplaats')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

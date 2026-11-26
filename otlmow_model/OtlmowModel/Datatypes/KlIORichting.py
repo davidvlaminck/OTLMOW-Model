@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIORichting(KeuzelijstField):
     definition = 'Geeft aan of de IO-kaart dient voor input of output.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIORichting'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'input': KeuzelijstWaarde(invulwaarde='input',
                                   label='input',
                                   status='ingebruik',
@@ -26,7 +27,7 @@ class KlIORichting(KeuzelijstField):
                                    label='output',
                                    status='ingebruik',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIORichting/output')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

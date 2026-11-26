@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlToestelventilatorFilterdoekKlasse(KeuzelijstField):
     definition = 'Keuzelijst die de verschillende filterklasses van een filterdoek voor een toestelventilator bevat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToestelventilatorFilterdoekKlasse'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'f7': KeuzelijstWaarde(invulwaarde='f7',
                                label='F7',
                                status='ingebruik',
@@ -33,7 +34,7 @@ class KlToestelventilatorFilterdoekKlasse(KeuzelijstField):
                                label='M6',
                                status='ingebruik',
                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToestelventilatorFilterdoekKlasse/m6')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

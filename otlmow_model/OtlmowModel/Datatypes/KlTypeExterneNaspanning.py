@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeExterneNaspanning(KeuzelijstField):
     definition = 'Het type externe naspanning.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeExterneNaspanning'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'voorspanning-met-aanhechting': KeuzelijstWaarde(invulwaarde='voorspanning-met-aanhechting',
                                                          label='Voorspanning met aanhechting',
                                                          status='ingebruik',
@@ -23,7 +24,7 @@ class KlTypeExterneNaspanning(KeuzelijstField):
                                                             status='ingebruik',
                                                             definitie='Bij voorspanning zonder aanhechting (VZA) zit elke streng van de kabel in een aparte polyethyleen-omhulling dewelke gevuld is met vet. Deze omhulde strengen worden ingevoerd in de omhullingsbuizen, daarna worden de omhullingsbuizen geÃ¯njecteerd met cementmortel en dan pas worden de strengen aangespannen en verankerd.',
                                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeExterneNaspanning/voorspanning-zonder-aanhechting')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

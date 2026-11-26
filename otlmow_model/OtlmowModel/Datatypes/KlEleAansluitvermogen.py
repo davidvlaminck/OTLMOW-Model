@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlEleAansluitvermogen(KeuzelijstField):
     definition = 'Keuzelijst met gangbare waarden voor elektrisch aansluitvermogen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEleAansluitvermogen'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '16A-230Vdriefasig-6.4kVA': KeuzelijstWaarde(invulwaarde='16A-230Vdriefasig-6.4kVA',
                                                      label='16A 230Vdriefasig-6.4kVA',
                                                      status='ingebruik',
@@ -97,7 +98,7 @@ class KlEleAansluitvermogen(KeuzelijstField):
                                                       label='63A 400Vdriefasig-43.6kVA',
                                                       status='ingebruik',
                                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEleAansluitvermogen/63A-400Vdriefasig-43.6kVA')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

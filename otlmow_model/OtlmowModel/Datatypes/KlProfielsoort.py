@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlProfielsoort(KeuzelijstField):
     definition = 'Het type profiel (de meest genormeerde types).'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlProfielsoort'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'hd': KeuzelijstWaarde(invulwaarde='hd',
                                label='HD',
                                status='ingebruik',
@@ -63,7 +64,7 @@ class KlProfielsoort(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='Het meest gebruikte U-vormig profiel. Een UPN-profiel (U Normaal Profiel, ook wel UNP genoemd) heeft schuine flenzen.',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlProfielsoort/upn')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

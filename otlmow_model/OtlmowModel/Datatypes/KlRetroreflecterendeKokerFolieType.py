@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlRetroreflecterendeKokerFolieType(KeuzelijstField):
     definition = 'Keuzeijst voor het bepalen van folietype van de retroreflecterende koker.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRetroreflecterendeKokerFolieType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'type-2': KeuzelijstWaarde(invulwaarde='type-2',
                                    label='type 2',
                                    status='ingebruik',
@@ -23,7 +24,7 @@ class KlRetroreflecterendeKokerFolieType(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='Keuze folie type 3 als folietype (geel - fluorescerend) van de retroreflecterende koker',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRetroreflecterendeKokerFolieType/type-3')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

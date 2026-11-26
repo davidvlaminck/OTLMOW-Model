@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlNetwerkpoortGolflengte(KeuzelijstField):
     definition = 'Lijst van mogelijke golflengten waarop een Netwerkpoort kan communiceren.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkpoortGolflengte'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'C1310': KeuzelijstWaarde(invulwaarde='C1310',
                                   label='C1310',
                                   status='ingebruik',
@@ -435,7 +436,7 @@ class KlNetwerkpoortGolflengte(KeuzelijstField):
                                  label='flex',
                                  status='ingebruik',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortGolflengte/flex')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

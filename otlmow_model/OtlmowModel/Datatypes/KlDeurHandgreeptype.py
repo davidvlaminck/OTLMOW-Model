@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDeurHandgreeptype(KeuzelijstField):
     definition = 'Types handgrepen van deuren.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDeurHandgreeptype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'handvat': KeuzelijstWaarde(invulwaarde='handvat',
                                     label='handvat',
                                     status='ingebruik',
@@ -25,7 +26,7 @@ class KlDeurHandgreeptype(KeuzelijstField):
                                   label='klink',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDeurHandgreeptype/klink')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

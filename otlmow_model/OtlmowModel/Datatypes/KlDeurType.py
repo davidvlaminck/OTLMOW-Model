@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDeurType(KeuzelijstField):
     definition = 'De mogelijke types van een deur.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDeurType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'branddeur': KeuzelijstWaarde(invulwaarde='branddeur',
                                       label='Branddeur',
                                       status='ingebruik',
@@ -48,7 +49,7 @@ class KlDeurType(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Deur voor het ontvluchten in geval van calamiteiten weg van de incidentlocatie naar een veilige zone. Een vluchtdeur wordt onder alle omstandigheden zonder sleutel geopend en dit met beperkte kracht.',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDeurType/vluchtdeur')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

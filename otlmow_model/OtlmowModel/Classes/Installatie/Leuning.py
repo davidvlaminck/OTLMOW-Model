@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorighedenBrug import AanhorighedenBrug
 from ...Classes.Abstracten.AanhorigheidKoker import AanhorigheidKoker
@@ -104,7 +103,7 @@ class Leuning(AanhorighedenBrug, AanhorigheidKoker, AanhorigheidSluisStuw, Detai
                                   owner=self)
 
     @property
-    def afwerkingstype(self) -> List[str]:
+    def afwerkingstype(self) -> list[str]:
         """Het type afwerking van de leuning."""
         return self._afwerkingstype.get_waarde()
 

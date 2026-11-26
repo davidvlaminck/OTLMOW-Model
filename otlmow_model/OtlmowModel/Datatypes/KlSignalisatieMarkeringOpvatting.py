@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSignalisatieMarkeringOpvatting(KeuzelijstField):
     definition = 'De markeringsopvattingen van de markering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignalisatieMarkeringOpvatting'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'middelenverbintenis': KeuzelijstWaarde(invulwaarde='middelenverbintenis',
                                                 label='middelenverbintenis',
                                                 status='ingebruik',
@@ -23,7 +24,7 @@ class KlSignalisatieMarkeringOpvatting(KeuzelijstField):
                                                   status='ingebruik',
                                                   definitie='Houdt in dat de doseringen niet worden vastgelegd in het bijzonder bestek maar dat de markeringen, in nieuwe toestand en gedurende de waarborgperiode voor de markering, moeten voldoen aan resultaatseisen. ',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSignalisatieMarkeringOpvatting/resultaatsverbintenis')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

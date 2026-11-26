@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Kokerruimte import Kokerruimte
 from ...Classes.Abstracten.PutRelatie import PutRelatie
@@ -167,7 +166,7 @@ class Pompkamer(Kokerruimte, PutRelatie):
         self._reinigingsInterval.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de pompkamer."""
         return self._technischeFiche.get_waarde()
 

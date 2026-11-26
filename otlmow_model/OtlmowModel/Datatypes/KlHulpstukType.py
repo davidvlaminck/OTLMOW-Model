@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlHulpstukType(KeuzelijstField):
     definition = 'Het type van het hulpstuk.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHulpstukType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'T-stuk': KeuzelijstWaarde(invulwaarde='T-stuk',
                                    label='T-stuk',
                                    status='ingebruik',
@@ -43,7 +44,7 @@ class KlHulpstukType(KeuzelijstField):
                                             status='ingebruik',
                                             definitie='Een storz koppeling is bedoeld om slangen met elkaar of met vaste armaturen te verbinden. Het is een symmetrische koppeling met een bajonet dichting die door een opstaande kraag wordt beschermd.',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHulpstukType/storz-koppeling')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

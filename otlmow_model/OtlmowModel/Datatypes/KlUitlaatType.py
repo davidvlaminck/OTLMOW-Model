@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlUitlaatType(KeuzelijstField):
     definition = 'De verschillende types van uitlaat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUitlaatType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'inlaat': KeuzelijstWaarde(invulwaarde='inlaat',
                                    label='inlaat',
                                    status='ingebruik',
@@ -23,7 +24,7 @@ class KlUitlaatType(KeuzelijstField):
                                     status='ingebruik',
                                     definitie='locatie waar water van een inbuizing naar een open profiel overgaat',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUitlaatType/uitlaat')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AanhorigheidSluisStuw import AanhorigheidSluisStuw
 from ...Classes.Abstracten.Toegangselement import Toegangselement
@@ -212,7 +211,7 @@ class Deur(AanhorigheidSluisStuw, Toegangselement, NaampadObject, PuntGeometrie)
         self._sluitingstijd.set_waarde(value, owner=self)
 
     @property
-    def typeDeur(self) -> List[str]:
+    def typeDeur(self) -> list[str]:
         """Aanduiding tot welk type de deur behoort."""
         return self._typeDeur.get_waarde()
 

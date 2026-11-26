@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlCBVLaagtype(KeuzelijstField):
     definition = 'Bepaling van het laagtype van de cement/beton verharding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCBVLaagtype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'eenlaagse-betonverharding': KeuzelijstWaarde(invulwaarde='eenlaagse-betonverharding',
                                                       label='eenlaagse betonverharding',
                                                       status='ingebruik',
@@ -23,7 +24,7 @@ class KlCBVLaagtype(KeuzelijstField):
                                                        status='ingebruik',
                                                        definitie='Betonverharding die in twee lagen aangelegd wordt. ',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCBVLaagtype/tweelaagse-betonverharding')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

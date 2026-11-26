@@ -1,6 +1,5 @@
 # coding=utf-8
 from abc import abstractmethod
-
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 

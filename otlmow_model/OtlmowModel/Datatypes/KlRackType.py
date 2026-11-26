@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlRackType(KeuzelijstField):
     definition = 'Lijst met gestandaardiseerde en niet-gestandaardiseerde types rack in gebruik bij de assetbeheerder.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlRackType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '19-inch': KeuzelijstWaarde(invulwaarde='19-inch',
                                     label='19-inch',
                                     status='ingebruik',
@@ -33,7 +34,7 @@ class KlRackType(KeuzelijstField):
                                        label='MIVSATRack',
                                        status='ingebruik',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlRackType/MIVSATRack')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

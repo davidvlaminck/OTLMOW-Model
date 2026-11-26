@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlVegetatieelementHoogte(KeuzelijstField):
     definition = 'De orde van hoogte van een vegetatie-element.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVegetatieelementHoogte'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '0--7-meter': KeuzelijstWaarde(invulwaarde='0--7-meter',
                                        label='0 -7 meter',
                                        status='ingebruik',
@@ -28,7 +29,7 @@ class KlVegetatieelementHoogte(KeuzelijstField):
                                                 status='ingebruik',
                                                 definitie='> 20 meter',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlVegetatieelementHoogte/groter-dan-20-meter')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

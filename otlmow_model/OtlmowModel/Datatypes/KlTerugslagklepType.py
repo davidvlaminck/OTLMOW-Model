@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTerugslagklepType(KeuzelijstField):
     definition = 'Keuzelijst voor het bepalen van Types van terugslagklep.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTerugslagklepType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'balkeerklep': KeuzelijstWaarde(invulwaarde='balkeerklep',
                                         label='balkeerklep',
                                         status='ingebruik',
@@ -28,7 +29,7 @@ class KlTerugslagklepType(KeuzelijstField):
                                           status='ingebruik',
                                           definitie='Eendebek, bedoeld om terugstroom in het stelsel vanuit het oppervlaktewater te voorkomen',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTerugslagklepType/vorm-eendebek')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

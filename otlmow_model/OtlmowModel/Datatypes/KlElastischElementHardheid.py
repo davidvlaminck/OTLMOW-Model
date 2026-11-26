@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlElastischElementHardheid(KeuzelijstField):
     definition = 'Keuzelijst die de verschillende types hardheid van een elastisch element bevat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlElastischElementHardheid'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'shore-64': KeuzelijstWaarde(invulwaarde='shore-64',
                                      label='Shore 64',
                                      status='ingebruik',
@@ -25,7 +26,7 @@ class KlElastischElementHardheid(KeuzelijstField):
                                      label='Shore 98',
                                      status='ingebruik',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlElastischElementHardheid/shore-98')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlHulppostkastType(KeuzelijstField):
     definition = 'Lijst met al dan niet gestandaardiseerde types voor hulppostkasten.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHulppostkastType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'a': KeuzelijstWaarde(invulwaarde='a',
                               label='a',
                               status='ingebruik',
@@ -21,7 +22,7 @@ class KlHulppostkastType(KeuzelijstField):
                               label='c',
                               status='ingebruik',
                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHulppostkastType/c')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

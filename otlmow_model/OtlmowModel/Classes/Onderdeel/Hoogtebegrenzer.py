@@ -97,11 +97,10 @@ class Hoogtebegrenzer(AIMNaamObject, LijnGeometrie):
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Een constructie die de maximale doorrijhoogte voor voertuigen aangeeft om schade aan infrastructuur of voertuigen te voorkomen."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

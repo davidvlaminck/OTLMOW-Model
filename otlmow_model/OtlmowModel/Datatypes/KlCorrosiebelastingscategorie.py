@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlCorrosiebelastingscategorie(KeuzelijstField):
     definition = 'De mogelijke codes om de mate van corrosieve belasting in een bepaalde omgeving te beschrijven.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCorrosiebelastingscategorie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'c1': KeuzelijstWaarde(invulwaarde='c1',
                                label='C1',
                                status='ingebruik',
@@ -38,7 +39,7 @@ class KlCorrosiebelastingscategorie(KeuzelijstField):
                                status='ingebruik',
                                definitie='Zeer hoge corrosiviteit',
                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCorrosiebelastingscategorie/c5')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBVLaagtype(KeuzelijstField):
     definition = 'Laagtypes van de bitumineuze verharding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBVLaagtype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'andere-toplagen': KeuzelijstWaarde(invulwaarde='andere-toplagen',
                                             label='andere toplagen',
                                             status='ingebruik',
@@ -48,7 +49,7 @@ class KlBVLaagtype(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Bitumineuze laag die aangebracht wordt tussen een betonverharding en de fundering. ',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBVLaagtype/tussenlaag')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

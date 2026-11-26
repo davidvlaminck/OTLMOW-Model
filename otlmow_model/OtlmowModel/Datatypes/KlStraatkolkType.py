@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlStraatkolkType(KeuzelijstField):
     definition = 'Types van straatkolk.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStraatkolkType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'geisoleerd': KeuzelijstWaarde(invulwaarde='geisoleerd',
                                        label='geisoleerd',
                                        status='ingebruik',
@@ -28,7 +29,7 @@ class KlStraatkolkType(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='Verticale afvoeropening die op regelmatige afstand geplaatst wordt langs of in een boordsteen van de weg, fietspad of voetpad.',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStraatkolkType/verticaal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

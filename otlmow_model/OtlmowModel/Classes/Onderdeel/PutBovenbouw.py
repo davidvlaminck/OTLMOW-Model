@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...BaseClasses.BooleanField import BooleanField
@@ -281,7 +280,7 @@ class PutBovenbouw(AIMObject, PuntGeometrie, VlakGeometrie):
         self._regeling.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de bovenbouw."""
         return self._technischeFiche.get_waarde()
 

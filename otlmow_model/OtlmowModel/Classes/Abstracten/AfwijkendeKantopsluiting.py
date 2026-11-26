@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
 from ...Classes.Abstracten.Kantopsluiting import Kantopsluiting
@@ -82,7 +81,7 @@ class AfwijkendeKantopsluiting(Kantopsluiting):
         self._heeftOppervlaktebehandeling.set_waarde(value, owner=self)
 
     @property
-    def technischeFicheAfwijking(self) -> List[DtcDocumentWaarden]:
+    def technischeFicheAfwijking(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de afwijkende kantopsluiting."""
         return self._technischeFicheAfwijking.get_waarde()
 

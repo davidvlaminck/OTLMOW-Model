@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlOverlangsemarkeringType(KeuzelijstField):
     definition = 'Mogelijke types van de overlangse markering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOverlangsemarkeringType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'doorlopend': KeuzelijstWaarde(invulwaarde='doorlopend',
                                        label='doorlopend',
                                        status='ingebruik',
@@ -23,7 +24,7 @@ class KlOverlangsemarkeringType(KeuzelijstField):
                                         status='ingebruik',
                                         definitie='Een overlangse markering bestaande uit een onderbroken streep.',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOverlangsemarkeringType/onderbroken')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

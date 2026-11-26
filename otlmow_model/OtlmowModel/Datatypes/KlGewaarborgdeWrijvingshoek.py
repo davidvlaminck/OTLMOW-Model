@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGewaarborgdeWrijvingshoek(KeuzelijstField):
     definition = 'De hoek van inwendige wrijving geeft een aanwijzing omtrent de afschuifkarakteristieken en wordt dan ook gebruikt bij berekening van afschuiving, gronddruk en draagvermogen van paalfunderingen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGewaarborgdeWrijvingshoek'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '25-graden': KeuzelijstWaarde(invulwaarde='25-graden',
                                       label='25 graden',
                                       status='ingebruik',
@@ -38,7 +39,7 @@ class KlGewaarborgdeWrijvingshoek(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='De hoek van inwendige wrijving van 35 graden.',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGewaarborgdeWrijvingshoek/35-graden')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlOmvormerType(KeuzelijstField):
     definition = 'De soort omvorming die gebeurt er in de omvormer.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOmvormerType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'Coax-UTP': KeuzelijstWaarde(invulwaarde='Coax-UTP',
                                      label='Coax-UTP',
                                      status='ingebruik',
@@ -65,7 +66,7 @@ class KlOmvormerType(KeuzelijstField):
                                           status='ingebruik',
                                           definitie='UTP-Draadloos',
                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOmvormerType/utp-draadloos')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

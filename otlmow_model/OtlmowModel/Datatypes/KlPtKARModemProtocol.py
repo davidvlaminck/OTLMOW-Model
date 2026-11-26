@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPtKARModemProtocol(KeuzelijstField):
     definition = 'Beschrijft het protocol dat de PT-KAR-Modem gebruikt om te communiceren.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPtKARModemProtocol'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'daiser': KeuzelijstWaarde(invulwaarde='daiser',
                                    label='DAISER',
                                    status='ingebruik',
@@ -23,7 +24,7 @@ class KlPtKARModemProtocol(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='R09.16',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPtKARModemProtocol/r09-16')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

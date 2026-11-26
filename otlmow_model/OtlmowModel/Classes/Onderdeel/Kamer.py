@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BVAfwateringKunstwerken import BVAfwateringKunstwerken
 from ...Classes.Abstracten.PutRelatie import PutRelatie
@@ -179,7 +178,7 @@ class Kamer(BVAfwateringKunstwerken, PutRelatie, VlakGeometrie):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de kamer."""
         return self._technischeFiche.get_waarde()
 

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSlotvullingDamwand(KeuzelijstField):
     definition = 'De vulling van het slot van de damwand.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSlotvullingDamwand'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bitumineuze': KeuzelijstWaarde(invulwaarde='bitumineuze',
                                         label='Bitumineuze',
                                         status='ingebruik',
@@ -29,7 +30,7 @@ class KlSlotvullingDamwand(KeuzelijstField):
                                       label='Zwellende',
                                       status='ingebruik',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSlotvullingDamwand/zwellende')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
 from ...BaseClasses.StringField import StringField
@@ -32,7 +31,7 @@ class ContainerBuis(ABC):
                                    owner=self)
 
     @property
-    def kleur(self) -> List[str]:
+    def kleur(self) -> list[str]:
         """De kleur van de coating."""
         return self._kleur.get_waarde()
 

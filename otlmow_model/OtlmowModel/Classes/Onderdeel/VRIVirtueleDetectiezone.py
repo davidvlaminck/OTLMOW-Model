@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Detectielus import Detectielus
 from ...BaseClasses.BooleanField import BooleanField
@@ -63,7 +62,7 @@ class VRIVirtueleDetectiezone(Detectielus, VlakGeometrie):
         self._isRichtingsgevoelig.set_waarde(value, owner=self)
 
     @property
-    def soortVerkeersdeelnemer(self) -> List[str]:
+    def soortVerkeersdeelnemer(self) -> list[str]:
         """Soort verkeersdeelnemer dat de detectiezone volgens zijn instellingen kan detecteren."""
         return self._soortVerkeersdeelnemer.get_waarde()
 

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlThermoHygrometerModelnaam(KeuzelijstField):
     definition = 'Thermo- hygrometer modelnamen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlThermoHygrometerModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ap9319': KeuzelijstWaarde(invulwaarde='ap9319',
                                    label='AP9319',
                                    status='ingebruik',
@@ -58,7 +59,7 @@ class KlThermoHygrometerModelnaam(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='NBRK0250',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlThermoHygrometerModelnaam/nbrk0250')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

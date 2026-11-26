@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDraineerbuisMateriaal(KeuzelijstField):
     definition = 'Materialen van de draineerbuis.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDraineerbuisMateriaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'draineerbuizen-van-beton-volgens-3-26.1.5': KeuzelijstWaarde(invulwaarde='draineerbuizen-van-beton-volgens-3-26.1.5',
                                                                       label='draineerbuizen van beton volgens 3-26.1.5',
                                                                       status='ingebruik',
@@ -43,7 +44,7 @@ class KlDraineerbuisMateriaal(KeuzelijstField):
                                                                                            status='ingebruik',
                                                                                            definitie='geribbelde draineerbuizen van PVC zonder kous volgens 3-26.1.1',
                                                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDraineerbuisMateriaal/geribbelde-draineerbuizen-van-PVC-zonder-kous-volgens-3-26.1.1')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

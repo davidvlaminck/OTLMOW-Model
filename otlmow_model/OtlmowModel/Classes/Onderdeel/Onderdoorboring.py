@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -53,7 +52,7 @@ class Onderdoorboring(AbstracteAanvullendeGeometrie, LijnGeometrie, VlakGeometri
         self._retributie.set_waarde(value, owner=self)
 
     @property
-    def vergunning(self) -> List[DtcDocumentWaarden]:
+    def vergunning(self) -> list[DtcDocumentWaarden]:
         """Het document met de vergunning voor de onderdoorboring."""
         return self._vergunning.get_waarde()
 

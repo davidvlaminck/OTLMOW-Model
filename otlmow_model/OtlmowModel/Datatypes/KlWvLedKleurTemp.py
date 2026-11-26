@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWvLedKleurTemp(KeuzelijstField):
     definition = "Kleurtemperatuur van de LED's."
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedKleurTemp'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1700': KeuzelijstWaarde(invulwaarde='1700',
                                  label='1700',
                                  status='ingebruik',
@@ -42,7 +43,7 @@ class KlWvLedKleurTemp(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='/ CLASS : VPLMAST',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedKleurTemp/4000')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

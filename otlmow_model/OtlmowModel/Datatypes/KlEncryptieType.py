@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlEncryptieType(KeuzelijstField):
     definition = 'Keuzelijst voor het type encryptie.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEncryptieType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'mifare': KeuzelijstWaarde(invulwaarde='mifare',
                                    label='MIFARE',
                                    status='ingebruik',
@@ -21,7 +22,7 @@ class KlEncryptieType(KeuzelijstField):
                                   label='NEDAP',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEncryptieType/nedap')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

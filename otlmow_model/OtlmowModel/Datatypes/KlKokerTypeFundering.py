@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlKokerTypeFundering(KeuzelijstField):
     definition = 'Keuzelijst om aan te geven welk type fundering gebruikt is in de kokercel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKokerTypeFundering'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'niet-gekend': KeuzelijstWaarde(invulwaarde='niet-gekend',
                                         label='niet gekend',
                                         status='ingebruik',
@@ -33,7 +34,7 @@ class KlKokerTypeFundering(KeuzelijstField):
                                          label='putfundering',
                                          status='ingebruik',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKokerTypeFundering/putfundering')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

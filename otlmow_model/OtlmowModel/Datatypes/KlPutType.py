@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPutType(KeuzelijstField):
     definition = 'Types van put.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPutType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'aansluitingstoegangsput-(ATP)': KeuzelijstWaarde(invulwaarde='aansluitingstoegangsput-(ATP)',
                                                           label='aansluitingstoegangsput (ATP)',
                                                           status='ingebruik',
@@ -43,7 +44,7 @@ class KlPutType(KeuzelijstField):
                                                     status='ingebruik',
                                                     definitie='Vervaltoegangsput (= VTP)',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPutType/vervaltoegangsput-(VTP)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlKleurStandaard(KeuzelijstField):
     definition = 'De mogelijke standaard (RAL) kleuren die gekozen kunnen worden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKleurStandaard'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'niet-gekend': KeuzelijstWaarde(invulwaarde='niet-gekend',
                                         label='Niet gekend',
                                         status='ingebruik',
@@ -133,7 +134,7 @@ class KlKleurStandaard(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Stadsgrijs Antwerpen',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKleurStandaard/stadsgrijs')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlMIVLusZichtbaarheid(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.9.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMIVLusZichtbaarheid'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'onderlaag': KeuzelijstWaarde(invulwaarde='onderlaag',
                                       label='onderlaag',
                                       status='ingebruik',
@@ -22,7 +23,7 @@ class KlMIVLusZichtbaarheid(KeuzelijstField):
                                     label='toplaag',
                                     status='ingebruik',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMIVLusZichtbaarheid/toplaag')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

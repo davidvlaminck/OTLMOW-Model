@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMetselverband(KeuzelijstField):
     definition = 'De rangschikking waarin stenen worden gemetseld.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMetselverband'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'engels-verband': KeuzelijstWaarde(invulwaarde='engels-verband',
                                            label='Engels verband',
                                            status='ingebruik',
@@ -53,7 +54,7 @@ class KlMetselverband(KeuzelijstField):
                                            status='ingebruik',
                                            definitie='Het Vlaams verband bestaat uit een afwisseling van koppen (zijde van een steen die de kleinste oppervlakte heeft) en strekken (lange zijde van de baksteen). De koppen liggen daarbij in het midden van de strekken van de laag eronder en erboven.',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMetselverband/vlaams-verband')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

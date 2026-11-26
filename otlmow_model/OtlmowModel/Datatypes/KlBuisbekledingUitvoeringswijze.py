@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBuisbekledingUitvoeringswijze(KeuzelijstField):
     definition = 'Materiaal en manier van aanbrengen van de buisbekleding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBuisbekledingUitvoeringswijze'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bouwput-voor-rioolrenovatie-dmv-buis-in-buissysteem-met-glasvezelversterkte-polyesterelementen': KeuzelijstWaarde(invulwaarde='bouwput-voor-rioolrenovatie-dmv-buis-in-buissysteem-met-glasvezelversterkte-polyesterelementen',
                                                                                                                            label='bouwput voor rioolrenovatie dmv buis in buissysteem met glasvezelversterkte polyesterelementen',
                                                                                                                            status='ingebruik',
@@ -183,7 +184,7 @@ class KlBuisbekledingUitvoeringswijze(KeuzelijstField):
                                                                                                                  status='ingebruik',
                                                                                                                  definitie='Waterdichting van lekkende voegverbindingen van ronde buizen dmv uitwendige krimpmof',
                                                                                                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBuisbekledingUitvoeringswijze/waterdichting-van-lekkende-voegverbindingen-van-ronde-buizen-dmv-uitwendige-krimpmof')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

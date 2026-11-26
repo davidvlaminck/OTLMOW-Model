@@ -1,14 +1,13 @@
 # coding=utf-8
 from datetime import date
-
-from ..BaseClasses.ComplexField import ComplexField
-from ..BaseClasses.DateField import DateField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
+from ..BaseClasses.ComplexField import ComplexField
+from ..BaseClasses.DateField import DateField
 from ..Datatypes.KlCompacteBatterijMerk import KlCompacteBatterijMerk
 from ..Datatypes.KlCompacteBatterijModelnaam import KlCompacteBatterijModelnaam
-from ..Datatypes.KwantWrdInmAh import KwantWrdInmAh, KwantWrdInmAhWaarden
 from ..Datatypes.KwantWrdInVolt import KwantWrdInVolt, KwantWrdInVoltWaarden
+from ..Datatypes.KwantWrdInmAh import KwantWrdInmAh, KwantWrdInmAhWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

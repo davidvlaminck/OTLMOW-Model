@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDetectiecameraModelnaam(KeuzelijstField):
     definition = 'Keuzelijst met modelnamen voor Detectiecamera.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDetectiecameraModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'thermicam-ai-345': KeuzelijstWaarde(invulwaarde='thermicam-ai-345',
                                              label='ThermiCam AI-345',
                                              status='ingebruik',
@@ -68,7 +69,7 @@ class KlDetectiecameraModelnaam(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='TrafiOne',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDetectiecameraModelnaam/trafione')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

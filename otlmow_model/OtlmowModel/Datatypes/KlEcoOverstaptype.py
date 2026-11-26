@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlEcoOverstaptype(KeuzelijstField):
     definition = 'Types van terugkeer voor wild.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoOverstaptype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dassenpoort': KeuzelijstWaarde(invulwaarde='dassenpoort',
                                         label='dassenpoort',
                                         status='ingebruik',
@@ -23,7 +24,7 @@ class KlEcoOverstaptype(KeuzelijstField):
                                          status='ingebruik',
                                          definitie='Een verhoging aan de buitenzijde (aan de kant van de weg) met een steile afsprong naar de binnenzijde om dieren die toch aan de wegkant verzeild zijn geraakt terug naar de veilige kant te laten begeven. Door de steile afsprong kan het dier niet in de richting van de weg gaan.',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEcoOverstaptype/ree-overstap')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

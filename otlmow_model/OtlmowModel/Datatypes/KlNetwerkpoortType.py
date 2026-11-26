@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlNetwerkpoortType(KeuzelijstField):
     definition = 'Lijst van types voor Netwerkpoort.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNetwerkpoortType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'NNI': KeuzelijstWaarde(invulwaarde='NNI',
                                 label='NNI',
                                 status='ingebruik',
@@ -48,7 +49,7 @@ class KlNetwerkpoortType(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Een Not Configured Network Interface.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNetwerkpoortType/ncni')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

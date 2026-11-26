@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlFormaatGebakkenStraatsteen(KeuzelijstField):
     definition = 'De formaten van gebakken straatsteen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlFormaatGebakkenStraatsteen'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'dikformaat-(ca.-200-x-ca.-65-mm)': KeuzelijstWaarde(invulwaarde='dikformaat-(ca.-200-x-ca.-65-mm)',
                                                              label='dikformaat (ca. 200 x ca. 65 mm)',
                                                              status='ingebruik',
@@ -38,7 +39,7 @@ class KlFormaatGebakkenStraatsteen(KeuzelijstField):
                                                               status='ingebruik',
                                                               definitie='Een gestandaardiseerde maat voor de gebakken straatsteen.',
                                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFormaatGebakkenStraatsteen/waalformaat-(ca.-200-x-ca.-50-mm)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

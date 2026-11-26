@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEMarkeringSoort(KeuzelijstField):
     definition = 'Mogelijke markeringsoorten op een lijvormig element.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEMarkeringSoort'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'biggenrug': KeuzelijstWaarde(invulwaarde='biggenrug',
                                       label='biggenrug',
                                       status='ingebruik',
@@ -38,7 +39,7 @@ class KlLEMarkeringSoort(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='Een afschermende constructie die naast wegen wordt geplaatst om te voorkomen dat voertuigen de weg in zijdelingse richting verlaten, kantelen of de middenberm doorkruisen.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEMarkeringSoort/vangrail')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

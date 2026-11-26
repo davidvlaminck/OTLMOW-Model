@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlEnergiemeterMetertype(KeuzelijstField):
     definition = 'Type meter (mechanisch, elektronisch).'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEnergiemeterMetertype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'elektronisch': KeuzelijstWaarde(invulwaarde='elektronisch',
                                          label='elektronisch',
                                          status='ingebruik',
@@ -22,7 +23,7 @@ class KlEnergiemeterMetertype(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Nakijken bij EVT',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEnergiemeterMetertype/mechanisch')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

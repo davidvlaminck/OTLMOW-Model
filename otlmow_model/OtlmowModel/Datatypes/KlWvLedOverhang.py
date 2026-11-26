@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWvLedOverhang(KeuzelijstField):
     definition = 'Afstand tot de rand van de rijbaan van de verticale projectie van het verlichtingstoestel op de rijbaan in meter. Als de afstand tot de rijbaan gelijk is aan 0, dan valt de verticale projectie samen met de rand van de rijbaan, bij negatieve waardes ligt de verticale projectie in de berm en bij positieve waardes ligt de verticale projectie op de rijbaan.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedOverhang'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '0': KeuzelijstWaarde(invulwaarde='0',
                               label='+0',
                               status='uitgebruik',
@@ -368,7 +369,7 @@ class KlWvLedOverhang(KeuzelijstField):
                                     status='uitgebruik',
                                     definitie='o-7.0',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedOverhang/o-7-0-2')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

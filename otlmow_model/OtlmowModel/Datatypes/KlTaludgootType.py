@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,23 +13,23 @@ class KlTaludgootType(KeuzelijstField):
     definition = 'Het type van taludgoot.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTaludgootType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'Beginstuk-taludgoten-type-A-met-twee-openingen': KeuzelijstWaarde(invulwaarde='Beginstuk-taludgoten-type-A-met-twee-openingen',
                                                                            label='Beginstuk taludgoten type A met twee openingen',
                                                                            status='ingebruik',
                                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTaludgootType/Beginstuk-taludgoten-type-A-met-twee-openingen'),
         'Beginstuk-taludgoten-type-A-met-één-opening': KeuzelijstWaarde(invulwaarde='Beginstuk-taludgoten-type-A-met-één-opening',
-                                                                        label='Beginstuk taludgoten type A met één opening',
-                                                                        status='ingebruik',
-                                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTaludgootType/Beginstuk-taludgoten-type-A-met-één-opening'),
+                                                                          label='Beginstuk taludgoten type A met één opening',
+                                                                          status='ingebruik',
+                                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTaludgootType/Beginstuk-taludgoten-type-A-met-één-opening'),
         'Beginstuk-taludgoten-type-B-met-twee-openingen': KeuzelijstWaarde(invulwaarde='Beginstuk-taludgoten-type-B-met-twee-openingen',
                                                                            label='Beginstuk taludgoten type B met twee openingen',
                                                                            status='ingebruik',
                                                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTaludgootType/Beginstuk-taludgoten-type-B-met-twee-openingen'),
         'Beginstuk-taludgoten-type-B-met-één-opening': KeuzelijstWaarde(invulwaarde='Beginstuk-taludgoten-type-B-met-één-opening',
-                                                                        label='Beginstuk taludgoten type B met één opening',
-                                                                        status='ingebruik',
-                                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTaludgootType/Beginstuk-taludgoten-type-B-met-één-opening'),
+                                                                          label='Beginstuk taludgoten type B met één opening',
+                                                                          status='ingebruik',
+                                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTaludgootType/Beginstuk-taludgoten-type-B-met-één-opening'),
         'Eindstuk-taludgoten-type-A': KeuzelijstWaarde(invulwaarde='Eindstuk-taludgoten-type-A',
                                                        label='Eindstuk taludgoten type A',
                                                        status='ingebruik',
@@ -45,7 +46,7 @@ class KlTaludgootType(KeuzelijstField):
                                              label='taludgoot type B',
                                              status='ingebruik',
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTaludgootType/taludgoot-type-B')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

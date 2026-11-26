@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlEcoBoombrugType(KeuzelijstField):
     definition = 'Types van boombrug.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlEcoBoombrugType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ladderbrug': KeuzelijstWaarde(invulwaarde='ladderbrug',
                                        label='ladderbrug',
                                        status='ingebruik',
@@ -33,7 +34,7 @@ class KlEcoBoombrugType(KeuzelijstField):
                                        status='ingebruik',
                                        definitie='Een boombrug bestaande uit een tunnelvormige oversteek gemaakt uit geweven touwen (touwtunnel) of een buisvormige draadkoker (kokerbrug)',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlEcoBoombrugType/tunnelbrug')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.VegetatieElement import VegetatieElement
 from ...BaseClasses.BooleanField import BooleanField
@@ -163,7 +162,7 @@ class Boom(VegetatieElement, PuntGeometrie):
         self._aanleg.set_waarde(value, owner=self)
 
     @property
-    def boomspiegel(self) -> List[str]:
+    def boomspiegel(self) -> list[str]:
         """Het stuk grond rondom de stam van een boom. Dit is in de ideale situatie minstens zo groot is als de kruin van de boom."""
         return self._boomspiegel.get_waarde()
 

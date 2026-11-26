@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlAlgFaalmodusType(KeuzelijstField):
     definition = 'Keuzelijst voor de types failure modes van een beveiligingssysteem.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAlgFaalmodusType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'fail-safe': KeuzelijstWaarde(invulwaarde='fail-safe',
                                       label='fail safe',
                                       status='ingebruik',
@@ -21,7 +22,7 @@ class KlAlgFaalmodusType(KeuzelijstField):
                                         label='fail secure',
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAlgFaalmodusType/fail-secure')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

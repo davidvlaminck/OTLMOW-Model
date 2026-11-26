@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMeetcelNauwkeurigheidsvermogen(KeuzelijstField):
     definition = 'Nauwkeurigheidsvermogen van de meetcel in voltampère (bv. 5 of 15).'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMeetcelNauwkeurigheidsvermogen'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '15': KeuzelijstWaarde(invulwaarde='15',
                                label='15',
                                status='ingebruik',
@@ -21,7 +22,7 @@ class KlMeetcelNauwkeurigheidsvermogen(KeuzelijstField):
                               label='5',
                               status='ingebruik',
                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMeetcelNauwkeurigheidsvermogen/5')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -2,25 +2,17 @@ from ..Classes.Agent import Agent
 from ..Classes.ImplementatieElement.ActivityComplex import ActivityComplex
 from ..Classes.ImplementatieElement.Bijlage import Bijlage
 from ..Classes.ImplementatieElement.Derdenobject import Derdenobject
-from ..Classes.ImplementatieElement.ElectricityAppurtenance import (
-    ElectricityAppurtenance,
-)
+from ..Classes.ImplementatieElement.ElectricityAppurtenance import ElectricityAppurtenance
 from ..Classes.ImplementatieElement.ElectricityCable import ElectricityCable
 from ..Classes.ImplementatieElement.Pipe import Pipe
-from ..Classes.ImplementatieElement.TelecommunicationsAppurtenance import (
-    TelecommunicationsAppurtenance,
-)
-from ..Classes.ImplementatieElement.TelecommunicationsCable import (
-    TelecommunicationsCable,
-)
+from ..Classes.ImplementatieElement.TelecommunicationsAppurtenance import TelecommunicationsAppurtenance
+from ..Classes.ImplementatieElement.TelecommunicationsCable import TelecommunicationsCable
 from ..Classes.ImplementatieElement.Toegangsprocedure import Toegangsprocedure
+from ..Classes.Installatie.ASTRIDInstallatie import ASTRIDInstallatie
 from ..Classes.Installatie.Aanslagbalk import Aanslagbalk
 from ..Classes.Installatie.Aanvaarbescherming import Aanvaarbescherming
-from ..Classes.Installatie.AanzichtVerkeersbordopstelling import (
-    AanzichtVerkeersbordopstelling,
-)
+from ..Classes.Installatie.AanzichtVerkeersbordopstelling import AanzichtVerkeersbordopstelling
 from ..Classes.Installatie.Aardingsinstallatie import Aardingsinstallatie
-from ..Classes.Installatie.ASTRIDInstallatie import ASTRIDInstallatie
 from ..Classes.Installatie.Asweger import Asweger
 from ..Classes.Installatie.Aswegersite import Aswegersite
 from ..Classes.Installatie.Baanlichaam import Baanlichaam
@@ -31,15 +23,11 @@ from ..Classes.Installatie.Balk import Balk
 from ..Classes.Installatie.BasisverlichtingTunnel import BasisverlichtingTunnel
 from ..Classes.Installatie.Been import Been
 from ..Classes.Installatie.Berlinerwand import Berlinerwand
-from ..Classes.Installatie.BeweegbareWaterkerendeConstructie import (
-    BeweegbareWaterkerendeConstructie,
-)
+from ..Classes.Installatie.BeweegbareWaterkerendeConstructie import BeweegbareWaterkerendeConstructie
 from ..Classes.Installatie.BiFlashInstallatie import BiFlashInstallatie
 from ..Classes.Installatie.BinnenverlichtingGroep import BinnenverlichtingGroep
 from ..Classes.Installatie.BlindePut import BlindePut
-from ..Classes.Installatie.Bochtafbakeningsinstallatie import (
-    Bochtafbakeningsinstallatie,
-)
+from ..Classes.Installatie.Bochtafbakeningsinstallatie import Bochtafbakeningsinstallatie
 from ..Classes.Installatie.Bodembescherming import Bodembescherming
 from ..Classes.Installatie.Boog import Boog
 from ..Classes.Installatie.Bovenrolwagen import Bovenrolwagen
@@ -56,12 +44,12 @@ from ..Classes.Installatie.CameraGroep import CameraGroep
 from ..Classes.Installatie.Centreermechanisme import Centreermechanisme
 from ..Classes.Installatie.Combiwand import Combiwand
 from ..Classes.Installatie.CoordinatiesysteemVRI import CoordinatiesysteemVRI
+from ..Classes.Installatie.DIZV import DIZV
 from ..Classes.Installatie.Damwand import Damwand
 from ..Classes.Installatie.Deurkamer import Deurkamer
 from ..Classes.Installatie.Deurkas import Deurkas
 from ..Classes.Installatie.Deurloop import Deurloop
 from ..Classes.Installatie.Deurnis import Deurnis
-from ..Classes.Installatie.DIZV import DIZV
 from ..Classes.Installatie.DraagstructuurBWCTWC import DraagstructuurBWCTWC
 from ..Classes.Installatie.Drempel import Drempel
 from ..Classes.Installatie.DrogePompkelder import DrogePompkelder
@@ -89,9 +77,7 @@ from ..Classes.Installatie.Gewichtsmuur import Gewichtsmuur
 from ..Classes.Installatie.Glijgeleiding import Glijgeleiding
 from ..Classes.Installatie.Gording import Gording
 from ..Classes.Installatie.Grendelmechanisme import Grendelmechanisme
-from ..Classes.Installatie.GroepDwarseMarkeringEnFiguratie import (
-    GroepDwarseMarkeringEnFiguratie,
-)
+from ..Classes.Installatie.GroepDwarseMarkeringEnFiguratie import GroepDwarseMarkeringEnFiguratie
 from ..Classes.Installatie.GroepMarkering import GroepMarkering
 from ..Classes.Installatie.Gronddam import Gronddam
 from ..Classes.Installatie.Grondverbetering import Grondverbetering
@@ -103,15 +89,13 @@ from ..Classes.Installatie.Hefportiek import Hefportiek
 from ..Classes.Installatie.Heftoren import Heftoren
 from ..Classes.Installatie.HijsEnHefwerktuig import HijsEnHefwerktuig
 from ..Classes.Installatie.HoogtebegrenzerInstallatie import HoogtebegrenzerInstallatie
-from ..Classes.Installatie.HorizontaleConstructieplaat import (
-    HorizontaleConstructieplaat,
-)
+from ..Classes.Installatie.HorizontaleConstructieplaat import HorizontaleConstructieplaat
 from ..Classes.Installatie.Hulppost import Hulppost
 from ..Classes.Installatie.HulppostGroep import HulppostGroep
 from ..Classes.Installatie.HydraulischeCilinder import HydraulischeCilinder
-from ..Classes.Installatie.InspectieputRiolering import InspectieputRiolering
 from ..Classes.Installatie.IPBackbone import IPBackbone
 from ..Classes.Installatie.IVSBGroep import IVSBGroep
+from ..Classes.Installatie.InspectieputRiolering import InspectieputRiolering
 from ..Classes.Installatie.Kabelbewegingsmechanisme import Kabelbewegingsmechanisme
 from ..Classes.Installatie.Kabelkoker import Kabelkoker
 from ..Classes.Installatie.Kabelveerhuis import Kabelveerhuis
@@ -130,24 +114,22 @@ from ..Classes.Installatie.Kolom import Kolom
 from ..Classes.Installatie.Koppelbalk import Koppelbalk
 from ..Classes.Installatie.Koppeling import Koppeling
 from ..Classes.Installatie.L2AccessStructuur import L2AccessStructuur
-from ..Classes.Installatie.Landhoofd import Landhoofd
 from ..Classes.Installatie.LEDRotondeafbakening import LEDRotondeafbakening
-from ..Classes.Installatie.LEDWegdekreflectorBebakening import (
-    LEDWegdekreflectorBebakening,
-)
+from ..Classes.Installatie.LEDWegdekreflectorBebakening import LEDWegdekreflectorBebakening
+from ..Classes.Installatie.Landhoofd import Landhoofd
 from ..Classes.Installatie.Leuning import Leuning
 from ..Classes.Installatie.Link import Link
 from ..Classes.Installatie.Lmuur import Lmuur
 from ..Classes.Installatie.Lokaal import Lokaal
 from ..Classes.Installatie.Luchtkwaliteitsensor import Luchtkwaliteitsensor
-from ..Classes.Installatie.Matrixbord import Matrixbord
-from ..Classes.Installatie.MechanischeCilinder import MechanischeCilinder
-from ..Classes.Installatie.Meetstation import Meetstation
-from ..Classes.Installatie.Meteostation import Meteostation
 from ..Classes.Installatie.MIVInstallatie import MIVInstallatie
 from ..Classes.Installatie.MIVMeetpunt import MIVMeetpunt
 from ..Classes.Installatie.MIVModule import MIVModule
 from ..Classes.Installatie.MVPaal import MVPaal
+from ..Classes.Installatie.Matrixbord import Matrixbord
+from ..Classes.Installatie.MechanischeCilinder import MechanischeCilinder
+from ..Classes.Installatie.Meetstation import Meetstation
+from ..Classes.Installatie.Meteostation import Meteostation
 from ..Classes.Installatie.Omloopriool import Omloopriool
 from ..Classes.Installatie.Omroepzone import Omroepzone
 from ..Classes.Installatie.Onderbord import Onderbord
@@ -155,13 +137,13 @@ from ..Classes.Installatie.Onderrolwagen import Onderrolwagen
 from ..Classes.Installatie.Oplegmechanisme import Oplegmechanisme
 from ..Classes.Installatie.Oplegrij import Oplegrij
 from ..Classes.Installatie.Overbrenging import Overbrenging
+from ..Classes.Installatie.PTGroep import PTGroep
 from ..Classes.Installatie.Paalmatras import Paalmatras
 from ..Classes.Installatie.Pad import Pad
 from ..Classes.Installatie.Pijler import Pijler
 from ..Classes.Installatie.PompGroep import PompGroep
 from ..Classes.Installatie.Pompkamer import Pompkamer
 from ..Classes.Installatie.Pompstation import Pompstation
-from ..Classes.Installatie.PTGroep import PTGroep
 from ..Classes.Installatie.Pyloon import Pyloon
 from ..Classes.Installatie.RadioheruitzendInstallatie import RadioheruitzendInstallatie
 from ..Classes.Installatie.Randafwerking import Randafwerking
@@ -186,45 +168,33 @@ from ..Classes.Installatie.Tandheugelmechanisme import Tandheugelmechanisme
 from ..Classes.Installatie.Tandkransmechanisme import Tandkransmechanisme
 from ..Classes.Installatie.Tegengewichtkist import Tegengewichtkist
 from ..Classes.Installatie.Telefooncentrale import Telefooncentrale
-from ..Classes.Installatie.TijdelijkeBerlinerwandTussenschot import (
-    TijdelijkeBerlinerwandTussenschot,
-)
+from ..Classes.Installatie.TijdelijkeBerlinerwandTussenschot import TijdelijkeBerlinerwandTussenschot
 from ..Classes.Installatie.TijdelijkeOpslagplaats import TijdelijkeOpslagplaats
-from ..Classes.Installatie.TijdelijkeWaterkerendeConstructie import (
-    TijdelijkeWaterkerendeConstructie,
-)
+from ..Classes.Installatie.TijdelijkeWaterkerendeConstructie import TijdelijkeWaterkerendeConstructie
 from ..Classes.Installatie.Trajectcontrole import Trajectcontrole
 from ..Classes.Installatie.Trappentoren import Trappentoren
 from ..Classes.Installatie.Trekker import Trekker
 from ..Classes.Installatie.Tunneluitrusting import Tunneluitrusting
 from ..Classes.Installatie.Tunnelverlichting import Tunnelverlichting
+from ..Classes.Installatie.VLAN import VLAN
+from ..Classes.Installatie.VRIBuiteninstallatie import VRIBuiteninstallatie
 from ..Classes.Installatie.VakwerkElement import VakwerkElement
-from ..Classes.Installatie.VasteWaterbouwkundigeConstructie import (
-    VasteWaterbouwkundigeConstructie,
-)
+from ..Classes.Installatie.VasteWaterbouwkundigeConstructie import VasteWaterbouwkundigeConstructie
 from ..Classes.Installatie.Ventilatiecluster import Ventilatiecluster
 from ..Classes.Installatie.Ventilatiekanaal import Ventilatiekanaal
 from ..Classes.Installatie.Verdeelbalk import Verdeelbalk
 from ..Classes.Installatie.VerkeersbordConcept import VerkeersbordConcept
-from ..Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
 from ..Classes.Installatie.VerkeersbordVerkeersteken import VerkeersbordVerkeersteken
-from ..Classes.Installatie.VerlichteOversteekplaatsGroep import (
-    VerlichteOversteekplaatsGroep,
-)
+from ..Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
+from ..Classes.Installatie.VerlichteOversteekplaatsGroep import VerlichteOversteekplaatsGroep
 from ..Classes.Installatie.VernageldeWand import VernageldeWand
-from ..Classes.Installatie.VersterkingsverlichtingTunnel import (
-    VersterkingsverlichtingTunnel,
-)
-from ..Classes.Installatie.VLAN import VLAN
+from ..Classes.Installatie.VersterkingsverlichtingTunnel import VersterkingsverlichtingTunnel
 from ..Classes.Installatie.Vloernis import Vloernis
 from ..Classes.Installatie.Vluchtdeurindicatie import Vluchtdeurindicatie
 from ..Classes.Installatie.Vluchtganginrichting import Vluchtganginrichting
 from ..Classes.Installatie.Vluchtgeleiding import Vluchtgeleiding
 from ..Classes.Installatie.Vluchtroute import Vluchtroute
-from ..Classes.Installatie.VoorzieningNegatieveReactie import (
-    VoorzieningNegatieveReactie,
-)
-from ..Classes.Installatie.VRIBuiteninstallatie import VRIBuiteninstallatie
+from ..Classes.Installatie.VoorzieningNegatieveReactie import VoorzieningNegatieveReactie
 from ..Classes.Installatie.Wand import Wand
 from ..Classes.Installatie.WaterdoorvoerendeDuiker import WaterdoorvoerendeDuiker
 from ..Classes.Installatie.Waterweg import Waterweg
@@ -251,6 +221,9 @@ from ..Classes.Levenscyclus.Bodemverbeteringsmiddel import Bodemverbeteringsmidd
 from ..Classes.Levenscyclus.Grondbewerking import Grondbewerking
 from ..Classes.Levenscyclus.Ophoging import Ophoging
 from ..Classes.Levenscyclus.Uitgraving import Uitgraving
+from ..Classes.Onderdeel.AIDModule import AIDModule
+from ..Classes.Onderdeel.ALSB import ALSB
+from ..Classes.Onderdeel.ANPRCamera import ANPRCamera
 from ..Classes.Onderdeel.Aandrijfas import Aandrijfas
 from ..Classes.Onderdeel.Aangrijpingsstoel import Aangrijpingsstoel
 from ..Classes.Onderdeel.Aansluitmof import Aansluitmof
@@ -274,20 +247,17 @@ from ..Classes.Onderdeel.Afsluiting import Afsluiting
 from ..Classes.Onderdeel.Afsluitkraan import Afsluitkraan
 from ..Classes.Onderdeel.Aftakking import Aftakking
 from ..Classes.Onderdeel.Afwateringsgeul import Afwateringsgeul
-from ..Classes.Onderdeel.AIDModule import AIDModule
 from ..Classes.Onderdeel.AkoestischeBekleding import AkoestischeBekleding
 from ..Classes.Onderdeel.AlarmModule import AlarmModule
-from ..Classes.Onderdeel.ALSB import ALSB
 from ..Classes.Onderdeel.AnalogeHoppinzuil import AnalogeHoppinzuil
 from ..Classes.Onderdeel.Ankerplaat import Ankerplaat
 from ..Classes.Onderdeel.Ankerstang import Ankerstang
-from ..Classes.Onderdeel.ANPRCamera import ANPRCamera
 from ..Classes.Onderdeel.Antenne import Antenne
 from ..Classes.Onderdeel.Antennecoupler import Antennecoupler
 from ..Classes.Onderdeel.AntiParkeerpaal import AntiParkeerpaal
 from ..Classes.Onderdeel.Armatuurcontroller import Armatuurcontroller
-from ..Classes.Onderdeel.Asfaltmat import Asfaltmat
 from ..Classes.Onderdeel.AsMechanisch import AsMechanisch
+from ..Classes.Onderdeel.Asfaltmat import Asfaltmat
 from ..Classes.Onderdeel.Aswegerput import Aswegerput
 from ..Classes.Onderdeel.Audioversterker import Audioversterker
 from ..Classes.Onderdeel.AutomatischeOmschakelaar import AutomatischeOmschakelaar
@@ -302,19 +272,13 @@ from ..Classes.Onderdeel.Beschermbuis import Beschermbuis
 from ..Classes.Onderdeel.BeschermingWapening import BeschermingWapening
 from ..Classes.Onderdeel.Beschermlaag import Beschermlaag
 from ..Classes.Onderdeel.BeslagHoutenSluisdeur import BeslagHoutenSluisdeur
-from ..Classes.Onderdeel.BestratingVanBetonstraatsteen import (
-    BestratingVanBetonstraatsteen,
-)
+from ..Classes.Onderdeel.BestratingVanBetonstraatsteen import BestratingVanBetonstraatsteen
 from ..Classes.Onderdeel.BestratingVanBetontegel import BestratingVanBetontegel
-from ..Classes.Onderdeel.BestratingVanGebakkenStraatsteen import (
-    BestratingVanGebakkenStraatsteen,
-)
+from ..Classes.Onderdeel.BestratingVanGebakkenStraatsteen import BestratingVanGebakkenStraatsteen
 from ..Classes.Onderdeel.BestratingVanGrasbetontegel import BestratingVanGrasbetontegel
 from ..Classes.Onderdeel.BestratingVanKassei import BestratingVanKassei
 from ..Classes.Onderdeel.BestratingVanMozaiekkei import BestratingVanMozaiekkei
-from ..Classes.Onderdeel.BestratingVanNatuursteentegel import (
-    BestratingVanNatuursteentegel,
-)
+from ..Classes.Onderdeel.BestratingVanNatuursteentegel import BestratingVanNatuursteentegel
 from ..Classes.Onderdeel.Bestrijking import Bestrijking
 from ..Classes.Onderdeel.Betonmat import Betonmat
 from ..Classes.Onderdeel.Betonmatras import Betonmatras
@@ -333,20 +297,14 @@ from ..Classes.Onderdeel.Bevestigingssteun import Bevestigingssteun
 from ..Classes.Onderdeel.Bewegingssensor import Bewegingssensor
 from ..Classes.Onderdeel.BiFlash import BiFlash
 from ..Classes.Onderdeel.Bijlage import Bijlage
-from ..Classes.Onderdeel.BijzonderGeluidsschermelement import (
-    BijzonderGeluidsschermelement,
-)
+from ..Classes.Onderdeel.BijzonderGeluidsschermelement import BijzonderGeluidsschermelement
 from ..Classes.Onderdeel.Binnenverlichtingstoestel import Binnenverlichtingstoestel
 from ..Classes.Onderdeel.BitumineuzeLaag import BitumineuzeLaag
 from ..Classes.Onderdeel.Bliksemafleider import Bliksemafleider
 from ..Classes.Onderdeel.BloemrijkGlanshavergrasland import BloemrijkGlanshavergrasland
-from ..Classes.Onderdeel.BloemrijkGraslandGraslandfase4 import (
-    BloemrijkGraslandGraslandfase4,
-)
+from ..Classes.Onderdeel.BloemrijkGraslandGraslandfase4 import BloemrijkGraslandGraslandfase4
 from ..Classes.Onderdeel.BloemrijkStruisgrasgrasland import BloemrijkStruisgrasgrasland
-from ..Classes.Onderdeel.BloemrijkVochtigTotNatGrasland import (
-    BloemrijkVochtigTotNatGrasland,
-)
+from ..Classes.Onderdeel.BloemrijkVochtigTotNatGrasland import BloemrijkVochtigTotNatGrasland
 from ..Classes.Onderdeel.Bolder import Bolder
 from ..Classes.Onderdeel.BoogpaalVerkeerslicht import BoogpaalVerkeerslicht
 from ..Classes.Onderdeel.Boom import Boom
@@ -367,6 +325,7 @@ from ..Classes.Onderdeel.Buffercilinder import Buffercilinder
 from ..Classes.Onderdeel.Buisbekleding import Buisbekleding
 from ..Classes.Onderdeel.BusMechanisch import BusMechanisch
 from ..Classes.Onderdeel.BypassSchakelaar import BypassSchakelaar
+from ..Classes.Onderdeel.CFAPaal import CFAPaal
 from ..Classes.Onderdeel.Cabine import Cabine
 from ..Classes.Onderdeel.Cabinecontroller import Cabinecontroller
 from ..Classes.Onderdeel.Calamiteitendoorsteek import Calamiteitendoorsteek
@@ -378,12 +337,11 @@ from ..Classes.Onderdeel.Cementbetonverharding import Cementbetonverharding
 from ..Classes.Onderdeel.Centreerinrichting import Centreerinrichting
 from ..Classes.Onderdeel.Centreerstuk import Centreerstuk
 from ..Classes.Onderdeel.Centreervork import Centreervork
-from ..Classes.Onderdeel.CFAPaal import CFAPaal
+from ..Classes.Onderdeel.CilinderStangkop import CilinderStangkop
 from ..Classes.Onderdeel.Cilinderbodem import Cilinderbodem
 from ..Classes.Onderdeel.Cilinderkop import Cilinderkop
 from ..Classes.Onderdeel.Cilindermantel import Cilindermantel
 from ..Classes.Onderdeel.Cilinderstang import Cilinderstang
-from ..Classes.Onderdeel.CilinderStangkop import CilinderStangkop
 from ..Classes.Onderdeel.Cilinderzuiger import Cilinderzuiger
 from ..Classes.Onderdeel.Cluster import Cluster
 from ..Classes.Onderdeel.Codeklavier import Codeklavier
@@ -397,6 +355,8 @@ from ..Classes.Onderdeel.Container import Container
 from ..Classes.Onderdeel.Contourverlichting import Contourverlichting
 from ..Classes.Onderdeel.Controlepaneel import Controlepaneel
 from ..Classes.Onderdeel.DABRepeater import DABRepeater
+from ..Classes.Onderdeel.DNBHoogspanning import DNBHoogspanning
+from ..Classes.Onderdeel.DNBLaagspanning import DNBLaagspanning
 from ..Classes.Onderdeel.Damwand import Damwand
 from ..Classes.Onderdeel.Datakabel import Datakabel
 from ..Classes.Onderdeel.Debietmeter import Debietmeter
@@ -411,11 +371,7 @@ from ..Classes.Onderdeel.Dieselgenerator import Dieselgenerator
 from ..Classes.Onderdeel.DigitaleHoppinzuil import DigitaleHoppinzuil
 from ..Classes.Onderdeel.Dilatatie import Dilatatie
 from ..Classes.Onderdeel.Display import Display
-from ..Classes.Onderdeel.Divergentiepuntbebakeningselement import (
-    Divergentiepuntbebakeningselement,
-)
-from ..Classes.Onderdeel.DNBHoogspanning import DNBHoogspanning
-from ..Classes.Onderdeel.DNBLaagspanning import DNBLaagspanning
+from ..Classes.Onderdeel.Divergentiepuntbebakeningselement import Divergentiepuntbebakeningselement
 from ..Classes.Onderdeel.Dolomietverharding import Dolomietverharding
 from ..Classes.Onderdeel.DominantGraslandfase2 import DominantGraslandfase2
 from ..Classes.Onderdeel.Dompelpomp import Dompelpomp
@@ -438,12 +394,7 @@ from ..Classes.Onderdeel.DunneOverlaging import DunneOverlaging
 from ..Classes.Onderdeel.DwarseMarkering import DwarseMarkering
 from ..Classes.Onderdeel.DwarseMarkeringVerschuind import DwarseMarkeringVerschuind
 from ..Classes.Onderdeel.Dwerghavergrasland import Dwerghavergrasland
-from ..Classes.Onderdeel.DwergstruikvegetatieHeidesoorten import (
-    DwergstruikvegetatieHeidesoorten,
-)
-from ..Classes.Onderdeel.DynamischeVluchtwegindicatie import (
-    DynamischeVluchtwegindicatie,
-)
+from ..Classes.Onderdeel.DwergstruikvegetatieHeidesoorten import DwergstruikvegetatieHeidesoorten
 from ..Classes.Onderdeel.DynBordExternePU import DynBordExternePU
 from ..Classes.Onderdeel.DynBordOpMaat import DynBordOpMaat
 from ..Classes.Onderdeel.DynBordPK import DynBordPK
@@ -451,6 +402,7 @@ from ..Classes.Onderdeel.DynBordRSS import DynBordRSS
 from ..Classes.Onderdeel.DynBordRVMS import DynBordRVMS
 from ..Classes.Onderdeel.DynBordVMS import DynBordVMS
 from ..Classes.Onderdeel.DynBordZ30 import DynBordZ30
+from ..Classes.Onderdeel.DynamischeVluchtwegindicatie import DynamischeVluchtwegindicatie
 from ..Classes.Onderdeel.EcoPoort import EcoPoort
 from ..Classes.Onderdeel.Ecoraster import Ecoraster
 from ..Classes.Onderdeel.Eindstuk import Eindstuk
@@ -458,29 +410,27 @@ from ..Classes.Onderdeel.ElastischElement import ElastischElement
 from ..Classes.Onderdeel.ElektrischeKeuring import ElektrischeKeuring
 from ..Classes.Onderdeel.Elektromotor import Elektromotor
 from ..Classes.Onderdeel.EnergiemeterAWV import EnergiemeterAWV
-from ..Classes.Onderdeel.EnergiemeterDerden import EnergiemeterDerden
 from ..Classes.Onderdeel.EnergiemeterDNB import EnergiemeterDNB
 from ..Classes.Onderdeel.EnergiemeterDNBPiek import EnergiemeterDNBPiek
 from ..Classes.Onderdeel.EnergiemeterDNBReactief import EnergiemeterDNBReactief
+from ..Classes.Onderdeel.EnergiemeterDerden import EnergiemeterDerden
 from ..Classes.Onderdeel.Epoxydrain import Epoxydrain
 from ..Classes.Onderdeel.EquipotentiaalVerbinding import EquipotentiaalVerbinding
 from ..Classes.Onderdeel.EsthetischeBekleding import EsthetischeBekleding
 from ..Classes.Onderdeel.Evenaar import Evenaar
 from ..Classes.Onderdeel.Exoten import Exoten
 from ..Classes.Onderdeel.ExterneDetectie import ExterneDetectie
+from ..Classes.Onderdeel.FMRepeaterBox import FMRepeaterBox
 from ..Classes.Onderdeel.Fendering import Fendering
 from ..Classes.Onderdeel.FieldOfView import FieldOfView
 from ..Classes.Onderdeel.Fietslantaarn import Fietslantaarn
 from ..Classes.Onderdeel.FietstelDisplay import FietstelDisplay
 from ..Classes.Onderdeel.Fietstelsysteem import Fietstelsysteem
 from ..Classes.Onderdeel.FiguratieMarkering import FiguratieMarkering
-from ..Classes.Onderdeel.FiguratieMarkeringVerschuind import (
-    FiguratieMarkeringVerschuind,
-)
+from ..Classes.Onderdeel.FiguratieMarkeringVerschuind import FiguratieMarkeringVerschuind
 from ..Classes.Onderdeel.Flens import Flens
 from ..Classes.Onderdeel.Flenskoppeling import Flenskoppeling
 from ..Classes.Onderdeel.Flitscamera import Flitscamera
-from ..Classes.Onderdeel.FMRepeaterBox import FMRepeaterBox
 from ..Classes.Onderdeel.ForfaitaireAansluiting import ForfaitaireAansluiting
 from ..Classes.Onderdeel.Frequentieregelaar import Frequentieregelaar
 from ..Classes.Onderdeel.FunderingOpStaal import FunderingOpStaal
@@ -489,6 +439,7 @@ from ..Classes.Onderdeel.Funderingspaal import Funderingspaal
 from ..Classes.Onderdeel.Funderingsplaat import Funderingsplaat
 from ..Classes.Onderdeel.Funderingsput import Funderingsput
 from ..Classes.Onderdeel.Funderingszool import Funderingszool
+from ..Classes.Onderdeel.GPU import GPU
 from ..Classes.Onderdeel.Galgpaal import Galgpaal
 from ..Classes.Onderdeel.Gassensor import Gassensor
 from ..Classes.Onderdeel.GeexpandeerdPolystyreen import GeexpandeerdPolystyreen
@@ -503,7 +454,6 @@ from ..Classes.Onderdeel.GetesteBeginconstructie import GetesteBeginconstructie
 from ..Classes.Onderdeel.Glijlager import Glijlager
 from ..Classes.Onderdeel.Glijmateriaal import Glijmateriaal
 from ..Classes.Onderdeel.Golfplaat import Golfplaat
-from ..Classes.Onderdeel.GPU import GPU
 from ..Classes.Onderdeel.Gracht import Gracht
 from ..Classes.Onderdeel.GrasKruidenmixGraslandfase3 import GrasKruidenmixGraslandfase3
 from ..Classes.Onderdeel.Grasland import Grasland
@@ -516,6 +466,15 @@ from ..Classes.Onderdeel.Grond import Grond
 from ..Classes.Onderdeel.GrondankerVerdeelplaat import GrondankerVerdeelplaat
 from ..Classes.Onderdeel.Groutanker import Groutanker
 from ..Classes.Onderdeel.Groutpaal import Groutpaal
+from ..Classes.Onderdeel.HSAankomstDNB import HSAankomstDNB
+from ..Classes.Onderdeel.HSAankomstKlant import HSAankomstKlant
+from ..Classes.Onderdeel.HSAutonomeVoeding import HSAutonomeVoeding
+from ..Classes.Onderdeel.HSBeveiligingscel import HSBeveiligingscel
+from ..Classes.Onderdeel.HSBeveiligingscelTransfo import HSBeveiligingscelTransfo
+from ..Classes.Onderdeel.HSCabine import HSCabine
+from ..Classes.Onderdeel.HSMelder import HSMelder
+from ..Classes.Onderdeel.HSVertrekDNB import HSVertrekDNB
+from ..Classes.Onderdeel.HSVertrekKlant import HSVertrekKlant
 from ..Classes.Onderdeel.Haag import Haag
 from ..Classes.Onderdeel.Haalkom import Haalkom
 from ..Classes.Onderdeel.Halsbeugeloog import Halsbeugeloog
@@ -548,21 +507,15 @@ from ..Classes.Onderdeel.HoutenBeplanking import HoutenBeplanking
 from ..Classes.Onderdeel.HoutenConstructieprofiel import HoutenConstructieprofiel
 from ..Classes.Onderdeel.HoutenDamplank import HoutenDamplank
 from ..Classes.Onderdeel.HoutenHeipaal import HoutenHeipaal
-from ..Classes.Onderdeel.HSAankomstDNB import HSAankomstDNB
-from ..Classes.Onderdeel.HSAankomstKlant import HSAankomstKlant
-from ..Classes.Onderdeel.HSAutonomeVoeding import HSAutonomeVoeding
-from ..Classes.Onderdeel.HSBeveiligingscel import HSBeveiligingscel
-from ..Classes.Onderdeel.HSBeveiligingscelTransfo import HSBeveiligingscelTransfo
-from ..Classes.Onderdeel.HSCabine import HSCabine
-from ..Classes.Onderdeel.HSMelder import HSMelder
-from ..Classes.Onderdeel.HSVertrekDNB import HSVertrekDNB
-from ..Classes.Onderdeel.HSVertrekKlant import HSVertrekKlant
 from ..Classes.Onderdeel.Huisaansluitput import Huisaansluitput
 from ..Classes.Onderdeel.Hulppostkast import Hulppostkast
 from ..Classes.Onderdeel.Hulpstuk import Hulpstuk
 from ..Classes.Onderdeel.Huls import Huls
 from ..Classes.Onderdeel.Hydrant import Hydrant
 from ..Classes.Onderdeel.HydrostatischeNiveaumeting import HydrostatischeNiveaumeting
+from ..Classes.Onderdeel.IOKaart import IOKaart
+from ..Classes.Onderdeel.ITSapp import ITSapp
+from ..Classes.Onderdeel.IVSB import IVSB
 from ..Classes.Onderdeel.Iepenstruweel import Iepenstruweel
 from ..Classes.Onderdeel.Illuminator import Illuminator
 from ..Classes.Onderdeel.IndoorKast import IndoorKast
@@ -572,7 +525,6 @@ from ..Classes.Onderdeel.IntercomServer import IntercomServer
 from ..Classes.Onderdeel.IntercomToestel import IntercomToestel
 from ..Classes.Onderdeel.InvasieveExoten import InvasieveExoten
 from ..Classes.Onderdeel.InwendigVerlichtPictogram import InwendigVerlichtPictogram
-from ..Classes.Onderdeel.IOKaart import IOKaart
 from ..Classes.Onderdeel.IoTSensor import IoTSensor
 from ..Classes.Onderdeel.IpPowerSwitch import IpPowerSwitch
 from ..Classes.Onderdeel.IsAdmOnderdeelVan import IsAdmOnderdeelVan
@@ -580,8 +532,7 @@ from ..Classes.Onderdeel.IsInspectieVan import IsInspectieVan
 from ..Classes.Onderdeel.IsNetwerkECC import IsNetwerkECC
 from ..Classes.Onderdeel.IsSWGehostOp import IsSWGehostOp
 from ..Classes.Onderdeel.IsSWOnderdeelVan import IsSWOnderdeelVan
-from ..Classes.Onderdeel.ITSapp import ITSapp
-from ..Classes.Onderdeel.IVSB import IVSB
+from ..Classes.Onderdeel.KWSAfscheider import KWSAfscheider
 from ..Classes.Onderdeel.Kabelgoot import Kabelgoot
 from ..Classes.Onderdeel.Kabelladder import Kabelladder
 from ..Classes.Onderdeel.Kabelleidingdoorvoer import Kabelleidingdoorvoer
@@ -609,11 +560,12 @@ from ..Classes.Onderdeel.KunststofConstructieObject import KunststofConstructieO
 from ..Classes.Onderdeel.KunststoffenDamplank import KunststoffenDamplank
 from ..Classes.Onderdeel.Kunststofplaat import Kunststofplaat
 from ..Classes.Onderdeel.Kunststofprofiel import Kunststofprofiel
-from ..Classes.Onderdeel.KWSAfscheider import KWSAfscheider
+from ..Classes.Onderdeel.LEDDriver import LEDDriver
+from ..Classes.Onderdeel.LKSensorDoorverbinddoos import LKSensorDoorverbinddoos
+from ..Classes.Onderdeel.LSSchuif import LSSchuif
 from ..Classes.Onderdeel.Laagspanningsbord import Laagspanningsbord
 from ..Classes.Onderdeel.Ladder import Ladder
 from ..Classes.Onderdeel.Lagerblok import Lagerblok
-from ..Classes.Onderdeel.LEDDriver import LEDDriver
 from ..Classes.Onderdeel.Lensplaat import Lensplaat
 from ..Classes.Onderdeel.LetterCijferMarkering import LetterCijferMarkering
 from ..Classes.Onderdeel.LetterMarkeringVerschaald import LetterMarkeringVerschaald
@@ -624,36 +576,30 @@ from ..Classes.Onderdeel.Lichtzuil import Lichtzuil
 from ..Classes.Onderdeel.Lift import Lift
 from ..Classes.Onderdeel.LigtOp import LigtOp
 from ..Classes.Onderdeel.LijnvormigElementMarkering import LijnvormigElementMarkering
-from ..Classes.Onderdeel.LKSensorDoorverbinddoos import LKSensorDoorverbinddoos
 from ..Classes.Onderdeel.Lockerkast import Lockerkast
 from ..Classes.Onderdeel.Lockermanagementmodule import Lockermanagementmodule
 from ..Classes.Onderdeel.LogischePoort import LogischePoort
 from ..Classes.Onderdeel.Loofhout import Loofhout
+from ..Classes.Onderdeel.LoopTerminationAndProtection import LoopTerminationAndProtection
 from ..Classes.Onderdeel.Loopkat import Loopkat
 from ..Classes.Onderdeel.Loopprofiel import Loopprofiel
-from ..Classes.Onderdeel.LoopTerminationAndProtection import (
-    LoopTerminationAndProtection,
-)
 from ..Classes.Onderdeel.Loopvloer import Loopvloer
-from ..Classes.Onderdeel.LSSchuif import LSSchuif
 from ..Classes.Onderdeel.LuchtkwaliteitControleUnit import LuchtkwaliteitControleUnit
+from ..Classes.Onderdeel.LuchtkwaliteitZenderOntvanger import LuchtkwaliteitZenderOntvanger
 from ..Classes.Onderdeel.Luchtkwaliteitreflector import Luchtkwaliteitreflector
-from ..Classes.Onderdeel.LuchtkwaliteitZenderOntvanger import (
-    LuchtkwaliteitZenderOntvanger,
-)
 from ..Classes.Onderdeel.Luidspreker import Luidspreker
 from ..Classes.Onderdeel.MACQPUFrontend import MACQPUFrontend
+from ..Classes.Onderdeel.MIVCommunicatiekaart import MIVCommunicatiekaart
+from ..Classes.Onderdeel.MIVLus import MIVLus
+from ..Classes.Onderdeel.MIVLuskaart import MIVLuskaart
+from ..Classes.Onderdeel.MIVProcessorkaart import MIVProcessorkaart
+from ..Classes.Onderdeel.MIVVoedingsmodule import MIVVoedingsmodule
 from ..Classes.Onderdeel.Magneetgrendel import Magneetgrendel
 from ..Classes.Onderdeel.Mantelbuis import Mantelbuis
 from ..Classes.Onderdeel.Meetcel import Meetcel
 from ..Classes.Onderdeel.Meetmicrofoon import Meetmicrofoon
 from ..Classes.Onderdeel.Metselwerk import Metselwerk
 from ..Classes.Onderdeel.Micropaal import Micropaal
-from ..Classes.Onderdeel.MIVCommunicatiekaart import MIVCommunicatiekaart
-from ..Classes.Onderdeel.MIVLus import MIVLus
-from ..Classes.Onderdeel.MIVLuskaart import MIVLuskaart
-from ..Classes.Onderdeel.MIVProcessorkaart import MIVProcessorkaart
-from ..Classes.Onderdeel.MIVVoedingsmodule import MIVVoedingsmodule
 from ..Classes.Onderdeel.Montagekast import Montagekast
 from ..Classes.Onderdeel.Motorbeveiligingsschakelaar import Motorbeveiligingsschakelaar
 from ..Classes.Onderdeel.Motorsturing import Motorsturing
@@ -666,9 +612,9 @@ from ..Classes.Onderdeel.NatteRuigte import NatteRuigte
 from ..Classes.Onderdeel.Neerslagsensor import Neerslagsensor
 from ..Classes.Onderdeel.Netontkoppelbord import Netontkoppelbord
 from ..Classes.Onderdeel.Netstabilisator import Netstabilisator
+from ..Classes.Onderdeel.NetwerkModem import NetwerkModem
 from ..Classes.Onderdeel.Netwerkelement import Netwerkelement
 from ..Classes.Onderdeel.Netwerkkaart import Netwerkkaart
-from ..Classes.Onderdeel.NetwerkModem import NetwerkModem
 from ..Classes.Onderdeel.Netwerkpoort import Netwerkpoort
 from ..Classes.Onderdeel.NietConformBegin import NietConformBegin
 from ..Classes.Onderdeel.NietGetestBeginstuk import NietGetestBeginstuk
@@ -691,8 +637,8 @@ from ..Classes.Onderdeel.Onderwatervegetatie import Onderwatervegetatie
 from ..Classes.Onderdeel.OntluchterBrandleiding import OntluchterBrandleiding
 from ..Classes.Onderdeel.Ontluchtingsventiel import Ontluchtingsventiel
 from ..Classes.Onderdeel.Ontvanger import Ontvanger
-from ..Classes.Onderdeel.OpenbaarVervoerslantaarn import OpenbaarVervoerslantaarn
 from ..Classes.Onderdeel.OpenInfiltratievoorziening import OpenInfiltratievoorziening
+from ..Classes.Onderdeel.OpenbaarVervoerslantaarn import OpenbaarVervoerslantaarn
 from ..Classes.Onderdeel.OpgaandeBoom import OpgaandeBoom
 from ..Classes.Onderdeel.OpgaandeHoutigeVegetatie import OpgaandeHoutigeVegetatie
 from ..Classes.Onderdeel.Oplegging import Oplegging
@@ -703,22 +649,8 @@ from ..Classes.Onderdeel.OverlangseMarkering import OverlangseMarkering
 from ..Classes.Onderdeel.Overstort import Overstort
 from ..Classes.Onderdeel.Overstortrand import Overstortrand
 from ..Classes.Onderdeel.PCIKaart import PCIKaart
-from ..Classes.Onderdeel.Pen import Pen
-from ..Classes.Onderdeel.Pendel import Pendel
-from ..Classes.Onderdeel.Persleiding import Persleiding
-from ..Classes.Onderdeel.Pictogram import Pictogram
-from ..Classes.Onderdeel.PiezometrischeBuis import PiezometrischeBuis
-from ..Classes.Onderdeel.Plantbakvorm import Plantbakvorm
 from ..Classes.Onderdeel.PLC import PLC
-from ..Classes.Onderdeel.PlintGC import PlintGC
-from ..Classes.Onderdeel.Plooibaken import Plooibaken
 from ..Classes.Onderdeel.PMU import PMU
-from ..Classes.Onderdeel.PoEInjector import PoEInjector
-from ..Classes.Onderdeel.Pomp import Pomp
-from ..Classes.Onderdeel.Pompgeleiding import Pompgeleiding
-from ..Classes.Onderdeel.Pomphuis import Pomphuis
-from ..Classes.Onderdeel.Portiek import Portiek
-from ..Classes.Onderdeel.Printer import Printer
 from ..Classes.Onderdeel.PTDemodulatoren import PTDemodulatoren
 from ..Classes.Onderdeel.PTKARModem import PTKARModem
 from ..Classes.Onderdeel.PTModem import PTModem
@@ -728,10 +660,25 @@ from ..Classes.Onderdeel.PTSCKaart import PTSCKaart
 from ..Classes.Onderdeel.PTUitgangskaart import PTUitgangskaart
 from ..Classes.Onderdeel.PTVerwerkingseenheid import PTVerwerkingseenheid
 from ..Classes.Onderdeel.PTVoedingsmodule import PTVoedingsmodule
+from ..Classes.Onderdeel.Pen import Pen
+from ..Classes.Onderdeel.Pendel import Pendel
+from ..Classes.Onderdeel.Persleiding import Persleiding
+from ..Classes.Onderdeel.Pictogram import Pictogram
+from ..Classes.Onderdeel.PiezometrischeBuis import PiezometrischeBuis
+from ..Classes.Onderdeel.Plantbakvorm import Plantbakvorm
+from ..Classes.Onderdeel.PlintGC import PlintGC
+from ..Classes.Onderdeel.Plooibaken import Plooibaken
+from ..Classes.Onderdeel.PoEInjector import PoEInjector
+from ..Classes.Onderdeel.Pomp import Pomp
+from ..Classes.Onderdeel.Pompgeleiding import Pompgeleiding
+from ..Classes.Onderdeel.Pomphuis import Pomphuis
+from ..Classes.Onderdeel.Portiek import Portiek
+from ..Classes.Onderdeel.Printer import Printer
 from ..Classes.Onderdeel.PunctueleVerlichtingsmast import PunctueleVerlichtingsmast
-from ..Classes.Onderdeel.Putbekleding import Putbekleding
 from ..Classes.Onderdeel.PutBovenbouw import PutBovenbouw
+from ..Classes.Onderdeel.Putbekleding import Putbekleding
 from ..Classes.Onderdeel.Pyranometer import Pyranometer
+from ..Classes.Onderdeel.RIS import RIS
 from ..Classes.Onderdeel.RaaigrasweideGraslandfase0 import RaaigrasweideGraslandfase0
 from ..Classes.Onderdeel.Rack import Rack
 from ..Classes.Onderdeel.Radar import Radar
@@ -740,19 +687,15 @@ from ..Classes.Onderdeel.Radiolistener import Radiolistener
 from ..Classes.Onderdeel.Railconstructie import Railconstructie
 from ..Classes.Onderdeel.RechteSteun import RechteSteun
 from ..Classes.Onderdeel.Referentiepunt import Referentiepunt
-from ..Classes.Onderdeel.ReflectorInLijnvormigElement import (
-    ReflectorInLijnvormigElement,
-)
+from ..Classes.Onderdeel.ReflectorInLijnvormigElement import ReflectorInLijnvormigElement
 from ..Classes.Onderdeel.Reflectorpaal import Reflectorpaal
 from ..Classes.Onderdeel.RegelbaarTegengewicht import RegelbaarTegengewicht
 from ..Classes.Onderdeel.Relais import Relais
 from ..Classes.Onderdeel.Repeater import Repeater
 from ..Classes.Onderdeel.Reservoir import Reservoir
-from ..Classes.Onderdeel.RetroreflecterendeFolie import RetroreflecterendeFolie
 from ..Classes.Onderdeel.RetroReflecterendeKoker import RetroReflecterendeKoker
-from ..Classes.Onderdeel.RetroreflecterendVerkeersbord import (
-    RetroreflecterendVerkeersbord,
-)
+from ..Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
+from ..Classes.Onderdeel.RetroreflecterendeFolie import RetroreflecterendeFolie
 from ..Classes.Onderdeel.Riem import Riem
 from ..Classes.Onderdeel.Riemschijf import Riemschijf
 from ..Classes.Onderdeel.Riemspanner import Riemspanner
@@ -760,7 +703,6 @@ from ..Classes.Onderdeel.Riet import Riet
 from ..Classes.Onderdeel.RingMechanisch import RingMechanisch
 from ..Classes.Onderdeel.Rioleringsbuis import Rioleringsbuis
 from ..Classes.Onderdeel.Riooltoegang import Riooltoegang
-from ..Classes.Onderdeel.RIS import RIS
 from ..Classes.Onderdeel.Rol import Rol
 from ..Classes.Onderdeel.Roltrap import Roltrap
 from ..Classes.Onderdeel.Rolwagenchassis import Rolwagenchassis
@@ -782,9 +724,9 @@ from ..Classes.Onderdeel.Seinbrug import Seinbrug
 from ..Classes.Onderdeel.SelectieveDetectielus import SelectieveDetectielus
 from ..Classes.Onderdeel.Sierbeplanting import Sierbeplanting
 from ..Classes.Onderdeel.SignaalControleModule import SignaalControleModule
+from ..Classes.Onderdeel.SignaalSplitter import SignaalSplitter
 from ..Classes.Onderdeel.Signaalfilter import Signaalfilter
 from ..Classes.Onderdeel.Signaalkabel import Signaalkabel
-from ..Classes.Onderdeel.SignaalSplitter import SignaalSplitter
 from ..Classes.Onderdeel.Silo import Silo
 from ..Classes.Onderdeel.Slagboomarm import Slagboomarm
 from ..Classes.Onderdeel.SlagboomarmVerlichting import SlagboomarmVerlichting
@@ -802,9 +744,7 @@ from ..Classes.Onderdeel.Software import Software
 from ..Classes.Onderdeel.SoilmixwandElement import SoilmixwandElement
 from ..Classes.Onderdeel.Sokkel import Sokkel
 from ..Classes.Onderdeel.SolitaireHeester import SolitaireHeester
-from ..Classes.Onderdeel.SoortenrijkSchraalGraslandGraslandfase5 import (
-    SoortenrijkSchraalGraslandGraslandfase5,
-)
+from ..Classes.Onderdeel.SoortenrijkSchraalGraslandGraslandfase5 import SoortenrijkSchraalGraslandGraslandfase5
 from ..Classes.Onderdeel.Spaarbekken import Spaarbekken
 from ..Classes.Onderdeel.Spankabel import Spankabel
 from ..Classes.Onderdeel.Spanningsomvormer import Spanningsomvormer
@@ -833,15 +773,18 @@ from ..Classes.Onderdeel.Stortsteenpenetratie import Stortsteenpenetratie
 from ..Classes.Onderdeel.Straatkap import Straatkap
 from ..Classes.Onderdeel.Straatkolk import Straatkolk
 from ..Classes.Onderdeel.StralendeKabel import StralendeKabel
+from ..Classes.Onderdeel.StroomMeetmodule import StroomMeetmodule
 from ..Classes.Onderdeel.Stroomdalgrasland import Stroomdalgrasland
 from ..Classes.Onderdeel.Stroomkring import Stroomkring
-from ..Classes.Onderdeel.StroomMeetmodule import StroomMeetmodule
 from ..Classes.Onderdeel.Stroomverdelingssysteem import Stroomverdelingssysteem
 from ..Classes.Onderdeel.Struweel import Struweel
 from ..Classes.Onderdeel.Sturing import Sturing
 from ..Classes.Onderdeel.Stuurklep import Stuurklep
 from ..Classes.Onderdeel.StuurklepBrandleiding import StuurklepBrandleiding
 from ..Classes.Onderdeel.Stuwconstructie import Stuwconstructie
+from ..Classes.Onderdeel.TGCUitbreidingsModule import TGCUitbreidingsModule
+from ..Classes.Onderdeel.TLCfiPoort import TLCfiPoort
+from ..Classes.Onderdeel.TTSegment import TTSegment
 from ..Classes.Onderdeel.Taatspen import Taatspen
 from ..Classes.Onderdeel.Taatspot import Taatspot
 from ..Classes.Onderdeel.Taatsschoen import Taatsschoen
@@ -860,10 +803,8 @@ from ..Classes.Onderdeel.Temperatuursensor import Temperatuursensor
 from ..Classes.Onderdeel.Ternairmengselverharding import Ternairmengselverharding
 from ..Classes.Onderdeel.Terugkeer import Terugkeer
 from ..Classes.Onderdeel.Terugslagklep import Terugslagklep
-from ..Classes.Onderdeel.TGCUitbreidingsModule import TGCUitbreidingsModule
 from ..Classes.Onderdeel.ThermoHygrometer import ThermoHygrometer
 from ..Classes.Onderdeel.Tijdschakelaar import Tijdschakelaar
-from ..Classes.Onderdeel.TLCfiPoort import TLCfiPoort
 from ..Classes.Onderdeel.Toegangscontrole import Toegangscontrole
 from ..Classes.Onderdeel.Toegangscontroller import Toegangscontroller
 from ..Classes.Onderdeel.Toegangsluik import Toegangsluik
@@ -872,21 +813,28 @@ from ..Classes.Onderdeel.Toegangsvoorziening import Toegangsvoorziening
 from ..Classes.Onderdeel.Toestelventilator import Toestelventilator
 from ..Classes.Onderdeel.Transformator import Transformator
 from ..Classes.Onderdeel.Trap import Trap
-from ..Classes.Onderdeel.TrekdraadEncoderNiveaumeting import (
-    TrekdraadEncoderNiveaumeting,
-)
+from ..Classes.Onderdeel.TrekdraadEncoderNiveaumeting import TrekdraadEncoderNiveaumeting
 from ..Classes.Onderdeel.Trillingsvoorziening import Trillingsvoorziening
 from ..Classes.Onderdeel.TrottoirbandAfw import TrottoirbandAfw
 from ..Classes.Onderdeel.TrottoirbandStd import TrottoirbandStd
 from ..Classes.Onderdeel.TrottoirbandWatergreppelAfw import TrottoirbandWatergreppelAfw
 from ..Classes.Onderdeel.TrottoirbandWatergreppelStd import TrottoirbandWatergreppelStd
-from ..Classes.Onderdeel.TTSegment import TTSegment
-from ..Classes.Onderdeel.UitheemsLoofhout import UitheemsLoofhout
-from ..Classes.Onderdeel.UitleesapparatuurFlitscamera import (
-    UitleesapparatuurFlitscamera,
-)
-from ..Classes.Onderdeel.UltrasoonNiveaumeting import UltrasoonNiveaumeting
 from ..Classes.Onderdeel.UPS import UPS
+from ..Classes.Onderdeel.UitheemsLoofhout import UitheemsLoofhout
+from ..Classes.Onderdeel.UitleesapparatuurFlitscamera import UitleesapparatuurFlitscamera
+from ..Classes.Onderdeel.UltrasoonNiveaumeting import UltrasoonNiveaumeting
+from ..Classes.Onderdeel.VPlan import VPlan
+from ..Classes.Onderdeel.VRBAZ import VRBAZ
+from ..Classes.Onderdeel.VRBatterijICU import VRBatterijICU
+from ..Classes.Onderdeel.VRBeveiligingskaart import VRBeveiligingskaart
+from ..Classes.Onderdeel.VRCommunicatiekaart import VRCommunicatiekaart
+from ..Classes.Onderdeel.VRHandbediening import VRHandbediening
+from ..Classes.Onderdeel.VRIVirtueleDetectiezone import VRIVirtueleDetectiezone
+from ..Classes.Onderdeel.VRIngangscontacten import VRIngangscontacten
+from ..Classes.Onderdeel.VRKortsluitbeveiliging import VRKortsluitbeveiliging
+from ..Classes.Onderdeel.VRLuskaart import VRLuskaart
+from ..Classes.Onderdeel.VRStuurkaart import VRStuurkaart
+from ..Classes.Onderdeel.VRUitgangscontacten import VRUitgangscontacten
 from ..Classes.Onderdeel.VastTegengewicht import VastTegengewicht
 from ..Classes.Onderdeel.Veerhuis import Veerhuis
 from ..Classes.Onderdeel.Veerooster import Veerooster
@@ -898,9 +846,7 @@ from ..Classes.Onderdeel.Verankeringslandhoofd import Verankeringslandhoofd
 from ..Classes.Onderdeel.Verankeringsmassief import Verankeringsmassief
 from ..Classes.Onderdeel.VerankeringsplaatMicropaal import VerankeringsplaatMicropaal
 from ..Classes.Onderdeel.Verenpakket import Verenpakket
-from ..Classes.Onderdeel.VerhardingGrasKunststofplaat import (
-    VerhardingGrasKunststofplaat,
-)
+from ..Classes.Onderdeel.VerhardingGrasKunststofplaat import VerhardingGrasKunststofplaat
 from ..Classes.Onderdeel.Verkeersbordsteun import Verkeersbordsteun
 from ..Classes.Onderdeel.VerkeerslichtGroen import VerkeerslichtGroen
 from ..Classes.Onderdeel.VerkeerslichtOranjegeel import VerkeerslichtOranjegeel
@@ -936,28 +882,19 @@ from ..Classes.Onderdeel.VoedtAangestuurd import VoedtAangestuurd
 from ..Classes.Onderdeel.Voegafdichting import Voegafdichting
 from ..Classes.Onderdeel.Voegband import Voegband
 from ..Classes.Onderdeel.Voegplaat import Voegplaat
-from ..Classes.Onderdeel.VoertuigkerendGeluidsschermelement import (
-    VoertuigkerendGeluidsschermelement,
-)
+from ..Classes.Onderdeel.VoertuigkerendGeluidsschermelement import VoertuigkerendGeluidsschermelement
 from ..Classes.Onderdeel.Voertuiglantaarn import Voertuiglantaarn
 from ..Classes.Onderdeel.Voetbocht import Voetbocht
 from ..Classes.Onderdeel.Voetgangerslantaarn import Voetgangerslantaarn
 from ..Classes.Onderdeel.Vooraankondiging import Vooraankondiging
 from ..Classes.Onderdeel.Voorschakelapparaat import Voorschakelapparaat
 from ..Classes.Onderdeel.Voorzetconstructie import Voorzetconstructie
-from ..Classes.Onderdeel.VPlan import VPlan
-from ..Classes.Onderdeel.VRBatterijICU import VRBatterijICU
-from ..Classes.Onderdeel.VRBAZ import VRBAZ
-from ..Classes.Onderdeel.VRBeveiligingskaart import VRBeveiligingskaart
-from ..Classes.Onderdeel.VRCommunicatiekaart import VRCommunicatiekaart
-from ..Classes.Onderdeel.VRHandbediening import VRHandbediening
-from ..Classes.Onderdeel.VRIngangscontacten import VRIngangscontacten
-from ..Classes.Onderdeel.VRIVirtueleDetectiezone import VRIVirtueleDetectiezone
-from ..Classes.Onderdeel.VRKortsluitbeveiliging import VRKortsluitbeveiliging
-from ..Classes.Onderdeel.VRLuskaart import VRLuskaart
-from ..Classes.Onderdeel.VRStuurkaart import VRStuurkaart
-from ..Classes.Onderdeel.VRUitgangscontacten import VRUitgangscontacten
 from ..Classes.Onderdeel.VulpuntBrandweer import VulpuntBrandweer
+from ..Classes.Onderdeel.WIMDatalogger import WIMDatalogger
+from ..Classes.Onderdeel.WVBevestigd import WVBevestigd
+from ..Classes.Onderdeel.WVConsole import WVConsole
+from ..Classes.Onderdeel.WVLichtmast import WVLichtmast
+from ..Classes.Onderdeel.WVOpvoertransformator import WVOpvoertransformator
 from ..Classes.Onderdeel.Waaier import Waaier
 from ..Classes.Onderdeel.Walsbetonverharding import Walsbetonverharding
 from ..Classes.Onderdeel.WaterdoorlatendeBestrating import WaterdoorlatendeBestrating
@@ -969,9 +906,7 @@ from ..Classes.Onderdeel.Weegcel import Weegcel
 from ..Classes.Onderdeel.Weegcomputer import Weegcomputer
 from ..Classes.Onderdeel.Weegplaat import Weegplaat
 from ..Classes.Onderdeel.Weegsensor import Weegsensor
-from ..Classes.Onderdeel.WegbebakeningAfschermendeConstructies import (
-    WegbebakeningAfschermendeConstructies,
-)
+from ..Classes.Onderdeel.WegbebakeningAfschermendeConstructies import WegbebakeningAfschermendeConstructies
 from ..Classes.Onderdeel.Wegdeksensor import Wegdeksensor
 from ..Classes.Onderdeel.Wegdekvoeg import Wegdekvoeg
 from ..Classes.Onderdeel.WeggebondenDetector import WeggebondenDetector
@@ -985,13 +920,8 @@ from ..Classes.Onderdeel.Wiel import Wiel
 from ..Classes.Onderdeel.Wiepenmat import Wiepenmat
 from ..Classes.Onderdeel.Wildreflector import Wildreflector
 from ..Classes.Onderdeel.Wilgenstruweel import Wilgenstruweel
-from ..Classes.Onderdeel.WIMDatalogger import WIMDatalogger
 from ..Classes.Onderdeel.Windmeter import Windmeter
 from ..Classes.Onderdeel.Wormschroef import Wormschroef
-from ..Classes.Onderdeel.WVBevestigd import WVBevestigd
-from ..Classes.Onderdeel.WVConsole import WVConsole
-from ..Classes.Onderdeel.WVLichtmast import WVLichtmast
-from ..Classes.Onderdeel.WVOpvoertransformator import WVOpvoertransformator
 from ..Classes.Onderdeel.Zelfsluiter import Zelfsluiter
 from ..Classes.Onderdeel.Zender import Zender
 from ..Classes.Onderdeel.Zendmast import Zendmast
@@ -1000,9 +930,7 @@ from ..Classes.Onderdeel.Zonnepaneel import Zonnepaneel
 from ..Classes.Onderdeel.ZuilTGC import ZuilTGC
 from ..Classes.ProefEnMeting.Keuring import Keuring
 from ..Classes.ProefEnMeting.MeteropnameEnergiemeter import MeteropnameEnergiemeter
-from ..Classes.ProefEnMeting.MeteropnameEnergiemeterGecombineerd import (
-    MeteropnameEnergiemeterGecombineerd,
-)
+from ..Classes.ProefEnMeting.MeteropnameEnergiemeterGecombineerd import MeteropnameEnergiemeterGecombineerd
 from ..Classes.ProefEnMeting.ProefBindmiddeldosering import ProefBindmiddeldosering
 from ..Classes.ProefEnMeting.ProefBoomtoestand import ProefBoomtoestand
 from ..Classes.ProefEnMeting.ProefConsistentie import ProefConsistentie
@@ -1011,15 +939,11 @@ from ..Classes.ProefEnMeting.ProefDraagvermogen import ProefDraagvermogen
 from ..Classes.ProefEnMeting.ProefDraineervermogen import ProefDraineervermogen
 from ..Classes.ProefEnMeting.ProefDruksterkte import ProefDruksterkte
 from ..Classes.ProefEnMeting.ProefDwarsvlakheid import ProefDwarsvlakheid
-from ..Classes.ProefEnMeting.ProefEffectiefBindmiddelgehalte import (
-    ProefEffectiefBindmiddelgehalte,
-)
+from ..Classes.ProefEnMeting.ProefEffectiefBindmiddelgehalte import ProefEffectiefBindmiddelgehalte
 from ..Classes.ProefEnMeting.ProefGaafheid import ProefGaafheid
 from ..Classes.ProefEnMeting.ProefGeluidstest import ProefGeluidstest
 from ..Classes.ProefEnMeting.ProefGemetenDikte import ProefGemetenDikte
-from ..Classes.ProefEnMeting.ProefGrondkarakteristieken import (
-    ProefGrondkarakteristieken,
-)
+from ..Classes.ProefEnMeting.ProefGrondkarakteristieken import ProefGrondkarakteristieken
 from ..Classes.ProefEnMeting.ProefHechtsterkte import ProefHechtsterkte
 from ..Classes.ProefEnMeting.ProefKerendVermogen import ProefKerendVermogen
 from ..Classes.ProefEnMeting.ProefKorrelverdeling import ProefKorrelverdeling
@@ -1028,9 +952,7 @@ from ..Classes.ProefEnMeting.ProefLuchtdichtheid import ProefLuchtdichtheid
 from ..Classes.ProefEnMeting.ProefLuchtgehalte import ProefLuchtgehalte
 from ..Classes.ProefEnMeting.ProefLuminantie import ProefLuminantie
 from ..Classes.ProefEnMeting.ProefMortelkwaliteit import ProefMortelkwaliteit
-from ..Classes.ProefEnMeting.ProefNaderOnderzoekTomograaf import (
-    ProefNaderOnderzoekTomograaf,
-)
+from ..Classes.ProefEnMeting.ProefNaderOnderzoekTomograaf import ProefNaderOnderzoekTomograaf
 from ..Classes.ProefEnMeting.ProefPctHolleruimte import ProefPctHolleruimte
 from ..Classes.ProefEnMeting.ProefPerformantieklasse import ProefPerformantieklasse
 from ..Classes.ProefEnMeting.ProefPerformantieniveau import ProefPerformantieniveau
@@ -1043,288 +965,276 @@ from ..Classes.ProefEnMeting.ProefStroefheid import ProefStroefheid
 from ..Classes.ProefEnMeting.ProefTemperatuur import ProefTemperatuur
 from ..Classes.ProefEnMeting.ProefTextuurdiepte import ProefTextuurdiepte
 from ..Classes.ProefEnMeting.ProefVerankeringskracht import ProefVerankeringskracht
-from ..Classes.ProefEnMeting.ProefVerderOnderzoekTrekproef import (
-    ProefVerderOnderzoekTrekproef,
-)
+from ..Classes.ProefEnMeting.ProefVerderOnderzoekTrekproef import ProefVerderOnderzoekTrekproef
 from ..Classes.ProefEnMeting.ProefVisueleBeoordeling import ProefVisueleBeoordeling
 from ..Classes.ProefEnMeting.ProefVlakheid import ProefVlakheid
 from ..Classes.ProefEnMeting.ProefVoertuigOverhelling import ProefVoertuigOverhelling
 from ..Classes.ProefEnMeting.ProefWaterdichtheid import ProefWaterdichtheid
 from ..Classes.ProefEnMeting.ProefWatergehalte import ProefWatergehalte
 from ..Classes.ProefEnMeting.ProefWateropslorping import ProefWateropslorping
-from ..Classes.ProefEnMeting.ProefWeerstandAfschilfering import (
-    ProefWeerstandAfschilfering,
-)
+from ..Classes.ProefEnMeting.ProefWeerstandAfschilfering import ProefWeerstandAfschilfering
 from ..Classes.ProefEnMeting.ProefWerkingsbreedteGC import ProefWerkingsbreedteGC
 from ..Classes.ProefEnMeting.ProefWerkingsbreedteMVP import ProefWerkingsbreedteMVP
-from ..Classes.ProefEnMeting.ProefZichtbaarheidBijDagOfWV import (
-    ProefZichtbaarheidBijDagOfWV,
-)
-from ..Classes.ProefEnMeting.ProefZichtbaarheidBijNacht import (
-    ProefZichtbaarheidBijNacht,
-)
-from ..Classes.ProefEnMeting.ProefZichtbaarheidBijNachtNatWegdek import (
-    ProefZichtbaarheidBijNachtNatWegdek,
-)
-from ..Classes.ProefEnMeting.ProefZichtbaarheidBijNachtRegenweer import (
-    ProefZichtbaarheidBijNachtRegenweer,
-)
-from ..Classes.Legacy.AB import AB
-from ..Classes.Legacy.ADR import ADR
-from ..Classes.Legacy.ADRBuffer import ADRBuffer
-from ..Classes.Legacy.ADW import ADW
-from ..Classes.Legacy.Af import Af
-from ..Classes.Legacy.AfGroep import AfGroep
-from ..Classes.Legacy.AID import AID
-from ..Classes.Legacy.ANPR import ANPR
-from ..Classes.Legacy.ANPRPaal import ANPRPaal
-from ..Classes.Legacy.AntenneI2V import AntenneI2V
-from ..Classes.Legacy.ARS import ARS
-from ..Classes.Legacy.Astrid import Astrid
-from ..Classes.Legacy.Asw import Asw
-from ..Classes.Legacy.ATOS import ATOS
-from ..Classes.Legacy.Audio import Audio
-from ..Classes.Legacy.AWeg import AWeg
-from ..Classes.Legacy.BAf import BAf
-from ..Classes.Legacy.BAFG import BAFG
-from ..Classes.Legacy.Bareel import Bareel
-from ..Classes.Legacy.BBLegacy import BBLegacy
-from ..Classes.Legacy.BBT import BBT
-from ..Classes.Legacy.BDV import BDV
-from ..Classes.Legacy.Beacon import Beacon
-from ..Classes.Legacy.Beheersys import Beheersys
-from ..Classes.Legacy.BelInstallatie import BelInstallatie
-from ..Classes.Legacy.Beton import Beton
-from ..Classes.Legacy.BevRelais import BevRelais
-from ..Classes.Legacy.BeweegbareBrug import BeweegbareBrug
-from ..Classes.Legacy.BIB import BIB
-from ..Classes.Legacy.BiF import BiF
-from ..Classes.Legacy.Brandmelder import Brandmelder
-from ..Classes.Legacy.Brandvoorz import Brandvoorz
-from ..Classes.Legacy.Buitendeur import Buitendeur
-from ..Classes.Legacy.Bus import Bus
-from ..Classes.Legacy.BVE import BVE
-from ..Classes.Legacy.BWeg import BWeg
+from ..Classes.ProefEnMeting.ProefZichtbaarheidBijDagOfWV import ProefZichtbaarheidBijDagOfWV
+from ..Classes.ProefEnMeting.ProefZichtbaarheidBijNacht import ProefZichtbaarheidBijNacht
+from ..Classes.ProefEnMeting.ProefZichtbaarheidBijNachtNatWegdek import ProefZichtbaarheidBijNachtNatWegdek
+from ..Classes.ProefEnMeting.ProefZichtbaarheidBijNachtRegenweer import ProefZichtbaarheidBijNachtRegenweer
+from ..Classes.Legacy.IRVerlichter import IRVerlichter
+from ..Classes.Legacy.VKS import VKS
+from ..Classes.Legacy.Z30Controller import Z30Controller
 from ..Classes.Legacy.CaDoGroep import CaDoGroep
-from ..Classes.Legacy.CaDoLegacy import CaDoLegacy
-from ..Classes.Legacy.Cal import Cal
-from ..Classes.Legacy.Calam import Calam
-from ..Classes.Legacy.CameraLegacy import CameraLegacy
-from ..Classes.Legacy.CamGroep import CamGroep
-from ..Classes.Legacy.CBBS import CBBS
-from ..Classes.Legacy.CC import CC
-from ..Classes.Legacy.CCTV import CCTV
-from ..Classes.Legacy.CCTVPaal import CCTVPaal
-from ..Classes.Legacy.CEN import CEN
-from ..Classes.Legacy.COD import COD
-from ..Classes.Legacy.Com import Com
-from ..Classes.Legacy.ContourVLLegacy import ContourVLLegacy
-from ..Classes.Legacy.CVL import CVL
-from ..Classes.Legacy.Deb import Deb
-from ..Classes.Legacy.Decoder import Decoder
-from ..Classes.Legacy.Det import Det
-from ..Classes.Legacy.Deurcontact import Deurcontact
-from ..Classes.Legacy.Dienstdeur import Dienstdeur
-from ..Classes.Legacy.DiffRelais import DiffRelais
-from ..Classes.Legacy.Div import Div
-from ..Classes.Legacy.DIZV import DIZV
-from ..Classes.Legacy.DPBS import DPBS
-from ..Classes.Legacy.DPBSOnd import DPBSOnd
-from ..Classes.Legacy.Druk import Druk
-from ..Classes.Legacy.Dummy import Dummy
-from ..Classes.Legacy.Elc import Elc
-from ..Classes.Legacy.Encoder import Encoder
-from ..Classes.Legacy.FCel import FCel
-from ..Classes.Legacy.FietsTelDisplayLegacy import FietsTelDisplayLegacy
-from ..Classes.Legacy.FietstelLegacy import FietstelLegacy
-from ..Classes.Legacy.FietsTelSysteemLegacy import FietsTelSysteemLegacy
-from ..Classes.Legacy.FlexibeleBuis import FlexibeleBuis
-from ..Classes.Legacy.GebouwLegacy import GebouwLegacy
-from ..Classes.Legacy.GebUitr import GebUitr
-from ..Classes.Legacy.Glad import Glad
-from ..Classes.Legacy.HHW import HHW
-from ..Classes.Legacy.HPGroep import HPGroep
-from ..Classes.Legacy.HPicto import HPicto
-from ..Classes.Legacy.HS import HS
-from ..Classes.Legacy.HSCabineLegacy import HSCabineLegacy
-from ..Classes.Legacy.HSDeel import HSDeel
-from ..Classes.Legacy.HSMelder import HSMelder
-from ..Classes.Legacy.HulppostLegacy import HulppostLegacy
-from ..Classes.Legacy.HVS import HVS
+from ..Classes.Legacy.LWP import LWP
 from ..Classes.Legacy.HY_CI import HY_CI
 from ..Classes.Legacy.HY_GR import HY_GR
-from ..Classes.Legacy.ICU import ICU
-from ..Classes.Legacy.Ijking import Ijking
-from ..Classes.Legacy.Instal import Instal
-from ..Classes.Legacy.Int import Int
-from ..Classes.Legacy.IP import IP
-from ..Classes.Legacy.IRVerlichter import IRVerlichter
-from ..Classes.Legacy.ITSApp_RIS import ITSApp_RIS
-from ..Classes.Legacy.IVSB import IVSB
-from ..Classes.Legacy.IVSBGroep import IVSBGroep
-from ..Classes.Legacy.Kan import Kan
-from ..Classes.Legacy.KAR import KAR
-from ..Classes.Legacy.Kast import Kast
-from ..Classes.Legacy.KeuringLegacy import KeuringLegacy
-from ..Classes.Legacy.KL import KL
-from ..Classes.Legacy.KlimaLegacy import KlimaLegacy
-from ..Classes.Legacy.Kwik import Kwik
-from ..Classes.Legacy.Leidingkoker import Leidingkoker
-from ..Classes.Legacy.Lev import Lev
-from ..Classes.Legacy.Lift import Lift
-from ..Classes.Legacy.LokaalLegacy import LokaalLegacy
-from ..Classes.Legacy.LS import LS
-from ..Classes.Legacy.LSBordLegacy import LSBordLegacy
-from ..Classes.Legacy.LSDeel import LSDeel
-from ..Classes.Legacy.Luchtkwaliteitssensor import Luchtkwaliteitssensor
-from ..Classes.Legacy.LuiLegacy import LuiLegacy
-from ..Classes.Legacy.LVS import LVS
-from ..Classes.Legacy.LWP import LWP
-from ..Classes.Legacy.MDeC import MDeC
-from ..Classes.Legacy.Meteo import Meteo
-from ..Classes.Legacy.MIVLVE import MIVLVE
-from ..Classes.Legacy.MIVSat import MIVSat
-from ..Classes.Legacy.MobADR import MobADR
-from ..Classes.Legacy.MobDet import MobDet
-from ..Classes.Legacy.Modem import Modem
-from ..Classes.Legacy.ModRck import ModRck
-from ..Classes.Legacy.MON import MON
-from ..Classes.Legacy.Monitor import Monitor
-from ..Classes.Legacy.MotorLegacy import MotorLegacy
-from ..Classes.Legacy.Mpt import Mpt
-from ..Classes.Legacy.MS import MS
-from ..Classes.Legacy.MVE import MVE
-from ..Classes.Legacy.NDVL import NDVL
-from ..Classes.Legacy.Netwerktoegang import Netwerktoegang
-from ..Classes.Legacy.NIC import NIC
-from ..Classes.Legacy.Nooddeur import Nooddeur
-from ..Classes.Legacy.Noodstroom import Noodstroom
-from ..Classes.Legacy.NSG import NSG
-from ..Classes.Legacy.NWeg import NWeg
-from ..Classes.Legacy.OmvormerLegacy import OmvormerLegacy
-from ..Classes.Legacy.OTN import OTN
-from ..Classes.Legacy.OvRelais import OvRelais
-from ..Classes.Legacy.Paal import Paal
-from ..Classes.Legacy.Peil import Peil
-from ..Classes.Legacy.Pekeltank import Pekeltank
-from ..Classes.Legacy.Picto import Picto
-from ..Classes.Legacy.PK import PK
-from ..Classes.Legacy.PKGroep import PKGroep
-from ..Classes.Legacy.PLCLegacy import PLCLegacy
-from ..Classes.Legacy.Pluvio import Pluvio
-from ..Classes.Legacy.PompLegacy import PompLegacy
-from ..Classes.Legacy.Poortbediening import Poortbediening
 from ..Classes.Legacy.Poortbedieningen import Poortbedieningen
-from ..Classes.Legacy.PoS import PoS
-from ..Classes.Legacy.PP import PP
-from ..Classes.Legacy.PTK import PTK
-from ..Classes.Legacy.PTZ import PTZ
-from ..Classes.Legacy.Radio import Radio
-from ..Classes.Legacy.Ramp import Ramp
-from ..Classes.Legacy.Relais import Relais
-from ..Classes.Legacy.RHZ import RHZ
-from ..Classes.Legacy.Rijstrook import Rijstrook
-from ..Classes.Legacy.RIOOL import RIOOL
-from ..Classes.Legacy.RISLegacy import RISLegacy
-from ..Classes.Legacy.RLC import RLC
-from ..Classes.Legacy.RLCGUI import RLCGUI
-from ..Classes.Legacy.RLCPaal import RLCPaal
-from ..Classes.Legacy.Roltrap import Roltrap
-from ..Classes.Legacy.Rookmelder import Rookmelder
-from ..Classes.Legacy.Rooster import Rooster
-from ..Classes.Legacy.RRB import RRB
-from ..Classes.Legacy.RRBGroep import RRBGroep
-from ..Classes.Legacy.RRGroep import RRGroep
-from ..Classes.Legacy.RSSBord import RSSBord
-from ..Classes.Legacy.RSSGroep import RSSGroep
-from ..Classes.Legacy.RTU import RTU
-from ..Classes.Legacy.RVMS import RVMS
-from ..Classes.Legacy.RVMSGroep import RVMSGroep
-from ..Classes.Legacy.RWeg import RWeg
-from ..Classes.Legacy.Schuiven import Schuiven
-from ..Classes.Legacy.SDH import SDH
-from ..Classes.Legacy.SegC import SegC
-from ..Classes.Legacy.SeinBaan import SeinBaan
-from ..Classes.Legacy.SeinBak import SeinBak
-from ..Classes.Legacy.SeinbrugDVM import SeinbrugDVM
-from ..Classes.Legacy.SeinbrugIVS import SeinbrugIVS
-from ..Classes.Legacy.SeinbrugRR import SeinbrugRR
-from ..Classes.Legacy.SeinbrugRRB import SeinbrugRRB
-from ..Classes.Legacy.SeinOnd import SeinOnd
-from ..Classes.Legacy.SeinRicht import SeinRicht
-from ..Classes.Legacy.SeinRiv import SeinRiv
-from ..Classes.Legacy.SeinSch import SeinSch
-from ..Classes.Legacy.SeinSpui import SeinSpui
-from ..Classes.Legacy.Sensor import Sensor
-from ..Classes.Legacy.Server import Server
-from ..Classes.Legacy.ServerGrp import ServerGrp
-from ..Classes.Legacy.Slb import Slb
-from ..Classes.Legacy.SlbGroep import SlbGroep
-from ..Classes.Legacy.Sluis import Sluis
-from ..Classes.Legacy.SNC import SNC
-from ..Classes.Legacy.SNCPaal import SNCPaal
-from ..Classes.Legacy.SoftwareLegacy import SoftwareLegacy
-from ..Classes.Legacy.Ssig import Ssig
-from ..Classes.Legacy.Sstart import Sstart
-from ..Classes.Legacy.Str import Str
+from ..Classes.Legacy.MotorLegacy import MotorLegacy
 from ..Classes.Legacy.StuurklepLeiding import StuurklepLeiding
-from ..Classes.Legacy.Stuw import Stuw
-from ..Classes.Legacy.Switch import Switch
-from ..Classes.Legacy.TCC import TCC
-from ..Classes.Legacy.Tekstkar import Tekstkar
-from ..Classes.Legacy.Tel import Tel
-from ..Classes.Legacy.Terrein import Terrein
-from ..Classes.Legacy.TGB import TGB
-from ..Classes.Legacy.TGC import TGC
-from ..Classes.Legacy.TH import TH
-from ..Classes.Legacy.Thermo import Thermo
-from ..Classes.Legacy.TraCoLegacy import TraCoLegacy
-from ..Classes.Legacy.TransfoLegacy import TransfoLegacy
-from ..Classes.Legacy.TT import TT
-from ..Classes.Legacy.TTN import TTN
-from ..Classes.Legacy.TTN1 import TTN1
-from ..Classes.Legacy.TTN2 import TTN2
-from ..Classes.Legacy.TTN3 import TTN3
-from ..Classes.Legacy.Tu import Tu
+from ..Classes.Legacy.FlexibeleBuis import FlexibeleBuis
+from ..Classes.Legacy.ZoutBijlaadPlaats import ZoutBijlaadPlaats
+from ..Classes.Legacy.ITSApp_RIS import ITSApp_RIS
+from ..Classes.Legacy.Zoutsilo import Zoutsilo
+from ..Classes.Legacy.Pekeltank import Pekeltank
+from ..Classes.Legacy.BelInstallatie import BelInstallatie
+from ..Classes.Legacy.RIOOL import RIOOL
+from ..Classes.Legacy.LokaalLegacy import LokaalLegacy
+from ..Classes.Legacy.Dienstdeur import Dienstdeur
+from ..Classes.Legacy.FietsTelDisplayLegacy import FietsTelDisplayLegacy
+from ..Classes.Legacy.FietsTelSysteemLegacy import FietsTelSysteemLegacy
+from ..Classes.Legacy.DPBS import DPBS
+from ..Classes.Legacy.DPBSOnd import DPBSOnd
+from ..Classes.Legacy.WegDetectorLegacy import WegDetectorLegacy
+from ..Classes.Legacy.SegC import SegC
+from ..Classes.Legacy.Netwerktoegang import Netwerktoegang
 from ..Classes.Legacy.Turbine import Turbine
-from ..Classes.Legacy.TuV import TuV
-from ..Classes.Legacy.TWeg import TWeg
-from ..Classes.Legacy.UPSLegacy import UPSLegacy
-from ..Classes.Legacy.VC import VC
-from ..Classes.Legacy.VDP import VDP
-from ..Classes.Legacy.Veer import Veer
-from ..Classes.Legacy.Vent import Vent
-from ..Classes.Legacy.VerbindD import VerbindD
-from ..Classes.Legacy.VGL import VGL
-from ..Classes.Legacy.VKS import VKS
-from ..Classes.Legacy.VL import VL
-from ..Classes.Legacy.Vlot import Vlot
-from ..Classes.Legacy.VMS import VMS
-from ..Classes.Legacy.VMSGroep import VMSGroep
-from ..Classes.Legacy.VOT import VOT
+from ..Classes.Legacy.WeegsensorLegacy import WeegsensorLegacy
+from ..Classes.Legacy.WeegsensorGroep import WeegsensorGroep
+from ..Classes.Legacy.Luchtkwaliteitssensor import Luchtkwaliteitssensor
+from ..Classes.Legacy.Beacon import Beacon
+from ..Classes.Legacy.Leidingkoker import Leidingkoker
+from ..Classes.Legacy.SeinBak import SeinBak
+from ..Classes.Legacy.SeinSpui import SeinSpui
+from ..Classes.Legacy.RLCGUI import RLCGUI
+from ..Classes.Legacy.SlbGroep import SlbGroep
+from ..Classes.Legacy.Calam import Calam
+from ..Classes.Legacy.Glad import Glad
+from ..Classes.Legacy.Ijking import Ijking
 from ..Classes.Legacy.VOTLus import VOTLus
+from ..Classes.Legacy.VVOPGroep import VVOPGroep
+from ..Classes.Legacy.Brandvoorz import Brandvoorz
+from ..Classes.Legacy.RRGroep import RRGroep
+from ..Classes.Legacy.AntenneI2V import AntenneI2V
+from ..Classes.Legacy.Monitor import Monitor
+from ..Classes.Legacy.LuiLegacy import LuiLegacy
+from ..Classes.Legacy.NIC import NIC
+from ..Classes.Legacy.Winter import Winter
+from ..Classes.Legacy.Z30Paal import Z30Paal
+from ..Classes.Legacy.Z30 import Z30
+from ..Classes.Legacy.Pluvio import Pluvio
+from ..Classes.Legacy.ARS import ARS
+from ..Classes.Legacy.RHZ import RHZ
+from ..Classes.Legacy.Picto import Picto
+from ..Classes.Legacy.Nooddeur import Nooddeur
+from ..Classes.Legacy.KeuringLegacy import KeuringLegacy
+from ..Classes.Legacy.Deb import Deb
+from ..Classes.Legacy.MON import MON
+from ..Classes.Legacy.Kwik import Kwik
+from ..Classes.Legacy.Div import Div
+from ..Classes.Legacy.Peil import Peil
+from ..Classes.Legacy.Lev import Lev
+from ..Classes.Legacy.Cal import Cal
+from ..Classes.Legacy.Sensor import Sensor
+from ..Classes.Legacy.GebUitr import GebUitr
+from ..Classes.Legacy.GebouwLegacy import GebouwLegacy
+from ..Classes.Legacy.ServerGrp import ServerGrp
+from ..Classes.Legacy.Server import Server
+from ..Classes.Legacy.IVSBGroep import IVSBGroep
+from ..Classes.Legacy.SeinbrugIVS import SeinbrugIVS
+from ..Classes.Legacy.MDeC import MDeC
+from ..Classes.Legacy.Kast import Kast
+from ..Classes.Legacy.Wilddet import Wilddet
+from ..Classes.Legacy.Terrein import Terrein
+from ..Classes.Legacy.Druk import Druk
+from ..Classes.Legacy.Wind import Wind
 from ..Classes.Legacy.VPBevestig import VPBevestig
 from ..Classes.Legacy.VPConsole import VPConsole
-from ..Classes.Legacy.VPLMast import VPLMast
-from ..Classes.Legacy.VRLegacy import VRLegacy
+from ..Classes.Legacy.KAR import KAR
+from ..Classes.Legacy.RRB import RRB
+from ..Classes.Legacy.RISLegacy import RISLegacy
+from ..Classes.Legacy.Tekstkar import Tekstkar
+from ..Classes.Legacy.SoftwareLegacy import SoftwareLegacy
+from ..Classes.Legacy.MobADR import MobADR
+from ..Classes.Legacy.IP import IP
+from ..Classes.Legacy.TWeg import TWeg
 from ..Classes.Legacy.VSB import VSB
-from ..Classes.Legacy.VVOP import VVOP
-from ..Classes.Legacy.VVOPGroep import VVOPGroep
-from ..Classes.Legacy.VWS import VWS
-from ..Classes.Legacy.WBr import WBr
-from ..Classes.Legacy.WDM import WDM
-from ..Classes.Legacy.WeegsensorGroep import WeegsensorGroep
-from ..Classes.Legacy.WeegsensorLegacy import WeegsensorLegacy
-from ..Classes.Legacy.WegDetectorLegacy import WegDetectorLegacy
-from ..Classes.Legacy.WegPunt import WegPunt
-from ..Classes.Legacy.Wilddet import Wilddet
+from ..Classes.Legacy.AWeg import AWeg
+from ..Classes.Legacy.NWeg import NWeg
+from ..Classes.Legacy.BWeg import BWeg
+from ..Classes.Legacy.RWeg import RWeg
+from ..Classes.Legacy.VOT import VOT
+from ..Classes.Legacy.Instal import Instal
+from ..Classes.Legacy.RTU import RTU
+from ..Classes.Legacy.Kan import Kan
+from ..Classes.Legacy.Com import Com
+from ..Classes.Legacy.TTN3 import TTN3
+from ..Classes.Legacy.TTN2 import TTN2
+from ..Classes.Legacy.TTN1 import TTN1
+from ..Classes.Legacy.Dummy import Dummy
+from ..Classes.Legacy.TraCoLegacy import TraCoLegacy
 from ..Classes.Legacy.WIM import WIM
-from ..Classes.Legacy.Wind import Wind
-from ..Classes.Legacy.Winter import Winter
+from ..Classes.Legacy.CBBS import CBBS
+from ..Classes.Legacy.VWS import VWS
+from ..Classes.Legacy.TGB import TGB
 from ..Classes.Legacy.WKD import WKD
+from ..Classes.Legacy.BAf import BAf
+from ..Classes.Legacy.MVE import MVE
+from ..Classes.Legacy.ICU import ICU
+from ..Classes.Legacy.VDP import VDP
+from ..Classes.Legacy.Veer import Veer
 from ..Classes.Legacy.WV import WV
-from ..Classes.Legacy.Z30 import Z30
-from ..Classes.Legacy.Z30Controller import Z30Controller
-from ..Classes.Legacy.Z30Paal import Z30Paal
-from ..Classes.Legacy.ZoutBijlaadPlaats import ZoutBijlaadPlaats
-from ..Classes.Legacy.Zoutsilo import Zoutsilo
+from ..Classes.Legacy.WDM import WDM
+from ..Classes.Legacy.WBr import WBr
+from ..Classes.Legacy.VVOP import VVOP
+from ..Classes.Legacy.VRLegacy import VRLegacy
+from ..Classes.Legacy.VL import VL
+from ..Classes.Legacy.VGL import VGL
+from ..Classes.Legacy.UPSLegacy import UPSLegacy
+from ..Classes.Legacy.TuV import TuV
+from ..Classes.Legacy.Tu import Tu
+from ..Classes.Legacy.TTN import TTN
+from ..Classes.Legacy.TT import TT
+from ..Classes.Legacy.TGC import TGC
+from ..Classes.Legacy.Tel import Tel
+from ..Classes.Legacy.TCC import TCC
+from ..Classes.Legacy.Str import Str
+from ..Classes.Legacy.Stuw import Stuw
+from ..Classes.Legacy.Ssig import Ssig
+from ..Classes.Legacy.Sluis import Sluis
+from ..Classes.Legacy.SDH import SDH
+from ..Classes.Legacy.Schuiven import Schuiven
+from ..Classes.Legacy.Rooster import Rooster
+from ..Classes.Legacy.Ramp import Ramp
+from ..Classes.Legacy.Radio import Radio
+from ..Classes.Legacy.PTK import PTK
+from ..Classes.Legacy.PP import PP
+from ..Classes.Legacy.PoS import PoS
+from ..Classes.Legacy.NSG import NSG
+from ..Classes.Legacy.ModRck import ModRck
+from ..Classes.Legacy.Modem import Modem
+from ..Classes.Legacy.MobDet import MobDet
+from ..Classes.Legacy.Meteo import Meteo
+from ..Classes.Legacy.LS import LS
+from ..Classes.Legacy.Lift import Lift
+from ..Classes.Legacy.KlimaLegacy import KlimaLegacy
+from ..Classes.Legacy.Roltrap import Roltrap
+from ..Classes.Legacy.Vent import Vent
+from ..Classes.Legacy.KL import KL
+from ..Classes.Legacy.IVSB import IVSB
+from ..Classes.Legacy.Int import Int
+from ..Classes.Legacy.HS import HS
+from ..Classes.Legacy.HHW import HHW
+from ..Classes.Legacy.FCel import FCel
+from ..Classes.Legacy.Elc import Elc
+from ..Classes.Legacy.Det import Det
+from ..Classes.Legacy.CVL import CVL
+from ..Classes.Legacy.Slb import Slb
+from ..Classes.Legacy.CC import CC
+from ..Classes.Legacy.BVE import BVE
+from ..Classes.Legacy.Bus import Bus
+from ..Classes.Legacy.BeweegbareBrug import BeweegbareBrug
+from ..Classes.Legacy.BiF import BiF
+from ..Classes.Legacy.BIB import BIB
+from ..Classes.Legacy.BDV import BDV
+from ..Classes.Legacy.BBT import BBT
+from ..Classes.Legacy.ATOS import ATOS
+from ..Classes.Legacy.Asw import Asw
+from ..Classes.Legacy.Audio import Audio
+from ..Classes.Legacy.AfGroep import AfGroep
+from ..Classes.Legacy.Af import Af
+from ..Classes.Legacy.AB import AB
+from ..Classes.Legacy.COD import COD
+from ..Classes.Legacy.PLCLegacy import PLCLegacy
+from ..Classes.Legacy.Bareel import Bareel
+from ..Classes.Legacy.BAFG import BAFG
+from ..Classes.Legacy.Poortbediening import Poortbediening
+from ..Classes.Legacy.VPLMast import VPLMast
+from ..Classes.Legacy.Mpt import Mpt
+from ..Classes.Legacy.HPGroep import HPGroep
+from ..Classes.Legacy.CaDoLegacy import CaDoLegacy
+from ..Classes.Legacy.Buitendeur import Buitendeur
+from ..Classes.Legacy.Brandmelder import Brandmelder
+from ..Classes.Legacy.ADRBuffer import ADRBuffer
+from ..Classes.Legacy.VerbindD import VerbindD
+from ..Classes.Legacy.BBLegacy import BBLegacy
+from ..Classes.Legacy.HulppostLegacy import HulppostLegacy
+from ..Classes.Legacy.Rookmelder import Rookmelder
+from ..Classes.Legacy.Astrid import Astrid
+from ..Classes.Legacy.BevRelais import BevRelais
+from ..Classes.Legacy.DiffRelais import DiffRelais
+from ..Classes.Legacy.HSMelder import HSMelder
+from ..Classes.Legacy.OvRelais import OvRelais
+from ..Classes.Legacy.LVS import LVS
+from ..Classes.Legacy.LSBordLegacy import LSBordLegacy
+from ..Classes.Legacy.NDVL import NDVL
+from ..Classes.Legacy.PompLegacy import PompLegacy
+from ..Classes.Legacy.Sstart import Sstart
+from ..Classes.Legacy.Vlot import Vlot
+from ..Classes.Legacy.SNCPaal import SNCPaal
+from ..Classes.Legacy.RLCPaal import RLCPaal
+from ..Classes.Legacy.Deurcontact import Deurcontact
+from ..Classes.Legacy.ContourVLLegacy import ContourVLLegacy
+from ..Classes.Legacy.Beton import Beton
+from ..Classes.Legacy.HSDeel import HSDeel
+from ..Classes.Legacy.LSDeel import LSDeel
+from ..Classes.Legacy.HSCabineLegacy import HSCabineLegacy
+from ..Classes.Legacy.OTN import OTN
+from ..Classes.Legacy.CEN import CEN
+from ..Classes.Legacy.Rijstrook import Rijstrook
+from ..Classes.Legacy.Noodstroom import Noodstroom
+from ..Classes.Legacy.Beheersys import Beheersys
+from ..Classes.Legacy.VC import VC
+from ..Classes.Legacy.ADW import ADW
+from ..Classes.Legacy.SeinBaan import SeinBaan
+from ..Classes.Legacy.SeinRiv import SeinRiv
+from ..Classes.Legacy.SeinOnd import SeinOnd
+from ..Classes.Legacy.SeinRicht import SeinRicht
+from ..Classes.Legacy.SeinSch import SeinSch
+from ..Classes.Legacy.SeinbrugRRB import SeinbrugRRB
+from ..Classes.Legacy.OmvormerLegacy import OmvormerLegacy
+from ..Classes.Legacy.Decoder import Decoder
+from ..Classes.Legacy.ADR import ADR
+from ..Classes.Legacy.FietstelLegacy import FietstelLegacy
+from ..Classes.Legacy.MIVLVE import MIVLVE
+from ..Classes.Legacy.CCTVPaal import CCTVPaal
+from ..Classes.Legacy.TH import TH
+from ..Classes.Legacy.Relais import Relais
+from ..Classes.Legacy.MS import MS
+from ..Classes.Legacy.Thermo import Thermo
+from ..Classes.Legacy.TransfoLegacy import TransfoLegacy
+from ..Classes.Legacy.HVS import HVS
+from ..Classes.Legacy.Paal import Paal
+from ..Classes.Legacy.SeinbrugRR import SeinbrugRR
+from ..Classes.Legacy.PKGroep import PKGroep
+from ..Classes.Legacy.PK import PK
+from ..Classes.Legacy.RSSGroep import RSSGroep
+from ..Classes.Legacy.VMSGroep import VMSGroep
+from ..Classes.Legacy.RVMSGroep import RVMSGroep
+from ..Classes.Legacy.RSSBord import RSSBord
+from ..Classes.Legacy.RVMS import RVMS
+from ..Classes.Legacy.RRBGroep import RRBGroep
+from ..Classes.Legacy.WegPunt import WegPunt
+from ..Classes.Legacy.HPicto import HPicto
+from ..Classes.Legacy.Switch import Switch
+from ..Classes.Legacy.CamGroep import CamGroep
+from ..Classes.Legacy.SeinbrugDVM import SeinbrugDVM
+from ..Classes.Legacy.MIVSat import MIVSat
+from ..Classes.Legacy.PTZ import PTZ
+from ..Classes.Legacy.ANPR import ANPR
+from ..Classes.Legacy.CCTV import CCTV
+from ..Classes.Legacy.AID import AID
+from ..Classes.Legacy.Encoder import Encoder
+from ..Classes.Legacy.DIZV import DIZV
+from ..Classes.Legacy.CameraLegacy import CameraLegacy
+from ..Classes.Legacy.RLC import RLC
+from ..Classes.Legacy.ANPRPaal import ANPRPaal
+from ..Classes.Legacy.SNC import SNC
+from ..Classes.Legacy.VMS import VMS

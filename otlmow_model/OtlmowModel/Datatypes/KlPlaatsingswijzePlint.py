@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPlaatsingswijzePlint(KeuzelijstField):
     definition = 'De manier waarop de plint geplaatst is ten opzichte van de profielen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlaatsingswijzePlint'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bevestigd-tegen-de-profielen': KeuzelijstWaarde(invulwaarde='bevestigd-tegen-de-profielen',
                                                          label='bevestigd tegen de profielen',
                                                          status='ingebruik',
@@ -23,7 +24,7 @@ class KlPlaatsingswijzePlint(KeuzelijstField):
                                                           status='ingebruik',
                                                           definitie='geschoven tussen de profielen',
                                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPlaatsingswijzePlint/geschoven-tussen-de-profielen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

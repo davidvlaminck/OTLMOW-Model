@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...BaseClasses.BooleanField import BooleanField
@@ -100,7 +99,7 @@ class Epoxydrain(AIMNaamObject, LijnGeometrie):
         self._lengte.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van de epoxydrain."""
         return self._technischeFiche.get_waarde()
 

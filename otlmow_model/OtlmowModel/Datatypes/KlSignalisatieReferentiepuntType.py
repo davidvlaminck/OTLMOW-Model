@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSignalisatieReferentiepuntType(KeuzelijstField):
     definition = 'Een keuzelijst om het referentiepunt type te bepalen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSignalisatieReferentiepuntType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'hectometerpalen-in-kunststof': KeuzelijstWaarde(invulwaarde='hectometerpalen-in-kunststof',
                                                          label='hectometerpalen in kunststof',
                                                          status='ingebruik',
@@ -43,7 +44,7 @@ class KlSignalisatieReferentiepuntType(KeuzelijstField):
                                                               status='ingebruik',
                                                               definitie='Een kilometerbord bevestigd tegen een horizontale wand (zoals bv een New Jersey) die op elke kilometer langs wegen staat en waarop de afstand tot een bepaald startpunt is aangegeven.',
                                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSignalisatieReferentiepuntType/kilometerpunt-op-horizontale-wand')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

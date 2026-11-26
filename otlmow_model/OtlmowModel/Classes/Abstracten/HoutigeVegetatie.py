@@ -1,16 +1,11 @@
 # coding=utf-8
-from abc import abstractmethod
-from typing import ClassVar
-
-from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
+from abc import abstractmethod
 from ...Classes.Abstracten.BegroeidVoorkomen import BegroeidVoorkomen
+from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcHoutigeAanleg import DtcHoutigeAanleg, DtcHoutigeAanlegWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from ...Datatypes.KwantWrdInVierkanteMeter import (
-    KwantWrdInVierkanteMeter,
-    KwantWrdInVierkanteMeterWaarden,
-)
+from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -20,15 +15,11 @@ class HoutigeVegetatie(BegroeidVoorkomen):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#HoutigeVegetatie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
-    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
-        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerHoutigeVegetatie', 'o', None),  # o = direction: outgoing
-    ]
-
     @abstractmethod
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relations(self._VALID_RELATIONS)
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerHoutigeVegetatie', direction='o')  # o = direction: outgoing
 
         self._aanleg = OTLAttribuut(field=DtcHoutigeAanleg,
                                     naam='aanleg',

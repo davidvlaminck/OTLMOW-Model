@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.AndereLaag import AndereLaag
 from ...Classes.Abstracten.LaagDikte import LaagDikte
@@ -97,7 +96,7 @@ class Stortsteen(AndereLaag, LaagDikte):
         self._gewicht.set_waarde(value, owner=self)
 
     @property
-    def hechtspecie(self) -> List[str]:
+    def hechtspecie(self) -> list[str]:
         """Het gebruikte hechtingsmateriaal tussen gestapelde stenen."""
         return self._hechtspecie.get_waarde()
 
@@ -133,7 +132,7 @@ class Stortsteen(AndereLaag, LaagDikte):
         self._plaatsingswijze.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """De technische fiche van stortsteen als bijlage."""
         return self._technischeFiche.get_waarde()
 
@@ -141,11 +140,10 @@ class Stortsteen(AndereLaag, LaagDikte):
     def technischeFiche(self, value):
         self._technischeFiche.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het type stortsteen."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlKlassePlantjaar(KeuzelijstField):
     definition = 'Het geschatte tijdsinterval waarin de boom is aangeplant.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlKlassePlantjaar'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '1860-1880': KeuzelijstWaarde(invulwaarde='1860-1880',
                                       label='1860-1880',
                                       status='ingebruik',
@@ -63,7 +64,7 @@ class KlKlassePlantjaar(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='Het is niet gekend wanneer de boom is aangeplant.',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKlassePlantjaar/ongekend')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

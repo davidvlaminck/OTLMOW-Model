@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMarkeringsproduct(KeuzelijstField):
     definition = 'De mogelijke producten voor een markering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMarkeringsproduct'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'koudplast': KeuzelijstWaarde(invulwaarde='koudplast',
                                       label='Koudplast',
                                       status='ingebruik',
@@ -38,7 +39,7 @@ class KlMarkeringsproduct(KeuzelijstField):
                                                      status='ingebruik',
                                                      definitie='Een warm gekleefde voorgevormde markering is een voorgevormd wegmarkeringsproduct dat gemaakt wordt aan de hand van een thermoplast. Het wordt aangebracht door het product te verwarmen tot zijn smelttemperatuur. Voorgevormde thermoplasten worden tijdens het aanbrengen met glasparels en / of stroefmakende middelen nagestrooid.',
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMarkeringsproduct/voorgevormd-warmgekleefd')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

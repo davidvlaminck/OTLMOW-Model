@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWetenschappelijkeSoortnaam(KeuzelijstField):
     definition = 'De mogelijke wetenschappelijke soortnamen van de vegetatie.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWetenschappelijkeSoortnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'abies-alba': KeuzelijstWaarde(invulwaarde='abies-alba',
                                        label='Abies alba',
                                        status='ingebruik',
@@ -2073,7 +2074,7 @@ class KlWetenschappelijkeSoortnaam(KeuzelijstField):
                                             label='Zelkova serrata',
                                             status='ingebruik',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWetenschappelijkeSoortnaam/zelkova-serrata')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

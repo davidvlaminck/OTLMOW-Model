@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlGeotextielType(KeuzelijstField):
     definition = 'Types van geotextiel.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlGeotextielType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'anti-vraatdoek': KeuzelijstWaarde(invulwaarde='anti-vraatdoek',
                                            label='anti-vraatdoek',
                                            status='ingebruik',
@@ -38,7 +39,7 @@ class KlGeotextielType(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='bescherming/wapening',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGeotextielType/wapening')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDynBordZ30Modelnaam(KeuzelijstField):
     definition = 'Keuzelijst met de gangbare modelnamen van dynamische zone 30 borden. De modelnamen worden meestal door de leverancier of fabrikant bepaald.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordZ30Modelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'C31-pijl-links': KeuzelijstWaarde(invulwaarde='C31-pijl-links',
                                            label='C31 pijl links',
                                            status='ingebruik',
@@ -99,7 +100,7 @@ class KlDynBordZ30Modelnaam(KeuzelijstField):
                                             status='ingebruik',
                                             definitie='C43 50-70 Flash',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordZ30Modelnaam/c43-50-70-flash')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

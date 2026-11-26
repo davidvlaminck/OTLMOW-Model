@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWegreflectorType(KeuzelijstField):
     definition = 'De vormen van een wegreflector.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegreflectorType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'glasbolreflector-100-mm-diameter': KeuzelijstWaarde(invulwaarde='glasbolreflector-100-mm-diameter',
                                                              label='glasbolreflector 100 mm diameter',
                                                              status='ingebruik',
@@ -33,7 +34,7 @@ class KlWegreflectorType(KeuzelijstField):
                                                     status='ingebruik',
                                                     definitie='Een metalen wegreflector aangebracht op de rijbaan met als doel de zichtbaarheid van verkeerseilanden te verhogen en geleiding van de weggebruiker langs de weg',
                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegreflectorType/metalen-wegdekreflector')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

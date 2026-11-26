@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
 from ...Datatypes.DtcTechnischDocument import DtcTechnischDocument, DtcTechnischDocumentWaarden
@@ -25,7 +24,7 @@ class TechnischDocument(ABC):
                                                owner=self)
 
     @property
-    def technischDocument(self) -> List[DtcTechnischDocumentWaarden]:
+    def technischDocument(self) -> list[DtcTechnischDocumentWaarden]:
         """Een technisch document zoals een detailplan, een technische fiche en/of een rekennota."""
         return self._technischDocument.get_waarde()
 

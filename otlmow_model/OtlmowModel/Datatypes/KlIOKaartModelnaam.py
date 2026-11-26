@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIOKaartModelnaam(KeuzelijstField):
     definition = 'Lijst van mogelijke modelnamen voor IO-kaarten.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOKaartModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'axl-f-ai4-i-1h': KeuzelijstWaarde(invulwaarde='axl-f-ai4-i-1h',
                                            label='AXL F AI4 I 1H',
                                            status='ingebruik',
@@ -53,7 +54,7 @@ class KlIOKaartModelnaam(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='SIU701',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOKaartModelnaam/siu701')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

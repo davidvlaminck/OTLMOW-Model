@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlOnbegroeidVoorkomenType(KeuzelijstField):
     definition = 'De mogelijke afwerkingen van het onbegroeide voorkomen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOnbegroeidVoorkomenType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gesloten-kunststofverharding': KeuzelijstWaarde(invulwaarde='gesloten-kunststofverharding',
                                                          label='gesloten kunststofverharding',
                                                          status='ingebruik',
@@ -78,7 +79,7 @@ class KlOnbegroeidVoorkomenType(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Bedekkingstype bestaande uit aangevoerd zand (Natuurlijk zand bestaat uit zuiver kwarts in een fractie 0-2 mm)',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOnbegroeidVoorkomenType/zand')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

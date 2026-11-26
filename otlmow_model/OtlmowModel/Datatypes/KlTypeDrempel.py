@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeDrempel(KeuzelijstField):
     definition = 'De keuzelijst die de verschillende type van drempels bevat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeDrempel'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gelijkliggende-drempel': KeuzelijstWaarde(invulwaarde='gelijkliggende-drempel',
                                                    label='gelijkliggende drempel',
                                                    status='ingebruik',
@@ -21,7 +22,7 @@ class KlTypeDrempel(KeuzelijstField):
                                      label='opstande',
                                      status='ingebruik',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeDrempel/opstande')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

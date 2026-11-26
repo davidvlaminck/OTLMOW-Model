@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlMaaiPeriode(KeuzelijstField):
     definition = 'De maand waarin het maaien wordt uitgevoerd.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlMaaiPeriode'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'april': KeuzelijstWaarde(invulwaarde='april',
                                   label='april',
                                   status='ingebruik',
@@ -63,7 +64,7 @@ class KlMaaiPeriode(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='De maand september.',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlMaaiPeriode/september')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,11 +1,8 @@
 # coding=utf-8
-from ..BaseClasses.ComplexField import ComplexField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
-from ..Datatypes.KwantWrdInCentimeter import (
-    KwantWrdInCentimeter,
-    KwantWrdInCentimeterWaarden,
-)
+from ..BaseClasses.ComplexField import ComplexField
+from ..Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

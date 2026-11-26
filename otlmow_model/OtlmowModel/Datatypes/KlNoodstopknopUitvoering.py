@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlNoodstopknopUitvoering(KeuzelijstField):
     definition = 'Verschillende types voor de uitvoering van een noodstopknop of -schakelaarvolgens zijn werkingsprincipe.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNoodstopknopUitvoering'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'draaischakelaar': KeuzelijstWaarde(invulwaarde='draaischakelaar',
                                             label='draaischakelaar',
                                             status='ingebruik',
@@ -25,7 +26,7 @@ class KlNoodstopknopUitvoering(KeuzelijstField):
                                         label='met sleutel',
                                         status='ingebruik',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNoodstopknopUitvoering/met-sleutel')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

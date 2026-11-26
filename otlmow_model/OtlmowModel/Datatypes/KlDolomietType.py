@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDolomietType(KeuzelijstField):
     definition = 'Types van dolomiet.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDolomietType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '0-15': KeuzelijstWaarde(invulwaarde='0-15',
                                  label='0-15',
                                  status='ingebruik',
@@ -28,7 +29,7 @@ class KlDolomietType(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='5/15',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDolomietType/5-15')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

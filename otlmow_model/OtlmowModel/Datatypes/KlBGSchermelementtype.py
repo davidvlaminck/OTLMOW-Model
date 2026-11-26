@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBGSchermelementtype(KeuzelijstField):
     definition = 'Het type bijzonder-schermelement.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBGSchermelementtype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bloembakelement': KeuzelijstWaarde(invulwaarde='bloembakelement',
                                             label='bloembakelement',
                                             status='ingebruik',
@@ -23,7 +24,7 @@ class KlBGSchermelementtype(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='L-element',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBGSchermelementtype/l-element')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

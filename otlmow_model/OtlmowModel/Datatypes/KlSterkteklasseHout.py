@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSterkteklasseHout(KeuzelijstField):
     definition = 'De klasse die de maximale belasting van het hout aangeeft. Gebruik letter C voor naaldhout en D voor loofhout, gevolgd door een getal dat betrekking heeft op de karakteristieke buigspanning.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSterkteklasseHout'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'c14': KeuzelijstWaarde(invulwaarde='c14',
                                 label='C14',
                                 status='ingebruik',
@@ -103,7 +104,7 @@ class KlSterkteklasseHout(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='D staat voor loofhout. 70 N/mm² (megaPascal) drukt de buigsterkte uit evenwijdig aan de vezel.',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/d70')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

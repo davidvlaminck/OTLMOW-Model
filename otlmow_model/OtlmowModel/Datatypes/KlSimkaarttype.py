@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSimkaarttype(KeuzelijstField):
     definition = 'De mogelijk types van een simkaart.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSimkaarttype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'geen': KeuzelijstWaarde(invulwaarde='geen',
                                  label='geen',
                                  status='ingebruik',
@@ -33,7 +34,7 @@ class KlSimkaarttype(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='standaard simkaart',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSimkaarttype/standaard')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

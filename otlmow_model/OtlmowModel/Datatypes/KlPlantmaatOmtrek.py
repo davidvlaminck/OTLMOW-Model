@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlPlantmaatOmtrek(KeuzelijstField):
     definition = 'De stamomtrek in centimeter (gemeten op 1 m boven het maaiveld) met een minimum en maximum waarde.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPlantmaatOmtrek'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '10-12': KeuzelijstWaarde(invulwaarde='10-12',
                                   label='10/12',
                                   status='ingebruik',
@@ -88,7 +89,7 @@ class KlPlantmaatOmtrek(KeuzelijstField):
                                  status='ingebruik',
                                  definitie='Houtige vegetatie met stamomtrek tussen 8 en 10 cm.',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPlantmaatOmtrek/8-10')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBeheerBoomvorm(KeuzelijstField):
     definition = 'Behandelingswijzen van bomen.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBeheerBoomvorm'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'aanpassen-beschermingselementen-tegen-vraatschade': KeuzelijstWaarde(invulwaarde='aanpassen-beschermingselementen-tegen-vraatschade',
                                                                               label='Aanpassen beschermingselementen tegen vraatschade',
                                                                               status='ingebruik',
@@ -178,7 +179,7 @@ class KlBeheerBoomvorm(KeuzelijstField):
                                                                 status='ingebruik',
                                                                 definitie='Wegnemen van waterloten en wortelopslag van bomen.',
                                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBeheerBoomvorm/wegnemen-waterloten-en-wortelopslag')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

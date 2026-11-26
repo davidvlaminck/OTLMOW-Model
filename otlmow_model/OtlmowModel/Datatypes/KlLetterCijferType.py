@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLetterCijferType(KeuzelijstField):
     definition = 'De mogelijke types van een individuele letter- of cijfermarkering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLetterCijferType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'normaal---Cijfers-(basishoogte)': KeuzelijstWaarde(invulwaarde='normaal---Cijfers-(basishoogte)',
                                                             label='normaal - Cijfers (basishoogte)',
                                                             status='ingebruik',
@@ -53,7 +54,7 @@ class KlLetterCijferType(KeuzelijstField):
                                                                     label='versmald - Kleine letters (basishoogte)',
                                                                     status='ingebruik',
                                                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLetterCijferType/versmald---Kleine-letters-(basishoogte)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

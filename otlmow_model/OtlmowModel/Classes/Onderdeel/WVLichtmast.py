@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Onderdeel.Lichtmast import Lichtmast
 from ...Datatypes.DtuWvLichtmastBevsToestelMethode import DtuWvLichtmastBevsToestelMethode, DtuWvLichtmastBevsToestelMethodeWaarden
@@ -76,7 +75,7 @@ class WVLichtmast(Lichtmast):
         self._armlengte.set_waarde(value, owner=self)
 
     @property
-    def bevestigingToestellen(self) -> List[DtuWvLichtmastBevsToestelMethodeWaarden]:
+    def bevestigingToestellen(self) -> list[DtuWvLichtmastBevsToestelMethodeWaarden]:
         """Geeft de wijze aan waarop elk verlichtingstoestel bevestigd is op de lichtmast als keuze uit een lijst voor standaardmethodes of verder toegelicht wanneer een afwijkende methode gebruikt wordt."""
         return self._bevestigingToestellen.get_waarde()
 

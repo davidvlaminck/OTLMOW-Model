@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTelecomkabelType(KeuzelijstField):
     definition = 'Lijst van types voor datakabels en telefoniekabels volgens hun constructieve kenmerken.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTelecomkabelType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'alu-pet': KeuzelijstWaarde(invulwaarde='alu-pet',
                                     label='Alu/PET',
                                     status='ingebruik',
@@ -132,7 +133,7 @@ class KlTelecomkabelType(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='Gewapende telefoniekabel voor buiten en ondergronds gebruik.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTelecomkabelType/twavb')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

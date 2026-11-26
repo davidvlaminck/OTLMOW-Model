@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlAardingsInstallatieType(KeuzelijstField):
     definition = 'Een keuzelijst waarin aangeduid kan worden over welke aardingsinstallatietype het gaat.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlAardingsInstallatieType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'hoogspanningsinstallatie': KeuzelijstWaarde(invulwaarde='hoogspanningsinstallatie',
                                                      label='hoogspanningsinstallatie',
                                                      status='ingebruik',
@@ -25,7 +26,7 @@ class KlAardingsInstallatieType(KeuzelijstField):
                                                label='nulpuntinstallatie',
                                                status='ingebruik',
                                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAardingsInstallatieType/nulpuntinstallatie')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

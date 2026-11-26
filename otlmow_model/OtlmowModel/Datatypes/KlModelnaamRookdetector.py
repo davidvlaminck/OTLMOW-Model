@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlModelnaamRookdetector(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.21.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlModelnaamRookdetector'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'ke-dp3120w': KeuzelijstWaarde(invulwaarde='ke-dp3120w',
                                        label='KE-DP3120W',
                                        status='ingebruik',
@@ -29,7 +30,7 @@ class KlModelnaamRookdetector(KeuzelijstField):
                                            status='ingebruik',
                                            definitie='KE-DP3120W-SNV',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlModelnaamRookdetector/ke-dp3120w-snv')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

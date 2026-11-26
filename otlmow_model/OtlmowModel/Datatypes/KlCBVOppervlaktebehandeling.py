@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlCBVOppervlaktebehandeling(KeuzelijstField):
     definition = 'Oppervalktebehandelingen van de cement/beton verharding.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlCBVOppervlaktebehandeling'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'Reinigen-met-water-onder-hoge-druk-(minstens-50-bar)-': KeuzelijstWaarde(invulwaarde='Reinigen-met-water-onder-hoge-druk-(minstens-50-bar)-',
                                                                                   label='Reinigen met water onder hoge druk (minstens 50 bar) ',
                                                                                   status='ingebruik',
@@ -43,7 +44,7 @@ class KlCBVOppervlaktebehandeling(KeuzelijstField):
                                                               status='ingebruik',
                                                               definitie='Uitwassen van het steenslagskelet',
                                                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCBVOppervlaktebehandeling/uitwassen-van-het-steenslagskelet')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

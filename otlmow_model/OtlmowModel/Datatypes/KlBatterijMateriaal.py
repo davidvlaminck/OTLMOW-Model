@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBatterijMateriaal(KeuzelijstField):
     definition = 'Keuzelijst voor de verschillende materialen waaruit een batterij gemaakt kan zijn.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBatterijMateriaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'lithium-ion-(li-ion)': KeuzelijstWaarde(invulwaarde='lithium-ion-(li-ion)',
                                                  label='Lithium-ion (Li-ion)',
                                                  status='ingebruik',
@@ -29,7 +30,7 @@ class KlBatterijMateriaal(KeuzelijstField):
                                                         label='Nikkel-metaalhydride (NiMH)',
                                                         status='ingebruik',
                                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBatterijMateriaal/nikkel-metaalhydride-(nimh)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

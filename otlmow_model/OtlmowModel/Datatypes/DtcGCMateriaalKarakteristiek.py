@@ -1,7 +1,7 @@
 # coding=utf-8
-from ..BaseClasses.ComplexField import ComplexField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
+from ..BaseClasses.ComplexField import ComplexField
 from ..Datatypes.KlLEGCGeluidskarakteristiek import KlLEGCGeluidskarakteristiek
 from ..Datatypes.KlLEGCMateriaal import KlLEGCMateriaal
 

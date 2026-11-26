@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDynBordRSSModelnaam(KeuzelijstField):
     definition = 'Keuzelijst met de gangbare modelnamen van RSS borden. De modelnamen worden meestal door de leverancier of fabrikant bepaald.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordRSSModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'RSS-02E01': KeuzelijstWaarde(invulwaarde='RSS-02E01',
                                       label='RSS-02E01',
                                       status='ingebruik',
@@ -64,7 +65,7 @@ class KlDynBordRSSModelnaam(KeuzelijstField):
                                                        status='ingebruik',
                                                        definitie='VMS-F-850x850-3G-RB-ECOFC2',
                                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordRSSModelnaam/vms-f-850x850-3g-rb-ecofc2')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

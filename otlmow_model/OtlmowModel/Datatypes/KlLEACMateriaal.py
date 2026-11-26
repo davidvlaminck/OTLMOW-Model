@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEACMateriaal(KeuzelijstField):
     definition = 'De verschillende materialen voor afschermende constructies.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACMateriaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'geprefabriceerde-beton': KeuzelijstWaarde(invulwaarde='geprefabriceerde-beton',
                                                    label='geprefabriceerde beton',
                                                    status='ingebruik',
@@ -38,7 +39,7 @@ class KlLEACMateriaal(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='staal',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACMateriaal/staal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

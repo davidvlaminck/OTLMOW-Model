@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeWand(KeuzelijstField):
     definition = 'De functie die de wand uitoefent.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeWand'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'binnenwand': KeuzelijstWaarde(invulwaarde='binnenwand',
                                        label='binnenwand',
                                        status='ingebruik',
@@ -53,7 +54,7 @@ class KlTypeWand(KeuzelijstField):
                                         status='ingebruik',
                                         definitie=' Zijdelingse muur van een landhoofd die in het verlengde ligt van de frontmuur.',
                                         objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeWand/vleugelmuur')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

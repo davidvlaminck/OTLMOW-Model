@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlHardwareVormfactor(KeuzelijstField):
     definition = 'Het soort toestel waarin de fysieke componenten of onderdelen worden vormgegeven.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlHardwareVormfactor'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'desktop': KeuzelijstWaarde(invulwaarde='desktop',
                                     label='desktop',
                                     status='ingebruik',
@@ -25,7 +26,7 @@ class KlHardwareVormfactor(KeuzelijstField):
                                    label='server',
                                    status='ingebruik',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlHardwareVormfactor/server')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

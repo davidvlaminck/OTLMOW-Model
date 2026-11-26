@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeOplegging(KeuzelijstField):
     definition = 'De soort van oplegging.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeOplegging'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'betonnen-oplegging-freyssinetscharnier': KeuzelijstWaarde(invulwaarde='betonnen-oplegging-freyssinetscharnier',
                                                                    label='Betonnen oplegging - Freyssinetscharnier',
                                                                    status='ingebruik',
@@ -33,7 +34,7 @@ class KlTypeOplegging(KeuzelijstField):
                                                           status='ingebruik',
                                                           definitie='Rolopleggingen bieden een oplossing voor het overdragen van oplegkrachten verticaal en horizontaal en tegelijkertijd ook het mogelijk maken van translaties en kleine rotaties met een geringe weerstand.',
                                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeOplegging/stalen-oplegging-roloplegging')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

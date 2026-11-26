@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlToeslagmiddelBeton(KeuzelijstField):
     definition = 'Materiaal dat aan het beton kan worden toegevoegd.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToeslagmiddelBeton'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'fijn-toeslagmateriaal': KeuzelijstWaarde(invulwaarde='fijn-toeslagmateriaal',
                                                   label='Fijn toeslagmateriaal',
                                                   status='ingebruik',
@@ -23,7 +24,7 @@ class KlToeslagmiddelBeton(KeuzelijstField):
                                                   status='ingebruik',
                                                   definitie='Een korrelgrootte van gelijk aan of groter dan 4 mm, meestal bestaande uit grind.',
                                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToeslagmiddelBeton/grof-toeslagmateriaal')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

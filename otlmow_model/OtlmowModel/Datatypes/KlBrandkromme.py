@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBrandkromme(KeuzelijstField):
     definition = 'Keuzelijst met de verschillende specifieke temperatuur-tijdscurves die als belasting is gehanteerd bij de validatie van de brandweerstand.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBrandkromme'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'hc': KeuzelijstWaarde(invulwaarde='hc',
                                label='HC',
                                status='ingebruik',
@@ -38,7 +39,7 @@ class KlBrandkromme(KeuzelijstField):
                                 status='ingebruik',
                                 definitie='RWS',
                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBrandkromme/rws')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

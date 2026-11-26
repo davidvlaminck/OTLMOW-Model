@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeSchachtHeipaal(KeuzelijstField):
     definition = 'Het type van de schacht van de heipaal.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeSchachtHeipaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'aardvochtig-gestampt-beton': KeuzelijstWaarde(invulwaarde='aardvochtig-gestampt-beton',
                                                        label='Aardvochtig gestampt beton',
                                                        status='ingebruik',
@@ -28,7 +29,7 @@ class KlTypeSchachtHeipaal(KeuzelijstField):
                                             status='ingebruik',
                                             definitie='De schacht is opgevuld met plastisch beton.',
                                             objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeSchachtHeipaal/plastisch-beton')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

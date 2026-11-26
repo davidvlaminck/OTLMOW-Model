@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,13 +13,13 @@ class KlPyranometerMerk(KeuzelijstField):
     definition = 'Pyranometer merken.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPyranometerMerk'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'kipp-zonen': KeuzelijstWaarde(invulwaarde='kipp-zonen',
                                        label='Kipp & Zonen',
                                        status='ingebruik',
                                        definitie='Kipp & Zonen',
                                        objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPyranometerMerk/kipp-zonen')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

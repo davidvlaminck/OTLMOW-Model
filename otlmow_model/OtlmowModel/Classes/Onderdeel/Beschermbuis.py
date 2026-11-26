@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BVAfwateringKunstwerken import BVAfwateringKunstwerken
 from ...Classes.Abstracten.Leiding import Leiding
@@ -154,7 +153,7 @@ class Beschermbuis(BVAfwateringKunstwerken, Leiding, OmhullendeInrichting):
         self._materiaal.set_waarde(value, owner=self)
 
     @property
-    def typeBescherming(self) -> List[str]:
+    def typeBescherming(self) -> list[str]:
         """Geeft aan of en hoe de leiding bijkomend mechanisch beschermd nadat ze in de sleuf gelegd is."""
         return self._typeBescherming.get_waarde()
 

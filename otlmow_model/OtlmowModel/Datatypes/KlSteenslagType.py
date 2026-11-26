@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlSteenslagType(KeuzelijstField):
     definition = 'Steenslag types.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlSteenslagType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'type-IA': KeuzelijstWaarde(invulwaarde='type-IA',
                                     label='type IA',
                                     status='ingebruik',
@@ -43,7 +44,7 @@ class KlSteenslagType(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='type IIIB',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSteenslagType/type-IIIB')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

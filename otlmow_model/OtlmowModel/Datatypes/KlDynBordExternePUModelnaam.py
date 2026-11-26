@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDynBordExternePUModelnaam(KeuzelijstField):
     definition = 'De modelnaam van externe processing unit voor dynamische verkeersborden. Wordt bepaald door de lverancier.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDynBordExternePUModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'diamond': KeuzelijstWaarde(invulwaarde='diamond',
                                     label='diamond',
                                     status='ingebruik',
@@ -30,7 +31,7 @@ class KlDynBordExternePUModelnaam(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='techbase',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDynBordExternePUModelnaam/techbase')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

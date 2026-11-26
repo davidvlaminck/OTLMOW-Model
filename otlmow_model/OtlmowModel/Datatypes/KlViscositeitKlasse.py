@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlViscositeitKlasse(KeuzelijstField):
     definition = 'Keuzelijst voor de Viscosity Grade (VG) classificatie volgens ISO 3448.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlViscositeitKlasse'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'iso-vg-10': KeuzelijstWaarde(invulwaarde='iso-vg-10',
                                       label='ISO VG 10',
                                       status='ingebruik',
@@ -85,7 +86,7 @@ class KlViscositeitKlasse(KeuzelijstField):
                                      label='ISO VG 7',
                                      status='ingebruik',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlViscositeitKlasse/iso-vg-7')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

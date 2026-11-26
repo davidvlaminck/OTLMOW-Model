@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlZpadType(KeuzelijstField):
     definition = 'De soort verbinding, gebaseerd op het gebruikte protocol.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZpadType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'E1': KeuzelijstWaarde(invulwaarde='E1',
                                label='E1',
                                status='ingebruik',
@@ -38,7 +39,7 @@ class KlZpadType(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='Ander soort verbinding. Deze optie mag uitsluitend TIJDELIJK worden gebruikt en enkel tot de juiste gegevens beschikbaar zijn. Misbruik van deze optie leidt tot verminderde datakwaliteit.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlZpadType/Other')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

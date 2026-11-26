@@ -1,13 +1,12 @@
 # coding=utf-8
-from abc import abstractmethod
-
 from ...BaseClasses.OTLObject import OTLAttribuut
+from abc import abstractmethod
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlProductieproces import KlProductieproces
 from ...Datatypes.KlTypeHars import KlTypeHars
 from ...Datatypes.KlTypeVezel import KlTypeVezel
-from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
+from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 

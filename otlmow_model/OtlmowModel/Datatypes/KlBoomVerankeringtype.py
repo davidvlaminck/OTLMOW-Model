@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlBoomVerankeringtype(KeuzelijstField):
     definition = 'De verschillende types van verankering van een boom.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlBoomVerankeringtype'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'biologisch-afbreekbare-grondankers': KeuzelijstWaarde(invulwaarde='biologisch-afbreekbare-grondankers',
                                                                label='biologisch afbreekbare grondankers',
                                                                status='ingebruik',
@@ -28,7 +29,7 @@ class KlBoomVerankeringtype(KeuzelijstField):
                                                          status='ingebruik',
                                                          definitie='Een constructie van stalen grondankers en kunststofverankeringsbanden die de stabilietit van de boom waarborgt',
                                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBoomVerankeringtype/niet-afbreekbare-grondankers')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from datetime import date
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
@@ -92,7 +91,7 @@ class Illuminator(NaampadObject, PuntGeometrie):
         self._plaatsingsdatum.set_waarde(value, owner=self)
 
     @property
-    def technischeFiche(self) -> List[DtcDocumentWaarden]:
+    def technischeFiche(self) -> list[DtcDocumentWaarden]:
         """Technische fiche van dit element."""
         return self._technischeFiche.get_waarde()
 

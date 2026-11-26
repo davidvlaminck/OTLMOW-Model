@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlPtRegelaarProtocol(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.15.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlPtRegelaarProtocol'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'R0916': KeuzelijstWaarde(invulwaarde='R0916',
                                   label='R0916',
                                   status='ingebruik',
@@ -22,7 +23,7 @@ class KlPtRegelaarProtocol(KeuzelijstField):
                                   label='R0918',
                                   status='ingebruik',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlPtRegelaarProtocol/R0918')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

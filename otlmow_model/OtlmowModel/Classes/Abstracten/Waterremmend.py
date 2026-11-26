@@ -1,8 +1,7 @@
 # coding=utf-8
-from abc import ABC, abstractmethod
-
-from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
+from abc import abstractmethod, ABC
+from ...BaseClasses.BooleanField import BooleanField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

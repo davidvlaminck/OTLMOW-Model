@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLuidsprekerMerk(KeuzelijstField):
     definition = 'Het merk van de luidspreker.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLuidsprekerMerk'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'harman': KeuzelijstWaarde(invulwaarde='harman',
                                    label='Harman',
                                    status='ingebruik',
@@ -23,7 +24,7 @@ class KlLuidsprekerMerk(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='IC Audio',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLuidsprekerMerk/ic-audio')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

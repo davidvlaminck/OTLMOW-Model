@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlWegbermBIO(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.11.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWegbermBIO'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'bijzondere-bedding': KeuzelijstWaarde(invulwaarde='bijzondere-bedding',
                                                label='bijzondere bedding',
                                                status='ingebruik',
@@ -44,7 +45,7 @@ class KlWegbermBIO(KeuzelijstField):
                                     status='ingebruik',
                                     definitie='Gedeelte van de wegberm, bestemd voor voetgangers.',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWegbermBIO/voetpad')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

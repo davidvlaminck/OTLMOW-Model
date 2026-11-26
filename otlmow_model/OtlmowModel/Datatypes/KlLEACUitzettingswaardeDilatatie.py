@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEACUitzettingswaardeDilatatie(KeuzelijstField):
     definition = 'De grootst mogelijke uitzetting die mogelijk is voor een bepaalde dilatatieoplossing.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACUitzettingswaardeDilatatie'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '10-cm': KeuzelijstWaarde(invulwaarde='10-cm',
                                   label='10 cm',
                                   status='ingebruik',
@@ -28,7 +29,7 @@ class KlLEACUitzettingswaardeDilatatie(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='De uitzettingswaarde is 90 cm.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACUitzettingswaardeDilatatie/90-cm')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

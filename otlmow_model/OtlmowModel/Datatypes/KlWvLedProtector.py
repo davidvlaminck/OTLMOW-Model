@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWvLedProtector(KeuzelijstField):
     definition = "Type doorschijnende kap ter bescherming van de LED's (vlak glas, polycarbonaat,...)."
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLedProtector'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'gebogen-glas': KeuzelijstWaarde(invulwaarde='gebogen-glas',
                                          label='gebogen glas',
                                          status='ingebruik',
@@ -33,7 +34,7 @@ class KlWvLedProtector(KeuzelijstField):
                                       status='ingebruik',
                                       definitie='Glas zonder vervormingen of krommingen.',
                                       objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLedProtector/vlak-glas')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

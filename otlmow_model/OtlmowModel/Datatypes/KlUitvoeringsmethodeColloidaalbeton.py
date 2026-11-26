@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlUitvoeringsmethodeColloidaalbeton(KeuzelijstField):
     definition = 'De mogelijke uitvoeringsmethoden van colloïdaal beton.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlUitvoeringsmethodeColloidaalbeton'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'hop-dobber': KeuzelijstWaarde(invulwaarde='hop-dobber',
                                        label='hop-dobber',
                                        status='ingebruik',
@@ -21,7 +22,7 @@ class KlUitvoeringsmethodeColloidaalbeton(KeuzelijstField):
                                     label='venturi',
                                     status='ingebruik',
                                     objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlUitvoeringsmethodeColloidaalbeton/venturi')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

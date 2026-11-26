@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEACKerendVermogen(KeuzelijstField):
     definition = 'De verschillende niveaus van kerend vermogen gedefinieerd : van T1 (laagste niveau) tot H4b (hoogste niveau) Voor elk kerend vermogen wordt in de norm precies vastgelegd welke botsproeven moeten uitgevoerd worden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEACKerendVermogen'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'H1': KeuzelijstWaarde(invulwaarde='H1',
                                label='H1',
                                status='ingebruik',
@@ -63,7 +64,7 @@ class KlLEACKerendVermogen(KeuzelijstField):
                                status='ingebruik',
                                definitie='kerend vermogen voor lage impacthoeken, geschikt voor tijdelijke situaties, getest met een vrachtwagen',
                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEACKerendVermogen/T3')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

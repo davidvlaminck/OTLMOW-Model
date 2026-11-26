@@ -69,14 +69,13 @@ class Datakabel(Kabel, NaampadObject):
     def aantalAdersEnSectie(self, value):
         self._aantalAdersEnSectie.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Indeling van een datakabel op basis van de gebruikte materialen en volgens een vaste typering."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)
 
     @property
     def typeSpecificatie(self) -> str:

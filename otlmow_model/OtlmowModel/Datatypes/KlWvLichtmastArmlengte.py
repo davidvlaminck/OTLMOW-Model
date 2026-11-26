@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlWvLichtmastArmlengte(KeuzelijstField):
     definition = 'Lengte van de arm van de lichtmast in meter.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWvLichtmastArmlengte'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '0-5': KeuzelijstWaarde(invulwaarde='0-5',
                                 label='0.5',
                                 status='ingebruik',
@@ -68,7 +69,7 @@ class KlWvLichtmastArmlengte(KeuzelijstField):
                                                 label='niet van toepassing',
                                                 status='ingebruik',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWvLichtmastArmlengte/niet-van-toepassing')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

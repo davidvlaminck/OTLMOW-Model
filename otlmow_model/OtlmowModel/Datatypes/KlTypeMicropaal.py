@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlTypeMicropaal(KeuzelijstField):
     definition = 'De soort van de micropaal.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlTypeMicropaal'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'andere': KeuzelijstWaarde(invulwaarde='andere',
                                    label='Andere',
                                    status='ingebruik',
@@ -28,7 +29,7 @@ class KlTypeMicropaal(KeuzelijstField):
                                   status='ingebruik',
                                   definitie='Micropaal vervaardigd door Ischebeck TITAN.',
                                   objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeMicropaal/titan')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

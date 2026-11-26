@@ -44,11 +44,10 @@ class Zendmast(AIMNaamObject, VlakGeometrie):
     def hoogte(self, value):
         self._hoogte.set_waarde(value, owner=self)
 
-    @property
-    def type(self) -> str:
+    def _get_type(self) -> str:
         """Het type zendmast."""
         return self._type.get_waarde()
 
-    @type.setter
-    def type(self, value):
+    def _set_type(self, value):
         self._type.set_waarde(value, owner=self)
+    type = property(_get_type, _set_type)

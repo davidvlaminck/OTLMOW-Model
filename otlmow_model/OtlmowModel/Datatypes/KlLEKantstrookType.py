@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLEKantstrookType(KeuzelijstField):
     definition = 'Types van kantstrook.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLEKantstrookType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'type-II-A-1': KeuzelijstWaarde(invulwaarde='type-II-A-1',
                                         label='type II A 1',
                                         status='ingebruik',
@@ -43,7 +44,7 @@ class KlLEKantstrookType(KeuzelijstField):
                                      status='ingebruik',
                                      definitie='type I B',
                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLEKantstrookType/type-i-b')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

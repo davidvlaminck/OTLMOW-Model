@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlToegangsprocedureToegangstijden(KeuzelijstField):
     definition = 'De mogelijke toegangstijden bij een toegangsprocedure.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlToegangsprocedureToegangstijden'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '24-7': KeuzelijstWaarde(invulwaarde='24-7',
                                  label='24/7',
                                  status='ingebruik',
@@ -25,7 +26,7 @@ class KlToegangsprocedureToegangstijden(KeuzelijstField):
                                                 label='Tijdens kantooruren',
                                                 status='ingebruik',
                                                 objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToegangsprocedureToegangstijden/tijdens-kantooruren')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

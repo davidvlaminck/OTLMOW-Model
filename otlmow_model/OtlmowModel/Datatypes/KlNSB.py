@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlNSB(KeuzelijstField):
     definition = 'Het mogelijke huidige natuurbeelden of natuurstreefbeelden.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlNSB'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '2130': KeuzelijstWaarde(invulwaarde='2130',
                                  label='2130',
                                  status='ingebruik',
@@ -208,7 +209,7 @@ class KlNSB(KeuzelijstField):
                                    status='ingebruik',
                                    definitie='zilt grasland: aardbeiklaver, akkerkers, getand vlotgras, gewone waterbies, heelblaadjes, klein vlooienkruid, kruipend moerasscherm, moeras/zompvergeetme-nietje, moeraszoutgras (polderstreek), penningkruid, pijptorkruid, platte rus, polei, rode ogentroost, slanke waterbies, smalle rolklaver (polderstreek), valse voszegge, watermunt, zeegroene rus, zilte rus, zilte zegge (polderstreek), zilverschoon, zomprus',
                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNSB/rbbzil')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

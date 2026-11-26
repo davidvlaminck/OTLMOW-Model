@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod, ABC
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
@@ -33,7 +32,7 @@ class BijlageVoertuigkering(ABC):
                                                  owner=self)
 
     @property
-    def testrapportVoertuigkering(self) -> List[DtcDocumentWaarden]:
+    def testrapportVoertuigkering(self) -> list[DtcDocumentWaarden]:
         """De testresultaten van de crashtesten die op de voertuigkerende constructie uitgevoerd zijn."""
         return self._testrapportVoertuigkering.get_waarde()
 
@@ -42,7 +41,7 @@ class BijlageVoertuigkering(ABC):
         self._testrapportVoertuigkering.set_waarde(value, owner=self)
 
     @property
-    def videoVoertuigkering(self) -> List[DtcDocumentWaarden]:
+    def videoVoertuigkering(self) -> list[DtcDocumentWaarden]:
         """Video-opname van de crashtesten op de voertuigkerende constructie."""
         return self._videoVoertuigkering.get_waarde()
 

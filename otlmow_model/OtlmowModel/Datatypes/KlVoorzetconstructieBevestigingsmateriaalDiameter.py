@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 
 
@@ -11,8 +12,8 @@ class KlVoorzetconstructieBevestigingsmateriaalDiameter(KeuzelijstField):
     definition = 'De mogelijke diameters van het bevestigingsmateriaal gebruikt bij een voorzetconstructie.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVoorzetconstructieBevestigingsmateriaalDiameter'
-    options = {
-    }
+    options: MappingProxyType = MappingProxyType({
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...BaseClasses.BooleanField import BooleanField
@@ -186,7 +185,7 @@ class Brugdeel(AIMNaamObject, VlakGeometrie):
         self._heeftVoorzieningNegatieveReactie.set_waarde(value, owner=self)
 
     @property
-    def individueleAfstandOverspanningen(self) -> List[KwantWrdInMeterWaarden]:
+    def individueleAfstandOverspanningen(self) -> list[KwantWrdInMeterWaarden]:
         """De individuele afstand tussen opeenvolgende opleggingen, in meter. Dit wordt uitgedrukt gaande van LO naar RO, of in oplopende kilometerpunten. Er kunnen meerdere waarden mogelijk zijn (vb.: voor hyperstatische brugdelen)."""
         return self._individueleAfstandOverspanningen.get_waarde()
 

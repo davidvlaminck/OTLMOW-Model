@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlDatakabelType(KeuzelijstField):
     definition = 'Lijst van types voor datakabels volgens hun constructieve kenmerken.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlDatakabelType'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'andere': KeuzelijstWaarde(invulwaarde='andere',
                                    label='andere',
                                    status='ingebruik',
@@ -202,7 +203,7 @@ class KlDatakabelType(KeuzelijstField):
                                            status='ingebruik',
                                            definitie='Een coax kabel die het signaal doorstuurt tot aan de stralende kabel.',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDatakabelType/voedende-kabel')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlStaalsoortMetEquivalenten(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.18.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStaalsoortMetEquivalenten'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '34crnimo6--aisi-4340--sncm439-(jis-g4103)': KeuzelijstWaarde(invulwaarde='34crnimo6--aisi-4340--sncm439-(jis-g4103)',
                                                                       label='34CrNiMo6  AISI 4340  SNCM439 (JIS G4103)',
                                                                       status='ingebruik',
@@ -238,7 +239,7 @@ class KlStaalsoortMetEquivalenten(KeuzelijstField):
                                                                           label='X6CrNiMoTi17-12-2  AISI 316Ti  SUS316Ti (JIS)',
                                                                           status='ingebruik',
                                                                           objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStaalsoortMetEquivalenten/x6crnimoti17-12-2--aisi-316ti--sus316ti-(jis)')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

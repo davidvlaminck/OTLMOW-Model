@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlStangHydraulischeCilinderBekleding(KeuzelijstField):
     definition = 'Keuzelijst voor de soorten bekleding voor een stang van een hydraulishe cilinder.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlStangHydraulischeCilinderBekleding'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'keramisch': KeuzelijstWaarde(invulwaarde='keramisch',
                                       label='keramisch',
                                       status='ingebruik',
@@ -25,7 +26,7 @@ class KlStangHydraulischeCilinderBekleding(KeuzelijstField):
                                          label='nikkelchroom',
                                          status='ingebruik',
                                          objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlStangHydraulischeCilinderBekleding/nikkelchroom')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

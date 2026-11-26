@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlIOBitSnelheid(KeuzelijstField):
     definition = 'Lijst met mogelijke bitsnelheden voor een invoer-uitvoer kaart of module.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlIOBitSnelheid'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '16': KeuzelijstWaarde(invulwaarde='16',
                                label='16',
                                status='ingebruik',
@@ -33,7 +34,7 @@ class KlIOBitSnelheid(KeuzelijstField):
                               label='8',
                               status='ingebruik',
                               objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlIOBitSnelheid/8')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

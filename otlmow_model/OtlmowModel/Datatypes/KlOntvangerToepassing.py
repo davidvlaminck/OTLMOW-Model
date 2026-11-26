@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -13,7 +14,7 @@ class KlOntvangerToepassing(KeuzelijstField):
     status = 'ingebruik'
     deprecated_version = '2.8.0'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOntvangerToepassing'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'GPRS': KeuzelijstWaarde(invulwaarde='GPRS',
                                  label='GPRS',
                                  status='ingebruik',
@@ -30,7 +31,7 @@ class KlOntvangerToepassing(KeuzelijstField):
                                  label='WIFI',
                                  status='ingebruik',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlOntvangerToepassing/WIFI')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

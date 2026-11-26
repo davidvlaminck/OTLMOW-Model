@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,13 +13,13 @@ class KlWIMDataloggerModelnaam(KeuzelijstField):
     definition = 'De modelnaam van de WIM-datalogger.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlWIMDataloggerModelnaam'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'wim-data-logger-5204ac04': KeuzelijstWaarde(invulwaarde='wim-data-logger-5204ac04',
                                                      label='WIM Data Logger 5204AC04',
                                                      status='ingebruik',
                                                      definitie='WIM Data Logger 5204AC04',
                                                      objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWIMDataloggerModelnaam/wim-data-logger-5204ac04')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

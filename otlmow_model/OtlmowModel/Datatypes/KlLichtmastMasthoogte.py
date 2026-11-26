@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlLichtmastMasthoogte(KeuzelijstField):
     definition = 'De standaard masthoogten.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlLichtmastMasthoogte'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         '10.00': KeuzelijstWaarde(invulwaarde='10.00',
                                   label='10.00',
                                   status='ingebruik',
@@ -83,7 +84,7 @@ class KlLichtmastMasthoogte(KeuzelijstField):
                                            status='ingebruik',
                                            definitie='Niet standaard',
                                            objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlLichtmastMasthoogte/niet-standaard')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

@@ -1,4 +1,5 @@
 # coding=utf-8
+from types import MappingProxyType
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -12,7 +13,7 @@ class KlZelfsluiterSluitkrachtnorm(KeuzelijstField):
     definition = 'Codelijst met mogelijke waarden voor de sluitkracht van een zefsluiter voor deuren, poorten etc.volgens de bestaande normering.'
     status = 'ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlZelfsluiterSluitkrachtnorm'
-    options = {
+    options: MappingProxyType[str, KeuzelijstWaarde] = MappingProxyType({
         'en-2': KeuzelijstWaarde(invulwaarde='en-2',
                                  label='EN 2',
                                  status='ingebruik',
@@ -25,7 +26,7 @@ class KlZelfsluiterSluitkrachtnorm(KeuzelijstField):
                                  label='EN 6',
                                  status='ingebruik',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlZelfsluiterSluitkrachtnorm/en-6')
-    }
+    })
 
     @classmethod
     def create_dummy_data(cls):

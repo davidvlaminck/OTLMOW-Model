@@ -1,5 +1,4 @@
 # coding=utf-8
-from typing import List
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.NietWeggebondenDetectie import NietWeggebondenDetectie
 from ...Classes.Abstracten.TypeWeggebruiker import TypeWeggebruiker
@@ -64,7 +63,7 @@ class DetectieCamera(NietWeggebondenDetectie, TypeWeggebruiker):
         self._communicatieprotocol.set_waarde(value, owner=self)
 
     @property
-    def detectieprincipe(self) -> List[str]:
+    def detectieprincipe(self) -> list[str]:
         """Geeft aan of de camera optisch en/of thermografisch werkt."""
         return self._detectieprincipe.get_waarde()
 
