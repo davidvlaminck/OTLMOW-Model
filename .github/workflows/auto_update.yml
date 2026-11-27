@@ -30,6 +30,7 @@ jobs:
       - name: Installing dependencies with uv
         run: |
           uv venv --python 3.13
+          uv pip install --upgrade otlmow_modelbuilder
           uv pip install -r pyproject.toml --extra update
       - name: Run automatic update
         run: uv run python3 automatic_update.py
