@@ -1,10 +1,11 @@
 # coding=utf-8
 import re
 
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
-from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject, NaamField
+
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...BaseClasses.StringField import StringField
+from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject, NaamField
 
 
 class NaampadField(NaamField):

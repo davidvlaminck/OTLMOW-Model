@@ -1,8 +1,12 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ...Datatypes.KwantWrdInKiloNewtonPerMeter import KwantWrdInKiloNewtonPerMeter, KwantWrdInKiloNewtonPerMeterWaarden
+from ...Datatypes.KwantWrdInKiloNewtonPerMeter import (
+    KwantWrdInKiloNewtonPerMeter,
+    KwantWrdInKiloNewtonPerMeterWaarden,
+)
 from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 

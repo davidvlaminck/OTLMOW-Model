@@ -1,10 +1,11 @@
 # coding=utf-8
 from datetime import date
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
+
 from ..BaseClasses.BooleanField import BooleanField
 from ..BaseClasses.ComplexField import ComplexField
 from ..BaseClasses.DateField import DateField
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WaardenObject import WaardenObject
 from ..Datatypes.KlOlieAdditieven import KlOlieAdditieven
 from ..Datatypes.KlOlieMerk import KlOlieMerk
 from ..Datatypes.KlOlieType import KlOlieType

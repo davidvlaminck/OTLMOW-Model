@@ -1,7 +1,9 @@
 # coding=utf-8
+from typing import ClassVar
+
+from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.VegetatieElement import VegetatieElement
-from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcAanlegBoomvorm import DtcAanlegBoomvorm, DtcAanlegBoomvormWaarden
 from ...Datatypes.KlBoomGroeifase import KlBoomGroeifase
 from ...Datatypes.KlBoomspiegelInvulling import KlBoomspiegelInvulling
@@ -9,8 +11,14 @@ from ...Datatypes.KlDoorrijhoogte import KlDoorrijhoogte
 from ...Datatypes.KlEindbeeldOpgaandeBoom import KlEindbeeldOpgaandeBoom
 from ...Datatypes.KlKlassePlantjaar import KlKlassePlantjaar
 from ...Datatypes.KlTakvrijeHoogte import KlTakvrijeHoogte
-from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
-from ...Datatypes.KwantWrdInKubiekeMeter import KwantWrdInKubiekeMeter, KwantWrdInKubiekeMeterWaarden
+from ...Datatypes.KwantWrdInCentimeter import (
+    KwantWrdInCentimeter,
+    KwantWrdInCentimeterWaarden,
+)
+from ...Datatypes.KwantWrdInKubiekeMeter import (
+    KwantWrdInKubiekeMeter,
+    KwantWrdInKubiekeMeterWaarden,
+)
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -22,14 +30,18 @@ class Boom(VegetatieElement, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boombrug', 'u', None),  # u = unidirectional
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerBoomvorm', 'o', None),  # o = direction: outgoing
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand', 'i', '2.12.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefNaderOnderzoekTomograaf', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefVerderOnderzoekTrekproef', 'i', None),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boombrug', direction='u')  # u = unidirectional
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerBoomvorm', direction='o')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefBoomtoestand', direction='i', deprecated='2.12.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefNaderOnderzoekTomograaf', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#ProefVerderOnderzoekTrekproef', direction='i')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._aanleg = OTLAttribuut(field=DtcAanlegBoomvorm,
                                     naam='aanleg',

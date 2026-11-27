@@ -1,7 +1,12 @@
 # coding=utf-8
+from typing import ClassVar
+
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...Datatypes.DtcZelfsluiterSluitkracht import DtcZelfsluiterSluitkracht, DtcZelfsluiterSluitkrachtWaarden
+from ...Datatypes.DtcZelfsluiterSluitkracht import (
+    DtcZelfsluiterSluitkracht,
+    DtcZelfsluiterSluitkrachtWaarden,
+)
 from ...Datatypes.KlZelfsluiterUitvoeringswijze import KlZelfsluiterUitvoeringswijze
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -13,10 +18,14 @@ class Zelfsluiter(AIMNaamObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Zelfsluiter'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Toegangselement', 'u', None),  # u = unidirectional
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Toegangselement', direction='u')  # u = unidirectional
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._sluitkracht = OTLAttribuut(field=DtcZelfsluiterSluitkracht,
                                          naam='sluitkracht',

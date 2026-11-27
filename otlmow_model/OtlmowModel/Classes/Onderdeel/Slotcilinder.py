@@ -1,10 +1,17 @@
 # coding=utf-8
+from typing import ClassVar
+
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...Datatypes.DtcMaatSlotcilinder import DtcMaatSlotcilinder, DtcMaatSlotcilinderWaarden
+from ...Datatypes.DtcMaatSlotcilinder import (
+    DtcMaatSlotcilinder,
+    DtcMaatSlotcilinderWaarden,
+)
 from ...Datatypes.KlSleutelplan import KlSleutelplan
-from ...Datatypes.KlSlotcilinderBeveiligingsfactor import KlSlotcilinderBeveiligingsfactor
+from ...Datatypes.KlSlotcilinderBeveiligingsfactor import (
+    KlSlotcilinderBeveiligingsfactor,
+)
 from ...Datatypes.KlSlotcilinderMerk import KlSlotcilinderMerk
 from ...Datatypes.KlSlotcilinderModelnaam import KlSlotcilinderModelnaam
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
@@ -17,10 +24,14 @@ class Slotcilinder(SerienummerObject, AIMNaamObject, PuntGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Slotcilinder'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Slot', 'u', None),  # u = unidirectional
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Slot', direction='u')  # u = unidirectional
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._beveiligingsfactor = OTLAttribuut(field=KlSlotcilinderBeveiligingsfactor,
                                                 naam='beveiligingsfactor',

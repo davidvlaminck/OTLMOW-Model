@@ -1,8 +1,12 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Niveaumeting import Niveaumeting
-from ...Datatypes.KlHydrostatischeNiveaumetingMerk import KlHydrostatischeNiveaumetingMerk
-from ...Datatypes.KlHydrostatischeNiveaumetingModelnaam import KlHydrostatischeNiveaumetingModelnaam
+from ...Datatypes.KlHydrostatischeNiveaumetingMerk import (
+    KlHydrostatischeNiveaumetingMerk,
+)
+from ...Datatypes.KlHydrostatischeNiveaumetingModelnaam import (
+    KlHydrostatischeNiveaumetingModelnaam,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

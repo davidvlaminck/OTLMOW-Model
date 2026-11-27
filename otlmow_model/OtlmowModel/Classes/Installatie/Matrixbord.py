@@ -1,4 +1,6 @@
 # coding=utf-8
+from typing import ClassVar
+
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -12,9 +14,13 @@ class Matrixbord(AIMObject, PuntGeometrie):
 
     deprecated_version = '2.10.0'
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordOpMaat', 'i', '2.10.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordPK', 'i', '2.15.0'),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRSS', 'i', '2.10.0'),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordOpMaat', direction='i', deprecated='2.10.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordPK', direction='i', deprecated='2.15.0')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DynBordRSS', direction='i', deprecated='2.10.0')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)

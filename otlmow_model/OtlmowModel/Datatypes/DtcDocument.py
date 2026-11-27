@@ -1,13 +1,14 @@
 # coding=utf-8
 from datetime import date
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
+
 from ..BaseClasses.ComplexField import ComplexField
 from ..BaseClasses.DateField import DateField
-from ..Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
-from ..Datatypes.KlAlgMimeType import KlAlgMimeType
+from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.StringField import StringField
 from ..BaseClasses.URIField import URIField
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
+from ..Datatypes.KlAlgMimeType import KlAlgMimeType
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

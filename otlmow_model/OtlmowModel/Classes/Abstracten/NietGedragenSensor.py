@@ -1,5 +1,6 @@
 # coding=utf-8
 from abc import abstractmethod
+
 from ...Classes.Abstracten.Sensor import Sensor
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 

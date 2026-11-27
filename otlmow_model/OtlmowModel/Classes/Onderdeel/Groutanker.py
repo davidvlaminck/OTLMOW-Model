@@ -1,15 +1,29 @@
 # coding=utf-8
+from typing import ClassVar
+
+from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Grondanker import Grondanker
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DtcHellingshoek import DtcHellingshoek, DtcHellingshoekWaarden
 from ...Datatypes.KlBeschermingsklasse import KlBeschermingsklasse
 from ...Datatypes.KlGroutankerInjectie import KlGroutankerInjectie
-from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
-from ...Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
-from ...Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, KwantWrdInKiloNewtonWaarden
-from ...Datatypes.KwantWrdInMeterTAW import KwantWrdInMeterTAW, KwantWrdInMeterTAWWaarden
+from ...Datatypes.KwantWrdInCentimeter import (
+    KwantWrdInCentimeter,
+    KwantWrdInCentimeterWaarden,
+)
+from ...Datatypes.KwantWrdInDecimaleGraden import (
+    KwantWrdInDecimaleGraden,
+    KwantWrdInDecimaleGradenWaarden,
+)
+from ...Datatypes.KwantWrdInKiloNewton import (
+    KwantWrdInKiloNewton,
+    KwantWrdInKiloNewtonWaarden,
+)
+from ...Datatypes.KwantWrdInMeterTAW import (
+    KwantWrdInMeterTAW,
+    KwantWrdInMeterTAWWaarden,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -19,10 +33,14 @@ class Groutanker(Grondanker, AIMNaamObject):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Groutanker'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BalkGK', 'u', None),  # u = unidirectional
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#BalkGK', direction='u')  # u = unidirectional
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._aanzetpeilwortel = OTLAttribuut(field=KwantWrdInMeterTAW,
                                               naam='aanzetpeilwortel',

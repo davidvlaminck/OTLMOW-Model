@@ -1,10 +1,10 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
 from ..BaseClasses.ComplexField import ComplexField
-from ..Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
+from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.StringField import StringField
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..Datatypes.DtcAdres import DtcAdres, DtcAdresWaarden
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

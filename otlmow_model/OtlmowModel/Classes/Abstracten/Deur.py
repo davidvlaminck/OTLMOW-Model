@@ -1,13 +1,17 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
-from ...Classes.Abstracten.Toegangselement import Toegangselement
+
 from ...BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.OTLObject import OTLAttribuut
+from ...Classes.Abstracten.Toegangselement import Toegangselement
 from ...Datatypes.DtcAfmetingBxhInM import DtcAfmetingBxhInM, DtcAfmetingBxhInMWaarden
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlDeurFabrikant import KlDeurFabrikant
 from ...Datatypes.KlDeurHandgreeptype import KlDeurHandgreeptype
-from ...Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from ...Datatypes.KwantWrdInMillimeter import (
+    KwantWrdInMillimeter,
+    KwantWrdInMillimeterWaarden,
+)
 from ...Datatypes.KwantWrdInSeconde import KwantWrdInSeconde, KwantWrdInSecondeWaarden
 from ...Datatypes.KwantWrdInUur import KwantWrdInUur, KwantWrdInUurWaarden
 

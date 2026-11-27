@@ -1,6 +1,7 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...BaseClasses.StringField import StringField
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 

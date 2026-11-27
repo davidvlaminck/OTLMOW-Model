@@ -1,14 +1,15 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+from typing import ClassVar
+
+from ...BaseClasses.OTLObject import OTLAttribuut, OTLObject
+from ...BaseClasses.RelationInteractor import RelationInteractor
+from ...BaseClasses.StringField import StringField
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
 from ...Classes.ImplementatieElement.AIMVersie import AIMVersie
-from ...BaseClasses.OTLObject import OTLObject
-from ...BaseClasses.RelationInteractor import RelationInteractor
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
-from ...BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -18,11 +19,15 @@ class AbstracteAanvullendeGeometrie(AIMDBStatus, AIMToestand, AIMVersie, Relatio
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', 'http://purl.org/dc/terms/Agent', 'o', None),  # o = direction: outgoing
+    ]
+
     @abstractmethod
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='http://purl.org/dc/terms/Agent', direction='o')  # o = direction: outgoing
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._assetId = OTLAttribuut(field=DtcIdentificator,
                                      naam='assetId',

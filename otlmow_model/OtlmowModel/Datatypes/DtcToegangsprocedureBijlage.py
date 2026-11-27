@@ -1,11 +1,11 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.ComplexField import ComplexField
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.URIField import URIField
+from ..BaseClasses.WaardenObject import WaardenObject
 from ..Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ..Datatypes.DteTekstblok import DteTekstblok, DteTekstblokWaarden
 from ..Datatypes.KlToegangsprocedureBijlageType import KlToegangsprocedureBijlageType
-from ..BaseClasses.URIField import URIField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

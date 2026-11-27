@@ -1,4 +1,7 @@
 # coding=utf-8
+from typing import ClassVar
+
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.IPNetwerkToegangObject import IPNetwerkToegangObject
 from ...Classes.Abstracten.RHZModule import RHZModule
@@ -7,7 +10,6 @@ from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlFMRepeaterBoxMerk import KlFMRepeaterBoxMerk
 from ...Datatypes.KlFMRepeaterBoxModelnaam import KlFMRepeaterBoxModelnaam
-from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -17,10 +19,14 @@ class FMRepeaterBox(IPNetwerkToegangObject, RHZModule, SerienummerObject, AIMNaa
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#FMRepeaterBox'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', 'u', None),  # u = unidirectional
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Netwerkpoort', direction='u')  # u = unidirectional
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._aantalFMRepeaters = OTLAttribuut(field=NonNegIntegerField,
                                                naam='aantalFMRepeaters',

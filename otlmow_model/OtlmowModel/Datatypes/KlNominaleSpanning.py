@@ -1,5 +1,6 @@
 # coding=utf-8
 from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -55,6 +56,11 @@ class KlNominaleSpanning(KeuzelijstField):
                                  label='400V',
                                  status='ingebruik',
                                  objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNominaleSpanning/400v'),
+        '42v': KeuzelijstWaarde(invulwaarde='42v',
+                                label='42V',
+                                status='ingebruik',
+                                definitie='42V',
+                                objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlNominaleSpanning/42v'),
         '48v': KeuzelijstWaarde(invulwaarde='48v',
                                 label='48V',
                                 status='ingebruik',

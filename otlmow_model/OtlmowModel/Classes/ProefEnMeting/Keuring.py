@@ -1,8 +1,10 @@
 # coding=utf-8
 from datetime import date
+from typing import ClassVar
+
+from ...BaseClasses.DateField import DateField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Proef import Proef
-from ...BaseClasses.DateField import DateField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KwantWrdInJaar import KwantWrdInJaar, KwantWrdInJaarWaarden
 from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
@@ -17,11 +19,15 @@ class Keuring(Proef, GeenGeometrie):
 
     deprecated_version = '2.18.0'
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing', 'o', '2.18.0'),  # o = direction: outgoing
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', 'o', '2.18.0'),  # o = direction: outgoing
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Inloopbehuizing', direction='o', deprecated='2.18.0')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Kast', direction='o', deprecated='2.18.0')  # o = direction: outgoing
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._datum = OTLAttribuut(field=DateField,
                                    naam='datum',

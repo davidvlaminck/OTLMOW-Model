@@ -2,9 +2,17 @@
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.DwarseMarkeringToegang import DwarseMarkeringToegang
 from ...Datatypes.KlDwarseMarkeringVerschuindCode import KlDwarseMarkeringVerschuindCode
-from ...Datatypes.KlDwarseMarkeringVerschuindSoort import KlDwarseMarkeringVerschuindSoort
-from ...Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
-from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...Datatypes.KlDwarseMarkeringVerschuindSoort import (
+    KlDwarseMarkeringVerschuindSoort,
+)
+from ...Datatypes.KwantWrdInDecimaleGraden import (
+    KwantWrdInDecimaleGraden,
+    KwantWrdInDecimaleGradenWaarden,
+)
+from ...Datatypes.KwantWrdInVierkanteMeter import (
+    KwantWrdInVierkanteMeter,
+    KwantWrdInVierkanteMeterWaarden,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

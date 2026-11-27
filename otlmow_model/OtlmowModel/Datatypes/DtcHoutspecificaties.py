@@ -1,8 +1,8 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
 from ..BaseClasses.ComplexField import ComplexField
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WaardenObject import WaardenObject
 from ..Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ..Datatypes.KlDuurzaamheidsklasseHout import KlDuurzaamheidsklasseHout
 from ..Datatypes.KlKwaliteitsklasseHout import KlKwaliteitsklasseHout

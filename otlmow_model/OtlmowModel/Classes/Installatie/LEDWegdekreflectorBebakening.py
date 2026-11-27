@@ -1,11 +1,14 @@
 # coding=utf-8
+from ...BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.EMAfbakening import EMAfbakening
-from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlKleurReflector import KlKleurReflector
-from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from ...Datatypes.KwantWrdInCentimeter import (
+    KwantWrdInCentimeter,
+    KwantWrdInCentimeterWaarden,
+)
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 

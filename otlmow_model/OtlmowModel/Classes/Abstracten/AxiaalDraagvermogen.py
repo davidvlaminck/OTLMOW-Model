@@ -1,8 +1,12 @@
 # coding=utf-8
+from abc import ABC, abstractmethod
+
 from ...BaseClasses.OTLObject import OTLAttribuut
-from abc import abstractmethod, ABC
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ...Datatypes.KwantWrdInKiloNewton import KwantWrdInKiloNewton, KwantWrdInKiloNewtonWaarden
+from ...Datatypes.KwantWrdInKiloNewton import (
+    KwantWrdInKiloNewton,
+    KwantWrdInKiloNewtonWaarden,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,13 +1,17 @@
 # coding=utf-8
+from typing import ClassVar
+
+from ...BaseClasses.BooleanField import BooleanField
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.Abstracten.ElektrischComponentennummerObject import ElektrischComponentennummerObject
+from ...Classes.Abstracten.ElektrischComponentennummerObject import (
+    ElektrischComponentennummerObject,
+)
 from ...Classes.Abstracten.SerienummerObject import SerienummerObject
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
-from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...Datatypes.KlPDUMerk import KlPDUMerk
 from ...Datatypes.KlPDUModelnaam import KlPDUModelnaam
-from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -18,11 +22,15 @@ class Stroomverdelingssysteem(ElektrischComponentennummerObject, SerienummerObje
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Stroomverdelingssysteem'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', 'u', None),  # u = unidirectional
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', 'o', None),  # o = direction: outgoing
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Sturing', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='u')  # u = unidirectional
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Voedt', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#UPS', direction='o')  # o = direction: outgoing
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._aantalAansluitpunten = OTLAttribuut(field=NonNegIntegerField,
                                                   naam='aantalAansluitpunten',

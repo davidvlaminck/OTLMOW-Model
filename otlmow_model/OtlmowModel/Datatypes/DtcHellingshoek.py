@@ -1,9 +1,12 @@
 # coding=utf-8
+from ..BaseClasses.ComplexField import ComplexField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
-from ..BaseClasses.ComplexField import ComplexField
 from ..Datatypes.KlRichtingHellingshoek import KlRichtingHellingshoek
-from ..Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
+from ..Datatypes.KwantWrdInDecimaleGraden import (
+    KwantWrdInDecimaleGraden,
+    KwantWrdInDecimaleGradenWaarden,
+)
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

@@ -1,10 +1,11 @@
 # coding=utf-8
-from datetime import time, time
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
+from datetime import time
+
 from ..BaseClasses.ComplexField import ComplexField
-from ..Datatypes.KlAlgWeekdagen import KlAlgWeekdagen
+from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.TimeField import TimeField
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..Datatypes.KlAlgWeekdagen import KlAlgWeekdagen
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

@@ -1,8 +1,11 @@
 # coding=utf-8
+from ..BaseClasses.ComplexField import ComplexField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
-from ..BaseClasses.ComplexField import ComplexField
-from ..Datatypes.DtcKrimpvoegvulling import DtcKrimpvoegvulling, DtcKrimpvoegvullingWaarden
+from ..Datatypes.DtcKrimpvoegvulling import (
+    DtcKrimpvoegvulling,
+    DtcKrimpvoegvullingWaarden,
+)
 from ..Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 

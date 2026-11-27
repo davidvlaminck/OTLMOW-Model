@@ -1,4 +1,6 @@
 # coding=utf-8
+from typing import ClassVar
+
 from ...Classes.Abstracten.BegroeidVoorkomen import BegroeidVoorkomen
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
@@ -12,7 +14,11 @@ class Exoten(BegroeidVoorkomen, VlakGeometrie):
 
     deprecated_version = '2.1.0'
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', 'https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerExoten', 'o', '2.1.0'),  # o = direction: outgoing
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBeheer', target='https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#BeheerExoten', direction='o', deprecated='2.1.0')  # o = direction: outgoing
+        self.add_valid_relations(self._VALID_RELATIONS)

@@ -3,7 +3,10 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.FiguratieMarkeringToegang import FiguratieMarkeringToegang
 from ...Datatypes.KlLetterCijfer import KlLetterCijfer
 from ...Datatypes.KlLetterCijferType import KlLetterCijferType
-from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...Datatypes.KwantWrdInVierkanteMeter import (
+    KwantWrdInVierkanteMeter,
+    KwantWrdInVierkanteMeterWaarden,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,9 +1,11 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
 from ..BaseClasses.ComplexField import ComplexField
-from ..Datatypes.KlMateriaalBeschermingVraatschade import KlMateriaalBeschermingVraatschade
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..Datatypes.KlMateriaalBeschermingVraatschade import (
+    KlMateriaalBeschermingVraatschade,
+)
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

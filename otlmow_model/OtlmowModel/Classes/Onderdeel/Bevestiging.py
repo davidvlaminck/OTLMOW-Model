@@ -1,5 +1,7 @@
 # coding=utf-8
-from ...Classes.ImplementatieElement.NietDirectioneleRelatie import NietDirectioneleRelatie
+from ...Classes.ImplementatieElement.NietDirectioneleRelatie import (
+    NietDirectioneleRelatie,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

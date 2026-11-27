@@ -1,8 +1,8 @@
 # coding=utf-8
+from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.EMAfbakening import EMAfbakening
 from ...Datatypes.KlAlgMateriaal import KlAlgMateriaal
-from ...BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 

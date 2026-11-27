@@ -1,10 +1,10 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+
+from ...BaseClasses.DavieRelatieAttributes import DavieRelatieAttributes
+from ...BaseClasses.OTLObject import OTLAttribuut, OTLObject
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMVersie import AIMVersie
-from ...BaseClasses.DavieRelatieAttributes import DavieRelatieAttributes
-from ...BaseClasses.OTLObject import OTLObject
 from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
 
 

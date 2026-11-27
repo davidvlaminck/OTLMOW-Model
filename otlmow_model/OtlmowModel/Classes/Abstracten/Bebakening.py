@@ -1,6 +1,7 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Signalisatie import Signalisatie
 from ...Classes.ImplementatieElement.AIMObject import AIMObject
 from ...Datatypes.KlKleurReflector import KlKleurReflector

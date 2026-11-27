@@ -1,7 +1,11 @@
 # coding=utf-8
+from abc import ABC, abstractmethod
+
 from ...BaseClasses.OTLObject import OTLAttribuut
-from abc import abstractmethod, ABC
-from ...Datatypes.DtcHoutspecificaties import DtcHoutspecificaties, DtcHoutspecificatiesWaarden
+from ...Datatypes.DtcHoutspecificaties import (
+    DtcHoutspecificaties,
+    DtcHoutspecificatiesWaarden,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

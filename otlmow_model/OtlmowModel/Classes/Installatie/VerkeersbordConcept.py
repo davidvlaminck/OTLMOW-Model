@@ -1,12 +1,17 @@
 # coding=utf-8
+from typing import ClassVar
+
 from ...BaseClasses.OTLObject import OTLAttribuut
+from ...BaseClasses.StringField import StringField
 from ...Classes.ImplementatieElement.AIMNaamObject import AIMNaamObject
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ...Datatypes.DtcExterneReferentie import DtcExterneReferentie, DtcExterneReferentieWaarden
+from ...Datatypes.DtcExterneReferentie import (
+    DtcExterneReferentie,
+    DtcExterneReferentieWaarden,
+)
 from ...Datatypes.KlVerkeersbordCategorie import KlVerkeersbordCategorie
 from ...Datatypes.KlVerkeersbordCode import KlVerkeersbordCode
 from ...Datatypes.KlVerkeersbordconceptStatus import KlVerkeersbordconceptStatus
-from ...BaseClasses.StringField import StringField
 from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 
@@ -17,10 +22,14 @@ class VerkeersbordConcept(AIMNaamObject, GeenGeometrie):
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VerkeersbordConcept'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VerkeersbordVerkeersteken', 'i', None),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij', target='https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VerkeersbordVerkeersteken', direction='i')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._afbeelding = OTLAttribuut(field=DtcDocument,
                                         naam='afbeelding',

@@ -1,7 +1,11 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
-from ...Datatypes.KwantWrdInKilogram import KwantWrdInKilogram, KwantWrdInKilogramWaarden
+
+from ...BaseClasses.OTLObject import OTLAttribuut
+from ...Datatypes.KwantWrdInKilogram import (
+    KwantWrdInKilogram,
+    KwantWrdInKilogramWaarden,
+)
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 

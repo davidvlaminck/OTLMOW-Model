@@ -1,12 +1,13 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
+from typing import ClassVar
+
+from ..BaseClasses.OTLObject import OTLAttribuut, OTLObject
+from ..BaseClasses.RelationInteractor import RelationInteractor
+from ..BaseClasses.StringField import StringField
 from ..Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ..Classes.ImplementatieElement.AIMVersie import AIMVersie
-from ..BaseClasses.OTLObject import OTLObject
-from ..BaseClasses.RelationInteractor import RelationInteractor
 from ..Datatypes.DtcContactinfo import DtcContactinfo, DtcContactinfoWaarden
 from ..Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
-from ..BaseClasses.StringField import StringField
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit
@@ -16,14 +17,18 @@ class Agent(AIMDBStatus, AIMVersie, RelationInteractor, OTLObject):
     typeURI = 'http://purl.org/dc/terms/Agent'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', 'http://purl.org/dc/terms/Agent', 'o', None),  # o = direction: outgoing
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure', 'i', None),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='http://purl.org/dc/terms/Agent', direction='o')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure', direction='i')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._agentId = OTLAttribuut(field=DtcIdentificator,
                                      naam='agentId',

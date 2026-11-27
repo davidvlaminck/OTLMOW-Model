@@ -1,10 +1,13 @@
 # coding=utf-8
+from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.FiguratieMarkeringToegang import FiguratieMarkeringToegang
-from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlLetterVerschaald import KlLetterVerschaald
 from ...Datatypes.KlLetterVerschaaldType import KlLetterVerschaaldType
-from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...Datatypes.KwantWrdInVierkanteMeter import (
+    KwantWrdInVierkanteMeter,
+    KwantWrdInVierkanteMeterWaarden,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

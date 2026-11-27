@@ -1,7 +1,11 @@
 # coding=utf-8
+from abc import ABC, abstractmethod
+
 from ...BaseClasses.OTLObject import OTLAttribuut
-from abc import abstractmethod, ABC
-from ...Datatypes.DtcBetonspecificaties import DtcBetonspecificaties, DtcBetonspecificatiesWaarden
+from ...Datatypes.DtcBetonspecificaties import (
+    DtcBetonspecificaties,
+    DtcBetonspecificatiesWaarden,
+)
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ...Datatypes.KlUitvoeringsmethode import KlUitvoeringsmethode
 

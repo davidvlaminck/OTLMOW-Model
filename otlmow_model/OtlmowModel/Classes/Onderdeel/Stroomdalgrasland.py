@@ -1,5 +1,7 @@
 # coding=utf-8
-from ...Classes.Onderdeel.BloemrijkGraslandGraslandfase4 import BloemrijkGraslandGraslandfase4
+from ...Classes.Onderdeel.BloemrijkGraslandGraslandfase4 import (
+    BloemrijkGraslandGraslandfase4,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

@@ -1,8 +1,9 @@
 # coding=utf-8
-from datetime import date
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+from datetime import date
+
 from ...BaseClasses.DateField import DateField
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
 
 

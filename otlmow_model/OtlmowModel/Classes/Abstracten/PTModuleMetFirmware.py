@@ -1,5 +1,6 @@
 # coding=utf-8
 from abc import abstractmethod
+
 from ...Classes.Abstracten.FirmwareObject import FirmwareObject
 from ...Classes.Abstracten.PTRegelaarModule import PTRegelaarModule
 

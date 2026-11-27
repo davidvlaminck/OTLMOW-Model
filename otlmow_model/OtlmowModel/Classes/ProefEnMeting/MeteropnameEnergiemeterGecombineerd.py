@@ -1,7 +1,10 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ProefEnMeting.MeteropnameEnergiemeter import MeteropnameEnergiemeter
-from ...Datatypes.KwantWrdInKiloWatt import KwantWrdInKiloWatt, KwantWrdInKiloWattWaarden
+from ...Datatypes.KwantWrdInKiloWatt import (
+    KwantWrdInKiloWatt,
+    KwantWrdInKiloWattWaarden,
+)
 from ...Datatypes.KwantWrdInkVARh import KwantWrdInkVARh, KwantWrdInkVARhWaarden
 
 

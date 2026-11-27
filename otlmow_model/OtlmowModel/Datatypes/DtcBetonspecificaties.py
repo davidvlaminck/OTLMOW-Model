@@ -1,15 +1,18 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
 from ..BaseClasses.ComplexField import ComplexField
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WaardenObject import WaardenObject
 from ..Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
 from ..Datatypes.KlBetonmilieuklasse import KlBetonmilieuklasse
 from ..Datatypes.KlBetonomgevingsklasse import KlBetonomgevingsklasse
 from ..Datatypes.KlBetonsterkteklasse import KlBetonsterkteklasse
 from ..Datatypes.KlGebruiksdomein import KlGebruiksdomein
 from ..Datatypes.KlToeslagmiddelBeton import KlToeslagmiddelBeton
-from ..Datatypes.KwantWrdInMillimeter import KwantWrdInMillimeter, KwantWrdInMillimeterWaarden
+from ..Datatypes.KwantWrdInMillimeter import (
+    KwantWrdInMillimeter,
+    KwantWrdInMillimeterWaarden,
+)
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

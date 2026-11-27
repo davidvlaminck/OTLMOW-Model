@@ -1,8 +1,9 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
-from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
+
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...BaseClasses.StringField import StringField
+from ...Datatypes.DteIPv4Adres import DteIPv4Adres, DteIPv4AdresWaarden
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 

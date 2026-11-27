@@ -1,17 +1,26 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
+from typing import ClassVar
+
+from ...BaseClasses.OTLObject import OTLAttribuut, OTLObject
+from ...BaseClasses.RelationInteractor import RelationInteractor
+from ...BaseClasses.StringField import StringField
 from ...Classes.ImplementatieElement.AIMDBStatus import AIMDBStatus
 from ...Classes.ImplementatieElement.AIMToestand import AIMToestand
 from ...Classes.ImplementatieElement.AIMVersie import AIMVersie
-from ...BaseClasses.OTLObject import OTLObject
-from ...BaseClasses.RelationInteractor import RelationInteractor
 from ...Datatypes.DtcIdentificator import DtcIdentificator, DtcIdentificatorWaarden
-from ...Datatypes.DtcToegangsprocedureBijlage import DtcToegangsprocedureBijlage, DtcToegangsprocedureBijlageWaarden
-from ...Datatypes.DtcToegangsprocedureToegangstijden import DtcToegangsprocedureToegangstijden, DtcToegangsprocedureToegangstijdenWaarden
-from ...Datatypes.KlToegangsprocedureAandachtspunt import KlToegangsprocedureAandachtspunt
+from ...Datatypes.DtcToegangsprocedureBijlage import (
+    DtcToegangsprocedureBijlage,
+    DtcToegangsprocedureBijlageWaarden,
+)
+from ...Datatypes.DtcToegangsprocedureToegangstijden import (
+    DtcToegangsprocedureToegangstijden,
+    DtcToegangsprocedureToegangstijdenWaarden,
+)
+from ...Datatypes.KlToegangsprocedureAandachtspunt import (
+    KlToegangsprocedureAandachtspunt,
+)
 from ...Datatypes.KlTypeBadge import KlTypeBadge
 from ...Datatypes.KlTypeSleutel import KlTypeSleutel
-from ...BaseClasses.StringField import StringField
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
 
@@ -22,12 +31,16 @@ class Toegangsprocedure(AIMDBStatus, AIMToestand, AIMVersie, RelationInteractor,
     typeURI = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Toegangsprocedure'
     """De URI van het object volgens https://www.w3.org/2001/XMLSchema#anyURI."""
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', 'http://purl.org/dc/terms/Agent', 'o', None),  # o = direction: outgoing
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftToegangsprocedure', 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject', 'i', None),  # i = direction: incoming
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftToegangsprocedure', 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject', 'i', None),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBetrokkene', target='http://purl.org/dc/terms/Agent', direction='o')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftToegangsprocedure', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject', direction='i')  # i = direction: incoming
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftToegangsprocedure', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Derdenobject', direction='i')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._aandachtspunt = OTLAttribuut(field=KlToegangsprocedureAandachtspunt,
                                            naam='aandachtspunt',

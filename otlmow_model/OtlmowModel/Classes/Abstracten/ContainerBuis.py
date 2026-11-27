@@ -1,6 +1,8 @@
 # coding=utf-8
+from abc import ABC, abstractmethod
+from typing import ClassVar
+
 from ...BaseClasses.OTLObject import OTLAttribuut
-from abc import abstractmethod, ABC
 from ...BaseClasses.StringField import StringField
 
 
@@ -13,12 +15,16 @@ class ContainerBuis(ABC):
 
     deprecated_version = '2.8.0'
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ContainerBuis', 'o', '2.3.0'),  # o = direction: outgoing
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Mantelbuis', 'o', '2.3.0'),  # o = direction: outgoing
+    ]
+
     @abstractmethod
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#ContainerBuis', direction='o', deprecated='2.3.0')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Omhult', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Mantelbuis', direction='o', deprecated='2.3.0')  # o = direction: outgoing
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._kleur = OTLAttribuut(field=StringField,
                                    naam='kleur',

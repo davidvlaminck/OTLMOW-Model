@@ -1,5 +1,6 @@
 # coding=utf-8
 from types import MappingProxyType
+
 from ..BaseClasses.KeuzelijstField import KeuzelijstField
 from ..BaseClasses.KeuzelijstWaarde import KeuzelijstWaarde
 
@@ -1078,9 +1079,9 @@ class KlWetenschappelijkeSoortnaam(KeuzelijstField):
                                                    status='ingebruik',
                                                    objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWetenschappelijkeSoortnaam/phellodendron-amurense'),
         'photinia-fraseri': KeuzelijstWaarde(invulwaarde='photinia-fraseri',
-                                             label='Photinia × fraseri',
+                                             label='Photinia × fraseri',  # noqa: RUF001
                                              status='ingebruik',
-                                             definitie='Photinia × fraseri',
+                                             definitie='Photinia × fraseri',  # noqa: RUF001
                                              objectUri='https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWetenschappelijkeSoortnaam/photinia-fraseri'),
         'picea-abies': KeuzelijstWaarde(invulwaarde='picea-abies',
                                         label='Picea abies',

@@ -1,9 +1,11 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.BooleanField import BooleanField
 from ..BaseClasses.ComplexField import ComplexField
-from ..Datatypes.KlGrondBijmengingHoeveelheidCode import KlGrondBijmengingHoeveelheidCode
+from ..BaseClasses.OTLObject import OTLAttribuut
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..Datatypes.KlGrondBijmengingHoeveelheidCode import (
+    KlGrondBijmengingHoeveelheidCode,
+)
 from ..Datatypes.KlGrondHoofdnaamCode import KlGrondHoofdnaamCode
 
 

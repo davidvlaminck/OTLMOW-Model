@@ -1,8 +1,12 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Niveaumeting import Niveaumeting
-from ...Datatypes.KlTrekdraadEncoderNiveaumetingMerk import KlTrekdraadEncoderNiveaumetingMerk
-from ...Datatypes.KlTrekdraadEncoderNiveaumetingModelnaam import KlTrekdraadEncoderNiveaumetingModelnaam
+from ...Datatypes.KlTrekdraadEncoderNiveaumetingMerk import (
+    KlTrekdraadEncoderNiveaumetingMerk,
+)
+from ...Datatypes.KlTrekdraadEncoderNiveaumetingModelnaam import (
+    KlTrekdraadEncoderNiveaumetingModelnaam,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

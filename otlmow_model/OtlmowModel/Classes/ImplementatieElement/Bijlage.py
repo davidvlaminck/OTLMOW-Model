@@ -1,6 +1,10 @@
 # coding=utf-8
+from typing import ClassVar
+
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.Abstracten.AbstracteAanvullendeGeometrie import AbstracteAanvullendeGeometrie
+from ...Classes.Abstracten.AbstracteAanvullendeGeometrie import (
+    AbstracteAanvullendeGeometrie,
+)
 from ...Datatypes.KlBijlageType import KlBijlageType
 from ...GeometrieTypes.GeenGeometrie import GeenGeometrie
 
@@ -14,10 +18,14 @@ class Bijlage(AbstracteAanvullendeGeometrie, GeenGeometrie):
 
     deprecated_version = '2.13.0'
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage', 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject', 'i', '2.13.0'),  # i = direction: incoming
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftBijlage', target='https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject', direction='i', deprecated='2.13.0')  # i = direction: incoming
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._type = OTLAttribuut(field=KlBijlageType,
                                   naam='type',

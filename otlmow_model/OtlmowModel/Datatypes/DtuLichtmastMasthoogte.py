@@ -1,9 +1,9 @@
 # coding=utf-8
 from ..BaseClasses.OTLObject import OTLAttribuut
-from ..Datatypes.KlLichtmastMasthoogte import KlLichtmastMasthoogte
-from ..Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 from ..BaseClasses.UnionTypeField import UnionTypeField
 from ..BaseClasses.UnionWaarden import UnionWaarden
+from ..Datatypes.KlLichtmastMasthoogte import KlLichtmastMasthoogte
+from ..Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
 
 
 # Generated with OTLUnionDatatypeCreator. To modify: extend, do not edit

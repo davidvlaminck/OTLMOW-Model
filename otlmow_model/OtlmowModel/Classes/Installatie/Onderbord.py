@@ -1,5 +1,7 @@
 # coding=utf-8
-from ...Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
+from ...Classes.Onderdeel.RetroreflecterendVerkeersbord import (
+    RetroreflecterendVerkeersbord,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

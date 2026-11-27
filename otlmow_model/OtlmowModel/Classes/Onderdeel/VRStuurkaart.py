@@ -1,7 +1,9 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.VRModuleMetFirmware import VRModuleMetFirmware
-from ...Datatypes.KlVrStuurkaartCommunicatieprotocol import KlVrStuurkaartCommunicatieprotocol
+from ...Datatypes.KlVrStuurkaartCommunicatieprotocol import (
+    KlVrStuurkaartCommunicatieprotocol,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

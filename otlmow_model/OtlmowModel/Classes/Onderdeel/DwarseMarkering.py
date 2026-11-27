@@ -3,7 +3,10 @@ from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.DwarseMarkeringToegang import DwarseMarkeringToegang
 from ...Datatypes.KlDwarseMarkeringCode import KlDwarseMarkeringCode
 from ...Datatypes.KlDwarseMarkeringSoort import KlDwarseMarkeringSoort
-from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...Datatypes.KwantWrdInVierkanteMeter import (
+    KwantWrdInVierkanteMeter,
+    KwantWrdInVierkanteMeterWaarden,
+)
 from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
 
 

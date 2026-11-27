@@ -1,9 +1,9 @@
 # coding=utf-8
-from ..BaseClasses.OTLObject import OTLAttribuut
-from ..BaseClasses.WaardenObject import WaardenObject
 from ..BaseClasses.ComplexField import ComplexField
-from ..Datatypes.KlWetenschappelijkeSoortnaam import KlWetenschappelijkeSoortnaam
+from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.StringField import StringField
+from ..BaseClasses.WaardenObject import WaardenObject
+from ..Datatypes.KlWetenschappelijkeSoortnaam import KlWetenschappelijkeSoortnaam
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit

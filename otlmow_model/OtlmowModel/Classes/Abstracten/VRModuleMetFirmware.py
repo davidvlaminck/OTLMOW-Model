@@ -1,6 +1,7 @@
 # coding=utf-8
-from ...BaseClasses.OTLObject import OTLAttribuut
 from abc import abstractmethod
+
+from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.FirmwareObject import FirmwareObject
 from ...Classes.Abstracten.VerkeersregelaarModule import VerkeersregelaarModule
 from ...Datatypes.KlVRModuleMetFirmwareMerk import KlVRModuleMetFirmwareMerk

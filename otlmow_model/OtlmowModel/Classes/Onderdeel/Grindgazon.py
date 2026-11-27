@@ -1,7 +1,7 @@
 # coding=utf-8
+from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.BegroeidVoorkomen import BegroeidVoorkomen
-from ...BaseClasses.BooleanField import BooleanField
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 

@@ -1,6 +1,8 @@
 # coding=utf-8
 from ...BaseClasses.OTLObject import OTLAttribuut
-from ...Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
+from ...Classes.Onderdeel.RetroreflecterendVerkeersbord import (
+    RetroreflecterendVerkeersbord,
+)
 from ...Datatypes.KlCalamiteitsbordType import KlCalamiteitsbordType
 from ...Datatypes.KlCalamiteitsbordVorm import KlCalamiteitsbordVorm
 

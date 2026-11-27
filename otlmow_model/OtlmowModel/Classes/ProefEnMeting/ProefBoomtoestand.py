@@ -1,10 +1,12 @@
 # coding=utf-8
 from datetime import datetime
+from typing import ClassVar
+
+from ...BaseClasses.DateTimeField import DateTimeField
+from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.Abstracten.Proef import Proef
-from ...BaseClasses.DateTimeField import DateTimeField
 from ...Datatypes.DtcDocument import DtcDocument, DtcDocumentWaarden
-from ...BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from ...Datatypes.KlBoomConditiebeoordeling import KlBoomConditiebeoordeling
 from ...Datatypes.KlBoomConditiewaarde import KlBoomConditiewaarde
 from ...Datatypes.KlBoomConflicten import KlBoomConflicten
@@ -13,11 +15,14 @@ from ...Datatypes.KlBoomOnderhoudstoestand import KlBoomOnderhoudstoestand
 from ...Datatypes.KlBoomPlantwijzewaarde import KlBoomPlantwijzewaarde
 from ...Datatypes.KlBoomStandplaatswaarde import KlBoomStandplaatswaarde
 from ...Datatypes.KlBoomtoestandMeerwaardefactor import KlBoomtoestandMeerwaardefactor
-from ...Datatypes.KwantWrdInCentimeter import KwantWrdInCentimeter, KwantWrdInCentimeterWaarden
+from ...Datatypes.KwantWrdInCentimeter import (
+    KwantWrdInCentimeter,
+    KwantWrdInCentimeterWaarden,
+)
 from ...Datatypes.KwantWrdInEuro import KwantWrdInEuro, KwantWrdInEuroWaarden
 from ...Datatypes.KwantWrdInMeter import KwantWrdInMeter, KwantWrdInMeterWaarden
-from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 from ...GeometrieTypes.LijnGeometrie import LijnGeometrie
+from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 from ...GeometrieTypes.VlakGeometrie import VlakGeometrie
 
 
@@ -30,11 +35,15 @@ class ProefBoomtoestand(Proef, PuntGeometrie, LijnGeometrie, VlakGeometrie):
 
     deprecated_version = '2.12.0'
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom', 'o', '2.12.0'),  # o = direction: outgoing
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom', 'o', '2.0.0'),  # o = direction: outgoing
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Boom', direction='o', deprecated='2.12.0')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsInspectieVan', target='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#OpgaandeBoom', direction='o', deprecated='2.0.0')  # o = direction: outgoing
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._basiswaarde = OTLAttribuut(field=KwantWrdInEuro,
                                          naam='basiswaarde',

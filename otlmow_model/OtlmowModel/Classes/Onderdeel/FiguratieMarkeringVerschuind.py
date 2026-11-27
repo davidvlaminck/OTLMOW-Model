@@ -4,8 +4,14 @@ from ...Classes.Abstracten.FiguratieMarkeringToegang import FiguratieMarkeringTo
 from ...Datatypes.KlFiguratieCodeVerschuind import KlFiguratieCodeVerschuind
 from ...Datatypes.KlFiguratieSoortVerschuind import KlFiguratieSoortVerschuind
 from ...Datatypes.KlFiguratieTypeVerschuind import KlFiguratieTypeVerschuind
-from ...Datatypes.KwantWrdInDecimaleGraden import KwantWrdInDecimaleGraden, KwantWrdInDecimaleGradenWaarden
-from ...Datatypes.KwantWrdInVierkanteMeter import KwantWrdInVierkanteMeter, KwantWrdInVierkanteMeterWaarden
+from ...Datatypes.KwantWrdInDecimaleGraden import (
+    KwantWrdInDecimaleGraden,
+    KwantWrdInDecimaleGradenWaarden,
+)
+from ...Datatypes.KwantWrdInVierkanteMeter import (
+    KwantWrdInVierkanteMeter,
+    KwantWrdInVierkanteMeterWaarden,
+)
 
 
 # Generated with OTLClassCreator. To modify: extend, do not edit

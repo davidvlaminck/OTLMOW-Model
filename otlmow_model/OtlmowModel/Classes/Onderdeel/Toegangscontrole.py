@@ -1,7 +1,9 @@
 # coding=utf-8
+from typing import ClassVar
+
+from ...BaseClasses.BooleanField import BooleanField
 from ...BaseClasses.OTLObject import OTLAttribuut
 from ...Classes.ImplementatieElement.NaampadObject import NaampadObject
-from ...BaseClasses.BooleanField import BooleanField
 from ...Datatypes.KlToegangscontroleSleuteltype import KlToegangscontroleSleuteltype
 from ...GeometrieTypes.PuntGeometrie import PuntGeometrie
 
@@ -15,10 +17,14 @@ class Toegangscontrole(NaampadObject, PuntGeometrie):
 
     deprecated_version = '2.16.0'
 
+    _VALID_RELATIONS: ClassVar[list[tuple[str, str, str, str | None]]] = [
+        ('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing', 'u', '2.16.0'),  # u = unidirectional
+    ]
+
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#Bevestiging', target='https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Behuizing', direction='u', deprecated='2.16.0')  # u = unidirectional
+        self.add_valid_relations(self._VALID_RELATIONS)
 
         self._heeftBadgelezer = OTLAttribuut(field=BooleanField,
                                              naam='heeftBadgelezer',

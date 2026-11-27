@@ -1,12 +1,14 @@
 # coding=utf-8
+from ..BaseClasses.ComplexField import ComplexField
+from ..BaseClasses.NonNegIntegerField import NonNegIntegerField
 from ..BaseClasses.OTLObject import OTLAttribuut
 from ..BaseClasses.WaardenObject import WaardenObject
-from ..BaseClasses.ComplexField import ComplexField
-from ..Datatypes.KlAanplantingswijzeSierbeplanting import KlAanplantingswijzeSierbeplanting
+from ..Datatypes.KlAanplantingswijzeSierbeplanting import (
+    KlAanplantingswijzeSierbeplanting,
+)
 from ..Datatypes.KlSierbeplContainer import KlSierbeplContainer
 from ..Datatypes.KlSierbeplPlantmaat import KlSierbeplPlantmaat
 from ..Datatypes.KlVegetatiePlantverband import KlVegetatiePlantverband
-from ..BaseClasses.NonNegIntegerField import NonNegIntegerField
 
 
 # Generated with OTLComplexDatatypeCreator. To modify: extend, do not edit
